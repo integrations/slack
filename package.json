@@ -1,0 +1,37 @@
+{
+  "name": "wilhelm-test",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github-slack/wilhelm-test.git"
+  },
+  "author": "Wilhelm Klopp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/github-slack/wilhelm-test/issues"
+  },
+  "homepage": "https://github.com/github-slack/wilhelm-test#readme",
+  "scripts": {
+    "start": "nodemon --exec \"probot run ./index.js\"",
+    "test": "mocha && xo --extend probot"
+  },
+  "dependencies": {
+    "@slack/client": "^3.11.0",
+    "moment": "^2.18.1",
+    "probot": "^0.7.2",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "eslint-config-probot": ">=0.1.0",
+    "expect": "^1.20.2",
+    "localtunnel": "^1.8.2",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "xo": "^0.18.0"
+  },
+  "engines": {
+    "node": ">= 7.7.0",
+    "npm": ">= 4.0.0"
+  }
+}

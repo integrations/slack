@@ -1,0 +1,13 @@
+{
+  "env": {
+    "PRIVATE_KEY": {
+      "description": "the private key you downloaded when creating the GitHub App"
+    },
+    "APP_ID": {
+      "description": "the ID of your GitHub App"
+    },
+    "WEBHOOK_SECRET": {
+      "description": "the secret configured for your GitHub App"
+    }
+  }
+}
