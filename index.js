@@ -94,6 +94,20 @@ async function updateIssueMessage(messageMetaData, context) {
   });
 }
 
+function retrieveStoredMetadata(id) {
+  return new Promise((resolve, reject) => {
+    redisClient.get(id, (err, value) => {
+      if (err) {
+        reject(new Error(err));
+      } else if (!value) {
+        reject(new Error(`Could not find the supplied id in the database: Value is ${value}`));
+      } else {
+        resolve(value);
+      }
+    });
+  })
+}
+
 module.exports = (robot) => {
   robot.on('issues.opened', async context => {
 
@@ -170,14 +184,9 @@ module.exports = (robot) => {
 
 
     const id = context.payload.issue.id
-    redisClient.get(id, (err, value) => {
-      if (!err && value) {
-        let messageMetaData = JSON.parse(value);
-        updateIssueMessage(messageMetaData, context);
-      } else {
-        console.log(err, value);
-      }
-    })
+    storedMetaData = await retrieveStoredMetadata(id);
+    const messageMetaData = JSON.parse(storedMetaData);
+    updateIssueMessage(messageMetaData, context);
   };
 
   robot.on('issues.closed', async context => {
@@ -209,12 +218,9 @@ module.exports = (robot) => {
     });
 
     const id = context.payload.issue.id
-    redisClient.get(id, (err, value) => {
-      if (!err && value) {
-        let messageMetaData = JSON.parse(value);
-        updateIssueMessage(messageMetaData, context);
-      }
-    });
+    storedMetaData = await retrieveStoredMetadata(id);
+    const messageMetaData = JSON.parse(storedMetaData);
+    updateIssueMessage(messageMetaData, context);
   });
 
   robot.on('issues.reopened', async context => {
@@ -242,11 +248,8 @@ module.exports = (robot) => {
     });
 
     const id = context.payload.issue.id
-    redisClient.get(id, (err, value) => {
-      if (!err && value) {
-        let messageMetaData = JSON.parse(value);
-        updateIssueMessage(messageMetaData, context);
-      }
-    });
+    storedMetaData = await retrieveStoredMetadata(id);
+    const messageMetaData = JSON.parse(storedMetaData);
+    updateIssueMessage(messageMetaData, context);
   });
 };
