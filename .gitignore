@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+
+*.pem
+
+dump.rdb
