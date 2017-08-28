@@ -42,18 +42,24 @@ module.exports = (robot) => {
       if (type === 'url_verification') {
         res.json({ challenge });
       } else if (req.body.event.type === 'link_shared') {
-        robot.log('WTF?', req.body.event.links);
         const github = new GitHubApi();
         const link = req.body.event.links[0].url;
         const unfurls = {};
         unfurls[link] = await unfurl(github, link);
+        robot.log(unfurls);
         web.chat.unfurl(
           req.body.event.message_ts,
           req.body.event.channel,
-          unfurls
-        );
+          unfurls,
+          function(err, res) {
+            if (err) {
+              console.log('Error:', err);
+            } else {
+              console.log('Message sent: ', res);
+            }
+          });
       } else {
-        console.log(type)
+        console.log(type);
       }
     } else {
       res.status(401).json({ ok: false });
