@@ -18,8 +18,9 @@
   },
   "dependencies": {
     "@slack/client": "^3.11.0",
+    "github-oauth": "^0.2.2",
     "moment": "^2.18.1",
-    "probot": "^0.7.2",
+    "probot": "^0.10.0",
     "redis": "^2.8.0"
   },
   "devDependencies": {

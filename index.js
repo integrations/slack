@@ -5,7 +5,11 @@ const {
   issueReopened,
 } = require('./lib/issues');
 
+const oauth = require('./lib/oauth');
+
 module.exports = (robot) => {
+  oauth(robot);
+
   robot.on('issues.opened', issueOpened);
 
   robot.on('issues.labeled', matchMetaDataStatetoIssueMessage);
