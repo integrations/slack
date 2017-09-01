@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/github-slack/wilhelm-test#readme",
   "scripts": {
-    "start": "nodemon --exec \"probot run ./index.js\"",
+    "start": "probot run ./index.js",
     "test": "mocha && xo --extend probot"
   },
   "dependencies": {
