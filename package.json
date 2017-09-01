@@ -13,8 +13,9 @@
   },
   "homepage": "https://github.com/github-slack/wilhelm-test#readme",
   "scripts": {
-    "start": "nodemon --exec \"probot run ./index.js\"",
-    "test": "mocha && xo --extend probot"
+    "start": "probot run ./index.js",
+    "test": "mocha && xo --extend probot",
+    "dev": "nodemon --exec npm start"
   },
   "dependencies": {
     "@slack/client": "^3.11.0",
