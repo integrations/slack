@@ -15,11 +15,11 @@ describe('Link unfurling', () => {
     };
   });
 
-  it('works', async () => {
+  it('works for issues', async () => {
     const url = "https://github.com/facebook/react/issues/10191";
     const response = await unfurl(github, url);
-    expect(response).toEqual({
-      "text": "Consider re-licensing to AL v2.0, as RocksDB has just done",
-    });
+
+    expect(response.title).toEqual("#10191 Consider re-licensing to AL v2.0, as RocksDB has just done");
+    expect(response.title_link).toEqual("https://github.com/facebook/react/issues/10191");
   });
 });
