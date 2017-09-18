@@ -1,6 +1,5 @@
 const expect = require('expect');
 const unfurl = require('../lib/unfurl');
-const issue = require('./fixtures/issue');
 
 describe('Link unfurling', () => {
   let github;
@@ -9,7 +8,12 @@ describe('Link unfurling', () => {
     github = {
       issues: {
         get: expect.createSpy().andReturn(Promise.resolve({
-          data: issue
+          data: require('./fixtures/issue')
+        }))
+      },
+      pullRequests: {
+        get: expect.createSpy().andReturn(Promise.resolve({
+          data: require('./fixtures/pull')
         }))
       }
     };
@@ -20,6 +24,15 @@ describe('Link unfurling', () => {
     const response = await unfurl(github, url);
 
     expect(response.title).toEqual("#10191 Consider re-licensing to AL v2.0, as RocksDB has just done");
-    expect(response.title_link).toEqual("https://github.com/facebook/react/issues/10191");
+    expect(response.title_link).toEqual(url);
   });
+
+  it('works for pull requests', async () => {
+    const url = "https://github.com/github/hub/pull/1535";
+    const response = await unfurl(github, url);
+
+    expect(response.title).toEqual("#1535 Make fork command idempotent");
+    expect(response.title_link).toEqual(url);
+  });
+
 });
