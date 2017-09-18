@@ -15,11 +15,13 @@ const {
 
 const unfurl = require('./lib/unfurl');
 
-// const { push } = require('./lib/push');
+const {
+  pullRequestOpened,
+  status,
+} = require('./lib/pullRequests');
 
 module.exports = (robot) => {
   robot.on('issues.opened', issueOpened);
-
   robot.on([
     'issues.labeled',
     'issues.unlabeled',
@@ -29,8 +31,9 @@ module.exports = (robot) => {
   ], matchMetaDataStatetoIssueMessage);
 
   robot.on('issues.closed', issueClosed);
-
   robot.on('issues.reopened', issueReopened);
+  robot.on('pull_request.opened', pullRequestOpened);
+  robot.on('status', status);
 
   // robot.on('push', push);
 

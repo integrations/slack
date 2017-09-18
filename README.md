@@ -1,4 +1,4 @@
-# wilhelm-test
+# GitHub + Slack Integration
 
 ## Running locally
 You'll will need to set up your own Slack and GitHub test apps.
