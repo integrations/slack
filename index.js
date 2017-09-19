@@ -46,21 +46,22 @@ module.exports = (robot) => {
         res.json({ challenge });
       } else if (req.body.event.type === 'link_shared') {
         const github = new GitHubApi();
-        const link = req.body.event.links[0].url;
         const unfurls = {};
-        unfurls[link] = await unfurl(github, link);
-        robot.log(unfurls);
-        web.chat.unfurl(
-          req.body.event.message_ts,
-          req.body.event.channel,
-          unfurls,
-          function(err, res) {
-            if (err) {
-              console.log('Error:', err);
-            } else {
-              console.log('Message sent: ', res);
-            }
-          });
+        req.body.event.links.forEach(async link => {
+          unfurls[link.url] = await unfurl(github, link.url);
+          robot.log.trace(unfurls, 'Unfurling links');
+          web.chat.unfurl(
+            req.body.event.message_ts,
+            req.body.event.channel,
+            unfurls,
+            function(err, res) {
+              if (err) {
+                robot.log.error(err);
+              } else {
+                robot.log.trace(res, 'Unfurl complete')
+              }
+            });
+        });
       } else {
         console.log(type);
       }
