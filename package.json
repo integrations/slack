@@ -14,7 +14,8 @@
   "homepage": "https://github.com/github-slack/wilhelm-test#readme",
   "scripts": {
     "start": "probot run ./index.js",
-    "test": "mocha",
+    "test": "mocha && npm run lint",
+    "lint": "eslint lib test",
     "dev": "nodemon --exec npm start"
   },
   "dependencies": {
