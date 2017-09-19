@@ -21,8 +21,13 @@ describe('Link unfurling', () => {
         })),
       },
       users: {
-        get: expect.createSpy().andReturn(Promise.resolve({
+        getForUser: expect.createSpy().andReturn(Promise.resolve({
           data: fixtures.user,
+        })),
+      },
+      repos: {
+        getContent: expect.createSpy().andReturn(Promise.resolve({
+          data: fixtures.contents,
         })),
       },
     };
@@ -49,6 +54,14 @@ describe('Link unfurling', () => {
     const response = await unfurl(github, url);
 
     expect(response.text).toMatch(/Thanks for your work on this!/);
+  });
+
+  it('works for file with line numbers', async () => {
+    const url = 'https://github.com/atom/atom/blob/master/src/color.js#L122-L129';
+    const response = await unfurl(github, url);
+
+    expect(response.text).toMatch(/function parseAlpha/);
+    expect(response.text).toMatch(/Math\.max/);
   });
 
   it('works for profiles', async () => {
