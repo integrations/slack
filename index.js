@@ -35,8 +35,6 @@ module.exports = (robot) => {
   robot.on('pull_request.opened', pullRequestOpened);
   robot.on('status', status);
 
-  // robot.on('push', push);
-
   const app = robot.route();
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
