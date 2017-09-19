@@ -9,7 +9,10 @@ describe('Link unfurling', () => {
       issues: {
         get: expect.createSpy().andReturn(Promise.resolve({
           data: require('./fixtures/issue')
-        }))
+        })),
+        getComment: expect.createSpy().andReturn(Promise.resolve({
+          data: require('./fixtures/comment')
+        })),
       },
       pullRequests: {
         get: expect.createSpy().andReturn(Promise.resolve({
@@ -35,4 +38,10 @@ describe('Link unfurling', () => {
     expect(response.title_link).toEqual(url);
   });
 
+  it('works for comments', async () => {
+    const url = "https://github.com/github/hub/pull/1535#issuecomment-322500379";
+    const response = await unfurl(github, url);
+
+    expect(response.text).toMatch(/Thanks for your work on this!/);
+  });
 });

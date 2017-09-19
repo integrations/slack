@@ -14,7 +14,7 @@
   "homepage": "https://github.com/github-slack/wilhelm-test#readme",
   "scripts": {
     "start": "probot run ./index.js",
-    "test": "mocha && xo --extend probot",
+    "test": "mocha",
     "dev": "nodemon --exec npm start"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
     "body-parser": "^1.17.2",
     "github": "^9.3.1",
     "moment": "^2.18.1",
+    "named-regexp": "^0.1.1",
     "probot": "^0.10.0",
     "redis": "^2.8.0"
   },
@@ -31,6 +32,7 @@
     "eslint-config-probot": ">=0.1.0",
     "eslint-plugin-import": "^2.7.0",
     "expect": "^1.20.2",
+    "localtunnel": "^1.8.3",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0"
   },
