@@ -4,4 +4,5 @@ module.exports = {
   issue: require('./issue'),
   pull: require('./pull'),
   comment: require('./comment'),
+  contents: require('./contents'),
 };
