@@ -24,6 +24,9 @@ describe('github-url', () => {
     'https://github.com/atom/atom/blob/master/src/color.js#L122-L129': {
       type: 'blob', owner: 'atom', repo: 'atom', ref: 'master', path: 'src/color.js', line: ['122', '129'],
     },
+    'https://github.com/wilhelmklopp': {
+      type: 'account', owner: 'wilhelmklopp',
+    },
   };
 
   Object.keys(examples).forEach((link) => {

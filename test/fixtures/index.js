@@ -5,4 +5,5 @@ module.exports = {
   pull: require('./pull'),
   comment: require('./comment'),
   contents: require('./contents'),
+  user: require('./user'),
 };

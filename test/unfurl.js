@@ -20,6 +20,11 @@ describe('Link unfurling', () => {
           data: fixtures.pull,
         })),
       },
+      users: {
+        getForUser: expect.createSpy().andReturn(Promise.resolve({
+          data: fixtures.user,
+        })),
+      },
       repos: {
         getContent: expect.createSpy().andReturn(Promise.resolve({
           data: fixtures.contents,
@@ -57,5 +62,12 @@ describe('Link unfurling', () => {
 
     expect(response.text).toMatch(/function parseAlpha/);
     expect(response.text).toMatch(/Math\.max/);
+  });
+
+  it('works for accounts', async () => {
+    const url = 'https://github.com/wilhelmklopp';
+    const response = await unfurl(github, url);
+
+    expect(response.title).toMatch('wilhelmklopp (Wilhelm Klopp)');
   });
 });
