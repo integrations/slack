@@ -25,7 +25,7 @@ describe('github-url', () => {
       type: 'blob', owner: 'atom', repo: 'atom', ref: 'master', path: 'src/color.js', line: ['122', '129'],
     },
     'https://github.com/wilhelmklopp': {
-      type: 'profile', owner: 'wilhelmklopp',
+      type: 'account', owner: 'wilhelmklopp',
     },
   };
 

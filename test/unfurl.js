@@ -64,7 +64,7 @@ describe('Link unfurling', () => {
     expect(response.text).toMatch(/Math\.max/);
   });
 
-  it('works for profiles', async () => {
+  it('works for accounts', async () => {
     const url = 'https://github.com/wilhelmklopp';
     const response = await unfurl(github, url);
 
