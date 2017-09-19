@@ -20,6 +20,11 @@ describe('Link unfurling', () => {
           data: fixtures.pull,
         })),
       },
+      users: {
+        get: expect.createSpy().andReturn(Promise.resolve({
+          data: fixtures.user,
+        })),
+      },
     };
   });
 
@@ -44,5 +49,12 @@ describe('Link unfurling', () => {
     const response = await unfurl(github, url);
 
     expect(response.text).toMatch(/Thanks for your work on this!/);
+  });
+
+  it('works for profiles', async () => {
+    const url = 'https://github.com/wilhelmklopp';
+    const response = await unfurl(github, url);
+
+    expect(response.title).toMatch('wilhelmklopp (Wilhelm Klopp)');
   });
 });

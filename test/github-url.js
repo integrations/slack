@@ -15,6 +15,9 @@ describe('github-url', () => {
     'https://github.com/foo/bar/issues/987#issuecomment-112233': {
       type: 'comment', owner: 'foo', repo: 'bar', number: '987', id: '112233',
     },
+    'https://github.com/wilhelmklopp': {
+      type: 'profile', owner: 'wilhelmklopp',
+    },
   };
 
   Object.keys(examples).forEach((link) => {
