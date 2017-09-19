@@ -59,7 +59,6 @@ describe('Link unfurling', () => {
   it('works for file with line numbers', async () => {
     const url = 'https://github.com/atom/atom/blob/master/src/color.js#L122-L129';
     const response = await unfurl(github, url);
-    console.log(response.text);
 
     expect(response.text).toMatch(/function parseAlpha/);
     expect(response.text).toMatch(/Math\.max/);
