@@ -6,4 +6,5 @@ module.exports = {
   comment: require('./comment'),
   contents: require('./contents'),
   user: require('./user'),
+  repo: require('./repo'),
 };
