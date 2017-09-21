@@ -1,4 +1,5 @@
 # GitHub + Slack Integration
+[![Join Slack](https://img.shields.io/badge/Join-Slack-e01563.svg)](https://github-slack-app.herokuapp.com/slack/deep/open?team=T6Y4KP8ES)
 
 ## Running locally
 You'll will need to set up your own Slack and GitHub test apps.
