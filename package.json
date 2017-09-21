@@ -1,17 +1,6 @@
 {
-  "name": "wilhelm-test",
-  "version": "1.0.0",
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/github-slack/wilhelm-test.git"
-  },
-  "author": "Wilhelm Klopp",
+  "private": true,
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/github-slack/wilhelm-test/issues"
-  },
-  "homepage": "https://github.com/github-slack/wilhelm-test#readme",
   "scripts": {
     "start": "probot run ./lib/index.js",
     "test": "mocha && npm run lint",

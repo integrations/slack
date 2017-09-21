@@ -29,6 +29,9 @@ describe('Link unfurling', () => {
         getContent: expect.createSpy().andReturn(Promise.resolve({
           data: fixtures.contents,
         })),
+        get: expect.createSpy().andReturn(Promise.resolve({
+          data: fixtures.repo,
+        })),
       },
     };
   });
@@ -69,5 +72,12 @@ describe('Link unfurling', () => {
     const response = await unfurl(github, url);
 
     expect(response.title).toMatch('wilhelmklopp (Wilhelm Klopp)');
+  });
+
+  it('works for repos', async () => {
+    const url = 'https://github.com/bkeepers/dotenv';
+    const response = await unfurl(github, url);
+
+    expect(response.title).toMatch('bkeepers/dotenv');
   });
 });
