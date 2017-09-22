@@ -4,5 +4,8 @@ node_js:
   - "7.7.1"
 notifications:
   disabled: true
+install:
+  - npm install -g codecov
 script:
   - npm test
+  - codecov
