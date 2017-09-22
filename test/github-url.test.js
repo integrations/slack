@@ -1,4 +1,3 @@
-const expect = require('expect');
 const gh = require('../lib/github-url');
 
 describe('github-url', () => {
@@ -33,7 +32,7 @@ describe('github-url', () => {
   };
 
   Object.keys(examples).forEach((link) => {
-    it(`parses ${link}`, () => {
+    test(`parses ${link}`, () => {
       expect(gh(link)).toEqual(examples[link]);
     });
   });
