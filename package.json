@@ -3,7 +3,7 @@
   "license": "MIT",
   "scripts": {
     "start": "probot run ./lib/index.js",
-    "test": "mocha && npm run lint",
+    "test": "jest && npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start"
   },
@@ -23,6 +23,7 @@
     "eslint-config-probot": ">=0.1.0",
     "eslint-plugin-import": "^2.7.0",
     "expect": "^1.20.2",
+    "jest": "^21.1.0",
     "localtunnel": "^1.8.3",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0"
@@ -30,5 +31,9 @@
   "engines": {
     "node": ">= 7.7.0",
     "npm": ">= 4.0.0"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }

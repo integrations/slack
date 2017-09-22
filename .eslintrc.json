@@ -4,6 +4,6 @@
     "consistent-return": 0
   },
   "env": {
-    "mocha": true
+    "jest": true
   }
 }
