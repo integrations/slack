@@ -21,7 +21,7 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
 
 1. On the **Basic Information** tab, copy the **Verification Token** under the **App Credentials** section and set the `SLACK_VERIFICATION_TOKEN` in `.env`
 
-1. Go to the **OAuth & Permissions** tab, scroll down to **Select Permission Scopes**, add `links:read` and `links:write`, and click **Save Changes**
+1. Go to the **OAuth & Permissions** tab, scroll down to **Select Permission Scopes**, add `links:read`, `links:write`, and `chat:write:bot` and click **Save Changes**
 
 1. On the **Install App** tab, click **Install App to Workspace**, click **Authorize**, and set `SLACK_ACCESS_TOKEN` in `.env` to the value of **OAuth Access Token**
 
