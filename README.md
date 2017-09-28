@@ -1,6 +1,13 @@
 # GitHub + Slack Integration
 [![Build Status](https://travis-ci.org/github-slack/app.svg?branch=extract-unfurls)](https://travis-ci.org/github-slack/app) [![codecov](https://codecov.io/gh/github-slack/app/branch/master/graph/badge.svg)](https://codecov.io/gh/github-slack/app)
 
+## Features
+
+## Notifications
+
+## Unfurls
+
+
 ## Developing
 
 This app is written in [ES6 JavaScript](https://nodejs.org/en/docs/es6/) and runs on [Node.js](https://nodejs.org/). After cloning the repository, install the dependencies by running:
