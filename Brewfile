@@ -1,0 +1,2 @@
+brew "node"
+brew "redis"
