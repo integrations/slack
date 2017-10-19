@@ -32,6 +32,7 @@
     "npm": ">= 4.0.0"
   },
   "jest": {
+    "testEnvironment": "node",
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
   }
