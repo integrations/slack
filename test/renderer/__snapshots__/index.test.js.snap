@@ -230,25 +230,21 @@ Object {
 
 exports[`Pull request rendering works for unfurls 1`] = `
 Object {
-  "attachments": Array [
-    Object {
-      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
-      "author_link": "https://github.com/wilhelmklopp",
-      "author_name": "wilhelmklopp",
-      "color": "#36a64f",
-      "fallback": "#31 Add badges to readme",
-      "fields": Array [],
-      "footer": "<https://github.com/github-slack/app/pull/31|View it on GitHub>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": "![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)
-",
-      "title": "#31 Add badges to readme",
-      "title_link": "https://github.com/github-slack/app/pull/31",
-      "ts": 1506092298,
-    },
+  "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+  "author_link": "https://github.com/wilhelmklopp",
+  "author_name": "wilhelmklopp",
+  "color": "#36a64f",
+  "fallback": "#31 Add badges to readme",
+  "fields": Array [],
+  "footer": "<https://github.com/github-slack/app/pull/31|View it on GitHub>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "mrkdwn_in": Array [
+    "text",
   ],
+  "text": "![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)
+",
+  "title": "#31 Add badges to readme",
+  "title_link": "https://github.com/github-slack/app/pull/31",
+  "ts": 1506092298,
 }
 `;
