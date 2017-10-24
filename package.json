@@ -14,7 +14,7 @@
     "github": "^9.3.1",
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
-    "probot": "^0.11.0",
+    "probot": "^2.0.0",
     "redis": "^2.8.0"
   },
   "devDependencies": {
@@ -23,15 +23,16 @@
     "eslint-config-probot": ">=0.1.0",
     "eslint-plugin-import": "^2.7.0",
     "expect": "^1.20.2",
-    "jest": "^21.1.0",
+    "jest": "^21.2.1",
     "localtunnel": "^1.8.3",
     "nodemon": "^1.11.0"
   },
   "engines": {
-    "node": ">= 7.7.1",
-    "npm": ">= 4.0.0"
+    "node": ">= 8.7.0",
+    "npm": ">= 5.0.0"
   },
   "jest": {
+    "testEnvironment": "node",
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
   }
