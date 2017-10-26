@@ -1,47 +1,8 @@
-const { Issue } = require('./../../lib/slack/renderer/Issue');
 const { PullRequest } = require('./../../lib/slack/renderer/PullRequest');
-const issuesOpened = require('./../fixtures/webhooks/issues.opened.json');
-const issuesClosed = require('./../fixtures/webhooks/issues.closed.json');
 const combinedStatus = require('./../fixtures/combined_status.json');
 
 const pullRequestOpened = require('./../fixtures/webhooks/pull_request.opened.json');
 const pullRequestClosed = require('./../fixtures/webhooks/pull_request.closed.json');
-
-// once everything extends Message,
-// we should `expect` there to be a fallback
-describe('Issue rendering', () => {
-  test('works for unfurls', async () => {
-    const issueMessage = new Issue(
-      issuesOpened.issue,
-      issuesOpened.repository,
-      'issues.opened',
-      true,
-    );
-    const rendered = issueMessage.getRenderedMessage();
-    expect(rendered).toMatchSnapshot();
-  });
-
-  test('works for notification messages', async () => {
-    const issueMessage = new Issue(
-      issuesOpened.issue,
-      issuesOpened.repository,
-      'issues.opened',
-      false,
-    );
-    const rendered = issueMessage.getRenderedMessage();
-    expect(rendered).toMatchSnapshot();
-  });
-  test('works for minor notifications', async () => {
-    const issueMessage = new Issue(
-      issuesClosed.issue,
-      issuesClosed.repository,
-      'issues.closed',
-      false,
-    );
-    const rendered = issueMessage.getRenderedMessage();
-    expect(rendered).toMatchSnapshot();
-  });
-});
 
 describe('Pull request rendering', () => {
   test('works for notifcation messages', async () => {
