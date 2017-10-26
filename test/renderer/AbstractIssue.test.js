@@ -42,13 +42,6 @@ describe('AbstractIssue rendering', () => {
     });
   });
 
-  test('works for getFooter', async () => {
-    expect(abstractIssueMessage.getFooter()).toEqual({
-      footer: `<${issuesOpened.issue.html_url}|View it on GitHub>`,
-      footer_icon: 'https://assets-cdn.github.com/favicon.ico',
-    });
-  });
-
   test('works for getBaseMessage', async () => {
     expect(abstractIssueMessage.getBaseMessage()).toMatchSnapshot();
   });
