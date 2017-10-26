@@ -10,13 +10,11 @@ describe('Pull request rendering', () => {
       ...pullRequestOpened.pull_request,
       labels: [],
     };
-    const prMessage = new PullRequest(
+    const prMessage = new PullRequest({
       pullRequest,
-      pullRequestOpened.repository,
-      'pull_request.opened',
-      false,
-      null,
-    );
+      repository: pullRequestOpened.repository,
+      eventType: 'pull_request.opened',
+    });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
   });
@@ -26,13 +24,13 @@ describe('Pull request rendering', () => {
       ...pullRequestOpened.pull_request,
       labels: [],
     };
-    const prMessage = new PullRequest(
+    const prMessage = new PullRequest({
       pullRequest,
-      pullRequestOpened.repository,
-      'pull_request.opened',
-      false,
-      combinedStatus.statuses,
-    );
+      repository: pullRequestOpened.repository,
+      eventType: 'pull_request.opened',
+      unfurl: false,
+      statuses: combinedStatus.statuses,
+    });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
   });
@@ -42,13 +40,11 @@ describe('Pull request rendering', () => {
       ...pullRequestClosed.pull_request,
       labels: [],
     };
-    const prMessage = new PullRequest(
+    const prMessage = new PullRequest({
       pullRequest,
-      pullRequestOpened.repository,
-      'pull_request.closed',
-      false,
-      null,
-    );
+      repository: pullRequestOpened.repository,
+      eventType: 'pull_request.closed',
+    });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
   });
@@ -58,13 +54,12 @@ describe('Pull request rendering', () => {
       ...pullRequestOpened.pull_request,
       labels: [],
     };
-    const prMessage = new PullRequest(
+    const prMessage = new PullRequest({
       pullRequest,
-      pullRequestOpened.repository,
-      'pull_request.opened',
-      true,
-      null,
-    );
+      repository: pullRequestOpened.repository,
+      eventType: 'pull_request.opened',
+      unfurl: true,
+    });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
   });
