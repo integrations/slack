@@ -1,4 +1,5 @@
-const { Issue, PullRequest } = require('./../../lib/slack/renderer');
+const { Issue } = require('./../../lib/slack/renderer/Issue');
+const { PullRequest } = require('./../../lib/slack/renderer/PullRequest');
 const issuesOpened = require('./../fixtures/webhooks/issues.opened.json');
 const issuesClosed = require('./../fixtures/webhooks/issues.closed.json');
 const combinedStatus = require('./../fixtures/combined_status.json');
