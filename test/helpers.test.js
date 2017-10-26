@@ -1,7 +1,6 @@
 const {
   arrayToFormattedString,
   getHexColorbyState,
-  getFormattedState,
   getStatusColor,
 } = require('../lib/helpers');
 
@@ -53,24 +52,6 @@ test('gets purple hex color on closed and merged state', () => {
   expect(
     getHexColorbyState('closed', true),
   ).toBe(constants.MERGED_PURPLE);
-});
-
-test('gets correct formatted open state', () => {
-  expect(
-    getFormattedState('open'),
-  ).toBe(':green_heart: Open');
-});
-
-test('gets correct formatted closed state', () => {
-  expect(
-    getFormattedState('closed', false),
-  ).toBe(':heart: Closed');
-});
-
-test('gets correct formatted merged state', () => {
-  expect(
-    getFormattedState('closed', true),
-  ).toBe(':purple_heart: Merged');
 });
 
 test('gets correct status color on success', () => {
