@@ -4,18 +4,22 @@ const { constants } = require('./../../lib/slack/renderer');
 const issuesOpened = require('./../fixtures/webhooks/issues.opened.json');
 
 describe('AbstractIssue rendering', () => {
+  let abstractIssueMessage;
+
+  beforeEach(() => {
+    abstractIssueMessage = new AbstractIssue({
+      abstractIssue: issuesOpened.issue,
+      repository: issuesOpened.repository,
+      eventType: 'issues.opened',
+      unfurl: false,
+    });
+  });
   test('works for getHexColorbyState', async () => {
     const color = AbstractIssue.getHexColorbyState(issuesOpened.issue.state);
     expect(color).toEqual(constants.OPEN_GREEN);
   });
 
   test('works for getAuthor', async () => {
-    const abstractIssueMessage = new AbstractIssue({
-      abstractIssue: issuesOpened.issue,
-      repository: issuesOpened.repository,
-      eventType: 'issues.opened',
-      unfurl: false,
-    });
     expect(abstractIssueMessage.getAuthor()).toEqual({
       author_name: 'wilhelmklopp',
       author_link: 'https://github.com/wilhelmklopp',
@@ -24,24 +28,12 @@ describe('AbstractIssue rendering', () => {
   });
 
   test('works for getPreText', async () => {
-    const abstractIssueMessage = new AbstractIssue({
-      abstractIssue: issuesOpened.issue,
-      repository: issuesOpened.repository,
-      eventType: 'issues.opened',
-      unfurl: false,
-    });
     expect(abstractIssueMessage.getPreText('Issue')).toEqual(
       '[github-slack/public-test] Issue opened by wilhelmklopp',
     );
   });
 
   test('works for core', async () => {
-    const abstractIssueMessage = new AbstractIssue({
-      abstractIssue: issuesOpened.issue,
-      repository: issuesOpened.repository,
-      eventType: 'issues.opened',
-      unfurl: false,
-    });
     expect(abstractIssueMessage.getCore()).toEqual({
       text: issuesOpened.issue.body,
       title: `#${issuesOpened.issue.number} ${issuesOpened.issue.title}`,
@@ -51,12 +43,6 @@ describe('AbstractIssue rendering', () => {
   });
 
   test('works for getFooter', async () => {
-    const abstractIssueMessage = new AbstractIssue({
-      abstractIssue: issuesOpened.issue,
-      repository: issuesOpened.repository,
-      eventType: 'issues.opened',
-      unfurl: false,
-    });
     expect(abstractIssueMessage.getFooter()).toEqual({
       footer: `<${issuesOpened.issue.html_url}|View it on GitHub>`,
       footer_icon: 'https://assets-cdn.github.com/favicon.ico',
@@ -64,12 +50,6 @@ describe('AbstractIssue rendering', () => {
   });
 
   test('works for getBaseMessage', async () => {
-    const abstractIssueMessage = new AbstractIssue({
-      abstractIssue: issuesOpened.issue,
-      repository: issuesOpened.repository,
-      eventType: 'issues.opened',
-      unfurl: false,
-    });
     expect(abstractIssueMessage.getBaseMessage()).toMatchSnapshot();
   });
 });
