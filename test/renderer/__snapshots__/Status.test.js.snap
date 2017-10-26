@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Status rendering works 1`] = `
+Object {
+  "author_icon": "https://avatars2.githubusercontent.com/oa/1508?v=4",
+  "author_link": "https://travis-ci.org/github-slack/app/builds/278661144?utm_source=github_status&utm_medium=notification",
+  "author_name": "continuous-integration/travis-ci/push",
+  "color": "#28a745",
+  "fallback": "The Travis CI build passed",
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "text": "The Travis CI build passed",
+}
+`;
