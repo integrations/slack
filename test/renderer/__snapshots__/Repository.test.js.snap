@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Repository rendering works 1`] = `
+Object {
+  "fallback": "bkeepers/dotenv",
+  "fields": Array [
+    Object {
+      "short": true,
+      "title": "Watchers",
+      "value": 57,
+    },
+    Object {
+      "short": true,
+      "title": "Stars",
+      "value": 4230,
+    },
+    Object {
+      "short": true,
+      "title": "Forks",
+      "value": 283,
+    },
+    Object {
+      "short": true,
+      "title": "Last updated",
+      "value": "a month ago",
+    },
+    Object {
+      "short": true,
+      "title": "Language",
+      "value": "Ruby",
+    },
+  ],
+  "footer": "<https://github.com/bkeepers/dotenv|View it on GitHub>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "mrkdwn_in": Array [
+    "text",
+    "fields",
+  ],
+  "text": "A Ruby gem to load environment variables from \`.env\`. ",
+  "title": "bkeepers/dotenv",
+  "ts": 1343101131,
+}
+`;
