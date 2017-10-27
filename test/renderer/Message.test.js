@@ -11,7 +11,7 @@ describe('Message rendering', () => {
     expect(message.getBaseMessage()).toMatchSnapshot();
   });
 
-  test('works for messages without', async () => {
+  test('works for messages without footer', async () => {
     const message = new Message({
       includeFooter: false,
     });
