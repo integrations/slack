@@ -40,7 +40,13 @@ Object {
       "author_name": "wilhelmklopp",
       "color": "#36a64f",
       "fallback": "#31 Add badges to readme",
-      "fields": Array [],
+      "fields": Array [
+        Object {
+          "short": true,
+          "title": "Milestone",
+          "value": "<https://github.com/github-slack/app/milestone/1|Staff Ship>",
+        },
+      ],
       "footer": "<https://github.com/github-slack/app/pull/31|View it on GitHub>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
@@ -74,7 +80,13 @@ Object {
       "author_name": "wilhelmklopp",
       "color": "#36a64f",
       "fallback": "#31 Add badges to readme",
-      "fields": Array [],
+      "fields": Array [
+        Object {
+          "short": true,
+          "title": "Milestone",
+          "value": "<https://github.com/github-slack/app/milestone/1|Staff Ship>",
+        },
+      ],
       "footer": "<https://github.com/github-slack/app/pull/31|View it on GitHub>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
@@ -141,7 +153,13 @@ Object {
   "author_name": "wilhelmklopp",
   "color": "#36a64f",
   "fallback": "#31 Add badges to readme",
-  "fields": Array [],
+  "fields": Array [
+    Object {
+      "short": true,
+      "title": "Milestone",
+      "value": "<https://github.com/github-slack/app/milestone/1|Staff Ship>",
+    },
+  ],
   "footer": "<https://github.com/github-slack/app/pull/31|View it on GitHub>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
