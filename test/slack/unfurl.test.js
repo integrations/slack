@@ -70,7 +70,7 @@ describe('Link unfurling', () => {
     const url = 'https://github.com/wilhelmklopp';
     const response = await unfurl(github, url);
 
-    expect(response.title).toMatch('wilhelmklopp (Wilhelm Klopp)');
+    expect(response.title).toMatch('Wilhelm Klopp');
   });
 
   test('works for repos', async () => {
