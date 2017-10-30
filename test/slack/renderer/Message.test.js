@@ -1,6 +1,6 @@
-const { Message } = require('./../../lib/slack/renderer');
+const { Message } = require('../../../lib/slack/renderer');
 
-const issuesOpened = require('./../fixtures/webhooks/issues.opened.json');
+const issuesOpened = require('../../fixtures/webhooks/issues.opened.json');
 
 describe('Message rendering', () => {
   test('works for messages with footers', async () => {
