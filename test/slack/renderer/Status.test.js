@@ -1,5 +1,5 @@
-const { Status } = require('./../../lib/slack/renderer/Status');
-const combinedStatus = require('./../fixtures/combined_status.json');
+const { Status } = require('../../../lib/slack/renderer/status');
+const combinedStatus = require('../../fixtures/combined_status.json');
 
 describe('Status rendering', () => {
   test('works', async () => {

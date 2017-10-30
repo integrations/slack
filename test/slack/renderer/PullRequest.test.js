@@ -1,8 +1,8 @@
-const { PullRequest } = require('./../../lib/slack/renderer/PullRequest');
-const combinedStatus = require('./../fixtures/combined_status.json');
+const { PullRequest } = require('../../../lib/slack/renderer/pull-request');
+const combinedStatus = require('../../fixtures/combined_status.json');
 
-const pullRequestOpened = require('./../fixtures/webhooks/pull_request.opened.json');
-const pullRequestClosed = require('./../fixtures/webhooks/pull_request.closed.json');
+const pullRequestOpened = require('../../fixtures/webhooks/pull_request.opened.json');
+const pullRequestClosed = require('../../fixtures/webhooks/pull_request.closed.json');
 
 describe('Pull request rendering', () => {
   test('works for notifcation messages', async () => {
