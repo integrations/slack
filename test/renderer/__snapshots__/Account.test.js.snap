@@ -2,6 +2,7 @@
 
 exports[`Account rendering works for organizations 1`] = `
 Object {
+  "color": "#24292f",
   "fallback": "Kubernetes",
   "fields": Array [
     Object {
@@ -26,6 +27,7 @@ Object {
 
 exports[`Account rendering works for users 1`] = `
 Object {
+  "color": "#24292f",
   "fallback": "Wilhelm Klopp",
   "fields": Array [
     Object {
