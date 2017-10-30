@@ -1,7 +1,7 @@
-const { AbstractIssue } = require('./../../lib/slack/renderer/AbstractIssue');
-const { constants } = require('./../../lib/slack/renderer');
+const { AbstractIssue } = require('../../../lib/slack/renderer/abstract-issue');
+const { constants } = require('../../../lib/slack/renderer');
 
-const issuesOpened = require('./../fixtures/webhooks/issues.opened.json');
+const issuesOpened = require('../../fixtures/webhooks/issues.opened.json');
 
 describe('AbstractIssue rendering', () => {
   let abstractIssueMessage;

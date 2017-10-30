@@ -1,7 +1,7 @@
-const { Issue } = require('./../../lib/slack/renderer/Issue');
+const { Issue } = require('../../../lib/slack/renderer/issue');
 
-const issuesOpened = require('./../fixtures/webhooks/issues.opened.json');
-const issuesClosed = require('./../fixtures/webhooks/issues.closed.json');
+const issuesOpened = require('../../fixtures/webhooks/issues.opened.json');
+const issuesClosed = require('../../fixtures/webhooks/issues.closed.json');
 
 describe('Issue rendering', () => {
   test('works for unfurls', async () => {
