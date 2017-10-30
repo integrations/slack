@@ -7,3 +7,4 @@
 - fallback should be the same as text or pretext or title
 - always show View it on GitHub, even if unfurl for consistency
 - if there is a `pretext` it should appear only once per message and must appear in the first attachment (in order to sit at the top of the entire message)
+- unfurls should always be major unless multiple links are shared in the same message, in which case they should be minor

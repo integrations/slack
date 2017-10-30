@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message rendering works for messages with footers 1`] = `
+Object {
+  "footer": "<https://github.com/github-slack/public-test/issues/1|View it on GitHub>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+}
+`;
