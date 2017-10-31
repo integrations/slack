@@ -12,6 +12,7 @@ describe('AbstractIssue rendering', () => {
       repository: issuesOpened.repository,
       eventType: 'issues.opened',
       unfurl: false,
+      sender: issuesOpened.sender,
     });
   });
   test('works for getHexColorbyState', async () => {
