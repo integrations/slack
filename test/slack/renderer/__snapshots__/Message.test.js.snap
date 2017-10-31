@@ -2,6 +2,7 @@
 
 exports[`Message rendering works for messages with footers 1`] = `
 Object {
+  "color": "#24292f",
   "footer": "<https://github.com/github-slack/public-test/issues/1|View it on GitHub>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
 }

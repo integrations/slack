@@ -15,7 +15,8 @@ describe('Message rendering', () => {
     const message = new Message({
       includeFooter: false,
     });
-    expect(message.getBaseMessage()).toEqual({});
+    expect(message.getBaseMessage()).not.toHaveProperty('footer');
+    expect(message.getBaseMessage()).not.toHaveProperty('footer_icon');
   });
 
   test('works for fields', async () => {

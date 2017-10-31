@@ -2,6 +2,7 @@
 
 exports[`Repository rendering works 1`] = `
 Object {
+  "color": "#24292f",
   "fallback": "bkeepers/dotenv",
   "fields": Array [
     Object {
