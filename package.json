@@ -28,8 +28,8 @@
     "nodemon": "^1.11.0"
   },
   "engines": {
-    "node": ">= 8.7.0",
-    "npm": ">= 5.0.0"
+    "node": "8.x.x",
+    "npm": "5.x.x"
   },
   "jest": {
     "testEnvironment": "node",
