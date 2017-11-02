@@ -14,6 +14,7 @@ describe('Pull request rendering', () => {
       pullRequest,
       repository: pullRequestOpened.repository,
       eventType: 'pull_request.opened',
+      sender: pullRequestOpened.sender,
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -30,6 +31,7 @@ describe('Pull request rendering', () => {
       eventType: 'pull_request.opened',
       unfurl: false,
       statuses: combinedStatus.statuses,
+      sender: pullRequestOpened.sender,
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -42,8 +44,9 @@ describe('Pull request rendering', () => {
     };
     const prMessage = new PullRequest({
       pullRequest,
-      repository: pullRequestOpened.repository,
+      repository: pullRequestClosed.repository,
       eventType: 'pull_request.closed',
+      sender: pullRequestClosed.sender,
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
