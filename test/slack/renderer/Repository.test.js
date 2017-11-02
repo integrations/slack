@@ -1,5 +1,5 @@
-const { Repository } = require('./../../lib/slack/renderer/Repository');
-const repoFixture = require('./../fixtures/repo.json');
+const { Repository } = require('../../../lib/slack/renderer/repository');
+const repoFixture = require('../../fixtures/repo.json');
 
 describe('Repository rendering', () => {
   test('works', async () => {

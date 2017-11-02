@@ -19,6 +19,7 @@ describe('Issue rendering', () => {
       issue: issuesOpened.issue,
       repository: issuesOpened.repository,
       eventType: 'issues.opened',
+      sender: issuesOpened.sender,
     });
     const rendered = issueMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -28,6 +29,7 @@ describe('Issue rendering', () => {
       issue: issuesClosed.issue,
       repository: issuesClosed.repository,
       eventType: 'issues.closed',
+      sender: issuesClosed.sender,
     });
     const rendered = issueMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
