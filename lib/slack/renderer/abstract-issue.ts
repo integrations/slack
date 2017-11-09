@@ -3,6 +3,7 @@ import moment from 'moment';
 import {
   constants,
   Message,
+  Attachment
 } from './index';
 
 interface AbstractIssueDefinition {
@@ -17,23 +18,15 @@ interface AbstractIssueDefinition {
   number: number;
   title: string;
   state: string;
-  merged: boolean;
+  merged?: boolean;
 }
 
 interface Sender {
   login: string;
 }
 
-interface Repository {
+export interface RepositoryDefinition {
   full_name: string;
-}
-
-interface ConstructorObject {
-  abstractIssue: AbstractIssueDefinition;
-  repository: Repository;
-  eventType: string;
-  unfurl?: boolean;
-  sender?: Sender;
 }
 
 interface Core {
@@ -44,23 +37,19 @@ interface Core {
 }
 
 export class AbstractIssue extends Message {
-  abstractIssue: AbstractIssueDefinition;
-  repository: Repository;
-  eventType: string;
-  unfurl?: boolean;
-  sender?: Sender;
-  createdAt: moment.Moment;
-  major: boolean;
-  constructor(constructorObject: ConstructorObject) {
+  private createdAt: moment.Moment;
+  protected major: boolean;
+  constructor(
+      private abstractIssue: AbstractIssueDefinition,
+      protected repository: RepositoryDefinition,
+      protected eventType: string,
+      protected unfurl?: boolean,
+      protected sender?: Sender,
+  ) {
     super({
       includeFooter: true,
-      footerURL: constructorObject.abstractIssue.html_url,
+      footerURL: abstractIssue.html_url,
     });
-    this.abstractIssue = constructorObject.abstractIssue;
-    this.repository = constructorObject.repository;
-    this.eventType = constructorObject.eventType;
-    this.unfurl = constructorObject.unfurl;
-    this.sender = constructorObject.sender;
 
     this.createdAt = moment(this.abstractIssue.created_at);
 

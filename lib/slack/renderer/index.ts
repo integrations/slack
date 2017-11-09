@@ -8,11 +8,11 @@ interface ConstructorObject {
     htmlURL: string,
   }
 }
-interface Field {
+export interface Field {
   title: string;
   value: string | null;
 }
-interface BaseMessage {
+export interface Attachment {
   color: string;
   footer?: string;
   footer_icon?: string;
@@ -83,8 +83,8 @@ export class Message {
       .slice(0, fieldLimit);
   }
 
-  getBaseMessage(): BaseMessage {
-    const baseMessage: BaseMessage = {
+  getBaseMessage(): Attachment {
+    const baseMessage: Attachment = {
       color: constants.GITHUB_BLACK,
     };
     if (this.includeFooter) {

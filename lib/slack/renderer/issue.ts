@@ -1,19 +1,64 @@
-const { AbstractIssue } = require('./abstract-issue');
-const { arrayToFormattedString } = require('../../helpers');
+import { AbstractIssue, RepositoryDefinition } from './abstract-issue';
+import { Attachment, Field } from './types';
+import { arrayToFormattedString } from '../../helpers';
 
-class Issue extends AbstractIssue {
+interface Assignee {
+  login: string;
+}
+
+interface Label {
+  name: string;
+}
+
+interface IssueDefinition {
+  html_url: string;
+  created_at: string;
+  user: {
+    login: string,
+    avatar_url: string,
+    html_url: string,
+  }
+  body: string;
+  number: number;
+  title: string;
+  state: string;
+  assignees: Array<Assignee>;
+  labels: Array<Label>;
+  comments: number;
+  milestone: {
+    title: string;
+    html_url: string;
+  }
+}
+interface Sender {
+  login: string;
+}
+
+interface IssueAttachment extends Attachment {
+  text?: string;
+  pretext?: string;
+  fallback: string;
+  title: string;
+  fields: Array<Field>;
+  [key: string]: any;
+}
+
+export class Issue extends AbstractIssue {
   constructor(
-    constructorObject,
+    private issue: IssueDefinition,
+    repository: RepositoryDefinition,
+    eventType: string,
+    unfurl?: boolean,
+    sender?: Sender,
   ) {
-    super({
-      abstractIssue: constructorObject.issue,
-      repository: constructorObject.repository,
-      eventType: constructorObject.eventType,
-      unfurl: constructorObject.unfurl,
-      sender: constructorObject.sender,
-    });
+    super(
+      issue,
+      repository,
+      eventType,
+      unfurl,
+      sender,
+    );
 
-    this.issue = constructorObject.issue;
   }
   getFields() {
     // projects should be a field as well, but seems to not be easily available via API?
@@ -31,7 +76,7 @@ class Issue extends AbstractIssue {
       },
       {
         title: 'Comments',
-        value: this.issue.comments,
+        value: this.issue.comments.toString(),
       },
     ];
     if (this.issue.milestone) {
@@ -40,11 +85,11 @@ class Issue extends AbstractIssue {
         value: `<${this.issue.milestone.html_url}|${this.issue.milestone.title}>`,
       });
     }
-    return this.constructor.cleanFields(fields);
+    return Issue.cleanFields(fields);
   }
 
-  getMainAttachment() {
-    const attachment = {
+  getMainAttachment(): IssueAttachment {
+    const attachment: IssueAttachment = {
       fields: this.getFields(),
       ...this.getBaseMessage(),
     };
@@ -56,7 +101,7 @@ class Issue extends AbstractIssue {
     }
 
     // remove any keys where the value is null
-    const cleanedAttachment = Object.assign(...Object.keys(attachment)
+    const cleanedAttachment: IssueAttachment = Object.assign(...Object.keys(attachment)
       .filter(key => attachment[key])
       .map(key => ({ [key]: attachment[key] })));
     return cleanedAttachment;
@@ -69,7 +114,3 @@ class Issue extends AbstractIssue {
     };
   }
 }
-
-module.exports = {
-  Issue,
-};
