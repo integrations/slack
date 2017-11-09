@@ -1,4 +1,42 @@
-const constants = {
+interface ConstructorObject {
+  includeFooter: boolean;
+  footerURL?: string;
+  includeAuthor?: true; // take my question mark away
+  author?: {
+    login: string;
+    avatarURL: string,
+    htmlURL: string,
+  }
+}
+export interface Field {
+  title: string;
+  value: string | null;
+}
+export interface Attachment {
+  color: string;
+  footer?: string;
+  footer_icon?: string;
+  author_name?: string;
+  author_icon?: string;
+  author_link?: string;
+}
+
+interface Constants {
+  GITHUB_BLACK: string;
+  CLOSED_RED: string;
+  OPEN_GREEN: string;
+  MERGED_PURPLE: string;
+  STATUS_SUCCESS: string;
+  STATUS_PENDING: string;
+  STATUS_FAILURE: string;
+  BASE_ATTACHMENT_COLOR: string;
+  ATTACHMENT_FIELD_LIMIT: number,
+  MAJOR_MESSAGES: {
+    [key: string]: boolean;
+  }
+}
+
+export const constants: Constants = {
   GITHUB_BLACK: '#24292f',
   CLOSED_RED: '#cb2431',
   OPEN_GREEN: '#36a64f',
@@ -13,9 +51,16 @@ const constants = {
     'issues.opened': true,
   },
 };
-
-class Message {
-  constructor(constructorObject) {
+export class Message {
+  includeFooter: boolean;
+  footerURL: string;
+  includeAuthor: true;
+  author: {
+    login: string;
+    avatarURL: string,
+    htmlURL: string,
+  }
+  constructor(constructorObject: ConstructorObject) {
     this.includeFooter = constructorObject.includeFooter;
     this.footerURL = constructorObject.footerURL;
     this.includeAuthor = constructorObject.includeAuthor;
@@ -23,9 +68,9 @@ class Message {
   }
 
   static cleanFields(
-    fields,
-    fieldLimit = constants.ATTACHMENT_FIELD_LIMIT,
-    short = true,
+    fields: Array<Field>,
+    fieldLimit: number = constants.ATTACHMENT_FIELD_LIMIT,
+    short: boolean = true,
   ) {
     return fields
       .filter(field => field.value)
@@ -38,8 +83,8 @@ class Message {
       .slice(0, fieldLimit);
   }
 
-  getBaseMessage() {
-    const baseMessage = {
+  getBaseMessage(): Attachment {
+    const baseMessage: Attachment = {
       color: constants.GITHUB_BLACK,
     };
     if (this.includeFooter) {
@@ -55,10 +100,3 @@ class Message {
   }
 
 }
-
-// TODO: /github test-run -> delivers all webhooks we're currently ready to receive
-
-module.exports = {
-  Message,
-  constants,
-};

@@ -22,10 +22,14 @@
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-config-probot": ">=0.1.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-typescript": "^0.8.0",
     "expect": "^1.20.2",
     "jest": "^21.2.1",
     "localtunnel": "^1.8.3",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "ts-jest": "^21.2.1",
+    "typescript": "^2.6.1",
+    "typescript-eslint-parser": "^8.0.1"
   },
   "engines": {
     "node": "8.x.x",
@@ -34,6 +38,16 @@
   "jest": {
     "testEnvironment": "node",
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "globals": {
+      "__TS_CONFIG__": "tsconfig.json"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
+    }
   }
 }
