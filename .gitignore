@@ -61,3 +61,6 @@ typings/
 *.pem
 
 dump.rdb
+
+# typescript output
+dist/
