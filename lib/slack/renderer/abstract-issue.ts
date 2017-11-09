@@ -1,12 +1,57 @@
-const moment = require('moment');
+import moment from 'moment';
 
-const {
+import {
   constants,
   Message,
-} = require('./index.js');
+} from './index';
 
-class AbstractIssue extends Message {
-  constructor(constructorObject) {
+interface AbstractIssueDefinition {
+  html_url: string;
+  created_at: string;
+  user: {
+    login: string,
+    avatar_url: string,
+    html_url: string,
+  }
+  body: string;
+  number: number;
+  title: string;
+  state: string;
+  merged: boolean;
+}
+
+interface Sender {
+  login: string;
+}
+
+interface Repository {
+  full_name: string;
+}
+
+interface ConstructorObject {
+  abstractIssue: AbstractIssueDefinition;
+  repository: Repository;
+  eventType: string;
+  unfurl?: boolean;
+  sender?: Sender;
+}
+
+interface Core {
+  text?: string;
+  title: string;
+  title_link: string,
+  fallback: string,
+}
+
+export class AbstractIssue extends Message {
+  abstractIssue: AbstractIssueDefinition;
+  repository: Repository;
+  eventType: string;
+  unfurl?: boolean;
+  sender?: Sender;
+  createdAt: moment.Moment;
+  major: boolean;
+  constructor(constructorObject: ConstructorObject) {
     super({
       includeFooter: true,
       footerURL: constructorObject.abstractIssue.html_url,
@@ -24,7 +69,7 @@ class AbstractIssue extends Message {
     }
   }
 
-  static getHexColorbyState(state, merged = false) {
+  static getHexColorbyState(state: string, merged: boolean = false): string {
     if (state === 'open') {
       return constants.OPEN_GREEN;
     } else if (state === 'closed' && merged === false) {
@@ -42,7 +87,7 @@ class AbstractIssue extends Message {
     };
   }
 
-  getPreText(subject, merged = false) {
+  getPreText(subject: string, merged: boolean = false) {
     let predicate;
     let actor;
     if (merged) {
@@ -59,13 +104,13 @@ class AbstractIssue extends Message {
     return `[${this.repository.full_name}] ${subject} ${predicate} by ${actor}`;
   }
 
-  getCore() {
+  getCore(): Core {
     // TODO: Need to convert markdown in body to Slack markdown
     const text = this.abstractIssue.body;
     const title = `#${this.abstractIssue.number} ${this.abstractIssue.title}`;
     // eslint-disable-next-line camelcase
     const title_link = this.abstractIssue.html_url;
-    const core = {
+    const core: Core = {
       title,
       title_link,
       fallback: title,
@@ -79,7 +124,7 @@ class AbstractIssue extends Message {
   getBaseMessage() {
     return {
       ...super.getBaseMessage(),
-      color: this.constructor.getHexColorbyState(
+      color: AbstractIssue.getHexColorbyState(
         this.abstractIssue.state,
         this.abstractIssue.merged,
       ),
@@ -90,7 +135,3 @@ class AbstractIssue extends Message {
     };
   }
 }
-
-module.exports = {
-  AbstractIssue,
-};
