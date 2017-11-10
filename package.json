@@ -3,7 +3,8 @@
   "license": "MIT",
   "scripts": {
     "start": "probot run ./lib/index.js",
-    "test": "jest && npm run lint",
+    "test": "jest --coverage",
+    "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start"
   },
@@ -36,7 +37,7 @@
   "jest": {
     "testEnvironment": "node",
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverageFrom": ["lib/**/*.{js,jsx}"]
   },
   "main": "lib/index.js"
 }
