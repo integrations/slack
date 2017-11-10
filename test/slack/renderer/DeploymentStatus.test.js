@@ -1,6 +1,8 @@
 const { DeploymentStatus } = require('../../../lib/slack/renderer/deployment-status');
 const deploymentStatusPendingFixture = require('../../fixtures/webhooks/deployment/status_pending.json');
 const deploymentStatusSuccessFixture = require('../../fixtures/webhooks/deployment/status_success.json');
+const deploymentStatusSuccessMasterFixture = require('../../fixtures/webhooks/deployment/status_success_master.json');
+const branches = require('../../fixtures/branches.json');
 
 describe('Deployment status rendering', () => {
   describe('(attachment)', () => {
@@ -9,6 +11,7 @@ describe('Deployment status rendering', () => {
         deploymentStatus: deploymentStatusPendingFixture.deployment_status,
         deployment: deploymentStatusPendingFixture.deployment,
         repository: deploymentStatusPendingFixture.repository,
+        branches,
       });
       expect(deploymentStatusMessage.getAttachment()).toMatchSnapshot();
     });
@@ -18,6 +21,7 @@ describe('Deployment status rendering', () => {
         deploymentStatus: deploymentStatusSuccessFixture.deployment_status,
         deployment: deploymentStatusSuccessFixture.deployment,
         repository: deploymentStatusSuccessFixture.repository,
+        branches,
       });
       expect(deploymentStatusMessage.getAttachment()).toMatchSnapshot();
     });
@@ -30,6 +34,7 @@ describe('Deployment status rendering', () => {
         deploymentStatus,
         deployment: deploymentStatusSuccessFixture.deployment,
         repository: deploymentStatusSuccessFixture.repository,
+        branches,
       });
       expect(deploymentStatusMessage.getAttachment()).toMatchSnapshot();
     });
@@ -42,6 +47,16 @@ describe('Deployment status rendering', () => {
         deploymentStatus,
         deployment: deploymentStatusSuccessFixture.deployment,
         repository: deploymentStatusSuccessFixture.repository,
+        branches,
+      });
+      expect(deploymentStatusMessage.getAttachment()).toMatchSnapshot();
+    });
+    test('works for deployments on default branch', () => {
+      const deploymentStatusMessage = new DeploymentStatus({
+        deploymentStatus: deploymentStatusSuccessMasterFixture.deployment_status,
+        deployment: deploymentStatusSuccessMasterFixture.deployment,
+        repository: deploymentStatusSuccessMasterFixture.repository,
+        branches,
       });
       expect(deploymentStatusMessage.getAttachment()).toMatchSnapshot();
     });
@@ -52,6 +67,7 @@ describe('Deployment status rendering', () => {
         deploymentStatus: deploymentStatusPendingFixture.deployment_status,
         deployment: deploymentStatusPendingFixture.deployment,
         repository: deploymentStatusPendingFixture.repository,
+        branches,
       });
       expect(deploymentStatusMessage.getRenderedMessage()).toMatchSnapshot();
     });

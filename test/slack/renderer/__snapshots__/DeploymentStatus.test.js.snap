@@ -1,16 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Deployment status rendering (attachment) works for deployments on default branch 1`] = `
+Object {
+  "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+  "author_link": "https://github.com/wilhelmklopp",
+  "author_name": "wilhelmklopp",
+  "color": "#28a745",
+  "fallback": "Successfully deployed master to github-slack-app",
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "text": "Successfully deployed <https://github.com/github-slack/app/commit/115d3a3e80e3e85af270c982a33d4b31bf934342|\`master\`> to <https://dashboard.heroku.com/apps/github-slack-app/activity/builds/056df7bf-83c4-4ac1-911b-c8642413eef0|github-slack-app>",
+}
+`;
+
 exports[`Deployment status rendering (attachment) works for error status 1`] = `
 Object {
   "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
   "author_link": "https://github.com/wilhelmklopp",
   "author_name": "wilhelmklopp",
   "color": "#cb2431",
-  "fallback": "Error when deploying 3dce5c8 to github-slack-app",
+  "fallback": "Error when deploying deployments to github-slack-app",
   "mrkdwn_in": Array [
     "text",
   ],
-  "text": "Error when deploying <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`3dce5c8\`> to <https://dashboard.heroku.com/apps/github-slack-app/activity/builds/056df7bf-83c4-4ac1-911b-c8642413eef0|github-slack-app>",
+  "text": "Error when deploying <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`deployments\`> to <https://dashboard.heroku.com/apps/github-slack-app/activity/builds/056df7bf-83c4-4ac1-911b-c8642413eef0|github-slack-app>",
 }
 `;
 
@@ -20,11 +34,11 @@ Object {
   "author_link": "https://github.com/wilhelmklopp",
   "author_name": "wilhelmklopp",
   "color": "#cb2431",
-  "fallback": "Deploying 3dce5c8 to github-slack-app failed",
+  "fallback": "Deploying deployments to github-slack-app failed",
   "mrkdwn_in": Array [
     "text",
   ],
-  "text": "Deploying <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`3dce5c8\`> to <https://dashboard.heroku.com/apps/github-slack-app/activity/builds/056df7bf-83c4-4ac1-911b-c8642413eef0|github-slack-app> failed",
+  "text": "Deploying <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`deployments\`> to <https://dashboard.heroku.com/apps/github-slack-app/activity/builds/056df7bf-83c4-4ac1-911b-c8642413eef0|github-slack-app> failed",
 }
 `;
 
@@ -34,11 +48,11 @@ Object {
   "author_link": "https://github.com/wilhelmklopp",
   "author_name": "wilhelmklopp",
   "color": "#dbab09",
-  "fallback": "Deploying 3dce5c8 to github-slack-app",
+  "fallback": "Deploying deployments to github-slack-app",
   "mrkdwn_in": Array [
     "text",
   ],
-  "text": "Deploying <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`3dce5c8\`> to <https://dashboard.heroku.com/apps/github-slack-app|github-slack-app>",
+  "text": "Deploying <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`deployments\`> to <https://dashboard.heroku.com/apps/github-slack-app|github-slack-app>",
 }
 `;
 
@@ -48,11 +62,11 @@ Object {
   "author_link": "https://github.com/wilhelmklopp",
   "author_name": "wilhelmklopp",
   "color": "#28a745",
-  "fallback": "Successfully deployed 3dce5c8 to github-slack-app",
+  "fallback": "Successfully deployed deployments to github-slack-app",
   "mrkdwn_in": Array [
     "text",
   ],
-  "text": "Successfully deployed <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`3dce5c8\`> to <https://dashboard.heroku.com/apps/github-slack-app/activity/builds/056df7bf-83c4-4ac1-911b-c8642413eef0|github-slack-app>",
+  "text": "Successfully deployed <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`deployments\`> to <https://dashboard.heroku.com/apps/github-slack-app/activity/builds/056df7bf-83c4-4ac1-911b-c8642413eef0|github-slack-app>",
 }
 `;
 
@@ -64,11 +78,11 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#dbab09",
-      "fallback": "Deploying 3dce5c8 to github-slack-app",
+      "fallback": "Deploying deployments to github-slack-app",
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Deploying <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`3dce5c8\`> to <https://dashboard.heroku.com/apps/github-slack-app|github-slack-app>",
+      "text": "Deploying <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`deployments\`> to <https://dashboard.heroku.com/apps/github-slack-app|github-slack-app>",
     },
   ],
 }
