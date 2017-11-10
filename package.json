@@ -35,6 +35,6 @@
   "jest": {
     "testEnvironment": "node",
     "coverageDirectory": "./coverage/",
-    "collectCoverageFrom" : ["lib/**/*.{js,jsx}"]
+    "collectCoverageFrom": ["lib/**/*.{js,jsx}"]
   }
 }
