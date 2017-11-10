@@ -23,13 +23,12 @@ describe('subscribe', () => {
         name: '/github',
         args: 'subscribe https://github.com/foo/bar',
         context: {
-          team_id: 'T0001',
           channel_id: 'C0001',
         },
       };
 
       await subscribe(command, { router, resolver });
-
+      expect(resolver.resource).toHaveBeenCalledWith('https://github.com/foo/bar')
       expect(router.subscribe).toHaveBeenCalledWith(repository.url, 'C0001');
     });
   });
