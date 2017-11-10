@@ -36,7 +36,8 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "coverageDirectory": "./coverage/"
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "main": "lib/index.js"
 }
