@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Push rendering works 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+      "author_link": "https://github.com/wilhelmklopp",
+      "author_name": "wilhelmklopp",
+      "color": "#24292f",
+      "fallback": "11 new commits pushed to \`master\`",
+      "footer": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|View it on GitHub>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "11 new commits pushed to \`master\`",
+    },
+  ],
+}
+`;
+
+exports[`Push rendering works for 1 commit 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+      "author_link": "https://github.com/wilhelmklopp",
+      "author_name": "wilhelmklopp",
+      "color": "#24292f",
+      "fallback": "1 new commit pushed to \`master\`",
+      "footer": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|View it on GitHub>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "1 new commit pushed to \`master\`",
+    },
+  ],
+}
+`;
+
+exports[`Push rendering works works for force-pushes 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+      "author_link": "https://github.com/wilhelmklopp",
+      "author_name": "wilhelmklopp",
+      "color": "#24292f",
+      "fallback": "11 new commits force-pushed to \`master\`",
+      "footer": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|View it on GitHub>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "11 new commits force-pushed to \`master\`",
+    },
+  ],
+}
+`;
