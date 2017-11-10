@@ -18,9 +18,9 @@ describe('commands', () => {
       request(probot.server).post('/slack/command')
         .send(command)
         .expect(200, {
-          "response_type": "in_channel",
-          "text":"subscribed <#C2147483705> to <https://github.com/atom/atom|atom/atom>"
+          response_type: 'in_channel',
+          text: 'subscribed <#C2147483705> to <https://github.com/atom/atom|atom/atom>',
         });
-      });
+    });
   });
 });

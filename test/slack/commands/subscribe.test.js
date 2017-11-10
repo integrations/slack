@@ -28,7 +28,7 @@ describe('subscribe', () => {
       };
 
       await subscribe(command, { router, resolver });
-      expect(resolver.resource).toHaveBeenCalledWith('https://github.com/foo/bar')
+      expect(resolver.resource).toHaveBeenCalledWith('https://github.com/foo/bar');
       expect(router.subscribe).toHaveBeenCalledWith(repository.url, 'C0001');
     });
   });
