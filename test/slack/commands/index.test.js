@@ -1,24 +1,19 @@
-process.env.SLACK_VERIFICATION_TOKEN = 'test'
+process.env.SLACK_VERIFICATION_TOKEN = 'test';
 
-const request = require('supertest')
-const express = require('express')
-const slack = require('../../../lib/slack')
-const createProbot = require('probot')
+const request = require('supertest');
+const createProbot = require('probot');
+const command = require('../../fixtures/slack/command.subscribe');
 
 describe('commands', () => {
-  let probot
+  let probot;
 
   beforeEach(() => {
-    probot = createProbot({})
-  })
+    probot = createProbot({});
+  });
 
   describe('/github subscribe https://github.com/owner/repo', () => {
-    test('status 200', () => {
-      const command = require('../../fixtures/slack/command.subscribe')
-
-      return request(probot.server).post('/slack/command')
+    test('status 200', () => request(probot.server).post('/slack/command')
         .send(command)
-        .expect(200, 'OK')
-    })
+        .expect(200, 'OK'));
   });
 });

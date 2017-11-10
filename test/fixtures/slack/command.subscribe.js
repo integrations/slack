@@ -13,4 +13,4 @@ module.exports = {
   text: 'subscribe https://github.com/atom/atom',
   response_url: 'https://hooks.slack.com/commands/1234/5678',
   trigger_id: '13345224609.738474920.8088930838d88f008e0',
-}
+};
