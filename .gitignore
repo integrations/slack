@@ -61,3 +61,7 @@ typings/
 *.pem
 
 dump.rdb
+
+dist
+
+.DS_Store
