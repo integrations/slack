@@ -15,12 +15,12 @@ describe('commands', () => {
 
   describe('/github subscribe https://github.com/owner/repo', () => {
     test('status 200', () => {
-      return request(probot.server).post('/slack/command')
-        .send(command)
-        .expect(200, {
-          response_type: 'in_channel',
-          text: 'Subscribed <#C2147483705> to <https://github.com/atom/atom|atom/atom>'
-        });
+      const req = request(probot.server).post('/slack/command').send(command);
+
+      return req.expect(200, {
+        response_type: 'in_channel',
+        text: 'Subscribed <#C2147483705> to <https://github.com/atom/atom|atom/atom>',
+      });
     });
   });
 });
