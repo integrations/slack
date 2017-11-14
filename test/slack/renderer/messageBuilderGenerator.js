@@ -8,8 +8,6 @@ const path = require('path');
 const { named } = require('named-regexp');
 const RJSON = require('relaxed-json');
 
-process.setMaxListeners(0);
-
 async function getMessageBuilderImage(page, message, localPath) {
   await page.goto(`https://api.slack.com/docs/messages/builder?msg=${encodeURIComponent(message)}`);
   await page.waitForNavigation({ waitUntil: 'networkidle' });
@@ -17,7 +15,9 @@ async function getMessageBuilderImage(page, message, localPath) {
 
   // https://github.com/GoogleChrome/puppeteer/issues/306#issuecomment-322929342
   async function screenshotDOMElement(selector, padding = 0) {
+    // eslint-disable-next-line no-shadow
     const rect = await page.evaluate((selector) => {
+      // eslint-disable-next-line no-undef
       const element = document.querySelector(selector);
       const { x, y, width, height } = element.getBoundingClientRect();
       return { left: x, top: y, width, height, id: element.id };
@@ -38,11 +38,12 @@ async function getMessageBuilderImage(page, message, localPath) {
 }
 
 async function main() {
+  console.log('Getting images from message builder');
   const blackList = ['AbstractIssue', 'Message'];
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   page.setViewport({ width: 1000, height: 600, deviceScaleFactor: 2 });
-  let snapshotsByFile = {}
+  const snapshotsByFile = {};
   fs.readdirSync(path.join(__dirname, '__snapshots__')).forEach(async (file) => {
     // eslint-disable-next-line no-useless-escape
     const match = named(new RegExp('^(:<class>[A-Za-z]+).test\.js\.snap')).exec(file);
@@ -56,6 +57,7 @@ async function main() {
         fs.mkdirSync(path.join(__dirname, folderName));
       }
 
+      // eslint-disable-next-line
       const snapshots = require(path.join(__dirname, `__snapshots__/${file}`));
       Object.keys(snapshots).forEach((snapshot) => {
         const cleaned = snapshots[snapshot]
@@ -69,6 +71,7 @@ async function main() {
         snapshotsByFile[`${folderName}/${snapshot}.png`] = message;
         // below code is to generate examples.md. To be re-integrated somewhere else
         // const dataToAppend = `<a href="https://api.slack.com/docs/messages/builder?msg=${encodeURIComponent(JSON.stringify(message))}">${snapshot}</a>\n\n`;
+        // eslint-disable-next-line max-len
         // fs.appendFile(path.join(__dirname, '../../../lib/slack/renderer/examples.md'), dataToAppend, (err) => {
         //   if (err) throw err;
         // });
@@ -85,6 +88,7 @@ async function main() {
   }
   /* eslint-enable */
   await browser.close();
+  console.log('Message builder fetching complete!');
 }
 
 main();
