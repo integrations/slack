@@ -7,6 +7,8 @@ Object {
   "author_name": "wilhelmklopp",
   "color": "#cb2431",
   "fallback": "Error when deploying 3dce5c8 to github-slack-app",
+  "footer": "<https://github.com/github-slack/app|github-slack/app>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -21,6 +23,8 @@ Object {
   "author_name": "wilhelmklopp",
   "color": "#cb2431",
   "fallback": "Deploying 3dce5c8 to github-slack-app failed",
+  "footer": "<https://github.com/github-slack/app|github-slack/app>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -35,6 +39,8 @@ Object {
   "author_name": "wilhelmklopp",
   "color": "#dbab09",
   "fallback": "Deploying 3dce5c8 to github-slack-app",
+  "footer": "<https://github.com/github-slack/app|github-slack/app>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -49,6 +55,8 @@ Object {
   "author_name": "wilhelmklopp",
   "color": "#28a745",
   "fallback": "Successfully deployed 3dce5c8 to github-slack-app",
+  "footer": "<https://github.com/github-slack/app|github-slack/app>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -65,6 +73,8 @@ Object {
       "author_name": "wilhelmklopp",
       "color": "#dbab09",
       "fallback": "Deploying 3dce5c8 to github-slack-app",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
