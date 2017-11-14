@@ -25,11 +25,6 @@ Object {
       "title": "Last updated",
       "value": "2 months ago",
     },
-    Object {
-      "short": true,
-      "title": "Language",
-      "value": "Ruby",
-    },
   ],
   "footer": "<https://github.com/bkeepers/dotenv|View it on GitHub>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
