@@ -10,3 +10,5 @@ install:
 script:
   - npm test
   - codecov
+services:
+  - redis-server
