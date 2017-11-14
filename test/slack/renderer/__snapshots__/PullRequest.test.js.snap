@@ -9,7 +9,7 @@ Object {
       "author_name": "bkeepers",
       "color": "#6f42c1",
       "fallback": "#36 Rearrange logic",
-      "footer": "<https://github.com/github-slack/app/pull/36|View it on GitHub>",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
@@ -48,7 +48,7 @@ Object {
           "value": "<https://github.com/github-slack/app/milestone/1|Staff Ship>",
         },
       ],
-      "footer": "<https://github.com/github-slack/app/pull/31|View it on GitHub>",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
@@ -88,7 +88,7 @@ Object {
           "value": "<https://github.com/github-slack/app/milestone/1|Staff Ship>",
         },
       ],
-      "footer": "<https://github.com/github-slack/app/pull/31|View it on GitHub>",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
@@ -157,7 +157,7 @@ Object {
       "value": "<https://github.com/github-slack/app/milestone/1|Staff Ship>",
     },
   ],
-  "footer": "<https://github.com/github-slack/app/pull/31|View it on GitHub>",
+  "footer": "<https://github.com/github-slack/app|github-slack/app>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",

@@ -7,7 +7,7 @@ Object {
   "author_name": "wilhelmklopp",
   "color": "#36a64f",
   "fallback": "#1 Needs content",
-  "footer": "<https://github.com/github-slack/public-test/issues/1|View it on GitHub>",
+  "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
