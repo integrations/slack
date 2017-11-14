@@ -26,7 +26,7 @@ Object {
       "value": "2 months ago",
     },
   ],
-  "footer": "<https://github.com/bkeepers/dotenv|View it on GitHub>",
+  "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
