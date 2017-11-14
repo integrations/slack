@@ -61,7 +61,11 @@ fs.readdirSync(path.join(__dirname, '__snapshots__')).forEach((file) => {
       if (!message.attachments) {
         message = { attachments: [message] };
       }
-      await getMessageBuilderImage(JSON.stringify(message), path.join(__dirname, `${folderName}/${snapshot}.png`));
+      const dataToAppend = `<a href="https://api.slack.com/docs/messages/builder?msg=${encodeURIComponent(JSON.stringify(message))}">${snapshot}</a>\n\n`;
+      fs.appendFile(path.join(__dirname, '../../../lib/slack/renderer/examples.md'), dataToAppend, (err) => {
+        if (err) throw err;
+      });
+      // await getMessageBuilderImage(JSON.stringify(message), path.join(__dirname, `${folderName}/${snapshot}.png`));
     });
   }
 });
