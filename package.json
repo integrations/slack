@@ -3,8 +3,8 @@
   "license": "MIT",
   "scripts": {
     "start": "probot run ./lib/index.js",
-    "test": "jest --coverage",
-    "posttest": "npm run lint",
+    "test": "jest --coverage --forceExit",
+    "posttest": "npm run lint && node test/slack/renderer/messageBuilderGenerator.js",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start"
   },
