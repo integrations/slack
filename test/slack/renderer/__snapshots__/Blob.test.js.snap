@@ -20,6 +20,7 @@ function parseAlpha (alphaString) {
 }
 \`\`\`",
   "title": "src/color.js:122-129",
+  "title_link": "https://github.com/atom/atom/blob/master/src/color.js#L122-L129",
 }
 `;
 
@@ -36,6 +37,7 @@ Object {
 function parseAlpha (alphaString) {
 \`\`\`",
   "title": "src/color.js:122",
+  "title_link": "https://github.com/atom/atom/blob/master/src/color.js#L122",
 }
 `;
 
@@ -190,5 +192,6 @@ function numberToHexString (number) {
 
 \`\`\`",
   "title": "src/color.js",
+  "title_link": "https://github.com/atom/atom/blob/master/src/color.js",
 }
 `;
