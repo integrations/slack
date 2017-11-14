@@ -42,10 +42,15 @@ async function getMessageBuilderImage(message, localPath) {
   await browser.close();
 }
 
+const blackList = ['AbstractIssue', 'Message'];
 fs.readdirSync(path.join(__dirname, '__snapshots__')).forEach((file) => {
   // eslint-disable-next-line no-useless-escape
   const match = named(new RegExp('^(:<class>[A-Za-z]+).test\.js\.snap')).exec(file);
   if (match) {
+    if (blackList.indexOf(match.captures.class[0]) > -1) {
+      // if snapshot is on black list, don't process any further
+      return;
+    }
     const folderName = `__snapshots__/${match.captures.class[0]}`;
     if (!fs.existsSync(path.join(__dirname, folderName))) {
       fs.mkdirSync(path.join(__dirname, folderName));
