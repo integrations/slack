@@ -15,11 +15,8 @@
     "github": "^9.3.1",
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
-    "pretty-format": "^21.2.1",
     "probot": "^3.0.2",
-    "puppeteer": "^0.12.0",
-    "redis": "^2.8.0",
-    "relaxed-json": "^1.0.1"
+    "redis": "^2.8.0"
   },
   "devDependencies": {
     "eslint": "^3.19.0 || ^4.5.0",
@@ -29,7 +26,10 @@
     "expect": "^1.20.2",
     "jest": "^21.2.1",
     "localtunnel": "^1.8.3",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "pretty-format": "^21.2.1",
+    "puppeteer": "^0.12.0",
+    "relaxed-json": "^1.0.1"
   },
   "engines": {
     "node": "8.x.x",
