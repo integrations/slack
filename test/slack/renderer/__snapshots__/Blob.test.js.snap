@@ -4,7 +4,7 @@ exports[`Blob rendering works with a range of line numbers 1`] = `
 Object {
   "color": "#24292f",
   "fallback": "src/color.js:122-129",
-  "footer": "<https://github.com/atom/atom/blob/master/src/color.js#L122-L129|View it on GitHub>",
+  "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
@@ -27,7 +27,7 @@ exports[`Blob rendering works with a single line 1`] = `
 Object {
   "color": "#24292f",
   "fallback": "src/color.js:122",
-  "footer": "<https://github.com/atom/atom/blob/master/src/color.js#L122|View it on GitHub>",
+  "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
@@ -43,7 +43,7 @@ exports[`Blob rendering works without line numbers 1`] = `
 Object {
   "color": "#24292f",
   "fallback": "src/color.js",
-  "footer": "<https://github.com/atom/atom/blob/master/src/color.js|View it on GitHub>",
+  "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
