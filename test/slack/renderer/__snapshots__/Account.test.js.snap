@@ -16,7 +16,7 @@ Object {
       "value": 51,
     },
   ],
-  "footer": "<https://github.com/kubernetes|View it on GitHub>",
+  "footer": "<https://github.com/kubernetes|@kubernetes>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "text": "Kubernetes",
   "thumb_url": "https://avatars2.githubusercontent.com/u/13629408?v=4",
@@ -51,7 +51,7 @@ Object {
       "value": 28,
     },
   ],
-  "footer": "<https://github.com/wilhelmklopp|View it on GitHub>",
+  "footer": "<https://github.com/wilhelmklopp|@wilhelmklopp>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "text": "working on @uclapi, doing stuff @simplepoll 
 I like APIs, emoji, and :partyparrot:",
