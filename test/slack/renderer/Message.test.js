@@ -3,22 +3,6 @@ const { Message } = require('../../../lib/slack/renderer');
 const issuesOpened = require('../../fixtures/webhooks/issues.opened.json');
 
 describe('Message rendering', () => {
-  test('works for messages with footers', async () => {
-    const message = new Message({
-      includeFooter: true,
-      footerURL: issuesOpened.issue.html_url,
-    });
-    expect(message.getBaseMessage()).toMatchSnapshot();
-  });
-
-  test('works for messages without footer', async () => {
-    const message = new Message({
-      includeFooter: false,
-    });
-    expect(message.getBaseMessage()).not.toHaveProperty('footer');
-    expect(message.getBaseMessage()).not.toHaveProperty('footer_icon');
-  });
-
   test('works for fields', async () => {
     const fields = [
       {
