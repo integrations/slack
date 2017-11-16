@@ -36,9 +36,13 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "setupFiles": ["./test/setup/nock.js"],
+    "setupFiles": [
+      "./test/setup/nock.js"
+    ],
     "coverageDirectory": "./coverage/",
-    "collectCoverageFrom": ["lib/**/*.{js,jsx}"]
+    "collectCoverageFrom": [
+      "lib/**/*.{js,jsx}"
+    ]
   },
   "main": "lib/index.js"
 }
