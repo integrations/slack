@@ -1,10 +1,6 @@
 const Resolver = require('../lib/resolver');
 const nockBack = require('nock').back;
 const GitHubAPI = require('github');
-const path = require('path');
-
-nockBack.fixtures = path.join(__dirname, 'fixtures', 'nock');
-nockBack.setMode('record');
 
 describe('Resolver', () => {
   let resolver;
