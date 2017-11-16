@@ -1,4 +1,4 @@
-const nock = require('nock')
+const nock = require('nock');
 const path = require('path');
 
 nock.disableNetConnect();
