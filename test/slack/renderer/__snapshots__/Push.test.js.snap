@@ -9,7 +9,7 @@ Object {
       "author_name": "wilhelmklopp",
       "color": "#24292f",
       "fallback": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> pushed to \`master\`",
-      "footer": "<https://github.com/github-slack/app|github-slack/app",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
@@ -29,7 +29,7 @@ Object {
       "author_name": "wilhelmklopp",
       "color": "#24292f",
       "fallback": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|1 new commit> pushed to \`master\`",
-      "footer": "<https://github.com/github-slack/app|github-slack/app",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
@@ -49,7 +49,7 @@ Object {
       "author_name": "wilhelmklopp",
       "color": "#24292f",
       "fallback": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> force-pushed to \`master\`",
-      "footer": "<https://github.com/github-slack/app|github-slack/app",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
