@@ -12,3 +12,12 @@ Object {
   ],
 }
 `;
+
+exports[`Status rendering works for allPass 1`] = `
+Object {
+  "color": "#28a745",
+  "fallback": "All checks have passed",
+  "footer": "5 successful checks",
+  "text": ":white_check_mark: All checks have passed",
+}
+`;

@@ -10,4 +10,8 @@ describe('Status rendering', () => {
     const rendered = statusAttachment.renderAttachment();
     expect(rendered).toMatchSnapshot();
   });
+  test('works for allPass', async () => {
+    const rendered = Status.getAllPassAttachment(5);
+    expect(rendered).toMatchSnapshot();
+  });
 });

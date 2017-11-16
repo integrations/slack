@@ -63,6 +63,52 @@ Object {
 }
 `;
 
+exports[`Pull request rendering works for notifcation messages with all statuses passing 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#36a64f",
+      "fallback": "[github-slack/app] Pull request opened by wilhelmklopp",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "pretext": "[github-slack/app] Pull request opened by wilhelmklopp",
+      "text": "1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`",
+    },
+    Object {
+      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+      "author_link": "https://github.com/wilhelmklopp",
+      "author_name": "wilhelmklopp",
+      "color": "#36a64f",
+      "fallback": "#31 Add badges to readme",
+      "fields": Array [
+        Object {
+          "short": true,
+          "title": "Milestone",
+          "value": "<https://github.com/github-slack/app/milestone/1|Staff Ship>",
+        },
+      ],
+      "footer": "<https://github.com/github-slack/app/pull/31|View it on GitHub>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)
+",
+      "title": "#31 Add badges to readme",
+      "title_link": "https://github.com/github-slack/app/pull/31",
+      "ts": 1506092298,
+    },
+    Object {
+      "color": "#28a745",
+      "fallback": "All checks have passed",
+      "footer": "4 successful checks",
+      "text": ":white_check_mark: All checks have passed",
+    },
+  ],
+}
+`;
+
 exports[`Pull request rendering works for notifcation messages with statuses 1`] = `
 Object {
   "attachments": Array [
