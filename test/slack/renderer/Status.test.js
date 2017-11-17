@@ -10,4 +10,13 @@ describe('Status rendering', () => {
     const rendered = statusAttachment.renderAttachment();
     expect(rendered).toMatchSnapshot();
   });
+  test('works for all checks pass', async () => {
+    const rendered = Status.getChecksPassAttachment(5, 5);
+    expect(rendered).toMatchSnapshot();
+  });
+
+  test('works for some checks pass', async () => {
+    const rendered = Status.getChecksPassAttachment(4, 5);
+    expect(rendered).toMatchSnapshot();
+  });
 });

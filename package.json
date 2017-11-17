@@ -39,6 +39,7 @@
   },
   "jest": {
     "testEnvironment": "node",
+    "setupFiles": ["./test/setup"],
     "coverageDirectory": "./coverage/",
     "collectCoverageFrom": [
       "lib/**/*.{js,jsx}"
