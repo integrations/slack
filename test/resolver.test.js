@@ -25,5 +25,10 @@ describe('Resolver', () => {
         done();
       });
     });
+
+    test('malformed url', async () => {
+      const resource = await resolver.resource('wat?');
+      expect(resource).toBe(undefined);
+    });
   });
 });
