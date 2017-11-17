@@ -9,7 +9,7 @@ Object {
       "author_name": "wilhelmklopp",
       "color": "#cb2431",
       "fallback": "[github-slack/public-test] Issue closed by bkeepers",
-      "footer": "<https://github.com/github-slack/public-test/issues/1|View it on GitHub>",
+      "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
@@ -44,7 +44,7 @@ Object {
           "value": "enhancement, question, wontfix",
         },
       ],
-      "footer": "<https://github.com/github-slack/public-test/issues/1|View it on GitHub>",
+      "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
@@ -80,7 +80,7 @@ Object {
           "value": "enhancement, question, wontfix",
         },
       ],
-      "footer": "<https://github.com/github-slack/public-test/issues/1|View it on GitHub>",
+      "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
