@@ -52,7 +52,7 @@ describe('Pull request rendering', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('works for unfurls', async () => {
+  test('works for full unfurls', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
@@ -60,8 +60,21 @@ describe('Pull request rendering', () => {
     const prMessage = new PullRequest({
       pullRequest,
       repository: pullRequestOpened.repository,
-      eventType: 'pull_request.opened',
-      unfurl: true,
+      unfurlType: 'full',
+    });
+    const rendered = prMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
+
+  test('works for condensed unfurls', async () => {
+    const pullRequest = {
+      ...pullRequestOpened.pull_request,
+      labels: [],
+    };
+    const prMessage = new PullRequest({
+      pullRequest,
+      repository: pullRequestOpened.repository,
+      unfurlType: 'condensed',
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();

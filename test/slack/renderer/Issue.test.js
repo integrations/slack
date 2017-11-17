@@ -4,11 +4,21 @@ const issuesOpened = require('../../fixtures/webhooks/issues.opened.json');
 const issuesClosed = require('../../fixtures/webhooks/issues.closed.json');
 
 describe('Issue rendering', () => {
-  test('works for unfurls', async () => {
+  test('works for full unfurls', async () => {
     const issueMessage = new Issue({
       issue: issuesOpened.issue,
       repository: issuesOpened.repository,
-      unfurl: true,
+      unfurlType: 'full',
+    });
+    const rendered = issueMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
+
+  test('works for condensed unfurls', async () => {
+    const issueMessage = new Issue({
+      issue: issuesOpened.issue,
+      repository: issuesOpened.repository,
+      unfurlType: 'condensed',
     });
     const rendered = issueMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
