@@ -13,11 +13,20 @@ Object {
 }
 `;
 
-exports[`Status rendering works for allPass 1`] = `
+exports[`Status rendering works for all checks pass 1`] = `
 Object {
   "color": "#28a745",
   "fallback": "All checks have passed",
-  "footer": "5 successful checks",
+  "footer": "5/5 successful checks",
   "text": ":white_check_mark: All checks have passed",
+}
+`;
+
+exports[`Status rendering works for some checks pass 1`] = `
+Object {
+  "color": "#28a745",
+  "fallback": "4 other checks have passed",
+  "footer": "4/5 successful checks",
+  "text": ":white_check_mark: 4 other checks have passed",
 }
 `;
