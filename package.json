@@ -3,7 +3,8 @@
   "license": "MIT",
   "scripts": {
     "start": "probot run ./lib/index.js",
-    "test": "jest && npm run lint",
+    "test": "jest --coverage",
+    "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start"
   },
@@ -15,7 +16,7 @@
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
     "pg": "^7.3.0",
-    "probot": "^2.0.0",
+    "probot": "^3.0.2",
     "redis": "^2.8.0",
     "sequelize": "^4.20.1"
   },
@@ -27,16 +28,20 @@
     "expect": "^1.20.2",
     "jest": "^21.2.1",
     "localtunnel": "^1.8.3",
+    "nock": "^9.1.0",
     "nodemon": "^1.11.0",
-    "sequelize-cli": "^3.0.0"
+    "sequelize-cli": "^3.0.0",
+    "supertest": "^3.0.0"
   },
   "engines": {
-    "node": ">= 8.7.0",
-    "npm": ">= 5.0.0"
+    "node": "8.x.x",
+    "npm": "5.x.x"
   },
   "jest": {
     "testEnvironment": "node",
+    "setupFiles": ["./test/setup"],
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
-  }
+    "collectCoverageFrom": ["lib/**/*.{js,jsx}"]
+  },
+  "main": "lib/index.js"
 }

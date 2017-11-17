@@ -12,6 +12,7 @@ describe('AbstractIssue rendering', () => {
       repository: issuesOpened.repository,
       eventType: 'issues.opened',
       unfurl: false,
+      sender: issuesOpened.sender,
     });
   });
   test('works for getHexColorbyState', async () => {
@@ -28,6 +29,17 @@ describe('AbstractIssue rendering', () => {
   });
 
   test('works for getPreText', async () => {
+    expect(abstractIssueMessage.getPreText('Issue')).toEqual(
+      '[github-slack/public-test] Issue opened by wilhelmklopp',
+    );
+  });
+
+  test('works for getPreText (without sender)', async () => {
+    abstractIssueMessage = new AbstractIssue({
+      abstractIssue: issuesOpened.issue,
+      repository: issuesOpened.repository,
+      eventType: 'issues.opened',
+    });
     expect(abstractIssueMessage.getPreText('Issue')).toEqual(
       '[github-slack/public-test] Issue opened by wilhelmklopp',
     );

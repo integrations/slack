@@ -1,6 +1,6 @@
-const { Account } = require('./../../lib/slack/renderer/Account');
-const userFixture = require('./../fixtures/user.json');
-const orgFixture = require('./../fixtures/org.json');
+const { Account } = require('../../../lib/slack/renderer/account');
+const userFixture = require('../../fixtures/user.json');
+const orgFixture = require('../../fixtures/org.json');
 
 describe('Account rendering', () => {
   test('works for users', async () => {

@@ -2,6 +2,7 @@
 
 exports[`Repository rendering works 1`] = `
 Object {
+  "color": "#24292f",
   "fallback": "bkeepers/dotenv",
   "fields": Array [
     Object {
@@ -22,15 +23,10 @@ Object {
     Object {
       "short": true,
       "title": "Last updated",
-      "value": "a month ago",
-    },
-    Object {
-      "short": true,
-      "title": "Language",
-      "value": "Ruby",
+      "value": "2 months ago",
     },
   ],
-  "footer": "<https://github.com/bkeepers/dotenv|View it on GitHub>",
+  "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
