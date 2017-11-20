@@ -6,7 +6,8 @@
     "test": "jest --coverage",
     "posttest": "npm run lint",
     "lint": "eslint lib test",
-    "dev": "nodemon --exec npm start"
+    "dev": "nodemon --exec npm start",
+    "migrate": "dotenv sequelize db:migrate"
   },
   "dependencies": {
     "@slack/client": "^3.11.0",
@@ -15,12 +16,13 @@
     "github": "^9.3.1",
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
-    "pg": "^7.3.0",
+    "pg": "^6.4.1",
     "probot": "^3.0.2",
     "redis": "^2.8.0",
     "sequelize": "^4.20.1"
   },
   "devDependencies": {
+    "dotenv-cli": "^1.4.0",
     "eslint": "^3.19.0 || ^4.5.0",
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-config-probot": ">=0.1.0",
@@ -30,7 +32,7 @@
     "localtunnel": "^1.8.3",
     "nock": "^9.1.0",
     "nodemon": "^1.11.0",
-    "sequelize-cli": "^3.0.0",
+    "sequelize-cli": "^3.1.0",
     "supertest": "^3.0.0"
   },
   "engines": {
