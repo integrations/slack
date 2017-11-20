@@ -5,7 +5,7 @@ Object {
   "attachments": Array [
     Object {
       "response_type": "in_channel",
-      "text": "Subscribed <#C2147483705> to <https://github.com/atom/atom|atom/atom>",
+      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
 }
