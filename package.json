@@ -28,7 +28,7 @@
     "localtunnel": "^1.8.3",
     "nock": "^9.1.0",
     "nodemon": "^1.11.0",
-    "supertest": "^3.0.0"
+    "supertest": "github:bkeepers/supertest#unknown-errors"
   },
   "engines": {
     "node": "8.x.x",
@@ -37,7 +37,7 @@
   "jest": {
     "testEnvironment": "node",
     "setupFiles": [
-      "./test/setup/nock.js"
+      "./test/setup"
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverageFrom": [
