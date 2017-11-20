@@ -27,5 +27,10 @@ describe('Resolver', () => {
 
       expect(scope.isDone()).toBe(true);
     });
+
+    test('malformed url', async () => {
+      const resource = await resolver.resource('wat?');
+      expect(resource).toBe(undefined);
+    });
   });
 });
