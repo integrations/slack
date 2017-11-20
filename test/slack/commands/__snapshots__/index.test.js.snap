@@ -16,6 +16,9 @@ Object {
   "attachments": Array [
     Object {
       "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "\`wat?\` does not appear to be a GitHub link.",
     },
   ],
