@@ -13,8 +13,6 @@ describe('commands', () => {
   let probot;
 
   beforeEach(() => {
-    nock.enableNetConnect(/127\.0\.0\.1/);
-
     probot = createProbot({});
     probot.load(slack);
   });
