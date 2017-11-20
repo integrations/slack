@@ -5,6 +5,8 @@
 
 set -e
 
+PATH="$PATH:node_modules/.bin"
+
 cd "$(dirname "$0")/.."
 
 if [ "$(uname -s)" = "Darwin" ]; then
@@ -16,3 +18,12 @@ fi
 
 echo "==> Installing npm dependencies…"
 npm install
+
+
+# dev
+dotenv sequelize db:create
+dotenv sequalize db:migrate
+
+# test
+dotenv -e .env.test sequelize db:create
+dotenv -e .env.test sequalize db:migrate
