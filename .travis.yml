@@ -8,6 +8,8 @@ install:
   - npm install -g codecov
   - npm install
 script:
+  - dotenv -e .env.test sequelize db:create
+  - dotenv -e .env.test sequelize db:migrate
   - npm test
   - codecov
 services:
