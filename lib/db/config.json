@@ -1,11 +1,11 @@
 {
   "development": {
-    "database": "slack_development",
+    "database": "slack-dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "slack_test",
+    "database": "slack-test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

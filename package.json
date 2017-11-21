@@ -7,7 +7,7 @@
     "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start",
-    "migrate": "dotenv sequelize db:migrate"
+    "migrate": "sequelize db:migrate"
   },
   "dependencies": {
     "@slack/client": "^3.11.0",
