@@ -19,11 +19,10 @@ fi
 echo "==> Installing npm dependencies…"
 npm install
 
-
 # dev
-dotenv sequelize db:create
-dotenv sequalize db:migrate
+sequelize db:create || true
+sequelize db:migrate
 
 # test
-dotenv -e .env.test sequelize db:create
-dotenv -e .env.test sequalize db:migrate
+sequelize db:create --env test || true
+sequelize db:migrate --env test

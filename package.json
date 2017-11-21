@@ -7,7 +7,7 @@
     "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start",
-    "migrate": "dotenv sequelize db:migrate"
+    "migrate": "sequelize db:migrate"
   },
   "dependencies": {
     "@slack/client": "^3.11.0",
@@ -33,7 +33,7 @@
     "nock": "^9.1.0",
     "nodemon": "^1.11.0",
     "sequelize-cli": "^3.1.0",
-    "supertest": "^3.0.0"
+    "supertest": "github:bkeepers/supertest#unknown-errors"
   },
   "engines": {
     "node": "8.x.x",

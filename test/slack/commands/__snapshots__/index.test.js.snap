@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`commands /github subscribe https://github.com/owner/repo confirms the subscription 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "response_type": "in_channel",
+      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+    },
+  ],
+}
+`;
+
+exports[`commands /github subscribe wat? shows an error 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "\`wat?\` does not appear to be a GitHub link.",
+    },
+  ],
+}
+`;
