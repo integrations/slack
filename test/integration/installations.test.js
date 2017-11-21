@@ -4,7 +4,7 @@ const installationDeleted = require('../fixtures/webhooks/installation.deleted.j
 
 describe('Integration: tracking GitHub installations', () => {
   test('installation created records', async () => {
-    const { robot } = setup()
+    const { robot } = setup();
 
     await robot.receive({
       event: 'installation',
