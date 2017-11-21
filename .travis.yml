@@ -12,3 +12,4 @@ script:
   - codecov
 services:
   - redis-server
+  - postgresql
