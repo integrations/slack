@@ -1,6 +1,10 @@
-// // Change default LOG_LEVEL to error unless it is explicitly set
-// process.env.LOG_LEVEL = process.env.LOG_LEVEL || 'error';
-// process.env.SLACK_VERIFICATION_TOKEN = 'test';
-// process.env.DATABASE_URL = 'postgres://localhost:5432/slack-test';
+const defaults = Object.assign({
+  LOG_LEVEL: 'error',
+  SLACK_VERIFICATION_TOKEN: 'secret',
+}, process.env);
 
-require('dotenv').load({ path: '.env.test' });
+// Assign defaults to process.env, but don't override existing values if they
+// are already set in the environment.
+//
+//   $ LOG_LEVEL=trace jest path/to/test.js
+Object.assign(process.env, defaults);
