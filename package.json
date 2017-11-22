@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "dotenv": "^4.0.0",
-    "dotenv-cli": "^1.4.0",
     "eslint": "^3.19.0 || ^4.5.0",
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-config-probot": ">=0.1.0",
