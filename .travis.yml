@@ -8,7 +8,10 @@ install:
   - npm install -g codecov
   - npm install
 script:
+  - sequelize db:create --env test
+  - sequelize db:migrate --env test
   - npm test
   - codecov
 services:
   - redis-server
+  - postgresql
