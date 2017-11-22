@@ -19,7 +19,8 @@
     "pg": "^6.4.1",
     "probot": "^3.0.2",
     "redis": "^2.8.0",
-    "sequelize": "^4.20.1"
+    "sequelize": "^4.20.1",
+    "sequelize-cli": "^3.1.0"
   },
   "devDependencies": {
     "dotenv": "^4.0.0",
@@ -32,7 +33,6 @@
     "localtunnel": "^1.8.3",
     "nock": "^9.1.0",
     "nodemon": "^1.11.0",
-    "sequelize-cli": "^3.1.0",
     "supertest": "github:bkeepers/supertest#unknown-errors"
   },
   "engines": {
