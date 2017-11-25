@@ -12,13 +12,17 @@
   "dependencies": {
     "@slack/client": "^3.11.0",
     "@slack/events-api": "^1.0.1",
+    "axios": "^0.17.1",
+    "base64-url": "^2.0.1",
     "body-parser": "^1.17.2",
+    "express": "^4.16.2",
     "github": "^9.3.1",
     "github-oauth": "^0.2.2",
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
     "pg": "^6.4.1",
     "probot": "^3.0.2",
+    "query-string": "^5.0.1",
     "redis": "^2.8.0",
     "sequelize": "^4.20.1",
     "sequelize-cli": "^3.1.0"
