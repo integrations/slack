@@ -9,6 +9,6 @@ beforeAll(async () => models.sequelize.authenticate());
 afterAll(async () => models.sequelize.close());
 
 // Clear all data out of the test database
-beforeEach(() => models.sequelize.truncate());
+beforeEach(() => models.sequelize.truncate({ cascade: true }));
 
 module.exports = models;

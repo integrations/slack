@@ -17,7 +17,7 @@ beforeEach(() => {
   robot.auth = jest.fn().mockReturnValue(Promise.resolve(new GitHub()));
 
   // Clear all data out of the test database
-  return sequelize.truncate();
+  return sequelize.truncate({ cascade: true });
 });
 
 module.exports = { robot, probot, app };
