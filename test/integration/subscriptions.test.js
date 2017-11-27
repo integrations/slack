@@ -13,12 +13,19 @@ describe('Integration: subscriptions', () => {
     });
   });
 
-  describe.only('unathenticated user', () => {
-    test('subscribing to a repo they do not have access to', async () => {
+  // todo: failing to install slack app
+
+  describe('unathenticated user', () => {
+    test('is prompted to authenticate before subscribing', async () => {
       const { probot } = helper;
 
       // User installs slack app
-      // TODO!
+      nock('https://slack.com').post('/api/oauth.access')
+        .reply(200, fixtures.slack.oauth());
+
+      await request(probot.server).get('/slack/oauth/callback')
+        .query({ code: 'test' })
+        .expect(302); // .expect('Location', 'https://slack.com/app_redirect?app=123&team=456');
 
       // User types slash command
       const command = fixtures.slack.command({
@@ -39,16 +46,24 @@ describe('Integration: subscriptions', () => {
         `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
       );
 
-      // GitHub redirects back
-      const accessTokenRequest = nock('https://github.com').post('/login/oauth/access_token')
+      // GitHub redirects back, authenticates user and process subscription
+      nock('https://github.com').post('/login/oauth/access_token')
         .reply(200, fixtures.github.oauth);
-      const userRequest = nock('https://api.github.com').get('/user')
+      nock('https://api.github.com').get('/user')
         .reply(200, fixtures.user);
-      const oauthCallback = request(probot.server).get('/github/oauth/callback')
-        .query({ state });
-      await oauthCallback.expect(302).expect('Location',
-        `slack://channel?team=${command.team_id}&channel=${command.channel_id}`,
-      );
+      const linkConfirmation = nock('https://hooks.slack.com').post('/commands/1234/5678', {
+        response_type: 'ephemeral',
+        attachments: [{
+          text: `:white_check_mark: Success! <@${command.user_id}> is now linked to <${fixtures.user.html_url}|@${fixtures.user.login}>`,
+        }],
+      }).reply(200);
+
+      await request(probot.server).get('/github/oauth/callback').query({ state })
+        .expect(302).expect('Location',
+          `slack://channel?team=${command.team_id}&channel=${command.channel_id}`,
+        );
+
+      expect(linkConfirmation.isDone()).toBe(true);
     });
   });
 
