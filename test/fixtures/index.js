@@ -26,4 +26,10 @@ module.exports = {
       trigger_id: '13345224609.738474920.8088930838d88f008e0',
     }, attrs),
   },
+  github: {
+    oauth: {
+      access_token: 'testing123',
+      token_type: 'bearer',
+    },
+  },
 };
