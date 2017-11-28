@@ -1,11 +1,11 @@
-const Router = require('../lib/router');
+const Router = require('../../../lib/router');
+const { Subscription } = require('.');
 
 describe('router', () => {
   let router;
 
   beforeEach(async () => {
-    router = new Router();
-    await router.reset();
+    router = new Router(Subscription);
   });
 
   const channel = 'C0001';
