@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Integration: subscriptions subsscribing with a bad url 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "\`wat?\` does not appear to be a GitHub link.",
+    },
+  ],
+}
+`;
+
+exports[`Integration: subscriptions successfully subscribing to a repository 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
