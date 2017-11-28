@@ -3,7 +3,7 @@
   "license": "MIT",
   "scripts": {
     "start": "probot run ./lib/index.js",
-    "test": "jest --coverage",
+    "test": "jest --coverage --runInBand --forceExit",
     "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start",
@@ -17,7 +17,7 @@
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
     "pg": "^6.4.1",
-    "probot": "^3.0.2",
+    "probot": "github:probot/probot",
     "redis": "^2.8.0",
     "sequelize": "^4.20.1",
     "sequelize-cli": "^3.1.0"
