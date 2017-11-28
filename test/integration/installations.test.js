@@ -5,13 +5,14 @@ const installationDeleted = require('../fixtures/webhooks/installation.deleted.j
 describe('Integration: tracking GitHub installations', () => {
   test('installation created records', async () => {
     const { robot } = helper;
+    const { Installation } = robot.models;
 
     await robot.receive({
       event: 'installation',
       payload: installationCreated,
     });
 
-    let installation = await robot.models.Installation.findOne({
+    let installation = await Installation.findOne({
       where: { githubId: installationCreated.installation.id } });
 
     expect(installation).toBeTruthy();
@@ -21,7 +22,7 @@ describe('Integration: tracking GitHub installations', () => {
       payload: installationDeleted,
     });
 
-    installation = await robot.models.Installation.findOne({
+    installation = await Installation.findOne({
       where: { githubId: installationCreated.installation.id } });
 
     expect(installation).toBe(null);
