@@ -35,7 +35,7 @@ describe('Integration: subscriptions', () => {
       const res = await req.expect(200);
 
       // User is shown ephemeral prompt to authenticate
-      const prompt = /^<https:\/\/example\.com(\/github\/oauth\/login\?state=(.*))\|Finish linking your account>$/;
+      const prompt = /^<https:\/\/example\.com(\/github\/oauth\/login\?state=(.*))\|Finish connecting your GitHub account>$/;
       const text = res.body.attachments[0].text;
       expect(text).toMatch(prompt);
 
@@ -54,7 +54,7 @@ describe('Integration: subscriptions', () => {
       const linkConfirmation = nock('https://hooks.slack.com').post('/commands/1234/5678', {
         response_type: 'ephemeral',
         attachments: [{
-          text: `:white_check_mark: Success! <@${command.user_id}> is now linked to <${fixtures.user.html_url}|@${fixtures.user.login}>`,
+          text: `:white_check_mark: Success! <@${command.user_id}> is now connected to <${fixtures.user.html_url}|@${fixtures.user.login}>`,
         }],
       }).reply(200);
 
