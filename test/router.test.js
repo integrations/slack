@@ -1,7 +1,10 @@
-const router = require('../lib/router');
+const Router = require('../lib/router');
 
 describe('router', () => {
+  let router;
+
   beforeEach(async () => {
+    router = new Router();
     await router.reset();
   });
 
