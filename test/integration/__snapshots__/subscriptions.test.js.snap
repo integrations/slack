@@ -16,7 +16,11 @@ Object {
 
 exports[`Integration: subscriptions authenticated user successfully subscribing to a repository 1`] = `
 Object {
+  "attachments": Array [
+    Object {
+      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+    },
+  ],
   "response_type": "in_channel",
-  "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
 }
 `;
