@@ -15,8 +15,6 @@ describe('Integration: tracking GitHub installations', () => {
     let installation = await Installation.findOne({
       where: { githubId: installationCreated.installation.id } });
 
-    console.log('WTF?', await Installation.findAll());
-
     expect(installation).toBeTruthy();
 
     await robot.receive({
