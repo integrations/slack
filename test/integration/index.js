@@ -2,6 +2,8 @@ const createProbot = require('probot');
 const GitHub = require('github');
 const app = require('../..');
 
+const storage = require('../../lib/storage');
+
 const probot = createProbot({});
 const robot = probot.load(app);
 
@@ -17,7 +19,10 @@ beforeEach(() => {
   robot.auth = jest.fn().mockReturnValue(Promise.resolve(new GitHub()));
 
   // Clear all data out of the test database
-  return sequelize.truncate();
+  return Promise.all([
+    sequelize.truncate(),
+    storage.clear(),
+  ]);
 });
 
 module.exports = { robot, probot, app };
