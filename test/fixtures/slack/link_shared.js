@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = attrs => Object.assign({
   token: process.env.SLACK_VERIFICATION_TOKEN,
   team_id: 'T000A',
   api_app_id: 'A9999',
@@ -20,4 +20,4 @@ module.exports = {
   authed_users: [
     'U88HS',
   ],
-};
+}, attrs);

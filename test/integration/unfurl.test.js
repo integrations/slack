@@ -14,7 +14,7 @@ describe('Integration: unfurls', () => {
       return true;
     }).reply(200, { ok: true });
 
-    await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared)
+    await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
       .expect(200);
   });
 
@@ -30,11 +30,24 @@ describe('Integration: unfurls', () => {
     }).reply(200, { ok: true });
 
     // Perform the unfurl
-    await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared)
+    await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
       .expect(200);
 
     // Second unfurl does not make additional API requests
-    await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared)
+    await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
       .expect(200);
+  });
+
+  test('does not unfurl if more than 2 links', async () => {
+    const body = fixtures.slack.link_shared();
+
+    body.event.links = [
+      { domain: 'github.com', url: 'https://github.com/bkeepers/dotenv' },
+      { domain: 'github.com', url: 'https://github.com/atom/atom' },
+      { domain: 'github.com', url: 'https://github.com/probot/probot' },
+    ];
+
+    // No API requests should be made when this request is performed
+    return request(probot.server).post('/slack/events').send(body).expect(200);
   });
 });
