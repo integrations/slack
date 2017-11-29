@@ -78,12 +78,12 @@ describe('Integration: subscriptions', () => {
       const user = await helper.robot.models.User.create();
       await helper.robot.models.SlackUser.create({
         slackId: 'U2147483697',
-        userId: user.dataValues.id,
-        slackWorkspaceId: slackWorkspace.dataValues.id,
+        userId: user.id,
+        slackWorkspaceId: slackWorkspace.id,
       });
       await helper.robot.models.GitHubUser.create({
         githubId: 2,
-        userId: user.dataValues.id,
+        userId: user.id,
         accessToken: 'github-token',
       });
     });
