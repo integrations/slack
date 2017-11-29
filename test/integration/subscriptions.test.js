@@ -15,11 +15,6 @@ describe('Integration: subscriptions', () => {
     nock.cleanAll();
   });
 
-  afterEach(() => {
-    // Expect there are no more pending nock requests
-    expect(nock.pendingMocks()).toEqual([]);
-  });
-
   test('successfully subscribing and unsubscribing to a repository', async () => {
     const { probot } = helper;
 
