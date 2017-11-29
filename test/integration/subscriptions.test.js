@@ -4,13 +4,18 @@ const nock = require('nock');
 const helper = require('.');
 const fixtures = require('../fixtures');
 
+const { probot } = helper;
+
 describe('Integration: subscriptions', () => {
-  beforeEach(async () => {
-    // Create an installation
-    await helper.robot.models.Installation.create({
-      githubId: 1,
-      ownerId: fixtures.org.id,
+  describe('with GitHub App installed', () => {
+    beforeEach(async () => {
+      // Create an installation
+      await helper.robot.models.Installation.create({
+        githubId: 1,
+        ownerId: fixtures.org.id,
+      });
     });
+
 
     nock.cleanAll();
   });
@@ -24,7 +29,6 @@ describe('Integration: subscriptions', () => {
 
   describe('unauthenticated user', () => {
     test('is prompted to authenticate before subscribing', async () => {
-      const { probot } = helper;
       nock('https://api.github.com').get('/orgs/atom').times(2).reply(200, fixtures.org);
       nock('https://api.github.com').get('/repos/atom/atom').times(2).reply(200, fixtures.repo);
 
@@ -98,8 +102,6 @@ describe('Integration: subscriptions', () => {
     });
 
     test('successfully subscribing to a repository', async () => {
-      const { probot } = helper;
-
       const requests = {
         account: nock('https://api.github.com').get('/orgs/kubernetes').reply(200, fixtures.org),
         repo: nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, fixtures.repo),
@@ -127,8 +129,6 @@ describe('Integration: subscriptions', () => {
     });
 
     test('subscribing with a bad url', async () => {
-      const { probot } = helper;
-
       const command = fixtures.slack.command({
         text: 'subscribe wat?',
       });

@@ -2,6 +2,7 @@
 const querystring = require('querystring');
 
 module.exports = {
+  app: require('./app'),
   issue: require('./issue'),
   pull: require('./pull'),
   comment: require('./comment'),
@@ -10,6 +11,7 @@ module.exports = {
   org: require('./org'),
   repo: require('./repo'),
   slack: {
+    link_shared: require('./slack/link_shared'),
     command: attrs => Object.assign({
         // Slack will POST with:
       token: process.env.SLACK_VERIFICATION_TOKEN,

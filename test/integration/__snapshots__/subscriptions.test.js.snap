@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: subscriptions authenticated user subscribing with a bad url 1`] = `
+exports[`Integration: subscriptions with GitHub App installed subsscribing with a bad url 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -22,5 +22,15 @@ Object {
     },
   ],
   "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions without the GitHub App installed prompts to install app 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "text": "<https://github.com/apps/slack-bkeepers|Install the GitHub App>",
+    },
+  ],
 }
 `;
