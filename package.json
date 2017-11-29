@@ -25,6 +25,7 @@
     "probot": "github:probot/probot",
     "query-string": "^5.0.1",
     "redis": "^2.8.0",
+    "safe-compare": "^1.1.0",
     "sequelize": "^4.20.1",
     "sequelize-cli": "^3.1.0"
   },
