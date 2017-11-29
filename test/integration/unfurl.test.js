@@ -38,6 +38,30 @@ describe('Integration: unfurls', () => {
       .expect(200);
   });
 
+  test('does minor unfurl if 2 links are shared', async () => {
+    nock('https://api.github.com').get('/repos/facebook/react').reply(200, fixtures.repo);
+    nock('https://api.github.com').get('/repos/facebook/react/issues/10191').reply(200, fixtures.issue);
+    nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
+    nock('https://api.github.com').get('/repos/atom/atom/issues/16292').reply(200, fixtures.issue);
+
+    nock('https://slack.com').post('/api/chat.unfurl', (req) => {
+      // Test that the body posted to the unfurl matches the snapshot
+      expect(req).toMatchSnapshot();
+      const unfurls = JSON.parse(req.unfurls);
+      expect(unfurls['https://github.com/facebook/react/issues/10191'].text).toBe(undefined);
+      return true;
+    }).reply(200, { ok: true });
+
+    const body = fixtures.slack.link_shared();
+
+    body.event.links = [
+      { domain: 'github.com', url: 'https://github.com/facebook/react/issues/10191' },
+      { domain: 'github.com', url: 'https://github.com/atom/atom/issues/16292' },
+    ];
+
+    await request(probot.server).post('/slack/events').send(body).expect(200);
+  });
+
   test('does not unfurl if more than 2 links', async () => {
     const body = fixtures.slack.link_shared();
 
