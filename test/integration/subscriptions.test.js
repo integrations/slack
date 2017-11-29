@@ -7,31 +7,8 @@ const fixtures = require('../fixtures');
 const { probot } = helper;
 
 describe('Integration: subscriptions', () => {
-  describe('with GitHub App installed', () => {
-    beforeEach(async () => {
-      // Create an installation
-      await helper.robot.models.Installation.create({
-        githubId: 1,
-        ownerId: fixtures.org.id,
-      });
-    });
-
-
-    nock.cleanAll();
-  });
-
-  afterEach(() => {
-    // Expect there are no more pending nock requests
-    expect(nock.pendingMocks()).toEqual([]);
-  });
-
-  // todo: failing to install slack app
-
   describe('unauthenticated user', () => {
     test('is prompted to authenticate before subscribing', async () => {
-      nock('https://api.github.com').get('/orgs/atom').times(2).reply(200, fixtures.org);
-      nock('https://api.github.com').get('/repos/atom/atom').times(2).reply(200, fixtures.repo);
-
       // User installs slack app
       nock('https://slack.com').post('/api/oauth.access')
         .reply(200, fixtures.slack.oauth());
@@ -64,7 +41,8 @@ describe('Integration: subscriptions', () => {
         .reply(200, fixtures.github.oauth);
       nock('https://api.github.com').get('/user')
         .reply(200, fixtures.user);
-      const linkConfirmation = nock('https://hooks.slack.com').post('/commands/1234/5678', {
+
+      nock('https://hooks.slack.com').post('/commands/1234/5678', {
         response_type: 'ephemeral',
         attachments: [{
           text: `:white_check_mark: Success! <@${command.user_id}> is now connected to <${fixtures.user.html_url}|@${fixtures.user.login}>`,
@@ -76,8 +54,6 @@ describe('Integration: subscriptions', () => {
         .expect('Location',
           `slack://channel?team=${command.team_id}&channel=${command.channel_id}`,
         );
-
-      expect(linkConfirmation.isDone()).toBe(true);
     });
   });
 
@@ -101,42 +77,95 @@ describe('Integration: subscriptions', () => {
       });
     });
 
-    test('successfully subscribing to a repository', async () => {
-      const requests = {
-        account: nock('https://api.github.com').get('/orgs/kubernetes').reply(200, fixtures.org),
-        repo: nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, fixtures.repo),
-        userInstallationRespositories: nock('https://api.github.com').get('/user/installations/1/repositories').reply(
+    describe('without the GitHub App installed', () => {
+      test('prompts to install app', async () => {
+        nock('https://api.github.com').get('/app').reply(200, fixtures.app);
+        nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
+
+        const command = fixtures.slack.command({
+          text: 'subscribe atom/atom',
+        });
+
+        await request(probot.server).post('/slack/command').send(command)
+           .expect(200)
+           .expect((res) => {
+             expect(res.body).toMatchSnapshot();
+           });
+      });
+    });
+
+    describe('with GitHub App installed', () => {
+      beforeEach(async () => {
+        // Create an installation
+        await helper.robot.models.Installation.create({
+          githubId: 1,
+          ownerId: fixtures.org.id,
+        });
+      });
+
+      test('successfully subscribing and unsubscribing to a repository', async () => {
+        nock('https://api.github.com').get('/orgs/kubernetes').times(2).reply(200, fixtures.org);
+        nock('https://api.github.com').get('/repos/kubernetes/kubernetes').times(2).reply(200, fixtures.repo);
+        nock('https://api.github.com').get('/user/installations/1/repositories').times(2).reply(
           200, {
             repositories: [{
               id: fixtures.repo.id,
             }],
           },
-        ),
-      };
+        );
 
-      const command = fixtures.slack.command({
-        text: 'subscribe https://github.com/kubernetes/kubernetes',
+        const command = fixtures.slack.command({
+          text: 'subscribe https://github.com/kubernetes/kubernetes',
+        });
+
+        await request(probot.server).post('/slack/command').send(command)
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        const unsubscribeCommand = fixtures.slack.command({
+          text: 'unsubscribe https://github.com/kubernetes/kubernetes',
+        });
+
+        await request(probot.server).post('/slack/command').send(unsubscribeCommand)
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
       });
 
-      const req = request(probot.server).post('/slack/command').send(command);
+      test('successfully subscribing with repository shorthand', async () => {
+        nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
+        nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
+        nock('https://api.github.com').get('/user/installations/1/repositories').reply(
+          200, {
+            repositories: [{
+              id: fixtures.repo.id,
+            }],
+          },
+        );
 
-      await req.expect(200).expect((res) => {
-        expect(res.body).toMatchSnapshot();
+        const command = fixtures.slack.command({ text: 'subscribe atom/atom' });
+
+        await request(probot.server).post('/slack/command').send(command)
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
       });
 
-      expect(requests.account.isDone()).toBe(true);
-      expect(requests.repo.isDone()).toBe(true);
-    });
 
-    test('subscribing with a bad url', async () => {
-      const command = fixtures.slack.command({
-        text: 'subscribe wat?',
-      });
+      test('subscribing with a bad url', async () => {
+        const command = fixtures.slack.command({
+          text: 'subscribe wat?',
+        });
 
-      const req = request(probot.server).post('/slack/command').send(command);
+        const req = request(probot.server).post('/slack/command').send(command);
 
-      await req.expect(200).expect((res) => {
-        expect(res.body).toMatchSnapshot();
+        await req.expect(200).expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
       });
     });
   });

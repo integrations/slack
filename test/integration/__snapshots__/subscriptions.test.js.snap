@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: subscriptions with GitHub App installed subsscribing with a bad url 1`] = `
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing with a bad url 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -14,7 +14,7 @@ Object {
 }
 `;
 
-exports[`Integration: subscriptions authenticated user successfully subscribing to a repository 1`] = `
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing to a repository 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -25,7 +25,29 @@ Object {
 }
 `;
 
-exports[`Integration: subscriptions without the GitHub App installed prompts to install app 1`] = `
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing to a repository 2`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "text": "Unubscribed <#C2147483705> from <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing with repository shorthand 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed prompts to install app 1`] = `
 Object {
   "attachments": Array [
     Object {
