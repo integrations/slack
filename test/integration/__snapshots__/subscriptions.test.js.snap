@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: subscriptions subsscribing with a bad url 1`] = `
+exports[`Integration: subscriptions subscribing with a bad url 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -14,11 +14,22 @@ Object {
 }
 `;
 
-exports[`Integration: subscriptions successfully subscribing to a repository 1`] = `
+exports[`Integration: subscriptions successfully subscribing and unsubscribing to a repository 1`] = `
 Object {
   "attachments": Array [
     Object {
       "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions successfully subscribing and unsubscribing to a repository 2`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "text": "Unubscribed <#C2147483705> from <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
   "response_type": "in_channel",

@@ -20,21 +20,31 @@ describe('Integration: subscriptions', () => {
     expect(nock.pendingMocks()).toEqual([]);
   });
 
-  test('successfully subscribing to a repository', async () => {
+  test('successfully subscribing and unsubscribing to a repository', async () => {
     const { probot } = helper;
 
-    nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
-    nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
+    nock('https://api.github.com').get('/orgs/atom').times(2).reply(200, fixtures.org);
+    nock('https://api.github.com').get('/repos/atom/atom').times(2).reply(200, fixtures.repo);
 
     const command = fixtures.slack.command({
       text: 'subscribe https://github.com/atom/atom',
     });
 
-    const req = request(probot.server).post('/slack/command').send(command);
+    await request(probot.server).post('/slack/command').send(command)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
 
-    await req.expect(200).expect((res) => {
-      expect(res.body).toMatchSnapshot();
+    const unsubscribeCommand = fixtures.slack.command({
+      text: 'unsubscribe https://github.com/atom/atom',
     });
+
+    await request(probot.server).post('/slack/command').send(unsubscribeCommand)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
   });
 
   test('successfully subscribing with repository shorthand', async () => {
@@ -45,14 +55,14 @@ describe('Integration: subscriptions', () => {
 
     const command = fixtures.slack.command({ text: 'subscribe atom/atom' });
 
-    const req = request(probot.server).post('/slack/command').send(command);
-
-    await req.expect(200).expect((res) => {
-      expect(res.body).toMatchSnapshot();
-    });
+    await request(probot.server).post('/slack/command').send(command)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
   });
 
-  test('subsscribing with a bad url', async () => {
+  test('subscribing with a bad url', async () => {
     const { probot } = helper;
 
     const command = fixtures.slack.command({ text: 'subscribe wat?' });
