@@ -16,4 +16,12 @@ describe('Account rendering', () => {
     });
     expect(repositoryMessage.getRenderedMessage()).toMatchSnapshot();
   });
+
+  test('works for condensed users', async () => {
+    const repositoryMessage = new Account({
+      account: userFixture,
+      unfurlType: 'condensed',
+    });
+    expect(repositoryMessage.getRenderedMessage()).toMatchSnapshot();
+  });
 });
