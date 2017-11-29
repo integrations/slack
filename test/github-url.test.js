@@ -29,6 +29,9 @@ describe('github-url', () => {
     'https://github.com/bkeepers/dotfiles': {
       type: 'repo', owner: 'bkeepers', repo: 'dotfiles',
     },
+    'foo/bar': {
+      type: 'repo', owner: 'foo', repo: 'bar',
+    },
   };
 
   Object.keys(examples).forEach((link) => {
