@@ -11,6 +11,13 @@ describe('Integration: subscriptions', () => {
       githubId: 1,
       ownerId: fixtures.org.id,
     });
+
+    nock.cleanAll();
+  });
+
+  afterEach(() => {
+    // Expect there are no more pending nock requests
+    expect(nock.pendingMocks()).toEqual([]);
   });
 
   // todo: failing to install slack app
@@ -18,6 +25,8 @@ describe('Integration: subscriptions', () => {
   describe('unauthenticated user', () => {
     test('is prompted to authenticate before subscribing', async () => {
       const { probot } = helper;
+      nock('https://api.github.com').get('/orgs/atom').times(2).reply(200, fixtures.org);
+      nock('https://api.github.com').get('/repos/atom/atom').times(2).reply(200, fixtures.repo);
 
       // User installs slack app
       nock('https://slack.com').post('/api/oauth.access')
