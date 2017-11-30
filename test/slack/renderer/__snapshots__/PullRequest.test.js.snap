@@ -59,7 +59,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "pretext": "[github-slack/app] Pull request merged by bkeepers",
+      "pretext": "Pull request merged by bkeepers",
       "title": "#36 Rearrange logic",
       "title_link": "https://github.com/github-slack/app/pull/36",
       "ts": 1506619320,
@@ -73,11 +73,11 @@ Object {
   "attachments": Array [
     Object {
       "color": "#36a64f",
-      "fallback": "[github-slack/app] Pull request opened by wilhelmklopp",
+      "fallback": "Pull request opened by wilhelmklopp",
       "mrkdwn_in": Array [
         "text",
       ],
-      "pretext": "[github-slack/app] Pull request opened by wilhelmklopp",
+      "pretext": "Pull request opened by wilhelmklopp",
       "text": "1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`",
     },
     Object {
@@ -113,11 +113,11 @@ Object {
   "attachments": Array [
     Object {
       "color": "#36a64f",
-      "fallback": "[github-slack/app] Pull request opened by wilhelmklopp",
+      "fallback": "Pull request opened by wilhelmklopp",
       "mrkdwn_in": Array [
         "text",
       ],
-      "pretext": "[github-slack/app] Pull request opened by wilhelmklopp",
+      "pretext": "Pull request opened by wilhelmklopp",
       "text": "1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`",
     },
     Object {
@@ -159,11 +159,11 @@ Object {
   "attachments": Array [
     Object {
       "color": "#36a64f",
-      "fallback": "[github-slack/app] Pull request opened by wilhelmklopp",
+      "fallback": "Pull request opened by wilhelmklopp",
       "mrkdwn_in": Array [
         "text",
       ],
-      "pretext": "[github-slack/app] Pull request opened by wilhelmklopp",
+      "pretext": "Pull request opened by wilhelmklopp",
       "text": "1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`",
     },
     Object {
@@ -225,11 +225,11 @@ Object {
   "attachments": Array [
     Object {
       "color": "#36a64f",
-      "fallback": "[github-slack/app] Pull request opened by wilhelmklopp",
+      "fallback": "Pull request opened by wilhelmklopp",
       "mrkdwn_in": Array [
         "text",
       ],
-      "pretext": "[github-slack/app] Pull request opened by wilhelmklopp",
+      "pretext": "Pull request opened by wilhelmklopp",
       "text": "1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`",
     },
     Object {
