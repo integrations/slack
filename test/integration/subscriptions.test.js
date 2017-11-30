@@ -9,14 +9,6 @@ const { probot } = helper;
 describe('Integration: subscriptions', () => {
   describe('unauthenticated user', () => {
     test('is prompted to authenticate before subscribing', async () => {
-      // User installs slack app
-      nock('https://slack.com').post('/api/oauth.access')
-        .reply(200, fixtures.slack.oauth());
-
-      await request(probot.server).get('/slack/oauth/callback')
-        .query({ code: 'test' })
-        .expect(302); // .expect('Location', 'https://slack.com/app_redirect?app=123&team=456');
-
       // User types slash command
       const command = fixtures.slack.command({
         text: 'subscribe https://github.com/kubernetes/kubernetes',
@@ -61,15 +53,10 @@ describe('Integration: subscriptions', () => {
   describe('authenticated user', () => {
     beforeEach(async () => {
       // create user
-      const slackWorkspace = await helper.robot.models.SlackWorkspace.create({
-        slackId: 'T0001',
-        accessToken: 'xoxp-token',
-      });
       const user = await helper.robot.models.User.create();
       await helper.robot.models.SlackUser.create({
         slackId: 'U2147483697',
         userId: user.id,
-        slackWorkspaceId: slackWorkspace.id,
       });
       await helper.robot.models.GitHubUser.create({
         githubId: 2,
