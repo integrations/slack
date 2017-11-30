@@ -1,4 +1,4 @@
-const loadModels = require('../../../lib/db/models');
+const loadModels = require('../../../lib/models');
 const logger = require('probot/lib/logger');
 
 const models = loadModels({ log: logger });
