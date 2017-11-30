@@ -1,4 +1,4 @@
-const loadModels = require('../../../lib/db/models');
+const loadModels = require('../../../lib/models');
 const logger = require('probot/lib/logger');
 
 const models = loadModels({ log: logger });
@@ -9,6 +9,6 @@ beforeAll(async () => models.sequelize.authenticate());
 afterAll(async () => models.sequelize.close());
 
 // Clear all data out of the test database
-beforeEach(() => models.sequelize.truncate());
+beforeEach(() => models.sequelize.truncate({ cascade: true }));
 
 module.exports = models;

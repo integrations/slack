@@ -26,7 +26,7 @@ beforeEach(() => {
 
   // Clear all data out of the test database
   return Promise.all([
-    sequelize.truncate(),
+    sequelize.truncate({ cascade: true }),
     storage.clear(),
   ]);
 });
