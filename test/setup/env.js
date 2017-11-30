@@ -5,7 +5,7 @@ const defaults = Object.assign({
   SLACK_CLIENT_SECRET: '',
   SLACK_APP_ID: '',
   GITHUB_CLIENT_ID: '',
-  GITHUB_CLIENT_SECRET: '',
+  GITHUB_CLIENT_SECRET: 'github-secret',
   APP_HOST: 'example.com',
   CRYPTO_SECRET: '',
 }, process.env);

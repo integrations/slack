@@ -31,6 +31,7 @@ describe('Integration: subscriptions', () => {
 
       // User follows link to OAuth
       const [, link, state] = text.match(prompt);
+
       const loginRequest = request(probot.server).get(link);
       await loginRequest.expect(302).expect('Location',
         `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
