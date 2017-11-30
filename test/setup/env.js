@@ -7,7 +7,6 @@ const defaults = Object.assign({
   GITHUB_CLIENT_ID: '',
   GITHUB_CLIENT_SECRET: 'github-secret',
   APP_HOST: 'example.com',
-  CRYPTO_SECRET: '',
 }, process.env);
 
 // Assign defaults to process.env, but don't override existing values if they
