@@ -30,7 +30,7 @@ describe('AbstractIssue rendering', () => {
 
   test('works for getPreText', async () => {
     expect(abstractIssueMessage.getPreText('Issue')).toEqual(
-      '[github-slack/public-test] Issue opened by wilhelmklopp',
+      'Issue opened by wilhelmklopp',
     );
   });
 
@@ -41,7 +41,7 @@ describe('AbstractIssue rendering', () => {
       eventType: 'issues.opened',
     });
     expect(abstractIssueMessage.getPreText('Issue')).toEqual(
-      '[github-slack/public-test] Issue opened by wilhelmklopp',
+      'Issue opened by wilhelmklopp',
     );
   });
 
