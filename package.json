@@ -2,23 +2,31 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "probot run ./lib/index.js",
-    "test": "jest --coverage --forceExit",
+    "start": "probot run --webhook-path=/github/events .",
+    "test": "jest --coverage --runInBand --forceExit",
     "posttest": "npm run lint && node test/slack/renderer/messageBuilderGenerator.js",
     "lint": "eslint lib test",
-    "dev": "nodemon --exec npm start"
+    "dev": "nodemon --exec npm start",
+    "migrate": "sequelize db:migrate"
   },
   "dependencies": {
-    "@slack/client": "^3.11.0",
+    "@slack/client": "^3.14.2",
     "@slack/events-api": "^1.0.1",
+    "axios": "^0.17.1",
     "body-parser": "^1.17.2",
-    "github": "^9.3.1",
+    "github": "^12.0.7",
+    "jsonwebtoken": "^8.1.0",
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
-    "probot": "^3.0.2",
-    "redis": "^2.8.0"
+    "pg": "^6.4.1",
+    "probot": "github:probot/probot",
+    "query-string": "^5.0.1",
+    "redis": "^2.8.0",
+    "sequelize": "^4.20.1",
+    "sequelize-cli": "^3.1.0"
   },
   "devDependencies": {
+    "dotenv": "^4.0.0",
     "eslint": "^3.19.0 || ^4.5.0",
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-config-probot": ">=0.1.0",
@@ -31,7 +39,7 @@
     "pretty-format": "^21.2.1",
     "puppeteer": "^0.12.0",
     "relaxed-json": "^1.0.1",
-    "supertest": "^3.0.0"
+    "supertest": "github:bkeepers/supertest#unknown-errors"
   },
   "engines": {
     "node": "8.x.x",

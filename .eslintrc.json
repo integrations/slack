@@ -1,7 +1,8 @@
 {
   "extends": "airbnb-base",
   "rules": {
-    "consistent-return": 0
+    "consistent-return": 0,
+    "camelcase": 0
   },
   "env": {
     "jest": true

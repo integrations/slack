@@ -33,4 +33,15 @@ describe('Blob rendering', () => {
     const rendered = blobMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
   });
+
+  test('works for condensed unfurls', async () => {
+    const blobMessage = new Blob({
+      repository,
+      blob: contents,
+      line: ['122', '129'],
+      unfurlType: 'condensed',
+    });
+    const rendered = blobMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
 });
