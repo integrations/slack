@@ -37,9 +37,6 @@
     "localtunnel": "^1.8.3",
     "nock": "^9.1.0",
     "nodemon": "^1.11.0",
-    "pretty-format": "^21.2.1",
-    "puppeteer": "^0.12.0",
-    "relaxed-json": "^1.0.1",
     "snappydoo": "github:github-slack/snappydoo",
     "supertest": "github:bkeepers/supertest#unknown-errors"
   },
