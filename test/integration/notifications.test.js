@@ -1,4 +1,3 @@
-const request = require('supertest');
 const nock = require('nock');
 
 const helper = require('.');
