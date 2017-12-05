@@ -4,6 +4,7 @@
   "scripts": {
     "start": "probot run --webhook-path=/github/events .",
     "test": "jest --coverage --runInBand --forceExit",
+    "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start",
     "migrate": "sequelize db:migrate",
