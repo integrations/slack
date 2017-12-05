@@ -94,13 +94,7 @@ describe('Integration: subscriptions', () => {
       test('successfully subscribing and unsubscribing to a repository', async () => {
         nock('https://api.github.com').get('/orgs/kubernetes').times(2).reply(200, fixtures.org);
         nock('https://api.github.com').get('/repos/kubernetes/kubernetes').times(2).reply(200, fixtures.repo);
-        nock('https://api.github.com').get('/user/installations/1/repositories').times(2).reply(
-          200, {
-            repositories: [{
-              id: fixtures.repo.id,
-            }],
-          },
-        );
+        nock('https://api.github.com').get('/repos/kubernetes/kubernetes/pulls?per_page=1').reply(200, {});
 
         const command = fixtures.slack.command({
           text: 'subscribe https://github.com/kubernetes/kubernetes',
@@ -126,13 +120,7 @@ describe('Integration: subscriptions', () => {
       test('successfully subscribing with repository shorthand', async () => {
         nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
         nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
-        nock('https://api.github.com').get('/user/installations/1/repositories').reply(
-          200, {
-            repositories: [{
-              id: fixtures.repo.id,
-            }],
-          },
-        );
+        nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').reply(200, {});
 
         const command = fixtures.slack.command({ text: 'subscribe atom/atom' });
 
