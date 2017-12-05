@@ -1,12 +1,19 @@
 const request = require('supertest');
 const nock = require('nock');
+const moment = require('moment');
 
 const { probot } = require('.');
 const fixtures = require('../fixtures');
 
 describe('Integration: unfurls', () => {
   test('issue', async () => {
-    nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(200, fixtures.repo);
+    nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+      200,
+      {
+        ...fixtures.repo,
+        updated_at: moment().subtract(2, 'months'),
+      },
+    );
 
     nock('https://slack.com').post('/api/chat.unfurl', (body) => {
       // Test that the body posted to the unfurl matches the snapshot
@@ -20,7 +27,13 @@ describe('Integration: unfurls', () => {
 
   test('only unfurls link first time a link is shared', async () => {
     // It should only make one request to this
-    nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(200, fixtures.repo);
+    nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+      200,
+      {
+        ...fixtures.repo,
+        updated_at: moment().subtract(2, 'months'),
+      },
+    );
 
     // And it should only make one request to this
     nock('https://slack.com').post('/api/chat.unfurl', (body) => {
