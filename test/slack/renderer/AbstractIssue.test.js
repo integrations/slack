@@ -1,6 +1,7 @@
 const { AbstractIssue } = require('../../../lib/slack/renderer/abstract-issue');
 const { constants } = require('../../../lib/slack/renderer');
 
+const fixtures = require('../../fixtures');
 const issuesOpened = require('../../fixtures/webhooks/issues.opened.json');
 
 describe('AbstractIssue rendering', () => {
@@ -30,7 +31,7 @@ describe('AbstractIssue rendering', () => {
 
   test('works for getPreText', async () => {
     expect(abstractIssueMessage.getPreText('Issue')).toEqual(
-      '[github-slack/public-test] Issue opened by wilhelmklopp',
+      'Issue opened by wilhelmklopp',
     );
   });
 
@@ -41,7 +42,7 @@ describe('AbstractIssue rendering', () => {
       eventType: 'issues.opened',
     });
     expect(abstractIssueMessage.getPreText('Issue')).toEqual(
-      '[github-slack/public-test] Issue opened by wilhelmklopp',
+      'Issue opened by wilhelmklopp',
     );
   });
 
@@ -56,5 +57,17 @@ describe('AbstractIssue rendering', () => {
 
   test('works for getBaseMessage', async () => {
     expect(abstractIssueMessage.getBaseMessage()).toMatchSnapshot();
+  });
+
+  test('converts HTML body to mrkdwn', () => {
+    const message = new AbstractIssue({
+      abstractIssue: Object.assign({
+        body_html: '<strong>Hello</strong> <em>cruel</em> <a href="http://example.com">world</a>',
+      }, fixtures.issue),
+      repository: fixtures.repo,
+      unfurlType: 'full',
+    });
+
+    expect(message.getCore().text).toEqual('*Hello* _cruel_ <http://example.com|world>');
   });
 });
