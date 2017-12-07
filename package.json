@@ -37,6 +37,7 @@
     "localtunnel": "^1.8.3",
     "nock": "^9.1.0",
     "nodemon": "^1.11.0",
+    "snappydoo": "github:github-slack/snappydoo",
     "supertest": "github:bkeepers/supertest#unknown-errors"
   },
   "engines": {
@@ -53,5 +54,13 @@
       "lib/**/*.{js,jsx}"
     ]
   },
-  "main": "lib/index.js"
+  "main": "lib/index.js",
+  "snappydoo": {
+    "in": "test/slack/renderer/__snapshots__",
+    "out": "test/slack/renderer/renders",
+    "exclude": [
+      "AbstractIssue",
+      "Message"
+    ]
+  }
 }
