@@ -48,4 +48,19 @@ describe('SubscribeFlowMessage rendering', () => {
     });
     expect(message.getRenderedMessage()).toMatchSnapshot();
   });
+  test('works for direct messages', async () => {
+    const message = new SubscribeFlowMessage({
+      channelId: 'D1234',
+      fromRepository: repoFixture,
+    });
+    expect(message.getRenderedMessage()).toMatchSnapshot();
+  });
+
+  test('works for MPIM messages', async () => {
+    const message = new SubscribeFlowMessage({
+      channelId: 'G1234',
+      fromRepository: repoFixture,
+    });
+    expect(message.getRenderedMessage()).toMatchSnapshot();
+  });
 });
