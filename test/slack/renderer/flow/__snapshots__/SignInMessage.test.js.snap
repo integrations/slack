@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInMessage rendering works 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "<https://example.org/github/oauth/login?state=abcdef|Finish connecting your GitHub account>",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;

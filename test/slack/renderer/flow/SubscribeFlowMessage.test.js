@@ -1,6 +1,5 @@
 const { SubscribeFlowMessage } = require('../../../../lib/slack/renderer/flow');
 const repoFixture = require('../../../fixtures/repo.json');
-// const orgFixture = require('../../fixtures/org.json');
 
 describe('SubscribeFlowMessage rendering', () => {
   test('works for error: no-installation', async () => {
