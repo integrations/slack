@@ -2,7 +2,6 @@ const request = require('supertest');
 const nock = require('nock');
 
 const helper = require('.');
-const fixtures = require('../fixtures');
 
 const { probot } = helper;
 
@@ -16,7 +15,6 @@ describe('Integration: slack authentication', () => {
     const location = res.headers.location;
     const pattern = /^https:\/\/slack\.com\/oauth\/authorize\?client_id=(?:.*)&state=(.*)&scope=(?:.*)$/;
     expect(location).toMatch(pattern);
-    const [, state] = res.headers.location.match(pattern);
 
     const code = 'code-from-slack';
 
@@ -26,7 +24,7 @@ describe('Integration: slack authentication', () => {
       code,
     }).reply(200, access);
 
-    await request(probot.server).get('/slack/oauth/callback').query({ code, state })
+    await request(probot.server).get('/slack/oauth/callback').query({ code })
       .expect(302)
       .expect('Location', `https://slack.com/app_redirect?app=${access.app_id}&team=${access.team_id}`);
 
