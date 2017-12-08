@@ -13,7 +13,7 @@ describe('Integration: slack authentication', () => {
       .expect(302);
 
     const location = res.headers.location;
-    const pattern = /^https:\/\/slack\.com\/oauth\/authorize\?client_id=(?:.*)&state=(.*)&scope=(?:.*)$/;
+    const pattern = /^https:\/\/slack\.com\/oauth\/authorize\?client_id=(?:.*)&scope=(?:.*)$/;
     expect(location).toMatch(pattern);
 
     const code = 'code-from-slack';
