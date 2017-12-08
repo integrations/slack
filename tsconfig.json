@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "allowJs": true,
+        "target": "es2017",
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "sourceMap": false,
+        "allowSyntheticDefaultImports": true,
+        "alwaysStrict": true,
+    },
+    "include": [
+        "./lib/*"
+    ]
+}

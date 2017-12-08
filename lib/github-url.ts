@@ -10,7 +10,10 @@ const nwo = `${base}${owner}\/${repo}`;
 
 const line = 'L(:<line>\\d+)';
 
-const routes = {
+interface routes {
+  [key: string]: string;
+}
+const routes: routes = {
   blob: `^${nwo}\/blob/(:<ref>[^\/]+)\/(:<path>.+?)(?:#${line}(?:-${line})?)?$`, // (?:#L(:<start>\\d+)(?-(:<end>\\d+))?)?
   comment: `^${nwo}\/(?:issues|pull)\/(:<number>\\d+)#issuecomment-(:<id>\\d+)`,
   issue: `^${nwo}\/issues\/(:<number>\\d+)$`,
@@ -19,14 +22,19 @@ const routes = {
   account: `^${base}${owner}$`,
 };
 
-module.exports = (url) => {
+module.exports = (url: string) => {
   for (const type in routes) {
     const match = named(new RegExp(routes[type])).exec(url);
     if (match) {
-      const result = {};
-      result.type = type;
+      interface result {
+        type: string,
+        [key: string]: string,
+      }
+      const result: result = {
+        type,
+      };
       Object.keys(match.captures).forEach((name) => {
-        const values = match.captures[name].filter(value => value !== undefined);
+        const values = match.captures[name].filter((value: string | undefined) => value !== undefined);
         if (values.length > 1) {
           result[name] = values;
         } else if (match.captures[name][0] !== undefined) {
