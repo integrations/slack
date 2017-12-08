@@ -52,13 +52,20 @@ describe('Integration: subscriptions', () => {
 
   describe('authenticated user', () => {
     beforeEach(async () => {
+      const { SlackWorkspace, SlackUser, GitHubUser, User } = helper.robot.models;
+
       // create user
-      const user = await helper.robot.models.User.create();
-      await helper.robot.models.SlackUser.create({
+      const slackWorkspace = await SlackWorkspace.create({
+        slackId: 'T0001',
+        accessToken: 'xoxp-token',
+      });
+      const user = await User.create();
+      await SlackUser.create({
         slackId: 'U2147483697',
         userId: user.id,
+        slackWorkspaceId: slackWorkspace.id,
       });
-      await helper.robot.models.GitHubUser.create({
+      await GitHubUser.create({
         githubId: 2,
         userId: user.id,
         accessToken: 'github-token',
