@@ -28,8 +28,7 @@ module.exports = {
 
     queryInterface.addColumn('SlackUsers', 'slackWorkspaceId', {
       type: Sequelize.BIGINT,
-      // FIXME: uncomment once everything else is actually implmented
-      // allowNull: false,
+      allowNull: false,
     });
 
     queryInterface.addConstraint('SlackUsers', ['slackId', 'slackWorkspaceId'],
@@ -40,7 +39,7 @@ module.exports = {
     );
   },
   down: (queryInterface) => {
-    // queryInterface.removeConstraint('SlackUsers', 'userWorkspaceUniqueConstraint');
+    queryInterface.removeConstraint('SlackUsers', 'userWorkspaceUniqueConstraint');
     queryInterface.removeColumn('SlackUsers', 'slackWorkspaceId');
     queryInterface.dropTable('SlackWorkspaces');
   },
