@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignInMessage rendering works 1`] = `
+exports[`SignIn rendering works 1`] = `
 Object {
   "attachments": Array [
     Object {
