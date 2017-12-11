@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "./dist",
         "allowJs": true,
-        "target": "es2017",
+        "target": "es2015",
         "noImplicitAny": true,
         "moduleResolution": "node",
         "sourceMap": false,
@@ -10,6 +10,6 @@
         "alwaysStrict": true,
     },
     "include": [
-        "./lib/*"
+        "./lib/**/*"
     ]
 }

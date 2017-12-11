@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@types/jest": "^21.1.8",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "dotenv": "^4.0.0",
     "eslint": "^3.19.0 || ^4.5.0",
     "eslint-config-airbnb-base": "^11.3.2",
@@ -58,6 +59,7 @@
     "collectCoverageFrom": [
       "lib/**/*.{js,ts}"
     ],
+    "mapCoverage": true,
     "moduleFileExtensions": [
       "ts",
       "js",
