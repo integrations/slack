@@ -7,7 +7,8 @@
     "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start",
-    "migrate": "sequelize db:migrate"
+    "migrate": "sequelize db:migrate",
+    "postinstall": "tsc"
   },
   "dependencies": {
     "@slack/client": "^3.14.2",
@@ -24,7 +25,8 @@
     "query-string": "^5.0.1",
     "redis": "^2.8.0",
     "sequelize": "^4.20.1",
-    "sequelize-cli": "^3.1.0"
+    "sequelize-cli": "^3.1.0",
+    "typescript": "^2.6.2"
   },
   "devDependencies": {
     "@types/jest": "^21.1.8",
@@ -43,7 +45,6 @@
     "snappydoo": "github:github-slack/snappydoo",
     "supertest": "github:bkeepers/supertest#unknown-errors",
     "ts-jest": "^21.2.4",
-    "typescript": "^2.6.2",
     "typescript-eslint-parser": "^9.0.1"
   },
   "engines": {
