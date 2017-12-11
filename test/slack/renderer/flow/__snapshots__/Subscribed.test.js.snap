@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Subscribed message rendering works for successfully subscribed 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "Subscribed <#C1234> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Subscribed message rendering works for successfully unsubscribed 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "Unsubscribed <#C1234> from <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
