@@ -55,11 +55,19 @@ exports[`Integration: subscriptions authenticated user without the GitHub App in
 Object {
   "attachments": Array [
     Object {
+      "actions": Array [
+        Object {
+          "style": "primary",
+          "text": "Install GitHub App",
+          "type": "button",
+          "url": "https://github.com/apps/slack-bkeepers",
+        },
+      ],
       "color": "danger",
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Looks like the app isn't installed on your repository. <https://github.com/apps/slack-bkeepers|Install the GitHub App> to proceed.",
+      "text": "Looks like the app isn't installed on your repository. Install it to proceed.",
     },
   ],
   "response_type": "ephemeral",
