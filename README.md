@@ -23,6 +23,8 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
 
 1. Go to the **OAuth & Permissions** tab, scroll down to **Select Permission Scopes**, add `links:read`, `links:write`, and `chat:write:bot` and click **Save Changes**
 
+1. Click **Add a new Redirect URL** and enter `https://DOMAN/slack/oauth/callback` and click **Save URLs**
+
 1. On the **Install App** tab, click **Install App to Workspace**, click **Authorize**, and set `SLACK_ACCESS_TOKEN` in `.env` to the value of **OAuth Access Token**
 
 1. Run `script/server` to start the server
