@@ -56,7 +56,7 @@
   },
   "main": "lib/index.js",
   "snappydoo": {
-    "in": "test/slack/renderer/__snapshots__",
+    "in": "test/slack/renderer",
     "out": "test/slack/renderer/renders",
     "exclude": [
       "AbstractIssue",
