@@ -4,8 +4,17 @@ exports[`SignIn rendering works 1`] = `
 Object {
   "attachments": Array [
     Object {
+      "actions": Array [
+        Object {
+          "style": "primary",
+          "text": "Connect GitHub account",
+          "type": "button",
+          "url": "https://example.org/github/oauth/login?state=abcdef",
+        },
+      ],
       "color": "#24292f",
-      "text": "<https://example.org/github/oauth/login?state=abcdef|Finish connecting your GitHub account>",
+      "fallback": "Finish connecting your GitHub account",
+      "text": "Finish connecting your GitHub account",
     },
   ],
   "response_type": "ephemeral",
