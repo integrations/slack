@@ -18,4 +18,20 @@ describe('Subscribed message rendering', () => {
     });
     expect(message.toJSON()).toMatchSnapshot();
   });
+
+  test('works for direct messages', async () => {
+    const message = new Subscribed({
+      channelId: 'D1234',
+      fromRepository: repoFixture,
+    });
+    expect(message.toJSON()).toMatchSnapshot();
+  });
+
+  test('works for MPIM messages', async () => {
+    const message = new Subscribed({
+      channelId: 'G1234',
+      fromRepository: repoFixture,
+    });
+    expect(message.toJSON()).toMatchSnapshot();
+  });
 });
