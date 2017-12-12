@@ -1,4 +1,4 @@
-const { ErrorMessage } = require('../../../../lib/slack/renderer/flow/error-message');
+const ErrorMessage = require('../../../../lib/slack/renderer/flow/error-message');
 
 describe('ErrorMessage', () => {
   test('is ephemeral and has danger color', async () => {
