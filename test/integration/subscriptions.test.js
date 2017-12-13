@@ -17,9 +17,11 @@ describe('Integration: subscriptions', () => {
       const res = await req.expect(200);
 
       // User is shown ephemeral prompt to authenticate
-      const prompt = /^<https:\/\/example\.com(\/github\/oauth\/login\?state=(.*))\|Finish connecting your GitHub account>$/;
-      const text = res.body.attachments[0].text;
-      expect(text).toMatch(prompt);
+      const promptUrl = /^https:\/\/example\.com(\/github\/oauth\/login\?state=(.*))/;
+      const text = res.body.attachments[0].actions[0].text;
+      const url = res.body.attachments[0].actions[0].url;
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
     });
   });
 
