@@ -7,7 +7,13 @@ const defaults = Object.assign({
   GITHUB_CLIENT_ID: '',
   GITHUB_CLIENT_SECRET: 'github-secret',
   APP_HOST: 'example.com',
+  // Uncomment to enable long stack traces and warnings from Bluebird
+  // BLUEBIRD_DEBUG: 'true',
 }, process.env);
+
+const Sequelize = require('sequelize');
+
+Sequelize.Promise.longStackTraces();
 
 // Assign defaults to process.env, but don't override existing values if they
 // are already set in the environment.
