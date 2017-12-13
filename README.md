@@ -21,7 +21,7 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
 
 1. On the **Basic Information** tab, copy the **Verification Token** under the **App Credentials** section and set the `SLACK_VERIFICATION_TOKEN` in `.env`
 
-1. Go to the **OAuth & Permissions** tab, scroll down to **Select Permission Scopes**, add `links:read`, `links:write`, and `chat:write:usr` and click **Save Changes**
+1. Go to the **OAuth & Permissions** tab, scroll down to **Select Permission Scopes**, add `links:read`, `links:write`, and `chat:write:user` and click **Save Changes**
 
 1. Click **Add a new Redirect URL** and enter `https://DOMAN/slack/oauth/callback` and click **Save URLs**
 
