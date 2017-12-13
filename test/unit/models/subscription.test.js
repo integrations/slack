@@ -33,6 +33,16 @@ describe('model: Subscription', () => {
     });
   });
 
+  describe('lookup', () => {
+    test('returns the workspace', async () => {
+      const resource = 1;
+      await Subscription.subscribe(resource, channel, workspace.id);
+      const [subscription] = await Subscription.lookup(resource, channel);
+      expect(subscription.SlackWorkspace).toBeDefined();
+      expect(subscription.SlackWorkspace.equals(workspace)).toBe(true);
+    });
+  });
+
   describe('unsubscribe', () => {
     test('removes subscriptions for resource', async () => {
       const resource = 1;
