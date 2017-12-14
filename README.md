@@ -21,7 +21,7 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
 
 1. On the **Basic Information** tab, copy the values under the **App Credentials** section into `.env`.
 
-1. Go to the **OAuth & Permissions** tab, click **Add a new Redirect URL** and enter `https://DOMAN/slack/oauth/callback` and click **Save URLs**
+1. Go to the **OAuth & Permissions** tab, click **Add a new Redirect URL** and enter `https://DOMAIN/slack/oauth/callback` and click **Save URLs**
 
 1. Scroll down to **Select Permission Scopes**, add `links:read`, `links:write`, and `chat:write:user` and click **Save Changes**
 
@@ -29,7 +29,7 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
 
 1. Run `script/server` to start the server
 
-1. On the **Event Subscriptions** tab, set **Request URL** to `https://YOUR-USERNAME.localtunnel.me/slack/events`, replacing `YOUR-USERNAME` with the value that shows up when the server starts. Slack should show **Verified ✓** if all is well.
+1. On the **Event Subscriptions** tab, set **Request URL** to `https://DOMAIN/slack/events`, replacing `YOUR-USERNAME` with the value that shows up when the server starts. Slack should show **Verified ✓** if all is well.
 
 1. Scroll down to **App Unfurl Domains**, click **Add Domain** and enter `github.com`
 
