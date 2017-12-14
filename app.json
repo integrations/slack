@@ -48,7 +48,7 @@
     }
   },
   "addons": [
-    "heroku-postgresql",
-    "heroku-redis"
+    {"plan": "heroku-postgresql", "as": "DATABASE"},
+    {"plan": "heroku-redis", "as": "REDIS"}
   ]
 }
