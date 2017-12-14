@@ -8,7 +8,6 @@ Object {
         "text",
       ],
       "text": "Subscribe to notifications for a repository:
-
 \`/github subscribe owner/repository\`",
     },
     Object {
@@ -16,7 +15,6 @@ Object {
         "text",
       ],
       "text": "Connect your GitHub account:
-
 \`/github signin\`",
     },
     Object {
@@ -24,7 +22,6 @@ Object {
         "text",
       ],
       "text": "Show this help message:
-
 \`/github help\`",
     },
   ],
