@@ -24,7 +24,7 @@ describe('Integration: signin', () => {
       expect(url).toMatch(promptUrl);
 
       // User follows link to OAuth
-      const [, link, state] = text.match(promptUrl);
+      const [, link, state] = url.match(promptUrl);
 
       const loginRequest = request(probot.server).get(link);
       await loginRequest.expect(302).expect('Location',
