@@ -21,9 +21,6 @@
     "APP_HOST": {
       "description": "The public domain name of this app"
     },
-    "DATABASE_URL": {
-      "description": "PostgreSQL database"
-    },
     "LOG_FORMAT": {
       "description": "https://probot.github.io/docs/logging/#log-formats",
       "value": "json",
@@ -33,9 +30,6 @@
       "description": "trace, debug, info, warn, error, fatal",
       "value": "debug",
       "required": false
-    },
-    "REDIS_URL": {
-      "description": "URL to redis service"
     },
     "SENTRY_DSN": {
       "description": "Sentry.io configuration: https://docs.sentry.io/quickstart/#configure-the-dsn"
@@ -52,5 +46,9 @@
     "SLACK_VERIFICATION_TOKEN": {
       "description": "The verification token of the Slack App"
     }
-  }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ]
 }
