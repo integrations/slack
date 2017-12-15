@@ -17,51 +17,31 @@ describe('Integration: subscriptions', () => {
       const res = await req.expect(200);
 
       // User is shown ephemeral prompt to authenticate
-      const prompt = /^<https:\/\/example\.com(\/github\/oauth\/login\?state=(.*))\|Finish connecting your GitHub account>$/;
-      const text = res.body.attachments[0].text;
-      expect(text).toMatch(prompt);
-
-      // User follows link to OAuth
-      const [, link, state] = text.match(prompt);
-
-      const loginRequest = request(probot.server).get(link);
-      await loginRequest.expect(302).expect('Location',
-        `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
-      );
-
-      // GitHub redirects back, authenticates user and process subscription
-      nock('https://github.com').post('/login/oauth/access_token')
-        .reply(200, fixtures.github.oauth);
-      nock('https://api.github.com').get('/user')
-        .reply(200, fixtures.user);
-
-      nock('https://hooks.slack.com').post('/commands/1234/5678', {
-        response_type: 'ephemeral',
-        attachments: [{
-          text: `:white_check_mark: Success! <@${command.user_id}> is now connected to <${fixtures.user.html_url}|@${fixtures.user.login}>`,
-        }],
-      }).reply(200);
-
-      await request(probot.server).get('/github/oauth/callback').query({ state })
-        .expect(302)
-        .expect('Location',
-          `slack://channel?team=${command.team_id}&channel=${command.channel_id}`,
-        );
+      const promptUrl = /^https:\/\/example\.com(\/github\/oauth\/login\?state=(.*))/;
+      const text = res.body.attachments[0].actions[0].text;
+      const url = res.body.attachments[0].actions[0].url;
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
     });
   });
 
   describe('authenticated user', () => {
     beforeEach(async () => {
+      const { SlackWorkspace, SlackUser, GitHubUser } = helper.robot.models;
+
       // create user
-      const user = await helper.robot.models.User.create();
-      await helper.robot.models.SlackUser.create({
-        slackId: 'U2147483697',
-        userId: user.id,
-      });
-      await helper.robot.models.GitHubUser.create({
-        githubId: 2,
-        userId: user.id,
+      const user = await GitHubUser.create({
+        id: 2,
         accessToken: 'github-token',
+      });
+      const slackWorkspace = await SlackWorkspace.create({
+        slackId: 'T0001',
+        accessToken: 'xoxp-token',
+      });
+      await SlackUser.create({
+        slackId: 'U2147483697',
+        slackWorkspaceId: slackWorkspace.id,
+        githubId: user.id,
       });
     });
 

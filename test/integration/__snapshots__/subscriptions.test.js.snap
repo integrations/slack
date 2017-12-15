@@ -11,6 +11,7 @@ Object {
       "text": "\`wat?\` does not appear to be a GitHub link.",
     },
   ],
+  "response_type": "ephemeral",
 }
 `;
 
@@ -18,6 +19,7 @@ exports[`Integration: subscriptions authenticated user with GitHub App installed
 Object {
   "attachments": Array [
     Object {
+      "color": "#24292f",
       "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
@@ -29,7 +31,8 @@ exports[`Integration: subscriptions authenticated user with GitHub App installed
 Object {
   "attachments": Array [
     Object {
-      "text": "Unubscribed <#C2147483705> from <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "color": "#24292f",
+      "text": "Unsubscribed <#C2147483705> from <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
   "response_type": "in_channel",
@@ -40,6 +43,7 @@ exports[`Integration: subscriptions authenticated user with GitHub App installed
 Object {
   "attachments": Array [
     Object {
+      "color": "#24292f",
       "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
@@ -51,8 +55,21 @@ exports[`Integration: subscriptions authenticated user without the GitHub App in
 Object {
   "attachments": Array [
     Object {
-      "text": "<https://github.com/apps/slack-bkeepers|Install the GitHub App>",
+      "actions": Array [
+        Object {
+          "style": "primary",
+          "text": "Install GitHub App",
+          "type": "button",
+          "url": "https://github.com/apps/slack-bkeepers",
+        },
+      ],
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Looks like the app isn't installed on your repository. Install it to proceed.",
     },
   ],
+  "response_type": "ephemeral",
 }
 `;

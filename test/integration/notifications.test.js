@@ -11,16 +11,23 @@ const pullRequestPayload = require('../fixtures/webhooks/pull_request.opened');
 describe('Integration: notifications', () => {
   describe('to a subscribed channel', () => {
     beforeEach(async () => {
-      const { Subscription } = helper.robot.models;
+      const { Subscription, SlackWorkspace } = helper.robot.models;
+
+      const workspace = await SlackWorkspace.create({
+        slackId: 'T001',
+        accessToken: 'test',
+      });
 
       await Subscription.create({
         githubId: issuePayload.repository.id,
         channelId: 'C001',
+        slackWorkspaceId: workspace.id,
       });
 
       await Subscription.create({
         githubId: pullRequestPayload.repository.id,
         channelId: 'C001',
+        slackWorkspaceId: workspace.id,
       });
     });
 

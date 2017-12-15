@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InstallGitHubApp message rendering works 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "actions": Array [
+        Object {
+          "style": "primary",
+          "text": "Install GitHub App",
+          "type": "button",
+          "url": "https://github.com/apps/url-to-slack-app",
+        },
+      ],
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Looks like the app isn't installed on your repository. Install it to proceed.",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
