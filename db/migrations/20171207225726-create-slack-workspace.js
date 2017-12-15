@@ -28,7 +28,6 @@ module.exports = {
 
     queryInterface.addColumn('SlackUsers', 'slackWorkspaceId', {
       type: Sequelize.BIGINT,
-      allowNull: false,
     });
 
     queryInterface.addConstraint('SlackUsers', ['slackId', 'slackWorkspaceId'],
