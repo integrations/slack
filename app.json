@@ -48,7 +48,16 @@
     }
   },
   "addons": [
-    {"plan": "heroku-postgresql", "as": "DATABASE"},
-    {"plan": "heroku-redis", "as": "REDIS"}
-  ]
+    {
+      "plan": "heroku-postgresql",
+      "as": "DATABASE"
+    },
+    {
+      "plan": "heroku-redis",
+      "as": "REDIS"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "sequelize db:migrate"
+  }
 }
