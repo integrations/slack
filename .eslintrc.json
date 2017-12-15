@@ -11,5 +11,11 @@
   "parser": "typescript-eslint-parser",
   "plugins": [
       "typescript"
-  ]
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": true,
+      "eslint-import-resolver-typescript": true
+    }
+  }
 }
