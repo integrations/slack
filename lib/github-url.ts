@@ -2,7 +2,8 @@
 /* eslint-disable no-useless-escape, guard-for-in, no-restricted-syntax */
 /* tslint:disable:forin */
 
-import { named } from "named-regexp";
+// tslint:disable-next-line:no-var-requires (no types for named-regexp)
+const { named } =  require("named-regexp");
 
 const base = "(?:https:\/\/github.com\/)?";
 const owner = "(:<owner>[^\/]+)";
