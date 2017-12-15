@@ -1,4 +1,4 @@
-const gh = require('../lib/github-url');
+const gh = require('../lib/github-url.ts');
 
 describe('github-url', () => {
   const examples = {
