@@ -1,10 +1,20 @@
 const request = require('supertest');
 const nock = require('nock');
 
-const { probot } = require('.');
+const helper = require('.');
 const fixtures = require('../fixtures');
 
+const { probot } = helper;
+
 describe('Integration: unfurls', () => {
+  beforeEach(async () => {
+    const { SlackWorkspace } = helper.robot.models;
+    await SlackWorkspace.create({
+      slackId: 'T000A',
+      accessToken: 'xoxa-token',
+    });
+  });
+
   test('issue', async () => {
     nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(200, fixtures.repo);
 

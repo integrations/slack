@@ -4,10 +4,57 @@
       "description": "the private key you downloaded when creating the GitHub App"
     },
     "APP_ID": {
-      "description": "the ID of your GitHub App"
+      "description": "the ID of the GitHub App"
     },
     "WEBHOOK_SECRET": {
-      "description": "the secret configured for your GitHub App"
+      "description": "the secret configured for the GitHub App"
+    },
+    "GITHUB_CLIENT_ID": {
+      "description": "The client ID of the GitHub App"
+    },
+    "GITHUB_CLIENT_SECRET": {
+      "description": "The client secret of the GitHub App"
+    },
+    "GITHUB_TOKEN": {
+      "description": "Token of a GitHub user used for unfurling public URLs"
+    },
+    "APP_HOST": {
+      "description": "The public domain name of this app"
+    },
+    "LOG_FORMAT": {
+      "description": "https://probot.github.io/docs/logging/#log-formats",
+      "value": "json",
+      "required": false
+    },
+    "LOG_LEVEL": {
+      "description": "trace, debug, info, warn, error, fatal",
+      "value": "debug",
+      "required": false
+    },
+    "SENTRY_DSN": {
+      "description": "Sentry.io configuration: https://docs.sentry.io/quickstart/#configure-the-dsn"
+    },
+    "SLACK_CLIENT_ID": {
+      "description": "The client ID of the Slack app"
+    },
+    "SLACK_CLIENT_SECRET": {
+      "description": "The client secret of the Slack app"
+    },
+    "SLACK_VERIFICATION_TOKEN": {
+      "description": "The verification token of the Slack App"
     }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "as": "DATABASE"
+    },
+    {
+      "plan": "heroku-redis",
+      "as": "REDIS"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "sequelize db:migrate"
   }
 }

@@ -7,6 +7,16 @@ const fixtures = require('../fixtures');
 const { probot } = helper;
 
 describe('Integration: signin', () => {
+  beforeEach(async () => {
+    const { SlackWorkspace } = helper.robot.models;
+
+    // create workspace
+    await SlackWorkspace.create({
+      slackId: 'T0001',
+      accessToken: 'xoxp-token',
+    });
+  });
+
   describe('unauthenticated user', () => {
     test('is prompted to authenticate', async () => {
       // User types slash command
