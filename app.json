@@ -34,9 +34,6 @@
     "SENTRY_DSN": {
       "description": "Sentry.io configuration: https://docs.sentry.io/quickstart/#configure-the-dsn"
     },
-    "SLACK_ACCESS_TOKEN": {
-      "description": "Token for GitHub's Slack team"
-    },
     "SLACK_CLIENT_ID": {
       "description": "The client ID of the Slack app"
     },
