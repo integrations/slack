@@ -1,5 +1,6 @@
 const defaults = Object.assign({
   LOG_LEVEL: 'error',
+  SLACK_OLD_VERIFICATION_TOKEN: 'secret',
   SLACK_VERIFICATION_TOKEN: 'secret',
   SLACK_ACCESS_TOKEN: '',
   SLACK_CLIENT_ID: 'slack-client-id',
