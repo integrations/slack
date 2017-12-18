@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Help rendering works 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for a repository:
+\`/github subscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Connect your GitHub account:
+\`/github signin\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Show this help message:
+\`/github help\`",
+    },
+  ],
+  "response_type": "ephemeral",
+  "text": ":wave: Need some help with \`/github\`?",
+}
+`;
