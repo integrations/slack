@@ -32,4 +32,19 @@ describe('Integration: slack authentication', () => {
     const workspace = await SlackWorkspace.findOne({ where: { slackId: access.team_id } });
     expect(workspace.accessToken).toEqual(access.access_token);
   });
+
+  test('updates the access token', async () => {
+    const { SlackWorkspace } = helper.robot.models;
+
+    const workspace = await SlackWorkspace.create({ slackId: access.team_id, accessToken: 'old' });
+
+    nock('https://slack.com').post('/api/oauth.token').reply(200, access);
+
+    await request(probot.server).get('/slack/oauth/callback').expect(302);
+
+    await workspace.reload();
+
+    expect(workspace.accessToken).not.toEqual('old');
+    expect(workspace.accessToken).toEqual(access.access_token);
+  });
 });
