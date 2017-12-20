@@ -1,13 +1,5 @@
 const request = require('supertest');
-const nock = require('nock');
-
-const helper = require('.');
-
-const { probot } = helper;
-
-const fixtures = require('../fixtures');
-
-const access = fixtures.slack.oauth.token;
+const { probot } = require('.');
 
 describe('Integration: frontend', () => {
   test('/', async () => {
