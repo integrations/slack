@@ -5,9 +5,15 @@ const helper = require('.');
 
 const { probot } = helper;
 
-const access = require('../fixtures/slack/oauth.token');
+const fixtures = require('../fixtures');
+
+const access = fixtures.slack.oauth.token;
 
 describe('Integration: slack authentication', () => {
+  beforeEach(() => {
+    delete process.env.ALLOWED_TEAMS;
+  });
+
   test('/login', async () => {
     const res = await request(probot.server).get('/slack/oauth/login')
       .expect(302);
@@ -46,5 +52,28 @@ describe('Integration: slack authentication', () => {
 
     expect(workspace.accessToken).not.toEqual('old');
     expect(workspace.accessToken).toEqual(access.access_token);
+  });
+
+  test('denies teams that are not allowed', async () => {
+    process.env.ALLOWED_TEAMS = 'not-your-team,not-your-team-either';
+
+    nock('https://slack.com').post('/api/oauth.token').reply(200, access);
+    nock('https://slack.com').post('/api/team.info').reply(200, fixtures.slack.team.info);
+    nock('https://slack.com').post('/api/auth.revoke').reply(200, { ok: true });
+
+    await request(probot.server).get('/slack/oauth/callback')
+      .expect(302)
+      .expect('Location', 'denied');
+  });
+
+  test('allows specified teams', async () => {
+    process.env.ALLOWED_TEAMS = 'someone-else,example';
+
+    nock('https://slack.com').post('/api/oauth.token').reply(200, access);
+    nock('https://slack.com').post('/api/team.info').reply(200, fixtures.slack.team.info);
+
+    await request(probot.server).get('/slack/oauth/callback')
+      .expect(302)
+      .expect('Location', `https://slack.com/app_redirect?app=${access.app_id}&team=${access.team_id}`);
   });
 });
