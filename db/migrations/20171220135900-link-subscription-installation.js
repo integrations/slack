@@ -7,6 +7,8 @@ module.exports = {
         model: 'Installations',
         key: 'id',
       },
+      onDelete: 'cascade',
+      hooks: true,
     });
   },
 
