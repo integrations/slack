@@ -63,7 +63,7 @@ describe('Integration: slack authentication', () => {
 
     await request(probot.server).get('/slack/oauth/callback')
       .expect(302)
-      .expect('Location', 'denied');
+      .expect('Location', '/denied');
   });
 
   test('allows specified teams', async () => {
