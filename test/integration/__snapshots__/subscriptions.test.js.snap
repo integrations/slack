@@ -60,7 +60,7 @@ Object {
           "style": "primary",
           "text": "Install GitHub App",
           "type": "button",
-          "url": "https://github.com/apps/slack-bkeepers",
+          "url": "https://github.com/apps/slack-bkeepers/installations/new/permissions?target_id=13629408",
         },
       ],
       "color": "danger",

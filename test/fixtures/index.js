@@ -28,22 +28,12 @@ module.exports = {
       response_url: 'https://hooks.slack.com/commands/1234/5678',
       trigger_id: '13345224609.738474920.8088930838d88f008e0',
     }, attrs),
-
-    oauth: attrs => Object.assign({
-      ok: true,
-      access_token: 'xoxp-a-b-c-d',
-      team_name: 'GitHub Slack Dev',
-      team_id: 'T0001',
-      acceptedScopes: [],
-      scope: 'identify,commands,chat:write:bot,links:read,links:write',
-      scopes: [
-        'identify',
-        'commands',
-        'chat:write:bot',
-        'links:read',
-        'links:write',
-      ],
-    }, attrs),
+    team: {
+      info: require('./slack/team.info'),
+    },
+    oauth: {
+      token: require('./slack/oauth.token'),
+    },
   },
   github: {
     oauth: querystring.stringify({
