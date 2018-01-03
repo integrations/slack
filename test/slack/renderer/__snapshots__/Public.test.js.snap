@@ -8,11 +8,11 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#24292f",
-      "fallback": "github-slack/private-turned-public has been open sourced!",
+      "fallback": "github-slack/private-turned-public is now public!",
       "footer": "<https://github.com/github-slack/private-turned-public|github-slack/private-turned-public>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "image_url": "https://octodex.github.com/images/welcometocat.png",
-      "text": "github-slack/private-turned-public has been open sourced!",
+      "text": "github-slack/private-turned-public is now public!",
     },
   ],
 }
