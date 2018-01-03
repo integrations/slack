@@ -25,6 +25,7 @@
     "probot": "github:probot/probot",
     "query-string": "^5.0.1",
     "redis": "^2.8.0",
+    "request": "^2.83.0",
     "sequelize": "^4.20.1",
     "sequelize-cli": "^3.1.0",
     "typescript": "^2.6.2"
