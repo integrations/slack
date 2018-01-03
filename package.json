@@ -3,7 +3,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "probot run --webhook-path=/github/events .",
+    "start": "probot run --webhook-path=/github/events ./dist",
     "test": "jest --coverage --runInBand --forceExit",
     "posttest": "npm run lint",
     "lint": "eslint lib test && tslint lib test",
