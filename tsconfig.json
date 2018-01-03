@@ -5,7 +5,7 @@
         "target": "es2015",
         "noImplicitAny": true,
         "moduleResolution": "node",
-        "sourceMap": false,
+        "sourceMap": true,
         "allowSyntheticDefaultImports": true,
         "alwaysStrict": true,
         "strict": true

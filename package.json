@@ -2,13 +2,14 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "start": "probot run --webhook-path=/github/events .",
     "test": "jest --coverage --runInBand --forceExit",
     "posttest": "npm run lint",
     "lint": "eslint lib test && tslint lib test",
     "dev": "nodemon --exec npm start",
     "migrate": "sequelize db:migrate",
-    "postinstall": "tsc"
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@slack/client": "^3.14.2",
@@ -74,7 +75,6 @@
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
   },
-  "main": "dist/index.js",
   "snappydoo": {
     "in": "test/slack/renderer",
     "out": "test/slack/renderer/renders",
