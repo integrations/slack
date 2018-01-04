@@ -86,18 +86,24 @@ describe('Integration: unfurls', () => {
   });
 
   test('gracefully handles not found link', async () => {
+    // Silence error logs for this test
+    probot.logger.level('fatal');
+
     nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
 
     await request(probot.server).post('/slack/events')
       .send(fixtures.slack.link_shared())
-      .expect(200);
+      .expect(500);
   });
 
   test('gracefully handles unknown resources', async () => {
+    // Silence error logs for this test
+    probot.logger.level('fatal');
+
     const payload = fixtures.slack.link_shared();
     payload.event.links[0].url = 'https://github.com/probot/probot/issues';
 
     await request(probot.server).post('/slack/events').send(payload)
-      .expect(200);
+      .expect(500);
   });
 });

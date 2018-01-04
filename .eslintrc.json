@@ -2,9 +2,20 @@
   "extends": "airbnb-base",
   "rules": {
     "consistent-return": 0,
-    "camelcase": 0
+    "camelcase": 0,
+    "strict": ["error", "never"]
   },
   "env": {
     "jest": true
+  },
+  "parser": "typescript-eslint-parser",
+  "plugins": [
+      "typescript"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": true,
+      "eslint-import-resolver-typescript": true
+    }
   }
 }

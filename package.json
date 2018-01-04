@@ -2,16 +2,17 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "probot run --webhook-path=/github/events .",
+    "build": "tsc",
+    "start": "probot run --webhook-path=/github/events ./dist",
     "test": "jest --coverage --runInBand --forceExit",
     "posttest": "npm run lint",
-    "lint": "eslint lib test",
+    "lint": "eslint lib test && tslint lib test",
     "dev": "nodemon --exec npm start",
-    "migrate": "sequelize db:migrate"
+    "migrate": "sequelize db:migrate",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@slack/client": "^3.14.2",
-    "@slack/events-api": "^1.0.1",
     "axios": "^0.17.1",
     "body-parser": "^1.17.2",
     "express": "^4.16.2",
@@ -21,26 +22,33 @@
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
     "pg": "^6.4.1",
-    "probot": "github:probot/probot",
+    "probot": "github:probot/probot#async-errors",
     "query-string": "^5.0.1",
     "redis": "^2.8.0",
     "request": "^2.83.0",
     "sequelize": "^4.20.1",
-    "sequelize-cli": "^3.1.0"
+    "sequelize-cli": "^3.1.0",
+    "typescript": "^2.6.2"
   },
   "devDependencies": {
+    "@types/jest": "^21.1.8",
     "dotenv": "^4.0.0",
     "eslint": "^3.19.0 || ^4.5.0",
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-config-probot": ">=0.1.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-import-resolver-typescript": "^1.0.2",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-typescript": "^0.8.1",
     "expect": "^1.20.2",
     "jest": "^21.2.1",
     "localtunnel": "^1.8.3",
     "nock": "^9.1.0",
     "nodemon": "^1.11.0",
     "snappydoo": "github:github-slack/snappydoo",
-    "supertest": "github:bkeepers/supertest#unknown-errors"
+    "supertest": "github:bkeepers/supertest#unknown-errors",
+    "ts-jest": "^21.2.4",
+    "tslint": "^5.8.0",
+    "typescript-eslint-parser": "^9.0.1"
   },
   "engines": {
     "node": "8.x.x",
@@ -53,10 +61,21 @@
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverageFrom": [
-      "lib/**/*.{js,jsx}"
-    ]
+      "lib/**/*.{js,ts}"
+    ],
+    "mapCoverage": true,
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
   },
-  "main": "lib/index.js",
   "snappydoo": {
     "in": "test/slack/renderer",
     "out": "test/slack/renderer/renders",
