@@ -67,7 +67,8 @@
     "moduleFileExtensions": [
       "ts",
       "js",
-      "json"
+      "json",
+      "node"
     ],
     "transform": {
       "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
