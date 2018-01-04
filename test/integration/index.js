@@ -2,7 +2,7 @@ const createProbot = require('probot');
 const GitHub = require('github');
 const nock = require('nock');
 
-const app = require('../..');
+const app = require('../../lib');
 
 const storage = require('../../lib/storage');
 
