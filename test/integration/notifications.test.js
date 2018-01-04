@@ -8,7 +8,8 @@ const { probot } = helper;
 const issuePayload = require('../fixtures/webhooks/issues.opened');
 const pullRequestPayload = require('../fixtures/webhooks/pull_request.opened');
 const publicEventPayload = require('../fixtures/webhooks/public');
-const deploymentStatusPayload = require('../fixtures/webhooks/deployment/status_success');
+const deploymentStatusSuccessPayload = require('../fixtures/webhooks/deployment/status_success');
+const deploymentStatusPendingPayload = require('../fixtures/webhooks/deployment/status_pending');
 
 describe('Integration: notifications', () => {
   describe('to a subscribed channel', () => {
@@ -89,9 +90,19 @@ describe('Integration: notifications', () => {
         return true;
       }).reply(200, { ok: true });
 
+      nock('https://slack.com').post('/api/chat.update', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
       await probot.receive({
         event: 'deployment_status',
-        payload: deploymentStatusPayload,
+        payload: deploymentStatusPendingPayload,
+      });
+
+      await probot.receive({
+        event: 'deployment_status',
+        payload: deploymentStatusSuccessPayload,
       });
     });
   });
