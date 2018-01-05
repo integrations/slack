@@ -1,3 +1,5 @@
+
+
 const request = require('supertest');
 const nock = require('nock');
 
@@ -105,5 +107,16 @@ describe('Integration: unfurls', () => {
 
     await request(probot.server).post('/slack/events').send(payload)
       .expect(200);
+  });
+
+  test('renders 500 when other error happens', async () => {
+    // Silence error logs for this test
+    probot.logger.level('fatal');
+
+    nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(500);
+
+    await request(probot.server).post('/slack/events')
+      .send(fixtures.slack.link_shared())
+      .expect(500);
   });
 });
