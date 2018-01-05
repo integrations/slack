@@ -2,7 +2,7 @@ const createProbot = require('probot');
 const GitHub = require('github');
 const nock = require('nock');
 
-const app = require('../..');
+const app = require('../../lib');
 
 const storage = require('../../lib/storage');
 
@@ -21,6 +21,9 @@ beforeAll(async () => sequelize.authenticate());
 afterAll(async () => sequelize.close());
 
 beforeEach(() => {
+  // Restore log level after each test
+  probot.logger.level(process.env.LOG_LEVEL);
+
   // FIXME: Upstream probot needs an easier way to mock this out.
   robot.auth = jest.fn().mockReturnValue(Promise.resolve(new GitHub()));
 
