@@ -21,7 +21,7 @@ const github = new GitHub();
 
 github.authenticate({
   type: 'token',
-  token: process.env.BKEEPERS_TOKEN || process.env.GITHUB_TOKEN,
+  token: process.env.PRIVILEGED_TOKEN || process.env.GITHUB_TOKEN,
 });
 
 async function doBackFill() {
