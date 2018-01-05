@@ -82,10 +82,12 @@ describe('Link unfurling', () => {
 
   test('promise rejected on unknown URL', async () => {
     const url = 'https://github.com/bkeepers/dotenv/evil-plans';
+    expect.assertions(1);
 
-    await expect(unfurl(github, url, 'full')).rejects.toHaveProperty(
-      'message',
-      `Unmatched unfurl URL: ${url}`,
-    );
+    try {
+      await unfurl(github, url, 'full');
+    } catch (e) {
+      expect(e.toString()).toEqual(`UnsupportedResource: ${url}`);
+    }
   });
 });

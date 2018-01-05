@@ -93,7 +93,7 @@ describe('Integration: unfurls', () => {
 
     await request(probot.server).post('/slack/events')
       .send(fixtures.slack.link_shared())
-      .expect(500);
+      .expect(200);
   });
 
   test('gracefully handles unknown resources', async () => {
@@ -104,6 +104,6 @@ describe('Integration: unfurls', () => {
     payload.event.links[0].url = 'https://github.com/probot/probot/issues';
 
     await request(probot.server).post('/slack/events').send(payload)
-      .expect(500);
+      .expect(200);
   });
 });
