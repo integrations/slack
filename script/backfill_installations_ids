@@ -1,0 +1,68 @@
+#!/usr/bin/env node
+
+// This script can be deleted once it has run in production and all installation ids are backfilled
+
+// Procedure:
+// We need to make a request to a repo in order to figure out the owner
+// Then we can figure out what the installation id is in the Installations table
+// And set it on the subscriptions table
+
+/* eslint-disable no-restricted-syntax, no-await-in-loop */
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('dotenv').config();
+
+const loadModels = require('../dist/models');
+const logger = require('probot/lib/logger');
+const GitHub = require('github');
+
+
+const github = new GitHub();
+
+github.authenticate({
+  type: 'token',
+  token: process.env.PRIVILEGED_TOKEN || process.env.GITHUB_TOKEN,
+});
+
+async function doBackFill() {
+  const models = loadModels({ logger });
+
+
+  const { Installation, Subscription, sequelize } = models;
+
+  const subscriptions = await Subscription.findAll({ where: { installationId: null } });
+
+  let successfulCount = 0;
+  await Promise.all(subscriptions.map(async (subscription) => {
+    let repo;
+    try {
+      repo = (await github.repos.getById({ id: subscription.githubId })).data;
+    } catch (e) {
+      logger.debug('Couldn\'t get repo', e);
+      return;
+    }
+    let installation;
+    try {
+      installation = await Installation.findOne({ where: { ownerId: repo.owner.id } });
+    } catch (e) {
+      logger.debug('Couldn\'t find repo owner id in Installations table', e);
+      return;
+    }
+
+    try {
+      // eslint-disable-next-line no-param-reassign
+      subscription.installationId = installation.id;
+      await subscription.save();
+      successfulCount += 1;
+    } catch (e) {
+      throw new Error(e);
+    }
+  }));
+
+  sequelize.close();
+  logger.debug(
+    `Successfully backfilled installation ids for ${successfulCount} out of ${subscriptions.length} subscriptions`,
+  );
+}
+
+doBackFill();
