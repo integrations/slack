@@ -1,4 +1,5 @@
-const { SubscriptionList } = require('../renderer/native');
+const { SubscriptionList } = require("../renderer/native");
+import {NextFunction, Request, Response } from "express";
 
 /**
  * Lists all subscriptions in a slack channel
@@ -6,20 +7,26 @@ const { SubscriptionList } = require('../renderer/native');
  * Usage:
  *   /github subscribe list
  */
-module.exports = async (req, res, next) => {
+module.exports = async (req: Request, res: Response, next: NextFunction) => {
   const { robot } = res.locals;
   const { Subscription, Installation } = robot.models;
   const command = req.body;
-  if (command.text !== 'list') {
+  if (command.text !== "list") {
     next();
     return;
   }
 
   const subscriptions = await Subscription.findAll({
-    where: { channelId: command.channel_id },
     include: [Installation],
+    where: { channelId: command.channel_id },
   });
-  const repositories = await Promise.all(subscriptions.map(async (subscription) => {
+  interface ISubscription {
+    githubId: number;
+    Installation: {
+      githubId: number;
+    };
+  }
+  const repositories = await Promise.all(subscriptions.map(async (subscription: ISubscription) => {
     const github = await robot.auth(subscription.Installation.githubId);
     const repository = await github.repos.getById({ id: subscription.githubId });
     return repository.data;
