@@ -1,16 +1,21 @@
-const { Message, getChannelString } = require("../");
+import { getChannelString, Message  } from "../";
 
 interface IRepository {
   html_url: string;
   full_name: string;
 }
 
-interface IRepositories {
-  [index: number]: IRepository;
+interface IOutput {
+  attachments: [{
+    [index: string]: string;
+  }];
+  response_type: string;
 }
 
 module.exports = class SubscriptionList extends Message {
-  constructor(repositories: IRepositories, channelId: string) {
+  private repositories: IRepository[];
+  private channel: string;
+  constructor(repositories: IRepository[], channelId: string) {
     super({});
     this.repositories = repositories;
     this.channel = getChannelString(channelId);
@@ -23,7 +28,7 @@ module.exports = class SubscriptionList extends Message {
     } else {
       prefix = "Subscribed to";
     }
-    const output = {
+    const output: IOutput = {
       attachments: [{
         ...this.getBaseMessage(),
         fallback: `${prefix} ${this.repositories.length} repositor${this.repositories.length === 1 ? "y" : "ies"}`,

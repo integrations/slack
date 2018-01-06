@@ -1,45 +1,57 @@
-const constants = {
-  GITHUB_BLACK: '#24292f',
-  CLOSED_RED: '#cb2431',
-  OPEN_GREEN: '#36a64f',
-  MERGED_PURPLE: '#6f42c1',
-  STATUS_SUCCESS: '#28a745',
-  STATUS_PENDING: '#dbab09',
-  STATUS_FAILURE: '#cb2431',
-  BASE_ATTACHMENT_COLOR: '#24292f',
+export const constants = {
   ATTACHMENT_FIELD_LIMIT: 2,
+  BASE_ATTACHMENT_COLOR: "#24292f",
+  CLOSED_RED: "#cb2431",
+  GITHUB_BLACK: "#24292f",
   MAJOR_MESSAGES: {
-    'pull_request.opened': true,
-    'issues.opened': true,
+    "issues.opened": true,
+    "pull_request.opened": true,
   },
+  MERGED_PURPLE: "#6f42c1",
+  OPEN_GREEN: "#36a64f",
+  STATUS_FAILURE: "#cb2431",
+  STATUS_PENDING: "#dbab09",
+  STATUS_SUCCESS: "#28a745",
 };
 
-function getChannelString(channelId) {
+export function getChannelString(channelId: string): string {
   switch (channelId[0]) {
     default:
       return `<#${channelId}> `;
-    case 'D':
-    case 'G':
-      return '';
+    case "D":
+    case "G":
+      return "";
   }
 }
+interface IAuthor {
+  login: string;
+  avatarURL: string;
+  htmlURL: string;
+}
+interface IconstructorObject {
+  footer?: string;
+  author?: IAuthor;
+}
 
-class Message {
-  constructor(constructorObject) {
-    this.footerURL = constructorObject.footerURL;
-    this.footer = constructorObject.footer;
-    this.includeAuthor = constructorObject.includeAuthor;
-    this.author = constructorObject.author;
-  }
+interface IbaseMessage {
+  [index: string]: string;
+}
 
-  static cleanFields(
-    fields,
+interface IField {
+  title: string;
+  value: string;
+  short?: boolean;
+}
+
+export class Message {
+  public static cleanFields(
+    fields: IField[],
     fieldLimit = constants.ATTACHMENT_FIELD_LIMIT,
     short = true,
   ) {
     return fields
-      .filter(field => field.value)
-      .map((field) => {
+      .filter((field: IField) => field.value)
+      .map((field: IField) => {
         if (short) {
           return { ...field, short: true };
         }
@@ -47,8 +59,7 @@ class Message {
       })
       .slice(0, fieldLimit);
   }
-
-  static convertToCondensedAttachment(attachment) {
+  public static convertToCondensedAttachment(attachment: any) {
     const condensedAttachment = {
       ...attachment,
     };
@@ -58,16 +69,22 @@ class Message {
     delete condensedAttachment.text;
     return condensedAttachment;
   }
+  private footer?: string;
+  private author?: IAuthor;
+  constructor({ footer, author}: IconstructorObject) {
+    this.footer = footer;
+    this.author = author;
+  }
 
-  getBaseMessage() {
-    const baseMessage = {
+  public getBaseMessage() {
+    const baseMessage: IbaseMessage = {
       color: constants.GITHUB_BLACK,
     };
     if (this.footer) {
       baseMessage.footer = this.footer;
-      baseMessage.footer_icon = 'https://assets-cdn.github.com/favicon.ico';
+      baseMessage.footer_icon = "https://assets-cdn.github.com/favicon.ico";
     }
-    if (this.includeAuthor) {
+    if (this.author) {
       baseMessage.author_name = this.author.login;
       baseMessage.author_icon = this.author.avatarURL;
       baseMessage.author_link = this.author.htmlURL;
@@ -76,11 +93,3 @@ class Message {
   }
 
 }
-
-// TODO: /github test-run -> delivers all webhooks we're currently ready to receive
-
-module.exports = {
-  Message,
-  constants,
-  getChannelString,
-};
