@@ -1,3 +1,5 @@
+
+
 const request = require('supertest');
 const nock = require('nock');
 
@@ -83,5 +85,38 @@ describe('Integration: unfurls', () => {
 
     // No API requests should be made when this request is performed
     return request(probot.server).post('/slack/events').send(body).expect(200);
+  });
+
+  test('gracefully handles not found link', async () => {
+    // Silence error logs for this test
+    probot.logger.level('fatal');
+
+    nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
+
+    await request(probot.server).post('/slack/events')
+      .send(fixtures.slack.link_shared())
+      .expect(200);
+  });
+
+  test('gracefully handles unknown resources', async () => {
+    // Silence error logs for this test
+    probot.logger.level('fatal');
+
+    const payload = fixtures.slack.link_shared();
+    payload.event.links[0].url = 'https://github.com/probot/probot/issues';
+
+    await request(probot.server).post('/slack/events').send(payload)
+      .expect(200);
+  });
+
+  test('renders 500 when other error happens', async () => {
+    // Silence error logs for this test
+    probot.logger.level('fatal');
+
+    nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(500);
+
+    await request(probot.server).post('/slack/events')
+      .send(fixtures.slack.link_shared())
+      .expect(500);
   });
 });
