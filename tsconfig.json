@@ -2,13 +2,14 @@
     "compilerOptions": {
         "outDir": "./dist",
         "allowJs": true,
-        "target": "es2015",
+        "target": "es5",
         "noImplicitAny": true,
         "moduleResolution": "node",
         "sourceMap": true,
         "allowSyntheticDefaultImports": true,
         "alwaysStrict": true,
-        "strict": true
+        "strict": true,
+        "lib": ["es2015"]
     },
     "include": [
         "./lib/**/*"
