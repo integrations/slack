@@ -1,6 +1,3 @@
-/* eslint-disable global-require */
-const SubscriptionList = require('./subscription-list');
+import SubscriptionList from "./subscription-list";
 
-module.exports = {
-  SubscriptionList,
-};
+export { SubscriptionList };
