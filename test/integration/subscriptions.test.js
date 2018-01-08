@@ -26,6 +26,7 @@ describe('Integration: subscriptions', () => {
   });
 
   describe('authenticated user', () => {
+    let slackWorkspace;
     beforeEach(async () => {
       const { SlackWorkspace, SlackUser, GitHubUser } = helper.robot.models;
 
@@ -34,7 +35,7 @@ describe('Integration: subscriptions', () => {
         id: 2,
         accessToken: 'github-token',
       });
-      const slackWorkspace = await SlackWorkspace.create({
+      slackWorkspace = await SlackWorkspace.create({
         slackId: 'T0001',
         accessToken: 'xoxp-token',
       });
@@ -63,9 +64,11 @@ describe('Integration: subscriptions', () => {
     });
 
     describe('with GitHub App installed', () => {
+      let installation;
       beforeEach(async () => {
+        const { Installation } = helper.robot.models;
         // Create an installation
-        await helper.robot.models.Installation.create({
+        installation = await Installation.create({
           githubId: 1,
           ownerId: fixtures.org.id,
         });
@@ -111,10 +114,55 @@ describe('Integration: subscriptions', () => {
           });
       });
 
+      test('subscribing when already subscribed', async () => {
+        nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
+        nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
+
+        const { Subscription } = helper.robot.models;
+        await Subscription.create({
+          githubId: fixtures.repo.id,
+          channelId: 'C2147483705',
+          slackWorkspaceId: slackWorkspace.id,
+          installationId: installation.id,
+        });
+        const command = fixtures.slack.command({ text: 'subscribe atom/atom' });
+
+        await request(probot.server).post('/slack/command').send(command)
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
+      test('unsubscribing when not subscribed', async () => {
+        nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
+        nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
+
+        const command = fixtures.slack.command({ text: 'unsubscribe atom/atom' });
+
+        await request(probot.server).post('/slack/command').send(command)
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
 
       test('subscribing with a bad url', async () => {
         const command = fixtures.slack.command({
           text: 'subscribe wat?',
+        });
+
+        const req = request(probot.server).post('/slack/command').send(command);
+
+        await req.expect(200).expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+      });
+
+      test('unsubscribing with a bad url', async () => {
+        const command = fixtures.slack.command({
+          text: 'unsubscribe wat?',
         });
 
         const req = request(probot.server).post('/slack/command').send(command);

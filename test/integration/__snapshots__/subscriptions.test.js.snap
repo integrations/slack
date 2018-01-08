@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing when already subscribed 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "You're already subscribed to \`atom/atom\`",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
 exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing with a bad url 1`] = `
 Object {
   "attachments": Array [
@@ -48,6 +63,37 @@ Object {
     },
   ],
   "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing when not subscribed 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "You're not currently subscribed to \`atom/atom\`
+Use \`/github subscribe atom/atom\` to subscribe.",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing with a bad url 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "\`wat?\` does not appear to be a GitHub link.",
+    },
+  ],
+  "response_type": "ephemeral",
 }
 `;
 
