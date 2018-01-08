@@ -31,6 +31,7 @@
     "typescript": "^2.6.2"
   },
   "devDependencies": {
+    "@types/express": "^4.11.0",
     "@types/jest": "^21.1.8",
     "dotenv": "^4.0.0",
     "eslint": "^3.19.0 || ^4.5.0",
