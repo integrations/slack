@@ -1,18 +1,30 @@
-const { Message } = require('../../renderer');
+import { Message } from "../../renderer";
 
-module.exports = class ErrorMessage extends Message {
+interface IAction {
+  [index: string]: string;
+}
+interface IAttachment {
+  actions?: IAction[];
+  [index: string]: string | string[] | IAction[] | undefined;
+}
+interface IResponse {
+  response_type?: string;
+  attachments: IAttachment[];
+}
+
+export default class ErrorMessage extends Message {
   constructor() {
     super({});
   }
 
-  getErrorMessage() {
+  public getErrorMessage(): IResponse {
     return {
-      response_type: 'ephemeral',
       attachments: [{
         ...this.getBaseMessage(),
-        color: 'danger',
-        mrkdwn_in: ['text'],
+        color: "danger",
+        mrkdwn_in: ["text"],
       }],
+      response_type: "ephemeral",
     };
   }
-};
+}

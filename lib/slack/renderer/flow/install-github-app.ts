@@ -1,19 +1,20 @@
-const ErrorMessage = require('./error-message');
+import ErrorMessage from "./error-message";
 
 module.exports = class InstallGitHubApp extends ErrorMessage {
-  constructor(githubAppUrl) {
-    super({});
+  private githubAppUrl: string;
+  constructor(githubAppUrl: string) {
+    super();
     this.githubAppUrl = githubAppUrl;
   }
 
-  toJSON() {
+  public toJSON() {
     const message = this.getErrorMessage();
-    message.attachments[0].text = 'Looks like the app isn\'t installed on your repository. Install it to proceed.';
+    message.attachments[0].text = "Looks like the app isn't installed on your repository. Install it to proceed.";
     message.attachments[0].actions = [{
-      type: 'button',
-      text: 'Install GitHub App',
+      style: "primary",
+      text: "Install GitHub App",
+      type: "button",
       url: this.githubAppUrl,
-      style: 'primary',
     }];
     return message;
   }
