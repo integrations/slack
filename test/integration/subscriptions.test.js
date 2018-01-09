@@ -171,6 +171,20 @@ describe('Integration: subscriptions', () => {
           expect(res.body).toMatchSnapshot();
         });
       });
+
+      test.only('subscribing to a repo that does not exist', async () => {
+        nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
+        nock('https://api.github.com').get('/repos/atom/atom').reply(404, {});
+        const command = fixtures.slack.command({
+          text: 'subscribe atom/atom',
+        });
+
+        const req = request(probot.server).post('/slack/command').send(command);
+
+        await req.expect(200).expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+      });
     });
   });
 });
