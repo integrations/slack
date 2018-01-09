@@ -1,25 +1,30 @@
-const GitHub = require('github');
+import { NextFunction, Request, Response } from "express";
+const GitHub = require("github");
 
-const { Subscribed, NotFound, AlreadySubscribed, NotSubscribed } = require('../renderer/flow');
+const { Subscribed, NotFound, AlreadySubscribed, NotSubscribed } = require("../renderer/flow");
 
+interface Ilog {
+  debug: (...args: any[]) => void;
+  trace: (...args: any[]) => void;
+}
 /**
  * Subscribes a slack channel to activity from an Organization or Repository
  *
  * Usage:
  *   /github subscribe https://github.com/org/repo
  */
-module.exports = async (req, res) => {
+module.exports = async (req: Request & { log: Ilog }, res: Response) => {
   const { robot, resource, installation, gitHubUser, slackWorkspace } = res.locals;
   const { Subscription } = robot.models;
   const command = req.body;
 
-  req.log.debug({ installation, resource }, 'Lookup respository to subscribe');
+  req.log.debug({ installation, resource }, "Lookup respository to subscribe");
 
   // TODO: Steps here to verify this user has access
   const userAuthedGithub = new GitHub();
   userAuthedGithub.authenticate({
-    type: 'token',
     token: gitHubUser.accessToken,
+    type: "token",
   });
 
   const installationAuthedGitHub = await robot.auth(installation.githubId);
@@ -31,16 +36,15 @@ module.exports = async (req, res) => {
       { owner: resource.owner, repo: resource.repo })
     ).data;
   } catch (e) {
-    req.log.trace(e, 'couldn\'t find repo');
+    req.log.trace(e, "couldn't find repo");
   }
   const to = command.channel_id;
-
 
   if (!from) {
     return res.json(new NotFound(req.body.text));
   }
 
-  if (command.subcommand === 'subscribe') {
+  if (command.subcommand === "subscribe") {
     if (await Subscription.lookupOne(from.id, to, slackWorkspace.id, installation.id)) {
       return res.json(new AlreadySubscribed(req.body.text));
     }
@@ -59,7 +63,7 @@ module.exports = async (req, res) => {
       channelId: to,
       fromRepository: from,
     }));
-  } else if (command.subcommand === 'unsubscribe') {
+  } else if (command.subcommand === "unsubscribe") {
     if (await Subscription.lookupOne(from.id, to, slackWorkspace.id, installation.id)) {
       await Subscription.unsubscribe(from.id, to, slackWorkspace.id);
 
