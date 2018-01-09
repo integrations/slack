@@ -172,9 +172,24 @@ describe('Integration: subscriptions', () => {
         });
       });
 
-      test.only('subscribing to a repo that does not exist', async () => {
+      test('subscribing to a repo that does not exist', async () => {
         nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
         nock('https://api.github.com').get('/repos/atom/atom').reply(404, {});
+        const command = fixtures.slack.command({
+          text: 'subscribe atom/atom',
+        });
+
+        const req = request(probot.server).post('/slack/command').send(command);
+
+        await req.expect(200).expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+      });
+
+      test('subscribing to a repo that the used does not have acccess to', async () => {
+        nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
+        nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
+        nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').reply(404, {});
         const command = fixtures.slack.command({
           text: 'subscribe atom/atom',
         });

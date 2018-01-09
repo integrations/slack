@@ -15,6 +15,21 @@ Object {
 }
 `;
 
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that the used does not have acccess to 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Could not find resource: \`atom/atom\`",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
 exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing when already subscribed 1`] = `
 Object {
   "attachments": Array [
