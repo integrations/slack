@@ -14,6 +14,20 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Unsubscribe to notifications for a repository:
+\`/github unsubscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List all active subscriptions in a channel:
+\`/github subscribe list\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Connect your GitHub account:
 \`/github signin\`",
     },
