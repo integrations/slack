@@ -5,9 +5,6 @@ const helper = require(".");
 const fixtures = require("../fixtures");
 
 const { probot } = helper;
-// create a bunch of subscriptions in database
-// receive slash command for subscription list
-// nock assertions
 
 describe("Integration: subscription list", () => {
   beforeEach(async () => {
