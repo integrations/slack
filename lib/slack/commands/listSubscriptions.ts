@@ -20,6 +20,7 @@ module.exports = async (req: Request, res: Response, next: NextFunction) => {
     include: [Installation],
     where: { channelId: command.channel_id },
   });
+  // @todo: Remove the below interface and use sequelize-typescript definitions instead
   interface ISubscription {
     githubId: number;
     Installation: {
