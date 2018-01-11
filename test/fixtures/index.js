@@ -13,7 +13,7 @@ module.exports = {
   slack: {
     link_shared: require('./slack/link_shared'),
     command: attrs => Object.assign({
-        // Slack will POST with:
+      // Slack will POST with:
       token: process.env.SLACK_VERIFICATION_TOKEN,
       team_id: 'T0001',
       team_domain: 'example',

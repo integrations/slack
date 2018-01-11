@@ -49,9 +49,11 @@ describe('Integration: notifications', () => {
     });
 
     test('issue opened', async () => {
-      nock('https://api.github.com', { reqHeaders: {
-        Accept: 'application/vnd.github.html+json',
-      } }).get('/repos/github-slack/public-test/issues/1').reply(200, fixtures.issue);
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/public-test/issues/1').reply(200, fixtures.issue);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -65,9 +67,11 @@ describe('Integration: notifications', () => {
     });
 
     test('pull request opened', async () => {
-      nock('https://api.github.com', { reqHeaders: {
-        Accept: 'application/vnd.github.html+json',
-      } }).get('/repos/github-slack/app/issues/31').reply(200, fixtures.issue);
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/app/issues/31').reply(200, fixtures.issue);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
