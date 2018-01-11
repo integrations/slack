@@ -18,8 +18,8 @@ describe('Integration: subscriptions', () => {
 
       // User is shown ephemeral prompt to authenticate
       const promptUrl = /^https:\/\/example\.com(\/github\/oauth\/login\?state=(.*))/;
-      const text = res.body.attachments[0].actions[0].text;
-      const url = res.body.attachments[0].actions[0].url;
+      const { text } = res.body.attachments[0].actions[0];
+      const { url } = res.body.attachments[0].actions[0];
       expect(text).toMatch('Connect GitHub account');
       expect(url).toMatch(promptUrl);
     });
@@ -56,10 +56,10 @@ describe('Integration: subscriptions', () => {
         });
 
         await request(probot.server).post('/slack/command').send(command)
-           .expect(200)
-           .expect((res) => {
-             expect(res.body).toMatchSnapshot();
-           });
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
       });
     });
 

@@ -18,7 +18,7 @@ describe('Integration: slack authentication', () => {
     const res = await request(probot.server).get('/slack/oauth/login')
       .expect(302);
 
-    const location = res.headers.location;
+    const { location } = res.headers;
     const pattern = /^https:\/\/slack\.com\/oauth\/authorize\?client_id=(?:.*)&scope=(?:.*)$/;
     expect(location).toMatch(pattern);
 
