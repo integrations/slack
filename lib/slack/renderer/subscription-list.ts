@@ -1,8 +1,9 @@
-import { getChannelString, Message  } from "../";
+import { getChannelString, Message } from ".";
 
-interface IRepository {
+export interface IRepository {
   html_url: string;
   full_name: string;
+  [index: string]: any;
 }
 
 interface IOutput {
@@ -12,7 +13,7 @@ interface IOutput {
   response_type: string;
 }
 
-module.exports = class SubscriptionList extends Message {
+export default class SubscriptionList extends Message {
   private repositories: IRepository[];
   private channel: string;
   constructor(repositories: IRepository[], channelId: string) {
@@ -49,4 +50,4 @@ module.exports = class SubscriptionList extends Message {
       `<${repository.html_url}|${repository.full_name}>`
     ));
   }
-};
+}

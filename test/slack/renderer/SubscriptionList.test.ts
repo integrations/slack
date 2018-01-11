@@ -1,4 +1,4 @@
-import { SubscriptionList } from "../../../../lib/slack/renderer/native";
+import SubscriptionList from "../../../lib/slack/renderer/subscription-list";
 
 describe("SubscriptionList", () => {
   test("works for multiple subscriptions active in a channel", async () => {
