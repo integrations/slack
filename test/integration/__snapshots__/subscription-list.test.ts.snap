@@ -1,6 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: subscription list works 1`] = `
+exports[`Integration: subscription list works for /github subscribe 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for a repository:
+\`/github subscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe to notifications for a repository:
+\`/github unsubscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List all active subscriptions in a channel:
+\`/github subscribe list\`",
+    },
+    Object {
+      "color": "#24292f",
+      "fallback": "<#C2147483705> is subscribed to 2 repositories",
+      "text": "<https://github.com/atom/atom|atom/atom>
+<https://github.com/kubernetes/kubernetes|kubernetes/kubernetes>",
+      "title": "<#C2147483705> is subscribed to",
+    },
+  ],
+  "response_type": "ephemeral",
+  "text": ":wave: Need some help with \`/github\`?",
+}
+`;
+
+exports[`Integration: subscription list works for /github subscribe list 1`] = `
 Object {
   "attachments": Array [
     Object {

@@ -35,7 +35,7 @@ describe("Integration: subscription list", () => {
     });
   });
 
-  test("works", async () => {
+  test("works for /github subscribe list", async () => {
     nock("https://api.github.com").get("/repositories/1").reply(200, {
       full_name: "atom/atom",
       html_url: "https://github.com/atom/atom",
@@ -46,6 +46,26 @@ describe("Integration: subscription list", () => {
     });
     const command = fixtures.slack.command({
       text: "subscribe list",
+    });
+
+    await request(probot.server).post("/slack/command").send(command)
+     .expect(200)
+     .expect((res) => {
+       expect(res.body).toMatchSnapshot();
+     });
+  });
+
+  test("works for /github subscribe", async () => {
+    nock("https://api.github.com").get("/repositories/1").reply(200, {
+      full_name: "atom/atom",
+      html_url: "https://github.com/atom/atom",
+    });
+    nock("https://api.github.com").get("/repositories/2").reply(200, {
+      full_name: "kubernetes/kubernetes",
+      html_url: "https://github.com/kubernetes/kubernetes",
+    });
+    const command = fixtures.slack.command({
+      text: "subscribe",
     });
 
     await request(probot.server).post("/slack/command").send(command)
