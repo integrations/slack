@@ -10,7 +10,7 @@
     "dev": "nodemon --exec npm start",
     "migrate": "sequelize db:migrate",
     "postinstall": "npm run build",
-    "heroku-postinstall": "npm prune --production"
+    "heroku-postbuild": "npm prune --production"
   },
   "dependencies": {
     "@slack/client": "^3.14.2",
