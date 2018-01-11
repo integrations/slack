@@ -37,9 +37,9 @@ module.exports = async (req: Request, res: Response, next: NextFunction) => {
   );
 
   if (command.text === "list") {
-    res.json(new SubscriptionList(repositories, command.channel_id));
+    return res.json(new SubscriptionList(repositories, command.channel_id));
   }
   const response = (new Help(req.body.command, req.body.subcommand)).toJSON();
   response.attachments.push(new SubscriptionList(repositories, command.channel_id).toJSON().attachments[0]);
-  res.json(response);
+  return res.json(response);
 };
