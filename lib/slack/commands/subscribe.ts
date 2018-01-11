@@ -20,7 +20,6 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
 
   req.log.debug({ installation, resource }, "Lookup respository to subscribe");
 
-  // TODO: Steps here to verify this user has access
   const userAuthedGithub = new GitHub();
   userAuthedGithub.authenticate({
     token: gitHubUser.accessToken,
