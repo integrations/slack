@@ -1,12 +1,13 @@
-const ErrorMessage = require('./error-message');
+import ErrorMessage from "./error-message";
 
 module.exports = class InvalidUrl extends ErrorMessage {
-  constructor(subscribeInput) {
-    super({});
+  private subscribeInput: string;
+  constructor(subscribeInput: string) {
+    super();
     this.subscribeInput = subscribeInput;
   }
 
-  toJSON() {
+  public toJSON() {
     const message = this.getErrorMessage();
     message.attachments[0].text = `\`${this.subscribeInput}\` does not appear to be a GitHub link.`;
     return message;
