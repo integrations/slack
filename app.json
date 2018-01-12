@@ -42,6 +42,10 @@
     },
     "SLACK_VERIFICATION_TOKEN": {
       "description": "The verification token of the Slack App"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Needs to be set to false so that Heroku can build typescript",
+      "value": "false"
     }
   },
   "addons": [
