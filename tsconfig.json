@@ -5,12 +5,15 @@
         "target": "es2015",
         "noImplicitAny": true,
         "moduleResolution": "node",
+        "module": "commonjs",
         "sourceMap": true,
         "allowSyntheticDefaultImports": true,
         "alwaysStrict": true,
-        "strict": true
+        "strict": true,
+        "lib": ["es2015"]
     },
     "include": [
         "./lib/**/*"
-    ]
+    ],
+    "compileOnSave": true
 }
