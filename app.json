@@ -46,6 +46,10 @@
     "NPM_CONFIG_PRODUCTION": {
       "description": "Needs to be set to false so that Heroku can build typescript",
       "value": "false"
+    },
+    "DISABLE_STATS": {
+      "description": "Disable the probot stats plugin for scalability",
+      "value": "true"
     }
   },
   "addons": [
