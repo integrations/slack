@@ -14,36 +14,46 @@ const deploymentStatusPendingPayload = require('../fixtures/webhooks/deployment/
 describe('Integration: notifications', () => {
   describe('to a subscribed channel', () => {
     beforeEach(async () => {
-      const { Subscription, SlackWorkspace } = helper.robot.models;
+      const { Subscription, SlackWorkspace, Installation } = helper.robot.models;
 
       const workspace = await SlackWorkspace.create({
         slackId: 'T001',
         accessToken: 'test',
       });
 
+      const installation = await Installation.create({
+        githubId: 1,
+        ownerId: 1,
+      });
+
       await Subscription.create({
         githubId: issuePayload.repository.id,
         channelId: 'C001',
         slackWorkspaceId: workspace.id,
+        installationId: installation.id,
       });
 
       await Subscription.create({
         githubId: pullRequestPayload.repository.id,
         channelId: 'C001',
         slackWorkspaceId: workspace.id,
+        installationId: installation.id,
       });
 
       await Subscription.create({
         githubId: publicEventPayload.repository.id,
         channelId: 'C001',
         slackWorkspaceId: workspace.id,
+        installationId: installation.id,
       });
     });
 
     test('issue opened', async () => {
-      nock('https://api.github.com', { reqHeaders: {
-        Accept: 'application/vnd.github.html+json',
-      } }).get('/repos/github-slack/public-test/issues/1').reply(200, fixtures.issue);
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/public-test/issues/1').reply(200, fixtures.issue);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -57,9 +67,11 @@ describe('Integration: notifications', () => {
     });
 
     test('pull request opened', async () => {
-      nock('https://api.github.com', { reqHeaders: {
-        Accept: 'application/vnd.github.html+json',
-      } }).get('/repos/github-slack/app/issues/31').reply(200, fixtures.issue);
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/app/issues/31').reply(200, fixtures.issue);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();

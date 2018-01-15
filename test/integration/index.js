@@ -15,7 +15,7 @@ const { sequelize } = robot.models;
 beforeEach(async () => nock.cleanAll());
 afterEach(() => expect(nock.pendingMocks()).toEqual([]));
 
- // Ensure there is a connection established
+// Ensure there is a connection established
 beforeAll(async () => sequelize.authenticate());
 // Close connection when tests are done
 afterAll(async () => sequelize.close());

@@ -28,8 +28,8 @@ describe('Integration: signin', () => {
 
       // User is shown ephemeral prompt to authenticate
       const promptUrl = /^https:\/\/example\.com(\/github\/oauth\/login\?state=(.*))/;
-      const text = res.body.attachments[0].actions[0].text;
-      const url = res.body.attachments[0].actions[0].url;
+      const { text } = res.body.attachments[0].actions[0];
+      const { url } = res.body.attachments[0].actions[0];
       expect(text).toMatch('Connect GitHub account');
       expect(url).toMatch(promptUrl);
 
@@ -37,7 +37,8 @@ describe('Integration: signin', () => {
       const [, link, state] = url.match(promptUrl);
 
       const loginRequest = request(probot.server).get(link);
-      await loginRequest.expect(302).expect('Location',
+      await loginRequest.expect(302).expect(
+        'Location',
         `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
       );
 
@@ -56,7 +57,8 @@ describe('Integration: signin', () => {
 
       await request(probot.server).get('/github/oauth/callback').query({ state })
         .expect(302)
-        .expect('Location',
+        .expect(
+          'Location',
           `slack://channel?team=${command.team_id}&channel=${command.channel_id}`,
         );
     });
