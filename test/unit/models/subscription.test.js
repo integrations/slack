@@ -40,6 +40,16 @@ describe('model: Subscription', () => {
         githubId: resource,
       })]);
     });
+    test('adding a subscription without creator throws an error', async () => {
+      const resource = '1';
+      const subscription = Subscription.subscribe({
+        channelId: channel,
+        githubId: resource,
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+      });
+      await expect(subscription).rejects.toThrow();
+    });
   });
 
   describe('lookup', () => {
