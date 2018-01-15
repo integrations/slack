@@ -1,4 +1,5 @@
 const unfurl = require('../../lib/slack/unfurl');
+const githubUrl = require('../../lib/github-url');
 const fixtures = require('../fixtures');
 
 describe('Link unfurling', () => {
@@ -37,7 +38,7 @@ describe('Link unfurling', () => {
 
   test('works for issues', async () => {
     const url = 'https://github.com/facebook/react/issues/10191';
-    const response = await unfurl(github, url, 'full');
+    const response = await unfurl.issue(githubUrl(url), github, 'full');
 
     expect(response.title).toEqual('#10191 Consider re-licensing to AL v2.0, as RocksDB has just done');
     expect(response.title_link).toEqual(url);
@@ -45,7 +46,7 @@ describe('Link unfurling', () => {
 
   test('works for pull requests', async () => {
     const url = 'https://github.com/github/hub/pull/1535';
-    const response = await unfurl(github, url, 'full');
+    const response = await unfurl.pull(githubUrl(url), github, 'full');
 
     expect(response.title).toEqual('#1535 Make fork command idempotent');
     expect(response.title_link).toEqual(url);
@@ -53,14 +54,14 @@ describe('Link unfurling', () => {
 
   test('works for comments', async () => {
     const url = 'https://github.com/github/hub/pull/1535#issuecomment-322500379';
-    const response = await unfurl(github, url, 'full');
+    const response = await unfurl.comment(githubUrl(url), github, 'full');
 
     expect(response.text).toMatch(/Thanks for your work on this!/);
   });
 
   test('works for file with line numbers', async () => {
     const url = 'https://github.com/atom/atom/blob/master/src/color.js#L122-L129';
-    const response = await unfurl(github, url, 'full');
+    const response = await unfurl.blob(githubUrl(url), github, 'full');
 
     expect(response.text).toMatch(/function parseAlpha/);
     expect(response.text).toMatch(/Math\.max/);
@@ -68,26 +69,15 @@ describe('Link unfurling', () => {
 
   test('works for accounts', async () => {
     const url = 'https://github.com/wilhelmklopp';
-    const response = await unfurl(github, url, 'full');
+    const response = await unfurl.account(githubUrl(url), github, 'full');
 
     expect(response.title).toMatch('Wilhelm Klopp');
   });
 
   test('works for repos', async () => {
     const url = 'https://github.com/bkeepers/dotenv';
-    const response = await unfurl(github, url, 'full');
+    const response = await unfurl.repo(githubUrl(url), github, 'full');
 
     expect(response.title).toMatch('bkeepers/dotenv');
-  });
-
-  test('promise rejected on unknown URL', async () => {
-    const url = 'https://github.com/bkeepers/dotenv/evil-plans';
-    expect.assertions(1);
-
-    try {
-      await unfurl(github, url, 'full');
-    } catch (e) {
-      expect(e.toString()).toEqual(`UnsupportedResource: ${url}`);
-    }
   });
 });
