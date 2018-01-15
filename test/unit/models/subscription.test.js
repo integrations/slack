@@ -1,8 +1,11 @@
-const { Subscription, SlackWorkspace, Installation } = require('.');
+const {
+  Subscription, SlackWorkspace, Installation, SlackUser,
+} = require('.');
 
 describe('model: Subscription', () => {
   let workspace;
   let installation;
+  let slackUser;
   const channel = 'C0001';
 
   beforeEach(async () => {
@@ -14,6 +17,10 @@ describe('model: Subscription', () => {
       ownerId: 1,
       githubId: 1,
     });
+    slackUser = await SlackUser.create({
+      slackId: 'U01',
+      slackWorkspaceId: workspace.id,
+    });
   });
 
   describe('subscribe', () => {
@@ -22,6 +29,7 @@ describe('model: Subscription', () => {
       await Subscription.subscribe({
         channelId: channel,
         githubId: resource,
+        creatorId: slackUser.id,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
       });
@@ -40,6 +48,7 @@ describe('model: Subscription', () => {
       await Subscription.subscribe({
         channelId: channel,
         githubId: resource,
+        creatorId: slackUser.id,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
       });
@@ -55,6 +64,7 @@ describe('model: Subscription', () => {
       await Subscription.subscribe({
         channelId: channel,
         githubId: resource,
+        creatorId: slackUser.id,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
       });
