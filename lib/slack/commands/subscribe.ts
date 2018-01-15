@@ -14,7 +14,7 @@ interface Ilog {
  *   /github subscribe https://github.com/org/repo
  */
 module.exports = async (req: Request & { log: Ilog }, res: Response) => {
-  const { robot, resource, installation, gitHubUser, slackWorkspace } = res.locals;
+  const { robot, resource, installation, gitHubUser, slackWorkspace, slackUser } = res.locals;
   const { Subscription } = robot.models;
   const command = req.body;
 
@@ -56,7 +56,7 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
       return res.json(new NotFound(req.body.text));
     }
 
-    await Subscription.subscribe(from.id, to, slackWorkspace.id, installation.id);
+    await Subscription.subscribe(from.id, to, slackWorkspace.id, installation.id, slackUser.id);
 
     return res.json(new Subscribed({
       channelId: to,
