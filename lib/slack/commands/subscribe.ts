@@ -56,7 +56,13 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
       return res.json(new NotFound(req.body.text));
     }
 
-    await Subscription.subscribe(from.id, to, slackWorkspace.id, installation.id, slackUser.id);
+    await Subscription.subscribe({
+      channelId: to,
+      creatorId: slackUser.id,
+      githubId: from.id,
+      installationId: installation.id,
+      slackWorkspaceId: slackWorkspace.id,
+    });
 
     return res.json(new Subscribed({
       channelId: to,

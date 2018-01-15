@@ -19,7 +19,12 @@ describe('model: Subscription', () => {
   describe('subscribe', () => {
     test('add subscription for resource', async () => {
       const resource = '1';
-      await Subscription.subscribe(resource, channel, workspace.id, installation.id);
+      await Subscription.subscribe({
+        channelId: channel,
+        githubId: resource,
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+      });
       const channels = await Subscription.lookup(resource, workspace.id);
       expect(channels).toEqual([expect.objectContaining({
         channelId: channel,
@@ -32,7 +37,12 @@ describe('model: Subscription', () => {
   describe('lookup', () => {
     test('returns the workspace', async () => {
       const resource = 1;
-      await Subscription.subscribe(resource, channel, workspace.id, installation.id);
+      await Subscription.subscribe({
+        channelId: channel,
+        githubId: resource,
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+      });
       const [subscription] = await Subscription.lookup(resource, channel);
       expect(subscription.SlackWorkspace).toBeDefined();
       expect(subscription.SlackWorkspace.equals(workspace)).toBe(true);
@@ -42,7 +52,12 @@ describe('model: Subscription', () => {
   describe('unsubscribe', () => {
     test('removes subscriptions for resource', async () => {
       const resource = 1;
-      await Subscription.subscribe(resource, channel, workspace.id, installation.id);
+      await Subscription.subscribe({
+        channelId: channel,
+        githubId: resource,
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+      });
       await Subscription.unsubscribe(resource, channel, workspace.id);
       expect(await Subscription.lookup(resource)).toEqual([]);
     });
