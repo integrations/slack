@@ -12,14 +12,24 @@ describe('Middleware: authenticate', () => {
 
   beforeEach(() => {
     app = createApp();
-    app.use(authenticate);
+    app.use(authenticate((req, res) => {
+      res.status(403).send('Nope');
+    }));
 
     app.get('/', (req, res) => {
       res.json({ user: res.locals.slackUser.id });
     });
+  });
 
-    app.get('/signin', (req, res) => {
-      res.status(403).send('Nope');
+  describe('without an existing user', () => {
+    test('authenticates command', async () => {
+      const command = fixtures.slack.command();
+      await request(app).get('/').send(command).expect(403);
+    });
+
+    test('authenticates event', async () => {
+      const event = fixtures.slack.link_shared();
+      await request(app).get('/').send(event).expect(403);
     });
   });
 
