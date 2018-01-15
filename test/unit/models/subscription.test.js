@@ -27,20 +27,6 @@ describe('model: Subscription', () => {
         githubId: resource,
       })]);
     });
-
-    test('does not duplicate subscriptions', async () => {
-      const resource = 1;
-      await Subscription.subscribe(resource, channel, workspace.id, installation.id);
-      const subscription = await Subscription.subscribe(
-        resource,
-        channel,
-        workspace.id,
-        installation.id,
-      );
-      const channels = await Subscription.lookup(resource);
-      expect(channels.length).toEqual(1);
-      expect(channels[0].id).toEqual(subscription.id);
-    });
   });
 
   describe('lookup', () => {
