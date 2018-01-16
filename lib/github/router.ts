@@ -43,7 +43,7 @@ module.exports = ({ models }: { models: any}) => {
             await slack.chat.postMessage(
               subscription.channelId,
               "",
-              (new ReEnableSubscription(context.payload.repository.full_name, creator.slackId)).toJSON(),
+              (new ReEnableSubscription(context.payload.repository, creator.slackId)).toJSON(),
             );
             // @todo: deactive this subscription instead of deleting the db record
             await subscription.destroy();

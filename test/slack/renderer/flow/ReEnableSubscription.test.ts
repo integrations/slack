@@ -2,7 +2,11 @@ import { ReEnableSubscription } from "../../../../lib/slack/renderer/flow";
 
 describe("ReEnableSubscription message rendering", () => {
   test("works", () => {
-    const message = new ReEnableSubscription("atom/atom", "U012345");
+    const repository = {
+      full_name: "atom/atom",
+      html_url: "https://github.com/atom/atom",
+    };
+    const message = new ReEnableSubscription(repository, "U012345");
     expect(message.toJSON()).toMatchSnapshot();
   });
 });

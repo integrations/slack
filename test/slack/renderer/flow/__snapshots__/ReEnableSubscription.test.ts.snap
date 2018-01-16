@@ -5,10 +5,12 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
+      "footer": "<https://github.com/atom/atom|atom/atom>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "The subscription to \`atom/atom\` has been disabled, because the subscription creator (<@U012345>) no longer has access.
+      "text": "Subscription to \`atom/atom\` has been disabled, because the subscription creator (<@U012345>) no longer has access.
 Run \`/github subscribe atom/atom\` to re-enable the subscription",
     },
   ],

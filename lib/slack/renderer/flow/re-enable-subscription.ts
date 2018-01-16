@@ -1,11 +1,19 @@
 import { Message } from "../";
 
+interface IRepository {
+  html_url: string;
+  full_name: string;
+  [index: string]: string | number | null;
+}
+
 module.exports = class ReEnableSubscription extends Message {
-  private repoName: string;
+  private repository: IRepository;
   private creator: string;
-  constructor(repoName: string, creator: string) {
-    super({});
-    this.repoName = repoName;
+  constructor(repository: IRepository, creator: string) {
+    super({
+      footer: `<${repository.html_url}|${repository.full_name}>`,
+    });
+    this.repository = repository;
     this.creator = creator;
   }
 
@@ -13,9 +21,9 @@ module.exports = class ReEnableSubscription extends Message {
     return {
       ...this.getBaseMessage(),
       mrkdwn_in: ["text"],
-      text: `The subscription to \`${this.repoName}\` has been disabled, ` +
+      text: `Subscription to \`${this.repository.full_name}\` has been disabled, ` +
       `because the subscription creator (<@${this.creator}>) no longer has access.\n` +
-      `Run \`/github subscribe ${this.repoName}\` to re-enable the subscription`,
+      `Run \`/github subscribe ${this.repository.full_name}\` to re-enable the subscription`,
     };
   }
 

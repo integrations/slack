@@ -37,7 +37,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"The subscription to \`github-slack/app\` has been disabled, because the subscription creator (<@U012345>) no longer has access.\\\\nRun \`/github subscribe github-slack/app\` to re-enable the subscription\\"}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Subscription to \`github-slack/app\` has been disabled, because the subscription creator (<@U012345>) no longer has access.\\\\nRun \`/github subscribe github-slack/app\` to re-enable the subscription\\"}]",
   "channel": "C001",
   "response_type": "in_channel",
   "text": "",
