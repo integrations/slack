@@ -10,6 +10,7 @@ interface ISubcription {
   SlackWorkspace: {
     accessToken: string;
   };
+  destroy: () => void;
 }
 
 // Temporary "middleware" hack to look up routing before delivering event
@@ -36,12 +37,13 @@ module.exports = ({ models }: { models: any}) => {
               subscription.githubId, creator.GitHubUser.accessToken,
             );
             if (!userHasAccess) {
-              // todo: disable subscription
               await slack.chat.postMessage(
                 subscription.channelId,
                 "",
                 (new ReEnableSubscription(repoName, creator.slackId)).toJSON(),
               );
+              // @todo: deactive this subscription instead of deleting the db record
+              await subscription.destroy();
             }
           }
 
