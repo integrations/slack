@@ -22,7 +22,7 @@
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
     "pg": "^6.4.2",
-    "probot": "github:probot/probot",
+    "probot": "github:probot/probot#public-api",
     "query-string": "^5.0.1",
     "redis": "^2.8.0",
     "request": "^2.83.0",

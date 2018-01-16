@@ -1,7 +1,4 @@
-const loadModels = require('../../../lib/models');
-const logger = require('probot/lib/logger');
-
-const models = loadModels({ log: logger });
+const models = require('../../../lib/models');
 
 // Ensure there is a connection established
 beforeAll(async () => models.sequelize.authenticate());
