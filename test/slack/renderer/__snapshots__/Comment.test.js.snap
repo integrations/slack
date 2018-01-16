@@ -2,9 +2,6 @@
 
 exports[`Comment rendering works for condensed unfurls 1`] = `
 Object {
-  "author_icon": "https://avatars2.githubusercontent.com/u/887?v=4",
-  "author_link": "https://github.com/mislav",
-  "author_name": "mislav",
   "color": "#24292f",
   "fallback": "Comment on #10191",
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",

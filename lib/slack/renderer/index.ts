@@ -67,6 +67,9 @@ export class Message {
       condensedAttachment.fields = attachment.fields.slice(0, 2);
     }
     delete condensedAttachment.text;
+    delete condensedAttachment.author_name;
+    delete condensedAttachment.author_icon;
+    delete condensedAttachment.author_link;
     return condensedAttachment;
   }
   private footer?: string;
