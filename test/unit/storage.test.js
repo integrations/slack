@@ -9,6 +9,6 @@ describe('storage', () => {
   });
 
   test('returns null for unset keys', async () => {
-    expect(await storage.get('nope')).toBe(null);
+    expect(await storage.get('nope')).toBe(undefined);
   });
 });
