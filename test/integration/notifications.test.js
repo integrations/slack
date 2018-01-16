@@ -155,5 +155,27 @@ describe('Integration: notifications', () => {
         payload: pullRequestPayload,
       });
     });
+    test('message still gets delivered if no creatorId is set on Subscription', async () => {
+      const { Subscription } = helper.robot.models;
+      const subscription = await Subscription.findOne({
+        where: { githubId: pullRequestPayload.repository.id },
+      });
+      subscription.creatorId = null;
+      await subscription.save();
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/app/issues/31').reply(200, fixtures.issue);
+
+      await probot.receive({
+        event: 'pull_request',
+        payload: pullRequestPayload,
+      });
+    });
   });
 });
