@@ -1,8 +1,17 @@
-import axios from "axios";
+import GitHub from "github";
 
-export async function userHasRepoAccess(repoId: number, accessToken: string): Promise<[boolean, string]> {
-  const response = await axios.post(`https://api.github.com/repositories/${repoId}`, {
-    Authorizaion: `token ${accessToken}`,
+export async function userHasRepoAccess(repoId: number, accessToken: string): Promise<[boolean, string | undefined]> {
+  const github = new GitHub();
+  github.authenticate({
+    token: accessToken,
+    type: "token",
   });
-  return [response.status === 200, response.data.full_name];
+  let repo;
+  try {
+    const response = await github.repos.getById({ id: repoId.toString() });
+    repo = response.data;
+  } catch (e) {
+    return [false, undefined];
+  }
+  return [true, repo.full_name];
 }
