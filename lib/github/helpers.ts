@@ -1,6 +1,6 @@
 import GitHub from "github";
 
-export async function userHasRepoAccess(repoId: number, accessToken: string): Promise<[boolean, string | undefined]> {
+export async function userHasRepoAccess(repoId: number, accessToken: string): Promise<boolean> {
   const github = new GitHub();
   github.authenticate({
     token: accessToken,
@@ -11,7 +11,7 @@ export async function userHasRepoAccess(repoId: number, accessToken: string): Pr
     const response = await github.repos.getById({ id: repoId.toString() });
     repo = response.data;
   } catch (e) {
-    return [false, undefined];
+    return false;
   }
-  return [true, repo.full_name];
+  return true;
 }
