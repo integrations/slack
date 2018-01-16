@@ -2,9 +2,6 @@
 
 exports[`Pull request rendering works for condensed unfurls 1`] = `
 Object {
-  "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
-  "author_link": "https://github.com/wilhelmklopp",
-  "author_name": "wilhelmklopp",
   "color": "#36a64f",
   "fallback": "#31 Add badges to readme",
   "footer": "<https://github.com/github-slack/app|github-slack/app>",
@@ -49,9 +46,6 @@ exports[`Pull request rendering works for minor notifications 1`] = `
 Object {
   "attachments": Array [
     Object {
-      "author_icon": "https://avatars0.githubusercontent.com/u/173?v=4",
-      "author_link": "https://github.com/bkeepers",
-      "author_name": "bkeepers",
       "color": "#6f42c1",
       "fallback": "#36 Rearrange logic",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",

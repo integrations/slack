@@ -25,7 +25,7 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
 
 1. Go to the **OAuth & Permissions** tab, click **Add a new Redirect URL** and enter `https://DOMAIN/slack/oauth/callback` and click **Save URLs**
 
-1. Scroll down to **Select Permission Scopes**, add `links:read`, `links:write`, and `chat:write:user` and click **Save Changes**
+1. Scroll down to **Select Permission Scopes**, add `links:read`, `links:write`, and `chat:write` and click **Save Changes**
 
 1. Run `script/server` to start the server
 
