@@ -30,9 +30,7 @@ describe('AbstractIssue rendering', () => {
   });
 
   test('works for getPreText', async () => {
-    expect(abstractIssueMessage.getPreText('Issue')).toEqual(
-      'Issue opened by wilhelmklopp',
-    );
+    expect(abstractIssueMessage.getPreText('Issue')).toEqual('Issue opened by wilhelmklopp');
   });
 
   test('works for getPreText (without sender)', async () => {
@@ -41,9 +39,7 @@ describe('AbstractIssue rendering', () => {
       repository: issuesOpened.repository,
       eventType: 'issues.opened',
     });
-    expect(abstractIssueMessage.getPreText('Issue')).toEqual(
-      'Issue opened by wilhelmklopp',
-    );
+    expect(abstractIssueMessage.getPreText('Issue')).toEqual('Issue opened by wilhelmklopp');
   });
 
   test('works for core', async () => {

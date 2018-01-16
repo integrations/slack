@@ -13,7 +13,8 @@ describe('Integration: tracking GitHub installations', () => {
     });
 
     let installation = await Installation.findOne({
-      where: { githubId: installationCreated.installation.id } });
+      where: { githubId: installationCreated.installation.id },
+    });
 
     expect(installation).toBeTruthy();
 
@@ -23,7 +24,8 @@ describe('Integration: tracking GitHub installations', () => {
     });
 
     installation = await Installation.findOne({
-      where: { githubId: installationCreated.installation.id } });
+      where: { githubId: installationCreated.installation.id },
+    });
 
     expect(installation).toBe(null);
   });
@@ -38,7 +40,8 @@ describe('Integration: tracking GitHub installations', () => {
     });
 
     const installation = await Installation.findOne({
-      where: { githubId: installationCreated.installation.id } });
+      where: { githubId: installationCreated.installation.id },
+    });
 
     const slackWorkspace = await SlackWorkspace.create({
       slackId: 'T0001',
