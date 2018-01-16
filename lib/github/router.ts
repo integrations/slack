@@ -28,25 +28,27 @@ module.exports = ({ models }: { models: any}) => {
           // Create clack client with workspace token
           const slack = createClient(subscription.SlackWorkspace.accessToken);
 
-          // Verify that subscription creator still has access to the resource
-          if (subscription.creatorId) {
-            const creator = await SlackUser.findById(subscription.creatorId, {
-              include: [GitHubUser],
-            });
-            const [userHasAccess, repoName] = await userHasRepoAccess(
-              subscription.githubId, creator.GitHubUser.accessToken,
-            );
-            if (!userHasAccess) {
-              await slack.chat.postMessage(
-                subscription.channelId,
-                "",
-                (new ReEnableSubscription(repoName, creator.slackId)).toJSON(),
-              );
-              // @todo: deactive this subscription instead of deleting the db record
-              await subscription.destroy();
-            }
+          if (!subscription.creatorId) {
+            return callback(context, subscription, slack);
           }
-
+          // Verify that subscription creator still has access to the resource
+          const creator = await SlackUser.findById(subscription.creatorId, {
+            include: [GitHubUser],
+          });
+          const userHasAccess = await userHasRepoAccess(
+            subscription.githubId, creator.GitHubUser.accessToken,
+          );
+          if (!userHasAccess) {
+            context.log.debug("User lost access to resource. Deleting subscription.");
+            await slack.chat.postMessage(
+              subscription.channelId,
+              "",
+              (new ReEnableSubscription(context.payload.repository.full_name, creator.slackId)).toJSON(),
+            );
+            // @todo: deactive this subscription instead of deleting the db record
+            await subscription.destroy();
+            return;
+          }
           return callback(context, subscription, slack);
         }));
       }
