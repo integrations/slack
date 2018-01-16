@@ -1,4 +1,4 @@
-import GitHub from "github";
+const GitHub = require("github");
 
 export async function userHasRepoAccess(repoId: number, accessToken: string): Promise<boolean> {
   const github = new GitHub();
