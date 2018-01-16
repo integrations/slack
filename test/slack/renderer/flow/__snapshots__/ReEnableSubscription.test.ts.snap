@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReEnableSubscription message rendering works 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "The subscription to \`atom/atom\` has been disabled, because the subscription creator (<@U012345>) no longer has access.
+Run \`/github subscribe atom/atom\` to re-enable the subscription",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;

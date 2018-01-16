@@ -12,8 +12,9 @@ module.exports = class ReEnableSubscription extends Message {
   public getAttachment() {
     return {
       ...this.getBaseMessage(),
-      text: `The subscription to ${this.repoName} has been disabled, ` +
-      `because the subscription creator (<@${this.creator}>) no longer has access` +
+      mrkdwn_in: ["text"],
+      text: `The subscription to \`${this.repoName}\` has been disabled, ` +
+      `because the subscription creator (<@${this.creator}>) no longer has access.\n` +
       `Run \`/github subscribe ${this.repoName}\` to re-enable the subscription`,
     };
   }
