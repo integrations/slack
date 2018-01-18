@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+// Usage: script/import filename.json
+
+/* eslint-disable no-restricted-syntax, no-await-in-loop */
+
+const filename = process.argv[2];
+console.log(`Importing ${filename}`);
+
+const fs = require('fs');
+const loadModels = require('../dist/models');
+const logger = require('probot/lib/logger');
+
+async function doImport() {
+  const models = loadModels({ logger });
+
+  const data = JSON.parse(fs.readFileSync(filename));
+
+  const { LegacySubscription, sequelize } = models;
+
+  await LegacySubscription.truncate();
+
+  for (const configuration of data) {
+    await LegacySubscription.import(configuration);
+  }
+
+  sequelize.close();
+}
+
+doImport();
