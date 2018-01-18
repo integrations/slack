@@ -19,20 +19,8 @@ async function doImport() {
 
   await LegacySubscription.truncate();
 
-  for (const channelConfiguration of data) {
-    if (channelConfiguration.repos) {
-      for (const repo of channelConfiguration.repos) {
-        await LegacySubscription.create({
-          channelSlackId: channelConfiguration.channel,
-          // authorSlackId: channelConfiguration.author,
-          // workspaceSlackId: channelConfiguration.team,
-          repoGitHubId: repo.id,
-          ownerGitHubId: repo.owner.id,
-          repoName: repo.name,
-          ownerName: repo.owner.login,
-        });
-      }
-    }
+  for (const configuration of data) {
+    await LegacySubscription.import(configuration);
   }
 
   sequelize.close();
