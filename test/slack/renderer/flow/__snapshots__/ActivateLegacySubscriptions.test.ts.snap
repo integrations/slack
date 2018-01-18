@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlreadySubscribed message rendering works for multiple configurations and authors in a channel 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": ":wave: Looks like you installed the new GitHub integration on this workspace. Existing configurations have been disabled. Run the following commands to re-enable the configurations in this channel.",
+    },
+    Object {
+      "color": "#24292f",
+      "fields": Array [
+        Object {
+          "value": "\`/github subscribe kubernetes/kubernetes\`",
+        },
+        Object {
+          "value": "\`/github subscribe facebook/react\`",
+        },
+      ],
+      "mrkdwn_in": Array [
+        "fields",
+      ],
+      "pretext": "Configurations created by <@U12345>:",
+    },
+    Object {
+      "color": "#24292f",
+      "fields": Array [
+        Object {
+          "value": "\`/github subscribe django/django\`",
+        },
+        Object {
+          "value": "\`/github subscribe microsoft/typescript\`",
+        },
+      ],
+      "mrkdwn_in": Array [
+        "fields",
+      ],
+      "pretext": "Configurations created by <@U54321>:",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`AlreadySubscribed message rendering works for one configuration in a channel 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": ":wave: Looks like you installed the new GitHub integration on this workspace. Existing configurations have been disabled. Run the following command to re-enable the configuration in this channel.",
+    },
+    Object {
+      "color": "#24292f",
+      "fields": Array [
+        Object {
+          "value": "\`/github subscribe atom/atom\`",
+        },
+      ],
+      "mrkdwn_in": Array [
+        "fields",
+      ],
+      "pretext": "Configuration created by <@U12345>:",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
