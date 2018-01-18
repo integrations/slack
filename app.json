@@ -18,9 +18,6 @@
     "GITHUB_TOKEN": {
       "description": "Token of a GitHub user used for unfurling public URLs"
     },
-    "APP_HOST": {
-      "description": "The public domain name of this app"
-    },
     "LOG_FORMAT": {
       "description": "https://probot.github.io/docs/logging/#log-formats",
       "value": "json",
@@ -42,6 +39,14 @@
     },
     "SLACK_VERIFICATION_TOKEN": {
       "description": "The verification token of the Slack App"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Needs to be set to false so that Heroku can build typescript",
+      "value": "false"
+    },
+    "DISABLE_STATS": {
+      "description": "Disable the probot stats plugin for scalability",
+      "value": "true"
     }
   },
   "addons": [

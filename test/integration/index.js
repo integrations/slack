@@ -4,7 +4,7 @@ const nock = require('nock');
 
 const app = require('../../lib');
 
-const storage = require('../../lib/storage');
+const cache = require('../../lib/cache');
 
 const probot = createProbot({});
 const robot = probot.load(app);
@@ -15,7 +15,7 @@ const { sequelize } = robot.models;
 beforeEach(async () => nock.cleanAll());
 afterEach(() => expect(nock.pendingMocks()).toEqual([]));
 
- // Ensure there is a connection established
+// Ensure there is a connection established
 beforeAll(async () => sequelize.authenticate());
 // Close connection when tests are done
 afterAll(async () => sequelize.close());
@@ -30,7 +30,7 @@ beforeEach(() => {
   // Clear all data out of the test database
   return Promise.all([
     sequelize.truncate({ cascade: true }),
-    storage.clear(),
+    cache.clear(),
   ]);
 });
 

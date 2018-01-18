@@ -1,4 +1,6 @@
 # GitHub + Slack Integration
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/github-slack/app.svg?token=8913ec8893877bdfb8fd9b036d1f54ddc1738c6c0d06dc1462bf9e9a088b13ad&ts=1513745376664)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/github-slack/app.svg?branch=extract-unfurls)](https://travis-ci.org/github-slack/app) [![codecov](https://codecov.io/gh/github-slack/app/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/github-slack/app)
 
 ## Developing
@@ -23,7 +25,7 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
 
 1. Go to the **OAuth & Permissions** tab, click **Add a new Redirect URL** and enter `https://DOMAIN/slack/oauth/callback` and click **Save URLs**
 
-1. Scroll down to **Select Permission Scopes**, add `links:read`, `links:write`, and `chat:write:user` and click **Save Changes**
+1. Scroll down to **Select Permission Scopes**, add `links:read`, `links:write`, and `chat:write` and click **Save Changes**
 
 1. Run `script/server` to start the server
 
