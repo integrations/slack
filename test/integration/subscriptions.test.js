@@ -17,7 +17,7 @@ describe('Integration: subscriptions', () => {
       const res = await req.expect(200);
 
       // User is shown ephemeral prompt to authenticate
-      const promptUrl = /^https:\/\/example\.com(\/github\/oauth\/login\?state=(.*))/;
+      const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
       const { text } = res.body.attachments[0].actions[0];
       const { url } = res.body.attachments[0].actions[0];
       expect(text).toMatch('Connect GitHub account');
