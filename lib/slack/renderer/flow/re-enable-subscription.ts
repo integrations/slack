@@ -1,10 +1,5 @@
 import { Message } from "../";
-
-interface IRepository {
-  html_url: string;
-  full_name: string;
-  [index: string]: string | number | null;
-}
+import { IRepository } from "../../../github/types";
 
 module.exports = class ReEnableSubscription extends Message {
   private repository: IRepository;

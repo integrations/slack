@@ -1,4 +1,5 @@
-import SubscriptionList, { IRepository} from "../renderer/subscription-list";
+import { IRepository } from "../../github/types";
+import SubscriptionList from "../renderer/subscription-list";
 const { Help } = require("../renderer/flow");
 import { NextFunction, Request, Response } from "express";
 
