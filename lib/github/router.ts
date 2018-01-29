@@ -48,13 +48,16 @@ module.exports = ({ models }: { models: any}) => {
                 workspaceId: subscription.SlackWorkspace.slackId,
               },
             }, "User lost access to resource. Deleting subscription.");
-            await slack.chat.postMessage(
-              subscription.channelId,
-              "",
-              (new ReEnableSubscription(context.payload.repository, creator.slackId)).toJSON(),
-            );
-            // @todo: deactive this subscription instead of deleting the db record
-            await subscription.destroy();
+            const channelId = subscription.channelId;
+            await Promise.all([
+              // @todo: deactive this subscription instead of deleting the db record
+              await subscription.destroy(),
+              await slack.chat.postMessage(
+                subscription.channelId,
+                "",
+                (new ReEnableSubscription(context.payload.repository, creator.slackId)).toJSON(),
+              ),
+            ]);
             return;
           }
           return callback(context, subscription, slack);
