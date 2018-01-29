@@ -82,4 +82,29 @@ describe('model: Subscription', () => {
       expect(await Subscription.lookup(resource)).toEqual([]);
     });
   });
+
+  describe('settings', () => {
+    let subscription;
+
+    beforeEach(async () => {
+      subscription = await Subscription.create({
+        channelId: channel,
+        githubId: 1,
+        creatorId: slackUser.id,
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+      });
+    });
+
+    test('defaults to an empty object', async () => {
+      expect(subscription.settings).toEqual({});
+    });
+
+    test('sets new values', async () => {
+      await subscription.update({ settings: { issues: false } });
+      await subscription.reload();
+
+      expect(subscription.settings).toEqual({ issues: false });
+    });
+  });
 });
