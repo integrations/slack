@@ -1,6 +1,6 @@
 import { createClient } from "../slack/client";
 const { ReEnableSubscription } = require("../slack/renderer/flow");
-import { userHasRepoAccess } from "./helpers";
+import { userHasRepoAccess } from "./access";
 
 // @todo: remove me and implement sequelize-typescript
 interface ISubcription {
