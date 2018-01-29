@@ -17,8 +17,8 @@ module.exports = class ReEnableSubscription extends Message {
       ...this.getBaseMessage(),
       mrkdwn_in: ["text"],
       text: `Subscription to \`${this.repository.full_name}\` has been disabled, ` +
-      `because the subscription creator (<@${this.creator}>) no longer has access.\n` +
-      `Run \`/github subscribe ${this.repository.full_name}\` to re-enable the subscription`,
+      `because <@${this.creator}>, who originally set it up, no longer has access.\n` +
+      `Run \`/github subscribe ${this.repository.full_name}\` to re-enable the subscription.`,
     };
   }
 
