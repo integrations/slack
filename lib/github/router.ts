@@ -9,6 +9,7 @@ interface ISubcription {
   channelId: string;
   SlackWorkspace: {
     accessToken: string;
+    slackId: string;
   };
   destroy: () => void;
 }
@@ -39,7 +40,14 @@ module.exports = ({ models }: { models: any}) => {
             subscription.githubId, creator.GitHubUser.accessToken,
           );
           if (!userHasAccess) {
-            context.log.debug("User lost access to resource. Deleting subscription.");
+            context.log.debug({
+              subscription: {
+                channelId: subscription.channelId,
+                creatorId: subscription.creatorId,
+                githubId: subscription.githubId,
+                workspaceId: subscription.SlackWorkspace.slackId,
+              },
+            }, "User lost access to resource. Deleting subscription.");
             await slack.chat.postMessage(
               subscription.channelId,
               "",
