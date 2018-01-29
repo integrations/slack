@@ -6,10 +6,5 @@ export async function userHasRepoAccess(repoId: number, accessToken: string): Pr
     token: accessToken,
     type: "token",
   });
-  try {
-    const response = await github.repos.getById({ id: repoId.toString() });
-  } catch (e) {
-    return false;
-  }
-  return true;
+  return github.repos.getById({ id: repoId.toString() }).then(() => true).catch(() => false);
 }
