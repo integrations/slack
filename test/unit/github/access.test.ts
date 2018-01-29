@@ -1,5 +1,5 @@
 import nock from "nock";
-import { userHasRepoAccess } from "../../../lib/github/helpers";
+import { userHasRepoAccess } from "../../../lib/github/access";
 
 describe("userHasRepoAccess", () => {
   test("returns true for user with access", async () => {
