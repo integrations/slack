@@ -13,13 +13,7 @@ module.exports = {
       repoGitHubId: {
         type: Sequelize.BIGINT,
       },
-      ownerGitHubId: {
-        type: Sequelize.BIGINT,
-      },
-      repoName: {
-        type: Sequelize.STRING,
-      },
-      ownerName: {
+      repoFullName: {
         type: Sequelize.STRING,
       },
       authorSlackId: {
