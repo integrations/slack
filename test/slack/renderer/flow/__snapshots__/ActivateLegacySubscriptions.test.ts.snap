@@ -5,7 +5,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": ":wave: Looks like you installed the new GitHub integration on this workspace. Existing configurations have been disabled. Run the following commands to re-enable the configurations in this channel.",
+      "text": "Good news: an upgraded GitHub app has been installed in this workspace. Type the following slash commands to keep GitHub working in this channel.",
     },
     Object {
       "color": "#24292f",
@@ -37,6 +37,13 @@ Object {
       ],
       "pretext": "Configurations created by <@U54321>:",
     },
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "_Need help? Type \`/github help\` or <https://github.com/github-slack/private-beta|learn more>._",
+    },
   ],
   "response_type": "in_channel",
 }
@@ -47,7 +54,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": ":wave: Looks like you installed the new GitHub integration on this workspace. Existing configurations have been disabled. Run the following command to re-enable the configuration in this channel.",
+      "text": "Good news: an upgraded GitHub app has been installed in this workspace. Type the following slash command to keep GitHub working in this channel.",
     },
     Object {
       "color": "#24292f",
@@ -60,6 +67,13 @@ Object {
         "fields",
       ],
       "pretext": "Configuration created by <@U12345>:",
+    },
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "_Need help? Type \`/github help\` or <https://github.com/github-slack/private-beta|learn more>._",
     },
   ],
   "response_type": "in_channel",

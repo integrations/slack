@@ -38,9 +38,9 @@ module.exports = class ActivateLegacySubscriptions extends Message {
   }
 
   public toJSON() {
-    const introduction = ":wave: Looks like you installed the new GitHub integration on this workspace. " +
-      `Existing configurations have been disabled. Run the following command${this.plural ? "s" : "" } to ` +
-      `re-enable the configuration${this.plural ? "s" : "" } in this channel.`;
+    const introduction = "Good news: an upgraded GitHub app has been installed in this workspace. " +
+      `Type the following slash command${this.plural ? "s" : "" } to ` +
+      `keep GitHub working in this channel.`;
 
     const attachments: IAttachment[] = [
       {
@@ -61,6 +61,13 @@ module.exports = class ActivateLegacySubscriptions extends Message {
         });
       });
       attachments.push(attachment);
+    });
+
+    // @todo: Add link to public blog post/FAQ page
+    attachments.push({
+      ...this.getBaseMessage(),
+      mrkdwn_in: ["text"],
+      text: "_Need help? Type `/github help` or <https://github.com/github-slack/private-beta|learn more>._",
     });
 
     return {
