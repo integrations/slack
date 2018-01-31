@@ -26,6 +26,25 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 1`] = `
+Object {
+  "attachments": "[{\\"pretext\\":\\"Pull request opened by wilhelmklopp\\",\\"fallback\\":\\"Pull request opened by wilhelmklopp\\",\\"color\\":\\"#36a64f\\",\\"text\\":\\"1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"fields\\":[{\\"title\\":\\"Milestone\\",\\"value\\":\\"<https://github.com/github-slack/app/milestone/1|Staff Ship>\\",\\"short\\":true}],\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"#31 Add badges to readme\\",\\"text\\":\\"![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)\\\\r\\\\n\\"}]",
+  "channel": "C001",
+  "text": "",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Subscription to \`github-slack/app\` has been disabled, because <@U012345>, who originally set it up, no longer has access.\\\\nRun \`/github subscribe github-slack/app\` to re-enable the subscription.\\"}]",
+  "channel": "C001",
+  "response_type": "in_channel",
+  "text": "",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel public event 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/private-turned-public|github-slack/private-turned-public>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"text\\":\\"github-slack/private-turned-public is now public!\\",\\"fallback\\":\\"github-slack/private-turned-public is now public!\\",\\"image_url\\":\\"https://octodex.github.com/images/welcometocat.png\\"}]",
