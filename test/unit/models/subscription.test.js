@@ -106,5 +106,40 @@ describe('model: Subscription', () => {
 
       expect(subscription.settings).toEqual({ issues: false });
     });
+
+    test('enables and disables with string value', () => {
+      subscription.enable('issues');
+      expect(subscription.settings).toEqual({ issues: true });
+
+      subscription.enable('pulls');
+      expect(subscription.settings).toEqual({ pulls: true, issues: true });
+
+      subscription.disable('pulls');
+      expect(subscription.settings).toEqual({ issues: true, pulls: false });
+
+      subscription.disable('issues');
+      expect(subscription.settings).toEqual({ pulls: false, issues: false });
+    });
+
+    test('enables and disables with array values', () => {
+      subscription.enable(['issues', 'pulls']);
+      expect(subscription.settings).toEqual({ pulls: true, issues: true });
+
+      subscription = new Subscription({ settings: ['issues', 'pulls'] });
+      expect(subscription.settings).toEqual({ pulls: true, issues: true });
+
+      subscription.disable(['issues', 'pulls']);
+      expect(subscription.settings).toEqual({ pulls: false, issues: false });
+    });
+
+    test('initializes with enabled values', () => {
+      subscription = new Subscription({ settings: 'issues' });
+      expect(subscription.settings).toEqual({ issues: true });
+    });
+
+    test.skip('raises an error for unknown values', () => {
+      expect(() => subscription.enable('time-travel')).toThrow(RangeError);
+      expect(subscription.settings).toEqual({});
+    });
   });
 });
