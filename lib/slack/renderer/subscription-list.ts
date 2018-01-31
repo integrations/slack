@@ -1,10 +1,5 @@
 import { getChannelString, Message } from ".";
-
-export interface IRepository {
-  html_url: string;
-  full_name: string;
-  [index: string]: any;
-}
+import { IRepository } from "../../github/types";
 
 interface IOutput {
   attachments: [{
