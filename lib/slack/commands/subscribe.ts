@@ -60,7 +60,11 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
       if (settings) {
         req.log.debug({settings}, "Subscription already exists, updating settings");
         subscription.enable(settings);
-        await subscription.update();
+        await subscription.save();
+        return res.json(new Subscribed({
+          channelId: to,
+          fromRepository: from,
+        }));
       } else {
         req.log.debug("Subscription already exists");
         return res.json(new AlreadySubscribed(req.body.args[0]));
@@ -87,7 +91,10 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
         subscription.disable(settings);
         await subscription.save();
 
-        // Render message
+        return res.json(new Subscribed({
+          channelId: to,
+          fromRepository: from,
+        }));
       } else {
         await Subscription.unsubscribe(from.id, to, slackWorkspace.id);
         return res.json(new Subscribed({
