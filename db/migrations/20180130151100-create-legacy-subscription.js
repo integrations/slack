@@ -9,18 +9,23 @@ module.exports = {
       },
       workspaceSlackId: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       repoGitHubId: {
         type: Sequelize.BIGINT,
+        allowNull: false,
       },
       repoFullName: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       authorSlackId: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       channelSlackId: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
