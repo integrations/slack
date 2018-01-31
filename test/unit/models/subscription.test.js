@@ -146,4 +146,46 @@ describe('model: Subscription', () => {
       expect(subscription.settings).toEqual({});
     });
   });
+
+  describe('enabledForType', () => {
+    let subscription;
+
+    beforeEach(async () => {
+      subscription = await Subscription.create({
+        channelId: channel,
+        githubId: 1,
+        creatorId: slackUser.id,
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+      });
+    });
+
+    test('defaults', () => {
+      expect(subscription.enabledForType('issues')).toBe(true);
+      expect(subscription.enabledForType('pulls')).toBe(true);
+      expect(subscription.enabledForType('statuses')).toBe(true);
+      expect(subscription.enabledForType('deployments')).toBe(true);
+      expect(subscription.enabledForType('public')).toBe(true);
+      expect(subscription.enabledForType('commits')).toBe(true);
+
+      expect(subscription.enabledForType('status')).toBe(true);
+      expect(subscription.enabledForType('deployment_status')).toBe(true);
+      expect(subscription.enabledForType('push')).toBe(true);
+    });
+
+    test('returns true if subscription enabled', () => {
+      subscription.enable('comments');
+      expect(subscription.enabledForType('comments')).toBe(true);
+    });
+
+    test('returns false if subscription enabled', () => {
+      subscription.disable('issues');
+      expect(subscription.enabledForType('issues')).toBe(false);
+    });
+
+    test('maps GitHub event names to friendly values', () => {
+      subscription.enable('pulls');
+      expect(subscription.enabledForType('pull_request')).toBe(true);
+    });
+  });
 });
