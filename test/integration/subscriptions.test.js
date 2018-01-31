@@ -117,6 +117,7 @@ describe('Integration: subscriptions', () => {
       test('subscribing when already subscribed', async () => {
         nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
         nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
+        nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').reply(200, {});
 
         const { Subscription } = helper.robot.models;
         await Subscription.create({
