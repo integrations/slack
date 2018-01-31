@@ -107,18 +107,22 @@ describe('model: Subscription', () => {
       expect(subscription.settings).toEqual({ issues: false });
     });
 
-    test('enables and disables with string value', () => {
+    test('enables and disables with string value', async () => {
       subscription.enable('issues');
-      expect(subscription.settings).toEqual({ issues: true });
+      await subscription.save();
+      expect((await subscription.reload()).settings).toEqual({ issues: true });
 
       subscription.enable('pulls');
-      expect(subscription.settings).toEqual({ pulls: true, issues: true });
+      await subscription.save();
+      expect((await subscription.reload()).settings).toEqual({ pulls: true, issues: true });
 
       subscription.disable('pulls');
-      expect(subscription.settings).toEqual({ issues: true, pulls: false });
+      await subscription.save();
+      expect((await subscription.reload()).settings).toEqual({ issues: true, pulls: false });
 
       subscription.disable('issues');
-      expect(subscription.settings).toEqual({ pulls: false, issues: false });
+      await subscription.save();
+      expect((await subscription.reload()).settings).toEqual({ pulls: false, issues: false });
     });
 
     test('enables and disables with array values', () => {
