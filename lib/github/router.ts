@@ -37,7 +37,7 @@ module.exports = ({ models }: { models: any}) => {
             include: [GitHubUser],
           });
           const userHasAccess = await userHasRepoAccess(
-            subscription.githubId, creator.GitHubUser.accessToken,
+            context, subscription.githubId, creator.GitHubUser.accessToken,
           );
           if (!userHasAccess) {
             context.log.debug({
