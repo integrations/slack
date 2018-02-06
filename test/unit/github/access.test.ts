@@ -11,7 +11,7 @@ describe("userHasRepoAccess", () => {
   test("returns true for unexpected status codes", async () => {
     nock("https://api.github.com").get("/repositories/1").reply(500);
     const hasAccess = await userHasRepoAccess(logger, 1, "secret");
-    expect(hasAccess).toBe(false);
+    expect(hasAccess).toBe(true);
   });
   test("returns false for user without access", async () => {
     nock("https://api.github.com").get("/repositories/1").reply(404);
