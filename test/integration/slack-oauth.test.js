@@ -102,4 +102,39 @@ describe('Integration: slack authentication', () => {
       .expect(302)
       .expect('Location', `https://slack.com/app_redirect?app=${access.app_id}&team=${access.team_id}`);
   });
+
+  test('user aborting oauth process fails with error message', async () => {
+    await request.get('/slack/oauth/callback').query({ error: 'access_denied' })
+      .expect(400)
+      .expect((res) => {
+        expect(res.text).toMatchSnapshot();
+      });
+  });
+
+  test('no state param fails with error message', async () => {
+    await request.get('/slack/oauth/callback').query({ code: 'abc' })
+      .expect(400)
+      .expect((res) => {
+        expect(res.text).toMatchSnapshot();
+      });
+  });
+
+  test('no session fails with error message', async () => {
+    await supertest(probot.server).get('/slack/oauth/callback').query({ code: 'abc', state: 'def' })
+      .expect(400)
+      .expect((res) => {
+        expect(res.text).toMatchSnapshot();
+      });
+  });
+
+  test('invalid state fails with error message', async () => {
+    await request.get('/slack/oauth/login')
+      .expect(302);
+    const code = 'code-from-slack';
+    await request.get('/slack/oauth/callback').query({ code, state: 'not-the-same' })
+      .expect(400)
+      .expect((res) => {
+        expect(res.text).toMatchSnapshot();
+      });
+  });
 });
