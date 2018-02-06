@@ -39,7 +39,7 @@ describe('Link unfurling', () => {
     const url = 'https://github.com/facebook/react/issues/10191';
     const response = await unfurl(github, url, 'full');
 
-    expect(response.title).toEqual('#10191 Consider re-licensing to AL v2.0, as RocksDB has just done');
+    expect(response.title).toEqual('Issue #10191 Consider re-licensing to AL v2.0, as RocksDB has just done');
     expect(response.title_link).toEqual(url);
   });
 
@@ -47,7 +47,7 @@ describe('Link unfurling', () => {
     const url = 'https://github.com/github/hub/pull/1535';
     const response = await unfurl(github, url, 'full');
 
-    expect(response.title).toEqual('#1535 Make fork command idempotent');
+    expect(response.title).toEqual('Pull Request #1535 Make fork command idempotent');
     expect(response.title_link).toEqual(url);
   });
 
