@@ -137,4 +137,20 @@ describe('Integration: slack authentication', () => {
         expect(res.text).toMatchSnapshot();
       });
   });
+
+  test('slack non-ok response fails with error message', async () => {
+    const res = await request.get('/slack/oauth/login')
+      .expect(302);
+    const { location } = res.headers;
+    const { state } = queryString.parse(location.replace('https://slack.com/oauth/authorize', ''));
+    const code = 'code-from-slack';
+
+    nock('https://slack.com').post('/api/oauth.token').reply(200, { ok: false, error: 'something_went_wrong' });
+
+    await request.get('/slack/oauth/callback').query({ code, state })
+      .expect(400)
+      .expect((response) => {
+        expect(response.text).toMatchSnapshot();
+      });
+  });
 });
