@@ -30,14 +30,14 @@ module.exports = ({ models }: { models: any}) => {
           const slack = createClient(subscription.SlackWorkspace.accessToken);
 
           if (!subscription.creatorId) {
-            return callback(context.log, subscription, slack);
+            return callback(context, subscription, slack);
           }
           // Verify that subscription creator still has access to the resource
           const creator = await SlackUser.findById(subscription.creatorId, {
             include: [GitHubUser],
           });
           const userHasAccess = await userHasRepoAccess(
-            context, subscription.githubId, creator.GitHubUser.accessToken,
+            context.log, subscription.githubId, creator.GitHubUser.accessToken,
           );
           if (!userHasAccess) {
             context.log.debug({
