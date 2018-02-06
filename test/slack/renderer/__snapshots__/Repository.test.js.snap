@@ -50,7 +50,7 @@ Object {
     Object {
       "short": true,
       "title": "Last updated",
-      "value": "2 months ago",
+      "value": "5 months ago",
     },
   ],
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
