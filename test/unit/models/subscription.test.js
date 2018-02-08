@@ -23,6 +23,20 @@ describe('model: Subscription', () => {
     });
   });
 
+  test('cacheKey', async () => {
+    const subscription = await Subscription.subscribe({
+      channelId: 1,
+      githubId: 2,
+      creatorId: slackUser.id,
+      slackWorkspaceId: workspace.id,
+      installationId: installation.id,
+    });
+
+    expect(subscription.cacheKey()).toMatch(/subscription#\d+/);
+    expect(subscription.cacheKey('foo#1')).toMatch(/subscription#\d+:foo#1/);
+    expect(subscription.cacheKey('foo#1', 'bar#2')).toMatch(/subscription#\d+:foo#1:bar#2/);
+  });
+
   describe('subscribe', () => {
     test('add subscription for resource', async () => {
       const resource = '1';
