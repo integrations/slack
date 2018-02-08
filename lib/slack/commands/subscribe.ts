@@ -1,7 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 const GitHub = require("github");
+import axios from "axios";
 
 const { Subscribed, NotFound, AlreadySubscribed, NotSubscribed } = require("../renderer/flow");
+const slack = require("../client");
 
 interface Ilog {
   debug: (...args: any[]) => void;
@@ -15,7 +17,7 @@ interface Ilog {
  */
 module.exports = async (req: Request & { log: Ilog }, res: Response) => {
   const { robot, resource, installation, gitHubUser, slackWorkspace, slackUser } = res.locals;
-  const { Subscription } = robot.models;
+  const { Subscription, LegacySubscription } = robot.models;
   const command = req.body;
 
   req.log.debug({ installation, resource }, "Lookup respository to subscribe");
@@ -56,7 +58,7 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
       return res.json(new NotFound(req.body.text));
     }
 
-    await Subscription.subscribe({
+    const subscription = await Subscription.subscribe({
       channelId: to,
       creatorId: slackUser.id,
       githubId: from.id,
@@ -64,10 +66,50 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
       slackWorkspaceId: slackWorkspace.id,
     });
 
-    return res.json(new Subscribed({
+    res.json(new Subscribed({
       channelId: to,
       fromRepository: from,
     }));
+    // check if there are any legacy configurations that we can disable
+    const legacySubscriptions = await LegacySubscription.findAll({
+      where: {
+        channelSlackId: to,
+        repoGitHubId: from.id,
+        workspaceSlackId: slackWorkspace.slackId,
+      },
+    });
+    return Promise.all(legacySubscriptions.map(async (legacySubscription: any) => {
+      // call Slack API to disable subscription
+      // eslint-disable-next-line no-underscore-dangle
+      const payload = {
+        payload: {
+          action: "mark_subscribed",
+          repo: {
+            full_name: legacySubscription.repoFullName,
+            id: legacySubscription.repoGitHubId,
+          },
+          service_type: "github",
+        },
+        service: legacySubscription.serviceSlackId,
+      };
+      req.log.debug("Removing legacy configuration", payload);
+
+      const configurationRemovalRes = await axios.post("https://slack.com/api/services.update", payload, {
+        headers: {
+          "Authorization": `Bearer ${slackWorkspace.accessToken}`,
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      });
+      if (configurationRemovalRes.data.ok) {
+        req.log.debug("Removed legacy configuration", configurationRemovalRes.data);
+      } else {
+        req.log.debug("Failed to remove legacy configuration", configurationRemovalRes.data);
+      }
+
+      legacySubscription.reactivatedSubscriptionId = subscription.id;
+      await legacySubscription.save();
+    }));
+
   } else if (command.subcommand === "unsubscribe") {
     if (await Subscription.lookupOne(from.id, to, slackWorkspace.id, installation.id)) {
       await Subscription.unsubscribe(from.id, to, slackWorkspace.id);
