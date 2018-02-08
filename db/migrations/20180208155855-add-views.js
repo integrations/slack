@@ -1,7 +1,9 @@
 module.exports = {
   up: async (queryInterface) => {
+    await queryInterface.sequelize.query('CREATE SCHEMA analytics;');
+
     await queryInterface.sequelize.query(`
-      CREATE VIEW github_users AS (
+      CREATE VIEW analytics.github_users AS (
         SELECT
           id,
           "createdAt" AS created_at,
@@ -12,7 +14,7 @@ module.exports = {
     `);
 
     await queryInterface.sequelize.query(`
-      CREATE VIEW github_installations AS (
+      CREATE VIEW analytics.github_installations AS (
         SELECT
           id,
           "githubId" AS github_id,
@@ -25,7 +27,7 @@ module.exports = {
     `);
 
     await queryInterface.sequelize.query(`
-      CREATE VIEW slack_users AS (
+      CREATE VIEW analytics.slack_users AS (
         SELECT
           id,
           "slackId" AS slack_id,
@@ -39,7 +41,7 @@ module.exports = {
     `);
 
     await queryInterface.sequelize.query(`
-      CREATE VIEW slack_workspaces AS (
+      CREATE VIEW analytics.slack_workspaces AS (
         SELECT
           id,
           "slackId" AS slack_id,
@@ -52,9 +54,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.sequelize.query('DROP VIEW github_users');
-    await queryInterface.sequelize.query('DROP VIEW github_installations');
-    await queryInterface.sequelize.query('DROP VIEW slack_users');
-    await queryInterface.sequelize.query('DROP VIEW slack_workspaces');
+    await queryInterface.sequelize.query('DROP SCHEMA analytics CASCADE;');
   },
 };
