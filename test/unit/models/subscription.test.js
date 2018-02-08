@@ -147,7 +147,7 @@ describe('model: Subscription', () => {
     });
   });
 
-  describe('enabledForType', () => {
+  describe('isEnabledForGitHubEvent', () => {
     let subscription;
 
     beforeEach(async () => {
@@ -161,31 +161,31 @@ describe('model: Subscription', () => {
     });
 
     test('defaults', () => {
-      expect(subscription.enabledForType('issues')).toBe(true);
-      expect(subscription.enabledForType('pulls')).toBe(true);
-      expect(subscription.enabledForType('statuses')).toBe(true);
-      expect(subscription.enabledForType('deployments')).toBe(true);
-      expect(subscription.enabledForType('public')).toBe(true);
-      expect(subscription.enabledForType('commits')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('pulls')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('statuses')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('deployments')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('public')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('commits')).toBe(true);
 
-      expect(subscription.enabledForType('status')).toBe(true);
-      expect(subscription.enabledForType('deployment_status')).toBe(true);
-      expect(subscription.enabledForType('push')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('status')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('deployment_status')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('push')).toBe(true);
     });
 
     test('returns true if subscription enabled', () => {
       subscription.enable('comments');
-      expect(subscription.enabledForType('comments')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('comments')).toBe(true);
     });
 
     test('returns false if subscription enabled', () => {
       subscription.disable('issues');
-      expect(subscription.enabledForType('issues')).toBe(false);
+      expect(subscription.isEnabledForGitHubEvent('issues')).toBe(false);
     });
 
     test('maps GitHub event names to friendly values', () => {
       subscription.enable('pulls');
-      expect(subscription.enabledForType('pull_request')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('pull_request')).toBe(true);
     });
   });
 });

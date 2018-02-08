@@ -12,7 +12,7 @@ interface ISubcription {
     slackId: string;
   };
   destroy: () => void;
-  enabledForType: (type: string) => boolean;
+  isEnabledForGitHubEvent: (type: string) => boolean;
 }
 
 // Temporary "middleware" hack to look up routing before delivering event
@@ -27,7 +27,7 @@ module.exports = ({ models }: { models: any}) => {
         context.log.debug({ subscriptions }, "Delivering to subscribed channels");
 
         return Promise.all(subscriptions.map(async (subscription: ISubcription) => {
-          if (!subscription.enabledForType(context.event)) {
+          if (!subscription.isEnabledForGitHubEvent(context.event)) {
             return;
           }
 
