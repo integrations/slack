@@ -175,16 +175,20 @@ describe('model: Subscription', () => {
     });
 
     test('defaults', () => {
+      // enabled by default
       expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('pulls')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('statuses')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('deployments')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('public')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('commits')).toBe(true);
-
       expect(subscription.isEnabledForGitHubEvent('status')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('deployment_status')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('push')).toBe(true);
+
+      // disabled by default
+      expect(subscription.isEnabledForGitHubEvent('issue_comment')).toBe(false);
+      expect(subscription.isEnabledForGitHubEvent('lolwut?')).toBe(false);
     });
 
     test('returns true if subscription enabled', () => {
