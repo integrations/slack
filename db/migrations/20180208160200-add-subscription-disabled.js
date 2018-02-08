@@ -20,11 +20,17 @@ module.exports = {
       onDelete: 'no action',
       onUpdate: 'no action',
     });
+    await queryInterface.changeColumn('Subscriptions', 'installationId', {
+      type: Sequelize.BIGINT,
+      allowNull: true,
+    });
   },
 
-  down: async (queryInterface) => {
-    await queryInterface.removeColumn('Subscriptions', 'disabled');
-    await queryInterface.removeColumn('Subscriptions', 'disableReason');
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.changeColumn('Subscriptions', 'installationId', {
+      type: Sequelize.BIGINT,
+      allowNull: false,
+    });
     await queryInterface.removeConstraint('Subscriptions', 'Subscriptions_installationId_fkey');
     await queryInterface.addConstraint('Subscriptions', ['installationId'], {
       type: 'FOREIGN KEY',
@@ -36,5 +42,7 @@ module.exports = {
       onDelete: 'cascade',
       onUpdate: 'no action',
     });
+    await queryInterface.removeColumn('Subscriptions', 'disabled');
+    await queryInterface.removeColumn('Subscriptions', 'disableReason');
   },
 };
