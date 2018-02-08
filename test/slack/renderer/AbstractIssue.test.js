@@ -45,8 +45,6 @@ describe('AbstractIssue rendering', () => {
   test('works for core', async () => {
     expect(abstractIssueMessage.getCore()).toEqual({
       text: issuesOpened.issue.body,
-      title: `#${issuesOpened.issue.number} ${issuesOpened.issue.title}`,
-      fallback: `#${issuesOpened.issue.number} ${issuesOpened.issue.title}`,
       title_link: issuesOpened.issue.html_url,
     });
   });

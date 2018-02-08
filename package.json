@@ -4,7 +4,7 @@
   "scripts": {
     "build": "tsc",
     "start": "probot run --webhook-path=/github/events ./dist",
-    "test": "jest --coverage --runInBand --forceExit",
+    "test": "jest --coverage --runInBand --forceExit -u",
     "posttest": "npm run lint",
     "lint": "eslint lib test && tslint lib test",
     "dev": "nodemon --exec npm start",
