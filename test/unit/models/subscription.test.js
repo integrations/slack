@@ -25,7 +25,7 @@ describe('model: Subscription', () => {
 
   test('cacheKey', async () => {
     const subscription = await Subscription.subscribe({
-      channelId: 1,
+      channelId: channel,
       githubId: 2,
       creatorId: slackUser.id,
       slackWorkspaceId: workspace.id,

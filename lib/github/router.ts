@@ -11,7 +11,10 @@ interface ISubcription {
     accessToken: string;
     slackId: string;
   };
+  disabled: boolean;
+  disableReason: string;
   destroy: () => void;
+  save: () => void;
 }
 
 // Temporary "middleware" hack to look up routing before delivering event
@@ -50,8 +53,11 @@ module.exports = ({ models }: { models: any}) => {
             }, "User lost access to resource. Deleting subscription.");
             const channelId = subscription.channelId;
             await Promise.all([
-              // @todo: deactive this subscription instead of deleting the db record
-              await subscription.destroy(),
+              async () => {
+                subscription.disabled = true;
+                subscription.disableReason = "creatorLostAccess";
+                return subscription.save();
+              },
               await slack.chat.postMessage(
                 subscription.channelId,
                 "",
