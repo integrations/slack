@@ -30,7 +30,7 @@ describe('Integration: tracking GitHub installations', () => {
     expect(installation).toBe(null);
   });
 
-  test('deleting installation cascades to delete all subscriptions related to that installation', async () => {
+  test('deleting installation does not cascade to delete subscriptions', async () => {
     const { robot } = helper;
     const { Subscription, Installation, SlackWorkspace } = robot.models;
 
@@ -62,6 +62,6 @@ describe('Integration: tracking GitHub installations', () => {
       payload: installationDeleted,
     });
 
-    expect(await Subscription.count()).toBe(0);
+    expect(await Subscription.count()).toBe(1);
   });
 });
