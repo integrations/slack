@@ -89,6 +89,9 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
       // check if there are any legacy configurations that we can disable
       const legacySubscriptions = await LegacySubscription.findAll({
         where: {
+          activatedAt: {
+            $ne: null,
+          },
           channelSlackId: to,
           repoGitHubId: from.id,
           workspaceSlackId: slackWorkspace.slackId,
