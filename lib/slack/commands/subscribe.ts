@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 const GitHub = require("github");
-import axios from "axios";
 
 const { Subscribed, NotFound, AlreadySubscribed, NotSubscribed } = require("../renderer/flow");
 const slack = require("../client");
@@ -82,32 +81,26 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
       // call Slack API to disable subscription
       // eslint-disable-next-line no-underscore-dangle
       const payload = {
-        payload: {
+        payload: JSON.stringify({
           action: "mark_subscribed",
           repo: {
             full_name: legacySubscription.repoFullName,
             id: legacySubscription.repoGitHubId,
           },
           service_type: "github",
-        },
+        }),
         service: legacySubscription.serviceSlackId,
       };
       req.log.debug("Removing legacy configuration", payload);
 
-      const configurationRemovalRes = await axios.post("https://slack.com/api/services.update", payload, {
-        headers: {
-          "Authorization": `Bearer ${slackWorkspace.accessToken}`,
-          "Content-Type": "application/json; charset=utf-8",
-        },
-      });
-      if (configurationRemovalRes.data.ok) {
-        req.log.debug("Removed legacy configuration", configurationRemovalRes.data);
-      } else {
-        req.log.debug("Failed to remove legacy configuration", configurationRemovalRes.data);
-      }
+      const client = slack.createClient(slackWorkspace.accessToken);
+      client._makeAPICall("services.update", payload)
+        .then((configurationRemovalRes: any) => req.log.debug("Removed legacy configuration", configurationRemovalRes))
+        .catch((e: any) => req.log.debug("Failed to remove legacy configuration", e));
 
-      legacySubscription.reactivatedSubscriptionId = subscription.id;
-      await legacySubscription.save();
+      return legacySubscription.update({
+        reactivatedSubscriptionId: subscription.id,
+      });
     }));
 
   } else if (command.subcommand === "unsubscribe") {
