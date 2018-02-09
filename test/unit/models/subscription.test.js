@@ -67,7 +67,7 @@ describe('model: Subscription', () => {
       await expect(subscription).rejects.toThrow();
     });
 
-    test.only('copies settings from legacy subscription', async () => {
+    test('copies settings from legacy subscription', async () => {
       await LegacySubscription.import(legacyConfig.event.configs[0]);
 
       workspace = await SlackWorkspace.create({
