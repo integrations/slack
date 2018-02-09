@@ -120,6 +120,18 @@ Object {
 }
 `;
 
+exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing from a specific type of notification 3`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
 exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing when not subscribed 1`] = `
 Object {
   "attachments": Array [

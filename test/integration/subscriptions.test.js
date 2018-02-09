@@ -123,15 +123,14 @@ describe('Integration: subscriptions', () => {
           ownerId: fixtures.repo.owner.id,
         });
 
-        nock('https://api.github.com').get('/orgs/bkeepers').times(2).reply(200, fixtures.repo.owner);
-        nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(200, fixtures.repo);
-        nock('https://api.github.com').get('/repos/bkeepers/dotenv/pulls?per_page=1').reply(200, {});
+        nock('https://api.github.com').get('/orgs/bkeepers').times(3).reply(200, fixtures.repo.owner);
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(3).reply(200, fixtures.repo);
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv/pulls?per_page=1').times(2).reply(200, {});
 
-        const command = fixtures.slack.command({
-          text: 'subscribe bkeepers/dotenv',
-        });
-
-        await request(probot.server).post('/slack/command').send(command)
+        await request(probot.server).post('/slack/command')
+          .send(fixtures.slack.command({
+            text: 'subscribe bkeepers/dotenv',
+          }))
           .expect(200)
           .expect((res) => {
             expect(JSON.stringify(res.body)).toMatch(/subscribed/i);
@@ -143,11 +142,10 @@ describe('Integration: subscriptions', () => {
 
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
 
-        const unsubscribeCommand = fixtures.slack.command({
-          text: 'unsubscribe bkeepers/dotenv issues',
-        });
-
-        await request(probot.server).post('/slack/command').send(unsubscribeCommand)
+        await request(probot.server).post('/slack/command')
+          .send(fixtures.slack.command({
+            text: 'unsubscribe bkeepers/dotenv issues',
+          }))
           .expect(200)
           .expect((res) => {
             expect(res.body).toMatchSnapshot();
@@ -155,6 +153,18 @@ describe('Integration: subscriptions', () => {
 
         await subscription.reload();
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(false);
+
+        await request(probot.server).post('/slack/command')
+          .send(fixtures.slack.command({
+            text: 'subscribe bkeepers/dotenv issues',
+          }))
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        await subscription.reload();
+        expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
       });
 
       test('subscribing when already subscribed', async () => {
