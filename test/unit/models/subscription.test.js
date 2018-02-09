@@ -1,6 +1,8 @@
 const {
-  Subscription, SlackWorkspace, Installation, SlackUser,
+  Subscription, SlackWorkspace, Installation, SlackUser, LegacySubscription,
 } = require('.');
+
+const legacyConfig = require('../../fixtures/slack/config_migration_single.json');
 
 describe('model: Subscription', () => {
   let workspace;
@@ -63,6 +65,33 @@ describe('model: Subscription', () => {
         installationId: installation.id,
       });
       await expect(subscription).rejects.toThrow();
+    });
+
+    test('copies settings from legacy subscription', async () => {
+      await LegacySubscription.import(legacyConfig.event.configs[0]);
+
+      workspace = await SlackWorkspace.create({
+        slackId: 'T06AXEE2C',
+        accessToken: 'test',
+      });
+
+      const subscription = await Subscription.subscribe({
+        channelId: 'C0D70MRAL',
+        githubId: 99173855,
+        creatorId: slackUser.id,
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+      });
+
+      await subscription.reload();
+
+      expect(subscription.settings).toEqual({
+        comments: true,
+        commits: true,
+        deployments: false,
+        issues: true,
+        pulls: true,
+      });
     });
   });
 
@@ -175,16 +204,20 @@ describe('model: Subscription', () => {
     });
 
     test('defaults', () => {
+      // enabled by default
       expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('pulls')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('statuses')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('deployments')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('public')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('commits')).toBe(true);
-
       expect(subscription.isEnabledForGitHubEvent('status')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('deployment_status')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('push')).toBe(true);
+
+      // disabled by default
+      expect(subscription.isEnabledForGitHubEvent('issue_comment')).toBe(false);
+      expect(subscription.isEnabledForGitHubEvent('lolwut?')).toBe(false);
     });
 
     test('returns true if subscription enabled', () => {

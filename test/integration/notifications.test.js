@@ -11,38 +11,45 @@ const publicEventPayload = require('../fixtures/webhooks/public');
 const deploymentStatusSuccessPayload = require('../fixtures/webhooks/deployment/status_success');
 const deploymentStatusPendingPayload = require('../fixtures/webhooks/deployment/status_pending');
 
+const {
+  Subscription,
+  SlackWorkspace,
+  Installation,
+  SlackUser,
+  GitHubUser,
+} = helper.robot.models;
+
 describe('Integration: notifications', () => {
   describe('to a subscribed channel', () => {
-    beforeEach(async () => {
-      const {
-        Subscription,
-        SlackWorkspace,
-        Installation,
-        SlackUser,
-        GitHubUser,
-      } = helper.robot.models;
+    let workspace;
+    let installation;
+    let githubUser;
+    let slackUser;
 
-      const workspace = await SlackWorkspace.create({
+    beforeEach(async () => {
+      workspace = await SlackWorkspace.create({
         slackId: 'T001',
         accessToken: 'test',
       });
 
-      const installation = await Installation.create({
+      installation = await Installation.create({
         githubId: 1,
         ownerId: 1,
       });
 
-      const githubUser = await GitHubUser.create({
+      githubUser = await GitHubUser.create({
         id: 1,
         accessToken: 'secret',
       });
 
-      const slackUser = await SlackUser.create({
+      slackUser = await SlackUser.create({
         slackId: 'U012345',
         slackWorkspaceId: workspace.id,
         githubId: githubUser.id,
       });
+    });
 
+    test('issue opened', async () => {
       await Subscription.subscribe({
         githubId: issuePayload.repository.id,
         channelId: 'C001',
@@ -51,24 +58,6 @@ describe('Integration: notifications', () => {
         creatorId: slackUser.id,
       });
 
-      await Subscription.subscribe({
-        githubId: pullRequestPayload.repository.id,
-        channelId: 'C001',
-        slackWorkspaceId: workspace.id,
-        installationId: installation.id,
-        creatorId: slackUser.id,
-      });
-
-      await Subscription.subscribe({
-        githubId: publicEventPayload.repository.id,
-        channelId: 'C001',
-        slackWorkspaceId: workspace.id,
-        installationId: installation.id,
-        creatorId: slackUser.id,
-      });
-    });
-
-    test('issue opened', async () => {
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
         full_name: issuePayload.repository.full_name,
       });
@@ -90,6 +79,14 @@ describe('Integration: notifications', () => {
     });
 
     test('pull request opened', async () => {
+      await Subscription.subscribe({
+        githubId: pullRequestPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
       nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
       nock('https://api.github.com', {
         reqHeaders: {
@@ -109,6 +106,14 @@ describe('Integration: notifications', () => {
     });
 
     test('public event', async () => {
+      await Subscription.subscribe({
+        githubId: publicEventPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
       nock('https://api.github.com').get(`/repositories/${publicEventPayload.repository.id}`).reply(200);
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -122,6 +127,14 @@ describe('Integration: notifications', () => {
     });
 
     test('deployment_status event', async () => {
+      await Subscription.subscribe({
+        githubId: deploymentStatusPendingPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
       nock('https://api.github.com').get(`/repositories/${deploymentStatusPendingPayload.repository.id}`).times(2).reply(200);
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -143,7 +156,16 @@ describe('Integration: notifications', () => {
         payload: deploymentStatusSuccessPayload,
       });
     });
+
     test('post prompt to re-subscribe after user loses access to repo', async () => {
+      await Subscription.subscribe({
+        githubId: pullRequestPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
       nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(404);
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -155,13 +177,18 @@ describe('Integration: notifications', () => {
         payload: pullRequestPayload,
       });
     });
+
     test('message still gets delivered if no creatorId is set on Subscription', async () => {
-      const { Subscription } = helper.robot.models;
-      const subscription = await Subscription.findOne({
-        where: { githubId: pullRequestPayload.repository.id },
+      const subscription = await Subscription.subscribe({
+        githubId: pullRequestPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
       });
       subscription.creatorId = null;
       await subscription.save();
+
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;
@@ -175,6 +202,53 @@ describe('Integration: notifications', () => {
       await probot.receive({
         event: 'pull_request',
         payload: pullRequestPayload,
+      });
+    });
+
+    test('does not deliver comments if not explicitly enabled', async () => {
+      const commentPayload = fixtures.github.webhooks.issue_comment;
+
+      await Subscription.subscribe({
+        githubId: commentPayload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      // Should not trigger any deliveries
+      await probot.receive({
+        event: 'issue_comment',
+        payload: commentPayload,
+      });
+    });
+
+    test('with comments enabled', async () => {
+      const commentPayload = fixtures.github.webhooks.issue_comment;
+
+      await Subscription.subscribe({
+        githubId: commentPayload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: ['comments'], // Turn on comments
+      });
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      nock('https://api.github.com')
+        .get(`/repositories/${commentPayload.repository.id}`)
+        .times(2) // once for issue comment count, once for comment notification
+        .reply(200, commentPayload.repository);
+
+      // Should not trigger any deliveries
+      await probot.receive({
+        event: 'issue_comment',
+        payload: commentPayload,
       });
     });
   });
