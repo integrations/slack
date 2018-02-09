@@ -36,6 +36,9 @@ module.exports = {
     },
   },
   github: {
+    webhooks: {
+      issue_comment: require('./webhooks/issue_comment'),
+    },
     oauth: querystring.stringify({
       access_token: 'testing123',
       token_type: 'bearer',
