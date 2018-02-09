@@ -8,13 +8,10 @@ export async function userHasRepoAccess(logger: any, repoId: number, accessToken
   });
   return github.repos.getById({ id: repoId.toString() })
   .then(() => true)
-  .catch((error: any) => {
-    if (error.code !== 404) {
+  .catch((err: any) => {
+    if (err.code !== 404) {
       // If GitHub API temporarily fails or otherwise misbehaves, we should not disable the subscription
-      logger.warn("Unexpected status code while executing userHasRepoAccess", {
-        repoId,
-        statusCode: error.code,
-      });
+      logger.warn({err, repoId}, "Unexpected status code while executing userHasRepoAccess");
       return true;
     }
     return false;
