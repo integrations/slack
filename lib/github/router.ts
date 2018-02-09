@@ -12,6 +12,7 @@ interface ISubcription {
     slackId: string;
   };
   destroy: () => void;
+  isEnabledForGitHubEvent: (type: string) => boolean;
 }
 
 // Temporary "middleware" hack to look up routing before delivering event
@@ -26,6 +27,10 @@ module.exports = ({ models }: { models: any}) => {
         context.log.debug({ subscriptions }, "Delivering to subscribed channels");
 
         return Promise.all(subscriptions.map(async (subscription: ISubcription) => {
+          if (!subscription.isEnabledForGitHubEvent(context.event)) {
+            return;
+          }
+
           // Create clack client with workspace token
           const slack = createClient(subscription.SlackWorkspace.accessToken);
 

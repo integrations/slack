@@ -114,9 +114,63 @@ describe('Integration: subscriptions', () => {
           });
       });
 
+      test('unsubscribing from a specific type of notification', async () => {
+        const { Installation } = helper.robot.models;
+
+        // Create an installation
+        installation = await Installation.create({
+          githubId: 1,
+          ownerId: fixtures.repo.owner.id,
+        });
+
+        nock('https://api.github.com').get('/orgs/bkeepers').times(3).reply(200, fixtures.repo.owner);
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(3).reply(200, fixtures.repo);
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv/pulls?per_page=1').times(2).reply(200, {});
+
+        await request(probot.server).post('/slack/command')
+          .send(fixtures.slack.command({
+            text: 'subscribe bkeepers/dotenv',
+          }))
+          .expect(200)
+          .expect((res) => {
+            expect(JSON.stringify(res.body)).toMatch(/subscribed/i);
+            expect(res.body).toMatchSnapshot();
+          });
+
+        const { Subscription } = helper.robot.models;
+        const [subscription] = await Subscription.lookup(fixtures.repo.id);
+
+        expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
+
+        await request(probot.server).post('/slack/command')
+          .send(fixtures.slack.command({
+            text: 'unsubscribe bkeepers/dotenv issues',
+          }))
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        await subscription.reload();
+        expect(subscription.isEnabledForGitHubEvent('issues')).toBe(false);
+
+        await request(probot.server).post('/slack/command')
+          .send(fixtures.slack.command({
+            text: 'subscribe bkeepers/dotenv issues',
+          }))
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        await subscription.reload();
+        expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
+      });
+
       test('subscribing when already subscribed', async () => {
         nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
         nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
+        nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').reply(200, {});
 
         const { Subscription } = helper.robot.models;
         await Subscription.create({
