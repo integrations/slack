@@ -66,15 +66,6 @@ exports[`Pull request rendering works for notifcation messages 1`] = `
 Object {
   "attachments": Array [
     Object {
-      "color": "#36a64f",
-      "fallback": "Pull request opened by wilhelmklopp",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "pretext": "Pull request opened by wilhelmklopp",
-      "text": "1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`",
-    },
-    Object {
       "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
@@ -92,6 +83,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "pretext": "Pull request opened by wilhelmklopp",
       "text": "![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)
 ",
       "title": "#31 Add badges to readme",
@@ -106,15 +98,6 @@ exports[`Pull request rendering works for notifcation messages with all statuses
 Object {
   "attachments": Array [
     Object {
-      "color": "#36a64f",
-      "fallback": "Pull request opened by wilhelmklopp",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "pretext": "Pull request opened by wilhelmklopp",
-      "text": "1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`",
-    },
-    Object {
       "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
@@ -132,6 +115,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "pretext": "Pull request opened by wilhelmklopp",
       "text": "![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)
 ",
       "title": "#31 Add badges to readme",
@@ -152,15 +136,6 @@ exports[`Pull request rendering works for notifcation messages with one status f
 Object {
   "attachments": Array [
     Object {
-      "color": "#36a64f",
-      "fallback": "Pull request opened by wilhelmklopp",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "pretext": "Pull request opened by wilhelmklopp",
-      "text": "1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`",
-    },
-    Object {
       "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
@@ -178,6 +153,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "pretext": "Pull request opened by wilhelmklopp",
       "text": "![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)
 ",
       "title": "#31 Add badges to readme",
@@ -202,15 +178,6 @@ exports[`Pull request rendering works for notifcation messages with some statuse
 Object {
   "attachments": Array [
     Object {
-      "color": "#36a64f",
-      "fallback": "Pull request opened by wilhelmklopp",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "pretext": "Pull request opened by wilhelmklopp",
-      "text": "1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`",
-    },
-    Object {
       "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
@@ -228,6 +195,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "pretext": "Pull request opened by wilhelmklopp",
       "text": "![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)
 ",
       "title": "#31 Add badges to readme",
@@ -268,15 +236,6 @@ exports[`Pull request rendering works for notifcation messages with statuses 1`]
 Object {
   "attachments": Array [
     Object {
-      "color": "#36a64f",
-      "fallback": "Pull request opened by wilhelmklopp",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "pretext": "Pull request opened by wilhelmklopp",
-      "text": "1 commit into \`github-slack:master\` from \`github-slack:wilhelmklopp/add-readme-badges\`",
-    },
-    Object {
       "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
@@ -294,6 +253,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "pretext": "Pull request opened by wilhelmklopp",
       "text": "![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)
 ",
       "title": "#31 Add badges to readme",
