@@ -118,7 +118,7 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
           .catch((e: any) => req.log.debug("Failed to remove legacy configuration", e));
 
         return legacySubscription.update({
-          reactivatedSubscriptionId: subscription.id,
+          activatedAt: new Date(),
         });
       }));
     }

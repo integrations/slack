@@ -5,6 +5,10 @@ const { LegacySubscription } = models({ logger });
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    await queryInterface.addColumn('LegacySubscriptions', 'activatedAt', {
+      type: Sequelize.DATE,
+      allowNull: true,
+    });
     await queryInterface.addColumn('LegacySubscriptions', 'serviceSlackId', {
       type: Sequelize.STRING,
       allowNull: true,
@@ -23,5 +27,6 @@ module.exports = {
 
   down: async (queryInterface) => {
     await queryInterface.removeColumn('LegacySubscriptions', 'serviceSlackId');
+    await queryInterface.removeColumn('LegacySubscriptions', 'activatedAt');
   },
 };
