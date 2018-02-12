@@ -36,6 +36,11 @@
       "value": "https://slack.com/api/",
       "required": false
     },
+    "SLACK_ROOT_URL": {
+      "description": "The Slack root URL to send Slack Web API requests to",
+      "value": "https://slack.com",
+      "required": false
+    },
     "SLACK_CLIENT_ID": {
       "description": "The client ID of the Slack app"
     },
