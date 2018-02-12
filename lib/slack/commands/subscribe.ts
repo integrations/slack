@@ -107,11 +107,8 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
         req.log.debug("Removing legacy configuration", payload);
 
         const client = slack.createClient(slackWorkspace.accessToken);
-        client._makeAPICall("services.update", payload)
-          .then((configurationRemovalRes: any) => (
-            req.log.debug("Removed legacy configuration", configurationRemovalRes)
-          ))
-          .catch((e: any) => req.log.debug("Failed to remove legacy configuration", e));
+        const configurationRemovalRes = await client._makeAPICall("services.update", payload);
+        req.log.debug("Removed legacy configuration", configurationRemovalRes);
 
         return legacySubscription.update({
           activatedAt: new Date(),
