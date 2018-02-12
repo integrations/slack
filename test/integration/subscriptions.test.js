@@ -286,7 +286,7 @@ describe('Integration: subscriptions', () => {
             });
         });
 
-        test.only('subscribing to a repo that\'s already reactivated works as normal', async () => {
+        test('subscribing to a repo that\'s already reactivated works as normal', async () => {
           nock('https://api.github.com').get('/orgs/atom').times(3).reply(200, fixtures.org);
           nock('https://api.github.com').get('/repos/atom/atom').times(3).reply(200, fixtures.atomRepo);
           nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').times(2).reply(200, {});
