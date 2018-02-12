@@ -81,23 +81,16 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
         slackWorkspaceId: slackWorkspace.id,
       });
 
-      res.json(new Subscribed({
-        channelId: to,
-        fromRepository: from,
-      }));
-
       // check if there are any legacy configurations that we can disable
       const legacySubscriptions = await LegacySubscription.findAll({
         where: {
-          activatedAt: {
-            $ne: null,
-          },
+          activatedAt: null,
           channelSlackId: to,
           repoGitHubId: from.id,
           workspaceSlackId: slackWorkspace.slackId,
         },
       });
-      return Promise.all(legacySubscriptions.map(async (legacySubscription: any) => {
+      await Promise.all(legacySubscriptions.map(async (legacySubscription: any) => {
         // call Slack API to disable subscription
         // eslint-disable-next-line no-underscore-dangle
         const payload = {
@@ -123,6 +116,10 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
         return legacySubscription.update({
           activatedAt: new Date(),
         });
+      }));
+      return res.json(new Subscribed({
+        channelId: to,
+        fromRepository: from,
       }));
     }
   } else if (command.subcommand === "unsubscribe") {

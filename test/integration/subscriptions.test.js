@@ -3,6 +3,7 @@ const nock = require('nock');
 
 const helper = require('.');
 const fixtures = require('../fixtures');
+const configMigrationEvent = require('../fixtures/slack/config_migration.json');
 
 const { probot } = helper;
 
@@ -252,6 +253,74 @@ describe('Integration: subscriptions', () => {
 
         await req.expect(200).expect((res) => {
           expect(res.body).toMatchSnapshot();
+        });
+      });
+      describe('Legacy subscriptions:', () => {
+        beforeEach(async () => {
+          nock('https://slack.com').post('/api/chat.postMessage').times(5).reply(200, { ok: true });
+          await request(probot.server)
+            .post('/slack/events')
+            .send(configMigrationEvent)
+            .expect(200);
+        });
+        test('subscribing to a repo whose legacy configuration is not already reactivated is disabled', async () => {
+          nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
+          nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.atomRepo);
+          nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').reply(200, {});
+
+          nock('https://slack.com').post('/api/services.update', (body) => {
+            expect(body).toMatchSnapshot();
+            return true;
+          }).reply(200, { ok: true });
+
+          const command = fixtures.slack.command({
+            text: 'subscribe atom/atom',
+            channel_id: 'C0D70MRAL',
+            team_id: 'T0001',
+          });
+
+          await request(probot.server).post('/slack/command').send(command)
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+        });
+
+        test.only('subscribing to a repo that\'s already reactivated works as normal', async () => {
+          nock('https://api.github.com').get('/orgs/atom').times(3).reply(200, fixtures.org);
+          nock('https://api.github.com').get('/repos/atom/atom').times(3).reply(200, fixtures.atomRepo);
+          nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').times(2).reply(200, {});
+
+          nock('https://slack.com').post('/api/services.update').reply(200, { ok: true });
+
+          const command = fixtures.slack.command({
+            text: 'subscribe atom/atom',
+            channel_id: 'C0D70MRAL',
+          });
+
+          await request(probot.server).post('/slack/command').send(command)
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+
+          const unsubscribeCommand = fixtures.slack.command({
+            text: 'unsubscribe atom/atom',
+            channel_id: 'C0D70MRAL',
+          });
+
+          await request(probot.server).post('/slack/command').send(unsubscribeCommand)
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+
+          // This does not result in a second call to services.update
+          await request(probot.server).post('/slack/command').send(command)
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
         });
       });
     });

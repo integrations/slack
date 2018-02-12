@@ -1,13 +1,13 @@
 {
     "token": "secret",
-    "team_id": "T06AXEE2C",
+    "team_id": "T0001",
     "type": "event_callback",
     "event": {
         "type": "config_migration",
         "configs": [
             {
                 "id": "13037131345",
-                "team_id": "T06AXEE2C",
+                "team_id": "T0001",
                 "user_id": "U06AXEE2U",
                 "channel_id": "C0D70MRAL",
                 "no_auth_mode": false,
@@ -35,10 +35,10 @@
                         "html_url": "https:\/\/github.com\/berttest\/testrepo1"
                     },
                     {
-                        "id": 99174159,
-                        "name": "testrepo10",
-                        "full_name": "berttest\/testrepo10",
-                        "html_url": "https:\/\/github.com\/berttest\/testrepo10"
+                        "id": 3228505,
+                        "name": "atom",
+                        "full_name": "atom\/atom",
+                        "html_url": "https:\/\/github.com\/atom\/atom"
                     },
                     {
                         "id": 99174160,
@@ -206,7 +206,7 @@
             },
             {
                 "id": "21600970016",
-                "team_id": "T06AXEE2C",
+                "team_id": "T0001",
                 "user_id": "U06AXEE2U",
                 "channel_id": "C0M8APF7A",
                 "no_auth_mode": false,
@@ -237,7 +237,7 @@
             },
             {
                 "id": "21636795328",
-                "team_id": "T06AXEE2C",
+                "team_id": "T0001",
                 "user_id": "U06AXEE2U",
                 "channel_id": "G06FWDG48",
                 "no_auth_mode": false,
@@ -268,7 +268,7 @@
             },
             {
                 "id": "20524757329",
-                "team_id": "T06AXEE2C",
+                "team_id": "T0001",
                 "user_id": "U06AXEE2U",
                 "channel_id": "D06FVAMGR",
                 "no_auth_mode": false,
@@ -299,7 +299,7 @@
             },
             {
                 "id": "21817727824",
-                "team_id": "T06AXEE2C",
+                "team_id": "T0001",
                 "user_id": "U06AXEE2U",
                 "channel_id": "C06EJPMBK",
                 "no_auth_mode": false,
