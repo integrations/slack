@@ -11,7 +11,7 @@ describe('Integration: Slack config_migration event', () => {
   beforeEach(async () => {
     const { SlackWorkspace } = helper.robot.models;
     await SlackWorkspace.create({
-      slackId: 'T06AXEE2C',
+      slackId: 'T0001',
       accessToken: 'xoxa-token',
     });
   });
