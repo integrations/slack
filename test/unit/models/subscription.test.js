@@ -71,7 +71,7 @@ describe('model: Subscription', () => {
       await LegacySubscription.import(legacyConfig.event.configs[0]);
 
       workspace = await SlackWorkspace.create({
-        slackId: 'T06AXEE2C',
+        slackId: 'T0001',
         accessToken: 'test',
       });
 
