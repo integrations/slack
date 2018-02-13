@@ -256,8 +256,9 @@ describe('Integration: subscriptions', () => {
         });
       });
       describe('Legacy subscriptions:', () => {
+        const { LegacySubscription, Subscription } = helper.robot.models;
         beforeEach(async () => {
-          nock('https://slack.com').post('/api/chat.postMessage').times(5).reply(200, { ok: true });
+          nock('https://slack.com').post('/api/chat.postMessage').times(4).reply(200, { ok: true });
           await request(probot.server)
             .post('/slack/events')
             .send(configMigrationEvent)
@@ -284,6 +285,90 @@ describe('Integration: subscriptions', () => {
             .expect((res) => {
               expect(res.body).toMatchSnapshot();
             });
+        });
+
+        test('retains old configuration', async () => {
+          nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
+          nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.atomRepo);
+          nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').reply(200, {});
+
+          nock('https://slack.com').post('/api/services.update').reply(200, { ok: true });
+
+          const command = fixtures.slack.command({
+            text: 'subscribe atom/atom',
+            channel_id: 'C0D70MRAL',
+            team_id: 'T0001',
+          });
+
+          await request(probot.server).post('/slack/command').send(command)
+            .expect(200);
+
+          const legacySubscription = await LegacySubscription.findOne({
+            where: {
+              workspaceSlackId: 'T0001',
+              channelSlackId: 'C0D70MRAL',
+              repoGitHubId: fixtures.atomRepo.id,
+            },
+          });
+
+          const subscription = await Subscription.findOne({
+            where: {
+              slackWorkspaceId: slackWorkspace.id,
+              channelId: 'C0D70MRAL',
+              githubId: fixtures.atomRepo.id,
+            },
+          });
+          const config = legacySubscription.originalSlackConfiguration;
+          expect(config.do_branches).toBe(subscription.settings.branches);
+          expect(config.do_issue_comments).toBe(subscription.settings.comments);
+          expect(config.do_commits).toBe(subscription.settings.commits);
+          expect(config.do_deployment_status).toBe(subscription.settings.deployments);
+          expect(config.do_issues).toBe(subscription.settings.issues);
+          expect(config.do_pullrequest).toBe(subscription.settings.pulls);
+          expect(config.do_pullrequest_reviews).toBe(subscription.settings.reviews);
+        });
+
+        test('retains old configuration spread across multiple configurations', async () => {
+          nock('https://api.github.com').get('/orgs/kubernetes').reply(200, fixtures.org);
+          nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, fixtures.kubernetesRepo);
+          nock('https://api.github.com').get('/repos/kubernetes/kubernetes/pulls?per_page=1').reply(200, {});
+
+          nock('https://slack.com').post('/api/services.update').times(2).reply(200, { ok: true });
+
+          const command = fixtures.slack.command({
+            text: 'subscribe kubernetes/kubernetes',
+            channel_id: 'C0D70MRAL',
+            team_id: 'T0001',
+          });
+
+          await request(probot.server).post('/slack/command').send(command)
+            .expect(200);
+
+          const legacySubscriptions = await LegacySubscription.findAll({
+            where: {
+              workspaceSlackId: 'T0001',
+              channelSlackId: 'C0D70MRAL',
+              repoGitHubId: fixtures.kubernetesRepo.id,
+            },
+          });
+
+          const subscription = await Subscription.findOne({
+            where: {
+              slackWorkspaceId: slackWorkspace.id,
+              channelId: 'C0D70MRAL',
+              githubId: fixtures.kubernetesRepo.id,
+            },
+          });
+          legacySubscriptions.forEach((legacySubscription) => {
+            const config = legacySubscription.originalSlackConfiguration;
+            expect(config.do_branches).toBe(subscription.settings.branches);
+            expect(config.do_issue_comments).toBe(subscription.settings.comments);
+            expect(config.do_commits).toBe(subscription.settings.commits);
+            expect(config.do_deployment_status).toBe(subscription.settings.deployments);
+            expect(config.do_issues).toBe(subscription.settings.issues);
+            expect(config.do_pullrequest).toBe(subscription.settings.pulls);
+            expect(config.do_pullrequest_reviews).toBe(subscription.settings.reviews);
+          });
         });
 
         test('subscribing to a repo that\'s already reactivated works as normal', async () => {
@@ -321,6 +406,17 @@ describe('Integration: subscriptions', () => {
             .expect((res) => {
               expect(res.body).toMatchSnapshot();
             });
+
+          const subscription = await Subscription.findOne({
+            where: {
+              slackWorkspaceId: slackWorkspace.id,
+              channelId: 'C0D70MRAL',
+              githubId: fixtures.atomRepo.id,
+            },
+          });
+
+          // Check that this new subscription has the default settings
+          expect(subscription.settings).toBe({});
         });
       });
     });

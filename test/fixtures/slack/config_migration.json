@@ -41,10 +41,10 @@
                         "html_url": "https:\/\/github.com\/atom\/atom"
                     },
                     {
-                        "id": 99174160,
-                        "name": "testrepo11",
-                        "full_name": "berttest\/testrepo11",
-                        "html_url": "https:\/\/github.com\/berttest\/testrepo11"
+                        "id": 20580498,
+                        "name": "kubernetes",
+                        "full_name": "kubernetes\/kubernetes",
+                        "html_url": "https:\/\/github.com\/kubernetes\/kubernetes"
                     },
                     {
                         "id": 99174162,
@@ -208,7 +208,7 @@
                 "id": "21600970016",
                 "team_id": "T0001",
                 "user_id": "U06AXEE2U",
-                "channel_id": "C0M8APF7A",
+                "channel_id": "C0D70MRAL",
                 "no_auth_mode": false,
                 "do_commits": true,
                 "do_commits_showsimple": false,
@@ -232,6 +232,12 @@
                         "name": "testrepo1",
                         "full_name": "berttest\/testrepo1",
                         "html_url": "https:\/\/github.com\/berttest\/testrepo1"
+                    },
+                    {
+                      "id": 20580498,
+                      "name": "kubernetes",
+                      "full_name": "kubernetes\/kubernetes",
+                      "html_url": "https:\/\/github.com\/kubernetes\/kubernetes"
                     }
                 ]
             },

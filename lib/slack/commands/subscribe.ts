@@ -116,7 +116,7 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
             branches: subscription.settings.branches || config.do_branches,
             comments: subscription.settings.comments || config.do_issue_comments,
             commits: subscription.settings.commits || config.do_commits,
-            deployments: subscription.settings.pulls || config.do_deployment_status,
+            deployments: subscription.settings.deployments || config.do_deployment_status,
             issues: subscription.settings.issues || config.do_issues,
             pulls: subscription.settings.pulls || config.do_pullrequest,
             reviews: subscription.settings.reviews || config.do_pullrequest_reviews,
