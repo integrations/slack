@@ -66,33 +66,6 @@ describe('model: Subscription', () => {
       });
       await expect(subscription).rejects.toThrow();
     });
-
-    test('copies settings from legacy subscription', async () => {
-      await LegacySubscription.import(legacyConfig.event.configs[0]);
-
-      workspace = await SlackWorkspace.create({
-        slackId: 'T0001',
-        accessToken: 'test',
-      });
-
-      const subscription = await Subscription.subscribe({
-        channelId: 'C0D70MRAL',
-        githubId: 99173855,
-        creatorId: slackUser.id,
-        slackWorkspaceId: workspace.id,
-        installationId: installation.id,
-      });
-
-      await subscription.reload();
-
-      expect(subscription.settings).toEqual({
-        comments: true,
-        commits: true,
-        deployments: false,
-        issues: true,
-        pulls: true,
-      });
-    });
   });
 
   describe('lookup', () => {
