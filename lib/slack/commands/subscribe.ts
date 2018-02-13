@@ -20,12 +20,6 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
 
   req.log.debug({ installation, resource }, "Lookup respository to subscribe");
 
-  const userAuthedGithub = new GitHub();
-  userAuthedGithub.authenticate({
-    token: gitHubUser.accessToken,
-    type: "token",
-  });
-
   const installationAuthedGitHub = await robot.auth(installation.githubId);
 
   // look up the resource
@@ -47,12 +41,7 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
   const settings = req.body.args[1];
 
   if (command.subcommand === "subscribe") {
-    // Hack to check if user can access the repository
-    const userHasAccess = await userAuthedGithub.pullRequests.getAll(
-      { owner: resource.owner, repo: resource.repo, per_page: 1 },
-    ).then(() => true).catch(() => false);
-
-    if (!userHasAccess) {
+    if (!await gitHubUser.hasRepoAccess(from.id)) {
       return res.json(new NotFound(req.body.args[0]));
     }
 
