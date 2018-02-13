@@ -416,7 +416,7 @@ describe('Integration: subscriptions', () => {
           });
 
           // Check that this new subscription has the default settings
-          expect(subscription.settings).toBe({});
+          expect(subscription.settings).toEqual({});
         });
       });
     });
