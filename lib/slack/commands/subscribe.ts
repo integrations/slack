@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-const GitHub = require("github");
 
 const { Subscribed, NotFound, AlreadySubscribed, NotSubscribed } = require("../renderer/flow");
 
