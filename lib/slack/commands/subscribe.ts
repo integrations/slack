@@ -110,6 +110,19 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
         const configurationRemovalRes = await client._makeAPICall("services.update", payload);
         req.log.debug("Removed legacy configuration", configurationRemovalRes);
 
+        const config = legacySubscription.originalSlackConfiguration;
+        await subscription.update({
+          settings: {
+            branches: subscription.settings.branches || config.do_branches,
+            comments: subscription.settings.comments || config.do_issue_comments,
+            commits: subscription.settings.commits || config.do_commits,
+            deployments: subscription.settings.pulls || config.do_deployment_status,
+            issues: subscription.settings.issues || config.do_issues,
+            pulls: subscription.settings.pulls || config.do_pullrequest,
+            reviews: subscription.settings.reviews || config.do_pullrequest_reviews,
+          },
+        });
+
         return legacySubscription.update({
           activatedAt: new Date(),
         });
