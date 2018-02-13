@@ -77,7 +77,6 @@ describe('Integration: subscriptions', () => {
       test('successfully subscribing and unsubscribing to a repository', async () => {
         nock('https://api.github.com').get('/orgs/kubernetes').times(2).reply(200, fixtures.org);
         nock('https://api.github.com').get('/repos/kubernetes/kubernetes').times(2).reply(200, fixtures.repo);
-        nock('https://api.github.com').get(`/repositories/${fixtures.repo.id}`).reply(200, {});
 
         const command = fixtures.slack.command({
           text: 'subscribe https://github.com/kubernetes/kubernetes',
@@ -103,8 +102,6 @@ describe('Integration: subscriptions', () => {
       test('successfully subscribing with repository shorthand', async () => {
         nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
         nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
-        nock('https://api.github.com').get(`/repositories/${fixtures.repo.id}`).reply(200, {});
-
 
         const command = fixtures.slack.command({ text: 'subscribe atom/atom' });
 
@@ -126,8 +123,6 @@ describe('Integration: subscriptions', () => {
 
         nock('https://api.github.com').get('/orgs/bkeepers').times(3).reply(200, fixtures.repo.owner);
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(3).reply(200, fixtures.repo);
-        nock('https://api.github.com').get(`/repositories/${fixtures.repo.id}`).times(2).reply(200, {});
-
 
         await request(probot.server).post('/slack/command')
           .send(fixtures.slack.command({
@@ -172,8 +167,6 @@ describe('Integration: subscriptions', () => {
       test('subscribing when already subscribed', async () => {
         nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
         nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
-        nock('https://api.github.com').get(`/repositories/${fixtures.repo.id}`).reply(200, {});
-
 
         const { Subscription } = helper.robot.models;
         await Subscription.create({
@@ -245,8 +238,7 @@ describe('Integration: subscriptions', () => {
 
       test('subscribing to a repo that the used does not have acccess to', async () => {
         nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
-        nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
-        nock('https://api.github.com').get(`/repositories/${fixtures.repo.id}`).reply(404, {});
+        nock('https://api.github.com').get('/repos/atom/atom').reply(404, fixtures.repo);
 
         const command = fixtures.slack.command({
           text: 'subscribe atom/atom',
