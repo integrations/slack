@@ -1,6 +1,5 @@
 import { createClient } from "../slack/client";
 const { ReEnableSubscription } = require("../slack/renderer/flow");
-import { userHasRepoAccess } from "./access";
 
 // @todo: remove me and implement sequelize-typescript
 interface ISubcription {
@@ -41,10 +40,8 @@ module.exports = ({ models }: { models: any}) => {
           const creator = await SlackUser.findById(subscription.creatorId, {
             include: [GitHubUser],
           });
-          const userHasAccess = await userHasRepoAccess(
-            context.log, subscription.githubId, creator.GitHubUser.accessToken,
-          );
-          if (!userHasAccess) {
+
+          if (!await creator.GitHubUser.hasRepoAccess(subscription.githubId)) {
             context.log.debug({
               subscription: {
                 channelId: subscription.channelId,
