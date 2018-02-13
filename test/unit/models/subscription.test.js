@@ -1,8 +1,6 @@
 const {
-  Subscription, SlackWorkspace, Installation, SlackUser, LegacySubscription,
+  Subscription, SlackWorkspace, Installation, SlackUser,
 } = require('.');
-
-const legacyConfig = require('../../fixtures/slack/config_migration_single.json');
 
 describe('model: Subscription', () => {
   let workspace;
