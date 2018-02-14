@@ -9,7 +9,7 @@ install:
   - npm install
 script:
   - sequelize db:create --env test
-  - NODE_ENV=test sequelize db:migrate --env test
+  - sequelize db:migrate --env test
   - npm test
   - codecov
 services:
