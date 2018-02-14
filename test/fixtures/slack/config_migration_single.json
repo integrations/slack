@@ -1,13 +1,13 @@
 {
     "token": "secret",
-    "team_id": "T06AXEE2C",
+    "team_id": "T0001",
     "type": "event_callback",
     "event": {
         "type": "config_migration",
         "configs": [
             {
                 "id": "13037131345",
-                "team_id": "T06AXEE2C",
+                "team_id": "T0001",
                 "user_id": "U06AXEE2U",
                 "channel_id": "C0D70MRAL",
                 "no_auth_mode": false,
