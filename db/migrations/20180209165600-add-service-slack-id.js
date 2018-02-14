@@ -1,10 +1,39 @@
-const logger = require('probot/lib/logger');
-const models = require('../../lib/models');
-
-const { LegacySubscription } = models({ logger });
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    const LegacySubscription = queryInterface.sequelize.define('LegacySubscription', {
+      workspaceSlackId: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      repoGitHubId: {
+        allowNull: false,
+        type: Sequelize.BIGINT,
+      },
+      repoFullName: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      authorSlackId: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      channelSlackId: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      serviceSlackId: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      originalSlackConfiguration: {
+        allowNull: false,
+        type: Sequelize.JSON,
+      },
+      activatedAt: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
+    });
     await queryInterface.addColumn('LegacySubscriptions', 'activatedAt', {
       type: Sequelize.DATE,
       allowNull: true,
