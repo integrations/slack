@@ -10,6 +10,8 @@ module.exports = {
   user: require('./user'),
   org: require('./org'),
   repo: require('./repo'),
+  atomRepo: require('./atom-repo'),
+  kubernetesRepo: require('./kubernetes-repo'),
   slack: {
     link_shared: require('./slack/link_shared'),
     command: attrs => Object.assign({
@@ -36,6 +38,9 @@ module.exports = {
     },
   },
   github: {
+    webhooks: {
+      issue_comment: require('./webhooks/issue_comment'),
+    },
     oauth: querystring.stringify({
       access_token: 'testing123',
       token_type: 'bearer',

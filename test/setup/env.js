@@ -1,4 +1,5 @@
 const defaults = Object.assign({
+  NODE_ENV: 'test',
   LOG_LEVEL: 'error',
   SLACK_VERIFICATION_TOKEN: 'secret',
   SLACK_ACCESS_TOKEN: '',

@@ -9,6 +9,9 @@ const cache = require('../../lib/cache');
 const probot = createProbot({});
 const robot = probot.load(app);
 
+// raise errors in tests
+robot.catchErrors = false;
+
 const { sequelize } = robot.models;
 
 // Expect there are no more pending nock requests
