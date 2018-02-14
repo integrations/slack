@@ -1,4 +1,4 @@
-const SubscriptionList = require('../../../lib/slack/renderer/subscription-list').default;
+const SubscriptionList = require('../../../lib/slack/renderer/subscription-list');
 
 describe('SubscriptionList', () => {
   test('works for multiple subscriptions active in a channel', async () => {
