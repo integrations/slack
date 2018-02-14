@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-const GitHub = require("github");
 
 const { Subscribed, NotFound, AlreadySubscribed, NotSubscribed } = require("../renderer/flow");
 
@@ -20,42 +19,22 @@ module.exports = async (req: Request & { log: Ilog }, res: Response) => {
 
   req.log.debug({ installation, resource }, "Lookup respository to subscribe");
 
-  const userAuthedGithub = new GitHub();
-  userAuthedGithub.authenticate({
-    token: gitHubUser.accessToken,
-    type: "token",
-  });
-
-  const installationAuthedGitHub = await robot.auth(installation.githubId);
-
   // look up the resource
   let from;
   try {
-    from = (await installationAuthedGitHub.repos.get(
+    from = (await gitHubUser.client.repos.get(
       { owner: resource.owner, repo: resource.repo })
     ).data;
   } catch (e) {
     req.log.trace(e, "couldn't find repo");
+    return res.json(new NotFound(command.args[0]));
   }
   const to = command.channel_id;
-
-  if (!from) {
-    return res.json(new NotFound(req.body.args[0]));
-  }
 
   let subscription = await Subscription.lookupOne(from.id, to, slackWorkspace.id, installation.id);
   const settings = req.body.args[1];
 
   if (command.subcommand === "subscribe") {
-    // Hack to check if user can access the repository
-    const userHasAccess = await userAuthedGithub.pullRequests.getAll(
-      { owner: resource.owner, repo: resource.repo, per_page: 1 },
-    ).then(() => true).catch(() => false);
-
-    if (!userHasAccess) {
-      return res.json(new NotFound(req.body.args[0]));
-    }
-
     if (subscription) {
       if (settings) {
         req.log.debug({settings}, "Subscription already exists, updating settings");
