@@ -261,9 +261,8 @@ describe('Integration: subscriptions', () => {
             .expect(200);
         });
         test('subscribing to a repo whose legacy configuration is not already reactivated is disabled', async () => {
-          nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
+          nock('https://api.github.com').get('/users/atom').reply(200, fixtures.org);
           nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.atomRepo);
-          nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').reply(200, {});
 
           nock('https://slack.com').post('/api/services.update', (body) => {
             expect(body).toMatchSnapshot();
@@ -284,9 +283,8 @@ describe('Integration: subscriptions', () => {
         });
 
         test('retains old configuration', async () => {
-          nock('https://api.github.com').get('/orgs/atom').reply(200, fixtures.org);
+          nock('https://api.github.com').get('/users/atom').reply(200, fixtures.org);
           nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.atomRepo);
-          nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').reply(200, {});
 
           nock('https://slack.com').post('/api/services.update').reply(200, { ok: true });
 
@@ -325,9 +323,8 @@ describe('Integration: subscriptions', () => {
         });
 
         test('retains old configuration spread across multiple configurations', async () => {
-          nock('https://api.github.com').get('/orgs/kubernetes').reply(200, fixtures.org);
+          nock('https://api.github.com').get('/users/kubernetes').reply(200, fixtures.org);
           nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, fixtures.kubernetesRepo);
-          nock('https://api.github.com').get('/repos/kubernetes/kubernetes/pulls?per_page=1').reply(200, {});
 
           nock('https://slack.com').post('/api/services.update').times(2).reply(200, { ok: true });
 
@@ -368,9 +365,8 @@ describe('Integration: subscriptions', () => {
         });
 
         test('subscribing to a repo that\'s already reactivated works as normal', async () => {
-          nock('https://api.github.com').get('/orgs/atom').times(3).reply(200, fixtures.org);
+          nock('https://api.github.com').get('/users/atom').times(3).reply(200, fixtures.org);
           nock('https://api.github.com').get('/repos/atom/atom').times(3).reply(200, fixtures.atomRepo);
-          nock('https://api.github.com').get('/repos/atom/atom/pulls?per_page=1').times(2).reply(200, {});
 
           nock('https://slack.com').post('/api/services.update').reply(200, { ok: true });
 
