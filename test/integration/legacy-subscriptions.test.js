@@ -27,8 +27,7 @@ describe('Integration: Slack config_migration event', () => {
         .send(configMigrationEvent)
         .expect(200);
 
-      const legacySubscriptions = await LegacySubscription.count();
-      expect(legacySubscriptions).toBe(34);
+      expect(await LegacySubscription.count()).toBe(34);
     });
     test('Works for 1 legacy configuration', async () => {
       const { LegacySubscription } = helper.robot.models;
@@ -42,8 +41,28 @@ describe('Integration: Slack config_migration event', () => {
         .send(configMigrationEventSingleConfiguration)
         .expect(200);
 
-      const legacySubscriptions = await LegacySubscription.count();
-      expect(legacySubscriptions).toBe(1);
+      expect(await LegacySubscription.count()).toBe(1);
+    });
+    test('does not duplicate legacy configurations', async () => {
+      const { LegacySubscription } = helper.robot.models;
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).times(2).reply(200, { ok: true });
+
+      await request(probot.server)
+        .post('/slack/events')
+        .send(configMigrationEventSingleConfiguration)
+        .expect(200);
+
+      expect(await LegacySubscription.count()).toBe(1);
+
+      await request(probot.server)
+        .post('/slack/events')
+        .send(configMigrationEventSingleConfiguration)
+        .expect(200);
+
+      expect(await LegacySubscription.count()).toBe(1);
     });
   });
 });
