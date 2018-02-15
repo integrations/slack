@@ -149,6 +149,21 @@ describe('Integration: notifications', () => {
       });
     });
 
+    test('ref event does not get delivered if not explicitly enabled', async () => {
+      await Subscription.subscribe({
+        githubId: branchDeleted.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      await probot.receive({
+        event: 'delete',
+        payload: branchDeleted,
+      });
+    });
+
     test('deployment_status event', async () => {
       await Subscription.subscribe({
         githubId: deploymentStatusPendingPayload.repository.id,
