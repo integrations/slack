@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`\\",\\"text\\":\\"<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C002",
+  "text": "",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel deployment_status event 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#dbab09\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"Deploying 3dce5c8 to github-slack-app\\",\\"text\\":\\"Deploying <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`3dce5c8\`> to <https://dashboard.heroku.com/apps/github-slack-app|github-slack-app>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",

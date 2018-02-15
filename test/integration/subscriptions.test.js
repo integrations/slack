@@ -316,6 +316,7 @@ describe('Integration: subscriptions', () => {
           expect(config.do_branches).toBe(subscription.settings.branches);
           expect(config.do_issue_comments).toBe(subscription.settings.comments);
           expect(config.do_commits).toBe(subscription.settings.commits);
+          expect(config.do_commits).toBe(subscription.settings.commitsOnAllBranches);
           expect(config.do_deployment_status).toBe(subscription.settings.deployments);
           expect(config.do_issues).toBe(subscription.settings.issues);
           expect(config.do_pullrequest).toBe(subscription.settings.pulls);
@@ -357,6 +358,7 @@ describe('Integration: subscriptions', () => {
             expect(config.do_branches).toBe(subscription.settings.branches);
             expect(config.do_issue_comments).toBe(subscription.settings.comments);
             expect(config.do_commits).toBe(subscription.settings.commits);
+            expect(config.do_commits).toBe(subscription.settings.commitsOnAllBranches);
             expect(config.do_deployment_status).toBe(subscription.settings.deployments);
             expect(config.do_issues).toBe(subscription.settings.issues);
             expect(config.do_pullrequest).toBe(subscription.settings.pulls);
