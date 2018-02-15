@@ -81,6 +81,23 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel review event updated 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C001",
+  "text": "",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel review event updated 2`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"This really is a great pull request\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "text": "",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel with comments enabled 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"text\\":\\"Testing comments\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"]}]",
