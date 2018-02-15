@@ -8,6 +8,7 @@ const { probot } = helper;
 const issuePayload = require('../fixtures/webhooks/issues.opened');
 const pullRequestPayload = require('../fixtures/webhooks/pull_request.opened');
 const publicEventPayload = require('../fixtures/webhooks/public');
+const branchDeleted = require('../fixtures/webhooks/branch_deleted.json');
 const deploymentStatusSuccessPayload = require('../fixtures/webhooks/deployment/status_success');
 const deploymentStatusPendingPayload = require('../fixtures/webhooks/deployment/status_pending');
 const pushNonDefaultBranchPayload = require('../fixtures/webhooks/push_non_default_branch');
@@ -124,6 +125,43 @@ describe('Integration: notifications', () => {
       await probot.receive({
         event: 'public',
         payload: publicEventPayload,
+      });
+    });
+
+    test('ref event', async () => {
+      await Subscription.subscribe({
+        githubId: branchDeleted.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { branches: true },
+      });
+
+      nock('https://api.github.com').get(`/repositories/${branchDeleted.repository.id}`).reply(200);
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        event: 'delete',
+        payload: branchDeleted,
+      });
+    });
+
+    test('ref event does not get delivered if not explicitly enabled', async () => {
+      await Subscription.subscribe({
+        githubId: branchDeleted.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      await probot.receive({
+        event: 'delete',
+        payload: branchDeleted,
       });
     });
 
