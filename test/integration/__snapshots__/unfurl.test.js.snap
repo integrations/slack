@@ -3,14 +3,16 @@
 exports[`Integration: unfurls does minor unfurl if 2 links are shared 1`] = `
 Object {
   "channel": "C74M",
+  "token": "xoxa-token",
   "ts": "1510704981.000364",
-  "unfurls": "{\\"https://github.com/facebook/react/issues/10191\\":{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\"},\\"https://github.com/atom/atom/issues/16292\\":{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\"}}",
+  "unfurls": "{\\"https://github.com/facebook/react/issues/10191\\":{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\"},\\"https://github.com/atom/atom/issues/16292\\":{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\"}}",
 }
 `;
 
 exports[`Integration: unfurls issue 1`] = `
 Object {
   "channel": "C74M",
+  "token": "xoxa-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Watchers\\",\\"value\\":57,\\"short\\":true},{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Forks\\",\\"value\\":283,\\"short\\":true},{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }
@@ -19,6 +21,7 @@ Object {
 exports[`Integration: unfurls only unfurls link first time a link is shared 1`] = `
 Object {
   "channel": "C74M",
+  "token": "xoxa-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Watchers\\",\\"value\\":57,\\"short\\":true},{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Forks\\",\\"value\\":283,\\"short\\":true},{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }

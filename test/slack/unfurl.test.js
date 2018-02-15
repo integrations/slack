@@ -79,4 +79,15 @@ describe('Link unfurling', () => {
 
     expect(response.title).toMatch('bkeepers/dotenv');
   });
+
+  test('promise rejected on unknown URL', async () => {
+    const url = 'https://github.com/bkeepers/dotenv/evil-plans';
+    expect.assertions(1);
+
+    try {
+      await unfurl(github, url, 'full');
+    } catch (e) {
+      expect(e.toString()).toEqual(`UnsupportedResource: ${url}`);
+    }
+  });
 });

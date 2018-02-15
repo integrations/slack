@@ -4,9 +4,6 @@ exports[`Issue rendering works for condensed unfurls 1`] = `
 Object {
   "attachments": Array [
     Object {
-      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
-      "author_link": "https://github.com/wilhelmklopp",
-      "author_name": "wilhelmklopp",
       "color": "#36a64f",
       "fallback": "#1 Needs content",
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
@@ -61,9 +58,6 @@ exports[`Issue rendering works for minor notifications 1`] = `
 Object {
   "attachments": Array [
     Object {
-      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
-      "author_link": "https://github.com/wilhelmklopp",
-      "author_name": "wilhelmklopp",
       "color": "#cb2431",
       "fallback": "Issue closed by bkeepers",
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",

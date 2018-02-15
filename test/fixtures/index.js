@@ -10,10 +10,12 @@ module.exports = {
   user: require('./user'),
   org: require('./org'),
   repo: require('./repo'),
+  atomRepo: require('./atom-repo'),
+  kubernetesRepo: require('./kubernetes-repo'),
   slack: {
     link_shared: require('./slack/link_shared'),
     command: attrs => Object.assign({
-        // Slack will POST with:
+      // Slack will POST with:
       token: process.env.SLACK_VERIFICATION_TOKEN,
       team_id: 'T0001',
       team_domain: 'example',
@@ -28,24 +30,17 @@ module.exports = {
       response_url: 'https://hooks.slack.com/commands/1234/5678',
       trigger_id: '13345224609.738474920.8088930838d88f008e0',
     }, attrs),
-
-    oauth: attrs => Object.assign({
-      ok: true,
-      access_token: 'xoxp-a-b-c-d',
-      team_name: 'GitHub Slack Dev',
-      team_id: 'T0001',
-      acceptedScopes: [],
-      scope: 'identify,commands,chat:write:bot,links:read,links:write',
-      scopes: [
-        'identify',
-        'commands',
-        'chat:write:bot',
-        'links:read',
-        'links:write',
-      ],
-    }, attrs),
+    team: {
+      info: require('./slack/team.info'),
+    },
+    oauth: {
+      token: require('./slack/oauth.token'),
+    },
   },
   github: {
+    webhooks: {
+      issue_comment: require('./webhooks/issue_comment'),
+    },
     oauth: querystring.stringify({
       access_token: 'testing123',
       token_type: 'bearer',

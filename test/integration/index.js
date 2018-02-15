@@ -2,12 +2,15 @@ const createProbot = require('probot');
 const GitHub = require('github');
 const nock = require('nock');
 
-const app = require('../..');
+const app = require('../../lib');
 
-const storage = require('../../lib/storage');
+const cache = require('../../lib/cache');
 
 const probot = createProbot({});
 const robot = probot.load(app);
+
+// raise errors in tests
+robot.catchErrors = false;
 
 const { sequelize } = robot.models;
 
@@ -15,19 +18,22 @@ const { sequelize } = robot.models;
 beforeEach(async () => nock.cleanAll());
 afterEach(() => expect(nock.pendingMocks()).toEqual([]));
 
- // Ensure there is a connection established
+// Ensure there is a connection established
 beforeAll(async () => sequelize.authenticate());
 // Close connection when tests are done
 afterAll(async () => sequelize.close());
 
 beforeEach(() => {
+  // Restore log level after each test
+  probot.logger.level(process.env.LOG_LEVEL);
+
   // FIXME: Upstream probot needs an easier way to mock this out.
   robot.auth = jest.fn().mockReturnValue(Promise.resolve(new GitHub()));
 
   // Clear all data out of the test database
   return Promise.all([
     sequelize.truncate({ cascade: true }),
-    storage.clear(),
+    cache.clear(),
   ]);
 });
 

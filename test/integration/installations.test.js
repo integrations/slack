@@ -13,7 +13,8 @@ describe('Integration: tracking GitHub installations', () => {
     });
 
     let installation = await Installation.findOne({
-      where: { githubId: installationCreated.installation.id } });
+      where: { githubId: installationCreated.installation.id },
+    });
 
     expect(installation).toBeTruthy();
 
@@ -23,8 +24,44 @@ describe('Integration: tracking GitHub installations', () => {
     });
 
     installation = await Installation.findOne({
-      where: { githubId: installationCreated.installation.id } });
+      where: { githubId: installationCreated.installation.id },
+    });
 
     expect(installation).toBe(null);
+  });
+
+  test('deleting installation cascades to delete all subscriptions related to that installation', async () => {
+    const { robot } = helper;
+    const { Subscription, Installation, SlackWorkspace } = robot.models;
+
+    await robot.receive({
+      event: 'installation',
+      payload: installationCreated,
+    });
+
+    const installation = await Installation.findOne({
+      where: { githubId: installationCreated.installation.id },
+    });
+
+    const slackWorkspace = await SlackWorkspace.create({
+      slackId: 'T0001',
+      accessToken: 'xoxp-token',
+    });
+
+    await Subscription.create({
+      githubId: 1234,
+      channelId: 'C0012',
+      slackWorkspaceId: slackWorkspace.id,
+      installationId: installation.id,
+    });
+
+    expect(await Subscription.count()).toBe(1);
+
+    await robot.receive({
+      event: 'installation',
+      payload: installationDeleted,
+    });
+
+    expect(await Subscription.count()).toBe(0);
   });
 });

@@ -27,4 +27,17 @@ describe('Comment rendering', () => {
     const rendered = blobMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
   });
+
+  test('converts HTML body to mrkdwn', () => {
+    const message = new Comment({
+      comment: Object.assign({
+        body_html: '<strong>Hello</strong> <em>cruel</em> <a href="http://example.com">world</a>',
+      }, comment),
+      repository,
+      issue,
+      unfurlType: 'full',
+    });
+
+    expect(message.getRenderedMessage().text).toEqual('*Hello* _cruel_ <http://example.com|world>');
+  });
 });
