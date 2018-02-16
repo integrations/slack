@@ -139,6 +139,20 @@ describe('model: Subscription', () => {
       expect((await subscription.reload()).settings).toEqual({ pulls: false, issues: false });
     });
 
+    test('enables and disables sub settings', async () => {
+      subscription.enable('commits:all');
+      expect(subscription.settings).toEqual({ commits: 'all' });
+
+      subscription.disable('commits:all');
+      expect(subscription.settings).toEqual({ commits: false });
+
+      subscription.enable(['commits:all']);
+      expect(subscription.settings).toEqual({ commits: 'all' });
+
+      subscription.disable(['commits:all']);
+      expect(subscription.settings).toEqual({ commits: false });
+    });
+
     test('enables and disables with array values', () => {
       subscription.enable(['issues', 'pulls']);
       expect(subscription.settings).toEqual({ pulls: true, issues: true });
@@ -194,6 +208,11 @@ describe('model: Subscription', () => {
     test('returns true if subscription enabled', () => {
       subscription.enable('comments');
       expect(subscription.isEnabledForGitHubEvent('comments')).toBe(true);
+    });
+
+    test('returns true for enabled with settings', () => {
+      subscription.enable('commits:all');
+      expect(subscription.isEnabledForGitHubEvent('commits')).toBe(true);
     });
 
     test('returns false if subscription enabled', () => {

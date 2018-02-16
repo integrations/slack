@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`\\",\\"text\\":\\"<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C002",
+  "text": "",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel deployment_status event 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#dbab09\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"Deploying 3dce5c8 to github-slack-app\\",\\"text\\":\\"Deploying <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`3dce5c8\`> to <https://dashboard.heroku.com/apps/github-slack-app|github-slack-app>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
@@ -58,6 +67,41 @@ exports[`Integration: notifications to a subscribed channel pull request opened 
 Object {
   "attachments": "[{\\"fields\\":[{\\"title\\":\\"Milestone\\",\\"value\\":\\"<https://github.com/github-slack/app/milestone/1|Staff Ship>\\",\\"short\\":true}],\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"#31 Add badges to readme\\",\\"text\\":\\"![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)\\\\r\\\\n\\",\\"pretext\\":\\"Pull request opened by wilhelmklopp\\"}]",
   "channel": "C001",
+  "text": "",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel ref event 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"Deleted branch <https://github.com/github-slack/public-test/tree/hello|\`hello\`>\\",\\"text\\":\\"Deleted branch <https://github.com/github-slack/public-test/tree/hello|\`hello\`>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C001",
+  "text": "",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel review event 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C001",
+  "text": "",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel review event updated 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C001",
+  "text": "",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel review event updated 2`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"This really is a great pull request\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "text": "",
   "token": "test",
 }
