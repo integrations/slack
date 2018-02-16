@@ -103,42 +103,34 @@ describe('Integration: slack authentication', () => {
       .expect('Location', `https://slack.com/app_redirect?app=${access.app_id}&team=${access.team_id}`);
   });
 
-  test('user aborting oauth process fails with error message', async () => {
+  test('user aborting oauth process redirects to restart OAuth flow', async () => {
     await request.get('/slack/oauth/callback').query({ error: 'access_denied' })
-      .expect(400)
-      .expect((res) => {
-        expect(res.text).toMatchSnapshot();
-      });
+      .expect(302)
+      .expect('Location', '/slack/oauth/login');
   });
 
-  test('no state param fails with error message', async () => {
+  test('no state param redirects to restart OAuth flow', async () => {
     await request.get('/slack/oauth/callback').query({ code: 'abc' })
-      .expect(400)
-      .expect((res) => {
-        expect(res.text).toMatchSnapshot();
-      });
+      .expect(302)
+      .expect('Location', '/slack/oauth/login');
   });
 
-  test('no session fails with error message', async () => {
+  test('no session redirects to restart OAuth flow', async () => {
     await supertest(probot.server).get('/slack/oauth/callback').query({ code: 'abc', state: 'def' })
-      .expect(400)
-      .expect((res) => {
-        expect(res.text).toMatchSnapshot();
-      });
+      .expect(302)
+      .expect('Location', '/slack/oauth/login');
   });
 
-  test('invalid state fails with error message', async () => {
+  test('invalid state redirects to restart OAuth flow', async () => {
     await request.get('/slack/oauth/login')
       .expect(302);
     const code = 'code-from-slack';
     await request.get('/slack/oauth/callback').query({ code, state: 'not-the-same' })
-      .expect(400)
-      .expect((res) => {
-        expect(res.text).toMatchSnapshot();
-      });
+      .expect(302)
+      .expect('Location', '/slack/oauth/login');
   });
 
-  test('slack non-ok response fails with error message', async () => {
+  test('slack non-ok response redirects to restart OAuth flow', async () => {
     const res = await request.get('/slack/oauth/login')
       .expect(302);
     const { location } = res.headers;
@@ -148,9 +140,7 @@ describe('Integration: slack authentication', () => {
     nock('https://slack.com').post('/api/oauth.token').reply(200, { ok: false, error: 'something_went_wrong' });
 
     await request.get('/slack/oauth/callback').query({ code, state })
-      .expect(400)
-      .expect((response) => {
-        expect(response.text).toMatchSnapshot();
-      });
+      .expect(302)
+      .expect('Location', '/slack/oauth/login');
   });
 });
