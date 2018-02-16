@@ -252,7 +252,7 @@ describe('Integration: subscriptions', () => {
         });
       });
       describe('Legacy subscriptions:', () => {
-        const { LegacySubscription, Subscription } = helper.robot.models;
+        const { Subscription } = helper.robot.models;
         beforeEach(async () => {
           nock('https://slack.com').post('/api/chat.postMessage').times(4).reply(200, { ok: true });
           await request(probot.server)
@@ -297,14 +297,6 @@ describe('Integration: subscriptions', () => {
           await request(probot.server).post('/slack/command').send(command)
             .expect(200);
 
-          const legacySubscription = await LegacySubscription.findOne({
-            where: {
-              workspaceSlackId: 'T0001',
-              channelSlackId: 'C0D70MRAL',
-              repoGitHubId: fixtures.atomRepo.id,
-            },
-          });
-
           const subscription = await Subscription.findOne({
             where: {
               slackWorkspaceId: slackWorkspace.id,
@@ -312,14 +304,15 @@ describe('Integration: subscriptions', () => {
               githubId: fixtures.atomRepo.id,
             },
           });
-          const config = legacySubscription.originalSlackConfiguration;
-          expect(config.do_branches).toBe(subscription.settings.branches);
-          expect(config.do_issue_comments).toBe(subscription.settings.comments);
-          expect(config.do_commits).toBe(subscription.settings.commits);
-          expect(config.do_deployment_status).toBe(subscription.settings.deployments);
-          expect(config.do_issues).toBe(subscription.settings.issues);
-          expect(config.do_pullrequest).toBe(subscription.settings.pulls);
-          expect(config.do_pullrequest_reviews).toBe(subscription.settings.reviews);
+          expect(subscription.settings).toEqual({
+            branches: true,
+            comments: true,
+            commits: 'all',
+            deployments: false,
+            issues: true,
+            pulls: true,
+            reviews: true,
+          });
         });
 
         test('retains old configuration spread across multiple configurations', async () => {
@@ -337,14 +330,6 @@ describe('Integration: subscriptions', () => {
           await request(probot.server).post('/slack/command').send(command)
             .expect(200);
 
-          const legacySubscriptions = await LegacySubscription.findAll({
-            where: {
-              workspaceSlackId: 'T0001',
-              channelSlackId: 'C0D70MRAL',
-              repoGitHubId: fixtures.kubernetesRepo.id,
-            },
-          });
-
           const subscription = await Subscription.findOne({
             where: {
               slackWorkspaceId: slackWorkspace.id,
@@ -352,15 +337,14 @@ describe('Integration: subscriptions', () => {
               githubId: fixtures.kubernetesRepo.id,
             },
           });
-          legacySubscriptions.forEach((legacySubscription) => {
-            const config = legacySubscription.originalSlackConfiguration;
-            expect(config.do_branches).toBe(subscription.settings.branches);
-            expect(config.do_issue_comments).toBe(subscription.settings.comments);
-            expect(config.do_commits).toBe(subscription.settings.commits);
-            expect(config.do_deployment_status).toBe(subscription.settings.deployments);
-            expect(config.do_issues).toBe(subscription.settings.issues);
-            expect(config.do_pullrequest).toBe(subscription.settings.pulls);
-            expect(config.do_pullrequest_reviews).toBe(subscription.settings.reviews);
+          expect(subscription.settings).toEqual({
+            branches: true,
+            comments: true,
+            commits: 'all',
+            deployments: false,
+            issues: true,
+            pulls: true,
+            reviews: true,
           });
         });
 
