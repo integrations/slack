@@ -7,8 +7,11 @@ repository:
   # A short description of the repository that will show up on GitHub
   description: Bring your code to the conversations you care about with the GitHub and Slack integration
 
+  # A URL with more information about the repository
+  homepage: https://slack.github.com/
+
   # Either `true` to make the repository private, or `false` to make it public.
-  private: true
+  private: false
   
   # Either `true` to enable the wiki for this repository, `false` to disable it.
   has_wiki: false
