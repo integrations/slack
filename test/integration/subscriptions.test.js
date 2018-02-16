@@ -315,7 +315,7 @@ describe('Integration: subscriptions', () => {
           });
         });
 
-        test.only('retains old configuration spread across multiple configurations', async () => {
+        test('retains old configuration spread across multiple configurations', async () => {
           nock('https://api.github.com').get('/users/kubernetes').reply(200, fixtures.org);
           nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, fixtures.kubernetesRepo);
 
