@@ -91,31 +91,33 @@ Settings are configured with the `/github` slash command:
 /github unsubscribe owner/repo [feature]
 ```
 
-These are enabled by default, and can be disabled with the `unsubscribe` command:
+These are enabled by default, and can be disabled with the `/github unsubscribe owner/repo [feature]` command:
 
-- Opened or closed issues:
-  `/github unsubscribe owner/repo issues`
-- New or merged pull requests:
-  `/github unsubscribe owner/repo pulls`
-- Statuses on pull requests:
-  `/github unsubscribe owner/repo statuses`
-- New commits on the default branch (usually `master`):
-  `/github unsubscribe owner/repo commits`
-- Updated status on deployments:
-  `/github unsubscribe owner/repo deployments`
-- A repository switching from private to public:
-  `/github unsubscribe owner/repo public`
+- `issues` - Opened or closed issues
+- `pulls` - New or merged pull requests
+- `statuses` - Statuses on pull requests
+- `commits` - New commits on the default branch (usually `master`)
+- `deployments` - Updated status on deployments
+- `public` - A repository switching from private to public
 
-These are disabled by default, and can be enabled with the `subscribe` command:
+These are disabled by default, and can be enabled with the `/github subscribe owner/repo [feature]` command:
 
-- Pull request reviews:
-  `/github subscribe owner/repo reviews`  
-- New comments on issues and pull requests:
-  `/github subscribe owner/repo comments`  
-- Created or deleted branches:
-  `/github subscribe owner/repo branches`
-- All commits pushed to any branch:
-  `/github subscribe owner/repo commits:all`  
+- `reviews` - Pull request reviews
+- `comments` - New comments on issues and pull requests
+- `branches` - Created or deleted branches
+- `commits:all` - All commits pushed to any branch
+
+For example, to turn on activity for pull request reviews:
+
+```
+/github subscribe owner/repo reviews
+```
+
+And to turn it back off:
+
+```
+/github unsubscribe owner/repo reviews
+```
 
 ## Feedback? Questions? Need help?
 Please email support@github.com.
