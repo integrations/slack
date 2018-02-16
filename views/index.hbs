@@ -9,19 +9,22 @@
 
     <div class="text-center">
       <div class="container-lg p-responsive py-6 py-lg-10">
-        <img src="/static/img/githubplusslack.svg" class="mb-5" style="max-width: 300px;">
+        <img src="/static/img/githubplusslack.svg" class="mb-3 mb-sm-5 col-6 col-sm-12" style="max-width: 300px;">
         <h2 class="alt-h1 lh-condensed mb-3">Your ultimate productivity&nbsp;pair</h2>
-        <p class="alt-lead text-gray col-md-8 mx-auto">
+        <p class="alt-lead text-gray col-md-8 mx-auto mb-3 mb-lg-4">
           With two of your most important workspaces connected, you’ll get updates about what’s happening on GitHub—without leaving Slack.
         </p>
         <a href="/slack/oauth/login" class="btn btn-large btn-primary f4">Add to Slack</a>
-        <p class="f6">
+        <p class="f6 text-gray mx-auto col-sm-10 col-md-5 pt-3">
           Using an older version of GitHub + Slack? Installing the new integration will allow you to migrate subscriptions from legacy versions.
         </p>
       </div>
     </div>
 
-    <div class="">
+    <div class="container-xl p-responsive py-6 f4">
+
+      <div class="slack-ui">
+      </div>
 
       <div class="">
         <h3 class="alt-h3">Subscribe to repositories</h3>
@@ -58,20 +61,23 @@
         </ul>
       </div>
 
-      <hr class="">
 
-      <p>The best part: It’s all open source and always getting better.</p>
-      <a href="https://github.com/github-slack/app/blob/master/CONTRIBUTING.md">Contribute to the integration</a>
-
+      <div class="text-center mx-auto col-sm-8 col-md-6">
+        <hr class="mx-auto my-4" style="width:100px;">
+        <p>The best part: It’s all open source and always getting better.</p>
+        <a href="https://github.com/github-slack/app/blob/master/CONTRIBUTING.md">Contribute to the integration</a>
+      </div>
     </div>
 
     <div class="bg-gray-light text-center">
-      <h3 class="alt-h2">Next level code collaboration</h3>
-      <p class="text-lead">
-        From real-time updates to context for GitHub links, you won’t know how you survived without it.
-      </p>
-      <button href="/slack/oauth/login" class="btn-large">Add to Slack</button>
-      <a href="https://github.com/integrations/slack">Learn more about the GitHub and Slack integration</a>
+      <div class="py-6 py-lg-10 container-lg p-responsive">
+        <h3 class="alt-h2">Next level code collaboration</h3>
+        <p class="lead col-md-6 mx-auto">
+          From real-time updates to context for GitHub links, you won’t know how you survived without it.
+        </p>
+        <a href="/slack/oauth/login" class="btn btn-large btn-primary f4">Add to Slack</a>
+        <a href="https://github.com/integrations/slack" class="mt-4 d-block">Learn more about the GitHub and Slack integration</a>
+      </div>
     </div>
 
   </body>
