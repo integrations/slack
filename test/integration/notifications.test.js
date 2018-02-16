@@ -11,6 +11,7 @@ const publicEventPayload = require('../fixtures/webhooks/public');
 const branchDeleted = require('../fixtures/webhooks/branch_deleted.json');
 const deploymentStatusSuccessPayload = require('../fixtures/webhooks/deployment/status_success');
 const deploymentStatusPendingPayload = require('../fixtures/webhooks/deployment/status_pending');
+const pushNonDefaultBranchPayload = require('../fixtures/webhooks/push_non_default_branch');
 const reviewApproved = require('../fixtures/webhooks/pull_request_review/approved.json');
 
 const {
@@ -363,6 +364,47 @@ describe('Integration: notifications', () => {
       await probot.receive({
         event: 'issue_comment',
         payload: commentPayload,
+      });
+    });
+
+    test('does not deliver pushes on non-default branch if not explicitly enabled', async () => {
+      nock('https://api.github.com').get(`/repositories/${pushNonDefaultBranchPayload.repository.id}`).reply(200);
+
+      await Subscription.subscribe({
+        githubId: pushNonDefaultBranchPayload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      // Should not trigger any deliveries
+      await probot.receive({
+        event: 'push',
+        payload: pushNonDefaultBranchPayload,
+      });
+    });
+
+    test('delivers pushes on non default branch if enabled', async () => {
+      nock('https://api.github.com').get(`/repositories/${pushNonDefaultBranchPayload.repository.id}`).reply(200);
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await Subscription.subscribe({
+        githubId: pushNonDefaultBranchPayload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { commits: 'all' },
+      });
+
+      await probot.receive({
+        event: 'push',
+        payload: pushNonDefaultBranchPayload,
       });
     });
   });
