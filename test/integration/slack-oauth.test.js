@@ -137,7 +137,7 @@ describe('Integration: slack authentication', () => {
     const { state } = queryString.parse(location.replace('https://slack.com/oauth/authorize', ''));
     const code = 'code-from-slack';
 
-    nock('https://slack.com').post('/api/oauth.token').reply(200, { ok: false, error: 'something_went_wrong' });
+    nock('https://slack.com').post('/api/oauth.token').reply(200, { ok: false, error: 'test_error' });
 
     await request.get('/slack/oauth/callback').query({ code, state })
       .expect(302)
