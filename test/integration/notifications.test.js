@@ -323,7 +323,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
-        settings: { commitsOnAllBranches: true },
+        settings: { commits: 'all' },
       });
 
       await probot.receive({
