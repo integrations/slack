@@ -15,6 +15,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
   - [Repository Activity](#repository-activity)
   - [Types of Link Unfurls](#types-of-link-unfurls)
+  - [Configuration](#configuration)
 - [Feedback](#feedback-questions-need-help)
 - [Contributing](#contributing)
 - [License](#license)
@@ -79,6 +80,42 @@ All event notifications will render rich notifications (unfurls) including more 
 ### Types of Link Unfurls
 When a user posts a GitHub link in Slack, the app is designed to unfurl **issues and pull requests**,
 directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users**.
+
+### Configuration
+You can customize your notifications by subscribing to activity that is  relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
+
+Settings are configured with the `/github` slash command:
+
+```
+/github subscribe owner/repo [feature]
+/github unsubscribe owner/repo [feature]
+```
+
+These are enabled by default, and can be disabled with the `unsubscribe` command:
+
+- Opened or closed issues:
+  `/github unsubscribe owner/repo issues`
+- New or merged pull requests:
+  `/github unsubscribe owner/repo pulls`
+- Statuses on pull requests:
+  `/github unsubscribe owner/repo statuses`
+- New commits on the default branch (usually `master`):
+  `/github unsubscribe owner/repo commits`
+- Updated status on deployments:
+  `/github unsubscribe owner/repo deployments`
+- A repository switching from private to public:
+  `/github unsubscribe owner/repo public`
+
+These are disabled by default, and can be enabled with the `subscribe` command:
+
+- Pull request reviews:
+  `/github subscribe owner/repo reviews`  
+- New comments on issues and pull requests:
+  `/github subscribe owner/repo comments`  
+- Created or deleted branches:
+  `/github subscribe owner/repo branches`
+- All commits pushed to any branch:
+  `/github subscribe owner/repo commits:all`  
 
 ## Feedback? Questions? Need help?
 Please email support@github.com.
