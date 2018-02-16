@@ -8,8 +8,10 @@ const { probot } = helper;
 const issuePayload = require('../fixtures/webhooks/issues.opened');
 const pullRequestPayload = require('../fixtures/webhooks/pull_request.opened');
 const publicEventPayload = require('../fixtures/webhooks/public');
+const branchDeleted = require('../fixtures/webhooks/branch_deleted.json');
 const deploymentStatusSuccessPayload = require('../fixtures/webhooks/deployment/status_success');
 const deploymentStatusPendingPayload = require('../fixtures/webhooks/deployment/status_pending');
+const reviewApproved = require('../fixtures/webhooks/pull_request_review/approved.json');
 
 const {
   Subscription,
@@ -123,6 +125,118 @@ describe('Integration: notifications', () => {
       await probot.receive({
         event: 'public',
         payload: publicEventPayload,
+      });
+    });
+
+    test('ref event', async () => {
+      await Subscription.subscribe({
+        githubId: branchDeleted.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { branches: true },
+      });
+
+      nock('https://api.github.com').get(`/repositories/${branchDeleted.repository.id}`).reply(200);
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        event: 'delete',
+        payload: branchDeleted,
+      });
+    });
+
+    test('ref event does not get delivered if not explicitly enabled', async () => {
+      await Subscription.subscribe({
+        githubId: branchDeleted.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      await probot.receive({
+        event: 'delete',
+        payload: branchDeleted,
+      });
+    });
+
+    test('review event', async () => {
+      await Subscription.subscribe({
+        githubId: reviewApproved.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { reviews: true },
+      });
+
+      nock('https://api.github.com').get(`/repositories/${reviewApproved.repository.id}`).reply(200);
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        event: 'pull_request_review',
+        payload: reviewApproved,
+      });
+    });
+
+    test('review event updated', async () => {
+      await Subscription.subscribe({
+        githubId: reviewApproved.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { reviews: true },
+      });
+
+      nock('https://api.github.com').get(`/repositories/${reviewApproved.repository.id}`).times(2).reply(200);
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      nock('https://slack.com').post('/api/chat.update', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        event: 'pull_request_review',
+        payload: reviewApproved,
+      });
+
+      await probot.receive({
+        event: 'pull_request_review',
+        payload: {
+          ...reviewApproved,
+          review: {
+            ...reviewApproved.review,
+            body: 'This really is a great pull request',
+          },
+        },
+      });
+    });
+
+    test('review event does not get delivered if not explicitly enabled', async () => {
+      await Subscription.subscribe({
+        githubId: reviewApproved.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      await probot.receive({
+        event: 'pull_request_review',
+        payload: reviewApproved,
       });
     });
 
