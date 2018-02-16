@@ -17,6 +17,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Types of Link Unfurls](#types-of-link-unfurls)
 - [Feedback](#feedback-questions-need-help)
 - [Contributing](#contributing)
+- [License](#license)
 --------
 ## Installing the GitHub integration for Slack
 ### Requirements
@@ -84,3 +85,8 @@ Please email support@github.com.
 
 ## Contributing
 Want to help improve the integration between GitHub and Slack? Check out the [contributing docs](CONTRIBUTING.md) to get involved.
+
+## License
+The project is available as open source under the terms of the [MIT License](LICENSE).
+
+When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
