@@ -210,6 +210,11 @@ describe('model: Subscription', () => {
       expect(subscription.isEnabledForGitHubEvent('comments')).toBe(true);
     });
 
+    test('returns true for enabled with settings', () => {
+      subscription.enable('commits:all');
+      expect(subscription.isEnabledForGitHubEvent('commits')).toBe(true);
+    });
+
     test('returns false if subscription enabled', () => {
       subscription.disable('issues');
       expect(subscription.isEnabledForGitHubEvent('issues')).toBe(false);
