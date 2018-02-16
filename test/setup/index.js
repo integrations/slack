@@ -1,7 +1,6 @@
 const { exec } = require('child_process');
 require('./env');
 require('./nock');
-require('./date');
 
 // @todo: Should create and destroy database for each test suite
 exec('./node_modules/.bin/sequelize db:migrate', (err, stdout, stderr) => {

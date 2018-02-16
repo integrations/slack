@@ -15,6 +15,7 @@
     "axios": "^0.17.1",
     "body-parser": "^1.17.2",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "github": "^13.0.1",
     "html-to-mrkdwn": "github:github-slack/html-to-mrkdwn",
     "jsonwebtoken": "^8.1.0",
