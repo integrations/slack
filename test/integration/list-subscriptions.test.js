@@ -55,6 +55,26 @@ describe('Integration: subscription list', () => {
       });
   });
 
+  test('when a repository has been deleted', async () => {
+    probot.logger.level('fatal');
+
+    nock('https://api.github.com').get('/repositories/1').reply(200, {
+      full_name: 'atom/atom',
+      html_url: 'https://github.com/atom/atom',
+    });
+    nock('https://api.github.com').get('/repositories/2').reply(404, {});
+
+    const command = fixtures.slack.command({
+      text: 'subscribe list',
+    });
+
+    await request(probot.server).post('/slack/command').send(command)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+  });
+
   test('works for /github subscribe', async () => {
     nock('https://api.github.com').get('/repositories/1').reply(200, {
       full_name: 'atom/atom',

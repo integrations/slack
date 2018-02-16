@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: subscription list when a repository has been deleted 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "fallback": "<#C2147483705> is subscribed to 1 repository",
+      "text": "<https://github.com/atom/atom|atom/atom>",
+      "title": "<#C2147483705> is subscribed to",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
 exports[`Integration: subscription list works for /github subscribe 1`] = `
 Object {
   "attachments": Array [
