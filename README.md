@@ -16,6 +16,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Repository Activity](#repository-activity)
   - [Types of Link Unfurls](#types-of-link-unfurls)
 - [Feedback](#feedback-questions-need-help)
+- [Contributing](#contributing)
 --------
 ## Installing the GitHub integration for Slack
 ### Requirements
@@ -80,3 +81,6 @@ directly linked **comments**, code **blobs** with line numbers, as well as **org
 
 ## Feedback? Questions? Need help?
 Please email support@github.com.
+
+## Contributing
+Want to help improve the integration between GitHub and Slack? Check out the [contributing docs](CONTRIBUTING.md) to get involved.
