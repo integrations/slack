@@ -252,7 +252,7 @@ describe('Integration: subscriptions', () => {
         });
       });
       describe('Legacy subscriptions:', () => {
-        const { LegacySubscription, Subscription } = helper.robot.models;
+        const { Subscription } = helper.robot.models;
         beforeEach(async () => {
           nock('https://slack.com').post('/api/chat.postMessage').times(4).reply(200, { ok: true });
           await request(probot.server)
