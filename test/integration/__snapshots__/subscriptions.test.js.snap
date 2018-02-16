@@ -90,14 +90,11 @@ exports[`Integration: subscriptions authenticated user with GitHub App installed
 Object {
   "attachments": Array [
     Object {
-      "color": "danger",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": "You're already subscribed to \`atom/atom\`",
+      "color": "#24292f",
+      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
-  "response_type": "ephemeral",
+  "response_type": "in_channel",
 }
 `;
 
