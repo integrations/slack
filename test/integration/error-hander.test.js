@@ -5,15 +5,16 @@ const fixtures = require('../fixtures');
 const { probot } = require('.');
 
 describe('Error handling', () => {
-  test('/boom returns 500', async () => {
+  beforeEach(() => {
     // silence logger for this test
     probot.logger.level('fatal');
+  });
+
+  test('/boom returns 500', async () => {
     await request(probot.server).get('/boom').expect(500);
   });
 
   test('/boom?async returns 500', async () => {
-    // silence logger for this test
-    probot.logger.level('fatal');
     await request(probot.server).get('/boom').query({ async: true }).expect(500);
   });
 
