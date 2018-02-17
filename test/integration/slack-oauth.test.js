@@ -131,6 +131,9 @@ describe('Integration: slack authentication', () => {
   });
 
   test('slack non-ok response redirects to restart OAuth flow', async () => {
+    // silence logger for this test
+    probot.logger.level('fatal');
+
     const res = await request.get('/slack/oauth/login')
       .expect(302);
     const { location } = res.headers;
