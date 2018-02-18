@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exception renders generic error message 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Sorry, we had trouble with your request, but we're looking into it! If this is interfering with your work, please <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration&form%5Bcomments%5D=Tell%20us%20a%20little%20more%20about%20what%20happened%20and%20include%20the%20error%20code%20below.%0A%0AError%20code%3A%20error-code-123|get in touch>!",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
