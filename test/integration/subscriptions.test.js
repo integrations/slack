@@ -1,20 +1,26 @@
-const request = require('supertest');
+const supertest = require('supertest');
 const nock = require('nock');
 
 const helper = require('.');
 const fixtures = require('../fixtures');
 const configMigrationEvent = require('../fixtures/slack/config_migration.json');
 
-const { probot } = helper;
+const { probot, slackbot } = helper;
 
 describe('Integration: subscriptions', () => {
+  let request;
+
+  beforeEach(() => {
+    request = supertest.agent(probot.server);
+  });
+
   describe('unauthenticated user', () => {
     test('is prompted to authenticate before subscribing', async () => {
       // User types slash command
       const command = fixtures.slack.command({
         text: 'subscribe https://github.com/kubernetes/kubernetes',
       });
-      const req = request(probot.server).post('/slack/command').send(command);
+      const req = request.post('/slack/command').use(slackbot).send(command);
       const res = await req.expect(200);
 
       // User is shown ephemeral prompt to authenticate
@@ -56,7 +62,7 @@ describe('Integration: subscriptions', () => {
           text: 'subscribe atom/atom',
         });
 
-        await request(probot.server).post('/slack/command').send(command)
+        await request.post('/slack/command').use(slackbot).send(command)
           .expect(200)
           .expect((res) => {
             expect(res.body).toMatchSnapshot();
@@ -83,7 +89,7 @@ describe('Integration: subscriptions', () => {
           text: 'subscribe https://github.com/kubernetes/kubernetes',
         });
 
-        await request(probot.server).post('/slack/command').send(command)
+        await request.post('/slack/command').use(slackbot).send(command)
           .expect(200)
           .expect((res) => {
             expect(res.body).toMatchSnapshot();
@@ -93,7 +99,7 @@ describe('Integration: subscriptions', () => {
           text: 'unsubscribe https://github.com/kubernetes/kubernetes',
         });
 
-        await request(probot.server).post('/slack/command').send(unsubscribeCommand)
+        await request.post('/slack/command').use(slackbot).send(unsubscribeCommand)
           .expect(200)
           .expect((res) => {
             expect(res.body).toMatchSnapshot();
@@ -106,7 +112,7 @@ describe('Integration: subscriptions', () => {
 
         const command = fixtures.slack.command({ text: 'subscribe atom/atom' });
 
-        await request(probot.server).post('/slack/command').send(command)
+        await request.post('/slack/command').use(slackbot).send(command)
           .expect(200)
           .expect((res) => {
             expect(res.body).toMatchSnapshot();
@@ -125,7 +131,7 @@ describe('Integration: subscriptions', () => {
         nock('https://api.github.com').get('/users/bkeepers').times(3).reply(200, fixtures.repo.owner);
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(3).reply(200, fixtures.repo);
 
-        await request(probot.server).post('/slack/command')
+        await request.post('/slack/command').use(slackbot)
           .send(fixtures.slack.command({
             text: 'subscribe bkeepers/dotenv',
           }))
@@ -140,7 +146,7 @@ describe('Integration: subscriptions', () => {
 
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
 
-        await request(probot.server).post('/slack/command')
+        await request.post('/slack/command')
           .send(fixtures.slack.command({
             text: 'unsubscribe bkeepers/dotenv issues',
           }))
@@ -152,7 +158,7 @@ describe('Integration: subscriptions', () => {
         await subscription.reload();
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(false);
 
-        await request(probot.server).post('/slack/command')
+        await request.post('/slack/command').use(slackbot)
           .send(fixtures.slack.command({
             text: 'subscribe bkeepers/dotenv issues',
           }))
@@ -178,7 +184,7 @@ describe('Integration: subscriptions', () => {
         });
         const command = fixtures.slack.command({ text: 'subscribe atom/atom' });
 
-        await request(probot.server).post('/slack/command').send(command)
+        await request.post('/slack/command').use(slackbot).send(command)
           .expect(200)
           .expect((res) => {
             expect(res.body).toMatchSnapshot();
@@ -191,7 +197,7 @@ describe('Integration: subscriptions', () => {
 
         const command = fixtures.slack.command({ text: 'unsubscribe atom/atom' });
 
-        await request(probot.server).post('/slack/command').send(command)
+        await request.post('/slack/command').use(slackbot).send(command)
           .expect(200)
           .expect((res) => {
             expect(res.body).toMatchSnapshot();
@@ -204,7 +210,7 @@ describe('Integration: subscriptions', () => {
           text: 'subscribe wat?',
         });
 
-        const req = request(probot.server).post('/slack/command').send(command);
+        const req = request.post('/slack/command').use(slackbot).send(command);
 
         await req.expect(200).expect((res) => {
           expect(res.body).toMatchSnapshot();
@@ -216,7 +222,7 @@ describe('Integration: subscriptions', () => {
           text: 'unsubscribe wat?',
         });
 
-        const req = request(probot.server).post('/slack/command').send(command);
+        const req = request.post('/slack/command').use(slackbot).send(command);
 
         await req.expect(200).expect((res) => {
           expect(res.body).toMatchSnapshot();
@@ -230,7 +236,7 @@ describe('Integration: subscriptions', () => {
           text: 'subscribe atom/atom',
         });
 
-        const req = request(probot.server).post('/slack/command').send(command);
+        const req = request.post('/slack/command').use(slackbot).send(command);
 
         await req.expect(200).expect((res) => {
           expect(res.body).toMatchSnapshot();
@@ -245,7 +251,7 @@ describe('Integration: subscriptions', () => {
           text: 'subscribe atom/atom',
         });
 
-        const req = request(probot.server).post('/slack/command').send(command);
+        const req = request.post('/slack/command').use(slackbot).send(command);
 
         await req.expect(200).expect((res) => {
           expect(res.body).toMatchSnapshot();
@@ -255,7 +261,7 @@ describe('Integration: subscriptions', () => {
         const { Subscription } = helper.robot.models;
         beforeEach(async () => {
           nock('https://slack.com').post('/api/chat.postMessage').times(4).reply(200, { ok: true });
-          await request(probot.server)
+          await request
             .post('/slack/events')
             .send(configMigrationEvent)
             .expect(200);
@@ -275,7 +281,7 @@ describe('Integration: subscriptions', () => {
             team_id: 'T0001',
           });
 
-          await request(probot.server).post('/slack/command').send(command)
+          await request.post('/slack/command').use(slackbot).send(command)
             .expect(200)
             .expect((res) => {
               expect(res.body).toMatchSnapshot();
@@ -294,7 +300,7 @@ describe('Integration: subscriptions', () => {
             team_id: 'T0001',
           });
 
-          await request(probot.server).post('/slack/command').send(command)
+          await request.post('/slack/command').use(slackbot).send(command)
             .expect(200);
 
           const subscription = await Subscription.findOne({
@@ -327,7 +333,7 @@ describe('Integration: subscriptions', () => {
             team_id: 'T0001',
           });
 
-          await request(probot.server).post('/slack/command').send(command)
+          await request.post('/slack/command').use(slackbot).send(command)
             .expect(200);
 
           const subscription = await Subscription.findOne({
@@ -359,7 +365,7 @@ describe('Integration: subscriptions', () => {
             channel_id: 'C0D70MRAL',
           });
 
-          await request(probot.server).post('/slack/command').send(command)
+          await request.post('/slack/command').use(slackbot).send(command)
             .expect(200)
             .expect((res) => {
               expect(res.body).toMatchSnapshot();
@@ -370,14 +376,14 @@ describe('Integration: subscriptions', () => {
             channel_id: 'C0D70MRAL',
           });
 
-          await request(probot.server).post('/slack/command').send(unsubscribeCommand)
+          await request.post('/slack/command').use(slackbot).send(unsubscribeCommand)
             .expect(200)
             .expect((res) => {
               expect(res.body).toMatchSnapshot();
             });
 
           // This does not result in a second call to services.update
-          await request(probot.server).post('/slack/command').send(command)
+          await request.post('/slack/command').use(slackbot).send(command)
             .expect(200)
             .expect((res) => {
               expect(res.body).toMatchSnapshot();
