@@ -147,6 +147,7 @@ describe('Integration: subscriptions', () => {
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
 
         await request.post('/slack/command')
+          .use(slackbot)
           .send(fixtures.slack.command({
             text: 'unsubscribe bkeepers/dotenv issues',
           }))
