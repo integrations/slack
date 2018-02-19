@@ -36,7 +36,7 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
 
 #### Configuring a Slack App
 
-1. [Create a new Slack app](https://api.slack.com/apps?new_app=1). Note that this app should be the new [Workspace-based Slack app](https://api.slack.com/slack-apps-preview).
+1. [Create a new Slack app](https://api.slack.com/apps?new_app_token=1). Note that this app uses the new [workspace token-based Slack app](https://api.slack.com/slack-apps-preview).
 
 1. On the **Basic Information** tab, copy the values under the **App Credentials** section into `.env`.
 
