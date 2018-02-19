@@ -67,7 +67,7 @@ describe('Integration: signin', () => {
   });
 
   describe('with a pending subscription', () => {
-    test.only('rediects to install app', async () => {
+    test('rediects to install app and creates subscription', async () => {
       const agent = request.agent(probot.server);
 
       // User types slash command
@@ -116,12 +116,18 @@ describe('Integration: signin', () => {
         .expect(302)
         .expect('Location', '/slack/command');
 
-      // Follow the redirect (again)
-      nock('https://api.github.com').get('/users/kubernetes').reply(200, fixtures.org);
 
-      // TODO: post to slack
+      nock('https://api.github.com').get('/users/kubernetes').reply(200, fixtures.org);
+      nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, fixtures.repo);
+
+      nock('https://hooks.slack.com').post('/commands/1234/5678', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200);
+
       await agent.get('/slack/command')
-        .expect(200);
+        .expect(302)
+        .expect('Location', 'https://slack.com/app_redirect?channel=C2147483705&team=T0001');
     });
   });
 });
