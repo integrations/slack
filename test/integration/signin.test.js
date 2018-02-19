@@ -61,7 +61,7 @@ describe('Integration: signin', () => {
         .expect(302)
         .expect(
           'Location',
-          `slack://channel?team=${command.team_id}&channel=${command.channel_id}`,
+          `https://slack.com/app_redirect?team=${command.team_id}&channel=${command.channel_id}`,
         );
     });
   });
