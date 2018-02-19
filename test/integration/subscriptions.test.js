@@ -234,10 +234,9 @@ describe('Integration: subscriptions', () => {
       });
 
       test('subscribing to a repo that does not exist', async () => {
-        nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
+        nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404, {
           id: installation.githubId,
         });
-        nock('https://api.github.com').get('/repos/atom/atom').reply(404, {});
         const command = fixtures.slack.command({
           text: 'subscribe atom/atom',
         });
