@@ -8,7 +8,7 @@
 // See https://api.slack.com/robots
 module.exports = (request) => {
   request.set('User-Agent', 'Slackbot 1.0 (+https://api.slack.com/robots)');
-  request.set('Accept', 'application/json');
+  request.set('Accept', 'application/json,*/*');
 
   return request;
 };
