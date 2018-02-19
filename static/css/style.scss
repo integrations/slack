@@ -1,0 +1,52 @@
+@import "../../node_modules/primer-support/index.scss";
+
+// Core modules
+@import "../../node_modules/primer-base/lib/normalize.scss";
+@import "../../node_modules/primer-base/lib/base.scss";
+@import "../../node_modules/primer-base/lib/typography-base.scss";
+
+//Buttons
+@import "../../node_modules/primer-buttons/lib/button.scss";
+
+// Layout
+@import "../../node_modules/primer-layout/lib/container.scss";
+@import "../../node_modules/primer-layout/lib/grid.scss";
+
+// Utilities
+@import "../../node_modules/primer-utilities/lib/animations.scss";
+@import "../../node_modules/primer-utilities/lib/borders.scss";
+@import "../../node_modules/primer-utilities/lib/box-shadow.scss";
+@import "../../node_modules/primer-utilities/lib/colors.scss";
+@import "../../node_modules/primer-utilities/lib/flexbox.scss";
+@import "../../node_modules/primer-utilities/lib/layout.scss";
+@import "../../node_modules/primer-utilities/lib/margin.scss";
+@import "../../node_modules/primer-utilities/lib/padding.scss";
+@import "../../node_modules/primer-utilities/lib/typography.scss";
+@import "../../node_modules/primer-utilities/lib/visibility-display.scss";
+
+// marketing-specific
+@import "../../node_modules/primer-marketing-support/lib/variables.scss";
+@import "../../node_modules/primer-marketing-type/lib/typography.scss";
+@import "../../node_modules/primer-marketing-buttons/lib/button.scss";
+@import "../../node_modules/primer-marketing-utilities/lib/filters.scss";
+@import "../../node_modules/primer-marketing-utilities/lib/borders.scss";
+@import "../../node_modules/primer-marketing-utilities/lib/layout.scss";
+@import "../../node_modules/primer-marketing-utilities/lib/margin.scss";
+@import "../../node_modules/primer-marketing-utilities/lib/padding.scss";
+
+.confetti-left {
+  @include breakpoint(sm) {
+    background-image: url('../img/confetti-1.svg');
+    background-repeat: no-repeat;
+    background-position: 2% 4%;
+    background-size: 20%;
+  }
+  @include breakpoint(md) {
+    background-position: 1% 4%;
+    background-size: 18%;
+  }
+  @include breakpoint(xl) {
+    background-position: 3% 10%;
+    background-size: 20%;
+  }
+}

@@ -23,6 +23,8 @@
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
     "pg": "^6.4.2",
+    "primer-core": "^6.7.0",
+    "primer-marketing": "^6.2.0",
     "probot": "^5.0.0",
     "query-string": "^5.0.1",
     "request": "^2.83.0",
