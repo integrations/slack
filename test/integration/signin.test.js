@@ -67,14 +67,15 @@ describe('Integration: signin', () => {
   });
 
   describe('with a pending subscription', () => {
-    test('rediects to install app', async () => {
+    test.only('rediects to install app', async () => {
       const agent = request.agent(probot.server);
 
       // User types slash command
       const command = fixtures.slack.command({
         text: 'subscribe kubernetes/kubernetes',
       });
-      const res = await agent.post('/slack/command').send(command).expect(200);
+      const res = await agent.post('/slack/command').use(slackbot).send(command)
+        .expect(200);
 
       // User is shown ephemeral prompt to authenticate
       const { url } = res.body.attachments[0].actions[0];
