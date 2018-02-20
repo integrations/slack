@@ -71,7 +71,7 @@ Object {
 }
 `;
 
-exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that the used does not have acccess to 1`] = `
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that the user does not have acccess to 1`] = `
 Object {
   "attachments": Array [
     Object {

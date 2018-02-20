@@ -100,6 +100,7 @@ describe('Integration: subscriptions', () => {
       test('successfully subscribing and unsubscribing to a repository', async () => {
         nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').times(2).reply(200, {
           id: installation.githubId,
+          account: fixtures.repo.owner,
         });
         nock('https://api.github.com').get('/repos/kubernetes/kubernetes').times(2).reply(200, fixtures.repo);
 
@@ -127,6 +128,7 @@ describe('Integration: subscriptions', () => {
       test('successfully subscribing with repository shorthand', async () => {
         nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
           id: installation.githubId,
+          account: fixtures.repo.owner,
         });
         nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
 
@@ -150,6 +152,7 @@ describe('Integration: subscriptions', () => {
 
         nock('https://api.github.com').get('/repos/bkeepers/dotenv/installation').times(3).reply(200, {
           id: installation.githubId,
+          account: fixtures.repo.owner,
         });
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(3).reply(200, fixtures.repo);
 
@@ -197,6 +200,7 @@ describe('Integration: subscriptions', () => {
       test('subscribing when already subscribed', async () => {
         nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
           id: installation.githubId,
+          account: fixtures.repo.owner,
         });
         nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
 
@@ -219,6 +223,7 @@ describe('Integration: subscriptions', () => {
       test('unsubscribing when not subscribed', async () => {
         nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
           id: installation.githubId,
+          account: fixtures.repo.owner,
         });
         nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
 
@@ -257,10 +262,8 @@ describe('Integration: subscriptions', () => {
       });
 
       test('subscribing to a repo that does not exist', async () => {
-        nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
-          id: installation.githubId,
-        });
-        nock('https://api.github.com').get('/repos/atom/atom').reply(404);
+        nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404);
+        nock('https://api.github.com').get('/users/atom').reply(404);
 
         const command = fixtures.slack.command({
           text: 'subscribe atom/atom',
@@ -273,11 +276,12 @@ describe('Integration: subscriptions', () => {
         });
       });
 
-      test('subscribing to a repo that the used does not have acccess to', async () => {
+      test('subscribing to a repo that the user does not have acccess to', async () => {
         nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
           id: installation.githubId,
+          account: fixtures.repo.owner,
         });
-        nock('https://api.github.com').get('/repos/atom/atom').reply(404, fixtures.repo);
+        nock('https://api.github.com').get('/repos/atom/atom').reply(404);
 
         const command = fixtures.slack.command({
           text: 'subscribe atom/atom',
@@ -301,6 +305,7 @@ describe('Integration: subscriptions', () => {
         test('subscribing to a repo whose legacy configuration is not already reactivated is disabled', async () => {
           nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
             id: installation.githubId,
+            account: fixtures.atomRepo.owner,
           });
           nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.atomRepo);
 
@@ -325,6 +330,7 @@ describe('Integration: subscriptions', () => {
         test('retains old configuration', async () => {
           nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
             id: installation.githubId,
+            account: fixtures.atomRepo.owner,
           });
           nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.atomRepo);
 
@@ -360,6 +366,7 @@ describe('Integration: subscriptions', () => {
         test('retains old configuration spread across multiple configurations', async () => {
           nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(200, {
             id: installation.githubId,
+            account: fixtures.kubernetesRepo.owner,
           });
           nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, fixtures.kubernetesRepo);
 
@@ -395,6 +402,7 @@ describe('Integration: subscriptions', () => {
         test('subscribing to a repo that\'s already reactivated works as normal', async () => {
           nock('https://api.github.com').get('/repos/atom/atom/installation').times(3).reply(200, {
             id: installation.githubId,
+            account: fixtures.atomRepo.owner,
           });
           nock('https://api.github.com').get('/repos/atom/atom').times(3).reply(200, fixtures.atomRepo);
 

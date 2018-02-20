@@ -98,6 +98,7 @@ describe('Integration: signin', () => {
         .expect('Location', '/slack/command');
 
       // Redirects to install the GitHub App
+      nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(404);
       nock('https://api.github.com').get('/users/kubernetes').reply(200, fixtures.org);
       nock('https://api.github.com').get('/app').reply(200, fixtures.app);
       await agent.get('/slack/command')
@@ -106,19 +107,13 @@ describe('Integration: signin', () => {
 
       // Pretend the user goes and installs the GitHub app, and then is
       // redirected back to /setup.
-      const { Installation } = helper.robot.models;
-      await Installation.create({
-        githubId: 1,
-        ownerId: fixtures.org.id,
-      });
-
       await agent.get('/github/setup')
         .expect(302)
         .expect('Location', '/slack/command');
 
-
       nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(200, {
         id: 1,
+        account: fixtures.repo.owner,
       });
       nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, fixtures.repo);
 
