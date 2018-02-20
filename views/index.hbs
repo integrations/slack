@@ -8,17 +8,19 @@
   </head>
   <body>
 
-    <div class="confetti-left confetti-right text-center">
-      <div class="container-lg p-responsive py-6 py-lg-10">
-        <img src="/static/img/githubplusslack.svg" class="mb-3 mb-sm-5 col-6 col-sm-12" style="max-width: 300px;">
-        <h2 class="alt-h1 lh-condensed mb-3">Your ultimate productivity&nbsp;pair</h2>
-        <p class="alt-lead text-gray col-md-8 mx-auto mb-3 mb-lg-4">
-          With two of your most important workspaces connected, you’ll get updates about what’s happening on GitHub—without leaving Slack.
-        </p>
-        <a href="/slack/oauth/login" class="btn btn-large btn-primary f4">Add to Slack</a>
-        <p class="f6 text-gray mx-auto col-sm-10 col-md-5 pt-3">
-          Using an older version of GitHub + Slack? Installing the new integration will allow you to migrate subscriptions from legacy versions.
-        </p>
+    <div class="confetti-left text-center">
+      <div class="confetti-right">
+        <div class="container-lg p-responsive py-6 py-lg-10">
+          <img src="/static/img/githubplusslack.svg" class="mb-3 mb-sm-5 col-6 col-sm-12" style="max-width: 300px;">
+          <h2 class="alt-h1 lh-condensed mb-3">Your ultimate productivity&nbsp;pair</h2>
+          <p class="alt-lead text-gray col-md-8 mx-auto mb-3 mb-lg-4">
+            With two of your most important workspaces connected, you’ll get updates about what’s happening on GitHub—without leaving Slack.
+          </p>
+          <a href="/slack/oauth/login" class="btn btn-large btn-primary f4">Add to Slack</a>
+          <p class="f6 text-gray mx-auto col-sm-10 col-md-5 pt-3">
+            Using an older version of GitHub + Slack? Installing the new integration will allow you to migrate subscriptions from legacy versions.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -39,7 +41,7 @@
                     <span class="ml-1 text-gray-light f6">10:30 AM</span>
                   </p>
                   <p>
-                    /github subscribe <a href="https://github.com/github/fetch/">https://github.com/github/fetch</a>
+                    /github subscribe <a href="https://github.com/atom/atom/">https://github.com/atom/atom</a>
                   </p>
                 </div>
               </div>
@@ -54,7 +56,7 @@
                     <span class="text-gray-light f6">10:30 AM</span>
                   </p>
                   <p class="ui-bot-content">
-                    subscribed to <a href="https://github.com/github/fetch/">github/fetch</a>
+                    subscribed to <a href="https://github.com/atom/atom">atom/atom</a>
                   </p>
                 </div>
               </div>
@@ -101,7 +103,7 @@
                   </div>
                   <div class="ui-bot-content green my-1">
                     <div class="">
-                      <p class="mb-1">3 other checks have passed</p>
+                      <p class="mb-1">✅ 3 other checks have passed</p>
                       <p class="text-gray f6">3/5 successful checks</p>
                     </div>
                   </div>
@@ -115,11 +117,11 @@
           <div class="mb-4">
             <h3 class="alt-h2">Stay up to date</h3>
             <p class="preview-subscribe">
-              Use <span class="alt-mono-font f5 bg-gray">/github subscribe [repository name]</span><img src="/static/img/eye.svg" class="mx-1 mb-n1" style="">in Slack to start receiving updates about activities like:
+              Use <span class="ui-preview alt-mono-font f5">/github subscribe [repository name]</span> in Slack to start receiving updates about activities like:
             </p>
             <ul class="ml-3">
               <li>New commits</li>
-              <li>New pull requests</li>
+              <li><span class="ui-preview">New pull requests<span></li>
               <li>New issues</li>
               <li>Code reviews</li>
               <li>Deployment statuses</li>
@@ -134,53 +136,34 @@
           <div class="p-2 p-md-4 box-shadow-extra-large">
             <div class="ui-uptodate">
               <div class="clearfix ui-message">
-                <div class="float-left mr-3">
-                  <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" class="rounded-2" style="width: 40px;">
-                </div>
-                <div class="overflow-hidden mt-n1">
-                  <p class="mb-0">
-                    <span class="ui-bold">GitHub</span>
-                    <span class="mr-1 ui-app-label">APP</span>
-                    <span class="text-gray-light f6">11:35 AM</span>
-                  </p>
-                  <p class="mb-1">Pull request opened by bkeepers</p>
-                  <div class="ui-bot-content green">
-                    <div class="d-table v-align-middle mb-1">
-                      <img src="https://avatars3.githubusercontent.com/u/527589?s=400&u=79ec5962a01182864497e6d88d8b0aaa9db14019&v=4" class="rounded-1 d-table-cell v-align-top mr-2" style="width: 20px;">
-                      <span class="text-gray d-table-cell v-align-middle">bkeepers</span>
-                    </div>
-                    <p class="text-bold mb-1">
-                      <a href="https://github.com/github/fetch/pull/521">
-                        #521 Add additional fallbacks
-                      </a>
+
+                <div class="clearfix mb-2 ui-message ui-subscribe">
+                  <div class="float-left mr-3">
+                    <img src="https://avatars3.githubusercontent.com/u/527589?s=400&u=79ec5962a01182864497e6d88d8b0aaa9db14019&v=4" class="rounded-2" style="width: 40px;">
+                  </div>
+                  <div class="overflow-hidden mt-n1">
+                    <p class="mb-0">
+                      <span class="ui-bold">sophshep</span>
+                      <span class="ml-1 text-gray-light f6">10:30 AM</span>
                     </p>
                     <p>
-                      This extends the solution in #253 for React Native compatibility.
+                      I figured out where it's being parsed, but where is the hex coming from? <a href="">http://github.com/atom/atom/blog/master/src/color.js#L116-L119</a>
                     </p>
-                    <div class="">
-                      <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" class="rounded-1 float-left mr-1" style="width: 20px;">
-                      <p class="text-gray f6">github/fetch | Today at 11:35 AM</p>
-                    </div>
-                  </div>
-                  <div class="ui-bot-content red my-1">
-                    <div class="">
-                      <img src="https://avatars0.githubusercontent.com/ml/30?s=140&v=4" class="rounded-1 float-left mr-1" style="width: 20px;">
-                      <p class="text-gray f6">codecov/project: 97.04% (-0.1) compared to b8b2627</p>
-                    </div>
-                  </div>
-                  <div class="ui-bot-content red my-1">
-                    <div class="">
-                      <img src="https://avatars0.githubusercontent.com/ml/30?s=140&v=4" class="rounded-1 float-left mr-1" style="width: 20px;">
-                      <p class="text-gray f6">codecov/project: 97.04% (-0.1) compared to b8b2627</p>
-                    </div>
-                  </div>
-                  <div class="ui-bot-content green my-1">
-                    <div class="">
-                      <p class="mb-1">3 other checks have passed</p>
-                      <p class="text-gray f6">3/5 successful checks</p>
+                    <div class="ui-bot-content">
+                      <p>
+                        <a href="" class="ui-bold">src/color.js:L116-L119</a>
+                      </p>
+                      <p>
+                        <a href="" class="">Show more...</a>
+                      </p>
+                      <div class="">
+                        <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" class="rounded-1 float-left mr-1" style="width: 20px;">
+                        <p class="text-gray f6">atom/atom | Added by GitHub</p>
+                      </div>
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -214,13 +197,15 @@
     </div>
 
     <div class="bg-gray-light confetti-left text-center">
-      <div class="py-6 py-lg-10 container-lg p-responsive">
-        <h3 class="alt-h2">Next level code collaboration</h3>
-        <p class="lead col-md-6 mx-auto">
-          From real-time updates to context for GitHub links, you won’t know how you survived without it.
-        </p>
-        <a href="/slack/oauth/login" class="btn btn-large btn-primary f4">Add to Slack</a>
-        <a href="https://github.com/integrations/slack" class="mt-4 d-block">Learn more about the GitHub and Slack integration</a>
+      <div class="confetti-right">
+        <div class="py-6 py-lg-10 container-lg p-responsive">
+          <h3 class="alt-h2">Next level code collaboration</h3>
+          <p class="lead col-sm-8 col-md-6 mx-auto">
+            From real-time updates to context for GitHub links, you won’t know how you survived without it.
+          </p>
+          <a href="/slack/oauth/login" class="btn btn-large btn-primary f4">Add to Slack</a>
+          <a href="https://github.com/integrations/slack" class="mt-4 d-block">Learn more about the GitHub and Slack integration</a>
+        </div>
       </div>
     </div>
 

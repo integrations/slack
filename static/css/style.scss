@@ -46,7 +46,24 @@
     background-size: 18%;
   }
   @include breakpoint(xl) {
-    background-position: 3% 10%;
+    background-position: 3% 14%;
+    background-size: 20%;
+  }
+}
+
+.confetti-right {
+  @include breakpoint(sm) {
+    background-image: url('../img/confetti-2.svg');
+    background-repeat: no-repeat;
+    background-position: 104% 4%;
+    background-size: 20%;
+  }
+  @include breakpoint(md) {
+    background-position: 98% 4%;
+    background-size: 18%;
+  }
+  @include breakpoint(xl) {
+    background-position: 99% 20%;
     background-size: 20%;
   }
 }
@@ -106,9 +123,6 @@
   &:nth-child(3) {
     animation-delay: 3s;
   }
-  &:nth-child(4) {
-    animation-delay: 4s;
-  }
 }
 
 @keyframes slideIn {
@@ -122,10 +136,13 @@
   }
 }
 
-
-//div:not(.ui-subscribe) {
-  //  opacity: 1;
-  //}
+.ui-preview {
+  border-bottom: 1px dotted $gray;
+  padding-bottom: 2px;
+  svg {
+    fill: $gray;
+  }
+}
 
 .preview-subscribe:hover ~ .ui-slack {
 
