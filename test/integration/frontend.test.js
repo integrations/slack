@@ -8,11 +8,4 @@ describe('Integration: frontend', () => {
     expect(res.status).toBe(200);
     expect(res.text).toMatchSnapshot();
   });
-
-  test('/denied', async () => {
-    const res = await request(probot.server).get('/denied');
-
-    expect(res.status).toBe(200);
-    expect(res.text).toMatchSnapshot();
-  });
 });
