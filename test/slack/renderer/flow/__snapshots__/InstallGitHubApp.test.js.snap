@@ -16,7 +16,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Looks like the app isn't installed on your repository. Install it to proceed.",
+      "text": "Either the app isn't installed on your repository or the repository does not exist. Install it to proceed.",
     },
   ],
   "response_type": "ephemeral",

@@ -42,7 +42,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "_Need help? Type \`/github help\` or <https://github.com/github-slack/private-beta|learn more>._",
+      "text": "_Need help? Type \`/github help\` or <https://github.com/integrations/slack#readme|learn more>._",
     },
   ],
   "response_type": "in_channel",
@@ -73,7 +73,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "_Need help? Type \`/github help\` or <https://github.com/github-slack/private-beta|learn more>._",
+      "text": "_Need help? Type \`/github help\` or <https://github.com/integrations/slack#readme|learn more>._",
     },
   ],
   "response_type": "in_channel",
