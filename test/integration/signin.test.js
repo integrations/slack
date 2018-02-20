@@ -117,7 +117,9 @@ describe('Integration: signin', () => {
         .expect('Location', '/slack/command');
 
 
-      nock('https://api.github.com').get('/users/kubernetes').reply(200, fixtures.org);
+      nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(200, {
+        id: 1,
+      });
       nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, fixtures.repo);
 
       nock('https://hooks.slack.com').post('/commands/1234/5678', (body) => {
