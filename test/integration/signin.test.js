@@ -67,7 +67,7 @@ describe('Integration: signin', () => {
   });
 
   describe('with a pending subscription', () => {
-    test('rediects to install app and creates subscription', async () => {
+    test('redirects to install app and creates subscription', async () => {
       const agent = request.agent(probot.server);
 
       // User types slash command

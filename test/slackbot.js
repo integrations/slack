@@ -1,4 +1,4 @@
-// superagnet plugin to make the request appear to come from slackbot.
+// superagent plugin to make the request appear to come from slackbot.
 //
 // Usage:
 //
