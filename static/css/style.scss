@@ -50,3 +50,85 @@
     background-size: 20%;
   }
 }
+
+.ui-slack {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  @include breakpoint(md) {
+    font-size: 15px;
+  }
+}
+
+.ui-bold {
+  font-weight: 900;
+}
+
+.ui-app-label {
+  color: #a0a0a2;
+  background: #e8e8e8;
+  padding: 0 2px;
+  font-size: 13px;
+}
+
+.ui-bot-content {
+  position: relative;
+  padding-left: 12px;
+
+  &:before {
+    content:'';
+    width: 4px;
+    height: 100%;
+    background-color: $black;
+    position: absolute;
+    left: 0;
+    border-radius: 25px;
+  }
+  &.green:before{
+    background-color: $green-500;
+  }
+  &.red:before{
+    background-color: $red-500;
+  }
+}
+
+.ui-message {
+  opacity: 0;
+  animation: .5s slideIn;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  &:nth-child(1) {
+    animation-delay: 1s;
+  }
+  &:nth-child(2) {
+    animation-delay: 2s;
+  }
+  &:nth-child(3) {
+    animation-delay: 3s;
+  }
+  &:nth-child(4) {
+    animation-delay: 4s;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+//div:not(.ui-subscribe) {
+  //  opacity: 1;
+  //}
+
+.preview-subscribe:hover ~ .ui-slack {
+
+    opacity: 0.6 !important;
+
+}

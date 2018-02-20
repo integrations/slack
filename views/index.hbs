@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Slack + GitHub</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
   </head>
   <body>
 
@@ -21,56 +22,192 @@
       </div>
     </div>
 
-    <div class="container-xl p-responsive mx-auto py-6 f4 d-md-flex gutter-spacious">
+    <div class="container-lg p-responsive mx-auto py-2 f4 col-md-8 col-lg-12">
 
-      <div class="col-md-6">
-        <div class="p-6 box-shadow-extra-large slack-ui">
-          yooo
+      <div class="d-lg-flex flex-items-center flex-row-reverse">
+
+        <div class="ui-slack col-lg-6 pl-lg-4">
+          <div class="p-2 p-md-4 box-shadow-extra-large">
+            <div class="ui-uptodate">
+              <div class="clearfix mb-2 ui-message ui-subscribe">
+                <div class="float-left mr-3">
+                  <img src="https://avatars3.githubusercontent.com/u/527589?s=400&u=79ec5962a01182864497e6d88d8b0aaa9db14019&v=4" class="rounded-2" style="width: 40px;">
+                </div>
+                <div class="overflow-hidden mt-n1">
+                  <p class="mb-0">
+                    <span class="ui-bold">sophshep</span>
+                    <span class="ml-1 text-gray-light f6">10:30 AM</span>
+                  </p>
+                  <p>
+                    /github subscribe <a href="https://github.com/github/fetch/">https://github.com/github/fetch</a>
+                  </p>
+                </div>
+              </div>
+              <div class="clearfix mb-2 ui-message">
+                <div class="float-left mr-3">
+                  <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" class="rounded-2" style="width: 40px;">
+                </div>
+                <div class="overflow-hidden mt-n1">
+                  <p class="mb-0">
+                    <span class="ui-bold">GitHub</span>
+                    <span class="mr-1 ui-app-label">APP</span>
+                    <span class="text-gray-light f6">10:30 AM</span>
+                  </p>
+                  <p class="ui-bot-content">
+                    subscribed to <a href="https://github.com/github/fetch/">github/fetch</a>
+                  </p>
+                </div>
+              </div>
+              <div class="clearfix ui-message">
+                <div class="float-left mr-3">
+                  <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" class="rounded-2" style="width: 40px;">
+                </div>
+                <div class="overflow-hidden mt-n1">
+                  <p class="mb-0">
+                    <span class="ui-bold">GitHub</span>
+                    <span class="mr-1 ui-app-label">APP</span>
+                    <span class="text-gray-light f6">11:35 AM</span>
+                  </p>
+                  <p class="mb-1">Pull request opened by bkeepers</p>
+                  <div class="ui-bot-content green">
+                    <div class="d-table v-align-middle mb-1">
+                      <img src="https://avatars3.githubusercontent.com/u/527589?s=400&u=79ec5962a01182864497e6d88d8b0aaa9db14019&v=4" class="rounded-1 d-table-cell v-align-top mr-2" style="width: 20px;">
+                      <span class="text-gray d-table-cell v-align-middle">bkeepers</span>
+                    </div>
+                    <p class="text-bold mb-1">
+                      <a href="https://github.com/github/fetch/pull/521">
+                        #521 Add additional fallbacks
+                      </a>
+                    </p>
+                    <p>
+                      This extends the solution in #253 for React Native compatibility.
+                    </p>
+                    <div class="">
+                      <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" class="rounded-1 float-left mr-1" style="width: 20px;">
+                      <p class="text-gray f6">github/fetch | Today at 11:35 AM</p>
+                    </div>
+                  </div>
+                  <div class="ui-bot-content red my-1">
+                    <div class="">
+                      <img src="https://avatars0.githubusercontent.com/ml/30?s=140&v=4" class="rounded-1 float-left mr-1" style="width: 20px;">
+                      <p class="text-gray f6">codecov/project: 97.04% (-0.1) compared to b8b2627</p>
+                    </div>
+                  </div>
+                  <div class="ui-bot-content red my-1">
+                    <div class="">
+                      <img src="https://avatars0.githubusercontent.com/ml/30?s=140&v=4" class="rounded-1 float-left mr-1" style="width: 20px;">
+                      <p class="text-gray f6">codecov/project: 97.04% (-0.1) compared to b8b2627</p>
+                    </div>
+                  </div>
+                  <div class="ui-bot-content green my-1">
+                    <div class="">
+                      <p class="mb-1">3 other checks have passed</p>
+                      <p class="text-gray f6">3/5 successful checks</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--end ui-->
+
+        <div class="features col-lg-6 pr-lg-4 my-4">
+          <div class="mb-4">
+            <h3 class="alt-h2">Stay up to date</h3>
+            <p class="preview-subscribe">
+              Use <span class="alt-mono-font f5 bg-gray">/github subscribe [repository name]</span><img src="/static/img/eye.svg" class="mx-1 mb-n1" style="">in Slack to start receiving updates about activities like:
+            </p>
+            <ul class="ml-3">
+              <li>New commits</li>
+              <li>New pull requests</li>
+              <li>New issues</li>
+              <li>Code reviews</li>
+              <li>Deployment statuses</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="features col-md-6">
+      <div class="mt-lg-9 d-lg-flex flex-items-center">
 
-        <div class="mb-4">
-          <h3 class="h3">Subscribe to repositories</h3>
-          <p class="">
-            Use ‘/github subscribe [repository name]’ in Slack to start receiving updates about that project.
-          </p>
-        </div>
+        <div class="ui-slack col-lg-6 pr-lg-4">
+          <div class="p-2 p-md-4 box-shadow-extra-large">
+            <div class="ui-uptodate">
+              <div class="clearfix ui-message">
+                <div class="float-left mr-3">
+                  <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" class="rounded-2" style="width: 40px;">
+                </div>
+                <div class="overflow-hidden mt-n1">
+                  <p class="mb-0">
+                    <span class="ui-bold">GitHub</span>
+                    <span class="mr-1 ui-app-label">APP</span>
+                    <span class="text-gray-light f6">11:35 AM</span>
+                  </p>
+                  <p class="mb-1">Pull request opened by bkeepers</p>
+                  <div class="ui-bot-content green">
+                    <div class="d-table v-align-middle mb-1">
+                      <img src="https://avatars3.githubusercontent.com/u/527589?s=400&u=79ec5962a01182864497e6d88d8b0aaa9db14019&v=4" class="rounded-1 d-table-cell v-align-top mr-2" style="width: 20px;">
+                      <span class="text-gray d-table-cell v-align-middle">bkeepers</span>
+                    </div>
+                    <p class="text-bold mb-1">
+                      <a href="https://github.com/github/fetch/pull/521">
+                        #521 Add additional fallbacks
+                      </a>
+                    </p>
+                    <p>
+                      This extends the solution in #253 for React Native compatibility.
+                    </p>
+                    <div class="">
+                      <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" class="rounded-1 float-left mr-1" style="width: 20px;">
+                      <p class="text-gray f6">github/fetch | Today at 11:35 AM</p>
+                    </div>
+                  </div>
+                  <div class="ui-bot-content red my-1">
+                    <div class="">
+                      <img src="https://avatars0.githubusercontent.com/ml/30?s=140&v=4" class="rounded-1 float-left mr-1" style="width: 20px;">
+                      <p class="text-gray f6">codecov/project: 97.04% (-0.1) compared to b8b2627</p>
+                    </div>
+                  </div>
+                  <div class="ui-bot-content red my-1">
+                    <div class="">
+                      <img src="https://avatars0.githubusercontent.com/ml/30?s=140&v=4" class="rounded-1 float-left mr-1" style="width: 20px;">
+                      <p class="text-gray f6">codecov/project: 97.04% (-0.1) compared to b8b2627</p>
+                    </div>
+                  </div>
+                  <div class="ui-bot-content green my-1">
+                    <div class="">
+                      <p class="mb-1">3 other checks have passed</p>
+                      <p class="text-gray f6">3/5 successful checks</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--end ui-->
 
-        <div class="mb-4">
-          <h3 class="">Stay up to date</h3>
-          <p class="">
-            Get updates about what’s happening with your repositories in Slack discussions for activities like:
-          </p>
-          <ul class="ml-3">
-            <li>New commits</li>
-            <li>New pull requests</li>
-            <li>New issues</li>
-            <li>Code reviews</li>
-            <li>Deployment statuses</li>
-          </ul>
-        </div>
-
-        <div class="mb-4">
-          <h3 class="">See the details</h3>
-          <p class="">
-            Give your team more information in Slack when you share links to GitHub activities and properties like:
-          </p>
-          <ul class="ml-3">
-            <li>Pull requests</li>
-            <li>Issues</li>
-            <li>Linked comments</li>
-            <li>Code snippets</li>
-            <li>Developer profiles</li>
-          </ul>
+        <div class="features col-lg-6 pl-lg-4 my-4">
+          <div class="mb-4">
+            <h3 class="alt-h2">See the details</h3>
+            <p class="">
+              Give your team more information in Slack when you share links to GitHub activities and properties like:
+            </p>
+            <ul class="ml-3">
+              <li>Pull requests</li>
+              <li>Issues</li>
+              <li>Linked comments</li>
+              <li>Code snippets</li>
+              <li>Developer profiles</li>
+            </ul>
+          </div>
         </div>
 
       </div>
+
 
     </div>
 
-    <div class="text-center mx-auto col-sm-8 col-md-6">
+    <div class="text-center mx-auto col-sm-8 col-md-6 my-6 my-lg-9">
       <hr class="mx-auto my-4" style="width:100px;">
       <p>The best part: It’s all open source and always getting better.</p>
       <a href="https://github.com/github-slack/app/blob/master/CONTRIBUTING.md">Contribute to the integration</a>
