@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: signin with a pending subscription rediects to install app and creates subscription 1`] = `
+exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 1`] = `
 Object {
   "attachments": Array [
     Object {
