@@ -55,8 +55,24 @@ describe('Integration: subscriptions', () => {
 
     describe('without the GitHub App installed', () => {
       test('prompts to install app', async () => {
-        nock('https://api.github.com').get('/app').reply(200, fixtures.app);
+        nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404);
         nock('https://api.github.com').get('/users/atom').reply(200, fixtures.org);
+        nock('https://api.github.com').get('/app').reply(200, fixtures.app);
+
+        const command = fixtures.slack.command({
+          text: 'subscribe atom/atom',
+        });
+
+        await request.post('/slack/command').use(slackbot).send(command)
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
+      test('organization is not found', async () => {
+        nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404);
+        nock('https://api.github.com').get('/users/atom').reply(404);
 
         const command = fixtures.slack.command({
           text: 'subscribe atom/atom',
@@ -241,9 +257,11 @@ describe('Integration: subscriptions', () => {
       });
 
       test('subscribing to a repo that does not exist', async () => {
-        nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404, {
+        nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
           id: installation.githubId,
         });
+        nock('https://api.github.com').get('/repos/atom/atom').reply(404);
+
         const command = fixtures.slack.command({
           text: 'subscribe atom/atom',
         });
