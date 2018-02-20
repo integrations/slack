@@ -2,7 +2,7 @@ const request = require('supertest');
 
 const fixtures = require('../fixtures');
 
-const { probot } = require('.');
+const { probot, slackbot } = require('.');
 
 describe('Error handling', () => {
   beforeEach(() => {
@@ -23,9 +23,7 @@ describe('Error handling', () => {
       text: 'boom',
     });
 
-    await request(probot.server).post('/slack/command')
-      // https://api.slack.com/robots
-      .set('User-Agent', 'Slackbot 1.0 (+https://api.slack.com/robots)')
+    await request(probot.server).post('/slack/command').use(slackbot)
       .send(command)
       .expect(200, /ephemeral/);
   });

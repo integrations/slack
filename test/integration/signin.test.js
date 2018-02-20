@@ -4,12 +4,14 @@ const nock = require('nock');
 const helper = require('.');
 const fixtures = require('../fixtures');
 
-const { probot } = helper;
+const { probot, slackbot } = helper;
+
+const { SlackWorkspace } = helper.robot.models;
+
+const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
 
 describe('Integration: signin', () => {
   beforeEach(async () => {
-    const { SlackWorkspace } = helper.robot.models;
-
     // create workspace
     await SlackWorkspace.create({
       slackId: 'T0001',
@@ -23,13 +25,13 @@ describe('Integration: signin', () => {
       const command = fixtures.slack.command({
         text: 'signin',
       });
-      const req = request(probot.server).post('/slack/command').send(command);
-      const res = await req.expect(200);
+      const res = await request(probot.server).post('/slack/command')
+        .use(slackbot)
+        .send(command)
+        .expect(200);
 
       // User is shown ephemeral prompt to authenticate
-      const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
-      const { text } = res.body.attachments[0].actions[0];
-      const { url } = res.body.attachments[0].actions[0];
+      const { text, url } = res.body.attachments[0].actions[0];
       expect(text).toMatch('Connect GitHub account');
       expect(url).toMatch(promptUrl);
 
@@ -59,8 +61,70 @@ describe('Integration: signin', () => {
         .expect(302)
         .expect(
           'Location',
-          `slack://channel?team=${command.team_id}&channel=${command.channel_id}`,
+          `https://slack.com/app_redirect?team=${command.team_id}&channel=${command.channel_id}`,
         );
+    });
+  });
+
+  describe('with a pending subscription', () => {
+    test('redirects to install app and creates subscription', async () => {
+      const agent = request.agent(probot.server);
+
+      // User types slash command
+      const command = fixtures.slack.command({
+        text: 'subscribe kubernetes/kubernetes',
+      });
+      const res = await agent.post('/slack/command').use(slackbot).send(command)
+        .expect(200);
+
+      // User is shown ephemeral prompt to authenticate
+      const { url } = res.body.attachments[0].actions[0];
+      expect(url).toMatch(promptUrl);
+
+      // Save state, we're going to need it in a minute
+      const state = url.match(promptUrl)[2];
+
+      // Pretend the user clicked the link, got redirected to GitHub and back
+      nock('https://github.com').post('/login/oauth/access_token')
+        .reply(200, fixtures.github.oauth);
+      nock('https://api.github.com').get('/user')
+        .reply(200, fixtures.user);
+
+      // Post confirmation of signin
+      nock('https://hooks.slack.com').post('/commands/1234/5678').reply(200);
+
+      await agent.get('/github/oauth/callback').query({ state })
+        .expect(302)
+        .expect('Location', '/slack/command');
+
+      // Redirects to install the GitHub App
+      nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(404);
+      nock('https://api.github.com').get('/users/kubernetes').reply(200, fixtures.org);
+      nock('https://api.github.com').get('/app').reply(200, fixtures.app);
+      await agent.get('/slack/command')
+        .expect(302)
+        .expect('Location', 'https://github.com/apps/slack-bkeepers/installations/new/permissions?target_id=13629408');
+
+      // Pretend the user goes and installs the GitHub app, and then is
+      // redirected back to /setup.
+      await agent.get('/github/setup')
+        .expect(302)
+        .expect('Location', '/slack/command');
+
+      nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(200, {
+        id: 1,
+        account: fixtures.repo.owner,
+      });
+      nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, fixtures.repo);
+
+      nock('https://hooks.slack.com').post('/commands/1234/5678', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200);
+
+      await agent.get('/slack/command')
+        .expect(302)
+        .expect('Location', 'https://slack.com/app_redirect?channel=C2147483705&team=T0001');
     });
   });
 });
