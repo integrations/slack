@@ -51,7 +51,7 @@ describe('Uninstalling the slack app', () => {
         },
         type: 'event_callback',
       })
-      .expect(200)
+      .expect(200);
 
     expect(await Subscription.count()).toBe(0);
   });
