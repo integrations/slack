@@ -71,7 +71,7 @@ Object {
 }
 `;
 
-exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that the used does not have acccess to 1`] = `
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that the user does not have acccess to 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -219,6 +219,21 @@ Object {
 }
 `;
 
+exports[`Integration: subscriptions authenticated user without the GitHub App installed organization is not found 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Could not find resource: \`atom/atom\`",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
 exports[`Integration: subscriptions authenticated user without the GitHub App installed prompts to install app 1`] = `
 Object {
   "attachments": Array [
@@ -235,7 +250,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Looks like the app isn't installed on your repository. Install it to proceed.",
+      "text": "Either the app isn't installed on your repository or the repository does not exist. Install it to proceed.",
     },
   ],
   "response_type": "ephemeral",

@@ -2,7 +2,7 @@
 
 repository:
   # The name of the repository. Changing this will rename the repository
-  name: app
+  name: slack
 
   # A short description of the repository that will show up on GitHub
   description: Bring your code to the conversations you care about with the GitHub and Slack integration

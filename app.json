@@ -41,6 +41,9 @@
       "value": "https://slack.com",
       "required": false
     },
+    "SLACK_APP_ID": {
+      "description": "The ID of the Slack app"
+    },
     "SLACK_CLIENT_ID": {
       "description": "The client ID of the Slack app"
     },

@@ -32,11 +32,14 @@ To run the app locally, you will need to configure a GitHub App and a Slack App.
 
 #### Configuring a GitHub App
 
-Following the [Probot docs for configuring up a GitHub App](https://probot.github.io/docs/development/#configure-a-github-app). Append `/github/events` to the **Webhook URL**.
+Following the [Probot docs for configuring up a GitHub App](https://probot.github.io/docs/development/#configure-a-github-app), with the only difference being these values for the GitHub App settings:
+
+- **Webhook URL**: `https://DOMAIN/github/events`
+- **Setup URL**: `https://DOMAIN/github/setup`
 
 #### Configuring a Slack App
 
-1. [Create a new Slack app](https://api.slack.com/apps?new_app=1)
+1. [Create a new Slack app](https://api.slack.com/apps?new_app_token=1). Note that this app uses the new [workspace token-based Slack app](https://api.slack.com/slack-apps-preview).
 
 1. On the **Basic Information** tab, copy the values under the **App Credentials** section into `.env`.
 

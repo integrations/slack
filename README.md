@@ -15,6 +15,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
   - [Repository Activity](#repository-activity)
   - [Types of Link Unfurls](#types-of-link-unfurls)
+  - [Configuration](#configuration)
 - [Feedback](#feedback-questions-need-help)
 - [Contributing](#contributing)
 - [License](#license)
@@ -79,6 +80,44 @@ All event notifications will render rich notifications (unfurls) including more 
 ### Types of Link Unfurls
 When a user posts a GitHub link in Slack, the app is designed to unfurl **issues and pull requests**,
 directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users**.
+
+### Configuration
+You can customize your notifications by subscribing to activity that is  relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
+
+Settings are configured with the `/github` slash command:
+
+```
+/github subscribe owner/repo [feature]
+/github unsubscribe owner/repo [feature]
+```
+
+These are enabled by default, and can be disabled with the `/github unsubscribe owner/repo [feature]` command:
+
+- `issues` - Opened or closed issues
+- `pulls` - New or merged pull requests
+- `statuses` - Statuses on pull requests
+- `commits` - New commits on the default branch (usually `master`)
+- `deployments` - Updated status on deployments
+- `public` - A repository switching from private to public
+
+These are disabled by default, and can be enabled with the `/github subscribe owner/repo [feature]` command:
+
+- `reviews` - Pull request reviews
+- `comments` - New comments on issues and pull requests
+- `branches` - Created or deleted branches
+- `commits:all` - All commits pushed to any branch
+
+For example, to turn on activity for pull request reviews:
+
+```
+/github subscribe owner/repo reviews
+```
+
+And to turn it back off:
+
+```
+/github unsubscribe owner/repo reviews
+```
 
 ## Feedback? Questions? Need help?
 Please email support@github.com.

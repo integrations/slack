@@ -18,6 +18,10 @@ describe('Integration: slack authentication', () => {
   });
 
   test('/login', async () => {
+    nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+      expect(body).toMatchSnapshot();
+      return true;
+    }).reply(200, { ok: true });
     const res = await request.get('/slack/oauth/login')
       .expect(302);
 
@@ -44,6 +48,11 @@ describe('Integration: slack authentication', () => {
   });
 
   test('updates the access token', async () => {
+    nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+      expect(body).toMatchSnapshot();
+      return true;
+    }).reply(200, { ok: true });
+
     const { SlackWorkspace } = helper.robot.models;
 
     const workspace = await SlackWorkspace.create({ slackId: access.team_id, accessToken: 'old' });
@@ -86,6 +95,11 @@ describe('Integration: slack authentication', () => {
   });
 
   test('allows specified teams', async () => {
+    nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+      expect(body).toMatchSnapshot();
+      return true;
+    }).reply(200, { ok: true });
+
     process.env.ALLOWED_TEAMS = 'someone-else,example';
 
     nock('https://slack.com').post('/api/oauth.token').reply(200, access);
@@ -131,6 +145,9 @@ describe('Integration: slack authentication', () => {
   });
 
   test('slack non-ok response redirects to restart OAuth flow', async () => {
+    // silence logger for this test
+    probot.logger.level('fatal');
+
     const res = await request.get('/slack/oauth/login')
       .expect(302);
     const { location } = res.headers;
