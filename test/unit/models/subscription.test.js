@@ -169,9 +169,17 @@ describe('model: Subscription', () => {
       expect(subscription.settings).toEqual({ issues: true });
     });
 
-    test.skip('raises an error for unknown values', () => {
-      expect(() => subscription.enable('time-travel')).toThrow(RangeError);
-      expect(subscription.settings).toEqual({});
+    test('raises an error for unknown setting', async () => {
+      subscription.enable('time-travel');
+      await expect(subscription.save()).rejects.toThrowErrorMatchingSnapshot();
+    });
+
+    test('raises an error for unknown setting value', async () => {
+      subscription.enable('commits:all');
+      await subscription.save();
+
+      subscription.enable('commits:wat?');
+      await expect(subscription.save()).rejects.toThrowErrorMatchingSnapshot();
     });
   });
 
