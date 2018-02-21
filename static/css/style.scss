@@ -74,10 +74,14 @@
   @include breakpoint(md) {
     font-size: 15px;
   }
+
+  a {
+    color: #0076bb;
+  }
 }
 
 .ui-bold {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .ui-app-label {
@@ -85,11 +89,21 @@
   background: #e8e8e8;
   padding: 0 2px;
   font-size: 13px;
+  font-weight: 400;
+}
+
+.ui-code {
+  border-radius: 6px;
+  border: 1px solid #d4d4d4;
+  background-color: #f9f9f9;
+  padding: 10px 12px;
+  font-family: $alt-mono-font;
+  font-size: 13px;
 }
 
 .ui-bot-content {
   position: relative;
-  padding-left: 12px;
+  padding-left: 16px;
 
   &:before {
     content:'';
@@ -101,10 +115,10 @@
     border-radius: 25px;
   }
   &.green:before{
-    background-color: $green-500;
+    background-color: #00a94b;
   }
   &.red:before{
-    background-color: $red-500;
+    background-color: #dc002c;
   }
 }
 
@@ -127,7 +141,7 @@
 
 @keyframes slideIn {
   0% {
-    transform: translateY(50%);
+    transform: translateY(10%);
     opacity: 0;
   }
   100% {
@@ -136,16 +150,13 @@
   }
 }
 
-.ui-preview {
-  border-bottom: 1px dotted $gray;
-  padding-bottom: 2px;
-  svg {
-    fill: $gray;
-  }
-}
 
-.preview-subscribe:hover ~ .ui-slack {
+//TODO style for clickable features taht can be previewed
 
-    opacity: 0.6 !important;
-
-}
+//.ui-preview {
+//  border-bottom: 1px dotted $gray;
+//  padding-bottom: 2px;
+//  svg {
+//    fill: $gray;
+//  }
+//}
