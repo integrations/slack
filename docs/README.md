@@ -1,22 +1,19 @@
-# GitHub & Slack Integration
-
-## Vision
+# GitHub and Slack integration: Vision and Priorities
 
 Slack is "where work happens". GitHub is where software development happens. This integration should inform and drive the conversation about software development happening in Slack, and connect users in Slack to the GitHub ecosystem.
 
 TODO: statement here about using each tool for its strengths
 
-The integration also aims to:
+The integration should also embrace these constraints:
 
-- Maintain functional parity with [legacy integration](https://github.com/github/ecosystem-integrations/blob/master/docs/slack/legacy-features.md), and provide a migration path for existing users.
-- Use [GitHub Apps](http://developer.github.com/apps) and [Workspace token-based Slack apps](https://api.slack.com/slack-apps-preview)
+- Use only public platform features offered through [GitHub Apps](http://developer.github.com/apps) and [Workspace token-based Slack apps](https://api.slack.com/slack-apps-preview)
 - Avoid building significant features into the integration that should be a feature of one of the platforms.
 
-## Upcoming Priorities
+## Priorities
 
 ### :checkered_flag: Initial Launch
 
-The initial launch of the new Slack integration was focused on preserving functional parity with the legacy integration, and offering an easy migration path for existing users. Because of that constraint, it is mostly a one-way stream of activity from GitHub showing up in Slack, with notifications for activity happening on GitHub, and unfurls of GitHub links shared in Slack discussions. 
+The initial launch of the new Slack integration was focused on preserving functional parity with the [legacy integration](https://github.com/github/ecosystem-integrations/blob/master/docs/slack/legacy-features.md), and offering an easy migration path for existing users. Because of that constraint, it is mostly a one-way stream of activity from GitHub showing up in Slack, with notifications for activity happening on GitHub, and unfurls of GitHub links shared in Slack discussions. 
 
 ### Comprehensive coverage for unfurls and notifications
 
