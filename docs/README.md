@@ -2,8 +2,6 @@
 
 Slack is "where work happens". GitHub is where software development happens. This integration should inform and drive the conversation about software development happening in Slack, and connect users in Slack to the GitHub ecosystem.
 
-TODO: statement here about using each tool for its strengths
-
 The integration should also embrace these constraints:
 
 - Use only public platform features offered through [GitHub Apps](http://developer.github.com/apps) and [Workspace token-based Slack apps](https://api.slack.com/slack-apps-preview)
