@@ -9,13 +9,13 @@ The integration should also embrace these constraints:
 - Use only public platform features offered through [GitHub Apps](http://developer.github.com/apps) and [Workspace token-based Slack apps](https://api.slack.com/slack-apps-preview)
 - Avoid building significant features into the integration that should be a feature of one of the platforms.
 
-## Priorities
+## Priorities and upcoming themes
 
 ### :checkered_flag: Initial Launch
 
 The initial launch of the new Slack integration was focused on preserving functional parity with the [legacy integration](https://github.com/github/ecosystem-integrations/blob/master/docs/slack/legacy-features.md), and offering an easy migration path for existing users. Because of that constraint, it is mostly a one-way stream of activity from GitHub showing up in Slack, with notifications for activity happening on GitHub, and unfurls of GitHub links shared in Slack discussions. 
 
-### Comprehensive coverage for unfurls and notifications
+### :soon: Comprehensive coverage for unfurls and notifications
 
 Feature           | Notifications      | Unfurls           
 ------------------|--------------------|--------------------
@@ -36,18 +36,39 @@ Key:
 - :moon: - In Progress
 - :no_entry_sign: - Not Applicable
 
-### Bi-directional engagement
+### :pushpin: Bi-directional engagement
 
-### Making software teams more efficient
+Following comprehensive feature parity, we hope to make the integration more interactive and bi-directional. By bringing more of the GitHub experience into Slack and vice versa, we believe we can reduce context swtiching for developers and make the conversations around software development more engaging.
 
-.sup
-team review requests
-Notifcations for team discussion
+Some features within this theme could include:
+- Interactive with messages in Slack, e.g. "Merge a Pull Request"
+- Open an Issue from Slack using Forms
+- Slash commands for GitHub actions, e.g. `/close <issue>`
 
-### Making software developers more efficient
+### :pushpin: Making software teams more efficient
 
-Assigned to you
-Personal notifications for work that is blocking other people
-Your PR was reviewed
+Building on top of a more engaging bi-directional experience, we hope to focus on features to make software development teams more efficient given by bringing insights and team project management features into Slack.
 
-### GitHub Enterprise & Slack Enterprise Grid Support
+Some features within this theme could include:
+- A slash command to list all of the new issues your team has been mentioned in
+- Reminders and management of team review requests
+- Notifcations for and integration with team discussions
+
+### :pushpin: Making software developers more efficient
+
+Following team efficiency, we'd like to extend into features focused on individual developers. We can use the integration to help answer questions like "what should I work on next?" and ensure that the right work gets put in front of the folks most empowered to move software projects forward.
+
+Some features within this theme could include:
+- Messages when issues are assigned to you
+- Personal notifications for work that is blocking other people
+- Updates on the status of your Pull Request reviews
+
+### :pushpin: GitHub Enterprise & Slack Enterprise Grid Support
+
+Finally, we hope to focus on bringing these features to the environments of the largest customers of both platforms.
+
+---
+
+#### Note about upcoming themes
+
+As with any software project, the :point_up: upcoming themes are subject to change, and the provided examples are intended to illustrate where we hope to go.
