@@ -10,7 +10,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 - Getting Started
   - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
   - [Repository Activity](#repository-activity)
-  - [Types of Link Unfurls](#types-of-link-unfurls)
+  - [Public Link Unfurls](#types-of-public-link-unfurls)
   - [Configuration](#configuration)
 - [Need help?](#questions-need-help)
 - [Contributing](#contributing)
@@ -21,9 +21,9 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 This app officially supports GitHub.com and Slack.com but the team plans to support GitHub Enterprise and Slack Enterprise Grid in the future.
 
 ### Migrating from the legacy GitHub integration for Slack
-So, you've decided to migrate! When you install the new GitHub integration for Slack in your Slack Workspace, all existing configurations on the legacy app will be disabled. The GitHub integration for Slack will prompt you with a list of the previous configurations allowing you to re-enable those configurations for the new app.
+When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to reconfigure your old settings - so getting set up again is easy. Once you subscribe with the new app, the legacy app will be disabled but the legacy notification configurations will be migrated automatically. 
 
-<p align="center"><img width="500" alt="migrate" src="https://user-images.githubusercontent.com/3877742/35130921-3308f476-fc78-11e7-945c-0a4a9444987f.png"></p>
+<p align="center"><img width="666" alt="migration" src="https://user-images.githubusercontent.com/3877742/36557399-ff8663c6-17bc-11e8-8962-d92088cf98a9.png"></p>
 
 ### Installation
 [Install the GitHub integration for Slack](https://slack.com/apps/A8GBNUWU8-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
@@ -41,6 +41,8 @@ At this point, your Slack and GitHub user accounts are not linked. To link the t
 The `/github` slash command also accepts a `subscribe` argument that you can use to subscribe to an Organization or Repository's activity `/github subscribe <organization>/<repository>`.
 
 <p align="center"><img width="500" alt="unfurl_code" src="https://user-images.githubusercontent.com/3877742/36522323-ce7d4f36-1750-11e8-9eb2-b6f97c2d0053.png"></p>
+
+If you originally gave the app access to "All repositories" and you've created a new private repository on GitHub after installing the GitHub integration for Slack, the `/github subscribe` command will work automatically on your new repository. If you installed the app on a subset of repositories, the app will prompt you to install it on the new repository. 
 
 The `/github` slash command also supports `unsubscribe`. To unsubscribe to notifications from a repository, use `/github unsubscribe <organization>/<repository>`
 
@@ -67,13 +69,10 @@ By granting the app access, you are providing the following authorizations to yo
 
 #### Repository Activity
 **Subscribe to an Organization or a Repository**
-On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch.
+On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch as well as `comments` on issues and pull requests.
 
-All event notifications will render rich notifications (unfurls) including more information about the parent pull request or issue.
-
-#### Types of Link Unfurls
-When a user posts a GitHub link in Slack, the app is designed to unfurl **issues and pull requests**,
-directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users**.
+#### Types of Public Link Unfurls
+When a user posts a GitHub link in Slack for a public repository, the app is designed to unfurl **issues and pull requests**, directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users**.
 
 ### Configuration
 You can customize your notifications by subscribing to activity that is  relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
