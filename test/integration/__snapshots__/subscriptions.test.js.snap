@@ -233,26 +233,3 @@ Object {
   "response_type": "ephemeral",
 }
 `;
-
-exports[`Integration: subscriptions authenticated user without the GitHub App installed prompts to install app 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "actions": Array [
-        Object {
-          "style": "primary",
-          "text": "Install GitHub App",
-          "type": "button",
-          "url": "https://github.com/apps/slack-bkeepers/installations/new/permissions?target_id=13629408",
-        },
-      ],
-      "color": "danger",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": "Either the app isn't installed on your repository or the repository does not exist. Install it to proceed.",
-    },
-  ],
-  "response_type": "ephemeral",
-}
-`;

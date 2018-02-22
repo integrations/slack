@@ -74,7 +74,10 @@ describe('Integration: signin', () => {
       const command = fixtures.slack.command({
         text: 'subscribe kubernetes/kubernetes',
       });
-      const res = await agent.post('/slack/command').use(slackbot).send(command)
+      // This will get called several times later
+      const triggerUrl = `/slack/command?trigger_id=${command.trigger_id}`;
+
+      let res = await agent.post('/slack/command').use(slackbot).send(command)
         .expect(200);
 
       // User is shown ephemeral prompt to authenticate
@@ -93,15 +96,24 @@ describe('Integration: signin', () => {
       // Post confirmation of signin
       nock('https://hooks.slack.com').post('/commands/1234/5678').reply(200);
 
+
       await agent.get('/github/oauth/callback').query({ state })
         .expect(302)
-        .expect('Location', `/slack/command?trigger_id=${command.trigger_id}`);
+        .expect('Location', triggerUrl);
 
       // Redirects to install the GitHub App
       nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(404);
       nock('https://api.github.com').get('/users/kubernetes').reply(200, fixtures.org);
+
+      res = await agent.get(triggerUrl)
+        .expect(302)
+        .expect('Location', /http:\/\/127\.0\.0\.1:\d+\/github\/install\/\d+\/.*/);
+
+      const installLink = res.headers.location.replace(/http:\/\/127\.0\.0\.1:\d+/, '');
+
       nock('https://api.github.com').get('/app').reply(200, fixtures.app);
-      await agent.get('/slack/command')
+
+      await agent.get(installLink)
         .expect(302)
         .expect('Location', 'https://github.com/apps/slack-bkeepers/installations/new/permissions?target_id=13629408');
 
@@ -109,7 +121,7 @@ describe('Integration: signin', () => {
       // redirected back to /setup.
       await agent.get('/github/setup')
         .expect(302)
-        .expect('Location', '/slack/command');
+        .expect('Location', triggerUrl);
 
       nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(200, {
         id: 1,
@@ -122,7 +134,7 @@ describe('Integration: signin', () => {
         return true;
       }).reply(200);
 
-      await agent.get('/slack/command')
+      await agent.get(triggerUrl)
         .expect(302)
         .expect('Location', 'https://slack.com/app_redirect?channel=C2147483705&team=T0001');
     });
