@@ -95,7 +95,7 @@ describe('Integration: signin', () => {
 
       await agent.get('/github/oauth/callback').query({ state })
         .expect(302)
-        .expect('Location', '/slack/command');
+        .expect('Location', `/slack/command?trigger_id=${command.trigger_id}`);
 
       // Redirects to install the GitHub App
       nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(404);
