@@ -57,17 +57,17 @@ describe('Integration: subscriptions', () => {
       test('prompts to install app', async () => {
         nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404);
         nock('https://api.github.com').get('/users/atom').reply(200, fixtures.org);
-        nock('https://api.github.com').get('/app').reply(200, fixtures.app);
 
         const command = fixtures.slack.command({
           text: 'subscribe atom/atom',
         });
 
-        await request.post('/slack/command').use(slackbot).send(command)
-          .expect(200)
-          .expect((res) => {
-            expect(res.body).toMatchSnapshot();
-          });
+        const res = await request.post('/slack/command').use(slackbot).send(command)
+          .expect(200);
+
+        const action = res.body.attachments[0].actions[0];
+        expect(action.text).toEqual('Install GitHub App');
+        expect(action.url).toMatch(new RegExp(`/github/install/${fixtures.org.id}`));
       });
 
       test('organization is not found', async () => {
