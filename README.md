@@ -1,8 +1,4 @@
 # GitHub + Slack Integration
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/github-slack/app.svg?token=8913ec8893877bdfb8fd9b036d1f54ddc1738c6c0d06dc1462bf9e9a088b13ad&ts=1513745376664)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/github-slack/app.svg?branch=extract-unfurls)](https://travis-ci.org/github-slack/app) [![codecov](https://codecov.io/gh/github-slack/app/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/github-slack/app)
-
 ## About
 The GitHub integration for Slack gives you and your teams full visibility into your GitHub projects right in Slack channels, where you can generate ideas, triage issues and collaborate with other teams to move projects forward. This integration is an open source project, built and maintained by GitHub.
 
@@ -16,7 +12,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Repository Activity](#repository-activity)
   - [Types of Link Unfurls](#types-of-link-unfurls)
   - [Configuration](#configuration)
-- [Feedback](#feedback-questions-need-help)
+- [Need help?](#questions-need-help)
 - [Contributing](#contributing)
 - [License](#license)
 --------
@@ -27,18 +23,16 @@ This app officially supports GitHub.com and Slack.com but the team plans to supp
 ### Migrating from the legacy GitHub integration for Slack
 So, you've decided to migrate! When you install the new GitHub integration for Slack in your Slack Workspace, all existing configurations on the legacy app will be disabled. The GitHub integration for Slack will prompt you with a list of the previous configurations allowing you to re-enable those configurations for the new app.
 
-![image](https://user-images.githubusercontent.com/3877742/35130921-3308f476-fc78-11e7-945c-0a4a9444987f.png)
+<p align="center"><img width="500" alt="migrate" src="https://user-images.githubusercontent.com/3877742/35130921-3308f476-fc78-11e7-945c-0a4a9444987f.png"></p>
 
 ### Installation
-[Install the GitHub integration for Slack ](https://slack.com/apps/A8GBNUWU8-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
+[Install the GitHub integration for Slack](https://slack.com/apps/A8GBNUWU8-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
 
-  ![install the Slack App](https://user-images.githubusercontent.com/173/34171552-54be5c18-e4b4-11e7-8254-8ca4833bb9a2.png)
+<p align="center"><img width="450" alt="auth" src="https://user-images.githubusercontent.com/3877742/36522927-f1d596b6-1753-11e8-9f85-2495e657b16b.png"></p>
 
 After the app is installed, you will see **public** links to GitHub issues, pull requests, and code rendered as rich text via a [Slack unfurl](https://api.slack.com/docs/message-link-unfurling) in your workspace.
 
-<img width="683" alt="unfurl_comment" src="https://user-images.githubusercontent.com/3877742/35711876-243c6bf6-0774-11e8-900a-dd39e2073882.png">
-
-<img width="676" alt="unfurl_code" src="https://user-images.githubusercontent.com/3877742/35712003-cb718b7c-0774-11e8-897f-6e0cce74c0dc.png">
+<p align="center"><img width="550" alt="unfurl_convo" src="https://user-images.githubusercontent.com/3877742/36522313-c0cdbd08-1750-11e8-8dbe-b5a3a2f93549.png"></p>
 
 ### Subscribing and Unsubscribing
 
@@ -46,7 +40,7 @@ At this point, your Slack and GitHub user accounts are not linked. To link the t
 
 The `/github` slash command also accepts a `subscribe` argument that you can use to subscribe to an Organization or Repository's activity `/github subscribe <organization>/<repository>`.
 
-![notification](https://user-images.githubusercontent.com/173/34171836-7d6b1c54-e4b5-11e7-818d-f824368d1803.png)
+<p align="center"><img width="500" alt="unfurl_code" src="https://user-images.githubusercontent.com/3877742/36522323-ce7d4f36-1750-11e8-9eb2-b6f97c2d0053.png"></p>
 
 The `/github` slash command also supports `unsubscribe`. To unsubscribe to notifications from a repository, use `/github unsubscribe <organization>/<repository>`
 
@@ -71,13 +65,13 @@ By granting the app access, you are providing the following authorizations to yo
 |Read access to code| To render code snippets in Slack|
 |Read access to commit statuses, deployments, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
 
-### Repository Activity
+#### Repository Activity
 **Subscribe to an Organization or a Repository**
 On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch.
 
 All event notifications will render rich notifications (unfurls) including more information about the parent pull request or issue.
 
-### Types of Link Unfurls
+#### Types of Link Unfurls
 When a user posts a GitHub link in Slack, the app is designed to unfurl **issues and pull requests**,
 directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users**.
 
@@ -119,8 +113,8 @@ And to turn it back off:
 /github unsubscribe owner/repo reviews
 ```
 
-## Feedback? Questions? Need help?
-Please email support@github.com.
+## Questions? Need help?
+Please fill out GitHub's [Support form](https://github.com/contact) and your request will be routed to the right team at GitHub. 
 
 ## Contributing
 Want to help improve the integration between GitHub and Slack? Check out the [contributing docs](CONTRIBUTING.md) to get involved.
