@@ -169,7 +169,13 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "footer": "<https://github.com/integrations/slack#configuration|Learn More>",
+      "mrkdwn_in": Array [
+        "text",
+        "footer",
+      ],
+      "text": "<#C2147483705> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+\`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`",
     },
   ],
   "response_type": "in_channel",
@@ -181,7 +187,13 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "footer": "<https://github.com/integrations/slack#configuration|Learn More>",
+      "mrkdwn_in": Array [
+        "text",
+        "footer",
+      ],
+      "text": "<#C2147483705> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`",
     },
   ],
   "response_type": "in_channel",
