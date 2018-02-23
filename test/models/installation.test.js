@@ -1,7 +1,7 @@
 const { Installation } = require('.');
 const GitHub = require('probot/lib/github');
 const logger = require('probot/lib/logger');
-const createdEvent = require('../../fixtures/webhooks/installation.created');
+const createdEvent = require('../fixtures/webhooks/installation.created');
 
 const nock = require('nock');
 

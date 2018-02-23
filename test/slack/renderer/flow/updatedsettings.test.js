@@ -1,5 +1,5 @@
 const { UpdatedSettings } = require('../../../../lib/slack/renderer/flow');
-const { Subscription } = require('../../../unit/models');
+const { Subscription } = require('../../../models');
 const repository = require('../../../fixtures/repo.json');
 
 describe('UpdatedSettings message', () => {

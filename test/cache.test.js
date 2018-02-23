@@ -1,4 +1,4 @@
-const cache = require('../../lib/cache');
+const cache = require('../lib/cache');
 
 describe('cache', () => {
   beforeEach(() => cache.clear());
