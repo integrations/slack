@@ -11,7 +11,7 @@
                 "user_id": "U06AXEE2U",
                 "channel_id": "C0D70MRAL",
                 "no_auth_mode": false,
-                "do_commits": true,
+                "do_commits": false,
                 "do_commits_showsimple": false,
                 "do_commit_comments": true,
                 "do_pullrequest": true,
