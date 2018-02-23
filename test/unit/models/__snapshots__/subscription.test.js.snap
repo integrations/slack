@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`model: Subscription settings raises an error for unknown setting 1`] = `"Validation error: \\"time-travel\\" is not a setting"`;
+
+exports[`model: Subscription settings raises an error for unknown setting value 1`] = `"Validation error: \\"commits:wat?\\" is not a setting"`;
