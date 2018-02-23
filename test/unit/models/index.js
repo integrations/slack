@@ -3,8 +3,14 @@ const logger = require('probot/lib/logger');
 
 const models = loadModels({ logger });
 
-// Ensure there is a connection established
-beforeAll(async () => models.sequelize.authenticate());
+beforeAll(async () => {
+  // Ensure there is a connection established
+  models.sequelize.authenticate();
+
+  // Restore log level after each test
+  logger.level(process.env.LOG_LEVEL);
+});
+
 // Close connection when tests are done
 afterAll(async () => models.sequelize.close());
 
