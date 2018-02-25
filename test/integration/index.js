@@ -3,6 +3,7 @@ const GitHub = require('probot/lib/github');
 const logger = require('probot/lib/logger');
 const nock = require('nock');
 
+const slackbot = require('../slackbot');
 const app = require('../../lib');
 
 const cache = require('../../lib/cache');
@@ -38,4 +39,6 @@ beforeEach(() => {
   ]);
 });
 
-module.exports = { robot, probot, app };
+module.exports = {
+  robot, probot, app, slackbot,
+};
