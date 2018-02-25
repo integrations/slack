@@ -25,6 +25,7 @@
     "keyv": "^3.0.0",
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
+    "newrelic": "^2.8.0",
     "pg": "^6.4.2",
     "probot": "github:probot/probot",
     "query-string": "^5.0.1",
