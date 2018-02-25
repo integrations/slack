@@ -355,7 +355,7 @@ describe('Integration: subscriptions', () => {
           expect(subscription.settings).toEqual({
             branches: true,
             comments: true,
-            commits: 'all',
+            commits: false,
             deployments: false,
             issues: true,
             pulls: true,
