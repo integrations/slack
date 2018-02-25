@@ -1,6 +1,6 @@
 const { LegacySubscription, logger } = require('.');
 const nock = require('nock');
-const client = require('../../../lib/slack/client').createClient();
+const client = require('../../lib/slack/client').createClient();
 
 describe('LegacySubscription', () => {
   describe('activate', () => {
