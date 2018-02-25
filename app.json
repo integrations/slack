@@ -60,6 +60,9 @@
     "FORCE_HTTPS": {
       "description": "Redirect unencrypted clients to HTTPS",
       "value": "true"
+    },
+    "NEWRELIC_KEY": {
+      "description": "Key to use for reporting app metrics to NewRelic"
     }
   },
   "addons": [
