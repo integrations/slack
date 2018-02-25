@@ -1,4 +1,4 @@
-const unfurl = require('../../lib/slack/unfurl');
+const unfurl = require('../../lib/unfurls');
 const fixtures = require('../fixtures');
 
 describe('Link unfurling', () => {
