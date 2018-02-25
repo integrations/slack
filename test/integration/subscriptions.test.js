@@ -95,7 +95,7 @@ describe('Integration: subscriptions', () => {
         nock('https://api.github.com').get('/repos/bkeepers/dotenv/installation').reply(404);
         nock('https://api.github.com').get('/users/bkeepers').reply(200, {
           type: 'User',
-          id: user.id,
+          id: parseInt(user.id, 10),
         });
 
         const command = fixtures.slack.command({
