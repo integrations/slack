@@ -56,6 +56,10 @@
     "DISABLE_STATS": {
       "description": "Disable the probot stats plugin for scalability",
       "value": "true"
+    },
+    "FORCE_HTTPS": {
+      "description": "Redirect unencrypted clients to HTTPS",
+      "value": "true"
     }
   },
   "addons": [
