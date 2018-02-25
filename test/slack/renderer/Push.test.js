@@ -14,7 +14,7 @@ describe('Push rendering', () => {
   test('works for 1 commit', async () => {
     const singleCommitPush = {
       ...push,
-      commits: ['one commit'],
+      commits: [push.commits[0]],
     };
     const pushMessage = new Push({
       push: singleCommitPush,
