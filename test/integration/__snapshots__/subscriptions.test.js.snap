@@ -287,7 +287,7 @@ Object {
         "text",
       ],
       "text": "Either the app isn't installed on your repository or the repository does not exist. Install it to proceed.
-_Note: You need to be the owner of the repository to install the app (or ask them to install it for you)._",
+_Note: You will need to ask the owner of the repository to install it for you._",
     },
   ],
   "response_type": "ephemeral",
