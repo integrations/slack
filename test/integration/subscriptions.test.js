@@ -34,11 +34,12 @@ describe('Integration: subscriptions', () => {
 
   describe('authenticated user', () => {
     let slackWorkspace;
+    let user;
     beforeEach(async () => {
       const { SlackWorkspace, SlackUser, GitHubUser } = helper.robot.models;
 
       // create user
-      const user = await GitHubUser.create({
+      user = await GitHubUser.create({
         id: 2,
         accessToken: 'github-token',
       });
@@ -54,6 +55,11 @@ describe('Integration: subscriptions', () => {
     });
 
     describe('without the GitHub App installed', () => {
+      function stripUrl(message) {
+        const new_message = { ...message };
+        new_message.attachments[0].actions[0].url = 'url-is-stripped';
+        return new_message;
+      }
       test('prompts to install app', async () => {
         nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404);
         nock('https://api.github.com').get('/users/atom').reply(200, fixtures.org);
@@ -82,6 +88,61 @@ describe('Integration: subscriptions', () => {
           .expect(200)
           .expect((res) => {
             expect(res.body).toMatchSnapshot();
+          });
+      });
+
+      test('user is repo owner', async () => {
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv/installation').reply(404);
+        nock('https://api.github.com').get('/users/bkeepers').reply(200, {
+          type: 'User',
+          id: parseInt(user.id, 10),
+        });
+
+        const command = fixtures.slack.command({
+          text: 'subscribe bkeepers/dotenv',
+        });
+
+        await request.post('/slack/command').use(slackbot).send(command)
+          .expect(200)
+          .expect((res) => {
+            expect(stripUrl(res.body)).toMatchSnapshot();
+          });
+      });
+
+      test('owner type is other user', async () => {
+        nock('https://api.github.com').get('/repos/wilhelmklopp/wilhelmklopp/installation').reply(404);
+        nock('https://api.github.com').get('/users/wilhelmklopp').reply(200, {
+          type: 'User',
+          id: 7718702,
+        });
+
+        const command = fixtures.slack.command({
+          text: 'subscribe wilhelmklopp/wilhelmklopp',
+        });
+        const pattern = /^Either the app isn't installed on your repository or the repository does not exist\. Install it to proceed\.\n_Note: You will need to ask the owner of the repository to install it for you\. Give them <(.*)\|this link\.>_/;
+
+        await request.post('/slack/command').use(slackbot).send(command)
+          .expect(200)
+          .expect((res) => {
+            expect(res.body.attachments[0].text).toMatch(pattern);
+          });
+      });
+
+      test('owner type is organization', async () => {
+        nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404);
+        nock('https://api.github.com').get('/users/atom').reply(200, {
+          type: 'organization',
+          id: 1089146,
+        });
+
+        const command = fixtures.slack.command({
+          text: 'subscribe atom/atom',
+        });
+
+        await request.post('/slack/command').use(slackbot).send(command)
+          .expect(200)
+          .expect((res) => {
+            expect(stripUrl(res.body)).toMatchSnapshot();
           });
       });
     });
@@ -174,7 +235,7 @@ describe('Integration: subscriptions', () => {
         await request.post('/slack/command')
           .use(slackbot)
           .send(fixtures.slack.command({
-            text: 'unsubscribe bkeepers/dotenv issues',
+            text: 'unsubscribe bkeepers/dotenv pulls issues',
           }))
           .expect(200)
           .expect((res) => {
@@ -182,11 +243,12 @@ describe('Integration: subscriptions', () => {
           });
 
         await subscription.reload();
+        expect(subscription.isEnabledForGitHubEvent('pulls')).toBe(false);
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(false);
 
         await request.post('/slack/command').use(slackbot)
           .send(fixtures.slack.command({
-            text: 'subscribe bkeepers/dotenv issues',
+            text: 'subscribe bkeepers/dotenv pulls issues',
           }))
           .expect(200)
           .expect((res) => {
@@ -194,6 +256,7 @@ describe('Integration: subscriptions', () => {
           });
 
         await subscription.reload();
+        expect(subscription.isEnabledForGitHubEvent('pulls')).toBe(true);
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
       });
 
