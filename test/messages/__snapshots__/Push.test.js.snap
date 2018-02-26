@@ -8,12 +8,15 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#24292f",
+      "fallback": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> pushed to \`master\`",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
+        "title",
       ],
-      "text": "<https://github.com/github-slack/app/commit/70a7498e9ca8ab3daa7b3c4ed3963d2968a22719|\`70a7498e\`> - Bump probot version
+      "text": "*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> pushed to \`master\`*
+<https://github.com/github-slack/app/commit/70a7498e9ca8ab3daa7b3c4ed3963d2968a22719|\`70a7498e\`> - Bump probot version
 <https://github.com/github-slack/app/commit/d2f6f8b15b077d092c1fa16c41f7b191fa53b2d7|\`d2f6f8b1\`> - Merge branch 'fix-sender-bug' into deployments
 <https://github.com/github-slack/app/commit/a8cfa539aee3f9b20dd905027d4206cdf9118b8d|\`a8cfa539\`> - Add deployment rendering
 <https://github.com/github-slack/app/commit/e9ac9181c32303ba88e9e75fd44120412c7c5b1f|\`e9ac9181\`> - Implement deployment statuses e2e
@@ -26,7 +29,6 @@ Object {
 <https://github.com/github-slack/app/commit/c8517a6aa42a568bc1a0be1febc1e1c819932ba6|\`c8517a6a\`> - Merge pull request #88 from github-slack/deployments",
     },
   ],
-  "text": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> pushed to \`master\`",
 }
 `;
 
@@ -38,15 +40,17 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#24292f",
+      "fallback": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|1 new commit> pushed to \`master\`",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
+        "title",
       ],
-      "text": "<https://github.com/github-slack/app/commit/70a7498e9ca8ab3daa7b3c4ed3963d2968a22719|\`70a7498e\`> - Bump probot version",
+      "text": "*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|1 new commit> pushed to \`master\`*
+<https://github.com/github-slack/app/commit/70a7498e9ca8ab3daa7b3c4ed3963d2968a22719|\`70a7498e\`> - Bump probot version",
     },
   ],
-  "text": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|1 new commit> pushed to \`master\`",
 }
 `;
 
@@ -58,12 +62,15 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#24292f",
+      "fallback": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> force-pushed to \`master\`",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
+        "title",
       ],
-      "text": "<https://github.com/github-slack/app/commit/70a7498e9ca8ab3daa7b3c4ed3963d2968a22719|\`70a7498e\`> - Bump probot version
+      "text": "*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> force-pushed to \`master\`*
+<https://github.com/github-slack/app/commit/70a7498e9ca8ab3daa7b3c4ed3963d2968a22719|\`70a7498e\`> - Bump probot version
 <https://github.com/github-slack/app/commit/d2f6f8b15b077d092c1fa16c41f7b191fa53b2d7|\`d2f6f8b1\`> - Merge branch 'fix-sender-bug' into deployments
 <https://github.com/github-slack/app/commit/a8cfa539aee3f9b20dd905027d4206cdf9118b8d|\`a8cfa539\`> - Add deployment rendering
 <https://github.com/github-slack/app/commit/e9ac9181c32303ba88e9e75fd44120412c7c5b1f|\`e9ac9181\`> - Implement deployment statuses e2e
@@ -76,6 +83,5 @@ Object {
 <https://github.com/github-slack/app/commit/c8517a6aa42a568bc1a0be1febc1e1c819932ba6|\`c8517a6a\`> - Merge pull request #88 from github-slack/deployments",
     },
   ],
-  "text": "<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> force-pushed to \`master\`",
 }
 `;
