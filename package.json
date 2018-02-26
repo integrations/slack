@@ -12,7 +12,7 @@
   "dependencies": {
     "@keyv/redis": "^1.3.8",
     "@slack/client": "^3.16.0",
-    "axios": "^0.17.1",
+    "axios": "^0.18.0",
     "body-parser": "^1.17.2",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.2",
@@ -24,16 +24,17 @@
     "keyv": "^3.0.0",
     "moment": "^2.18.1",
     "named-regexp": "^0.1.1",
-    "pg": "^6.4.2",
+    "newrelic": "^2.8.0",
+    "pg": "^7.4.1",
     "probot": "github:probot/probot",
     "query-string": "^5.0.1",
     "raven": "^2.4.1",
     "request": "^2.83.0",
-    "sequelize": "^4.29.0",
-    "sequelize-cli": "^3.1.0"
+    "sequelize": "^4.33.4",
+    "sequelize-cli": "^4.0.0"
   },
   "devDependencies": {
-    "dotenv": "^4.0.0",
+    "dotenv": "^5.0.0",
     "eslint": "^4.14.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-probot": ">=0.1.0",
