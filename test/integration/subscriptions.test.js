@@ -174,7 +174,7 @@ describe('Integration: subscriptions', () => {
         await request.post('/slack/command')
           .use(slackbot)
           .send(fixtures.slack.command({
-            text: 'unsubscribe bkeepers/dotenv issues',
+            text: 'unsubscribe bkeepers/dotenv pulls issues',
           }))
           .expect(200)
           .expect((res) => {
@@ -182,11 +182,12 @@ describe('Integration: subscriptions', () => {
           });
 
         await subscription.reload();
+        expect(subscription.isEnabledForGitHubEvent('pulls')).toBe(false);
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(false);
 
         await request.post('/slack/command').use(slackbot)
           .send(fixtures.slack.command({
-            text: 'subscribe bkeepers/dotenv issues',
+            text: 'subscribe bkeepers/dotenv pulls issues',
           }))
           .expect(200)
           .expect((res) => {
@@ -194,6 +195,7 @@ describe('Integration: subscriptions', () => {
           });
 
         await subscription.reload();
+        expect(subscription.isEnabledForGitHubEvent('pulls')).toBe(true);
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
       });
 
