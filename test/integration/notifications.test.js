@@ -11,6 +11,7 @@ const publicEventPayload = require('../fixtures/webhooks/public');
 const branchDeleted = require('../fixtures/webhooks/branch_deleted.json');
 const deploymentStatusSuccessPayload = require('../fixtures/webhooks/deployment/status_success');
 const deploymentStatusPendingPayload = require('../fixtures/webhooks/deployment/status_pending');
+const pushPayload = require('../fixtures/webhooks/push');
 const pushNonDefaultBranchPayload = require('../fixtures/webhooks/push_non_default_branch');
 const reviewApproved = require('../fixtures/webhooks/pull_request_review/approved.json');
 
@@ -406,6 +407,23 @@ describe('Integration: notifications', () => {
         event: 'push',
         payload: pushNonDefaultBranchPayload,
       });
+    });
+
+    test('does not deliver push with no commits', async () => {
+      const payload = { ...pushPayload, commits: [] };
+
+      nock('https://api.github.com').get(`/repositories/${payload.repository.id}`).reply(200);
+
+      await Subscription.subscribe({
+        githubId: payload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { commits: 'all' },
+      });
+
+      await probot.receive({ event: 'push', payload });
     });
   });
 });
