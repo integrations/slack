@@ -18,7 +18,6 @@
     "express": "^4.16.2",
     "express-async-errors": "^2.1.1",
     "express-sslify": "^1.2.0",
-    "github": "^13.0.1",
     "helmet": "^3.11.0",
     "html-to-mrkdwn": "github:github-slack/html-to-mrkdwn",
     "jsonwebtoken": "^8.1.0",
