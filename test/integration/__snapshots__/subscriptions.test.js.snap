@@ -175,7 +175,7 @@ Object {
         "footer",
       ],
       "text": "<#C2147483705> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
-\`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`",
+\`deployments\`, \`statuses\`, \`public\`, \`commits\`",
     },
   ],
   "response_type": "in_channel",
