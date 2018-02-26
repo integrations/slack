@@ -119,7 +119,7 @@ describe('Integration: subscriptions', () => {
         const command = fixtures.slack.command({
           text: 'subscribe wilhelmklopp/wilhelmklopp',
         });
-        const pattern = /^Either the app isn't installed on your repository or the repository does not exist\. Install it to proceed\.\n_Note: You will need to ask the owner of the repository to install it for you\. Give them this link:_ (.*)/;
+        const pattern = /^Either the app isn't installed on your repository or the repository does not exist\. Install it to proceed\.\n_Note: You will need to ask the owner of the repository to install it for you\. Give them <(.*)\|this link\.>_/;
 
         await request.post('/slack/command').use(slackbot).send(command)
           .expect(200)
