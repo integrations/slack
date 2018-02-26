@@ -245,3 +245,50 @@ Object {
   "response_type": "ephemeral",
 }
 `;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed owner type is organization 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "actions": Array [
+        Object {
+          "style": "primary",
+          "text": "Install GitHub App",
+          "type": "button",
+          "url": "url-is-stripped",
+        },
+      ],
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Either the app isn't installed on your repository or the repository does not exist. Install it to proceed.
+_Note: You need to be an organization owner to install the app (or ask one to install it for you)._",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed user is repo owner 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "actions": Array [
+        Object {
+          "style": "primary",
+          "text": "Install GitHub App",
+          "type": "button",
+          "url": "url-is-stripped",
+        },
+      ],
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Either the app isn't installed on your repository or the repository does not exist. Install it to proceed.",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;

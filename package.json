@@ -65,8 +65,8 @@
     ]
   },
   "snappydoo": {
-    "in": "test/slack/renderer",
-    "out": "test/slack/renderer/renders",
+    "in": "test/messages",
+    "out": "test/messages/renders",
     "exclude": [
       "AbstractIssue",
       "Message"
