@@ -43,7 +43,7 @@ The `/github` slash command also accepts a `subscribe` argument that you can use
 
 <p align="center"><img width="500" alt="unfurl_code" src="https://user-images.githubusercontent.com/3877742/36522323-ce7d4f36-1750-11e8-9eb2-b6f97c2d0053.png"></p>
 
-If you originally gave the app access to "All repositories" and you've created a new private repository on GitHub after installing the GitHub integration for Slack, the `/github subscribe` command will work automatically on your new repository. If you installed the app on a subset of repositories, the app will prompt you to install it on the new repository. 
+If you originally gave the app access to "All repositories" and you've created a new private repository on GitHub after installing the GitHub integration for Slack, the `/github subscribe` command will work automatically on your new repository. If you installed the app on a subset of repositories, the app will prompt you to install it on the new repository.
 
 The `/github` slash command also supports `unsubscribe`. To unsubscribe to notifications from a repository, use `/github unsubscribe <organization>/<repository>`
 
@@ -76,7 +76,7 @@ On repositories, the app notifies of `open`, `close`, and `re-open` events on pu
 When a user posts a GitHub link in Slack for a public repository, the app is designed to unfurl **issues and pull requests**, directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users**.
 
 ### Configuration
-You can customize your notifications by subscribing to activity that is  relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
+You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
 
 Settings are configured with the `/github` slash command:
 
@@ -101,16 +101,16 @@ These are disabled by default, and can be enabled with the `/github subscribe ow
 - `branches` - Created or deleted branches
 - `commits:all` - All commits pushed to any branch
 
-For example, to turn on activity for pull request reviews:
+You can subscribe or unsubscribe from multiple settings at once. For example, to turn on activity for pull request reviews and comments:
 
 ```
-/github subscribe owner/repo reviews
+/github subscribe owner/repo reviews comments
 ```
 
 And to turn it back off:
 
 ```
-/github unsubscribe owner/repo reviews
+/github unsubscribe owner/repo reviews comments
 ```
 
 ## Questions? Need help?
