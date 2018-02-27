@@ -1,8 +1,26 @@
 const { LegacySubscription, logger } = require('.');
 const nock = require('nock');
 const client = require('../../lib/slack/client').createClient();
+const migration = require('../fixtures/slack/config_migration_single');
 
 describe('LegacySubscription', () => {
+  describe('importAll', () => {
+    test('does not return previously imported subscriptions', async () => {
+      let subscriptions = await LegacySubscription.importAll(migration.event.configs);
+
+      expect(subscriptions).toEqual([
+        expect.objectContaining({
+          channelSlackId: 'C0D70MRAL',
+          authorSlackId: 'U06AXEE2U',
+          repoFullName: 'berttest/testrepo1',
+        }),
+      ]);
+
+      subscriptions = await LegacySubscription.importAll(migration.event.configs);
+      expect(subscriptions).toEqual([]);
+    });
+  });
+
   describe('activate', () => {
     let record;
 
