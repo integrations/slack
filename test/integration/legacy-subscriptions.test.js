@@ -48,7 +48,7 @@ describe('Integration: Slack config_migration event', () => {
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;
-      }).times(2).reply(200, { ok: true });
+      }).times(1).reply(200, { ok: true });
 
       await request(probot.server)
         .post('/slack/events')
