@@ -14,8 +14,9 @@ Object {
   ],
   "pretext": "JasonEtco approved pull request",
   "text": "🚢 ",
-  "title": "#19 removing more words",
-  "title_link": "https://github.com/github-slack/public-test/pull/19",
+  "title": "Review on #19 removing more words",
+  "title_link": "https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958",
+  "ts": 1518730621,
 }
 `;
 
@@ -33,8 +34,9 @@ Object {
   ],
   "pretext": "JasonEtco requested changes on pull request",
   "text": "No sirry",
-  "title": "#19 removing more words",
-  "title_link": "https://github.com/github-slack/public-test/pull/19",
+  "title": "Review on #19 removing more words",
+  "title_link": "https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014879",
+  "ts": 1518730606,
 }
 `;
 
@@ -52,7 +54,8 @@ Object {
   ],
   "pretext": "wilhelmklopp commented on pull request",
   "text": "Very good work",
-  "title": "#19 removing more words",
-  "title_link": "https://github.com/github-slack/public-test/pull/19",
+  "title": "Review on #19 removing more words",
+  "title_link": "https://github.com/github-slack/public-test/pull/19#pullrequestreview-96966585",
+  "ts": 1518721251,
 }
 `;
