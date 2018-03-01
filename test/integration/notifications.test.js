@@ -15,6 +15,7 @@ const pushPayload = require('../fixtures/webhooks/push');
 const pushNonDefaultBranchPayload = require('../fixtures/webhooks/push_non_default_branch');
 const reviewApproved = require('../fixtures/webhooks/pull_request_review/approved.json');
 const reviewCommented = require('../fixtures/webhooks/pull_request_review/commented.json');
+const reviewCommentCreated = require('../fixtures/webhooks/pull_request_review/pull_request_review_comment.json');
 
 const {
   Subscription,
@@ -443,6 +444,44 @@ describe('Integration: notifications', () => {
       });
 
       await probot.receive({ event: 'pull_request_review', payload });
+    });
+
+    test('delivers pull request review commments if comments are enabled', async () => {
+      await Subscription.subscribe({
+        githubId: reviewCommentCreated.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { comments: true },
+      });
+
+      nock('https://api.github.com').get(`/repositories/${reviewCommentCreated.repository.id}`).reply(200);
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        event: 'pull_request_review_comment',
+        payload: reviewCommentCreated,
+      });
+    });
+
+    test('does not deliver pull request review comments if not explicitly enabled', async () => {
+      await Subscription.subscribe({
+        githubId: reviewCommentCreated.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      // Should not trigger any deliveries
+      await probot.receive({
+        event: 'issue_comment',
+        payload: reviewCommentCreated,
+      });
     });
   });
 });
