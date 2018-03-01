@@ -14,6 +14,7 @@ const deploymentStatusPendingPayload = require('../fixtures/webhooks/deployment/
 const pushPayload = require('../fixtures/webhooks/push');
 const pushNonDefaultBranchPayload = require('../fixtures/webhooks/push_non_default_branch');
 const reviewApproved = require('../fixtures/webhooks/pull_request_review/approved.json');
+const reviewCommented = require('../fixtures/webhooks/pull_request_review/commented.json');
 
 const {
   Subscription,
@@ -424,6 +425,24 @@ describe('Integration: notifications', () => {
       });
 
       await probot.receive({ event: 'push', payload });
+    });
+
+    test('does not deliver empty reviews which are actually review comments', async () => {
+      const payload = reviewCommented;
+      payload.review.body = null;
+
+      nock('https://api.github.com').get(`/repositories/${payload.repository.id}`).reply(200);
+
+      await Subscription.subscribe({
+        githubId: payload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { reviews: true },
+      });
+
+      await probot.receive({ event: 'pull_request_review', payload });
     });
   });
 });
