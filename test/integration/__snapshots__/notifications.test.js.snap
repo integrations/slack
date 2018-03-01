@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/test2|github-slack-test-org/test2>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Comment on #1\\",\\"title\\":\\"Comment on #1 Update README.md\\",\\"title_link\\":\\"https://github.com/github-slack-test-org/test2/pull/1#discussion_r171608320\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"text\\":\\"another comment that is a response to a pr review comment\\",\\"ts\\":1519920573,\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C001",
+  "text": "",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`\\",\\"text\\":\\"*<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`*\\\\n<https://github.com/github-slack/public-test/commit/659d4e6bec67dcdadcd123eb5882bb8e48ccc4a4|\`659d4e6b\`> - new commit\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
@@ -83,7 +92,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "channel": "C001",
   "text": "",
   "token": "test",
@@ -92,7 +101,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event updated 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "channel": "C001",
   "text": "",
   "token": "test",
@@ -101,7 +110,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event updated 2`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"This really is a great pull request\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"This really is a great pull request\\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "text": "",
   "token": "test",
 }
