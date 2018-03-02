@@ -132,4 +132,41 @@ describe('Integration: unfurls', () => {
       .send(fixtures.slack.link_shared())
       .expect(500);
   });
+
+  test('stores one unfurl in db', async () => {
+    const { Unfurl } = helper.robot.models;
+    nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+      200,
+      {
+        ...fixtures.repo,
+        updated_at: moment().subtract(2, 'months'),
+      },
+    );
+
+    nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+
+    await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+      .expect(200);
+    expect(await Unfurl.count()).toBe(1);
+  });
+
+  test('stores 2 unfurls in db for the same event', async () => {
+    const { Unfurl } = helper.robot.models;
+    nock('https://api.github.com').get('/repos/facebook/react').reply(200, fixtures.repo);
+    nock('https://api.github.com').get('/repos/facebook/react/issues/10191').reply(200, fixtures.issue);
+    nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
+    nock('https://api.github.com').get('/repos/atom/atom/issues/16292').reply(200, fixtures.issue);
+
+    nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+
+    const body = fixtures.slack.link_shared();
+
+    body.event.links = [
+      { domain: 'github.com', url: 'https://github.com/facebook/react/issues/10191' },
+      { domain: 'github.com', url: 'https://github.com/atom/atom/issues/16292' },
+    ];
+
+    await request(probot.server).post('/slack/events').send(body).expect(200);
+    expect(await Unfurl.count()).toBe(2);
+  });
 });
