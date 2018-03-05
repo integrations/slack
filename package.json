@@ -26,7 +26,7 @@
     "named-regexp": "^0.1.1",
     "newrelic": "^2.8.0",
     "pg": "^7.4.1",
-    "probot": "github:probot/probot",
+    "probot": "^6.0.0",
     "query-string": "^5.0.1",
     "raven": "^2.4.1",
     "request": "^2.83.0",
