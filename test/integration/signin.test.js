@@ -115,7 +115,7 @@ describe('Integration: signin', () => {
 
       await agent.get(installLink)
         .expect(302)
-        .expect('Location', 'https://github.com/apps/slack-bkeepers/installations/new/permissions?target_id=13629408');
+        .expect('Location', 'https://github.com/apps/slack-bkeepers/installations/new');
 
       // Pretend the user goes and installs the GitHub app, and then is
       // redirected back to /setup.
