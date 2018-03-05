@@ -85,6 +85,49 @@ describe('Integration: notifications', () => {
       });
     });
 
+    test('issues.edited updates issue message', async () => {
+      await Subscription.subscribe({
+        githubId: issuePayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).times(2).reply(200, {
+        full_name: issuePayload.repository.full_name,
+      });
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/public-test/issues/1').times(2).reply(200, fixtures.issue);
+
+      nock('https://slack.com').post('/api/chat.postMessage').reply(200, { ok: true });
+
+      nock('https://slack.com').post('/api/chat.update', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        event: 'issues',
+        payload: issuePayload,
+      });
+
+      await probot.receive({
+        event: 'issues',
+        payload: {
+          ...issuePayload,
+          action: 'edited',
+          issue: {
+            ...issuePayload.issue,
+            body: 'This is some edited content',
+          },
+        },
+      });
+    });
+
     test('pull request opened', async () => {
       await Subscription.subscribe({
         githubId: pullRequestPayload.repository.id,
