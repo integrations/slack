@@ -4,7 +4,7 @@ const request = require('supertest');
 const helper = require('.');
 const fixtures = require('../fixtures');
 
-const { probot } = helper;
+const { probot, slackbot } = helper;
 
 describe('Integration: subscription list', () => {
   beforeEach(async () => {
@@ -68,7 +68,7 @@ describe('Integration: subscription list', () => {
       text: 'subscribe list',
     });
 
-    await request(probot.server).post('/slack/command').send(command)
+    await request(probot.server).post('/slack/command').use(slackbot).send(command)
       .expect(200)
       .expect((res) => {
         expect(res.body).toMatchSnapshot();
@@ -88,7 +88,10 @@ describe('Integration: subscription list', () => {
       text: 'subscribe list',
     });
 
-    await request(probot.server).post('/slack/command').send(command).expect(500);
+    await request(probot.server).post('/slack/command').use(slackbot).send(command)
+      .expect(200)
+      .expect(/ephemeral/)
+      .expect(/we had trouble with your request/);
   });
 
   test('works for /github subscribe', async () => {
@@ -104,7 +107,7 @@ describe('Integration: subscription list', () => {
       text: 'subscribe',
     });
 
-    await request(probot.server).post('/slack/command').send(command)
+    await request(probot.server).post('/slack/command').use(slackbot).send(command)
       .expect(200)
       .expect((res) => {
         expect(res.body).toMatchSnapshot();

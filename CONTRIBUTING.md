@@ -1,5 +1,7 @@
 # Contributing
 
+[![Build Status](https://travis-ci.org/github-slack/app.svg?branch=extract-unfurls)](https://travis-ci.org/github-slack/app) [![codecov](https://codecov.io/gh/github-slack/app/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/github-slack/app) [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/)
+
 [fork]: https://github.com/github-slack/app/fork
 [pr]: https://github.com/github-slack/app/compare
 [style]: https://standardjs.com/
@@ -63,12 +65,12 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
 
 1. Go to the **Slash Commands** tab and click **Create New Command**:
 
-  - **Command**: `/github`
-  - **Request URL**: `https://DOMAIN/slack/command`
-  - **Short Description**: `Subscribe to notifications for an Organization or Repository`
-  - **Usage Hint**: `subscribe https://github.com/organization/repository`
-  - Click **Save**
-  - Test it out by typing `/github subscribe https://github.com/myorg/myrepo`
+    - **Command**: `/github`
+    - **Request URL**: `https://DOMAIN/slack/command`
+    - **Short Description**: `Subscribe to notifications for an Organization or Repository`
+    - **Usage Hint**: `subscribe https://github.com/organization/repository`
+    - Click **Save**
+    - Test it out by typing `/github subscribe https://github.com/myorg/myrepo`
 
 1. Congratulate yourself for following directions and clicking buttons. Take the rest of the day off because that was a lot of work.
 

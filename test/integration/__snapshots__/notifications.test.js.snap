@@ -1,8 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/test2|github-slack-test-org/test2>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Comment on #1\\",\\"title\\":\\"Comment on #1 Update README.md\\",\\"title_link\\":\\"https://github.com/github-slack-test-org/test2/pull/1#discussion_r171608320\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"text\\":\\"another comment that is a response to a pr review comment\\",\\"ts\\":1519920573,\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C001",
+  "text": "",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`\\",\\"text\\":\\"<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`\\",\\"text\\":\\"*<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`*\\\\n<https://github.com/github-slack/public-test/commit/659d4e6bec67dcdadcd123eb5882bb8e48ccc4a4|\`659d4e6b\`> - new commit\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C002",
   "text": "",
   "token": "test",
@@ -30,6 +39,14 @@ exports[`Integration: notifications to a subscribed channel issue opened 1`] = `
 Object {
   "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":126,\\"short\\":true}],\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"Issue opened by wilhelmklopp\\",\\"text\\":\\"Hi there,\\\\r\\\\n\\\\r\\\\nThe Apache Software Foundation Legal Affairs Committee [has announced][1] that the so-called 'Facebook BSD+Patents License' is no longer allowed to be used as a direct dependency in Apache projects.\\\\r\\\\n\\\\r\\\\nThis has lead to a lot of upset and frustration in the Apache community, especially from projects requiring similarly-licensed code as direct dependencies - the chief of these being RocksDB.\\\\r\\\\n\\\\r\\\\nHowever, we (the Apache Software Foundation) have just received word that [RocksDB will be re-licensing their code under the dual Apache License v2.0 and GPL 2 licenses][2]. \\\\r\\\\n\\\\r\\\\nAs a user of React.JS in an ASF top-level project (Apache CouchDB), please consider re-licensing React.JS under similar terms. Otherwise, many ASF projects such as our own will have to stop relying on and building with React.\\\\r\\\\n\\\\r\\\\nA previous bug (#9760) suggested I mention @lacker in this issue when asking licensing questions, so I'm doing so.\\\\r\\\\n\\\\r\\\\nThank you kindly for your consideration.\\\\r\\\\n\\\\r\\\\n[1]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088663&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088663\\\\r\\\\n[2]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088730&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088730\\",\\"pretext\\":\\"Issue opened by wilhelmklopp\\"}]",
   "channel": "C001",
+  "text": "",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 1`] = `
+Object {
+  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":126,\\"short\\":true}],\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"Issue opened by wohali\\",\\"text\\":\\"Hi there,\\\\r\\\\n\\\\r\\\\nThe Apache Software Foundation Legal Affairs Committee [has announced][1] that the so-called 'Facebook BSD+Patents License' is no longer allowed to be used as a direct dependency in Apache projects.\\\\r\\\\n\\\\r\\\\nThis has lead to a lot of upset and frustration in the Apache community, especially from projects requiring similarly-licensed code as direct dependencies - the chief of these being RocksDB.\\\\r\\\\n\\\\r\\\\nHowever, we (the Apache Software Foundation) have just received word that [RocksDB will be re-licensing their code under the dual Apache License v2.0 and GPL 2 licenses][2]. \\\\r\\\\n\\\\r\\\\nAs a user of React.JS in an ASF top-level project (Apache CouchDB), please consider re-licensing React.JS under similar terms. Otherwise, many ASF projects such as our own will have to stop relying on and building with React.\\\\r\\\\n\\\\r\\\\nA previous bug (#9760) suggested I mention @lacker in this issue when asking licensing questions, so I'm doing so.\\\\r\\\\n\\\\r\\\\nThank you kindly for your consideration.\\\\r\\\\n\\\\r\\\\n[1]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088663&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088663\\\\r\\\\n[2]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088730&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088730\\",\\"pretext\\":\\"Issue opened by wohali\\"}]",
   "text": "",
   "token": "test",
 }
@@ -83,7 +100,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "channel": "C001",
   "text": "",
   "token": "test",
@@ -92,7 +109,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event updated 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "channel": "C001",
   "text": "",
   "token": "test",
@@ -101,7 +118,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event updated 2`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"#19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19\\",\\"text\\":\\"This really is a great pull request\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"This really is a great pull request\\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "text": "",
   "token": "test",
 }
