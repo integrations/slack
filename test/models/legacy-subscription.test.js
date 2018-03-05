@@ -25,7 +25,7 @@ describe('LegacySubscription', () => {
     let record;
 
     beforeEach(async () => {
-      logger.level('fatal');
+      // logger.level('fatal');
 
       record = await LegacySubscription.create({
         serviceSlackId: 1,
@@ -38,7 +38,7 @@ describe('LegacySubscription', () => {
       });
     });
 
-    test('ignores invalid_service error', async () => {
+    test('ignores service_removed error', async () => {
       nock('https://slack.com').post('/api/services.update')
         .reply(200, { ok: false, error: 'service_removed' });
 
@@ -46,7 +46,7 @@ describe('LegacySubscription', () => {
       expect(record.activatedAt).toBeTruthy();
     });
 
-    test('ignores invalid_service error', async () => {
+    test('doesn\'t ignore other errors', async () => {
       nock('https://slack.com').post('/api/services.update')
         .reply(200, { ok: false, error: 'something_else' });
 
