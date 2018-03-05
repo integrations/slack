@@ -21,7 +21,7 @@
     "html-to-mrkdwn": "github:github-slack/html-to-mrkdwn",
     "jsonwebtoken": "^8.1.0",
     "keyv": "^3.0.0",
-    "moment": "^2.18.1",
+    "moment": "^2.21.0",
     "named-regexp": "^0.1.1",
     "pg": "^6.4.2",
     "probot": "github:probot/probot",
