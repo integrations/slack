@@ -169,12 +169,12 @@ describe('Integration: notifications', () => {
         reqHeaders: {
           Accept: 'application/vnd.github.html+json',
         },
-      }).get('/repos/github-slack/app/issues/31').reply(200, fixtures.issue);
+      }).get('/repos/github-slack/app/issues/31').times(2).reply(200, fixtures.issue);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;
-      }).times(2).reply(200, { ok: true });
+      }).reply(200, { ok: true });
 
       await probot.receive({
         event: 'pull_request',
@@ -186,6 +186,11 @@ describe('Integration: notifications', () => {
       nock('https://api.github.com')
         .get(`/repos/integrations/slack/commits/${statusPayload.sha}/status`)
         .reply(200, fixtures.combinedStatus);
+
+      nock('https://slack.com').post('/api/chat.update', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
 
       await probot.receive({
         event: 'status',

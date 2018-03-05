@@ -98,6 +98,14 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel pull request opened followed by status 2`] = `
+Object {
+  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":3,\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github/hub|github/hub>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1502411430,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"e-beach\\",\\"author_link\\":\\"https://github.com/e-beach\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/13651458?v=4\\",\\"title\\":\\"#1535 Make fork command idempotent\\",\\"title_link\\":\\"https://github.com/github/hub/pull/1535\\",\\"fallback\\":\\"#1535 Make fork command idempotent\\",\\"text\\":\\"Fixes #1499.\\\\r\\\\n\\\\r\\\\nThis PR makes \`hub fork\` succeed, with no operation, if a remote pointing to the forked repository already exists.\\\\r\\\\n \\",\\"pretext\\":\\"Pull request merged by e-beach\\"},{\\"fallback\\":\\"codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0\\",\\"author_name\\":\\"codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/in/254?v=4\\",\\"author_link\\":\\"https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd\\",\\"color\\":\\"#cb2431\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"fallback\\":\\"codecov/project: 98.37% remains the same compared to 0143c3c\\",\\"author_name\\":\\"codecov/project: 98.37% remains the same compared to 0143c3c\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/in/254?v=4\\",\\"author_link\\":\\"https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd\\",\\"color\\":\\"#dbab09\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"color\\":\\"#28a745\\",\\"fallback\\":\\"2 other checks have passed\\",\\"text\\":\\":white_check_mark: 2 other checks have passed\\",\\"footer\\":\\"2/4 successful checks\\"}]",
+  "text": "",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel ref event 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"Deleted branch <https://github.com/github-slack/public-test/tree/hello|\`hello\`>\\",\\"text\\":\\"Deleted branch <https://github.com/github-slack/public-test/tree/hello|\`hello\`>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
