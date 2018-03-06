@@ -16,6 +16,7 @@ const pushNonDefaultBranchPayload = require('../fixtures/webhooks/push_non_defau
 const reviewApproved = require('../fixtures/webhooks/pull_request_review/approved.json');
 const reviewCommented = require('../fixtures/webhooks/pull_request_review/commented.json');
 const reviewCommentCreated = require('../fixtures/webhooks/pull_request_review/pull_request_review_comment.json');
+const repositoryDeleted = require('../fixtures/webhooks/repository.deleted.json');
 
 const {
   Subscription,
@@ -525,6 +526,30 @@ describe('Integration: notifications', () => {
         event: 'issue_comment',
         payload: reviewCommentCreated,
       });
+    });
+
+    test('repository.deleted posts to channel and deletes subcription', async () => {
+      await Subscription.subscribe({
+        githubId: repositoryDeleted.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(1);
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        event: 'repository',
+        payload: repositoryDeleted,
+      });
+
+      expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(0);
     });
   });
 });

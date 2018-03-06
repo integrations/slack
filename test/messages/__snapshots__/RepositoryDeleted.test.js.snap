@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Repository deleted event rendering works 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "fallback": "Repository deleted by wilhelmklopp",
+      "footer": "<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "pretext": "Repository deleted by wilhelmklopp",
+      "text": "The subscription to this repository has been disabled.",
+    },
+  ],
+}
+`;

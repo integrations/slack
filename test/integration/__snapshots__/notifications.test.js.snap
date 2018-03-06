@@ -98,6 +98,15 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes subcription 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Repository deleted by wilhelmklopp\\",\\"pretext\\":\\"Repository deleted by wilhelmklopp\\",\\"text\\":\\"The subscription to this repository has been disabled.\\"}]",
+  "channel": "C001",
+  "text": "",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved pull request\\",\\"fallback\\":\\"JasonEtco approved pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
