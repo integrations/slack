@@ -22,7 +22,7 @@
     "html-to-mrkdwn": "github:github-slack/html-to-mrkdwn",
     "jsonwebtoken": "^8.1.0",
     "keyv": "^3.0.0",
-    "moment": "^2.18.1",
+    "moment": "^2.21.0",
     "named-regexp": "^0.1.1",
     "newrelic": "^2.8.0",
     "pg": "^7.4.1",
