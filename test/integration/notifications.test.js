@@ -198,6 +198,21 @@ describe('Integration: notifications', () => {
       });
     });
 
+    test('status event with no matching PR does not update a message', async () => {
+      await Subscription.subscribe({
+        githubId: statusPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      await probot.receive({
+        event: 'status',
+        payload: statusPayload,
+      });
+    });
+
     test('public event', async () => {
       await Subscription.subscribe({
         githubId: publicEventPayload.repository.id,
