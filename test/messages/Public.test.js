@@ -4,10 +4,6 @@ const publicEvent = require('../fixtures/webhooks/public.json');
 
 describe('Public rendering', () => {
   test('works', async () => {
-    const publicEventMessage = new Public({
-      publicEvent,
-    });
-    const rendered = publicEventMessage.toJSON();
-    expect(rendered).toMatchSnapshot();
+    expect(new Public(publicEvent).toJSON()).toMatchSnapshot();
   });
 });
