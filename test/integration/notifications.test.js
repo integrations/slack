@@ -155,7 +155,7 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test.only('pull request opened followed by status', async () => {
+    test('pull request opened followed by status', async () => {
       await Subscription.subscribe({
         githubId: pullRequestPayload.repository.id,
         channelId: 'C001',
