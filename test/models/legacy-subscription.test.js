@@ -1,4 +1,4 @@
-const { LegacySubscription, logger } = require('.');
+const { LegacySubscription } = require('.');
 const nock = require('nock');
 const client = require('../../lib/slack/client').createClient();
 const migration = require('../fixtures/slack/config_migration_single');
@@ -25,8 +25,6 @@ describe('LegacySubscription', () => {
     let record;
 
     beforeEach(async () => {
-      // logger.level('fatal');
-
       record = await LegacySubscription.create({
         serviceSlackId: 1,
         workspaceSlackId: 'T001',
