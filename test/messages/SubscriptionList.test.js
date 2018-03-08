@@ -39,4 +39,26 @@ describe('SubscriptionList', () => {
     ];
     expect(new SubscriptionList(repositories, 'D01234').toJSON()).toMatchSnapshot();
   });
+
+  test('sorts repositories alphabetically', async () => {
+    const repositories = [
+      {
+        full_name: 'wilhelmklopp/wilhelmklopp',
+        html_url: 'https://github.com/wilhelmklopp/wilhelmklopp',
+      },
+      {
+        full_name: 'bkeepers/dotenv',
+        html_url: 'https://github.com/bkeepers/dotenv',
+      },
+      {
+        full_name: 'integrations/slack',
+        html_url: 'https://github.com/integrations/slack',
+      },
+    ];
+    expect(new SubscriptionList(repositories, 'C01234').repositoriesToString()).toEqual([
+      '<https://github.com/bkeepers/dotenv|bkeepers/dotenv>',
+      '<https://github.com/integrations/slack|integrations/slack>',
+      '<https://github.com/wilhelmklopp/wilhelmklopp|wilhelmklopp/wilhelmklopp>',
+    ]);
+  });
 });
