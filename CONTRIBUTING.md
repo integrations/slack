@@ -1,6 +1,6 @@
 # Contributing
 
-[![Build Status](https://travis-ci.org/github-slack/app.svg?branch=extract-unfurls)](https://travis-ci.org/github-slack/app) [![codecov](https://codecov.io/gh/github-slack/app/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/github-slack/app) [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/integrations/slack.svg?branch=extract-unfurls)](https://travis-ci.org/integrations/slack) [![codecov](https://codecov.io/gh/integrations/slack/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/integrations/slack) [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/)
 
 [fork]: https://github.com/github-slack/app/fork
 [pr]: https://github.com/github-slack/app/compare
