@@ -1,4 +1,4 @@
-const { LegacySubscription, logger } = require('.');
+const { LegacySubscription } = require('.');
 const nock = require('nock');
 const client = require('../../lib/slack/client').createClient();
 const migration = require('../fixtures/slack/config_migration_single');
@@ -25,8 +25,6 @@ describe('LegacySubscription', () => {
     let record;
 
     beforeEach(async () => {
-      logger.level('fatal');
-
       record = await LegacySubscription.create({
         serviceSlackId: 1,
         workspaceSlackId: 'T001',
@@ -38,7 +36,7 @@ describe('LegacySubscription', () => {
       });
     });
 
-    test('ignores invalid_service error', async () => {
+    test('ignores service_removed error', async () => {
       nock('https://slack.com').post('/api/services.update')
         .reply(200, { ok: false, error: 'service_removed' });
 
@@ -46,7 +44,7 @@ describe('LegacySubscription', () => {
       expect(record.activatedAt).toBeTruthy();
     });
 
-    test('ignores invalid_service error', async () => {
+    test('doesn\'t ignore other errors', async () => {
       nock('https://slack.com').post('/api/services.update')
         .reply(200, { ok: false, error: 'something_else' });
 
