@@ -117,7 +117,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes subcription 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Repository deleted by wilhelmklopp\\",\\"pretext\\":\\"Repository deleted by wilhelmklopp\\",\\"text\\":\\"The subscription to this repository has been disabled.\\"}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Repository deleted by wilhelmklopp\\",\\"title\\":\\"github-slack-test-org/i-will-be-deleted\\",\\"fields\\":[{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1520343804,\\"pretext\\":\\"Repository deleted by wilhelmklopp\\"}]",
   "channel": "C001",
   "text": "",
   "token": "test",

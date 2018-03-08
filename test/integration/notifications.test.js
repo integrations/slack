@@ -1,4 +1,5 @@
 const nock = require('nock');
+const moment = require('moment');
 
 const helper = require('.');
 const fixtures = require('../fixtures');
@@ -588,6 +589,7 @@ describe('Integration: notifications', () => {
     });
 
     test('repository.deleted posts to channel and deletes subcription', async () => {
+      repositoryDeleted.repository.updated_at = moment().subtract(2, 'months');
       await Subscription.subscribe({
         githubId: repositoryDeleted.repository.id,
         channelId: 'C001',
