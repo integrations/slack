@@ -12,6 +12,7 @@ module.exports = {
   repo: require('./repo'),
   atomRepo: require('./atom-repo'),
   kubernetesRepo: require('./kubernetes-repo'),
+  combinedStatus: require('./combined_status_some_passing'),
   slack: {
     link_shared: require('./slack/link_shared'),
     command: attrs => Object.assign({
