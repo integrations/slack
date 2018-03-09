@@ -1,4 +1,6 @@
 {
+  "name": "hi",
+  "version": "100.1.1",
   "private": true,
   "license": "MIT",
   "scripts": {
