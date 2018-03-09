@@ -61,4 +61,31 @@ describe('SubscriptionList', () => {
       '<https://github.com/wilhelmklopp/wilhelmklopp|wilhelmklopp/wilhelmklopp>',
     ]);
   });
+
+  test('sorts repositories alphabetically including different cases', async () => {
+    const repositories = [
+      {
+        full_name: 'wilhelmklopp/wilhelmklopp',
+        html_url: 'https://github.com/wilhelmklopp/wilhelmklopp',
+      },
+      {
+        full_name: 'bkeepers/dotenv',
+        html_url: 'https://github.com/bkeepers/dotenv',
+      },
+      {
+        full_name: 'integrations/slack',
+        html_url: 'https://github.com/integrations/slack',
+      },
+      {
+        full_name: 'JasonEtco/todo',
+        html_url: 'https://github.com/JasonEtco/todo',
+      },
+    ];
+    expect(new SubscriptionList(repositories, 'C01234').repositoriesToString()).toEqual([
+      '<https://github.com/bkeepers/dotenv|bkeepers/dotenv>',
+      '<https://github.com/integrations/slack|integrations/slack>',
+      '<https://github.com/JasonEtco/todo|JasonEtco/todo>',
+      '<https://github.com/wilhelmklopp/wilhelmklopp|wilhelmklopp/wilhelmklopp>',
+    ]);
+  });
 });
