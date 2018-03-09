@@ -38,7 +38,7 @@ describe('LegacySubscription', () => {
       });
     });
 
-    test('ignores invalid_service error', async () => {
+    test('ignores service_removed error', async () => {
       nock('https://slack.com').post('/api/services.update')
         .reply(200, { ok: false, error: 'service_removed' });
 
@@ -46,7 +46,7 @@ describe('LegacySubscription', () => {
       expect(record.activatedAt).toBeTruthy();
     });
 
-    test('ignores invalid_service error', async () => {
+    test('throws errors that aren\'t service_removed', async () => {
       nock('https://slack.com').post('/api/services.update')
         .reply(200, { ok: false, error: 'something_else' });
 
