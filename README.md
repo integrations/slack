@@ -22,7 +22,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 This app officially supports GitHub.com and Slack.com but the team plans to support GitHub Enterprise and Slack Enterprise Grid in the future.
 
 ### Migrating from the legacy GitHub integration for Slack
-When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to reconfigure your old settings - so getting set up again is easy. Once you subscribe with the new app, the legacy app will be disabled but the legacy notification configurations will be migrated automatically. 
+When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
 
 <p align="center"><img width="666" alt="migration" src="https://user-images.githubusercontent.com/3877742/36557399-ff8663c6-17bc-11e8-8962-d92088cf98a9.png"></p>
 
