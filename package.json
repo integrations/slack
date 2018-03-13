@@ -10,7 +10,7 @@
     "migrate": "sequelize db:migrate"
   },
   "dependencies": {
-    "@keyv/redis": "^1.3.8",
+    "@keyv/redis": "github:integrations/keyv-redis#use-keys",
     "@slack/client": "^3.16.0",
     "axios": "^0.18.0",
     "body-parser": "^1.17.2",
