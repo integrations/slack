@@ -79,7 +79,7 @@ Links won't be unfurled if:
 
 - the repository is private (support for private links is coming soon!)
 - link previews for `github.com` have been [disabled for your workspace](https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites)
-- the link was shared in the last 30 minutes in the same channel
+- the same link was already shared in the last 30 minutes in the same channel
 - 3 or more links are shared in the same chat message
 
 ### Configuration
