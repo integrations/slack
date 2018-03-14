@@ -28,7 +28,7 @@
     "newrelic": "^3.0.0",
     "pg": "^7.4.1",
     "probot": "^6.0.0",
-    "query-string": "^5.0.1",
+    "query-string": "^6.0.0",
     "raven": "^2.4.1",
     "request": "^2.83.0",
     "sequelize": "^4.33.4",
