@@ -32,11 +32,7 @@ describe('Integration: slack authentication', () => {
     const code = 'code-from-slack';
     const { state } = queryString.parse(location.replace('https://slack.com/oauth/authorize', ''));
 
-    nock('https://slack.com').post('/api/oauth.token', {
-      client_id: process.env.SLACK_CLIENT_ID,
-      client_secret: process.env.SLACK_CLIENT_SECRET,
-      code,
-    }).reply(200, access);
+    nock('https://slack.com').post('/api/oauth.token').reply(200, access);
 
     await request.get('/slack/oauth/callback').query({ code, state })
       .expect(302)
