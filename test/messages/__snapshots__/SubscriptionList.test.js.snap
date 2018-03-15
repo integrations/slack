@@ -6,8 +6,8 @@ Object {
     Object {
       "color": "#24292f",
       "fallback": "<#C01234> is subscribed to 2 repositories",
-      "text": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>
-<https://github.com/atom/atom|atom/atom>",
+      "text": "<https://github.com/atom/atom|atom/atom>
+<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
       "title": "<#C01234> is subscribed to",
     },
   ],
