@@ -3,17 +3,19 @@ const EncryptedField = require('sequelize-encrypted');
 if (process.env.NODE_ENV === 'development') {
   // eslint-disable-next-line global-require, import/no-extraneous-dependencies
   require('dotenv').config();
-} else if (process.env.NODE_ENV === 'test') {
-  // eslint-disable-next-line global-require
-  require('../../test/setup/env');
-}
-
-if (!process.env.STORAGE_SECRET) {
-  throw new Error('The STORAGE_SECRET environment variable must be set');
 }
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    // Don't bother running for tests
+    if (process.env.NODE_ENV === 'test') {
+      return;
+    }
+
+    if (!process.env.STORAGE_SECRET) {
+      throw new Error('The STORAGE_SECRET environment variable must be set');
+    }
+
     // Define models to migrate old data
     const workspaceEncrypted = EncryptedField(Sequelize, process.env.STORAGE_SECRET);
     const SlackWorkspace = queryInterface.sequelize.define('SlackWorkspace', {
