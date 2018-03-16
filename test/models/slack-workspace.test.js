@@ -24,6 +24,13 @@ describe('SlackWorkspace', () => {
       expect(workspace.accessToken).toEqual('test');
     });
 
+    test('updates encryptedAccessToken when setting new value', async () => {
+      await workspace.update({ accessToken: 'updated' });
+      await workspace.reload();
+      expect(workspace.encryptedAccessToken).toEqual('updated');
+      expect(workspace.unencryptedAccessToken).toEqual('updated');
+    });
+
     test('is excluded from toJSON()', () => {
       expect(workspace.toJSON()).not.toHaveProperty('accessToken');
       expect(workspace.toJSON()).not.toHaveProperty('secrets');
