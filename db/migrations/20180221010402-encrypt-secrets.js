@@ -77,8 +77,8 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn('GitHubUsers', 'accessToken', Sequelize.TEXT);
-    await queryInterface.addColumn('SlackWorkspaces', 'accessToken', Sequelize.TEXT);
+    await queryInterface.addColumn('GitHubUsers', 'accessToken', Sequelize.STRING);
+    await queryInterface.addColumn('SlackWorkspaces', 'accessToken', Sequelize.STRING);
     await queryInterface.removeColumn('GitHubUsers', 'secrets');
     await queryInterface.removeColumn('SlackWorkspaces', 'secrets');
   },
