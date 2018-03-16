@@ -1,19 +1,35 @@
 const { SlackWorkspace } = require('.');
 
 describe('SlackWorkspace', () => {
-  let user;
+  let workspace;
   beforeEach(async () => {
-    user = await SlackWorkspace.create({
+    workspace = await SlackWorkspace.create({
       slackId: 'T0001',
       accessToken: 'test',
     });
   });
 
-  test('toJSON excludes accessToken', () => {
-    expect(user.toJSON()).not.toHaveProperty('accessToken');
-    expect(user.toJSON()).not.toHaveProperty('secrets');
+  describe('acccessToken', () => {
+    test('reads and writes from encryptedAccessToken', () => {
+      // clear the unencrypted token
+      workspace.setDataValue('accessToken', undefined);
 
-    // ensure original values weren't deleted
-    expect(user.accessToken).toEqual('test');
+      expect(workspace.accessToken).toEqual('test');
+    });
+
+    test('reads unencrypted accessToken field if encrypted field not set yet', () => {
+      // clear the encrypted token
+      workspace.setDataValue('encryptedAccessToken', undefined);
+
+      expect(workspace.accessToken).toEqual('test');
+    });
+
+    test('is excluded from toJSON()', () => {
+      expect(workspace.toJSON()).not.toHaveProperty('accessToken');
+      expect(workspace.toJSON()).not.toHaveProperty('secrets');
+
+      // ensure original values weren't deleted
+      expect(workspace.accessToken).toEqual('test');
+    });
   });
 });
