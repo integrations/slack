@@ -72,14 +72,9 @@ module.exports = {
         page += 1;
       } while (records.length > 0);
     }
-
-    await queryInterface.removeColumn('GitHubUsers', 'accessToken');
-    await queryInterface.removeColumn('SlackWorkspaces', 'accessToken');
   },
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn('GitHubUsers', 'accessToken', Sequelize.STRING);
-    await queryInterface.addColumn('SlackWorkspaces', 'accessToken', Sequelize.STRING);
+  down: async (queryInterface) => {
     await queryInterface.removeColumn('GitHubUsers', 'secrets');
     await queryInterface.removeColumn('SlackWorkspaces', 'secrets');
   },
