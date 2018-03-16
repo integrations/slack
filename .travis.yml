@@ -4,6 +4,9 @@ node_js:
   - "8"
 notifications:
   disabled: true
+env:
+  global:
+    - NODE_ENV=test
 install:
   - npm install -g codecov
   - npm install
