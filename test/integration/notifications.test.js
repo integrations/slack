@@ -467,10 +467,51 @@ describe('Integration: notifications', () => {
         .times(2) // once for issue comment count, once for comment notification
         .reply(200, commentPayload.repository);
 
-      // Should not trigger any deliveries
       await probot.receive({
         event: 'issue_comment',
         payload: commentPayload,
+      });
+    });
+
+    test('comments are updated when edited', async () => {
+      const commentPayload = fixtures.github.webhooks.issue_comment;
+
+      await Subscription.subscribe({
+        githubId: commentPayload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: ['comments'], // Turn on comments
+      });
+
+      nock('https://slack.com').post('/api/chat.postMessage').reply(200, { ok: true });
+
+      nock('https://api.github.com')
+        .get(`/repositories/${commentPayload.repository.id}`)
+        .times(2) // once for issue comment count, once for comment notification
+        .reply(200, commentPayload.repository);
+
+      await probot.receive({
+        event: 'issue_comment',
+        payload: commentPayload,
+      });
+
+      nock('https://slack.com').post('/api/chat.update', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        event: 'issue_comment',
+        payload: {
+          ...commentPayload,
+          action: 'edited',
+          comment: {
+            ...commentPayload.comment,
+            body: 'an edit',
+          },
+        },
       });
     });
 
