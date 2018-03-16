@@ -60,7 +60,7 @@ module.exports = {
       do {
         records = await model.findAll({
           where: {},
-          order: [['createdAt', 'ASC']],
+          order: [['createdAt', 'ASC'], ['id', 'DESC']],
           limit: perPage,
           offset: page * perPage,
         });
