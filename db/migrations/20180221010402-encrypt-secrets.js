@@ -34,14 +34,15 @@ module.exports = {
     const userEncrypted = EncryptedField(Sequelize, process.env.STORAGE_SECRET);
     const GitHubUser = queryInterface.sequelize.define('GitHubUsers', {
       // Old access token
-      accessToken: {
+      rawAccessToken: {
         type: Sequelize.STRING,
         allowNull: false,
+        field: 'accessToken',
       },
 
       secrets: userEncrypted.vault('secrets'),
 
-      newAccessToken: userEncrypted.field('accessToken', {
+      encryptedAccessToken: userEncrypted.field('accessToken', {
         type: Sequelize.STRING,
         allowNull: false,
       }),
