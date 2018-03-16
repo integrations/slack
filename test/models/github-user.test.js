@@ -12,20 +12,6 @@ describe('GitHubUser', () => {
   });
 
   describe('acccessToken', () => {
-    test('reads and writes from encryptedAccessToken', () => {
-      // clear the unencrypted token
-      user.setDataValue('accessToken', undefined);
-
-      expect(user.accessToken).toEqual('test');
-    });
-
-    test('reads unencrypted accessToken field if encrypted field not set yet', () => {
-      // clear the encrypted token
-      user.setDataValue('encryptedAccessToken', undefined);
-
-      expect(user.accessToken).toEqual('test');
-    });
-
     test('is excluded from toJSON()', () => {
       expect(user.toJSON()).not.toHaveProperty('accessToken');
       expect(user.toJSON()).not.toHaveProperty('secrets');

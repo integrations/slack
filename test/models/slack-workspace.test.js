@@ -10,20 +10,6 @@ describe('SlackWorkspace', () => {
   });
 
   describe('acccessToken', () => {
-    test('reads and writes from encryptedAccessToken', () => {
-      // clear the unencrypted token
-      workspace.setDataValue('accessToken', undefined);
-
-      expect(workspace.accessToken).toEqual('test');
-    });
-
-    test('reads unencrypted accessToken field if encrypted field not set yet', () => {
-      // clear the encrypted token
-      workspace.setDataValue('encryptedAccessToken', undefined);
-
-      expect(workspace.accessToken).toEqual('test');
-    });
-
     test('is excluded from toJSON()', () => {
       expect(workspace.toJSON()).not.toHaveProperty('accessToken');
       expect(workspace.toJSON()).not.toHaveProperty('secrets');
