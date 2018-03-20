@@ -467,6 +467,10 @@ describe('Integration: notifications', () => {
         .times(2) // once for issue comment count, once for comment notification
         .reply(200, commentPayload.repository);
 
+      nock('https://api.github.com')
+        .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
+        .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
+
       await probot.receive({
         event: 'issue_comment',
         payload: commentPayload,
@@ -492,10 +496,18 @@ describe('Integration: notifications', () => {
         .times(2) // once for issue comment count, once for comment notification
         .reply(200, commentPayload.repository);
 
+      nock('https://api.github.com')
+        .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
+        .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
+
       await probot.receive({
         event: 'issue_comment',
         payload: commentPayload,
       });
+
+      nock('https://api.github.com')
+        .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
+        .reply(200, { ...commentPayload.comment, body_html: 'edited html' });
 
       nock('https://slack.com').post('/api/chat.update', (body) => {
         expect(body).toMatchSnapshot();
@@ -602,6 +614,10 @@ describe('Integration: notifications', () => {
       });
 
       nock('https://api.github.com').get(`/repositories/${reviewCommentCreated.repository.id}`).reply(200);
+      nock('https://api.github.com')
+        .get('/repos/github-slack-test-org/test2/issues/comments/171608320')
+        .reply(200, { ...reviewCommentCreated.comment, body_html: 'rendered html' });
+
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;
