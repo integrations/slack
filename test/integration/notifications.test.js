@@ -615,7 +615,7 @@ describe('Integration: notifications', () => {
 
       nock('https://api.github.com').get(`/repositories/${reviewCommentCreated.repository.id}`).reply(200);
       nock('https://api.github.com')
-        .get('/repos/github-slack-test-org/test2/issues/comments/171608320')
+        .get('/repos/github-slack-test-org/test2/pulls/comments/171608320')
         .reply(200, { ...reviewCommentCreated.comment, body_html: 'rendered html' });
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
