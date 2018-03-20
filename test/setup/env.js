@@ -7,6 +7,7 @@ const defaults = Object.assign({
   SLACK_CLIENT_SECRET: 'slack-client-secret',
   GITHUB_CLIENT_ID: '',
   GITHUB_CLIENT_SECRET: 'github-secret',
+  STORAGE_SECRET: '8cad66340bc92edbae2ae3a792d351f48c61d1d8efe7b2d9408b0025c1f7f845',
   // Uncomment to enable long stack traces and warnings from Bluebird
   // BLUEBIRD_DEBUG: 'true',
 }, process.env);

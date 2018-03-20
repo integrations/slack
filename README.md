@@ -22,7 +22,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 This app officially supports GitHub.com and Slack.com but the team plans to support GitHub Enterprise and Slack Enterprise Grid in the future.
 
 ### Migrating from the legacy GitHub integration for Slack
-When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to reconfigure your old settings - so getting set up again is easy. Once you subscribe with the new app, the legacy app will be disabled but the legacy notification configurations will be migrated automatically. 
+When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
 
 <p align="center"><img width="666" alt="migration" src="https://user-images.githubusercontent.com/3877742/36557399-ff8663c6-17bc-11e8-8962-d92088cf98a9.png"></p>
 
@@ -74,6 +74,13 @@ On repositories, the app notifies of `open`, `close`, and `re-open` events on pu
 
 #### Types of Public Link Unfurls
 When a user posts a GitHub link in Slack for a public repository, the app is designed to unfurl **issues and pull requests**, directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users**.
+
+Links won't be unfurled if:
+
+- the repository is private (support for private links is coming soon!)
+- link previews for `github.com` have been [disabled for your workspace](https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites)
+- the same link was already shared in the last 30 minutes in the same channel
+- 3 or more links are shared in the same chat message
 
 ### Configuration
 You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
