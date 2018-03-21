@@ -2,14 +2,14 @@
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"text\\":\\"an edit\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] - Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"text\\":\\"an edit\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"]}]",
   "token": "test",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/test2|github-slack-test-org/test2>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Comment on #1\\",\\"title\\":\\"Comment on #1 Update README.md\\",\\"title_link\\":\\"https://github.com/github-slack-test-org/test2/pull/1#discussion_r171608320\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"text\\":\\"another comment that is a response to a pr review comment\\",\\"ts\\":1519920573,\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/test2|github-slack-test-org/test2>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack-test-org/test2] - Comment on #1\\",\\"title\\":\\"Comment on #1 Update README.md\\",\\"title_link\\":\\"https://github.com/github-slack-test-org/test2/pull/1#discussion_r171608320\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"text\\":\\"another comment that is a response to a pr review comment\\",\\"ts\\":1519920573,\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C001",
   "token": "test",
 }
@@ -17,7 +17,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\` - github-slack/public-test\\",\\"text\\":\\"*<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`*\\\\n<https://github.com/github-slack/public-test/commit/659d4e6bec67dcdadcd123eb5882bb8e48ccc4a4|\`659d4e6b\`> - new commit\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"[github-slack/public-test] - <https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`\\",\\"text\\":\\"*<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to \`test\`*\\\\n<https://github.com/github-slack/public-test/commit/659d4e6bec67dcdadcd123eb5882bb8e48ccc4a4|\`659d4e6b\`> - new commit\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C002",
   "token": "test",
 }
@@ -111,7 +111,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes subcription 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Repository deleted by wilhelmklopp\\",\\"title\\":\\"github-slack-test-org/i-will-be-deleted\\",\\"fields\\":[{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1520343804,\\"pretext\\":\\"Repository deleted by wilhelmklopp\\"}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack-test-org/i-will-be-deleted] - Repository deleted by wilhelmklopp\\",\\"title\\":\\"github-slack-test-org/i-will-be-deleted\\",\\"fields\\":[{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1520343804,\\"pretext\\":\\"Repository deleted by wilhelmklopp\\"}]",
   "channel": "C001",
   "token": "test",
 }
@@ -119,7 +119,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"[github-slack/public-test] - JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "channel": "C001",
   "token": "test",
 }
@@ -127,7 +127,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event updated 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"[github-slack/public-test] - JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"🚢 \\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "channel": "C001",
   "token": "test",
 }
@@ -135,14 +135,14 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event updated 2`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"This really is a great pull request\\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"[github-slack/public-test] - JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"This really is a great pull request\\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "token": "test",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"text\\":\\"Testing comments\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] - Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"text\\":\\"Testing comments\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C002",
   "token": "test",
 }
