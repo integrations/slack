@@ -11,6 +11,16 @@ describe('GitHubUser', () => {
     });
   });
 
+  describe('acccessToken', () => {
+    test('is excluded from toJSON()', () => {
+      expect(user.toJSON()).not.toHaveProperty('accessToken');
+      expect(user.toJSON()).not.toHaveProperty('secrets');
+
+      // ensure original values weren't deleted
+      expect(user.accessToken).toEqual('test');
+    });
+  });
+
   describe('hasRepoAccess', () => {
     test('returns true for user with access', async () => {
       nock('https://api.github.com').get('/repositories/1').reply(200);

@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@keyv/redis": "github:integrations/keyv-redis#use-keys",
-    "@slack/client": "^3.16.0",
+    "@slack/client": "^4.0.1",
     "axios": "^0.18.0",
     "body-parser": "^1.17.2",
     "connect-timeout": "^1.9.0",
@@ -32,7 +32,8 @@
     "raven": "^2.4.1",
     "request": "^2.83.0",
     "sequelize": "^4.33.4",
-    "sequelize-cli": "^4.0.0"
+    "sequelize-cli": "^4.0.0",
+    "sequelize-encrypted": "^1.0.0"
   },
   "devDependencies": {
     "dotenv": "^5.0.0",
