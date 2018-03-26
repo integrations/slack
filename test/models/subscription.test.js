@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 const {
   Subscription, SlackWorkspace, Installation, SlackUser,
 } = require('.');
@@ -231,6 +233,30 @@ describe('model: Subscription', () => {
     test('maps GitHub event names to friendly values', () => {
       subscription.enable('pulls');
       expect(subscription.isEnabledForGitHubEvent('pull_request')).toBe(true);
+    });
+  });
+
+  describe('touch', () => {
+    test.only('updates updatedAt', async () => {
+      const subscription = await Subscription.create({
+        channelId: channel,
+        githubId: 1,
+        creatorId: slackUser.id,
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+      });
+
+      // Force updated at to old date
+      const past = moment.utc().subtract(3, 'days').toDate();
+      await subscription.touch(past);
+      await subscription.reload();
+      expect(subscription.updatedAt).toEqual(past);
+
+      await subscription.touch();
+      await subscription.reload();
+
+      // Should be close to now
+      expect(subscription.updatedAt.valueOf() / 1000).toBeCloseTo(Date.now().valueOf() / 1000, 0);
     });
   });
 });
