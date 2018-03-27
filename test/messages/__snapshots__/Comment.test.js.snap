@@ -3,7 +3,7 @@
 exports[`Comment rendering works for condensed unfurls 1`] = `
 Object {
   "color": "#24292f",
-  "fallback": "[bkeepers/dotenv] - Comment on #10191",
+  "fallback": "[bkeepers/dotenv] Comment on #10191",
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
@@ -21,7 +21,7 @@ Object {
   "author_link": "https://github.com/mislav",
   "author_name": "mislav",
   "color": "#24292f",
-  "fallback": "[bkeepers/dotenv] - Comment on #10191",
+  "fallback": "[bkeepers/dotenv] Comment on #10191",
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
