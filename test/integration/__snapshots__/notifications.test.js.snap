@@ -46,6 +46,22 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1508171038,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#1 Needs content\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/issues/1\\",\\"fallback\\":\\"Issue closed by wilhelmklopp\\",\\"pretext\\":\\"Issue closed by wilhelmklopp\\"}]",
+  "channel": "C001",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1508171038,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#1 Needs content\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/issues/1\\",\\"fallback\\":\\"Issue reopened by wilhelmklopp\\",\\"pretext\\":\\"Issue reopened by wilhelmklopp\\"}]",
+  "channel": "C001",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 1`] = `
 Object {
   "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":126,\\"short\\":true}],\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[github-slack/public-test] Issue opened by wohali\\",\\"text\\":\\"Hi there,\\\\r\\\\n\\\\r\\\\nThe Apache Software Foundation Legal Affairs Committee [has announced][1] that the so-called 'Facebook BSD+Patents License' is no longer allowed to be used as a direct dependency in Apache projects.\\\\r\\\\n\\\\r\\\\nThis has lead to a lot of upset and frustration in the Apache community, especially from projects requiring similarly-licensed code as direct dependencies - the chief of these being RocksDB.\\\\r\\\\n\\\\r\\\\nHowever, we (the Apache Software Foundation) have just received word that [RocksDB will be re-licensing their code under the dual Apache License v2.0 and GPL 2 licenses][2]. \\\\r\\\\n\\\\r\\\\nAs a user of React.JS in an ASF top-level project (Apache CouchDB), please consider re-licensing React.JS under similar terms. Otherwise, many ASF projects such as our own will have to stop relying on and building with React.\\\\r\\\\n\\\\r\\\\nA previous bug (#9760) suggested I mention @lacker in this issue when asking licensing questions, so I'm doing so.\\\\r\\\\n\\\\r\\\\nThank you kindly for your consideration.\\\\r\\\\n\\\\r\\\\n[1]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088663&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088663\\\\r\\\\n[2]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088730&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088730\\",\\"pretext\\":\\"Issue opened by wohali\\"}]",
@@ -78,6 +94,14 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"#31 Add badges to readme\\",\\"pretext\\":\\"Pull request closed by wilhelmklopp\\"}]",
+  "channel": "C001",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel pull request opened 1`] = `
 Object {
   "attachments": "[{\\"fields\\":[{\\"title\\":\\"Milestone\\",\\"value\\":\\"<https://github.com/github-slack/app/milestone/1|Staff Ship>\\",\\"short\\":true}],\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"[github-slack/app] #31 Add badges to readme\\",\\"text\\":\\"![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)\\\\r\\\\n\\",\\"pretext\\":\\"Pull request opened by wilhelmklopp\\"}]",
@@ -97,6 +121,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 2`] = `
 Object {
   "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":3,\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github/hub|github/hub>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1502411430,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"e-beach\\",\\"author_link\\":\\"https://github.com/e-beach\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/13651458?v=4\\",\\"title\\":\\"#1535 Make fork command idempotent\\",\\"title_link\\":\\"https://github.com/github/hub/pull/1535\\",\\"fallback\\":\\"[github/hub] #1535 Make fork command idempotent\\",\\"text\\":\\"Fixes #1499.\\\\r\\\\n\\\\r\\\\nThis PR makes \`hub fork\` succeed, with no operation, if a remote pointing to the forked repository already exists.\\\\r\\\\n \\",\\"pretext\\":\\"Pull request merged by e-beach\\"},{\\"fallback\\":\\"codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0\\",\\"author_name\\":\\"codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/in/254?v=4\\",\\"author_link\\":\\"https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd\\",\\"color\\":\\"#cb2431\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"fallback\\":\\"codecov/project: 98.37% remains the same compared to 0143c3c\\",\\"author_name\\":\\"codecov/project: 98.37% remains the same compared to 0143c3c\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/in/254?v=4\\",\\"author_link\\":\\"https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd\\",\\"color\\":\\"#dbab09\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"color\\":\\"#28a745\\",\\"fallback\\":\\"2 other checks have passed\\",\\"text\\":\\":white_check_mark: 2 other checks have passed\\",\\"footer\\":\\"2/4 successful checks\\"}]",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"#31 Add badges to readme\\",\\"pretext\\":\\"Pull request reopened by wilhelmklopp\\"}]",
+  "channel": "C001",
   "token": "test",
 }
 `;
