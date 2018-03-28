@@ -36,7 +36,7 @@ Key:
 
 ### :pushpin: Bi-directional engagement
 
-Following comprehensive feature parity, we hope to make the integration more interactive and bi-directional. By bringing more of the GitHub experience into Slack and vice versa, we believe we can reduce context swtiching for developers and make the conversations around software development more engaging.
+Following comprehensive feature parity, we hope to make the integration more interactive and bi-directional. By bringing more of the GitHub experience into Slack and vice versa, we believe we can reduce context switching for developers and make the conversations around software development more engaging.
 
 Some features within this theme could include:
 - Interactive with messages in Slack, e.g. "Merge a Pull Request"
@@ -50,7 +50,7 @@ Building on top of a more engaging bi-directional experience, we hope to focus o
 Some features within this theme could include:
 - A slash command to list all of the new issues your team has been mentioned in
 - Reminders and management of team review requests
-- Notifcations for and integration with team discussions
+- Notifications for and integration with team discussions
 
 ### :pushpin: Making software developers more efficient
 
