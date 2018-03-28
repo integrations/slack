@@ -48,7 +48,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1508171038,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#1 Needs content\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/issues/1\\",\\"fallback\\":\\"Issue closed by wilhelmklopp\\",\\"pretext\\":\\"Issue closed by wilhelmklopp\\"}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1508171038,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#1 Needs content\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/issues/1\\",\\"fallback\\":\\"[github-slack/public-test] Issue closed by wilhelmklopp\\",\\"pretext\\":\\"Issue closed by wilhelmklopp\\"}]",
   "channel": "C001",
   "token": "test",
 }
@@ -56,7 +56,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1508171038,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#1 Needs content\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/issues/1\\",\\"fallback\\":\\"Issue reopened by wilhelmklopp\\",\\"pretext\\":\\"Issue reopened by wilhelmklopp\\"}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1508171038,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#1 Needs content\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/issues/1\\",\\"fallback\\":\\"[github-slack/public-test] Issue reopened by wilhelmklopp\\",\\"pretext\\":\\"Issue reopened by wilhelmklopp\\"}]",
   "channel": "C001",
   "token": "test",
 }
@@ -96,7 +96,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"#31 Add badges to readme\\",\\"pretext\\":\\"Pull request closed by wilhelmklopp\\"}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"[github-slack/app] #31 Add badges to readme\\",\\"pretext\\":\\"Pull request closed by wilhelmklopp\\"}]",
   "channel": "C001",
   "token": "test",
 }
@@ -127,7 +127,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"#31 Add badges to readme\\",\\"pretext\\":\\"Pull request reopened by wilhelmklopp\\"}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"[github-slack/app] #31 Add badges to readme\\",\\"pretext\\":\\"Pull request reopened by wilhelmklopp\\"}]",
   "channel": "C001",
   "token": "test",
 }
