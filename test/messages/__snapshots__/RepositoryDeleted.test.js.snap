@@ -5,7 +5,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "Repository deleted by wilhelmklopp",
+      "fallback": "[github-slack-test-org/i-will-be-deleted] Repository deleted by wilhelmklopp",
       "fields": Array [
         Object {
           "short": true,
