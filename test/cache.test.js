@@ -11,4 +11,10 @@ describe('cache', () => {
   test('returns null for unset keys', async () => {
     expect(await cache.get('nope')).toBe(undefined);
   });
+
+  test('fetch gets or sets key', async () => {
+    expect(await cache.fetch('foo', () => 'first')).toBe('first');
+    expect(await cache.fetch('foo', () => 'second')).toBe('first');
+    expect(await cache.get('foo')).toBe('first');
+  });
 });
