@@ -1,7 +1,5 @@
-const loadModels = require('../../lib/models');
+const models = require('../../lib/models');
 const logger = require('probot/lib/logger');
-
-const models = loadModels({ logger });
 
 beforeAll(async () => {
   // Ensure there is a connection established
