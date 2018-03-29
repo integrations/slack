@@ -4,14 +4,12 @@ const request = require('supertest');
 const nock = require('nock');
 const moment = require('moment');
 
-const helper = require('.');
+const { probot, models } = require('.');
 const fixtures = require('../fixtures');
-
-const { probot } = helper;
 
 describe('Integration: unfurls', () => {
   beforeEach(async () => {
-    const { SlackWorkspace } = helper.robot.models;
+    const { SlackWorkspace } = models;
     await SlackWorkspace.create({
       slackId: 'T000A',
       accessToken: 'xoxa-token',

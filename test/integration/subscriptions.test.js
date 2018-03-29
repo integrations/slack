@@ -1,11 +1,9 @@
 const supertest = require('supertest');
 const nock = require('nock');
 
-const helper = require('.');
+const { probot, slackbot, models } = require('.');
 const fixtures = require('../fixtures');
 const configMigrationEvent = require('../fixtures/slack/config_migration.json');
-
-const { probot, slackbot } = helper;
 
 describe('Integration: subscriptions', () => {
   let request;
@@ -36,7 +34,7 @@ describe('Integration: subscriptions', () => {
     let slackWorkspace;
     let user;
     beforeEach(async () => {
-      const { SlackWorkspace, SlackUser, GitHubUser } = helper.robot.models;
+      const { SlackWorkspace, SlackUser, GitHubUser } = models;
 
       // create user
       user = await GitHubUser.create({
@@ -150,7 +148,7 @@ describe('Integration: subscriptions', () => {
     describe('with GitHub App installed', () => {
       let installation;
       beforeEach(async () => {
-        const { Installation } = helper.robot.models;
+        const { Installation } = models;
         // Create an installation
         installation = await Installation.create({
           githubId: 1,
@@ -203,7 +201,7 @@ describe('Integration: subscriptions', () => {
       });
 
       test('unsubscribing from a specific type of notification', async () => {
-        const { Installation } = helper.robot.models;
+        const { Installation } = models;
 
         // Create an installation
         installation = await Installation.create({
@@ -227,7 +225,7 @@ describe('Integration: subscriptions', () => {
             expect(res.body).toMatchSnapshot();
           });
 
-        const { Subscription } = helper.robot.models;
+        const { Subscription } = models;
         const [subscription] = await Subscription.lookup(fixtures.repo.id);
 
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
@@ -267,7 +265,7 @@ describe('Integration: subscriptions', () => {
         });
         nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
 
-        const { Subscription } = helper.robot.models;
+        const { Subscription } = models;
         await Subscription.create({
           githubId: fixtures.repo.id,
           channelId: 'C2147483705',
@@ -357,7 +355,7 @@ describe('Integration: subscriptions', () => {
         });
       });
       describe('Legacy subscriptions:', () => {
-        const { Subscription } = helper.robot.models;
+        const { Subscription } = models;
         beforeEach(async () => {
           nock('https://slack.com').post('/api/chat.postMessage').times(4).reply(200, { ok: true });
           await request
