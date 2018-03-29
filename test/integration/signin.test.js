@@ -1,12 +1,10 @@
 const request = require('supertest');
 const nock = require('nock');
 
-const helper = require('.');
+const { probot, slackbot, models } = require('.');
 const fixtures = require('../fixtures');
 
-const { probot, slackbot } = helper;
-
-const { SlackWorkspace } = helper.robot.models;
+const { SlackWorkspace } = models;
 
 const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
 

@@ -1,10 +1,8 @@
 const nock = require('nock');
 const moment = require('moment');
 
-const helper = require('.');
+const { probot, models } = require('.');
 const fixtures = require('../fixtures');
-
-const { probot } = helper;
 
 const issuePayload = require('../fixtures/webhooks/issues.opened');
 const pullRequestPayload = require('../fixtures/webhooks/pull_request.opened');
@@ -26,7 +24,7 @@ const {
   Installation,
   SlackUser,
   GitHubUser,
-} = helper.robot.models;
+} = models;
 
 describe('Integration: notifications', () => {
   describe('to a subscribed channel', () => {

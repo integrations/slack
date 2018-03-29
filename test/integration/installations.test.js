@@ -1,11 +1,10 @@
-const helper = require('.');
+const { robot, models } = require('.');
 const installationCreated = require('../fixtures/webhooks/installation.created.json');
 const installationDeleted = require('../fixtures/webhooks/installation.deleted.json');
 
 describe('Integration: tracking GitHub installations', () => {
   test('installation created records', async () => {
-    const { robot } = helper;
-    const { Installation } = robot.models;
+    const { Installation } = models;
 
     await robot.receive({
       event: 'installation',
@@ -31,8 +30,7 @@ describe('Integration: tracking GitHub installations', () => {
   });
 
   test('deleting installation cascades to delete all subscriptions related to that installation', async () => {
-    const { robot } = helper;
-    const { Subscription, Installation, SlackWorkspace } = robot.models;
+    const { Subscription, Installation, SlackWorkspace } = models;
 
     await robot.receive({
       event: 'installation',
