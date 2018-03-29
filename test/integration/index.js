@@ -1,6 +1,6 @@
 const createProbot = require('probot');
 const GitHub = require('probot/lib/github');
-const logger = require('probot/lib/logger');
+const logger = require('../../lib/logger');
 const nock = require('nock');
 
 const slackbot = require('../slackbot');
