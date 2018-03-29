@@ -2,9 +2,9 @@ const supertest = require('supertest');
 const nock = require('nock');
 const queryString = require('query-string');
 
-const helper = require('.');
+const { probot, models } = require('.');
 
-const { probot } = helper;
+const { SlackWorkspace } = models;
 
 const fixtures = require('../fixtures');
 
@@ -38,7 +38,6 @@ describe('Integration: slack authentication', () => {
       .expect(302)
       .expect('Location', `https://slack.com/app_redirect?app=${access.app_id}&team=${access.team_id}`);
 
-    const { SlackWorkspace } = helper.robot.models;
     const workspace = await SlackWorkspace.findOne({ where: { slackId: access.team_id } });
     expect(workspace.accessToken).toEqual(access.access_token);
   });
@@ -48,8 +47,6 @@ describe('Integration: slack authentication', () => {
       expect(body).toMatchSnapshot();
       return true;
     }).reply(200, { ok: true });
-
-    const { SlackWorkspace } = helper.robot.models;
 
     const workspace = await SlackWorkspace.create({ slackId: access.team_id, accessToken: 'old' });
 

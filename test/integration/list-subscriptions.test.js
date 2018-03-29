@@ -1,15 +1,13 @@
 const nock = require('nock');
 const request = require('supertest');
 
-const helper = require('.');
+const { probot, slackbot, models } = require('.');
 const fixtures = require('../fixtures');
 
-const { probot, slackbot } = helper;
+const { SlackWorkspace, Installation, Subscription } = models;
 
 describe('Integration: subscription list', () => {
   beforeEach(async () => {
-    const { SlackWorkspace, Installation, Subscription } = helper.robot.models;
-
     const workspace = await SlackWorkspace.create({
       accessToken: 'secret',
       slackId: 1,
