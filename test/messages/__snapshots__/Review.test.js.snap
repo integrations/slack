@@ -6,7 +6,7 @@ Object {
   "author_link": "https://github.com/JasonEtco",
   "author_name": "JasonEtco",
   "color": "#36a64f",
-  "fallback": "JasonEtco approved wilhelmklopp's pull request",
+  "fallback": "[github-slack/public-test] JasonEtco approved wilhelmklopp's pull request",
   "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
@@ -26,7 +26,7 @@ Object {
   "author_link": "https://github.com/JasonEtco",
   "author_name": "JasonEtco",
   "color": "#cb2431",
-  "fallback": "JasonEtco requested changes on wilhelmklopp's pull request",
+  "fallback": "[github-slack/public-test] JasonEtco requested changes on wilhelmklopp's pull request",
   "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
@@ -46,7 +46,7 @@ Object {
   "author_link": "https://github.com/wilhelmklopp",
   "author_name": "wilhelmklopp",
   "color": "#24292f",
-  "fallback": "wilhelmklopp commented on their pull request",
+  "fallback": "[github-slack/public-test] wilhelmklopp commented on their pull request",
   "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
