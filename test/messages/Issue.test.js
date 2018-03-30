@@ -34,6 +34,7 @@ describe('Issue rendering', () => {
     const rendered = issueMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
   });
+
   test('works for minor notifications', async () => {
     const issueMessage = new Issue({
       issue: issuesClosed.issue,
@@ -43,5 +44,17 @@ describe('Issue rendering', () => {
     });
     const rendered = issueMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
+  });
+
+  test('extracts image from body_html', () => {
+    const message = new Issue({
+      issue: {
+        ...issuesOpened.issue,
+        body_html: '<p>Hello world!</p><p><img src="https://media.giphy.com/media/5xtDarEbygs3Pu7p3jO/giphy.gif"></p>',
+      },
+      repository: issuesOpened.repository,
+      unfurlType: 'full',
+    });
+    expect(message.getRenderedMessage()).toMatchSnapshot();
   });
 });
