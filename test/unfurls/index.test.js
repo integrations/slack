@@ -1,7 +1,7 @@
-const unfurl = require('../../lib/unfurls');
+const { Unfurl } = require('../../lib/models');
 const fixtures = require('../fixtures');
 
-describe('Link unfurling', () => {
+describe('Unfurl getAttachment', () => {
   let github;
 
   beforeEach(() => {
@@ -37,47 +37,47 @@ describe('Link unfurling', () => {
 
   test('works for issues', async () => {
     const url = 'https://github.com/facebook/react/issues/10191';
-    const response = await unfurl(github, url, 'full');
+    const { attachment } = await Unfurl.getAttachment(github, url, false, true);
 
-    expect(response.title).toEqual('#10191 Consider re-licensing to AL v2.0, as RocksDB has just done');
-    expect(response.title_link).toEqual(url);
+    expect(attachment.title).toEqual('#10191 Consider re-licensing to AL v2.0, as RocksDB has just done');
+    expect(attachment.title_link).toEqual(url);
   });
 
   test('works for pull requests', async () => {
     const url = 'https://github.com/github/hub/pull/1535';
-    const response = await unfurl(github, url, 'full');
+    const { attachment } = await Unfurl.getAttachment(github, url, false, true);
 
-    expect(response.title).toEqual('#1535 Make fork command idempotent');
-    expect(response.title_link).toEqual(url);
+    expect(attachment.title).toEqual('#1535 Make fork command idempotent');
+    expect(attachment.title_link).toEqual(url);
   });
 
   test('works for comments', async () => {
     const url = 'https://github.com/github/hub/pull/1535#issuecomment-322500379';
-    const response = await unfurl(github, url, 'full');
+    const { attachment } = await Unfurl.getAttachment(github, url, false, true);
 
-    expect(response.text).toMatch(/Thanks for your work on this!/);
+    expect(attachment.text).toMatch(/Thanks for your work on this!/);
   });
 
   test('works for file with line numbers', async () => {
     const url = 'https://github.com/atom/atom/blob/master/src/color.js#L122-L129';
-    const response = await unfurl(github, url, 'full');
+    const { attachment } = await Unfurl.getAttachment(github, url, false, true);
 
-    expect(response.text).toMatch(/function parseAlpha/);
-    expect(response.text).toMatch(/Math\.max/);
+    expect(attachment.text).toMatch(/function parseAlpha/);
+    expect(attachment.text).toMatch(/Math\.max/);
   });
 
   test('works for accounts', async () => {
     const url = 'https://github.com/wilhelmklopp';
-    const response = await unfurl(github, url, 'full');
+    const { attachment } = await Unfurl.getAttachment(github, url, false, true);
 
-    expect(response.title).toMatch('Wilhelm Klopp');
+    expect(attachment.title).toMatch('Wilhelm Klopp');
   });
 
   test('works for repos', async () => {
     const url = 'https://github.com/bkeepers/dotenv';
-    const response = await unfurl(github, url, 'full');
+    const { attachment } = await Unfurl.getAttachment(github, url, false, true);
 
-    expect(response.title).toMatch('bkeepers/dotenv');
+    expect(attachment.title).toMatch('bkeepers/dotenv');
   });
 
   test('promise rejected on unknown URL', async () => {
@@ -85,7 +85,7 @@ describe('Link unfurling', () => {
     expect.assertions(1);
 
     try {
-      await unfurl(github, url, 'full');
+      await Unfurl.getAttachment(github, url, false, true);
     } catch (e) {
       expect(e.toString()).toEqual(`UnsupportedResource: ${url}`);
     }
