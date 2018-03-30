@@ -40,4 +40,17 @@ describe('Comment rendering', () => {
 
     expect(message.getRenderedMessage().text).toEqual('*Hello* _cruel_ <http://example.com|world>');
   });
+
+  test('extracts image from body_html', () => {
+    const message = new Comment({
+      comment: Object.assign({
+        body_html: '<p>Hello world!</p><p><img src="https://media.giphy.com/media/5xtDarEbygs3Pu7p3jO/giphy.gif"></p>',
+      }, comment),
+      repository,
+      issue,
+      unfurlType: 'full',
+    });
+
+    expect(message.getRenderedMessage()).toMatchSnapshot();
+  });
 });
