@@ -101,7 +101,7 @@ describe('Integration: notifications', () => {
         reqHeaders: {
           Accept: 'application/vnd.github.html+json',
         },
-      }).get('/repos/github-slack/public-test/issues/1').reply(200, fixtures.issue);
+      }).get('/repos/github-slack/public-test/issues/1').times(2).reply(200, fixtures.issue);
 
       nock('https://slack.com').post('/api/chat.postMessage').reply(200, { ok: true });
 
