@@ -71,9 +71,9 @@ describe('Integration: unfurls', () => {
       // Test that the body posted to the unfurl matches the snapshot
       expect(req).toMatchSnapshot();
       const unfurls = JSON.parse(req.unfurls);
-      expect(unfurls['https://github.com/facebook/react/issues/10191'].text).toBe(undefined);
+      expect(unfurls[Object.keys(unfurls)[0]].text).toBe(undefined);
       return true;
-    }).reply(200, { ok: true });
+    }).times(2).reply(200, { ok: true });
 
     const body = fixtures.slack.link_shared();
 
