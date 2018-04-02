@@ -328,6 +328,32 @@ describe('Integration: unfurls', () => {
         .expect(200);
     });
 
+    test.only('unfurls resources that cannot be private (such as organisations) without looking up repo privacy', async () => {
+      // Get actual data to show in channel
+      nock('https://api.github.com').get(`/users/kubernetes?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          ...fixtures.org,
+        },
+      );
+
+      nock('https://slack.com').post('/api/chat.unfurl', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+        event: {
+          ...fixtures.slack.link_shared().event,
+          links: [{
+            url: 'https://github.com/kubernetes',
+            domain: 'github.com',
+          }],
+        },
+      }))
+        .expect(200);
+    });
+
     describe('in channels wich are not in ALLOWED_CHANNELS', async () => {
       test('public unfurls work as normal', async () => {
         process.env.GITHUB_TOKEN = 'super-secret';

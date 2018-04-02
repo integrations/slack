@@ -30,6 +30,15 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 1`] = `
+Object {
+  "channel": "C74M",
+  "token": "xoxa-token",
+  "ts": "1510704981.000364",
+  "unfurls": "{\\"https://github.com/kubernetes\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/kubernetes|@kubernetes>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Kubernetes\\",\\"title\\":\\"Kubernetes\\",\\"text\\":\\"Kubernetes\\",\\"thumb_url\\":\\"https://avatars2.githubusercontent.com/u/13629408?v=4\\",\\"fields\\":[{\\"title\\":\\"URL\\",\\"value\\":\\"http://kubernetes.io\\",\\"short\\":true},{\\"title\\":\\"Repositories\\",\\"value\\":51,\\"short\\":true}],\\"ts\\":1438624543}}",
+}
+`;
+
 exports[`Integration: unfurls private unfurls uses user access token for public resources 1`] = `
 Object {
   "channel": "C74M",
