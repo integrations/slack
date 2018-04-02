@@ -177,7 +177,7 @@ describe('Integration: unfurls', () => {
       await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
         .expect(200);
     });
-    test('clicking "Show rich preview" results in unfurl', async () => {
+    test('clicking "Show rich preview" results in unfurl and deletes prompt', async () => {
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
         200,
         {
@@ -215,8 +215,51 @@ describe('Integration: unfurls', () => {
       await request(probot.server).post('/slack/actions').send({
         payload: JSON.stringify(fixtures.slack.action.unfurl(unfurlId)),
       })
-        .expect(200);
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
     });
+
+    test('clicking "Dismiss" deletes the prompt', async () => {
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          private: true,
+        },
+      );
+
+      let unfurlId;
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        const pattern = /"callback_id":"unfurl-(\d+)"/;
+        const match = pattern.exec(body.attachments);
+        [, unfurlId] = match;
+        return true;
+      }).reply(200, { ok: true });
+
+      // Link is shared in channel
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+        .expect(200);
+
+      // User clicks 'Dismiss'
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify({
+          ...fixtures.slack.action.unfurl(unfurlId),
+          actions: [
+            {
+              name: 'unfurl-dismiss',
+              type: 'button',
+              value: '',
+            },
+          ],
+        }),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
     test('throws error when user is not linked', async () => {
       await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
         event: {
