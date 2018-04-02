@@ -287,6 +287,7 @@ describe('Integration: unfurls', () => {
 
     describe('in channels wich are not in ALLOWED_CHANNELS', async () => {
       test('public unfurls work as normal', async () => {
+        process.env.GITHUB_TOKEN = 'super-secret';
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
           200,
           {
