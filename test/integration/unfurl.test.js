@@ -10,6 +10,7 @@ const fixtures = require('../fixtures');
 const {
   SlackUser,
   GitHubUser,
+  Unfurl,
 } = models;
 
 describe('Integration: unfurls', () => {
@@ -90,6 +91,12 @@ describe('Integration: unfurls', () => {
       ];
 
       await request(probot.server).post('/slack/events').send(body).expect(200);
+
+      const unfurls = await Unfurl.findAll();
+      expect(unfurls.length).toBe(2);
+
+      expect(unfurls[0].isCondensed).toBe(true);
+      expect(unfurls[1].isCondensed).toBe(true);
     });
 
     test('does not unfurl if more than 2 links', async () => {
@@ -136,6 +143,50 @@ describe('Integration: unfurls', () => {
       await request(probot.server).post('/slack/events')
         .send(fixtures.slack.link_shared())
         .expect(500);
+    });
+
+    test('Successful unfurl gets stored in db', async () => {
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+        200,
+        {
+          ...fixtures.repo,
+          updated_at: moment().subtract(2, 'months'),
+        },
+      );
+
+      nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+        .expect(200);
+
+      const unfurls = await Unfurl.findAll();
+      expect(unfurls.length).toBe(1);
+      const [unfurl] = unfurls;
+
+      const { channel, message_ts, links } = fixtures.slack.link_shared().event;
+
+      expect(unfurl.url).toBe(links[0].url);
+      expect(unfurl.channelSlackId).toBe(channel);
+      expect(unfurl.githubType).toBe('repo');
+      expect(unfurl.isCondensed).toBe(false);
+      expect(unfurl.slackMessageTimestamp).toBe(message_ts);
+      expect(unfurl.isPublic).toBe(true);
+      expect(unfurl.isDelivered).toBe(true);
+      expect(unfurl.slackWorkspaceId).toBe(workspace.id);
+    });
+
+    test('Unsuccessful unfurl does not get stored in db', async () => {
+      // Silence error logs for this test
+      probot.logger.level('fatal');
+
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
+
+      await request(probot.server).post('/slack/events')
+        .send(fixtures.slack.link_shared())
+        .expect(200);
+
+      const unfurls = await Unfurl.findAll();
+      expect(unfurls.length).toBe(0);
     });
   });
 
@@ -197,6 +248,22 @@ describe('Integration: unfurls', () => {
       await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
         .expect(200);
 
+      const unfurls = await Unfurl.findAll();
+      expect(unfurls.length).toBe(1);
+
+      const [unfurl] = unfurls;
+
+      const { channel, message_ts, links } = fixtures.slack.link_shared().event;
+
+      expect(unfurl.url).toBe(links[0].url);
+      expect(unfurl.channelSlackId).toBe(channel);
+      expect(unfurl.githubType).toBe(null);
+      expect(unfurl.isCondensed).toBe(false);
+      expect(unfurl.slackMessageTimestamp).toBe(message_ts);
+      expect(unfurl.isPublic).toBe(false);
+      expect(unfurl.isDelivered).toBe(false);
+      expect(unfurl.slackWorkspaceId).toBe(workspace.id);
+
 
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
         200,
@@ -219,6 +286,10 @@ describe('Integration: unfurls', () => {
         .expect((res) => {
           expect(res.body).toMatchSnapshot();
         });
+
+      const [deliveredUnfurl] = await Unfurl.findAll();
+      expect(deliveredUnfurl.githubType).toBe('repo');
+      expect(deliveredUnfurl.isDelivered).toBe(true);
     });
 
     test('clicking "Dismiss" deletes the prompt', async () => {
