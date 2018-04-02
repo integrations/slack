@@ -328,7 +328,7 @@ describe('Integration: unfurls', () => {
         .expect(200);
     });
 
-    test.only('unfurls resources that cannot be private (such as organisations) without looking up repo privacy', async () => {
+    test('unfurls resources that cannot be private (such as organisations) without looking up repo privacy', async () => {
       // Get actual data to show in channel
       nock('https://api.github.com').get(`/users/kubernetes?access_token=${githubUser.accessToken}`).reply(
         200,
