@@ -262,7 +262,7 @@ describe('Integration: unfurls', () => {
       }))
         .expect(200);
     });
-    test.only('uses user access token for public resources', async () => {
+    test('uses user access token for public resources', async () => {
       // Check to see if repo is private or public
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`)
         .reply(200);
