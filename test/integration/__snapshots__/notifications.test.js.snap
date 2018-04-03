@@ -151,7 +151,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"[github-slack/public-test] JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":{\\"text\\":\\"rendered html\\"},\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"[github-slack/public-test] JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"rendered html\\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "channel": "C001",
   "token": "test",
 }
@@ -159,7 +159,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel review event 2`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"[github-slack/public-test] JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":{\\"text\\":\\"updated html\\"},\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"[github-slack/public-test] JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"updated html\\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
   "token": "test",
 }
 `;
