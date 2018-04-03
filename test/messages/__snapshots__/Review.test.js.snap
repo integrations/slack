@@ -6,9 +6,10 @@ Object {
   "author_link": "https://github.com/JasonEtco",
   "author_name": "JasonEtco",
   "color": "#36a64f",
-  "fallback": "JasonEtco approved wilhelmklopp's pull request",
+  "fallback": "[github-slack/public-test] JasonEtco approved wilhelmklopp's pull request",
   "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "image_url": undefined,
   "mrkdwn_in": Array [
     "text",
   ],
