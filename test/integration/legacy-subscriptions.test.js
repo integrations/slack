@@ -1,15 +1,13 @@
 const request = require('supertest');
 const nock = require('nock');
 
-const helper = require('.');
+const { probot, models } = require('.');
 const configMigrationEvent = require('../fixtures/slack/config_migration.json');
 const configMigrationEventSingleConfiguration = require('../fixtures/slack/config_migration_single.json');
 
-const { probot } = helper;
-
 describe('Integration: Slack config_migration event', () => {
   beforeEach(async () => {
-    const { SlackWorkspace } = helper.robot.models;
+    const { SlackWorkspace } = models;
     await SlackWorkspace.create({
       slackId: 'T0001',
       accessToken: 'xoxa-token',
@@ -21,7 +19,7 @@ describe('Integration: Slack config_migration event', () => {
         expect(body).toMatchSnapshot();
         return true;
       }).times(4).reply(200, { ok: true });
-      const { LegacySubscription } = helper.robot.models;
+      const { LegacySubscription } = models;
       await request(probot.server)
         .post('/slack/events')
         .send(configMigrationEvent)
@@ -30,7 +28,7 @@ describe('Integration: Slack config_migration event', () => {
       expect(await LegacySubscription.count()).toBe(34);
     });
     test('Works for 1 legacy configuration', async () => {
-      const { LegacySubscription } = helper.robot.models;
+      const { LegacySubscription } = models;
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;
@@ -44,7 +42,7 @@ describe('Integration: Slack config_migration event', () => {
       expect(await LegacySubscription.count()).toBe(1);
     });
     test('does not duplicate legacy configurations', async () => {
-      const { LegacySubscription } = helper.robot.models;
+      const { LegacySubscription } = models;
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;

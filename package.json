@@ -20,7 +20,7 @@
     "express-async-errors": "^2.1.1",
     "express-sslify": "^1.2.0",
     "helmet": "^3.11.0",
-    "html-to-mrkdwn": "github:github-slack/html-to-mrkdwn",
+    "html-to-mrkdwn": "^2.0.0",
     "jsonwebtoken": "^8.1.0",
     "keyv": "^3.0.0",
     "moment": "^2.21.0",
