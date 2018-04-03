@@ -1,15 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: unfurls does minor unfurl if 2 links are shared 1`] = `
+exports[`Integration: unfurls private unfurls clicking "Dismiss" deletes the prompt and the unfurl record 1`] = `
+Object {
+  "delete_original": true,
+}
+`;
+
+exports[`Integration: unfurls private unfurls clicking "Show rich preview" results in unfurl and deletes prompt 1`] = `
 Object {
   "channel": "C74M",
   "token": "xoxa-token",
   "ts": "1510704981.000364",
-  "unfurls": "{\\"https://github.com/facebook/react/issues/10191\\":{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\"},\\"https://github.com/atom/atom/issues/16292\\":{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\"}}",
+  "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\":lock: <https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Watchers\\",\\"value\\":57,\\"short\\":true},{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Forks\\",\\"value\\":283,\\"short\\":true},{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }
 `;
 
-exports[`Integration: unfurls issue 1`] = `
+exports[`Integration: unfurls private unfurls clicking "Show rich preview" results in unfurl and deletes prompt 2`] = `
+Object {
+  "delete_original": true,
+}
+`;
+
+exports[`Integration: unfurls private unfurls sends prompt for private resource that can be unfurled 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
+  "channel": "C74M",
+  "token": "xoxa-token",
+  "user": "U88HS",
+}
+`;
+
+exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 1`] = `
+Object {
+  "channel": "C74M",
+  "token": "xoxa-token",
+  "ts": "1510704981.000364",
+  "unfurls": "{\\"https://github.com/kubernetes\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/kubernetes|@kubernetes>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Kubernetes\\",\\"title\\":\\"Kubernetes\\",\\"text\\":\\"Kubernetes\\",\\"thumb_url\\":\\"https://avatars2.githubusercontent.com/u/13629408?v=4\\",\\"fields\\":[{\\"title\\":\\"URL\\",\\"value\\":\\"http://kubernetes.io\\",\\"short\\":true},{\\"title\\":\\"Repositories\\",\\"value\\":51,\\"short\\":true}],\\"ts\\":1438624543}}",
+}
+`;
+
+exports[`Integration: unfurls private unfurls uses user access token for public resources 1`] = `
 Object {
   "channel": "C74M",
   "token": "xoxa-token",
@@ -18,7 +48,34 @@ Object {
 }
 `;
 
-exports[`Integration: unfurls only unfurls link first time a link is shared 1`] = `
+exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 1`] = `
+Object {
+  "channel": "C74M",
+  "token": "xoxa-token",
+  "ts": "1510704981.000364",
+  "unfurls": "{\\"https://github.com/facebook/react/issues/10191\\":{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[bkeepers/dotenv] #10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\"}}",
+}
+`;
+
+exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 2`] = `
+Object {
+  "channel": "C74M",
+  "token": "xoxa-token",
+  "ts": "1510704981.000364",
+  "unfurls": "{\\"https://github.com/atom/atom/issues/16292\\":{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[bkeepers/dotenv] #10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\"}}",
+}
+`;
+
+exports[`Integration: unfurls public unfurls issue 1`] = `
+Object {
+  "channel": "C74M",
+  "token": "xoxa-token",
+  "ts": "1510704981.000364",
+  "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Watchers\\",\\"value\\":57,\\"short\\":true},{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Forks\\",\\"value\\":283,\\"short\\":true},{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
+}
+`;
+
+exports[`Integration: unfurls public unfurls only unfurls link first time a link is shared 1`] = `
 Object {
   "channel": "C74M",
   "token": "xoxa-token",

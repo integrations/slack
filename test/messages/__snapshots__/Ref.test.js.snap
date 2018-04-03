@@ -8,7 +8,7 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#24292f",
-      "fallback": "Deleted branch <https://github.com/github-slack/public-test/tree/hello|\`hello\`>",
+      "fallback": "[github-slack/public-test] Deleted branch <https://github.com/github-slack/public-test/tree/hello|\`hello\`>",
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
@@ -28,7 +28,7 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#24292f",
-      "fallback": "Created tag <https://github.com/github-slack/public-test/tree/hi🤩|\`hi🤩\`>",
+      "fallback": "[github-slack/public-test] Created tag <https://github.com/github-slack/public-test/tree/hi🤩|\`hi🤩\`>",
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
