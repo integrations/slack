@@ -91,6 +91,10 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
     - **Usage Hint**: `subscribe https://github.com/organization/repository`
     - Click **Save**
     - Test it out by typing `/github subscribe https://github.com/myorg/myrepo`
+1. Go to the **Interactive Components** tab and click **Enable Interactive components**:
+
+    - **Request URL**: `https://DOMAIN/slack/actions`
+    - click **Enable Interactive components**
 
 1. Congratulate yourself for following directions and clicking buttons. Take the rest of the day off because that was a lot of work.
 

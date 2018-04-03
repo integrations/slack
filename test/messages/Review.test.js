@@ -28,4 +28,12 @@ describe('Review rendering', () => {
     const rendered = reviewMessage.toJSON();
     expect(rendered).toMatchSnapshot();
   });
+
+  test('renders html to mrkdwn', async () => {
+    const reviewMessage = new Review({
+      ...reviewApproved,
+      review: { ...reviewApproved.review, body_html: '<b>rendered</b> <code>html</code>' },
+    });
+    expect(reviewMessage.toJSON()).toMatchSnapshot();
+  });
 });

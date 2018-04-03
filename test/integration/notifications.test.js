@@ -385,7 +385,14 @@ describe('Integration: notifications', () => {
         settings: { reviews: true },
       });
 
-      nock('https://api.github.com').get(`/repositories/${reviewApproved.repository.id}`).reply(200);
+      nock('https://api.github.com')
+        .get(`/repositories/${reviewApproved.repository.id}`)
+        .reply(200);
+
+      nock('https://api.github.com')
+        .get('/repos/github-slack/public-test/pulls/19/reviews/97014958')
+        .reply(200, { ...reviewApproved.review, body_html: 'rendered html' });
+
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;
@@ -395,23 +402,10 @@ describe('Integration: notifications', () => {
         event: 'pull_request_review',
         payload: reviewApproved,
       });
-    });
 
-    test('review event updated', async () => {
-      await Subscription.subscribe({
-        githubId: reviewApproved.repository.id,
-        channelId: 'C001',
-        slackWorkspaceId: workspace.id,
-        installationId: installation.id,
-        creatorId: slackUser.id,
-        settings: { reviews: true },
-      });
-
-      nock('https://api.github.com').get(`/repositories/${reviewApproved.repository.id}`).reply(200);
-      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
-        expect(body).toMatchSnapshot();
-        return true;
-      }).reply(200, { ok: true });
+      nock('https://api.github.com')
+        .get('/repos/github-slack/public-test/pulls/19/reviews/97014958')
+        .reply(200, { ...reviewApproved.review, body_html: 'updated html' });
 
       nock('https://slack.com').post('/api/chat.update', (body) => {
         expect(body).toMatchSnapshot();
@@ -421,17 +415,6 @@ describe('Integration: notifications', () => {
       await probot.receive({
         event: 'pull_request_review',
         payload: reviewApproved,
-      });
-
-      await probot.receive({
-        event: 'pull_request_review',
-        payload: {
-          ...reviewApproved,
-          review: {
-            ...reviewApproved.review,
-            body: 'This really is a great pull request',
-          },
-        },
       });
     });
 
@@ -569,6 +552,10 @@ describe('Integration: notifications', () => {
         .times(2) // once for issue comment count, once for comment notification
         .reply(200, commentPayload.repository);
 
+      nock('https://api.github.com')
+        .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
+        .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
+
       await probot.receive({
         event: 'issue_comment',
         payload: commentPayload,
@@ -594,10 +581,18 @@ describe('Integration: notifications', () => {
         .times(2) // once for issue comment count, once for comment notification
         .reply(200, commentPayload.repository);
 
+      nock('https://api.github.com')
+        .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
+        .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
+
       await probot.receive({
         event: 'issue_comment',
         payload: commentPayload,
       });
+
+      nock('https://api.github.com')
+        .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
+        .reply(200, { ...commentPayload.comment, body_html: 'edited html' });
 
       nock('https://slack.com').post('/api/chat.update', (body) => {
         expect(body).toMatchSnapshot();
@@ -704,6 +699,10 @@ describe('Integration: notifications', () => {
       });
 
       nock('https://api.github.com').get(`/repositories/${reviewCommentCreated.repository.id}`).reply(200);
+      nock('https://api.github.com')
+        .get('/repos/github-slack-test-org/test2/pulls/comments/171608320')
+        .reply(200, { ...reviewCommentCreated.comment, body_html: 'rendered html' });
+
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;
