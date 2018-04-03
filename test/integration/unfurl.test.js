@@ -292,7 +292,7 @@ describe('Integration: unfurls', () => {
       expect(deliveredUnfurl.isDelivered).toBe(true);
     });
 
-    test('clicking "Dismiss" deletes the prompt', async () => {
+    test('clicking "Dismiss" deletes the prompt and the unfurl record', async () => {
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
         200,
         {
@@ -312,6 +312,9 @@ describe('Integration: unfurls', () => {
       await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
         .expect(200);
 
+      let unfurls = await Unfurl.findAll();
+      expect(unfurls.length).toBe(1);
+
       // User clicks 'Dismiss'
       await request(probot.server).post('/slack/actions').send({
         payload: JSON.stringify({
@@ -329,6 +332,9 @@ describe('Integration: unfurls', () => {
         .expect((res) => {
           expect(res.body).toMatchSnapshot();
         });
+
+      unfurls = await Unfurl.findAll();
+      expect(unfurls.length).toBe(0);
     });
 
     test('throws error when user is not linked', async () => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: unfurls private unfurls clicking "Dismiss" deletes the prompt 1`] = `
+exports[`Integration: unfurls private unfurls clicking "Dismiss" deletes the prompt and the unfurl record 1`] = `
 Object {
   "delete_original": true,
 }
