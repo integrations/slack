@@ -1,10 +1,8 @@
 const nock = require('nock');
 const moment = require('moment');
 
-const helper = require('.');
+const { probot, models } = require('.');
 const fixtures = require('../fixtures');
-
-const { probot } = helper;
 
 const issuePayload = require('../fixtures/webhooks/issues.opened');
 const pullRequestPayload = require('../fixtures/webhooks/pull_request.opened');
@@ -26,7 +24,7 @@ const {
   Installation,
   SlackUser,
   GitHubUser,
-} = helper.robot.models;
+} = models;
 
 describe('Integration: notifications', () => {
   describe('to a subscribed channel', () => {
@@ -96,7 +94,7 @@ describe('Integration: notifications', () => {
         creatorId: slackUser.id,
       });
 
-      nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).times(2).reply(200, {
+      nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
         full_name: issuePayload.repository.full_name,
       });
       nock('https://api.github.com', {
@@ -389,7 +387,6 @@ describe('Integration: notifications', () => {
 
       nock('https://api.github.com')
         .get(`/repositories/${reviewApproved.repository.id}`)
-        .times(2)
         .reply(200);
 
       nock('https://api.github.com')
@@ -445,7 +442,7 @@ describe('Integration: notifications', () => {
         creatorId: slackUser.id,
       });
 
-      nock('https://api.github.com').get(`/repositories/${deploymentStatusPendingPayload.repository.id}`).times(2).reply(200);
+      nock('https://api.github.com').get(`/repositories/${deploymentStatusPendingPayload.repository.id}`).reply(200);
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;

@@ -1,11 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Issue rendering extracts image from body_html 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+      "author_link": "https://github.com/wilhelmklopp",
+      "author_name": "wilhelmklopp",
+      "color": "#36a64f",
+      "fallback": "[github-slack/public-test] #1 Needs content",
+      "fields": Array [
+        Object {
+          "short": true,
+          "title": "Assignees",
+          "value": "wilhelmklopp",
+        },
+        Object {
+          "short": true,
+          "title": "Labels",
+          "value": "enhancement, question, wontfix",
+        },
+      ],
+      "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "image_url": "https://media.giphy.com/media/5xtDarEbygs3Pu7p3jO/giphy.gif",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Hello world!
+
+https://media.giphy.com/media/5xtDarEbygs3Pu7p3jO/giphy.gif",
+      "title": "#1 Needs content",
+      "title_link": "https://github.com/github-slack/public-test/issues/1",
+      "ts": 1508171038,
+    },
+  ],
+}
+`;
+
 exports[`Issue rendering works for condensed unfurls 1`] = `
 Object {
   "attachments": Array [
     Object {
       "color": "#36a64f",
-      "fallback": "#1 Needs content",
+      "fallback": "[github-slack/public-test] #1 Needs content",
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
@@ -27,7 +65,7 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#36a64f",
-      "fallback": "#1 Needs content",
+      "fallback": "[github-slack/public-test] #1 Needs content",
       "fields": Array [
         Object {
           "short": true,
@@ -59,7 +97,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#cb2431",
-      "fallback": "Issue closed by bkeepers",
+      "fallback": "[github-slack/public-test] Issue closed by bkeepers",
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
@@ -82,7 +120,7 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#36a64f",
-      "fallback": "Issue opened by wilhelmklopp",
+      "fallback": "[github-slack/public-test] Issue opened by wilhelmklopp",
       "fields": Array [
         Object {
           "short": true,

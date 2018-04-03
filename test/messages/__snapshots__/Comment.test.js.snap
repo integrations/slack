@@ -1,9 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Comment rendering extracts image from body_html 1`] = `
+Object {
+  "author_icon": "https://avatars2.githubusercontent.com/u/887?v=4",
+  "author_link": "https://github.com/mislav",
+  "author_name": "mislav",
+  "color": "#24292f",
+  "fallback": "[bkeepers/dotenv] Comment on #10191",
+  "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "image_url": "https://media.giphy.com/media/5xtDarEbygs3Pu7p3jO/giphy.gif",
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "text": "Hello world!
+
+https://media.giphy.com/media/5xtDarEbygs3Pu7p3jO/giphy.gif",
+  "title": "Comment on #10191 Consider re-licensing to AL v2.0, as RocksDB has just done",
+  "title_link": "https://github.com/github/hub/pull/1535#issuecomment-322500379",
+  "ts": 1502810673,
+}
+`;
+
 exports[`Comment rendering works for condensed unfurls 1`] = `
 Object {
   "color": "#24292f",
-  "fallback": "Comment on #10191",
+  "fallback": "[bkeepers/dotenv] Comment on #10191",
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [
@@ -21,7 +43,7 @@ Object {
   "author_link": "https://github.com/mislav",
   "author_name": "mislav",
   "color": "#24292f",
-  "fallback": "Comment on #10191",
+  "fallback": "[bkeepers/dotenv] Comment on #10191",
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
   "footer_icon": "https://assets-cdn.github.com/favicon.ico",
   "mrkdwn_in": Array [

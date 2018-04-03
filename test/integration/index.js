@@ -1,10 +1,11 @@
 const createProbot = require('probot');
 const GitHub = require('probot/lib/github');
-const logger = require('probot/lib/logger');
+const logger = require('../../lib/logger');
 const nock = require('nock');
 
 const slackbot = require('../slackbot');
 const app = require('../../lib');
+const models = require('../../lib/models');
 
 const cache = require('../../lib/cache');
 
@@ -14,16 +15,14 @@ const robot = probot.load(app);
 // raise errors in tests
 robot.catchErrors = false;
 
-const { sequelize } = robot.models;
-
 // Expect there are no more pending nock requests
 beforeEach(async () => nock.cleanAll());
 afterEach(() => expect(nock.pendingMocks()).toEqual([]));
 
 // Ensure there is a connection established
-beforeAll(async () => sequelize.authenticate());
+beforeAll(async () => models.sequelize.authenticate());
 // Close connection when tests are done
-afterAll(async () => sequelize.close());
+afterAll(async () => models.sequelize.close());
 
 beforeEach(() => {
   // Restore log level after each test
@@ -34,11 +33,11 @@ beforeEach(() => {
 
   // Clear all data out of the test database
   return Promise.all([
-    sequelize.truncate({ cascade: true }),
+    models.sequelize.truncate({ cascade: true }),
     cache.clear(),
   ]);
 });
 
 module.exports = {
-  robot, probot, app, slackbot,
+  robot, probot, app, slackbot, models,
 };

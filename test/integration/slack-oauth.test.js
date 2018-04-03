@@ -2,9 +2,9 @@ const supertest = require('supertest');
 const nock = require('nock');
 const queryString = require('query-string');
 
-const helper = require('.');
+const { probot, models } = require('.');
 
-const { probot } = helper;
+const { SlackWorkspace } = models;
 
 const fixtures = require('../fixtures');
 
@@ -13,10 +13,6 @@ const access = fixtures.slack.oauth.token;
 const request = supertest.agent(probot.server);
 
 describe('Integration: slack authentication', () => {
-  beforeEach(() => {
-    delete process.env.ALLOWED_TEAMS;
-  });
-
   test('/login', async () => {
     nock('https://slack.com').post('/api/chat.postMessage', (body) => {
       expect(body).toMatchSnapshot();
@@ -38,7 +34,6 @@ describe('Integration: slack authentication', () => {
       .expect(302)
       .expect('Location', `https://slack.com/app_redirect?app=${access.app_id}&team=${access.team_id}`);
 
-    const { SlackWorkspace } = helper.robot.models;
     const workspace = await SlackWorkspace.findOne({ where: { slackId: access.team_id } });
     expect(workspace.accessToken).toEqual(access.access_token);
   });
@@ -48,8 +43,6 @@ describe('Integration: slack authentication', () => {
       expect(body).toMatchSnapshot();
       return true;
     }).reply(200, { ok: true });
-
-    const { SlackWorkspace } = helper.robot.models;
 
     const workspace = await SlackWorkspace.create({ slackId: access.team_id, accessToken: 'old' });
 
@@ -71,35 +64,13 @@ describe('Integration: slack authentication', () => {
     expect(workspace.accessToken).toEqual(access.access_token);
   });
 
-  test('denies teams that are not allowed', async () => {
-    process.env.ALLOWED_TEAMS = 'not-your-team,not-your-team-either';
-
-    nock('https://slack.com').post('/api/oauth.token').reply(200, access);
-    nock('https://slack.com').post('/api/team.info').reply(200, fixtures.slack.team.info);
-    nock('https://slack.com').post('/api/auth.revoke').reply(200, { ok: true });
-
-    const res = await request.get('/slack/oauth/login')
-      .expect(302);
-    const { location } = res.headers;
-    const { state } = queryString.parse(location.replace('https://slack.com/oauth/authorize', ''));
-    const code = 'code-from-slack';
-
-    await request.get('/slack/oauth/callback')
-      .query({ code, state })
-      .expect(302)
-      .expect('Location', '/denied');
-  });
-
-  test('allows specified teams', async () => {
+  test('allows all teams', async () => {
     nock('https://slack.com').post('/api/chat.postMessage', (body) => {
       expect(body).toMatchSnapshot();
       return true;
     }).reply(200, { ok: true });
 
-    process.env.ALLOWED_TEAMS = 'someone-else,example';
-
     nock('https://slack.com').post('/api/oauth.token').reply(200, access);
-    nock('https://slack.com').post('/api/team.info').reply(200, fixtures.slack.team.info);
 
     const res = await request.get('/slack/oauth/login')
       .expect(302);
