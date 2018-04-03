@@ -193,7 +193,7 @@ describe('Integration: unfurls', () => {
   describe('private unfurls', () => {
     let githubUser;
     beforeEach(async () => {
-      process.env.ALLOWED_CHANNELS = 'C74M'; // same as in link_shared.js
+      process.env.EARLY_ACCESS_CHANNELS = 'C74M'; // same as in link_shared.js
       githubUser = await GitHubUser.create({
         id: 1,
         accessToken: 'secret',
@@ -207,7 +207,7 @@ describe('Integration: unfurls', () => {
     });
 
     afterEach(() => {
-      process.env.ALLOWED_CHANNELS = '';
+      process.env.EARLY_ACCESS_CHANNELS = '';
     });
     test('sends prompt for private resource that can be unfurled', async () => {
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
@@ -425,7 +425,7 @@ describe('Integration: unfurls', () => {
         .expect(200);
     });
 
-    describe('in channels wich are not in ALLOWED_CHANNELS', async () => {
+    describe('in channels wich are not in EARLY_ACCESS_CHANNELS', async () => {
       test('public unfurls work as normal', async () => {
         process.env.GITHUB_TOKEN = 'super-secret';
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
