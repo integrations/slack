@@ -37,6 +37,7 @@ module.exports = {
     oauth: {
       token: require('./slack/oauth.token'),
     },
+    action: require('./slack/action'),
   },
   github: {
     webhooks: {

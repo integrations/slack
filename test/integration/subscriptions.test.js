@@ -28,6 +28,30 @@ describe('Integration: subscriptions', () => {
       expect(text).toMatch('Connect GitHub account');
       expect(url).toMatch(promptUrl);
     });
+    test('who exists but hasn\t linked their GitHub account yet is prompted to authenticate before subscribing', async () => {
+      const { SlackWorkspace, SlackUser } = models;
+      const slackWorkspace = await SlackWorkspace.create({
+        slackId: 'T0001',
+        accessToken: 'xoxp-token',
+      });
+      await SlackUser.create({
+        slackId: 'U2147483697',
+        slackWorkspaceId: slackWorkspace.id,
+      });
+      // User types slash command
+      const command = fixtures.slack.command({
+        text: 'subscribe https://github.com/kubernetes/kubernetes',
+      });
+      const req = request.post('/slack/command').use(slackbot).send(command);
+      const res = await req.expect(200);
+
+      // User is shown ephemeral prompt to authenticate
+      const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+      const { text } = res.body.attachments[0].actions[0];
+      const { url } = res.body.attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+    });
   });
 
   describe('authenticated user', () => {
