@@ -391,7 +391,7 @@ describe('Integration: notifications', () => {
 
       nock('https://api.github.com')
         .get('/repos/github-slack/public-test/pulls/19/reviews/97014958')
-        .reply(200, { ...reviewApproved.review, body_html: 'rendered html' });
+        .reply(200, { ...reviewApproved.review, body_html: 'rendered html', state: 'APPROVED' });
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
