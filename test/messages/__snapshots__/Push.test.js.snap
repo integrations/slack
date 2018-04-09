@@ -8,13 +8,13 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#24292f",
-      "fallback": "[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> pushed to \`master\`",
+      "fallback": "[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> pushed to <https://github.com/github-slack/app/tree/master|\`master\`>",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> pushed to \`master\`*
+      "text": "*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> pushed to <https://github.com/github-slack/app/tree/master|\`master\`>*
 <https://github.com/github-slack/app/commit/70a7498e9ca8ab3daa7b3c4ed3963d2968a22719|\`70a7498e\`> - Bump probot version
 <https://github.com/github-slack/app/commit/d2f6f8b15b077d092c1fa16c41f7b191fa53b2d7|\`d2f6f8b1\`> - Merge branch 'fix-sender-bug' into deployments
 <https://github.com/github-slack/app/commit/a8cfa539aee3f9b20dd905027d4206cdf9118b8d|\`a8cfa539\`> - Add deployment rendering
@@ -39,13 +39,13 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#24292f",
-      "fallback": "[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|1 new commit> pushed to \`master\`",
+      "fallback": "[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|1 new commit> pushed to <https://github.com/github-slack/app/tree/master|\`master\`>",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|1 new commit> pushed to \`master\`*
+      "text": "*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|1 new commit> pushed to <https://github.com/github-slack/app/tree/master|\`master\`>*
 <https://github.com/github-slack/app/commit/70a7498e9ca8ab3daa7b3c4ed3963d2968a22719|\`70a7498e\`> - Bump probot version",
     },
   ],
@@ -60,13 +60,13 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#24292f",
-      "fallback": "[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> force-pushed to \`master\`",
+      "fallback": "[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> force-pushed to <https://github.com/github-slack/app/tree/master|\`master\`>",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> force-pushed to \`master\`*
+      "text": "*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> force-pushed to <https://github.com/github-slack/app/tree/master|\`master\`>*
 <https://github.com/github-slack/app/commit/70a7498e9ca8ab3daa7b3c4ed3963d2968a22719|\`70a7498e\`> - Bump probot version
 <https://github.com/github-slack/app/commit/d2f6f8b15b077d092c1fa16c41f7b191fa53b2d7|\`d2f6f8b1\`> - Merge branch 'fix-sender-bug' into deployments
 <https://github.com/github-slack/app/commit/a8cfa539aee3f9b20dd905027d4206cdf9118b8d|\`a8cfa539\`> - Add deployment rendering
