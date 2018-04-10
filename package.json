@@ -2,7 +2,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "probot run --webhook-path=/github/events ./lib",
+    "start": "probot run ./lib",
     "test": "jest --coverage --runInBand --forceExit",
     "posttest": "npm run lint",
     "lint": "eslint lib test",
