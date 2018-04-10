@@ -434,7 +434,7 @@ describe('Integration: unfurls', () => {
         .expect(200);
     });
 
-    test.only('automatically unfurls private resources if they are part of subscribed reop', async () => {
+    test('automatically unfurls private resources if they are part of subscribed reop', async () => {
       const installation = await Installation.create({
         githubId: 1,
         ownerId: 1337,
