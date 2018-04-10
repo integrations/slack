@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# script/db_create: Sets up & migrates the databases schema
+
+set -e
+
+PATH="$PATH:node_modules/.bin"
+
+# dev
+sequelize db:create || true
+sequelize db:migrate
+
+# test
+sequelize db:create --env test || true
+sequelize db:migrate --env test
