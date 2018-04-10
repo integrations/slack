@@ -11,6 +11,8 @@ const {
   SlackUser,
   GitHubUser,
   Unfurl,
+  Subscription,
+  Installation,
 } = models;
 
 describe('Integration: unfurls', () => {
@@ -192,6 +194,7 @@ describe('Integration: unfurls', () => {
 
   describe('private unfurls', () => {
     let githubUser;
+    let slackUser;
     beforeEach(async () => {
       process.env.EARLY_ACCESS_CHANNELS = 'C74M'; // same as in link_shared.js
       githubUser = await GitHubUser.create({
@@ -199,7 +202,7 @@ describe('Integration: unfurls', () => {
         accessToken: 'secret',
       });
 
-      await SlackUser.create({
+      slackUser = await SlackUser.create({
         slackId: 'U88HS', // same as in link_shared.js
         slackWorkspaceId: workspace.id,
         githubId: githubUser.id,
@@ -429,6 +432,44 @@ describe('Integration: unfurls', () => {
         },
       }))
         .expect(200);
+    });
+
+    test.only('automatically unfurls private resources if they are part of subscribed reop', async () => {
+      const installation = await Installation.create({
+        githubId: 1,
+        ownerId: 1337,
+      });
+      await Subscription.subscribe({
+        creatorId: slackUser.id,
+        slackWorkspaceId: workspace.id,
+        githubId: 54321,
+        channelId: 'C74M',
+        installationId: installation.id,
+      });
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          private: true,
+          id: 54321,
+        },
+      );
+
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          ...fixtures.repo,
+          updated_at: moment().subtract(2, 'months'),
+        },
+      );
+
+      nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+        .expect(200);
+
+      const [deliveredUnfurl] = await Unfurl.findAll();
+      expect(deliveredUnfurl.isDelivered).toBe(true);
+      expect(deliveredUnfurl.isPublic).toBe(false);
     });
 
     describe('in channels wich are not in EARLY_ACCESS_CHANNELS', async () => {
