@@ -197,6 +197,7 @@ describe('Integration: unfurls', () => {
     let slackUser;
     beforeEach(async () => {
       process.env.EARLY_ACCESS_CHANNELS = 'C74M'; // same as in link_shared.js
+      process.env.EARLY_ACCESS_WORKSPACES = 'T000A'; // same as in link_shared.js
       githubUser = await GitHubUser.create({
         id: 1,
         accessToken: 'secret',
@@ -211,6 +212,7 @@ describe('Integration: unfurls', () => {
 
     afterEach(() => {
       process.env.EARLY_ACCESS_CHANNELS = '';
+      process.env.EARLY_ACCESS_WORKSPACES = '';
     });
     test('sends prompt for private resource that can be unfurled', async () => {
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
@@ -472,7 +474,39 @@ describe('Integration: unfurls', () => {
       expect(deliveredUnfurl.isPublic).toBe(false);
     });
 
-    describe('in channels wich are not in EARLY_ACCESS_CHANNELS', async () => {
+    test('sending prompt works when only the workspace has early access', async () => {
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          private: true,
+        },
+      );
+
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect({
+          ...body,
+          attachments: body.attachments.replace(/"callback_id":"unfurl-\d+"/, '"callback_id":"unfurl-123"'),
+        }).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+        event: {
+          ...fixtures.slack.link_shared().event,
+          channel: 'C0Other',
+        },
+      }))
+        .expect(200);
+    });
+
+    describe('in channels/teams which do not have early access', async () => {
+      beforeEach(async () => {
+        const { SlackWorkspace } = models;
+        await SlackWorkspace.create({
+          slackId: 'T0Other',
+          accessToken: 'xoxa-token',
+        });
+      });
       test('public unfurls work as normal', async () => {
         process.env.GITHUB_TOKEN = 'super-secret';
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
@@ -486,6 +520,8 @@ describe('Integration: unfurls', () => {
         nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
 
         await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+          ...fixtures.slack.link_shared(),
+          team_id: 'T0Other',
           event: {
             ...fixtures.slack.link_shared().event,
             channel: 'C0Other',
@@ -497,6 +533,8 @@ describe('Integration: unfurls', () => {
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
 
         await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+          ...fixtures.slack.link_shared(),
+          team_id: 'T0Other',
           event: {
             ...fixtures.slack.link_shared().event,
             channel: 'C0Other',
