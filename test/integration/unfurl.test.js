@@ -11,6 +11,8 @@ const {
   SlackUser,
   GitHubUser,
   Unfurl,
+  Subscription,
+  Installation,
 } = models;
 
 describe('Integration: unfurls', () => {
@@ -192,14 +194,16 @@ describe('Integration: unfurls', () => {
 
   describe('private unfurls', () => {
     let githubUser;
+    let slackUser;
     beforeEach(async () => {
       process.env.EARLY_ACCESS_CHANNELS = 'C74M'; // same as in link_shared.js
+      process.env.EARLY_ACCESS_WORKSPACES = 'T000A'; // same as in link_shared.js
       githubUser = await GitHubUser.create({
         id: 1,
         accessToken: 'secret',
       });
 
-      await SlackUser.create({
+      slackUser = await SlackUser.create({
         slackId: 'U88HS', // same as in link_shared.js
         slackWorkspaceId: workspace.id,
         githubId: githubUser.id,
@@ -208,6 +212,7 @@ describe('Integration: unfurls', () => {
 
     afterEach(() => {
       process.env.EARLY_ACCESS_CHANNELS = '';
+      process.env.EARLY_ACCESS_WORKSPACES = '';
     });
     test('sends prompt for private resource that can be unfurled', async () => {
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
@@ -431,7 +436,77 @@ describe('Integration: unfurls', () => {
         .expect(200);
     });
 
-    describe('in channels wich are not in EARLY_ACCESS_CHANNELS', async () => {
+    test('automatically unfurls private resources if they are part of subscribed repo', async () => {
+      const installation = await Installation.create({
+        githubId: 1,
+        ownerId: 1337,
+      });
+      await Subscription.subscribe({
+        creatorId: slackUser.id,
+        slackWorkspaceId: workspace.id,
+        githubId: 54321,
+        channelId: 'C74M',
+        installationId: installation.id,
+      });
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          private: true,
+          id: 54321,
+        },
+      );
+
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          ...fixtures.repo,
+          updated_at: moment().subtract(2, 'months'),
+        },
+      );
+
+      nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+        .expect(200);
+
+      const [deliveredUnfurl] = await Unfurl.findAll();
+      expect(deliveredUnfurl.isDelivered).toBe(true);
+      expect(deliveredUnfurl.isPublic).toBe(false);
+    });
+
+    test('sending prompt works when only the workspace has early access', async () => {
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          private: true,
+        },
+      );
+
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect({
+          ...body,
+          attachments: body.attachments.replace(/"callback_id":"unfurl-\d+"/, '"callback_id":"unfurl-123"'),
+        }).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+        event: {
+          ...fixtures.slack.link_shared().event,
+          channel: 'C0Other',
+        },
+      }))
+        .expect(200);
+    });
+
+    describe('in channels/teams which do not have early access', async () => {
+      beforeEach(async () => {
+        const { SlackWorkspace } = models;
+        await SlackWorkspace.create({
+          slackId: 'T0Other',
+          accessToken: 'xoxa-token',
+        });
+      });
       test('public unfurls work as normal', async () => {
         process.env.GITHUB_TOKEN = 'super-secret';
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
@@ -445,6 +520,8 @@ describe('Integration: unfurls', () => {
         nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
 
         await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+          ...fixtures.slack.link_shared(),
+          team_id: 'T0Other',
           event: {
             ...fixtures.slack.link_shared().event,
             channel: 'C0Other',
@@ -456,6 +533,8 @@ describe('Integration: unfurls', () => {
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
 
         await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+          ...fixtures.slack.link_shared(),
+          team_id: 'T0Other',
           event: {
             ...fixtures.slack.link_shared().event,
             channel: 'C0Other',
