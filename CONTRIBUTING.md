@@ -50,7 +50,20 @@ This app is written in [ES6 JavaScript](https://nodejs.org/en/docs/es6/) and run
 $ script/bootstrap
 ```
 
-To run the app locally, you will need to configure a GitHub App and a Slack App.
+This will install `redis` and `postgres`, which are required to run the app. You will need to
+start up the servers, and then run:
+
+```
+$ script/db_create
+```
+
+This set up the databases and keep their schemas up to date. You can verify that your code is setup correctly by running:
+
+```
+$ npm test
+```
+
+The next step for running the app locally is to configure both a GitHub App and a Slack App. For both of these you will likely need to use a tool like [smee](https://smee.io) or [ngrok](https://ngrok.com) to expose a URL publicly (referred to as `DOMAIN` in these docs) which will tunnel traffic back to your computer.
 
 #### Configuring a GitHub App
 
@@ -98,6 +111,25 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
     - click **Enable Interactive components**
 
 1. Congratulate yourself for following directions and clicking buttons. Take the rest of the day off because that was a lot of work.
+
+## Troubleshooting
+
+* Tests fail with something similar to:
+
+  ```
+  SequelizeForeignKeyConstraintError: insert or update on table "SlackUsers" violates foreign key constraint "slackWorkspaceId_foreign_idx"
+  ```
+
+  Means you aren't running postgres and redis when your tests are running.
+
+* Requests to `https://DOMAIN/github/events` from your GitHub app fail with: 
+
+  ```
+  ERROR http: No X-Hub-Signature found on request
+  ```
+
+  Means you've not set the "Webhook secret" on your GitHub App to be `"development"`.
+
 
 ## Submitting a pull request
 
