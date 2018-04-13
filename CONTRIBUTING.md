@@ -63,11 +63,11 @@ This set up the databases and keep their schemas up to date. You can verify that
 $ npm test
 ```
 
-The next step for running the app locally is to configure both a GitHub App and a Slack App. For both of these you will likely need to use a tool like [smee](https://smee.io) or [ngrok](https://ngrok.com) to expose a URL publicly (referred to as `DOMAIN` in these docs) which will tunnel traffic back to your computer.
+The next step for running the app locally is to configure both a GitHub App and a Slack App. For both of these you will likely need to use a tool like [ngrok](https://ngrok.com) to expose a URL publicly (referred to as `DOMAIN` in these docs) which will tunnel traffic back to your computer.
 
 #### Configuring a GitHub App
 
-Following the [Probot docs for configuring up a GitHub App](https://probot.github.io/docs/development/#configure-a-github-app), with the only difference being these values for the GitHub App settings:
+Follow the [Probot docs for configuring up a GitHub App](https://probot.github.io/docs/development/#configure-a-github-app) skipping the addition of `WEBHOOK_PROXY_URL` to your `.env` file. The only other difference being these values for the GitHub App settings:
 
 - **User authorization callback URL**: `https://DOMAIN/github/oauth/callback`
 - **Setup URL**: `https://DOMAIN/github/setup`
