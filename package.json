@@ -21,6 +21,7 @@
     "express-sslify": "^1.2.0",
     "helmet": "^3.11.0",
     "html-to-mrkdwn": "^2.0.0",
+    "jsdom": "^11.7.0",
     "jsonwebtoken": "^8.1.0",
     "keyv": "^3.0.0",
     "moment": "^2.21.0",
@@ -33,7 +34,8 @@
     "request": "^2.83.0",
     "sequelize": "^4.33.4",
     "sequelize-cli": "^4.0.0",
-    "sequelize-encrypted": "^1.0.0"
+    "sequelize-encrypted": "^1.0.0",
+    "smee-client": "^1.0.1"
   },
   "devDependencies": {
     "dotenv": "^5.0.0",
