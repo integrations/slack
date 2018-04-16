@@ -6,6 +6,9 @@ describe('Exception', () => {
       team_id: 'T01234',
       user_id: 'U01234',
       channel_id: 'C01234',
+      command: '/github',
+      subcommand: 'subscribe',
+      text: 'integrations/test hihihi',
     }).toJSON();
     expect(exception).toMatchSnapshot();
   });
