@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Integration: debug returns debug information 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "text": "\`\`\`{
+  \\"team_id\\": \\"T0001\\",
+  \\"team_domain\\": \\"example\\",
+  \\"user_id\\": \\"U2147483697\\",
+  \\"channel_id\\": \\"C2147483705\\",
+  \\"channel_name\\": \\"test\\",
+  \\"text\\": \\"debug\\",
+  \\"enterprise_id\\": \\"E0001\\",
+  \\"enterprise_name\\": \\"Globular%20Construct%20Inc\\"
+}\`\`\`",
+      "title": "Debug information",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
