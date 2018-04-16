@@ -130,6 +130,29 @@ Follow the [Probot docs for configuring up a GitHub App](https://probot.github.i
 
   Means you've not set the "Webhook secret" on your GitHub App to be `"development"`.
 
+* `script/server` failing to connect in the following fashion.
+
+  ```
+  $ script/server
+  
+  > @ start /integrations/slack
+  > probot run --webhook-path=/github/events ./lib
+  
+  13:23:04.150Z  INFO probot: Forwarding https://DOMAIN to http://localhost:3000/github/events
+  13:23:04.154Z  INFO probot: Listening on http://localhost:3000
+  13:23:04.364Z  INFO http: GET / 200 - 55.34 ms (id=df405c97-d0e2-4379-a50c-3beb54135ed6)
+  13:23:04.398Z  INFO probot: Connected https://DOMAIN
+  13:23:04.405Z ERROR probot:  (type=error)
+  13:23:04.514Z  INFO http: GET / 200 - 2.71 ms (id=b4a375c6-d1f6-4dcc-ba9c-337947ce58ca)
+  13:23:04.550Z  INFO probot: Connected https://DOMAIN
+  13:23:04.555Z ERROR probot:  (type=error)
+  13:23:04.666Z  INFO http: GET / 200 - 1.94 ms (id=1d1706a8-9b9d-4845-a62c-08fd1e9801f6)
+  13:23:04.704Z  INFO probot: Connected https://DOMAIN
+  13:23:04.705Z ERROR probot:  (type=error)
+  ... repeated until process killed ....
+  ```
+  
+  Means you have `WEBHOOK_PROXY_URL` set in your `.env` file. Remove it and try again.
 
 ## Submitting a pull request
 
