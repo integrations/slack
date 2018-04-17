@@ -38,6 +38,12 @@ Object {
       "text": "Show this help message:
 \`/github help\`",
     },
+    Object {
+      "color": "",
+      "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "text": "",
+    },
   ],
   "response_type": "ephemeral",
   "text": ":wave: Need some help with \`/github\`?",
@@ -82,6 +88,12 @@ Object {
       "text": "Show this help message:
 \`/github help\`",
     },
+    Object {
+      "color": "",
+      "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "text": "",
+    },
   ],
   "response_type": "ephemeral",
   "text": ":wave: Need some help with \`/github\`?",
@@ -125,6 +137,12 @@ Object {
       ],
       "text": "Show this help message:
 \`/github help\`",
+    },
+    Object {
+      "color": "",
+      "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "text": "",
     },
   ],
   "response_type": "ephemeral",
