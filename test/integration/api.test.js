@@ -47,18 +47,36 @@ describe('Integration: api', () => {
     });
   });
 
-  describe('with a valid GitHub token', () => {
-    test('posting a message', async () => {
+  describe('with a valid user token', () => {
+    test('posts message if user has push access', async () => {
       nock('https://api.github.com')
         .get('/repos/owner/repo')
         .matchHeader('authorization', 'token test')
-        .reply(200, fixtures.repo);
+        .reply(200, {
+          ...fixtures.repo,
+          permissions: { push: true },
+        });
       nock('https://slack.com').post('/api/chat.postMessage').reply(200, { ok: true });
 
       await request.post('/repos/owner/repo')
         .set('authorization', 'token test')
         .send({ text: 'hello world' })
         .expect(200, { ok: true });
+    });
+
+    test('does not post message if user does not have push access', async () => {
+      nock('https://api.github.com')
+        .get('/repos/owner/repo')
+        .matchHeader('authorization', 'token test')
+        .reply(200, {
+          ...fixtures.repo,
+          permissions: { push: false },
+        });
+
+      await request.post('/repos/owner/repo')
+        .set('authorization', 'token test')
+        .send({ text: 'hello world' })
+        .expect(404);
     });
   });
 
