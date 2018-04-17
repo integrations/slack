@@ -50,14 +50,28 @@ This app is written in [ES6 JavaScript](https://nodejs.org/en/docs/es6/) and run
 $ script/bootstrap
 ```
 
-To run the app locally, you will need to configure a GitHub App and a Slack App.
+This will install `redis` and `postgres`, which are required to run the app. You will need to
+start up the servers, and then run:
+
+```
+$ script/db_create
+```
+
+This set up the databases and keep their schemas up to date. You can verify that your code is setup correctly by running:
+
+```
+$ npm test
+```
+
+The next step for running the app locally is to configure both a GitHub App and a Slack App. For both of these you will likely need to use a tool like [ngrok](https://ngrok.com) to expose a URL publicly (referred to as `DOMAIN` in these docs) which will tunnel traffic back to your computer.
 
 #### Configuring a GitHub App
 
-Following the [Probot docs for configuring up a GitHub App](https://probot.github.io/docs/development/#configure-a-github-app), with the only difference being these values for the GitHub App settings:
+Follow the [Probot docs for configuring up a GitHub App](https://probot.github.io/docs/development/#configure-a-github-app) skipping the addition of `WEBHOOK_PROXY_URL` to your `.env` file. The only other difference being these values for the GitHub App settings:
 
-- **Webhook URL**: `https://DOMAIN/github/events`
+- **User authorization callback URL**: `https://DOMAIN/github/oauth/callback`
 - **Setup URL**: `https://DOMAIN/github/setup`
+- **Webhook URL**: `https://DOMAIN/github/events`
 
 #### Configuring a Slack App
 
@@ -98,15 +112,57 @@ Following the [Probot docs for configuring up a GitHub App](https://probot.githu
 
 1. Congratulate yourself for following directions and clicking buttons. Take the rest of the day off because that was a lot of work.
 
+## Troubleshooting
+
+* Tests fail with something similar to:
+
+  ```
+  SequelizeForeignKeyConstraintError: insert or update on table "SlackUsers" violates foreign key constraint "slackWorkspaceId_foreign_idx"
+  ```
+
+  Means you aren't running postgres and redis when your tests are running.
+
+* Requests to `https://DOMAIN/github/events` from your GitHub app fail with: 
+
+  ```
+  ERROR http: No X-Hub-Signature found on request
+  ```
+
+  Means you've not set the "Webhook secret" on your GitHub App to be `"development"`.
+
+* `script/server` failing to connect in the following fashion.
+
+  ```
+  $ script/server
+  
+  > @ start /integrations/slack
+  > probot run --webhook-path=/github/events ./lib
+  
+  13:23:04.150Z  INFO probot: Forwarding https://DOMAIN to http://localhost:3000/github/events
+  13:23:04.154Z  INFO probot: Listening on http://localhost:3000
+  13:23:04.364Z  INFO http: GET / 200 - 55.34 ms (id=df405c97-d0e2-4379-a50c-3beb54135ed6)
+  13:23:04.398Z  INFO probot: Connected https://DOMAIN
+  13:23:04.405Z ERROR probot:  (type=error)
+  13:23:04.514Z  INFO http: GET / 200 - 2.71 ms (id=b4a375c6-d1f6-4dcc-ba9c-337947ce58ca)
+  13:23:04.550Z  INFO probot: Connected https://DOMAIN
+  13:23:04.555Z ERROR probot:  (type=error)
+  13:23:04.666Z  INFO http: GET / 200 - 1.94 ms (id=1d1706a8-9b9d-4845-a62c-08fd1e9801f6)
+  13:23:04.704Z  INFO probot: Connected https://DOMAIN
+  13:23:04.705Z ERROR probot:  (type=error)
+  ... repeated until process killed ....
+  ```
+  
+  Means you have `WEBHOOK_PROXY_URL` set in your `.env` file. Remove it and try again.
+
 ## Submitting a pull request
 
-0. [Fork][fork] and clone the repository
-0. Configure and install the dependencies: `script/bootstrap`
-0. Make sure the tests pass on your machine: `npm test`
-0. Create a new branch: `git checkout -b my-branch-name`
-0. Make your change, add tests, and make sure the tests still pass
-0. Push to your fork and [submit a pull request][pr]
-0. Pat your self on the back and wait for your pull request to be reviewed and merged.
+1. [Fork][fork] and clone the repository
+1. Configure and install the dependencies: `script/bootstrap`
+1. Make sure the tests pass on your machine: `npm test`
+1. Create a new branch: `git checkout -b my-branch-name`
+1. Make your change, add tests, and make sure the tests still pass
+1. Push to your fork and [submit a pull request][pr]
+1. Pat your self on the back and wait for your pull request to be reviewed and merged.
 
 Here are a few things you can do that will increase the likelihood of your pull request being accepted:
 
