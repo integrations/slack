@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unfurl PromptSignIn message rendering works 1`] = `
+Object {
+  "color": "#24292f",
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "text": "Get a rich preview for the link you posted by connecting your GitHub account using \`/github signin\`",
+}
+`;

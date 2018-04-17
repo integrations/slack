@@ -499,6 +499,21 @@ describe('Integration: unfurls', () => {
         .expect(200);
     });
 
+    test('a user who does not have their GitHub account connected gets a message prompting to connect it', async () => {
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+        event: {
+          ...fixtures.slack.link_shared().event,
+          user: 'U0Other',
+        },
+      }))
+        .expect(200);
+    });
+
     describe('in channels/teams which do not have early access', async () => {
       beforeEach(async () => {
         const { SlackWorkspace } = models;
