@@ -24,4 +24,29 @@ describe('Actions', async () => {
         expect(res.body).toMatchSnapshot();
       });
   });
+
+  test('An unknown callback_id returns a 500', async () => {
+    await request(probot.server).post('/slack/actions').send({
+      payload: JSON.stringify({
+        token: process.env.SLACK_VERIFICATION_TOKEN,
+        callback_id: 'some-random-thing',
+        actions: [
+          {
+            name: 'something',
+            type: 'button',
+            value: '',
+          },
+        ],
+        team: {
+          id: 'T000A',
+          domain: 'example',
+        },
+        user: {
+          id: 'U88HS',
+          name: 'aaron',
+        },
+      }),
+    })
+      .expect(500);
+  });
 });
