@@ -793,6 +793,18 @@ describe('Integration: unfurls', () => {
           });
         });
       });
+
+      test('when user clicks "dismiss", the MutePromptsPrompt is shown', async () => {
+        // User clicks 'Show rich preview'
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
       // user clicks all channels, doesn't get prompted even across channels
       // descibe 'all channels'
       // describe 'this channel'

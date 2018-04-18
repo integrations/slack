@@ -158,6 +158,36 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss", the MutePromptsPrompt is shown 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "actions": Array [
+        Object {
+          "name": "mute-24h",
+          "text": "Mute prompts for 24h",
+          "type": "button",
+        },
+        Object {
+          "name": "mute-indefinitely",
+          "text": "Mute prompts indefinitely",
+          "type": "button",
+        },
+        Object {
+          "name": "cancel",
+          "text": "Cancel",
+          "type": "button",
+        },
+      ],
+      "callback_id": "unfurl-mute-prompts",
+      "color": "#24292f",
+      "title": "Getting too many prompts?",
+    },
+  ],
+  "delete_original": true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 1`] = `
 Object {
   "channel": "C74M",
