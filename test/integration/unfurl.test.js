@@ -582,6 +582,18 @@ describe('Integration: unfurls', () => {
         await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
           .expect(200);
       });
+
+      test('when user clicks "dismiss", the MutePromptsPrompt is shown', async () => {
+        // User clicks 'Dismiss'
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
       describe('User clicks "Show rich preview" and gets AutoUnfurlPrompt', async () => {
         beforeEach(async () => {
           nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
@@ -794,16 +806,6 @@ describe('Integration: unfurls', () => {
         });
       });
 
-      test('when user clicks "dismiss", the MutePromptsPrompt is shown', async () => {
-        // User clicks 'Show rich preview'
-        await request(probot.server).post('/slack/actions').send({
-          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
-        })
-          .expect(200)
-          .expect((res) => {
-            expect(res.body).toMatchSnapshot();
-          });
-      });
 
       test('When user clicks "Mute prompts for 24h", they get a confirmation message', async () => {
         await request(probot.server).post('/slack/actions').send({
