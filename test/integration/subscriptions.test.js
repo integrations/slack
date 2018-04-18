@@ -270,7 +270,7 @@ describe('Integration: subscriptions', () => {
 
         await request.post('/slack/command').use(slackbot)
           .send(fixtures.slack.command({
-            text: 'subscribe bkeepers/dotenv pulls issues',
+            text: 'subscribe bkeepers/dotenv pulls, issues',
           }))
           .expect(200)
           .expect((res) => {
