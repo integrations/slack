@@ -878,11 +878,44 @@ describe('Integration: unfurls', () => {
           });
         });
 
-      // user clicks all channels, doesn't get prompted even across channels
-      // descibe 'all channels'
-      // describe 'this channel'
-      // describe mute for 24h
-      // describe mute indefinitely
+        test('When user clicks "Mute prompts indefinitely", they get a confirmation message', async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-indefinitely')),
+          })
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+        });
+
+        describe('User clicks "Mute prompts indefinitely"', async () => {
+          beforeEach(async () => {
+            await request(probot.server).post('/slack/actions').send({
+              payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-indefinitely')),
+            })
+              .expect(200);
+          });
+
+          test('setting is saved in the database', async () => {
+            await slackUser.reload();
+            expect(slackUser.settings.muteUnfurlPromptsIndefinitely).toBe(true);
+          });
+
+          test('A shared link does not cause a prompt', async () => {
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 12345,
+              },
+            );
+
+            // Link is shared in channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+              .expect(200);
+          });
+        });
+      });
     });
   });
 });

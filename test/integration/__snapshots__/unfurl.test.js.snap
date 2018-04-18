@@ -117,6 +117,22 @@ You can adjust this setting by invoking \`/github settings\`",
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts indefinitely", they get a confirmation message 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Prompts are muted indefinitely :white_check_mark:
+You can adjust this setting by invoking \`/github settings\`",
+    },
+  ],
+  "replace_original": true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link shared to a different repo results in a new prompt 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
