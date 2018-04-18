@@ -755,7 +755,7 @@ describe('Integration: notifications', () => {
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(0);
     });
 
-    test.only('channel_not_found error from slack deletes subscription', async () => {
+    test('channel_not_found error from slack deletes subscription', async () => {
       const subscription = await Subscription.subscribe({
         githubId: issuePayload.repository.id,
         channelId: 'C001',
