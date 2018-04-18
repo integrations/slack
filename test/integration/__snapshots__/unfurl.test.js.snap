@@ -110,6 +110,24 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in a different channel results in a new prompt 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
+  "channel": "C0Other",
+  "token": "xoxa-token",
+  "user": "U88HS",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in the same channel to a different repo results in a new prompt 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
+  "channel": "C74M",
+  "token": "xoxa-token",
+  "user": "U88HS",
+}
+`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for all channels", they get a confirmation message 1`] = `
 Object {
   "attachments": Array [

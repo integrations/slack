@@ -560,7 +560,7 @@ describe('Integration: unfurls', () => {
       });
     });
 
-    describe.only('settings', async () => {
+    describe('settings', async () => {
       let unfurlId;
       beforeEach(async () => {
         nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
@@ -611,16 +611,6 @@ describe('Integration: unfurls', () => {
               expect(res.body).toMatchSnapshot();
             });
         });
-        test('when user clicks "Enable for this channel", they get a confirmation message', async () => {
-          await request(probot.server).post('/slack/actions').send({
-            payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'this-channel')),
-          })
-            .expect(200)
-            .expect((res) => {
-              expect(res.body).toMatchSnapshot();
-            });
-        });
-
 
         describe('User clicks "Enable for all channels"', async () => {
           beforeEach(async () => {
@@ -669,6 +659,117 @@ describe('Integration: unfurls', () => {
               },
             );
 
+
+            nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+              expect({
+                ...body,
+                attachments: body.attachments.replace(/"callback_id":"unfurl-\d+"/, '"callback_id":"unfurl-123"'),
+              }).toMatchSnapshot();
+              return true;
+            }).reply(200, { ok: true });
+
+            // Link shared in other channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+              event: {
+                ...fixtures.slack.link_shared().event,
+                links: [{
+                  url: 'https://github.com/integrations/test',
+                  domain: 'github.com',
+                }],
+              },
+            }))
+              .expect(200);
+          });
+        });
+
+
+        test('when user clicks "Enable for this channel", they get a confirmation message', async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'this-channel')),
+          })
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+        });
+
+        describe('User clicks "Enable for this channel"', async () => {
+          beforeEach(async () => {
+            await request(probot.server).post('/slack/actions').send({
+              payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'this-channel')),
+            })
+              .expect(200);
+          });
+          test('setting is saved in the database', async () => {
+            // User clicks 'Enable for all channels'
+            await slackUser.reload();
+            expect(slackUser.settings.unfurlPrivateResources['12345']).toContain('C74M');
+          });
+
+          test('subsequent link (to the same repo) shared in the same channel is automatically unfurled', async () => {
+            // todo: investigate why this only works with .times(2) it shouldn't
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).times(2).reply(
+              200,
+              {
+                private: true,
+                id: 12345,
+              },
+            );
+
+            nock('https://api.github.com')
+              .get(`/repos/bkeepers/dotenv/issues/1?access_token=${githubUser.accessToken}`)
+              .reply(200, fixtures.issue);
+
+            nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+
+            // Link to issue due to 30min unfurl un-elligibility
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+              event: {
+                ...fixtures.slack.link_shared().event,
+                links: [{
+                  url: 'https://github.com/bkeepers/dotenv/issues/1',
+                  domain: 'github.com',
+                }],
+              },
+            }))
+              .expect(200);
+          });
+
+          test('subsequent link shared in a different channel results in a new prompt', async () => {
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 54321,
+              },
+            );
+
+            nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+              expect({
+                ...body,
+                attachments: body.attachments.replace(/"callback_id":"unfurl-\d+"/, '"callback_id":"unfurl-123"'),
+              }).toMatchSnapshot();
+              return true;
+            }).reply(200, { ok: true });
+
+            // Link shared in other channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+              event: {
+                ...fixtures.slack.link_shared().event,
+                channel: 'C0Other',
+              },
+            }))
+              .expect(200);
+          });
+
+          test('subsequent link shared in the same channel to a different repo results in a new prompt', async () => {
+            nock('https://api.github.com').get(`/repos/integrations/test?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 54321,
+              },
+            );
 
             nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
               expect({
