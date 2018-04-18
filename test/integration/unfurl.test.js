@@ -807,7 +807,7 @@ describe('Integration: unfurls', () => {
           });
       });
 
-      describe.only('User clicks "Dismiss" and gets MutePromptsPrompt', async () => {
+      describe('User clicks "Dismiss" and gets MutePromptsPrompt', async () => {
         beforeEach(async () => {
           await request(probot.server).post('/slack/actions').send({
             payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
