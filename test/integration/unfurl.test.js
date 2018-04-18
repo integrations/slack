@@ -559,5 +559,135 @@ describe('Integration: unfurls', () => {
           .expect(200);
       });
     });
+
+    describe.only('settings', async () => {
+      let unfurlId;
+      beforeEach(async () => {
+        nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+          200,
+          {
+            private: true,
+            id: 12345,
+          },
+        );
+
+        nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+          const pattern = /"callback_id":"unfurl-(\d+)"/;
+          const match = pattern.exec(body.attachments);
+          [, unfurlId] = match;
+          return true;
+        }).reply(200, { ok: true });
+
+        // Link is shared in channel
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+          .expect(200);
+      });
+      describe('User clicks "Show rich preview" and gets AutoUnfurlPrompt', async () => {
+        beforeEach(async () => {
+          nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+            200,
+            {
+              ...fixtures.repo,
+              updated_at: moment().subtract(2, 'months'),
+            },
+          );
+
+          nock('https://slack.com').post('/api/team.info').reply(200, { ok: true, team: { domain: 'acmecorp' } });
+          nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+          // User clicks 'Show rich preview'
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurl(unfurlId)),
+          })
+            .expect(200);
+        });
+
+
+        test('when user clicks "Enable for all channels", they get a confirmation message', async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'all-channels')),
+          })
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+        });
+
+
+        describe('User clicks "Enable for all channels"', async () => {
+          beforeEach(async () => {
+            await request(probot.server).post('/slack/actions').send({
+              payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'all-channels')),
+            })
+              .expect(200);
+          });
+          test('setting is saved in the database', async () => {
+            // User clicks 'Enable for all channels'
+            await slackUser.reload();
+            expect(slackUser.settings.unfurlPrivateResources['12345']).toContain('all');
+          });
+
+          test('subsequent link (to the same repo) shared in a different channel is automatically unfurled', async () => {
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 12345,
+              },
+            );
+
+            nock('https://api.github.com')
+              .get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`)
+              .reply(200, fixtures.repo);
+
+            nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+
+            // Link shared in other channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+              event: {
+                ...fixtures.slack.link_shared().event,
+                channel: 'C0Other',
+              },
+            }))
+              .expect(200);
+          });
+
+          test('subsequent link shared to a different repo results in a new prompt', async () => {
+            nock('https://api.github.com').get(`/repos/integrations/test?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 54321,
+              },
+            );
+
+
+            nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+              expect({
+                ...body,
+                attachments: body.attachments.replace(/"callback_id":"unfurl-\d+"/, '"callback_id":"unfurl-123"'),
+              }).toMatchSnapshot();
+              return true;
+            }).reply(200, { ok: true });
+
+            // Link shared in other channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+              event: {
+                ...fixtures.slack.link_shared().event,
+                links: [{
+                  url: 'https://github.com/integrations/test',
+                  domain: 'github.com',
+                }],
+              },
+            }))
+              .expect(200);
+          });
+        });
+      });
+      // user clicks all channels, doesn't get prompted even across channels
+      // descibe 'all channels'
+      // describe 'this channel'
+      // describe mute for 24h
+      // describe mute indefinitely
+    });
   });
 });
