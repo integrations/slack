@@ -278,6 +278,7 @@ describe('Integration: unfurls', () => {
         },
       );
 
+      nock('https://slack.com').post('/api/team.info').reply(200, { ok: true, team: { domain: 'acmecorp' } });
       nock('https://slack.com').post('/api/chat.unfurl', (body) => {
         expect(body).toMatchSnapshot();
         return true;
