@@ -824,6 +824,60 @@ describe('Integration: unfurls', () => {
               expect(res.body).toMatchSnapshot();
             });
         });
+
+        describe('User clicks "Mute prompts for 24h"', async () => {
+          beforeEach(async () => {
+            Date.now = jest.fn(() => new Date(Date.UTC(2018, 4, 18)).valueOf());
+            await request(probot.server).post('/slack/actions').send({
+              payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-24h')),
+            })
+              .expect(200);
+          });
+          test('setting is saved in the database', async () => {
+            await slackUser.reload();
+            expect(slackUser.settings.muteUnfurlPromptsUntil).toBe(1526688000);
+          });
+
+          test('A link shared within 24h does not cause a prompt', async () => {
+            Date.now = jest.fn(() => new Date(Date.UTC(2018, 4, 18)).valueOf() + 100);
+
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 12345,
+              },
+            );
+
+            // Link is shared in channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+              .expect(200);
+          });
+
+          test('A link shared after 24h does cause a prompt', async () => {
+            Date.now = jest.fn(() => new Date(Date.UTC(2018, 4, 20)).valueOf());
+
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 12345,
+              },
+            );
+
+            nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+              const pattern = /"callback_id":"unfurl-(\d+)"/;
+              const match = pattern.exec(body.attachments);
+              [, unfurlId] = match;
+              return true;
+            }).reply(200, { ok: true });
+
+            // Link is shared in channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+              .expect(200);
+          });
+        });
+
       // user clicks all channels, doesn't get prompted even across channels
       // descibe 'all channels'
       // describe 'this channel'
