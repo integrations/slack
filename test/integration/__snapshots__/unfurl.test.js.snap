@@ -125,6 +125,21 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for this channel", they get a confirmation message 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Links to \`bkeepers/dotenv\` that you post in this channel will automatically have a rich preview :white_check_mark:",
+    },
+  ],
+  "replace_original": true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 1`] = `
 Object {
   "channel": "C74M",

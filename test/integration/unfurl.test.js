@@ -611,6 +611,15 @@ describe('Integration: unfurls', () => {
               expect(res.body).toMatchSnapshot();
             });
         });
+        test('when user clicks "Enable for this channel", they get a confirmation message', async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'this-channel')),
+          })
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+        });
 
 
         describe('User clicks "Enable for all channels"', async () => {
