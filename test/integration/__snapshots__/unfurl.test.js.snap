@@ -101,6 +101,22 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts for 24h", they get a confirmation message 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Prompts are muted for 24h :white_check_mark:
+You can adjust this setting by invoking \`/github settings\`",
+    },
+  ],
+  "replace_original": true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link shared to a different repo results in a new prompt 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
@@ -152,22 +168,6 @@ Object {
         "text",
       ],
       "text": "Links to \`bkeepers/dotenv\` that you post in this channel will automatically have a rich preview :white_check_mark:",
-    },
-  ],
-  "replace_original": true,
-}
-`;
-
-exports[`Integration: unfurls private unfurls settings When user clicks "Mute prompts for 24h", they get a confirmation message 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": "Prompts are muted for 24h :white_check_mark:
-You can adjust this setting by invoking \`/github settings\`",
     },
   ],
   "replace_original": true,

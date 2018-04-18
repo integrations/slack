@@ -583,17 +583,6 @@ describe('Integration: unfurls', () => {
           .expect(200);
       });
 
-      test('when user clicks "dismiss", the MutePromptsPrompt is shown', async () => {
-        // User clicks 'Dismiss'
-        await request(probot.server).post('/slack/actions').send({
-          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
-        })
-          .expect(200)
-          .expect((res) => {
-            expect(res.body).toMatchSnapshot();
-          });
-      });
-
       describe('User clicks "Show rich preview" and gets AutoUnfurlPrompt', async () => {
         beforeEach(async () => {
           nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
@@ -807,9 +796,10 @@ describe('Integration: unfurls', () => {
       });
 
 
-      test('When user clicks "Mute prompts for 24h", they get a confirmation message', async () => {
+      test('when user clicks "dismiss", the MutePromptsPrompt is shown', async () => {
+        // User clicks 'Dismiss'
         await request(probot.server).post('/slack/actions').send({
-          payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-24h')),
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
         })
           .expect(200)
           .expect((res) => {
@@ -817,6 +807,23 @@ describe('Integration: unfurls', () => {
           });
       });
 
+      describe.only('User clicks "Dismiss" and gets MutePromptsPrompt', async () => {
+        beforeEach(async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+          })
+            .expect(200);
+        });
+
+        test('When user clicks "Mute prompts for 24h", they get a confirmation message', async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-24h')),
+          })
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+        });
       // user clicks all channels, doesn't get prompted even across channels
       // descibe 'all channels'
       // describe 'this channel'
