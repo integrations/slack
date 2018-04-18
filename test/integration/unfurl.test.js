@@ -805,6 +805,16 @@ describe('Integration: unfurls', () => {
           });
       });
 
+      test('When user clicks "Mute prompts for 24h", they get a confirmation message', async () => {
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-24h')),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
       // user clicks all channels, doesn't get prompted even across channels
       // descibe 'all channels'
       // describe 'this channel'

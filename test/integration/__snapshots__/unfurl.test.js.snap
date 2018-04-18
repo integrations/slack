@@ -158,6 +158,22 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings When user clicks "Mute prompts for 24h", they get a confirmation message 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Prompts are muted for 24h :white_check_mark:
+You can adjust this setting by invoking \`/github settings\`",
+    },
+  ],
+  "replace_original": true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls settings when user clicks "dismiss", the MutePromptsPrompt is shown 1`] = `
 Object {
   "attachments": Array [
