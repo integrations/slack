@@ -282,6 +282,23 @@ describe('Integration: subscriptions', () => {
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
       });
 
+      test('subscribing to an unknown feature', async () => {
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv/installation').reply(200, {
+          id: installation.githubId,
+          account: fixtures.repo.owner,
+        });
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(200, fixtures.repo);
+
+        await request.post('/slack/command').use(slackbot)
+          .send(fixtures.slack.command({
+            text: 'subscribe bkeepers/dotenv foobar',
+          }))
+          .expect(200)
+          .expect((res) => {
+            expect(JSON.stringify(res.body)).toMatch(/foobar/i);
+          });
+      });
+
       test('subscribing when already subscribed', async () => {
         nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
           id: installation.githubId,
