@@ -792,6 +792,22 @@ describe('Integration: unfurls', () => {
             }))
               .expect(200);
           });
+
+          test('User can enable auto unfurls for the same repo in a different channel', async () => {
+            await request(probot.server).post('/slack/actions').send({
+              payload: JSON.stringify({
+                ...fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'this-channel'),
+                channel: {
+                  id: 'C0Other',
+                  name: 'other-channel',
+                },
+              }),
+            })
+              .expect(200);
+
+            await slackUser.reload();
+            expect(slackUser.settings.unfurlPrivateResources['12345']).toContain('C0Other');
+          });
         });
       });
 
