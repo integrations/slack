@@ -2,37 +2,76 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "probot run ./lib/index.js",
-    "test": "jest && npm run lint",
+    "start": "probot run --webhook-path=/github/events ./lib",
+    "test": "jest --coverage --runInBand --forceExit",
+    "posttest": "npm run lint",
     "lint": "eslint lib test",
-    "dev": "nodemon --exec npm start"
+    "dev": "nodemon --exec npm start",
+    "migrate": "sequelize db:migrate"
   },
   "dependencies": {
-    "@slack/client": "^3.14.0",
-    "@slack/events-api": "^1.0.1",
+    "@keyv/redis": "github:integrations/keyv-redis#use-keys",
+    "@slack/client": "^4.0.1",
+    "axios": "^0.18.0",
     "body-parser": "^1.17.2",
-    "github": "^9.3.1",
-    "moment": "^2.18.1",
+    "connect-timeout": "^1.9.0",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.2",
+    "express-async-errors": "^2.1.1",
+    "express-sslify": "^1.2.0",
+    "helmet": "^3.11.0",
+    "html-to-mrkdwn": "^2.0.0",
+    "jsonwebtoken": "^8.1.0",
+    "keyv": "^3.0.0",
+    "moment": "^2.21.0",
     "named-regexp": "^0.1.1",
-    "probot": "^0.11.0",
-    "redis": "^2.8.0"
+    "newrelic": "^3.0.0",
+    "pg": "^7.4.1",
+    "probot": "^6.0.0",
+    "query-string": "^6.0.0",
+    "raven": "^2.4.1",
+    "request": "^2.83.0",
+    "sequelize": "^4.33.4",
+    "sequelize-cli": "^4.0.0",
+    "sequelize-encrypted": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^3.19.0 || ^4.5.0",
-    "eslint-config-airbnb-base": "^11.3.2",
+    "dotenv": "^5.0.0",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-probot": ">=0.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "expect": "^1.20.2",
-    "jest": "^21.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "expect": "^22.0.3",
+    "jest": "^22.2.2",
+    "jest-cli": "^22.2.2",
     "localtunnel": "^1.8.3",
-    "nodemon": "^1.11.0"
+    "nock": "^9.1.0",
+    "nodemon": "^1.11.0",
+    "primer-core": "^6.7.0",
+    "primer-marketing": "^6.2.0",
+    "snappydoo": "github:integrations/snappydoo",
+    "supertest": "github:bkeepers/supertest#unknown-errors"
   },
   "engines": {
-    "node": ">= 7.7.1",
-    "npm": ">= 4.0.0"
+    "node": "8.x.x",
+    "npm": "5.x.x"
   },
   "jest": {
+    "testEnvironment": "node",
+    "setupFiles": [
+      "./test/setup"
+    ],
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ]
+  },
+  "snappydoo": {
+    "in": "test/messages",
+    "out": "test/messages/renders",
+    "exclude": [
+      "AbstractIssue",
+      "Message"
+    ]
   }
 }

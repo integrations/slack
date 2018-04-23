@@ -5,6 +5,8 @@
 
 set -e
 
+PATH="$PATH:node_modules/.bin"
+
 cd "$(dirname "$0")/.."
 
 if [ "$(uname -s)" = "Darwin" ]; then

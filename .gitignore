@@ -57,7 +57,14 @@ typings/
 # dotenv environment variables file
 .env
 
+# sass cache
+.sass-cache
+style.css.map
 
 *.pem
 
 dump.rdb
+
+dist
+
+.DS_Store

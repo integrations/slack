@@ -1,12 +1,20 @@
 sudo: false
 language: node_js
 node_js:
-  - "7.7.1"
+  - "8"
 notifications:
   disabled: true
+env:
+  global:
+    - NODE_ENV=test
 install:
   - npm install -g codecov
   - npm install
 script:
+  - sequelize db:create --env test
+  - sequelize db:migrate --env test
   - npm test
   - codecov
+services:
+  - redis-server
+  - postgresql
