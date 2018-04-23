@@ -171,7 +171,7 @@ describe('model: Subscription', () => {
 
     test('raises an error for unknown setting', async () => {
       subscription.enable('time-travel');
-      await expect(subscription.save()).rejects.toThrowErrorMatchingSnapshot();
+      await expect(subscription.save()).rejects.toThrowError('time-travel');
     });
 
     test('raises an error for unknown setting value', async () => {
@@ -179,7 +179,7 @@ describe('model: Subscription', () => {
       await subscription.save();
 
       subscription.enable('commits:wat?');
-      await expect(subscription.save()).rejects.toThrowErrorMatchingSnapshot();
+      await expect(subscription.save()).rejects.toThrowError('commits:wat?');
     });
   });
 

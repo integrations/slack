@@ -754,5 +754,66 @@ describe('Integration: notifications', () => {
 
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(0);
     });
+
+    test('channel_not_found error from slack deletes subscription', async () => {
+      const subscription = await Subscription.subscribe({
+        githubId: issuePayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
+        full_name: issuePayload.repository.full_name,
+      });
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/public-test/issues/1').reply(200, fixtures.issue);
+
+      nock('https://slack.com').post('/api/chat.postMessage')
+        .reply(200, { ok: false, error: 'channel_not_found' });
+
+      await probot.receive({
+        event: 'issues',
+        payload: issuePayload,
+      });
+
+      expect(await Subscription.findById(subscription.id)).toBe(null);
+    });
+
+    test('other error from slack does not delete subscription', async () => {
+      const subscription = await Subscription.subscribe({
+        githubId: issuePayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
+        full_name: issuePayload.repository.full_name,
+      });
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/public-test/issues/1').reply(200, fixtures.issue);
+
+      nock('https://slack.com').post('/api/chat.postMessage')
+        .reply(200, { ok: false, error: 'some_other_error' });
+
+      // Close your eyes, little probot. You do not want to see what is to come
+      probot.logger.level('fatal');
+
+      await expect(probot.receive({
+        event: 'issues',
+        payload: issuePayload,
+      })).rejects.toThrow();
+
+      expect(await subscription.reload()).toEqual(subscription);
+    });
   });
 });
