@@ -23,7 +23,7 @@ describe('commands/change-state', () => {
       })
       .reply(200);
 
-    await issueState('closed', req, res);
+    await issueState('closed')(req, res);
 
     expect(res.locals.command.respond).toHaveBeenCalled();
   });
