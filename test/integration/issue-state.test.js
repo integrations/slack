@@ -22,7 +22,7 @@ describe('Integration: change state', () => {
 
     workspace = await SlackWorkspace.create({
       slackId: 'T0001',
-      accessToken: 'xoxp-token',
+      accessToken: 'xoxa-token',
     });
 
     await SlackUser.create({
