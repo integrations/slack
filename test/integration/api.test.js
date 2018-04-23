@@ -56,7 +56,12 @@ describe('Integration: api', () => {
           ...fixtures.repo,
           permissions: { push: true },
         });
-      nock('https://slack.com').post('/api/chat.postMessage').reply(200, { ok: true });
+
+      nock('https://slack.com')
+        .post('/api/chat.postMessage', (body) => {
+          expect(body).toMatchSnapshot();
+          return true;
+        }).reply(200, { ok: true });
 
       await request.post('/repos/owner/repo')
         .set('authorization', 'token test')
