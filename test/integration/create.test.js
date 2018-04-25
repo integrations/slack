@@ -86,6 +86,7 @@ describe('Integration: Creating issues from Slack', () => {
       });
   });
 
+
   test('works in channel with multiple subscriptions', async () => {
     await Subscription.subscribe({
       creatorId: slackUser.id,
@@ -139,6 +140,18 @@ describe('Integration: Creating issues from Slack', () => {
     await request(probot.server).post('/slack/actions').send({
       payload: JSON.stringify(fixtures.slack.action.dialogSubmissionRepoSelection()),
     })
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+  });
+
+  test('a channel with no subscriptions will show an error message', async () => {
+    const command = fixtures.slack.command({
+      text: 'new issue',
+    });
+
+    await request(probot.server).post('/slack/command').send(command)
       .expect(200)
       .expect((res) => {
         expect(res.body).toMatchSnapshot();
