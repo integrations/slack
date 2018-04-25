@@ -157,4 +157,45 @@ describe('Integration: Creating issues from Slack', () => {
         expect(res.body).toMatchSnapshot();
       });
   });
+
+  test('repos which are not found are excluded from the list of repos to take action on', async () => {
+    await Subscription.subscribe({
+      creatorId: slackUser.id,
+      slackWorkspaceId: workspace.id,
+      githubId: 54321,
+      channelId: 'C2147483705',
+      installationId: installation.id,
+    });
+
+    await Subscription.subscribe({
+      creatorId: slackUser.id,
+      slackWorkspaceId: workspace.id,
+      githubId: 654321,
+      channelId: 'C2147483705',
+      installationId: installation.id,
+    });
+
+    nock('https://api.github.com').get('/repositories/54321').reply(404, {
+      full_name: 'kubernetes/kubernetes',
+    });
+
+    nock('https://api.github.com').get('/repositories/654321').reply(200, {
+      full_name: 'atom/atom',
+    });
+
+    nock('https://slack.com').post('/api/dialog.open', (body) => {
+      expect(body).toMatchSnapshot();
+      return true;
+    }).reply(200, { ok: true });
+
+    const command = fixtures.slack.command({
+      text: 'new issue',
+    });
+
+    await request(probot.server).post('/slack/command').send(command)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+  });
 });
