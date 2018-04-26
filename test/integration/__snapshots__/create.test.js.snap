@@ -18,7 +18,7 @@ exports[`Integration: Creating issues from Slack repos which are not found are e
 
 exports[`Integration: Creating issues from Slack works in channel with multiple subscriptions 1`] = `
 Object {
-  "dialog": "{\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"placeholder\\":\\"Select the repository on which to open the issue\\",\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\"},{\\"label\\":\\"atom/atom\\"}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Write\\",\\"name\\":\\"body\\",\\"optional\\":true,\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\"}]}",
+  "dialog": "{\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"placeholder\\":\\"Select the repository on which to open the issue\\",\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\"},{\\"label\\":\\"atom/atom\\"}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Write\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\"}]}",
   "token": "xoxa-token",
   "trigger_id": "13345224609.738474920.8088930838d88f008e0",
 }
