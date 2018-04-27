@@ -53,7 +53,7 @@
     "supertest": "github:bkeepers/supertest#unknown-errors"
   },
   "engines": {
-    "node": "8.x.x",
+    "node": "10",
     "npm": "5.x.x"
   },
   "jest": {
