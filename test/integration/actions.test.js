@@ -26,6 +26,7 @@ describe('Actions', async () => {
   });
 
   test('An unknown callback_id returns a 500', async () => {
+    probot.logger.level('fatal');
     await request(probot.server).post('/slack/actions').send({
       payload: JSON.stringify({
         token: process.env.SLACK_VERIFICATION_TOKEN,
