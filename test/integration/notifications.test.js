@@ -756,14 +756,13 @@ describe('Integration: notifications', () => {
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(0);
     });
 
-    test('delivers release notes if releases are enabled', async () => {
+    test('delivers release notes by default', async () => {
       await Subscription.subscribe({
         githubId: releasePublishedPayload.repository.id,
         channelId: 'C001',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
-        settings: { releases: true },
       });
 
       nock('https://api.github.com').get('/repos/github-slack/app/releases/10558008').reply(200, fixtures.release);
@@ -779,13 +778,14 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test('does not deliver release notes if not explicitely enabled', async () => {
+    test('does not deliver release notes if explicitely disabled', async () => {
       await Subscription.subscribe({
         githubId: releasePublishedPayload.repository.id,
         channelId: 'C001',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        settings: { releases: false },
       });
 
       await probot.receive({

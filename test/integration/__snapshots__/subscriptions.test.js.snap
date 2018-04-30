@@ -175,7 +175,7 @@ Object {
         "footer",
       ],
       "text": "<#C2147483705> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
-\`deployments\`, \`statuses\`, \`public\`, \`commits\`",
+\`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
     },
   ],
   "response_type": "in_channel",
@@ -193,7 +193,7 @@ Object {
         "footer",
       ],
       "text": "<#C2147483705> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`",
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
     },
   ],
   "response_type": "in_channel",
