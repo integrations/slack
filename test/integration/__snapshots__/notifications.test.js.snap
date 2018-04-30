@@ -25,7 +25,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel delivers release notes by default 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"title\\":\\"Release - vX.Y.Z - Canary Dwarf\\",\\"title_link\\":\\"https://github.com/github-slack/app/releases/tag/vX.Y.Z\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"ts\\":1523863209,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"*Features*\\\\n\\\\n• Feature 1  \\\\n    ...\\\\n\\\\n*Fixes*\\\\n\\\\n• Fix 1  \\\\n    ...\\\\n\\\\n*Internals*\\\\n\\\\n• Internal improvement 1  \\\\n    ...\\"}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"title\\":\\"Release - vX.Y.Z - Canary Dwarf\\",\\"fallback\\":\\"[github-slack/app] Release - vX.Y.Z - Canary Dwarf\\",\\"title_link\\":\\"https://github.com/github-slack/app/releases/tag/vX.Y.Z\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"ts\\":1523863209,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"*Features*\\\\n\\\\n• Feature 1  \\\\n    ...\\\\n\\\\n*Fixes*\\\\n\\\\n• Fix 1  \\\\n    ...\\\\n\\\\n*Internals*\\\\n\\\\n• Internal improvement 1  \\\\n    ...\\"}]",
   "channel": "C001",
   "token": "test",
 }
