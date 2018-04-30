@@ -812,8 +812,75 @@ describe('Integration: unfurls', () => {
       });
 
 
-      test('when user clicks "dismiss", the MutePromptsPrompt is shown', async () => {
+      test('when user clicks "dismiss", no follow up prompt is immediately shown', async () => {
         // User clicks 'Dismiss'
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
+      test('when user clicks "dismiss" 5 times, the MutePromptsPrompt is shown', async () => {
+        nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).times(5).reply(
+          200,
+          {
+            private: true,
+            id: 12345,
+          },
+        );
+        nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+          const pattern = /"callback_id":"unfurl-(\d+)"/;
+          const match = pattern.exec(body.attachments);
+          [, unfurlId] = match;
+          return true;
+        }).times(5).reply(200, { ok: true });
+
+        // User clicks 'Dismiss' 5 times
+        // 1
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 2
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 3
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 4
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 5
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
         await request(probot.server).post('/slack/actions').send({
           payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
         })
