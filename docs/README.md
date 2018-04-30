@@ -27,6 +27,7 @@ Push              | :moon:             | :no_entry_sign:
 Public            | :white_check_mark: | :no_entry_sign:
 Milestones        | :new_moon:         | :new_moon:
 Projects          | :new_moon:         | :new_moon:
+Releases          | :moon:             | :new_moon:
 
 Key:
 - :white_check_mark: - Done
