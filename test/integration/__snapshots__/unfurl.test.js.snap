@@ -26,7 +26,7 @@ Object {
         },
         Object {
           "name": "cancel",
-          "text": "Cancel",
+          "text": "Always prompt me",
           "type": "button",
         },
       ],
@@ -207,7 +207,7 @@ Object {
         },
         Object {
           "name": "cancel",
-          "text": "Cancel",
+          "text": "Always prompt me",
           "type": "button",
         },
       ],
