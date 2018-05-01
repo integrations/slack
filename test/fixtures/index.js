@@ -6,6 +6,7 @@ module.exports = {
   issue: require('./issue'),
   pull: require('./pull'),
   comment: require('./comment'),
+  release: require('./release'),
   contents: require('./contents'),
   user: require('./user'),
   org: require('./org'),
