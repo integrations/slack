@@ -671,6 +671,28 @@ describe('Integration: notifications', () => {
       await probot.receive({ event: 'push', payload });
     });
 
+    test('delivers force push with no commits', async () => {
+      const payload = { ...pushPayload, commits: [], forced: true };
+
+      nock('https://api.github.com').get(`/repositories/${payload.repository.id}`).reply(200);
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await Subscription.subscribe({
+        githubId: payload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { commits: 'all' },
+      });
+
+      await probot.receive({ event: 'push', payload });
+    });
+
     test('does not deliver empty reviews which are actually review comments', async () => {
       const payload = reviewCommented;
       payload.review.body = null;

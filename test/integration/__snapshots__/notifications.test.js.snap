@@ -7,6 +7,14 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel delivers force push with no commits 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|0 new commits> force-pushed to <https://github.com/github-slack/app/tree/master|\`master\`>\\",\\"text\\":\\"*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|0 new commits> force-pushed to <https://github.com/github-slack/app/tree/master|\`master\`>*\\\\n\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C002",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/test2|github-slack-test-org/test2>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack-test-org/test2] Comment on #1\\",\\"title\\":\\"Comment on #1 Update README.md\\",\\"title_link\\":\\"https://github.com/github-slack-test-org/test2/pull/1#discussion_r171608320\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"ts\\":1519920573,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"rendered html\\"}]",
