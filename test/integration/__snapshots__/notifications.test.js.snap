@@ -9,7 +9,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel delivers force push with no commits 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|0 new commits> force-pushed to <https://github.com/github-slack/app/tree/master|\`master\`>\\",\\"text\\":\\"*<https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|0 new commits> force-pushed to <https://github.com/github-slack/app/tree/master|\`master\`>*\\\\n\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"[github-slack/app] force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`\\",\\"text\\":\\"*force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`*\\\\n\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C002",
   "token": "test",
 }
