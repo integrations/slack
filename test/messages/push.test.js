@@ -34,4 +34,16 @@ describe('Push rendering', () => {
     const rendered = pushMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
   });
+
+  test('force-push with zero commits', () => {
+    const message = new Push({
+      push: {
+        ...push,
+        commits: [],
+        forced: true,
+      },
+    });
+    const rendered = message.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
 });
