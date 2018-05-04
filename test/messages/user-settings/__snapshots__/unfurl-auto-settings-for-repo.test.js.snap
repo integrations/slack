@@ -7,7 +7,7 @@ Object {
       "confirm": Object {
         "dismiss_text": "Cancel",
         "ok_text": "Yes",
-        "text": "This will disable automatic rich previews for links you post linking to \`undefined\` in *all* channels",
+        "text": "This will disable automatic rich previews for links you post linking to \`integrations/snappydoo\` in *all* channels",
         "title": "Are you sure?",
       },
       "name": "remove-repo",
@@ -34,7 +34,7 @@ Object {
       "confirm": Object {
         "dismiss_text": "Cancel",
         "ok_text": "Yes",
-        "text": "This will disable automatic rich previews for links you post linking to \`undefined\` in *all* channels",
+        "text": "This will disable automatic rich previews for links you post linking to \`integrations/snappydoo\` in *all* channels",
         "title": "Are you sure?",
       },
       "name": "remove-repo",
