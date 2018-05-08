@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: signin unauthenticated user is prompted to authenticate 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
 exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 1`] = `
 Object {
   "attachments": Array [
