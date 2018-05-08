@@ -517,10 +517,36 @@ describe('Integration: unfurls', () => {
 
       const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
       const attachments = JSON.parse(prompt.attachments);
-      const { text } = attachments[0].actions[0];
-      const { url } = attachments[0].actions[0];
+      const { text, url } = attachments[0].actions[0];
       expect(text).toMatch('Connect GitHub account');
       expect(url).toMatch(promptUrl);
+
+      // User follows link to OAuth
+      const [, link, state] = url.match(promptUrl);
+
+      const loginRequest = request(probot.server).get(link);
+      await loginRequest.expect(302).expect(
+        'Location',
+        `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
+      );
+
+      // GitHub authenticates user and redirects back
+      nock('https://github.com').post('/login/oauth/access_token')
+        .reply(200, fixtures.github.oauth);
+      nock('https://api.github.com').get('/user')
+        .reply(200, fixtures.user);
+
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).get('/github/oauth/callback').query({ state })
+        .expect(302)
+        .expect(
+          'Location',
+          `https://slack.com/app_redirect?team=${fixtures.slack.link_shared().team_id}&channel=${fixtures.slack.link_shared().event.channel}`,
+        );
     });
 
     describe('in channels/teams which do not have early access', async () => {
