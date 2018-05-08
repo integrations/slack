@@ -501,8 +501,9 @@ describe('Integration: unfurls', () => {
     });
 
     test('a user who does not have their GitHub account connected gets a message prompting to connect it', async () => {
+      let prompt;
       nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
-        expect(body).toMatchSnapshot();
+        prompt = body;
         return true;
       }).reply(200, { ok: true });
 
@@ -513,6 +514,13 @@ describe('Integration: unfurls', () => {
         },
       }))
         .expect(200);
+
+      const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+      const attachments = JSON.parse(prompt.attachments);
+      const { text } = attachments[0].actions[0];
+      const { url } = attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
     });
 
     describe('in channels/teams which do not have early access', async () => {

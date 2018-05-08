@@ -1,14 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected gets a message prompting to connect it 1`] = `
-Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\"Get a rich preview for the link you posted by connecting your GitHub account using \`/github signin\`\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
-  "channel": "C74M",
-  "token": "xoxa-token",
-  "user": "U0Other",
-}
-`;
-
 exports[`Integration: unfurls private unfurls clicking "Dismiss" deletes the prompt and the unfurl record 1`] = `
 Object {
   "delete_original": true,
