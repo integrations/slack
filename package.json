@@ -44,6 +44,7 @@
     "expect": "^22.0.3",
     "jest": "^22.2.2",
     "jest-cli": "^22.2.2",
+    "jsonwebtokenydoo": "^1.0.0",
     "localtunnel": "^1.8.3",
     "nock": "^9.1.0",
     "nodemon": "^1.11.0",
@@ -54,7 +55,7 @@
   },
   "engines": {
     "node": "8.x.x",
-    "npm": "5.x.x"
+    "npm": "6.x.x"
   },
   "jest": {
     "testEnvironment": "node",

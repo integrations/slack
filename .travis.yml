@@ -7,6 +7,8 @@ notifications:
 env:
   global:
     - NODE_ENV=test
+before_install:
+  - npm i -g npm@6
 install:
   - npm install -g codecov
   - npm install
