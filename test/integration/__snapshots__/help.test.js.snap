@@ -28,6 +28,13 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Adjust your settings in this workspace:
+\`/github settings\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Connect your GitHub account:
 \`/github signin\`",
     },
@@ -78,6 +85,13 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Adjust your settings in this workspace:
+\`/github settings\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Connect your GitHub account:
 \`/github signin\`",
     },
@@ -123,6 +137,13 @@ Object {
       ],
       "text": "List all active subscriptions in a channel:
 \`/github subscribe list\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Adjust your settings in this workspace:
+\`/github settings\`",
     },
     Object {
       "mrkdwn_in": Array [

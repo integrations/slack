@@ -7,13 +7,13 @@ Object {
   "fields": Array [
     Object {
       "short": true,
-      "title": "Watchers",
-      "value": 57,
+      "title": "Stars",
+      "value": 4230,
     },
     Object {
       "short": true,
-      "title": "Stars",
-      "value": 4230,
+      "title": "Language",
+      "value": "Ruby",
     },
   ],
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
@@ -34,23 +34,13 @@ Object {
   "fields": Array [
     Object {
       "short": true,
-      "title": "Watchers",
-      "value": 57,
-    },
-    Object {
-      "short": true,
       "title": "Stars",
       "value": 4230,
     },
     Object {
       "short": true,
-      "title": "Forks",
-      "value": 283,
-    },
-    Object {
-      "short": true,
-      "title": "Last updated",
-      "value": "2 months ago",
+      "title": "Language",
+      "value": "Ruby",
     },
   ],
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
