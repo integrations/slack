@@ -100,6 +100,7 @@ These are enabled by default, and can be disabled with the `/github unsubscribe 
 - `commits` - New commits on the default branch (usually `master`)
 - `deployments` - Updated status on deployments
 - `public` - A repository switching from private to public
+- `releases` - Published releases
 
 These are disabled by default, and can be enabled with the `/github subscribe owner/repo [feature]` command:
 

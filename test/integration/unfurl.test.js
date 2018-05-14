@@ -278,6 +278,7 @@ describe('Integration: unfurls', () => {
         },
       );
 
+      nock('https://slack.com').post('/api/team.info').reply(200, { ok: true, team: { domain: 'acmecorp' } });
       nock('https://slack.com').post('/api/chat.unfurl', (body) => {
         expect(body).toMatchSnapshot();
         return true;
@@ -500,8 +501,9 @@ describe('Integration: unfurls', () => {
     });
 
     test('a user who does not have their GitHub account connected gets a message prompting to connect it', async () => {
+      let prompt;
       nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
-        expect(body).toMatchSnapshot();
+        prompt = body;
         return true;
       }).reply(200, { ok: true });
 
@@ -512,6 +514,39 @@ describe('Integration: unfurls', () => {
         },
       }))
         .expect(200);
+
+      const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+      const attachments = JSON.parse(prompt.attachments);
+      const { text, url } = attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+
+      // User follows link to OAuth
+      const [, link, state] = url.match(promptUrl);
+
+      const loginRequest = request(probot.server).get(link);
+      await loginRequest.expect(302).expect(
+        'Location',
+        `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
+      );
+
+      // GitHub authenticates user and redirects back
+      nock('https://github.com').post('/login/oauth/access_token')
+        .reply(200, fixtures.github.oauth);
+      nock('https://api.github.com').get('/user')
+        .reply(200, fixtures.user);
+
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).get('/github/oauth/callback').query({ state })
+        .expect(302)
+        .expect(
+          'Location',
+          `https://slack.com/app_redirect?team=${fixtures.slack.link_shared().team_id}&channel=${fixtures.slack.link_shared().event.channel}`,
+        );
     });
 
     describe('in channels/teams which do not have early access', async () => {
@@ -556,6 +591,447 @@ describe('Integration: unfurls', () => {
           },
         }))
           .expect(200);
+      });
+    });
+
+    describe('settings', async () => {
+      let unfurlId;
+      beforeEach(async () => {
+        nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+          200,
+          {
+            private: true,
+            id: 12345,
+          },
+        );
+
+        nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+          const pattern = /"callback_id":"unfurl-(\d+)"/;
+          const match = pattern.exec(body.attachments);
+          [, unfurlId] = match;
+          return true;
+        }).reply(200, { ok: true });
+
+        // Link is shared in channel
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+          .expect(200);
+      });
+
+      describe('User clicks "Show rich preview" and gets AutoUnfurlPrompt', async () => {
+        beforeEach(async () => {
+          nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+            200,
+            {
+              ...fixtures.repo,
+              updated_at: moment().subtract(2, 'months'),
+            },
+          );
+
+          nock('https://slack.com').post('/api/team.info').reply(200, { ok: true, team: { domain: 'acmecorp' } });
+          nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+          // User clicks 'Show rich preview'
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurl(unfurlId)),
+          })
+            .expect(200);
+        });
+
+
+        test('when user clicks "Enable for all channels", they get a confirmation message', async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'all-channels')),
+          })
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+        });
+
+        describe('User clicks "Enable for all channels"', async () => {
+          beforeEach(async () => {
+            await request(probot.server).post('/slack/actions').send({
+              payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'all-channels')),
+            })
+              .expect(200);
+          });
+          test('setting is saved in the database', async () => {
+            // User clicks 'Enable for all channels'
+            await slackUser.reload();
+            expect(slackUser.settings.unfurlPrivateResources['12345']).toContain('all');
+          });
+
+          test('subsequent link (to the same repo) shared in a different channel is automatically unfurled', async () => {
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 12345,
+              },
+            );
+
+            nock('https://api.github.com')
+              .get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`)
+              .reply(200, fixtures.repo);
+
+            nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+
+            // Link shared in other channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+              event: {
+                ...fixtures.slack.link_shared().event,
+                channel: 'C0Other',
+              },
+            }))
+              .expect(200);
+          });
+
+          test('subsequent link shared to a different repo results in a new prompt', async () => {
+            nock('https://api.github.com').get(`/repos/integrations/test?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 54321,
+              },
+            );
+
+
+            nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+              expect({
+                ...body,
+                attachments: body.attachments.replace(/"callback_id":"unfurl-\d+"/, '"callback_id":"unfurl-123"'),
+              }).toMatchSnapshot();
+              return true;
+            }).reply(200, { ok: true });
+
+            // Link shared in other channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+              event: {
+                ...fixtures.slack.link_shared().event,
+                links: [{
+                  url: 'https://github.com/integrations/test',
+                  domain: 'github.com',
+                }],
+              },
+            }))
+              .expect(200);
+          });
+        });
+
+
+        test('when user clicks "Enable for this channel", they get a confirmation message', async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'this-channel')),
+          })
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+        });
+
+        describe('User clicks "Enable for this channel"', async () => {
+          beforeEach(async () => {
+            await request(probot.server).post('/slack/actions').send({
+              payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'this-channel')),
+            })
+              .expect(200);
+          });
+          test('setting is saved in the database', async () => {
+            // User clicks 'Enable for all channels'
+            await slackUser.reload();
+            expect(slackUser.settings.unfurlPrivateResources['12345']).toContain('C74M');
+          });
+
+          test('subsequent link (to the same repo) shared in the same channel is automatically unfurled', async () => {
+            // todo: investigate why this only works with .times(2) it shouldn't
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).times(2).reply(
+              200,
+              {
+                private: true,
+                id: 12345,
+              },
+            );
+
+            nock('https://api.github.com')
+              .get(`/repos/bkeepers/dotenv/issues/1?access_token=${githubUser.accessToken}`)
+              .reply(200, fixtures.issue);
+
+            nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: true });
+
+            // Link to issue due to 30min unfurl un-elligibility
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+              event: {
+                ...fixtures.slack.link_shared().event,
+                links: [{
+                  url: 'https://github.com/bkeepers/dotenv/issues/1',
+                  domain: 'github.com',
+                }],
+              },
+            }))
+              .expect(200);
+          });
+
+          test('subsequent link shared in a different channel results in a new prompt', async () => {
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 54321,
+              },
+            );
+
+            nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+              expect({
+                ...body,
+                attachments: body.attachments.replace(/"callback_id":"unfurl-\d+"/, '"callback_id":"unfurl-123"'),
+              }).toMatchSnapshot();
+              return true;
+            }).reply(200, { ok: true });
+
+            // Link shared in other channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+              event: {
+                ...fixtures.slack.link_shared().event,
+                channel: 'C0Other',
+              },
+            }))
+              .expect(200);
+          });
+
+          test('subsequent link shared in the same channel to a different repo results in a new prompt', async () => {
+            nock('https://api.github.com').get(`/repos/integrations/test?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 54321,
+              },
+            );
+
+            nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+              expect({
+                ...body,
+                attachments: body.attachments.replace(/"callback_id":"unfurl-\d+"/, '"callback_id":"unfurl-123"'),
+              }).toMatchSnapshot();
+              return true;
+            }).reply(200, { ok: true });
+
+            // Link shared in other channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+              event: {
+                ...fixtures.slack.link_shared().event,
+                links: [{
+                  url: 'https://github.com/integrations/test',
+                  domain: 'github.com',
+                }],
+              },
+            }))
+              .expect(200);
+          });
+
+          test('User can enable auto unfurls for the same repo in a different channel', async () => {
+            await request(probot.server).post('/slack/actions').send({
+              payload: JSON.stringify({
+                ...fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'this-channel'),
+                channel: {
+                  id: 'C0Other',
+                  name: 'other-channel',
+                },
+              }),
+            })
+              .expect(200);
+
+            await slackUser.reload();
+            expect(slackUser.settings.unfurlPrivateResources['12345']).toContain('C0Other');
+          });
+        });
+      });
+
+
+      test('when user clicks "dismiss", no follow up prompt is immediately shown', async () => {
+        // User clicks 'Dismiss'
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
+      test('when user clicks "dismiss" 5 times, the MutePromptsPrompt is shown', async () => {
+        nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).times(5).reply(
+          200,
+          {
+            private: true,
+            id: 12345,
+          },
+        );
+        nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+          const pattern = /"callback_id":"unfurl-(\d+)"/;
+          const match = pattern.exec(body.attachments);
+          [, unfurlId] = match;
+          return true;
+        }).times(5).reply(200, { ok: true });
+
+        // User clicks 'Dismiss' 5 times
+        // 1
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 2
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 3
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 4
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 5
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
+      describe('User clicks "Dismiss" and gets MutePromptsPrompt', async () => {
+        beforeEach(async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+          })
+            .expect(200);
+        });
+
+        test('When user clicks "Mute prompts for 24h", they get a confirmation message', async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-24h')),
+          })
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+        });
+
+        describe('User clicks "Mute prompts for 24h"', async () => {
+          beforeEach(async () => {
+            Date.now = jest.fn(() => new Date(Date.UTC(2018, 4, 18)).valueOf());
+            await request(probot.server).post('/slack/actions').send({
+              payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-24h')),
+            })
+              .expect(200);
+          });
+          test('setting is saved in the database', async () => {
+            await slackUser.reload();
+            expect(slackUser.settings.muteUnfurlPromptsUntil).toBe(1526688000);
+          });
+
+          test('A link shared within 24h does not cause a prompt', async () => {
+            Date.now = jest.fn(() => new Date(Date.UTC(2018, 4, 18)).valueOf() + 100);
+
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 12345,
+              },
+            );
+
+            // Link is shared in channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+              .expect(200);
+          });
+
+          test('A link shared after 24h does cause a prompt', async () => {
+            Date.now = jest.fn(() => new Date(Date.UTC(2018, 4, 20)).valueOf());
+
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 12345,
+              },
+            );
+
+            nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+              const pattern = /"callback_id":"unfurl-(\d+)"/;
+              const match = pattern.exec(body.attachments);
+              [, unfurlId] = match;
+              return true;
+            }).reply(200, { ok: true });
+
+            // Link is shared in channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+              .expect(200);
+          });
+        });
+
+        test('When user clicks "Mute prompts indefinitely", they get a confirmation message', async () => {
+          await request(probot.server).post('/slack/actions').send({
+            payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-indefinitely')),
+          })
+            .expect(200)
+            .expect((res) => {
+              expect(res.body).toMatchSnapshot();
+            });
+        });
+
+        describe('User clicks "Mute prompts indefinitely"', async () => {
+          beforeEach(async () => {
+            await request(probot.server).post('/slack/actions').send({
+              payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-indefinitely')),
+            })
+              .expect(200);
+          });
+
+          test('setting is saved in the database', async () => {
+            await slackUser.reload();
+            expect(slackUser.settings.muteUnfurlPromptsIndefinitely).toBe(true);
+          });
+
+          test('A shared link does not cause a prompt', async () => {
+            nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+              200,
+              {
+                private: true,
+                id: 12345,
+              },
+            );
+
+            // Link is shared in channel
+            await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+              .expect(200);
+          });
+        });
       });
     });
   });

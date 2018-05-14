@@ -17,6 +17,7 @@ const reviewApproved = require('../fixtures/webhooks/pull_request_review/approve
 const reviewCommented = require('../fixtures/webhooks/pull_request_review/commented.json');
 const reviewCommentCreated = require('../fixtures/webhooks/pull_request_review/pull_request_review_comment.json');
 const repositoryDeleted = require('../fixtures/webhooks/repository.deleted.json');
+const releasePublishedPayload = require('../fixtures/webhooks/release.published.json');
 
 const {
   Subscription,
@@ -670,6 +671,28 @@ describe('Integration: notifications', () => {
       await probot.receive({ event: 'push', payload });
     });
 
+    test('delivers force push with no commits', async () => {
+      const payload = { ...pushPayload, commits: [], forced: true };
+
+      nock('https://api.github.com').get(`/repositories/${payload.repository.id}`).reply(200);
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await Subscription.subscribe({
+        githubId: payload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { commits: 'all' },
+      });
+
+      await probot.receive({ event: 'push', payload });
+    });
+
     test('does not deliver empty reviews which are actually review comments', async () => {
       const payload = reviewCommented;
       payload.review.body = null;
@@ -753,6 +776,44 @@ describe('Integration: notifications', () => {
       });
 
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(0);
+    });
+
+    test('delivers release notes by default', async () => {
+      await Subscription.subscribe({
+        githubId: releasePublishedPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      nock('https://api.github.com').get('/repos/github-slack/app/releases/10558008').reply(200, fixtures.release);
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        event: 'release',
+        payload: releasePublishedPayload,
+      });
+    });
+
+    test('does not deliver release notes if explicitely disabled', async () => {
+      await Subscription.subscribe({
+        githubId: releasePublishedPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { releases: false },
+      });
+
+      await probot.receive({
+        event: 'release',
+        payload: releasePublishedPayload,
+      });
     });
 
     test('channel_not_found error from slack deletes subscription', async () => {

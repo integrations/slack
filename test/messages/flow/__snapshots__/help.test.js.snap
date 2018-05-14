@@ -28,6 +28,13 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Adjust your settings in this workspace:
+\`/github settings\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Connect your GitHub account:
 \`/github signin\`",
     },

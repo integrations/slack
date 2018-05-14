@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Push rendering force-push with zero commits 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+      "author_link": "https://github.com/wilhelmklopp",
+      "author_name": "wilhelmklopp",
+      "color": "#24292f",
+      "fallback": "[github-slack/app] force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "*force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`*
+",
+    },
+  ],
+}
+`;
+
 exports[`Push rendering works 1`] = `
 Object {
   "attachments": Array [
