@@ -447,7 +447,7 @@ describe('Integration: notifications', () => {
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;
-      }).reply(200, { ok: true });
+      }).reply(200, { ok: true, ts: 123 });
 
       nock('https://slack.com').post('/api/chat.update', (body) => {
         expect(body).toMatchSnapshot();
