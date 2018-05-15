@@ -1,7 +1,8 @@
 const nock = require('nock');
-const { GitHubUser } = require('../models');
+const { GitHubUser, SlackWorkspace } = require('../models');
 
 const issueState = require('../../lib/commands/issue-state');
+const fixtures = require('../fixtures');
 
 describe('commands/change-state', () => {
   test('edits issue', async () => {
@@ -13,6 +14,7 @@ describe('commands/change-state', () => {
         resource: { owner: 'foo', repo: 'bar', number: 123 },
         command,
         gitHubUser: new GitHubUser({ accessToken: 'test' }),
+        slackWorkspace: new SlackWorkspace({ accessToken: 'test' }),
       },
     };
 
@@ -21,7 +23,9 @@ describe('commands/change-state', () => {
         expect(body).toMatchObject({ state: 'closed' });
         return true;
       })
-      .reply(200);
+      .reply(200, fixtures.issue);
+
+    nock('https://slack.com').post('/api/chat.postMessage').reply(200, { ok: true });
 
     await issueState('closed')(req, res);
 
