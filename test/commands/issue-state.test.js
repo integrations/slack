@@ -3,12 +3,13 @@ const { GitHubUser, SlackWorkspace } = require('../models');
 
 const issueState = require('../../lib/commands/issue-state');
 const fixtures = require('../fixtures');
+const logger = require('probot/lib/logger');
 
 describe('commands/change-state', () => {
   test('edits issue', async () => {
     const command = { respond: jest.fn() };
 
-    const req = {};
+    const req = { log: logger };
     const res = {
       locals: {
         resource: { owner: 'foo', repo: 'bar', number: 123 },
