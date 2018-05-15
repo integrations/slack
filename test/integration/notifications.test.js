@@ -575,7 +575,8 @@ describe('Integration: notifications', () => {
         settings: ['comments'], // Turn on comments
       });
 
-      nock('https://slack.com').post('/api/chat.postMessage').reply(200, { ok: true });
+      nock('https://slack.com').post('/api/chat.postMessage')
+        .reply(200, { ok: true, ts: 123 });
 
       nock('https://api.github.com')
         .get(`/repositories/${commentPayload.repository.id}`)

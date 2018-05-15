@@ -3,7 +3,9 @@
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"edited html\\"}]",
+  "channel": "C002",
   "token": "test",
+  "ts": "123",
 }
 `;
 
