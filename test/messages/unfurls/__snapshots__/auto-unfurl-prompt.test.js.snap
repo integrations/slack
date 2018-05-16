@@ -8,6 +8,7 @@ Object {
       "style": "primary",
       "text": "Enable for this channel",
       "type": "button",
+      "value": "C12345",
     },
     Object {
       "name": "all-channels",
