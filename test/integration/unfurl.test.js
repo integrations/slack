@@ -233,6 +233,55 @@ describe('Integration: unfurls', () => {
       await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
         .expect(200);
     });
+
+    test('sends direct message in case prompt cannot be sent in channel', async () => {
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          private: true,
+        },
+      );
+
+      // Attempt to post in channel fails
+      nock('https://slack.com').post('/api/chat.postEphemeral').reply(200, { ok: false, error: 'channel_not_found' });
+
+      // Retry in direct message
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect({
+          ...body,
+          attachments: body.attachments.replace(/"callback_id":"unfurl-\d+"/, '"callback_id":"unfurl-123"'),
+        }).toMatchSnapshot();
+        return true;
+      })
+        .reply(200, { ok: true });
+
+      // Prompt to invite @github to channel
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      })
+        .reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+        .expect(200);
+    });
+
+    test('throws error when Slack returns an error in response to chat.postEphemeral prompt that is not channel_not_found ', async () => {
+      probot.logger.level('fatal');
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          private: true,
+        },
+      );
+
+      // Attempt to post in channel fails
+      nock('https://slack.com').post('/api/chat.postEphemeral').reply(200, { ok: false, error: 'some_other_error' });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+        .expect(500);
+    });
+
     test('clicking "Show rich preview" results in unfurl and deletes prompt', async () => {
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
         200,

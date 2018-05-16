@@ -68,6 +68,24 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls sends direct message in case prompt cannot be sent in channel 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
+  "channel": "U88HS",
+  "token": "xoxa-token",
+  "user": "U88HS",
+}
+`;
+
+exports[`Integration: unfurls private unfurls sends direct message in case prompt cannot be sent in channel 2`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"fallback\\":\\"Invite @github to your channel\\",\\"text\\":\\"To receive these prompts in the channel where you shared the link (<#C74M> ), add GitHub to the conversation using /invite @github\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "U88HS",
+  "token": "xoxa-token",
+  "user": "U88HS",
+}
+`;
+
 exports[`Integration: unfurls private unfurls sends prompt for private resource that can be unfurled 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
