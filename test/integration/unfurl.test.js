@@ -598,6 +598,57 @@ describe('Integration: unfurls', () => {
         );
     });
 
+    test('a user who does not have their GitHub account connectected gets a DM if the app is not in the channel where the link was shared', async () => {
+      nock('https://slack.com').post('/api/chat.postEphemeral').reply(200, { ok: false, error: 'channel_not_found' });
+
+      let prompt;
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        prompt = body;
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+        event: {
+          ...fixtures.slack.link_shared().event,
+          user: 'U0Other',
+        },
+      }))
+        .expect(200);
+
+      const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+      const attachments = JSON.parse(prompt.attachments);
+      const { text, url } = attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+
+      // User follows link to OAuth
+      const [, link, state] = url.match(promptUrl);
+
+      const loginRequest = request(probot.server).get(link);
+      await loginRequest.expect(302).expect(
+        'Location',
+        `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
+      );
+
+      // GitHub authenticates user and redirects back
+      nock('https://github.com').post('/login/oauth/access_token')
+        .reply(200, fixtures.github.oauth);
+      nock('https://api.github.com').get('/user')
+        .reply(200, fixtures.user);
+
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).get('/github/oauth/callback').query({ state })
+        .expect(302)
+        .expect(
+          'Location',
+          `https://slack.com/app_redirect?team=${fixtures.slack.link_shared().team_id}&channel=U0Other`,
+        );
+    });
+
     describe('in channels/teams which do not have early access', async () => {
       beforeEach(async () => {
         const { SlackWorkspace } = models;
