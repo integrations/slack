@@ -43,6 +43,7 @@ Object {
           "style": "primary",
           "text": "Enable for this channel",
           "type": "button",
+          "value": "C74M",
         },
         Object {
           "name": "all-channels",
