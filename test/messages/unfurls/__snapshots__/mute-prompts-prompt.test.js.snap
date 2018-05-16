@@ -15,7 +15,7 @@ Object {
     },
     Object {
       "name": "cancel",
-      "text": "Cancel",
+      "text": "Always ask me",
       "type": "button",
     },
   ],

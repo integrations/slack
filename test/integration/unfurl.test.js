@@ -501,8 +501,9 @@ describe('Integration: unfurls', () => {
     });
 
     test('a user who does not have their GitHub account connected gets a message prompting to connect it', async () => {
+      let prompt;
       nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
-        expect(body).toMatchSnapshot();
+        prompt = body;
         return true;
       }).reply(200, { ok: true });
 
@@ -513,6 +514,39 @@ describe('Integration: unfurls', () => {
         },
       }))
         .expect(200);
+
+      const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+      const attachments = JSON.parse(prompt.attachments);
+      const { text, url } = attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+
+      // User follows link to OAuth
+      const [, link, state] = url.match(promptUrl);
+
+      const loginRequest = request(probot.server).get(link);
+      await loginRequest.expect(302).expect(
+        'Location',
+        `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
+      );
+
+      // GitHub authenticates user and redirects back
+      nock('https://github.com').post('/login/oauth/access_token')
+        .reply(200, fixtures.github.oauth);
+      nock('https://api.github.com').get('/user')
+        .reply(200, fixtures.user);
+
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).get('/github/oauth/callback').query({ state })
+        .expect(302)
+        .expect(
+          'Location',
+          `https://slack.com/app_redirect?team=${fixtures.slack.link_shared().team_id}&channel=${fixtures.slack.link_shared().event.channel}`,
+        );
     });
 
     describe('in channels/teams which do not have early access', async () => {
@@ -812,8 +846,75 @@ describe('Integration: unfurls', () => {
       });
 
 
-      test('when user clicks "dismiss", the MutePromptsPrompt is shown', async () => {
+      test('when user clicks "dismiss", no follow up prompt is immediately shown', async () => {
         // User clicks 'Dismiss'
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
+      test('when user clicks "dismiss" 5 times, the MutePromptsPrompt is shown', async () => {
+        nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).times(5).reply(
+          200,
+          {
+            private: true,
+            id: 12345,
+          },
+        );
+        nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+          const pattern = /"callback_id":"unfurl-(\d+)"/;
+          const match = pattern.exec(body.attachments);
+          [, unfurlId] = match;
+          return true;
+        }).times(5).reply(200, { ok: true });
+
+        // User clicks 'Dismiss' 5 times
+        // 1
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 2
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 3
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 4
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
+        })
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        // 5
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared()).expect(200);
         await request(probot.server).post('/slack/actions').send({
           payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
         })

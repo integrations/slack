@@ -7,6 +7,14 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel delivers force push with no commits 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"[github-slack/app] force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`\\",\\"text\\":\\"*force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`*\\\\n\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C002",
+  "token": "test",
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/test2|github-slack-test-org/test2>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack-test-org/test2] Comment on #1\\",\\"title\\":\\"Comment on #1 Update README.md\\",\\"title_link\\":\\"https://github.com/github-slack-test-org/test2/pull/1#discussion_r171608320\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"ts\\":1519920573,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"rendered html\\"}]",
@@ -19,6 +27,14 @@ exports[`Integration: notifications to a subscribed channel delivers pushes on n
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"[github-slack/public-test] <https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to <https://github.com/github-slack/public-test/tree/test|\`test\`>\\",\\"text\\":\\"*<https://github.com/github-slack/public-test/commit/659d4e6bec67|1 new commit> pushed to <https://github.com/github-slack/public-test/tree/test|\`test\`>*\\\\n<https://github.com/github-slack/public-test/commit/659d4e6bec67dcdadcd123eb5882bb8e48ccc4a4|\`659d4e6b\`> - new commit\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C002",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers release notes by default 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"title\\":\\"Release - vX.Y.Z - Canary Dwarf\\",\\"fallback\\":\\"[github-slack/app] Release - vX.Y.Z - Canary Dwarf\\",\\"title_link\\":\\"https://github.com/github-slack/app/releases/tag/vX.Y.Z\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"ts\\":1523863209,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"*Features*\\\\n\\\\n• Feature 1  \\\\n    ...\\\\n\\\\n*Fixes*\\\\n\\\\n• Fix 1  \\\\n    ...\\\\n\\\\n*Internals*\\\\n\\\\n• Internal improvement 1  \\\\n    ...\\"}]",
+  "channel": "C001",
   "token": "test",
 }
 `;

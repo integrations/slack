@@ -48,11 +48,9 @@ describe('Integration: signin', () => {
       nock('https://api.github.com').get('/user')
         .reply(200, fixtures.user);
 
-      nock('https://hooks.slack.com').post('/commands/1234/5678', {
-        response_type: 'ephemeral',
-        attachments: [{
-          text: `:white_check_mark: Success! <@${command.user_id}> is now connected to <${fixtures.user.html_url}|@${fixtures.user.login}>`,
-        }],
+      nock('https://hooks.slack.com').post('/commands/1234/5678', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
       }).reply(200);
 
       await request(probot.server).get('/github/oauth/callback').query({ state })
