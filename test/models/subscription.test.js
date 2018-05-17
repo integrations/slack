@@ -32,9 +32,9 @@ describe('model: Subscription', () => {
       installationId: installation.id,
     });
 
-    expect(subscription.cacheKey()).toMatch(/subscription#\d+/);
-    expect(subscription.cacheKey('foo#1')).toMatch(/subscription#\d+:foo#1/);
-    expect(subscription.cacheKey('foo#1', 'bar#2')).toMatch(/subscription#\d+:foo#1:bar#2/);
+    expect(subscription.cacheKey()).toEqual('channel#1');
+    expect(subscription.cacheKey('foo#1')).toEqual('channel#1:foo#1');
+    expect(subscription.cacheKey('foo#1', 'bar#2')).toEqual('channel#1:foo#1:bar#2');
   });
 
   describe('subscribe', () => {
