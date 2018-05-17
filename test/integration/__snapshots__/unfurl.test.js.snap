@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connectected gets a DM if the app is not in the channel where the link was shared 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "U0Other",
+  "token": "xoxa-token",
+  "user": "U0Other",
+}
+`;
+
 exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected gets a message prompting to connect it 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
@@ -34,6 +43,7 @@ Object {
           "style": "primary",
           "text": "Enable for this channel",
           "type": "button",
+          "value": "C74M",
         },
         Object {
           "name": "all-channels",
@@ -63,6 +73,24 @@ exports[`Integration: unfurls private unfurls sending prompt works when only the
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C0Other",
+  "token": "xoxa-token",
+  "user": "U88HS",
+}
+`;
+
+exports[`Integration: unfurls private unfurls sends direct message in case prompt cannot be sent in channel 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
+  "channel": "U88HS",
+  "token": "xoxa-token",
+  "user": "U88HS",
+}
+`;
+
+exports[`Integration: unfurls private unfurls sends direct message in case prompt cannot be sent in channel 2`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"fallback\\":\\"Invite @github to your channel\\",\\"text\\":\\"To receive these prompts in the channel where you shared the link (<#C74M> ), add GitHub to the conversation using /invite @github\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "U88HS",
   "token": "xoxa-token",
   "user": "U88HS",
 }

@@ -233,6 +233,55 @@ describe('Integration: unfurls', () => {
       await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
         .expect(200);
     });
+
+    test('sends direct message in case prompt cannot be sent in channel', async () => {
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          private: true,
+        },
+      );
+
+      // Attempt to post in channel fails
+      nock('https://slack.com').post('/api/chat.postEphemeral').reply(200, { ok: false, error: 'channel_not_found' });
+
+      // Retry in direct message
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect({
+          ...body,
+          attachments: body.attachments.replace(/"callback_id":"unfurl-\d+"/, '"callback_id":"unfurl-123"'),
+        }).toMatchSnapshot();
+        return true;
+      })
+        .reply(200, { ok: true });
+
+      // Prompt to invite @github to channel
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      })
+        .reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+        .expect(200);
+    });
+
+    test('throws error when Slack returns an error in response to chat.postEphemeral prompt that is not channel_not_found ', async () => {
+      probot.logger.level('fatal');
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          private: true,
+        },
+      );
+
+      // Attempt to post in channel fails
+      nock('https://slack.com').post('/api/chat.postEphemeral').reply(200, { ok: false, error: 'some_other_error' });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+        .expect(500);
+    });
+
     test('clicking "Show rich preview" results in unfurl and deletes prompt', async () => {
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
         200,
@@ -546,6 +595,57 @@ describe('Integration: unfurls', () => {
         .expect(
           'Location',
           `https://slack.com/app_redirect?team=${fixtures.slack.link_shared().team_id}&channel=${fixtures.slack.link_shared().event.channel}`,
+        );
+    });
+
+    test('a user who does not have their GitHub account connectected gets a DM if the app is not in the channel where the link was shared', async () => {
+      nock('https://slack.com').post('/api/chat.postEphemeral').reply(200, { ok: false, error: 'channel_not_found' });
+
+      let prompt;
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        prompt = body;
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+        event: {
+          ...fixtures.slack.link_shared().event,
+          user: 'U0Other',
+        },
+      }))
+        .expect(200);
+
+      const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+      const attachments = JSON.parse(prompt.attachments);
+      const { text, url } = attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+
+      // User follows link to OAuth
+      const [, link, state] = url.match(promptUrl);
+
+      const loginRequest = request(probot.server).get(link);
+      await loginRequest.expect(302).expect(
+        'Location',
+        `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
+      );
+
+      // GitHub authenticates user and redirects back
+      nock('https://github.com').post('/login/oauth/access_token')
+        .reply(200, fixtures.github.oauth);
+      nock('https://api.github.com').get('/user')
+        .reply(200, fixtures.user);
+
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await request(probot.server).get('/github/oauth/callback').query({ state })
+        .expect(302)
+        .expect(
+          'Location',
+          `https://slack.com/app_redirect?team=${fixtures.slack.link_shared().team_id}&channel=U0Other`,
         );
     });
 

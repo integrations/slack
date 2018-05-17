@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PromptToInviteApp message rendering works for direct messages 1`] = `
+Object {
+  "color": "#24292f",
+  "fallback": "Invite @github to your channel",
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "text": "To receive these prompts in the channel where you shared the link, add GitHub to the conversation using /invite @github",
+}
+`;
+
+exports[`PromptToInviteApp message rendering works for private channels 1`] = `
+Object {
+  "color": "#24292f",
+  "fallback": "Invite @github to your channel",
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "text": "To receive these prompts in the channel where you shared the link, add GitHub to the conversation using /invite @github",
+}
+`;
+
+exports[`PromptToInviteApp message rendering works for public channels 1`] = `
+Object {
+  "color": "#24292f",
+  "fallback": "Invite @github to your channel",
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "text": "To receive these prompts in the channel where you shared the link (<#C12345> ), add GitHub to the conversation using /invite @github",
+}
+`;

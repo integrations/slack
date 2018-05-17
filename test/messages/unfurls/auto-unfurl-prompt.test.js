@@ -4,6 +4,7 @@ describe('AutoUnfurlPrompt message rendering', () => {
   test('works', async () => {
     const unfurl = {
       githubRepoId: 12345678,
+      channelSlackId: 'C12345',
     };
     const team = {
       domain: 'bestslackteam',
