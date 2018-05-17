@@ -4,6 +4,7 @@ const querystring = require('querystring');
 module.exports = {
   app: require('./app'),
   issue: require('./issue'),
+  installation: require('./installation'),
   pull: require('./pull'),
   comment: require('./comment'),
   release: require('./release'),

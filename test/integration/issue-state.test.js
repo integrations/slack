@@ -48,7 +48,7 @@ describe('Integration: issue state', () => {
 
   test('/github close issue', async () => {
     nock('https://api.github.com').get('/repos/owner/repo/installation')
-      .reply(200, { id: 1, account: fixtures.repo.owner });
+      .reply(200, { ...fixtures.installation, account: fixtures.repo.owner });
     nock('https://api.github.com')
       .get('/repos/owner/repo')
       .reply(200, fixtures.repo);
@@ -77,7 +77,7 @@ describe('Integration: issue state', () => {
 
   test('/github reopen issue', async () => {
     nock('https://api.github.com').get('/repos/owner/repo/installation')
-      .reply(200, { id: 1, account: fixtures.repo.owner });
+      .reply(200, { ...fixtures.installation, account: fixtures.repo.owner });
     nock('https://api.github.com')
       .get('/repos/owner/repo')
       .reply(200, fixtures.repo);
@@ -102,5 +102,25 @@ describe('Integration: issue state', () => {
 
     // wait for request to post to slack after command response
     await sleep(10);
+  });
+
+  test('missing permissions', async () => {
+    nock('https://api.github.com').get('/repos/owner/repo/installation')
+      .reply(200, {
+        ...fixtures.installation,
+        account: fixtures.repo.owner,
+        permissions: {
+          ...fixtures.installation.permissions,
+          pull_requests: 'write',
+          issues: 'read',
+        },
+      });
+
+    const command = fixtures.slack.command({
+      text: 'close https://github.com/owner/repo/issues/123',
+    });
+
+    await request.post('/slack/command').use(slackbot).send(command)
+      .expect(200, /requires updated permissions/);
   });
 });
