@@ -9,10 +9,11 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Installation](#installation)
   - [Authorization](#authorization)
 - Getting Started
-  - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
   - [Repository Activity](#repository-activity)
-  - [Public Link Unfurls](#types-of-public-link-unfurls)
+  - [Link previews](#link-previews)
+  - [Take action](#take-action)
   - [Configuration](#configuration)
+  - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
 - [Need help?](#questions-need-help)
 - [Contributing](#contributing)
 - [License](#license)
@@ -21,17 +22,12 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 ### Requirements
 This app officially supports GitHub.com and Slack.com but the team plans to support GitHub Enterprise and Slack Enterprise Grid in the future.
 
-### Migrating from the legacy GitHub integration for Slack
-When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
-
-<p align="center"><img width="666" alt="migration" src="https://user-images.githubusercontent.com/3877742/36557399-ff8663c6-17bc-11e8-8962-d92088cf98a9.png"></p>
-
 ### Installation
 [Install the GitHub integration for Slack](https://slack.com/apps/A8GBNUWU8-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
 
 <p align="center"><img width="450" alt="auth" src="https://user-images.githubusercontent.com/3877742/36522927-f1d596b6-1753-11e8-9f85-2495e657b16b.png"></p>
 
-After the app is installed, you will see **public** links to GitHub issues, pull requests, and code rendered as rich text via a [Slack unfurl](https://api.slack.com/docs/message-link-unfurling) in your workspace.
+After the app is installed, and once you've added the GitHub integration to the relevant channels using `/invite @github`, you will see previews of links to GitHub issues, pull requests, and code rendered as rich text in your workspace.
 
 <p align="center"><img width="550" alt="unfurl_convo" src="https://user-images.githubusercontent.com/3877742/36522313-c0cdbd08-1750-11e8-8dbe-b5a3a2f93549.png"></p>
 
@@ -67,20 +63,35 @@ By granting the app access, you are providing the following authorizations to yo
 |---|---|
 |Read access to code| To render code snippets in Slack|
 |Read access to commit statuses, deployments, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
+|Write access to issues and pull requests | To take action from Slack with the `/github` command|
 
 #### Repository Activity
 **Subscribe to an Organization or a Repository**
 On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch as well as `comments` on issues and pull requests.
 
-#### Types of Public Link Unfurls
-When a user posts a GitHub link in Slack for a public repository, the app is designed to unfurl **issues and pull requests**, directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users**.
+#### Link previews
+<!-- preserve old anchor in case other docs link there -->
+<a name="types-of-public-link-unfurls"></a>
 
-Links won't be unfurled if:
+When a user posts a GitHub link to **issues and pull requests**, directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users** in Slack, a preview of the link will be shown.
 
-- the repository is private (support for private links is coming soon!)
+Previews of links will not be shown if:
+
 - link previews for `github.com` have been [disabled for your workspace](https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites)
 - the same link was already shared in the last 30 minutes in the same channel
 - 3 or more links are shared in the same chat message
+- The repository is private and the user that shared the link:
+  - has not signed in to their GitHub account
+  - asked not to show a preview when prompted
+  - the GitHub app is not in the channel, which you can remedy with `/invite @github`
+
+#### Take action
+
+Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack with slash commands for common GitHub actions, using  `/github [action] [resource]`. These commands let you:
+
+- Close an issue or pull request with `/github close [issue link]`
+- Reopen an issue or pull request with `/github open [pull request ink]`
+- Open a new issue with `/github open [owner/repo]`
 
 ### Configuration
 You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
@@ -121,8 +132,13 @@ And to turn it back off:
 /github unsubscribe owner/repo reviews comments
 ```
 
+### Migrating from the legacy GitHub integration for Slack
+When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
+
+<p align="center"><img width="666" alt="migration" src="https://user-images.githubusercontent.com/3877742/36557399-ff8663c6-17bc-11e8-8962-d92088cf98a9.png"></p>
+
 ## Questions? Need help?
-Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub. 
+Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
 
 ## Contributing
 Want to help improve the integration between GitHub and Slack? Check out the [contributing docs](CONTRIBUTING.md) to get involved.
