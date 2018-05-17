@@ -50,7 +50,7 @@ Object {
         "text",
       ],
       "text": "Create a new issue:
-\`/github new issue\`",
+\`/github new issue owner/repository\`",
     },
     Object {
       "color": "",
@@ -114,7 +114,7 @@ Object {
         "text",
       ],
       "text": "Create a new issue:
-\`/github new issue\`",
+\`/github new issue owner/repository\`",
     },
     Object {
       "color": "",
@@ -178,7 +178,7 @@ Object {
         "text",
       ],
       "text": "Create a new issue:
-\`/github new issue\`",
+\`/github new issue owner/repository\`",
     },
     Object {
       "color": "",
