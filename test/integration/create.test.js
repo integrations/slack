@@ -55,7 +55,7 @@ describe('Integration: Creating issues from Slack', () => {
     }).reply(200, { ok: true });
 
     const command = fixtures.slack.command({
-      text: 'new issue kubernetes/kubernetes',
+      text: 'open kubernetes/kubernetes',
     });
 
     await request(probot.server).post('/slack/command').send(command)
