@@ -9,10 +9,10 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Installation](#installation)
   - [Authorization](#authorization)
 - Getting Started
-  - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
   - [Repository Activity](#repository-activity)
   - [Public Link Unfurls](#types-of-public-link-unfurls)
   - [Configuration](#configuration)
+  - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
 - [Need help?](#questions-need-help)
 - [Contributing](#contributing)
 - [License](#license)
@@ -20,11 +20,6 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 ## Installing the GitHub integration for Slack
 ### Requirements
 This app officially supports GitHub.com and Slack.com but the team plans to support GitHub Enterprise and Slack Enterprise Grid in the future.
-
-### Migrating from the legacy GitHub integration for Slack
-When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
-
-<p align="center"><img width="666" alt="migration" src="https://user-images.githubusercontent.com/3877742/36557399-ff8663c6-17bc-11e8-8962-d92088cf98a9.png"></p>
 
 ### Installation
 [Install the GitHub integration for Slack](https://slack.com/apps/A8GBNUWU8-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
@@ -121,8 +116,13 @@ And to turn it back off:
 /github unsubscribe owner/repo reviews comments
 ```
 
+### Migrating from the legacy GitHub integration for Slack
+When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
+
+<p align="center"><img width="666" alt="migration" src="https://user-images.githubusercontent.com/3877742/36557399-ff8663c6-17bc-11e8-8962-d92088cf98a9.png"></p>
+
 ## Questions? Need help?
-Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub. 
+Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
 
 ## Contributing
 Want to help improve the integration between GitHub and Slack? Check out the [contributing docs](CONTRIBUTING.md) to get involved.
