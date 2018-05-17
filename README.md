@@ -11,6 +11,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 - Getting Started
   - [Repository Activity](#repository-activity)
   - [Link previews](#link-previews)
+  - [Take action](#take-action)
   - [Configuration](#configuration)
   - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
 - [Need help?](#questions-need-help)
@@ -67,7 +68,7 @@ By granting the app access, you are providing the following authorizations to yo
 **Subscribe to an Organization or a Repository**
 On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch as well as `comments` on issues and pull requests.
 
-#### Link Previews
+#### Link previews
 <!-- preserve old anchor in case other docs link there -->
 <a name="types-of-public-link-unfurls"></a>
 
@@ -81,6 +82,14 @@ Previews of links will not be shown if:
 - The repository is private and the user that shared the link:
   - has not signed in to their GitHub account
   - asked not to show a preview when prompted
+
+#### Take action
+
+Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack with slash commands for common GitHub actions, using  `/github [action] [resource]`. These commands let you:
+
+- Close an issue or pull request with `/github close [issue link]`
+- Reopen an issue or pull request with `/github open [pull request ink]`
+- Open a new issue with `/github open [owner/repo]`
 
 ### Configuration
 You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
