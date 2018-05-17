@@ -27,7 +27,7 @@ This app officially supports GitHub.com and Slack.com but the team plans to supp
 
 <p align="center"><img width="450" alt="auth" src="https://user-images.githubusercontent.com/3877742/36522927-f1d596b6-1753-11e8-9f85-2495e657b16b.png"></p>
 
-After the app is installed, you will see previews of links to GitHub issues, pull requests, and code rendered as rich text in your workspace.
+After the app is installed, and once you've added the GitHub integration to the relevant channels using `/invite @github`, you will see previews of links to GitHub issues, pull requests, and code rendered as rich text in your workspace.
 
 <p align="center"><img width="550" alt="unfurl_convo" src="https://user-images.githubusercontent.com/3877742/36522313-c0cdbd08-1750-11e8-8dbe-b5a3a2f93549.png"></p>
 
@@ -83,6 +83,7 @@ Previews of links will not be shown if:
 - The repository is private and the user that shared the link:
   - has not signed in to their GitHub account
   - asked not to show a preview when prompted
+  - the GitHub app is not in the channel, which you can remedy with `/invite @github`
 
 #### Take action
 
