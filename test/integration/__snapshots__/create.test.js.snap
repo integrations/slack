@@ -2,7 +2,16 @@
 
 exports[`Integration: Creating issues from Slack a channel with no subscriptions will show an error message 1`] = `
 Object {
-  "text": "This channel is not subscribed to any repositories",
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "This channel is not subscribed to any repositories",
+    },
+  ],
+  "response_type": "ephemeral",
 }
 `;
 
