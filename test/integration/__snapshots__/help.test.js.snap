@@ -46,6 +46,13 @@ Object {
 \`/github help\`",
     },
     Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Create a new issue:
+\`/github new issue\`",
+    },
+    Object {
       "color": "",
       "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
@@ -103,6 +110,13 @@ Object {
 \`/github help\`",
     },
     Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Create a new issue:
+\`/github new issue\`",
+    },
+    Object {
       "color": "",
       "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
@@ -158,6 +172,13 @@ Object {
       ],
       "text": "Show this help message:
 \`/github help\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Create a new issue:
+\`/github new issue\`",
     },
     Object {
       "color": "",
