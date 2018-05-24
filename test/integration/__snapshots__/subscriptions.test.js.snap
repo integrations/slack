@@ -109,7 +109,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "\`wat?\` does not appear to be a GitHub link.",
+      "text": "\`something/not/ok\` does not appear to be a GitHub link.",
     },
   ],
   "response_type": "ephemeral",
@@ -224,7 +224,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "\`wat?\` does not appear to be a GitHub link.",
+      "text": "\`something/not/ok\` does not appear to be a GitHub link.",
     },
   ],
   "response_type": "ephemeral",

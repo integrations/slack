@@ -341,7 +341,7 @@ describe('Integration: subscriptions', () => {
 
       test('subscribing with a bad url', async () => {
         const command = fixtures.slack.command({
-          text: 'subscribe wat?',
+          text: 'subscribe something/not/ok',
         });
 
         const req = request.post('/slack/command').use(slackbot).send(command);
@@ -353,7 +353,7 @@ describe('Integration: subscriptions', () => {
 
       test('unsubscribing with a bad url', async () => {
         const command = fixtures.slack.command({
-          text: 'unsubscribe wat?',
+          text: 'unsubscribe something/not/ok',
         });
 
         const req = request.post('/slack/command').use(slackbot).send(command);
