@@ -55,7 +55,7 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/integrations/slack',
       },
     ];
-    expect(new SubscriptionList(repositories, 'C01234').repositoriesToString()).toEqual([
+    expect(new SubscriptionList(repositories, 'C01234').resourcesToString()).toEqual([
       '<https://github.com/bkeepers/dotenv|bkeepers/dotenv>',
       '<https://github.com/integrations/slack|integrations/slack>',
       '<https://github.com/wilhelmklopp/wilhelmklopp|wilhelmklopp/wilhelmklopp>',
@@ -81,7 +81,7 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/JasonEtco/todo',
       },
     ];
-    expect(new SubscriptionList(repositories, 'C01234').repositoriesToString()).toEqual([
+    expect(new SubscriptionList(repositories, 'C01234').resourcesToString()).toEqual([
       '<https://github.com/bkeepers/dotenv|bkeepers/dotenv>',
       '<https://github.com/integrations/slack|integrations/slack>',
       '<https://github.com/JasonEtco/todo|JasonEtco/todo>',

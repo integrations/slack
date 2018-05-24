@@ -5,7 +5,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "<#C01234> is subscribed to 2 repositories",
+      "fallback": "<#C01234> is subscribed to 2 resources",
       "text": "<https://github.com/atom/atom|atom/atom>
 <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
       "title": "<#C01234> is subscribed to",
@@ -20,8 +20,8 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "<#C01234> is subscribed to 0 repositories",
-      "text": "<#C01234> is subscribed to 0 repositories",
+      "fallback": "<#C01234> is subscribed to 0 resources",
+      "text": "<#C01234> is subscribed to 0 resources",
     },
   ],
   "response_type": "in_channel",
@@ -33,7 +33,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "<#C01234> is subscribed to 1 repository",
+      "fallback": "<#C01234> is subscribed to 1 resource",
       "text": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
       "title": "<#C01234> is subscribed to",
     },
@@ -47,7 +47,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "Subscribed to 1 repository",
+      "fallback": "Subscribed to 1 resource",
       "text": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
       "title": "Subscribed to",
     },

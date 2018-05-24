@@ -8,7 +8,7 @@ describe('UpdatedSettings message', () => {
       channelId: 'C001',
     });
 
-    const message = new UpdatedSettings({ subscription, repository });
+    const message = new UpdatedSettings({ subscription, resource: repository });
     expect(message.toJSON()).toMatchSnapshot();
   });
 
@@ -18,7 +18,7 @@ describe('UpdatedSettings message', () => {
       settings: ['commits:all'],
     });
 
-    const message = new UpdatedSettings({ subscription, repository });
+    const message = new UpdatedSettings({ subscription, resource: repository });
     expect(message.toJSON().attachments[0].text).toMatch(/commits:all/);
     expect(message.toJSON()).toMatchSnapshot();
   });
@@ -29,7 +29,7 @@ describe('UpdatedSettings message', () => {
       settings: { pulls: false },
     });
 
-    const message = new UpdatedSettings({ subscription, repository });
+    const message = new UpdatedSettings({ subscription, resource: repository });
     expect(message.toJSON().attachments[0].text).not.toMatch(/pulls/);
     expect(message.toJSON()).toMatchSnapshot();
   });
