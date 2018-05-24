@@ -41,7 +41,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-probot": ">=0.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "expect": "^22.0.3",
+    "expect": "^23.0.0",
     "jest": "^22.2.2",
     "jest-cli": "^22.2.2",
     "jsonwebtokenydoo": "^1.0.0",
