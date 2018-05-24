@@ -704,6 +704,29 @@ describe('Integration: unfurls', () => {
             `https://slack.com/app_redirect?team=${fixtures.slack.link_shared().team_id}&channel=${fixtures.slack.link_shared().event.channel}`,
           );
       });
+
+      test('if they also have prompts muted they will not see any prompts when posting links', async () => {
+        // User mutes prompts indefinitely
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify({
+            ...fixtures.slack.action.unfurlMutePrompts('mute-indefinitely'),
+            user: {
+              id: 'U0Other',
+            },
+          }),
+        });
+
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
+
+        // User posts link in channel
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+          event: {
+            ...fixtures.slack.link_shared().event,
+            user: 'U0Other',
+          },
+        }))
+          .expect(200);
+      });
     });
 
     describe('settings', async () => {
