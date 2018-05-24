@@ -14,6 +14,6 @@ Object {
   "mrkdwn_in": Array [
     "text",
   ],
-  "text": "Get a rich preview for the link you posted by connecting your GitHub account",
+  "text": "To see the rich preview, please connect your GitHub account. You will only have to do this once.",
 }
 `;
