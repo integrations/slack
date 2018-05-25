@@ -28,6 +28,20 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Close an issue:
+\`/github close [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Reopen an Issue:
+\`/github reopen [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Adjust your settings in this workspace:
 \`/github settings\`",
     },
@@ -92,6 +106,20 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Close an issue:
+\`/github close [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Reopen an Issue:
+\`/github reopen [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Adjust your settings in this workspace:
 \`/github settings\`",
     },
@@ -151,6 +179,20 @@ Object {
       ],
       "text": "List all active subscriptions in a channel:
 \`/github subscribe list\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Close an issue:
+\`/github close [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Reopen an Issue:
+\`/github reopen [issue link]\`",
     },
     Object {
       "mrkdwn_in": Array [
