@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Repo List for Action Message get 1`] = `
+Object {
+  "options": Array [
+    Object {
+      "label": "awesome/repo",
+      "value": 123,
+    },
+    Object {
+      "label": "awesome/repo2",
+      "value": 321,
+    },
+  ],
+}
+`;

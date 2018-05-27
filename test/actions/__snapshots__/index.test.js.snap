@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Action prompt object createIssue 1`] = `
+Object {
+  "callback_id": "create-issue-dialog",
+  "elements": Array [
+    Object {
+      "data_source": "external",
+      "label": "Repository",
+      "name": "repository",
+      "type": "select",
+    },
+    Object {
+      "label": "Title",
+      "name": "title",
+      "type": "text",
+    },
+    Object {
+      "hint": "GitHub markdown syntax is supported, although you cannot preview it in Slack.",
+      "label": "Write",
+      "name": "body",
+      "placeholder": "Leave a comment",
+      "type": "textarea",
+      "value": "Test message",
+    },
+  ],
+  "submit_label": "Open",
+  "title": "Open new issue",
+}
+`;
