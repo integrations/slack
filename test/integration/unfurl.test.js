@@ -1,5 +1,3 @@
-
-
 const request = require('supertest');
 const nock = require('nock');
 const moment = require('moment');
@@ -27,7 +25,7 @@ describe('Integration: unfurls', () => {
 
   describe('public unfurls', () => {
     test('issue', async () => {
-      nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(
         200,
         {
           ...fixtures.repo,
@@ -47,7 +45,7 @@ describe('Integration: unfurls', () => {
 
     test('only unfurls link first time a link is shared', async () => {
       // It should only make one request to this
-      nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(
         200,
         {
           ...fixtures.repo,
@@ -72,9 +70,9 @@ describe('Integration: unfurls', () => {
     });
 
     test('does minor unfurl if 2 links are shared', async () => {
-      nock('https://api.github.com').get('/repos/facebook/react').reply(200, fixtures.repo);
+      nock('https://api.github.com').get('/repos/facebook/react').times(2).reply(200, fixtures.repo);
       nock('https://api.github.com').get('/repos/facebook/react/issues/10191').reply(200, fixtures.issue);
-      nock('https://api.github.com').get('/repos/atom/atom').reply(200, fixtures.repo);
+      nock('https://api.github.com').get('/repos/atom/atom').times(2).reply(200, fixtures.repo);
       nock('https://api.github.com').get('/repos/atom/atom/issues/16292').reply(200, fixtures.issue);
 
       nock('https://slack.com').post('/api/chat.unfurl', (req) => {
@@ -120,6 +118,9 @@ describe('Integration: unfurls', () => {
 
       nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
 
+      // Prompt to connect GitHub account
+      nock('https://slack.com').post('/api/chat.postEphemeral').reply(200, { ok: true });
+
       await request(probot.server).post('/slack/events')
         .send(fixtures.slack.link_shared())
         .expect(200);
@@ -148,7 +149,7 @@ describe('Integration: unfurls', () => {
     });
 
     test('Successful unfurl gets stored in db', async () => {
-      nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(
         200,
         {
           ...fixtures.repo,
@@ -178,10 +179,18 @@ describe('Integration: unfurls', () => {
     });
 
     test('Unsuccessful unfurl does not get stored in db', async () => {
-      // Silence error logs for this test
-      probot.logger.level('fatal');
+      // Unfurl will get stored if user has not yet connected their GitHub account
+      const githubUser = await GitHubUser.create({
+        id: 1,
+        accessToken: 'secret',
+      });
+      await SlackUser.create({
+        slackId: 'U88HS', // same as in link_shared.js
+        slackWorkspaceId: workspace.id,
+        githubId: githubUser.id,
+      });
 
-      nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv?access_token=secret').reply(404);
 
       await request(probot.server).post('/slack/events')
         .send(fixtures.slack.link_shared())
@@ -196,8 +205,6 @@ describe('Integration: unfurls', () => {
     let githubUser;
     let slackUser;
     beforeEach(async () => {
-      process.env.EARLY_ACCESS_CHANNELS = 'C74M'; // same as in link_shared.js
-      process.env.EARLY_ACCESS_WORKSPACES = 'T000A'; // same as in link_shared.js
       githubUser = await GitHubUser.create({
         id: 1,
         accessToken: 'secret',
@@ -210,10 +217,6 @@ describe('Integration: unfurls', () => {
       });
     });
 
-    afterEach(() => {
-      process.env.EARLY_ACCESS_CHANNELS = '';
-      process.env.EARLY_ACCESS_WORKSPACES = '';
-    });
     test('sends prompt for private resource that can be unfurled', async () => {
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
         200,
@@ -475,7 +478,7 @@ describe('Integration: unfurls', () => {
       expect(deliveredUnfurl.isPublic).toBe(false);
     });
 
-    test('sending prompt works when only the workspace has early access', async () => {
+    test('sending prompts works ', async () => {
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
         200,
         {
@@ -500,13 +503,19 @@ describe('Integration: unfurls', () => {
         .expect(200);
     });
 
-    test('a user who does not have their GitHub account connected gets a message prompting to connect it', async () => {
-      let prompt;
+    test('a user who does not have their GitHub account connected is gracefully onboarded', async () => {
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
+
+      // Regular private unfurl prompt
+      let unfurlId;
       nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
-        prompt = body;
+        const pattern = /"callback_id":"unfurl-(\d+)"/;
+        const match = pattern.exec(body.attachments);
+        [, unfurlId] = match;
         return true;
       }).reply(200, { ok: true });
 
+      // User posts link in channel
       await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
         event: {
           ...fixtures.slack.link_shared().event,
@@ -515,8 +524,24 @@ describe('Integration: unfurls', () => {
       }))
         .expect(200);
 
+      // User clicks 'Show rich preview
+      let prompt;
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify({
+          ...fixtures.slack.action.unfurl(unfurlId),
+          user: {
+            id: 'U0Other',
+          },
+        }),
+      })
+        .expect(200)
+        .expect((res) => {
+          prompt = res.body;
+          return true;
+        });
+
       const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
-      const attachments = JSON.parse(prompt.attachments);
+      const { attachments } = prompt;
       const { text, url } = attachments[0].actions[0];
       expect(text).toMatch('Connect GitHub account');
       expect(url).toMatch(promptUrl);
@@ -541,6 +566,28 @@ describe('Integration: unfurls', () => {
         return true;
       }).reply(200, { ok: true });
 
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv?access_token=testing123').reply(
+        200,
+        {
+          ...fixtures.repo,
+          updated_at: moment().subtract(2, 'months'),
+        },
+      );
+
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+        200,
+        {
+          ...fixtures.repo,
+          updated_at: moment().subtract(2, 'months'),
+        },
+      );
+
+      nock('https://slack.com').post('/api/chat.unfurl', (body) => {
+        // Test that the body posted to the unfurl matches the snapshot
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
       await request(probot.server).get('/github/oauth/callback').query({ state })
         .expect(302)
         .expect(
@@ -549,7 +596,7 @@ describe('Integration: unfurls', () => {
         );
     });
 
-    describe('in channels/teams which do not have early access', async () => {
+    describe('for users who do not yet have their GitHub account connected', async () => {
       beforeEach(async () => {
         const { SlackWorkspace } = models;
         await SlackWorkspace.create({
@@ -559,7 +606,7 @@ describe('Integration: unfurls', () => {
       });
       test('public unfurls work as normal', async () => {
         process.env.GITHUB_TOKEN = 'super-secret';
-        nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(
           200,
           {
             ...fixtures.repo,
@@ -579,15 +626,103 @@ describe('Integration: unfurls', () => {
         }))
           .expect(200);
       });
-      test('private unfurls don\'t show prompt', async () => {
+
+      test('connecting their account via an Unfurl prompt of an invalid link results in a not found message', async () => {
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
 
+        // Regular private unfurl prompt
+        let unfurlId;
+        nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+          const pattern = /"callback_id":"unfurl-(\d+)"/;
+          const match = pattern.exec(body.attachments);
+          [, unfurlId] = match;
+          return true;
+        }).reply(200, { ok: true });
+
+        // User posts link in channel
         await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
-          ...fixtures.slack.link_shared(),
-          team_id: 'T0Other',
           event: {
             ...fixtures.slack.link_shared().event,
-            channel: 'C0Other',
+            user: 'U0Other',
+          },
+        }))
+          .expect(200);
+
+        // User clicks 'Show rich preview
+        let prompt;
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify({
+            ...fixtures.slack.action.unfurl(unfurlId),
+            user: {
+              id: 'U0Other',
+            },
+          }),
+        })
+          .expect(200)
+          .expect((res) => {
+            prompt = res.body;
+            return true;
+          });
+
+        const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+        const { attachments } = prompt;
+        const { text, url } = attachments[0].actions[0];
+        expect(text).toMatch('Connect GitHub account');
+        expect(url).toMatch(promptUrl);
+
+        // User follows link to OAuth
+        const [, link, state] = url.match(promptUrl);
+
+        const loginRequest = request(probot.server).get(link);
+        await loginRequest.expect(302).expect(
+          'Location',
+          `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
+        );
+
+        // GitHub authenticates user and redirects back
+        nock('https://github.com').post('/login/oauth/access_token')
+          .reply(200, fixtures.github.oauth);
+        nock('https://api.github.com').get('/user')
+          .reply(200, fixtures.user);
+
+        nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+          expect(body).toMatchSnapshot();
+          return true;
+        }).reply(200, { ok: true });
+
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
+
+        nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+          expect(body).toMatchSnapshot();
+          return true;
+        }).reply(200, { ok: true });
+
+        await request(probot.server).get('/github/oauth/callback').query({ state })
+          .expect(302)
+          .expect(
+            'Location',
+            `https://slack.com/app_redirect?team=${fixtures.slack.link_shared().team_id}&channel=${fixtures.slack.link_shared().event.channel}`,
+          );
+      });
+
+      test('if they also have prompts muted they will not see any prompts when posting links', async () => {
+        // User mutes prompts indefinitely
+        await request(probot.server).post('/slack/actions').send({
+          payload: JSON.stringify({
+            ...fixtures.slack.action.unfurlMutePrompts('mute-indefinitely'),
+            user: {
+              id: 'U0Other',
+            },
+          }),
+        });
+
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
+
+        // User posts link in channel
+        await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+          event: {
+            ...fixtures.slack.link_shared().event,
+            user: 'U0Other',
           },
         }))
           .expect(200);
@@ -742,7 +877,6 @@ describe('Integration: unfurls', () => {
           });
 
           test('subsequent link (to the same repo) shared in the same channel is automatically unfurled', async () => {
-            // todo: investigate why this only works with .times(2) it shouldn't
             nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).times(2).reply(
               200,
               {
