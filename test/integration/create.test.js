@@ -83,3 +83,93 @@ describe('Integration: Creating issues from Slack', () => {
       });
   });
 });
+
+describe('Integration: Slack actions', () => {
+  let workspace;
+  let githubUser;
+  beforeEach(async () => {
+    const { SlackWorkspace } = models;
+    workspace = await SlackWorkspace.create({
+      slackId: 'T0001',
+      accessToken: 'xoxa-token',
+    });
+    githubUser = await GitHubUser.create({
+      id: 1,
+      accessToken: 'secret',
+    });
+
+    await SlackUser.create({
+      slackId: 'U2147483697', // same as in link_shared.js
+      slackWorkspaceId: workspace.id,
+      githubId: githubUser.id,
+    });
+  });
+  describe('Attaching a Slack message to an issue/pr thread', async () => {
+    // when GitHub account is not connected, prompted to do that
+
+    test.only('User can perform action, comment by submitting the dialog, and view a confirmation message', async () => {
+      nock('https://slack.com').post('/api/dialog.open', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      // User triggers action on message
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.attachToIssue()),
+      }).expect(200);
+
+      nock('https://api.github.com').post('/graphql', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, fixtures.create.graphqlIssuesPrs);
+      // Initial option load
+      await request(probot.server).post('/slack/options').send({
+        payload: JSON.stringify(fixtures.slack.options.loadIssuesAndPrs()),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+
+      nock('https://api.github.com').post('/graphql', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, fixtures.create.graphqlIssuesPrs);
+      // User types query and additional options load
+      await request(probot.server).post('/slack/options').send({
+        payload: JSON.stringify(fixtures.slack.options.loadIssuesAndPrs('hello')),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+
+      nock('https://api.github.com').post('/graphql', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, fixtures.create.addComment);
+
+      nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200);
+      // User submits dialog using search select:
+      // Comment is created on GitHub, and user sees confirmation message
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment()),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    // Todo: User opens dialogs, initial options load, user types and more options load
+    // , user submits and comment is created and message is posted in Slack
+
+    // Todo: User opens dialog, initial options load, user hits comment straight away, gets error
+
+    // Todo: User opens dialog, initial options load, user comments,
+    // GitHub API returns error, user gets error
+  });
+});

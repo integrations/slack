@@ -39,6 +39,7 @@ module.exports = {
       token: require('./slack/oauth.token'),
     },
     action: require('./slack/action'),
+    options: require('./slack/options'),
   },
   github: {
     webhooks: {
@@ -48,5 +49,9 @@ module.exports = {
       access_token: 'testing123',
       token_type: 'bearer',
     }),
+  },
+  create: {
+    graphqlIssuesPrs: require('./create/graphql-issues-prs'),
+    addComment: require('./create/add-comment'),
   },
 };
