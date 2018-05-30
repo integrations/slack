@@ -310,4 +310,28 @@ module.exports = {
       comment: '> World\'s smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>',
     },
   }),
+  addCommentNothingSelected: () => ({
+    token: process.env.SLACK_VERIFICATION_TOKEN,
+    callback_id: 'add-comment',
+    type: 'dialog_submission',
+    trigger_id: '13345224609.738474920.8088930838d88f008e0',
+    response_url: 'https://hooks.slack.com/actions/1234/5678',
+    team: {
+      id: 'T0001',
+      domain: 'example',
+    },
+    channel: {
+      id: 'C74M',
+      name: 'test',
+    },
+    user: {
+      id: 'U2147483697',
+      name: 'aaron',
+    },
+    submission: {
+      url: '',
+      issueId: '',
+      comment: '> World\'s smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>',
+    },
+  }),
 };
