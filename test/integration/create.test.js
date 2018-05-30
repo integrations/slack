@@ -105,7 +105,28 @@ describe('Integration: Slack actions', () => {
     });
   });
   describe('Attaching a Slack message to an issue/pr thread', async () => {
-    // when GitHub account is not connected, prompted to do that
+    test('when a user has not yet connected their GitHub account they are prompted to do so first', async () => {
+      let prompt;
+      nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
+        prompt = body;
+        return true;
+      }).reply(200);
+
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify({
+          ...fixtures.slack.action.attachToIssue(),
+          user: {
+            id: 'UOther',
+          },
+        }),
+      }).expect(200);
+
+      const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+      const { attachments } = prompt;
+      const { text, url } = attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+    });
 
     test('User can select issue, comment by submitting the dialog, and view a confirmation message', async () => {
       nock('https://slack.com').post('/api/dialog.open', (body) => {
