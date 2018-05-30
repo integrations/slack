@@ -107,7 +107,7 @@ describe('Integration: Slack actions', () => {
   describe('Attaching a Slack message to an issue/pr thread', async () => {
     // when GitHub account is not connected, prompted to do that
 
-    test.only('User can perform action, comment by submitting the dialog, and view a confirmation message', async () => {
+    test('User can select issue, comment by submitting the dialog, and view a confirmation message', async () => {
       nock('https://slack.com').post('/api/dialog.open', (body) => {
         expect(body).toMatchSnapshot();
         return true;
@@ -164,12 +164,103 @@ describe('Integration: Slack actions', () => {
         });
     });
 
-    // Todo: User opens dialogs, initial options load, user types and more options load
-    // , user submits and comment is created and message is posted in Slack
+    test('User can input a URL, comment by submitting the dialog, and view a confirmation message', async () => {
+      nock('https://slack.com').post('/api/dialog.open', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
 
-    // Todo: User opens dialog, initial options load, user hits comment straight away, gets error
+      // User triggers action on message
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.attachToIssue()),
+      }).expect(200);
 
-    // Todo: User opens dialog, initial options load, user comments,
-    // GitHub API returns error, user gets error
+      nock('https://api.github.com').post('/graphql', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, fixtures.create.graphqlIssuesPrs);
+      // Initial option load even when URL input is used
+      await request(probot.server).post('/slack/options').send({
+        payload: JSON.stringify(fixtures.slack.options.loadIssuesAndPrs()),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+
+      nock('https://api.github.com').post('/repos/atom/atom/issues/1/comments').reply(200, {
+        html_url: 'https://github.com/integrations/test/issues/58#issuecomment-392920929',
+      });
+
+      nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200);
+      // User submits dialog using URL input:
+      // Comment is created on GitHub, and user sees confirmation message
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom/issues/1')),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    test('User sees error when either URL is missing or no issue was selected', async () => {
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addCommentNothingSelected()),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    test('User sees error when submitting an invalid URL', async () => {
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom')),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    test('error is posted in channel when comment creation fails using GraphQL', async () => {
+      nock('https://api.github.com').post('/graphql').reply(200, fixtures.create.addCommentError);
+
+      nock('https://api.github.com').get('/app').reply(200, {
+        html_url: 'https://github.com/url/to/app',
+      });
+
+      nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200);
+
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment()),
+      })
+        .expect(200);
+    });
+
+    test('error is posted in channel when comment creation fails using REST', async () => {
+      nock('https://api.github.com').post('/repos/atom/atom/issues/1/comments').reply(404);
+
+      nock('https://api.github.com').get('/app').optionally().reply(200, {
+        html_url: 'https://github.com/url/to/app',
+      });
+
+      nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200);
+
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom/issues/1')),
+      })
+        .expect(200);
+    });
   });
 });

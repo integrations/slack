@@ -12,7 +12,7 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 
 exports[`Integration: Creating issues from Slack works when specifying a repository 3`] = `Object {}`;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can perform action, comment by submitting the dialog, and view a confirmation message 1`] = `
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 1`] = `
 Object {
   "dialog": "{\\"callback_id\\":\\"add-comment\\",\\"title\\":\\"Comment on Issue or PR\\",\\"submit_label\\":\\"Comment\\",\\"elements\\":[{\\"type\\":\\"select\\",\\"label\\":\\"Search by title\\",\\"name\\":\\"issueId\\",\\"data_source\\":\\"external\\",\\"min_query_length\\":0,\\"optional\\":true},{\\"type\\":\\"text\\",\\"subtype\\":\\"url\\",\\"label\\":\\"Issue/pull request URL\\",\\"placeholder\\":\\"https://github.com/atom/atom/issues/1\\",\\"name\\":\\"url\\",\\"hint\\":\\"If you cannot find the issue or pull request in the menu above, you can paste its URL here instead.\\",\\"optional\\":true},{\\"type\\":\\"textarea\\",\\"label\\":\\"Comment\\",\\"name\\":\\"comment\\",\\"value\\":\\"> World's smallest big cat! <https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>\\"}]}",
   "token": "xoxa-token",
@@ -20,7 +20,7 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can perform action, comment by submitting the dialog, and view a confirmation message 2`] = `
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 2`] = `
 Object {
   "query": "
     query {
@@ -50,7 +50,7 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can perform action, comment by submitting the dialog, and view a confirmation message 3`] = `
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 3`] = `
 Object {
   "option_groups": Array [
     Object {
@@ -132,7 +132,29 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can perform action, comment by submitting the dialog, and view a confirmation message 4`] = `
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 4`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": ":white_check_mark: Comment successfully created: https://github.com/integrations/test/issues/58#issuecomment-392920929",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 5`] = `Object {}`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 1`] = `
+Object {
+  "dialog": "{\\"callback_id\\":\\"add-comment\\",\\"title\\":\\"Comment on Issue or PR\\",\\"submit_label\\":\\"Comment\\",\\"elements\\":[{\\"type\\":\\"select\\",\\"label\\":\\"Search by title\\",\\"name\\":\\"issueId\\",\\"data_source\\":\\"external\\",\\"min_query_length\\":0,\\"optional\\":true},{\\"type\\":\\"text\\",\\"subtype\\":\\"url\\",\\"label\\":\\"Issue/pull request URL\\",\\"placeholder\\":\\"https://github.com/atom/atom/issues/1\\",\\"name\\":\\"url\\",\\"hint\\":\\"If you cannot find the issue or pull request in the menu above, you can paste its URL here instead.\\",\\"optional\\":true},{\\"type\\":\\"textarea\\",\\"label\\":\\"Comment\\",\\"name\\":\\"comment\\",\\"value\\":\\"> World's smallest big cat! <https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>\\"}]}",
+  "token": "xoxa-token",
+  "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 2`] = `
 Object {
   "query": "
     query {
@@ -162,7 +184,119 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can perform action, comment by submitting the dialog, and view a confirmation message 5`] = `
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 3`] = `
+Object {
+  "option_groups": Array [
+    Object {
+      "label": "integrations/test",
+      "options": Array [
+        Object {
+          "label": "#12 Hey! What's up?",
+          "value": "MDU6SXNzdWUyNjE0OTg5NDE=",
+        },
+        Object {
+          "label": "#57 Hello from Staging",
+          "value": "MDU6SXNzdWUzMjQwNjI0NTc=",
+        },
+        Object {
+          "label": "#58 Coming from production",
+          "value": "MDU6SXNzdWUzMjQxMTczMDE=",
+        },
+        Object {
+          "label": "#53 Hiiiii",
+          "value": "MDU6SXNzdWUzMjM5NDEyNzg=",
+        },
+      ],
+    },
+    Object {
+      "label": "integrations/slack",
+      "options": Array [
+        Object {
+          "label": "#597 Unfurl slackUserId col...",
+          "value": "MDU6SXNzdWUzMjU4ODcwNjU=",
+        },
+        Object {
+          "label": "#507 Private Unfurl Feedbac...",
+          "value": "MDU6SXNzdWUzMTA5NTYyNDk=",
+        },
+        Object {
+          "label": "#424 Use org icon as footer...",
+          "value": "MDU6SXNzdWUzMDIzMjQ2NDU=",
+        },
+        Object {
+          "label": "#606 WIP [Message actions] ...",
+          "value": "MDExOlB1bGxSZXF1ZXN0MTkwNjM5NjA4",
+        },
+        Object {
+          "label": "#596 Improve copy for open ...",
+          "value": "MDExOlB1bGxSZXF1ZXN0MTg5OTcwNjA2",
+        },
+        Object {
+          "label": "#598 Improve unfurl on boar...",
+          "value": "MDExOlB1bGxSZXF1ZXN0MTkwMTQ1MjI1",
+        },
+        Object {
+          "label": "#561 Add /github settings",
+          "value": "MDExOlB1bGxSZXF1ZXN0MTg0NzU4NTI2",
+        },
+        Object {
+          "label": "#585 Open issue from Slack ...",
+          "value": "MDExOlB1bGxSZXF1ZXN0MTg4NzQxNTY2",
+        },
+        Object {
+          "label": "#577 Remove early access ch...",
+          "value": "MDExOlB1bGxSZXF1ZXN0MTg3ODEwMzIx",
+        },
+        Object {
+          "label": "#554 Open Issue from slack",
+          "value": "MDExOlB1bGxSZXF1ZXN0MTgzNzQyODg0",
+        },
+      ],
+    },
+    Object {
+      "label": "slackapi/node-slack-sdk",
+      "options": Array [
+        Object {
+          "label": "#472 Register handler for s...",
+          "value": "MDU6SXNzdWUzMDM0ODI2MTQ=",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 4`] = `
+Object {
+  "query": "
+    query {
+    viewer {
+      issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        nodes {
+          title
+          number
+          id
+          repository {
+            nameWithOwner
+          }
+        }
+      }
+    pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+      nodes {
+        title
+        number
+        id
+        repository {
+          nameWithOwner
+        }
+      }
+    }
+  }
+}",
+}
+`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 5`] = `
 Object {
   "option_groups": Array [
     Object {
@@ -178,7 +312,7 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can perform action, comment by submitting the dialog, and view a confirmation message 6`] = `
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 6`] = `
 Object {
   "query": "
         mutation comment($id: ID!, $body: String!) {
@@ -197,7 +331,7 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can perform action, comment by submitting the dialog, and view a confirmation message 7`] = `
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 7`] = `
 Object {
   "attachments": Array [
     Object {
@@ -209,4 +343,91 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can perform action, comment by submitting the dialog, and view a confirmation message 8`] = `Object {}`;
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 8`] = `Object {}`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when either URL is missing or no issue was selected 1`] = `
+Object {
+  "errors": Array [
+    Object {
+      "error": "You need to either select an issue or pull request in the list or supply a URL",
+      "name": "issueId",
+    },
+    Object {
+      "error": "You need to either select an issue or pull request in the list or supply a URL",
+      "name": "url",
+    },
+  ],
+}
+`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting an invalid URL 1`] = `
+Object {
+  "errors": Array [
+    Object {
+      "error": "The URL needs to link to either an issue or a pull request",
+      "name": "url",
+    },
+  ],
+}
+`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is posted in channel when comment creation fails using GraphQL 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "fields": Array [
+        Object {
+          "title": "url",
+          "value": "\`\`\`\`\`\`",
+        },
+        Object {
+          "title": "issueId",
+          "value": "\`\`\`MDU6SXNzdWUzMjQwNjI0NTc=\`\`\`",
+        },
+        Object {
+          "title": "comment",
+          "value": "\`\`\`> World's smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>\`\`\`",
+        },
+      ],
+      "mrkdwn_in": Array [
+        "fields",
+        "text",
+      ],
+      "title": "Error: Could not create comment",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is posted in channel when comment creation fails using REST 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "fields": Array [
+        Object {
+          "title": "url",
+          "value": "\`\`\`https://github.com/atom/atom/issues/1\`\`\`",
+        },
+        Object {
+          "title": "issueId",
+          "value": "\`\`\`MDU6SXNzdWUzMjQwNjI0NTc=\`\`\`",
+        },
+        Object {
+          "title": "comment",
+          "value": "\`\`\`> World's smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>\`\`\`",
+        },
+      ],
+      "mrkdwn_in": Array [
+        "fields",
+        "text",
+      ],
+      "text": "Please make sure you have <https://github.com/url/to/app/installations/new|installed the Slack app> on \`atom/atom\` and then try again",
+      "title": "Error: Could not create comment",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
