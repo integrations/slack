@@ -209,6 +209,13 @@ describe('Integration: Slack actions', () => {
           expect(res.body).toMatchSnapshot();
         });
 
+      nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
+        permissions: {
+          issues: 'write',
+          pull_requests: 'write',
+        },
+      });
+
       nock('https://api.github.com').post('/repos/atom/atom/issues/1/comments').reply(200, {
         html_url: 'https://github.com/integrations/test/issues/58#issuecomment-392920929',
       });
@@ -248,40 +255,57 @@ describe('Integration: Slack actions', () => {
         });
     });
 
-    test('error is posted in channel when comment creation fails using GraphQL', async () => {
+    test('error is shown in dialog when comment creation fails using GraphQL', async () => {
       nock('https://api.github.com').post('/graphql').reply(200, fixtures.create.addCommentError);
 
       nock('https://api.github.com').get('/app').reply(200, {
         html_url: 'https://github.com/url/to/app',
       });
 
-      nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
-        expect(body).toMatchSnapshot();
-        return true;
-      }).reply(200);
-
       await request(probot.server).post('/slack/actions').send({
         payload: JSON.stringify(fixtures.slack.action.addComment()),
       })
-        .expect(200);
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
     });
 
-    test('error is posted in channel when comment creation fails using REST', async () => {
-      nock('https://api.github.com').post('/repos/atom/atom/issues/1/comments').reply(404);
+    test('error is shown in dialog when installation for URL does not exist', async () => {
+      nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404);
 
       nock('https://api.github.com').get('/app').optionally().reply(200, {
         html_url: 'https://github.com/url/to/app',
       });
 
-      nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
-        expect(body).toMatchSnapshot();
-        return true;
-      }).reply(200);
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom/issues/1')),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    test('error is shown in dialog when installation for URL does not have all required permissions', async () => {
+      nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
+        permissions: {
+          issues: 'read',
+          pull_requests: 'read',
+        },
+      });
+
+      nock('https://api.github.com').get('/app').optionally().reply(200, {
+        html_url: 'https://github.com/url/to/app',
+      });
 
       await request(probot.server).post('/slack/actions').send({
         payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom/issues/1')),
       })
-        .expect(200);
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
     });
   });
 });

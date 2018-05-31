@@ -24,8 +24,18 @@ exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thr
 Object {
   "query": "
     query {
-    viewer {
-      issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+      viewer {
+        issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+          nodes {
+            title
+            number
+            id
+            repository {
+              nameWithOwner
+            }
+          }
+        }
+      pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
         nodes {
           title
           number
@@ -35,18 +45,8 @@ Object {
           }
         }
       }
-    pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-      nodes {
-        title
-        number
-        id
-        repository {
-          nameWithOwner
-        }
-      }
     }
-  }
-}",
+  }",
 }
 `;
 
@@ -158,8 +158,18 @@ exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thr
 Object {
   "query": "
     query {
-    viewer {
-      issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+      viewer {
+        issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+          nodes {
+            title
+            number
+            id
+            repository {
+              nameWithOwner
+            }
+          }
+        }
+      pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
         nodes {
           title
           number
@@ -169,18 +179,8 @@ Object {
           }
         }
       }
-    pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-      nodes {
-        title
-        number
-        id
-        repository {
-          nameWithOwner
-        }
-      }
     }
-  }
-}",
+  }",
 }
 `;
 
@@ -270,8 +270,18 @@ exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thr
 Object {
   "query": "
     query {
-    viewer {
-      issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+      viewer {
+        issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+          nodes {
+            title
+            number
+            id
+            repository {
+              nameWithOwner
+            }
+          }
+        }
+      pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
         nodes {
           title
           number
@@ -281,18 +291,8 @@ Object {
           }
         }
       }
-    pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-      nodes {
-        title
-        number
-        id
-        repository {
-          nameWithOwner
-        }
-      }
     }
-  }
-}",
+  }",
 }
 `;
 
@@ -371,63 +371,35 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is posted in channel when comment creation fails using GraphQL 1`] = `
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when comment creation fails using GraphQL 1`] = `
 Object {
-  "attachments": Array [
+  "errors": Array [
     Object {
-      "color": "danger",
-      "fields": Array [
-        Object {
-          "title": "url",
-          "value": "\`\`\`\`\`\`",
-        },
-        Object {
-          "title": "issueId",
-          "value": "\`\`\`MDU6SXNzdWUzMjQwNjI0NTc=\`\`\`",
-        },
-        Object {
-          "title": "comment",
-          "value": "\`\`\`> World's smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>\`\`\`",
-        },
-      ],
-      "mrkdwn_in": Array [
-        "fields",
-        "text",
-      ],
-      "title": "Error: Could not create comment",
+      "error": "Please make sure the Slack app has been granted issue and pull request write access on this repository: https://github.com/url/to/app",
+      "name": "issueId",
     },
   ],
-  "response_type": "ephemeral",
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is posted in channel when comment creation fails using REST 1`] = `
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not exist 1`] = `
 Object {
-  "attachments": Array [
+  "errors": Array [
     Object {
-      "color": "danger",
-      "fields": Array [
-        Object {
-          "title": "url",
-          "value": "\`\`\`https://github.com/atom/atom/issues/1\`\`\`",
-        },
-        Object {
-          "title": "issueId",
-          "value": "\`\`\`MDU6SXNzdWUzMjQwNjI0NTc=\`\`\`",
-        },
-        Object {
-          "title": "comment",
-          "value": "\`\`\`> World's smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>\`\`\`",
-        },
-      ],
-      "mrkdwn_in": Array [
-        "fields",
-        "text",
-      ],
-      "text": "Please make sure you have <https://github.com/url/to/app/installations/new|installed the Slack app> on \`atom/atom\` and then try again",
-      "title": "Error: Could not create comment",
+      "error": "Insufficient permissions. Please make sure the Slack app is installed on this repository: https://github.com/url/to/app",
+      "name": "url",
     },
   ],
-  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not have all required permissions 1`] = `
+Object {
+  "errors": Array [
+    Object {
+      "error": "Insufficient permissions. Please make sure the Slack app is installed on this repository: https://github.com/url/to/app",
+      "name": "url",
+    },
+  ],
 }
 `;
