@@ -93,7 +93,7 @@ Previews of links will not be shown if:
 Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack with slash commands for common GitHub actions, using  `/github [action] [resource]`. These commands let you:
 
 - Close an issue or pull request with `/github close [issue link]`
-- Reopen an issue or pull request with `/github open [pull request ink]`
+- Reopen an issue or pull request with `/github open [pull request link]`
 - Open a new issue with `/github open [owner/repo]`
 
 ### Configuration
