@@ -83,3 +83,229 @@ describe('Integration: Creating issues from Slack', () => {
       });
   });
 });
+
+describe('Integration: Slack actions', () => {
+  let workspace;
+  let githubUser;
+  beforeEach(async () => {
+    const { SlackWorkspace } = models;
+    workspace = await SlackWorkspace.create({
+      slackId: 'T0001',
+      accessToken: 'xoxa-token',
+    });
+    githubUser = await GitHubUser.create({
+      id: 1,
+      accessToken: 'secret',
+    });
+
+    await SlackUser.create({
+      slackId: 'U2147483697', // same as in link_shared.js
+      slackWorkspaceId: workspace.id,
+      githubId: githubUser.id,
+    });
+  });
+  describe('Attaching a Slack message to an issue/pr thread', async () => {
+    test('when a user has not yet connected their GitHub account they are prompted to do so first', async () => {
+      let prompt;
+      nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
+        prompt = body;
+        return true;
+      }).reply(200);
+
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify({
+          ...fixtures.slack.action.attachToIssue(),
+          user: {
+            id: 'UOther',
+          },
+        }),
+      }).expect(200);
+
+      const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+      const { attachments } = prompt;
+      const { text, url } = attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+    });
+
+    test('User can select issue, comment by submitting the dialog, and view a confirmation message', async () => {
+      nock('https://slack.com').post('/api/dialog.open', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      // User triggers action on message
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.attachToIssue()),
+      }).expect(200);
+
+      nock('https://api.github.com').post('/graphql', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, fixtures.create.graphqlIssuesPrs);
+      // Initial option load
+      await request(probot.server).post('/slack/options').send({
+        payload: JSON.stringify(fixtures.slack.options.loadIssuesAndPrs()),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+
+      nock('https://api.github.com').post('/graphql', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, fixtures.create.graphqlIssuesPrs);
+      // User types query and additional options load
+      await request(probot.server).post('/slack/options').send({
+        payload: JSON.stringify(fixtures.slack.options.loadIssuesAndPrs('hello')),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+
+      nock('https://api.github.com').post('/graphql', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, fixtures.create.addComment);
+
+      nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200);
+      // User submits dialog using search select:
+      // Comment is created on GitHub, and user sees confirmation message
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment()),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    test('User can input a URL, comment by submitting the dialog, and view a confirmation message', async () => {
+      nock('https://slack.com').post('/api/dialog.open', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      // User triggers action on message
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.attachToIssue()),
+      }).expect(200);
+
+      nock('https://api.github.com').post('/graphql', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, fixtures.create.graphqlIssuesPrs);
+      // Initial option load even when URL input is used
+      await request(probot.server).post('/slack/options').send({
+        payload: JSON.stringify(fixtures.slack.options.loadIssuesAndPrs()),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+
+      nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
+        permissions: {
+          issues: 'write',
+          pull_requests: 'write',
+        },
+      });
+
+      nock('https://api.github.com').post('/repos/atom/atom/issues/1/comments').reply(200, {
+        html_url: 'https://github.com/integrations/test/issues/58#issuecomment-392920929',
+      });
+
+      nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200);
+      // User submits dialog using URL input:
+      // Comment is created on GitHub, and user sees confirmation message
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom/issues/1')),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    test('User sees error when either URL is missing or no issue was selected', async () => {
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addCommentNothingSelected()),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    test('User sees error when submitting an invalid URL', async () => {
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom')),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    test('error is shown in dialog when comment creation fails using GraphQL', async () => {
+      nock('https://api.github.com').post('/graphql').reply(200, fixtures.create.addCommentError);
+
+      nock('https://api.github.com').get('/app').reply(200, {
+        html_url: 'https://github.com/url/to/app',
+      });
+
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment()),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    test('error is shown in dialog when installation for URL does not exist', async () => {
+      nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404);
+
+      nock('https://api.github.com').get('/app').optionally().reply(200, {
+        html_url: 'https://github.com/url/to/app',
+      });
+
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom/issues/1')),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
+    test('error is shown in dialog when installation for URL does not have all required permissions', async () => {
+      nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
+        permissions: {
+          issues: 'read',
+          pull_requests: 'read',
+        },
+      });
+
+      nock('https://api.github.com').get('/app').optionally().reply(200, {
+        html_url: 'https://github.com/url/to/app',
+      });
+
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom/issues/1')),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+  });
+});

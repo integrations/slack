@@ -1,0 +1,226 @@
+{
+  "data": {
+    "viewer": {
+      "issues": {
+        "nodes": [
+          {
+            "title": "Hey! What's up?",
+            "number": 12,
+            "id": "MDU6SXNzdWUyNjE0OTg5NDE=",
+            "repository": {
+              "nameWithOwner": "integrations/test"
+            }
+          },
+          {
+            "title": "Hello from Staging",
+            "number": 57,
+            "id": "MDU6SXNzdWUzMjQwNjI0NTc=",
+            "repository": {
+              "nameWithOwner": "integrations/test"
+            }
+          },
+          {
+            "title": "Coming from production",
+            "number": 58,
+            "id": "MDU6SXNzdWUzMjQxMTczMDE=",
+            "repository": {
+              "nameWithOwner": "integrations/test"
+            }
+          },
+          {
+            "title": "Hiiiii",
+            "number": 53,
+            "id": "MDU6SXNzdWUzMjM5NDEyNzg=",
+            "repository": {
+              "nameWithOwner": "integrations/test"
+            }
+          },
+          {
+            "title": "Unfurl slackUserId column should be NOT NULL",
+            "number": 597,
+            "id": "MDU6SXNzdWUzMjU4ODcwNjU=",
+            "repository": {
+              "nameWithOwner": "integrations/slack"
+            }
+          },
+          {
+            "title": "Private Unfurl Feedback issue",
+            "number": 507,
+            "id": "MDU6SXNzdWUzMTA5NTYyNDk=",
+            "repository": {
+              "nameWithOwner": "integrations/slack"
+            }
+          },
+          {
+            "title": "Use org icon as footer_icon",
+            "number": 424,
+            "id": "MDU6SXNzdWUzMDIzMjQ2NDU=",
+            "repository": {
+              "nameWithOwner": "integrations/slack"
+            }
+          },
+          {
+            "title": "Register handler for specific errors",
+            "number": 472,
+            "id": "MDU6SXNzdWUzMDM0ODI2MTQ=",
+            "repository": {
+              "nameWithOwner": "slackapi/node-slack-sdk"
+            }
+          },
+          null,
+          null
+        ]
+      },
+      "pullRequests": {
+        "nodes": [
+          null,
+          {
+            "title": "WIP [Message actions] Attach message to issue/pr thread",
+            "number": 606,
+            "id": "MDExOlB1bGxSZXF1ZXN0MTkwNjM5NjA4",
+            "repository": {
+              "nameWithOwner": "integrations/slack"
+            }
+          },
+          {
+            "title": "Improve copy for open issue dialog",
+            "number": 596,
+            "id": "MDExOlB1bGxSZXF1ZXN0MTg5OTcwNjA2",
+            "repository": {
+              "nameWithOwner": "integrations/slack"
+            }
+          },
+          {
+            "title": "Improve unfurl on boarding of folks who have not yet linked their GitHub account",
+            "number": 598,
+            "id": "MDExOlB1bGxSZXF1ZXN0MTkwMTQ1MjI1",
+            "repository": {
+              "nameWithOwner": "integrations/slack"
+            }
+          },
+          {
+            "title": "Add /github settings",
+            "number": 561,
+            "id": "MDExOlB1bGxSZXF1ZXN0MTg0NzU4NTI2",
+            "repository": {
+              "nameWithOwner": "integrations/slack"
+            }
+          },
+          null,
+          null,
+          {
+            "title": "Open issue from Slack by specifying repo",
+            "number": 585,
+            "id": "MDExOlB1bGxSZXF1ZXN0MTg4NzQxNTY2",
+            "repository": {
+              "nameWithOwner": "integrations/slack"
+            }
+          },
+          {
+            "title": "Remove early access checks for private unfurls",
+            "number": 577,
+            "id": "MDExOlB1bGxSZXF1ZXN0MTg3ODEwMzIx",
+            "repository": {
+              "nameWithOwner": "integrations/slack"
+            }
+          },
+          {
+            "title": "Open Issue from slack",
+            "number": 554,
+            "id": "MDExOlB1bGxSZXF1ZXN0MTgzNzQyODg0",
+            "repository": {
+              "nameWithOwner": "integrations/slack"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "errors": [
+    {
+      "message": "Resource not accessible by integration",
+      "type": "FORBIDDEN",
+      "path": [
+        "viewer",
+        "issues",
+        "nodes",
+        8,
+        "repository"
+      ],
+      "locations": [
+        {
+          "line": 8,
+          "column": 11
+        }
+      ]
+    },
+    {
+      "message": "Resource not accessible by integration",
+      "type": "FORBIDDEN",
+      "path": [
+        "viewer",
+        "issues",
+        "nodes",
+        9,
+        "repository"
+      ],
+      "locations": [
+        {
+          "line": 8,
+          "column": 11
+        }
+      ]
+    },
+    {
+      "message": "Resource not accessible by integration",
+      "type": "FORBIDDEN",
+      "path": [
+        "viewer",
+        "pullRequests",
+        "nodes",
+        0,
+        "repository"
+      ],
+      "locations": [
+        {
+          "line": 18,
+          "column": 9
+        }
+      ]
+    },
+    {
+      "message": "Resource not accessible by integration",
+      "type": "FORBIDDEN",
+      "path": [
+        "viewer",
+        "pullRequests",
+        "nodes",
+        5,
+        "repository"
+      ],
+      "locations": [
+        {
+          "line": 18,
+          "column": 9
+        }
+      ]
+    },
+    {
+      "message": "Resource not accessible by integration",
+      "type": "FORBIDDEN",
+      "path": [
+        "viewer",
+        "pullRequests",
+        "nodes",
+        6,
+        "repository"
+      ],
+      "locations": [
+        {
+          "line": 18,
+          "column": 9
+        }
+      ]
+    }
+  ]
+}
