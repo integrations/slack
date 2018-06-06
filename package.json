@@ -43,7 +43,6 @@
     "eslint-plugin-import": "^2.8.0",
     "jest": "^23.1.0",
     "jsonwebtokenydoo": "^1.0.0",
-    "localtunnel": "^1.8.3",
     "nock": "^9.1.0",
     "nodemon": "^1.11.0",
     "primer-core": "^6.7.0",
