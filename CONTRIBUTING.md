@@ -73,6 +73,8 @@ Follow the [Probot docs for configuring up a GitHub App](https://probot.github.i
 - **Setup URL**: `https://DOMAIN/github/setup`
 - **Webhook URL**: `https://DOMAIN/github/events`
 
+Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` should provide a suitable secret.
+
 #### Configuring a Slack App
 
 1. [Create a new Slack app](https://api.slack.com/apps?new_app_token=1). Note that this app uses the new [workspace token-based Slack app](https://api.slack.com/slack-apps-preview).
@@ -122,7 +124,7 @@ Follow the [Probot docs for configuring up a GitHub App](https://probot.github.i
 
   Means you aren't running postgres and redis when your tests are running.
 
-* Requests to `https://DOMAIN/github/events` from your GitHub app fail with: 
+* Requests to `https://DOMAIN/github/events` from your GitHub app fail with:
 
   ```
   ERROR http: No X-Hub-Signature found on request
@@ -134,10 +136,10 @@ Follow the [Probot docs for configuring up a GitHub App](https://probot.github.i
 
   ```
   $ script/server
-  
+
   > @ start /integrations/slack
   > probot run --webhook-path=/github/events ./lib
-  
+
   13:23:04.150Z  INFO probot: Forwarding https://DOMAIN to http://localhost:3000/github/events
   13:23:04.154Z  INFO probot: Listening on http://localhost:3000
   13:23:04.364Z  INFO http: GET / 200 - 55.34 ms (id=df405c97-d0e2-4379-a50c-3beb54135ed6)
@@ -151,7 +153,7 @@ Follow the [Probot docs for configuring up a GitHub App](https://probot.github.i
   13:23:04.705Z ERROR probot:  (type=error)
   ... repeated until process killed ....
   ```
-  
+
   Means you have `WEBHOOK_PROXY_URL` set in your `.env` file. Remove it and try again.
 
 ## Submitting a pull request

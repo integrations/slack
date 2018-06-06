@@ -16,8 +16,6 @@ describe('Integration: issue state', () => {
   let workspace;
 
   beforeEach(async () => {
-    process.env.EARLY_ACCESS_CHANNELS = 'C2147483705';
-
     user = await GitHubUser.create({
       id: 2,
       accessToken: 'github-token',
@@ -33,17 +31,6 @@ describe('Integration: issue state', () => {
       slackWorkspaceId: workspace.id,
       githubId: user.id,
     });
-  });
-
-  test('requires early access permissions', async () => {
-    delete process.env.EARLY_ACCESS_CHANNELS;
-
-    const command = fixtures.slack.command({
-      text: 'close https://github.com/owner/repo/issues/123',
-    });
-
-    await request.post('/slack/command').use(slackbot).send(command)
-      .expect(200, /help/);
   });
 
   test('/github close issue', async () => {

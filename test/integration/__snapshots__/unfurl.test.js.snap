@@ -1,11 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected gets a message prompting to connect it 1`] = `
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C74M",
   "token": "xoxa-token",
   "user": "U0Other",
+}
+`;
+
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 2`] = `
+Object {
+  "channel": "C74M",
+  "token": "xoxa-token",
+  "ts": "1510704981.000364",
+  "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\":lock: <https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }
 `;
 
@@ -59,9 +68,28 @@ Object {
 }
 `;
 
-exports[`Integration: unfurls private unfurls sending prompt works when only the workspace has early access 1`] = `
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C74M",
+  "token": "xoxa-token",
+  "user": "U0Other",
+}
+`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 2`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"danger\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Could not find resource: \`https://github.com/bkeepers/dotenv\`\\"}]",
+  "channel": "C74M",
+  "response_type": "ephemeral",
+  "token": "xoxa-token",
+  "user": "U0Other",
+}
+`;
+
+exports[`Integration: unfurls private unfurls sending prompts works  1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C0Other",
   "token": "xoxa-token",
   "user": "U88HS",
@@ -70,7 +98,7 @@ Object {
 
 exports[`Integration: unfurls private unfurls sends prompt for private resource that can be unfurled 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C74M",
   "token": "xoxa-token",
   "user": "U88HS",
@@ -111,7 +139,7 @@ You can adjust this setting by invoking \`/github settings\`",
 
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link shared to a different repo results in a new prompt 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C74M",
   "token": "xoxa-token",
   "user": "U88HS",
@@ -120,7 +148,7 @@ Object {
 
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in a different channel results in a new prompt 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C0Other",
   "token": "xoxa-token",
   "user": "U88HS",
@@ -129,7 +157,7 @@ Object {
 
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in the same channel to a different repo results in a new prompt 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is private, so not everyone in this workspace may have access to it.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C74M",
   "token": "xoxa-token",
   "user": "U88HS",
