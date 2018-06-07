@@ -23,30 +23,30 @@ Object {
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 2`] = `
 Object {
   "query": "
-    query {
-      viewer {
-        issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-          nodes {
-            url
-            title
-            number
-            repository {
-              nameWithOwner
-            }
-          }
-        }
-        pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-          nodes {
-            url
-            title
-            number
-            repository {
-              nameWithOwner
-            }
+  query {
+    viewer {
+      issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        nodes {
+          url
+          title
+          number
+          repository {
+            nameWithOwner
           }
         }
       }
-    }",
+      pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        nodes {
+          url
+          title
+          number
+          repository {
+            nameWithOwner
+          }
+        }
+      }
+    }
+  }",
 }
 `;
 
@@ -157,30 +157,30 @@ Object {
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 2`] = `
 Object {
   "query": "
-    query {
-      viewer {
-        issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-          nodes {
-            url
-            title
-            number
-            repository {
-              nameWithOwner
-            }
-          }
-        }
-        pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-          nodes {
-            url
-            title
-            number
-            repository {
-              nameWithOwner
-            }
+  query {
+    viewer {
+      issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        nodes {
+          url
+          title
+          number
+          repository {
+            nameWithOwner
           }
         }
       }
-    }",
+      pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        nodes {
+          url
+          title
+          number
+          repository {
+            nameWithOwner
+          }
+        }
+      }
+    }
+  }",
 }
 `;
 
@@ -269,30 +269,30 @@ Object {
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 4`] = `
 Object {
   "query": "
-    query {
-      viewer {
-        issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-          nodes {
-            url
-            title
-            number
-            repository {
-              nameWithOwner
-            }
-          }
-        }
-        pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-          nodes {
-            url
-            title
-            number
-            repository {
-              nameWithOwner
-            }
+  query {
+    viewer {
+      issues(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        nodes {
+          url
+          title
+          number
+          repository {
+            nameWithOwner
           }
         }
       }
-    }",
+      pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        nodes {
+          url
+          title
+          number
+          repository {
+            nameWithOwner
+          }
+        }
+      }
+    }
+  }",
 }
 `;
 
