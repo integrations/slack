@@ -386,7 +386,7 @@ exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thr
 Object {
   "errors": Array [
     Object {
-      "error": "Insufficient permissions. Please make sure the Slack app is installed on this repository: https://github.com/url/to/app",
+      "error": "Please install the Slack app on atom/atom and grant any pending permission requests: https://github.com/url/to/app",
       "name": "url",
     },
   ],
@@ -397,7 +397,7 @@ exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thr
 Object {
   "errors": Array [
     Object {
-      "error": "Insufficient permissions. Please make sure the Slack app is installed on this repository: https://github.com/url/to/app",
+      "error": "Please install the Slack app on atom/atom and grant any pending permission requests: https://github.com/url/to/app",
       "name": "url",
     },
   ],
