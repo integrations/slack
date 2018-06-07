@@ -165,10 +165,16 @@ describe('Integration: Slack actions', () => {
           expect(res.body).toMatchSnapshot();
         });
 
-      nock('https://api.github.com').post('/graphql', (body) => {
-        expect(body).toMatchSnapshot();
-        return true;
-      }).reply(200, fixtures.create.addComment);
+      nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(200, {
+        permissions: {
+          issues: 'write',
+          pull_requests: 'write',
+        },
+      });
+
+      nock('https://api.github.com').post('/repos/kubernetes/kubernetes/issues/1/comments').reply(200, {
+        html_url: 'https://github.com/integrations/test/issues/58#issuecomment-392920929',
+      });
 
       nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {
         expect(body).toMatchSnapshot();
@@ -227,7 +233,7 @@ describe('Integration: Slack actions', () => {
       // User submits dialog using URL input:
       // Comment is created on GitHub, and user sees confirmation message
       await request(probot.server).post('/slack/actions').send({
-        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom/issues/1')),
+        payload: JSON.stringify(fixtures.slack.action.addCommentManualUrl('https://github.com/atom/atom/issues/1')),
       })
         .expect(200)
         .expect((res) => {
@@ -247,23 +253,7 @@ describe('Integration: Slack actions', () => {
 
     test('User sees error when submitting an invalid URL', async () => {
       await request(probot.server).post('/slack/actions').send({
-        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom')),
-      })
-        .expect(200)
-        .expect((res) => {
-          expect(res.body).toMatchSnapshot();
-        });
-    });
-
-    test('error is shown in dialog when comment creation fails using GraphQL', async () => {
-      nock('https://api.github.com').post('/graphql').reply(200, fixtures.create.addCommentError);
-
-      nock('https://api.github.com').get('/app').reply(200, {
-        html_url: 'https://github.com/url/to/app',
-      });
-
-      await request(probot.server).post('/slack/actions').send({
-        payload: JSON.stringify(fixtures.slack.action.addComment()),
+        payload: JSON.stringify(fixtures.slack.action.addCommentManualUrl('https://github.com/atom/atom')),
       })
         .expect(200)
         .expect((res) => {
@@ -279,7 +269,7 @@ describe('Integration: Slack actions', () => {
       });
 
       await request(probot.server).post('/slack/actions').send({
-        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom/issues/1')),
+        payload: JSON.stringify(fixtures.slack.action.addCommentManualUrl('https://github.com/atom/atom/issues/1')),
       })
         .expect(200)
         .expect((res) => {
@@ -300,7 +290,7 @@ describe('Integration: Slack actions', () => {
       });
 
       await request(probot.server).post('/slack/actions').send({
-        payload: JSON.stringify(fixtures.slack.action.addComment('https://github.com/atom/atom/issues/1')),
+        payload: JSON.stringify(fixtures.slack.action.addCommentManualUrl('https://github.com/atom/atom/issues/1')),
       })
         .expect(200)
         .expect((res) => {

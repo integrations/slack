@@ -53,6 +53,5 @@ module.exports = {
   create: {
     graphqlIssuesPrs: require('./create/graphql-issues-prs'),
     addComment: require('./create/add-comment'),
-    addCommentError: require('./create/add-comment-error'),
   },
 };

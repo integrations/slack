@@ -286,7 +286,7 @@ module.exports = {
       text: 'World\'s smallest big cat! <https://youtube.com/watch?v=W86cTIoMv2U>',
     },
   }),
-  addComment: url => ({
+  addComment: manualUrl => ({
     token: process.env.SLACK_VERIFICATION_TOKEN,
     callback_id: 'add-comment',
     type: 'dialog_submission',
@@ -305,8 +305,32 @@ module.exports = {
       name: 'aaron',
     },
     submission: {
-      url: url || '',
-      issueId: 'MDU6SXNzdWUzMjQwNjI0NTc=',
+      manualUrl: manualUrl || '',
+      selectedUrl: 'https://github.com/kubernetes/kubernetes/issues/1',
+      comment: '> World\'s smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>',
+    },
+  }),
+  addCommentManualUrl: manualUrl => ({
+    token: process.env.SLACK_VERIFICATION_TOKEN,
+    callback_id: 'add-comment',
+    type: 'dialog_submission',
+    trigger_id: '13345224609.738474920.8088930838d88f008e0',
+    response_url: 'https://hooks.slack.com/actions/1234/5678',
+    team: {
+      id: 'T0001',
+      domain: 'example',
+    },
+    channel: {
+      id: 'C74M',
+      name: 'test',
+    },
+    user: {
+      id: 'U2147483697',
+      name: 'aaron',
+    },
+    submission: {
+      manualUrl,
+      selectedUrl: '',
       comment: '> World\'s smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>',
     },
   }),
