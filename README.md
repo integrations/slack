@@ -99,6 +99,7 @@ Slack conversations often lead to decisions and actionable takeaways. Now it’s
 You can also take action on GitHub directly from a Slack message by clicking on the '`...` More Actions' menu available on every Slack message. From there you can:
 
 - Attach a message as a comment to an existing issue or pull request
+  - Select an issue by choosing from an automatically loaded list of recently active issues and pull requests that involve you or by entering a URL to an issue or pull request
 
 ### Configuration
 You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
