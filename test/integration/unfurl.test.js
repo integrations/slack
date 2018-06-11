@@ -610,7 +610,7 @@ describe('Integration: unfurls', () => {
         );
     });
 
-    test.only('on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding', async () => {
+    test('on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding', async () => {
       nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
 
       // Regular private unfurl prompt
