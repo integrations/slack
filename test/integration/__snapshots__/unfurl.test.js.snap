@@ -263,6 +263,21 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls user sees error message when github.com unfurls are disabled in the workspace 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Could not complete link preview, because your workspace has disabled link previews for \`github.com\` <https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites|Read more>",
+    },
+  ],
+  "delete_original": true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls uses user access token for public resources 1`] = `
 Object {
   "channel": "C74M",

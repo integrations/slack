@@ -729,6 +729,47 @@ describe('Integration: unfurls', () => {
       });
     });
 
+    test('user sees error message when github.com unfurls are disabled in the workspace', async () => {
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          private: true,
+        },
+      );
+
+      let unfurlId;
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        const pattern = /"callback_id":"unfurl-(\d+)"/;
+        const match = pattern.exec(body.attachments);
+        [, unfurlId] = match;
+        return true;
+      }).reply(200, { ok: true });
+
+      // Link is shared in channel
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+        .expect(200);
+
+
+      nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
+        200,
+        {
+          ...fixtures.repo,
+          updated_at: moment().subtract(2, 'months'),
+        },
+      );
+
+      nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: false, error: 'cannot_unfurl_url' });
+
+      // User clicks 'Show rich preview' and sees error message
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.unfurl(unfurlId)),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
     describe('settings', async () => {
       let unfurlId;
       beforeEach(async () => {
