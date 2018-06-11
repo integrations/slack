@@ -44,7 +44,6 @@ describe('Integration: unfurls', () => {
     });
 
     test('only unfurls link first time a link is shared', async () => {
-      // It should only make one request to this
       nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(
         200,
         {
@@ -53,7 +52,6 @@ describe('Integration: unfurls', () => {
         },
       );
 
-      // And it should only make one request to this
       nock('https://slack.com').post('/api/chat.unfurl', (body) => {
         // Test that the body posted to the unfurl matches the snapshot
         expect(body).toMatchSnapshot();
@@ -198,6 +196,22 @@ describe('Integration: unfurls', () => {
 
       const unfurls = await Unfurl.findAll();
       expect(unfurls.length).toBe(0);
+    });
+
+    test('fails silently when github.com unfurls are disabled in the workspace', async () => {
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(
+        200,
+        {
+          ...fixtures.repo,
+          updated_at: moment().subtract(2, 'months'),
+        },
+      );
+
+      nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: false, error: 'cannot_unfurl_url' });
+
+      // Perform the unfurl
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared())
+        .expect(200);
     });
   });
 
