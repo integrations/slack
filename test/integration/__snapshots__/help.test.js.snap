@@ -28,6 +28,27 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Close an issue:
+\`/github close [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Reopen an Issue:
+\`/github reopen [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Adjust your settings in this workspace:
+\`/github settings\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Connect your GitHub account:
 \`/github signin\`",
     },
@@ -37,6 +58,13 @@ Object {
       ],
       "text": "Show this help message:
 \`/github help\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Create a new issue:
+\`/github open owner/repository\`",
     },
     Object {
       "color": "",
@@ -78,6 +106,27 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Close an issue:
+\`/github close [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Reopen an Issue:
+\`/github reopen [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Adjust your settings in this workspace:
+\`/github settings\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Connect your GitHub account:
 \`/github signin\`",
     },
@@ -87,6 +136,13 @@ Object {
       ],
       "text": "Show this help message:
 \`/github help\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Create a new issue:
+\`/github open owner/repository\`",
     },
     Object {
       "color": "",
@@ -128,6 +184,27 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Close an issue:
+\`/github close [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Reopen an Issue:
+\`/github reopen [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Adjust your settings in this workspace:
+\`/github settings\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Connect your GitHub account:
 \`/github signin\`",
     },
@@ -137,6 +214,13 @@ Object {
       ],
       "text": "Show this help message:
 \`/github help\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Create a new issue:
+\`/github open owner/repository\`",
     },
     Object {
       "color": "",

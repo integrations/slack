@@ -2,10 +2,18 @@
 
 exports[`Unfurl PromptSignIn message rendering works 1`] = `
 Object {
+  "actions": Array [
+    Object {
+      "style": "primary",
+      "text": "Connect GitHub account",
+      "type": "button",
+      "url": "https://some-url.com/to-log-in?state=probably-with-state",
+    },
+  ],
   "color": "#24292f",
   "mrkdwn_in": Array [
     "text",
   ],
-  "text": "Get a rich preview for the link you posted by connecting your GitHub account using \`/github signin\`",
+  "text": "To verify your access to the rich preview content, please connect your GitHub account. You only have to do this once.",
 }
 `;

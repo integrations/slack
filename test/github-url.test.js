@@ -32,6 +32,9 @@ describe('github-url', () => {
     'foo/bar': {
       type: 'repo', owner: 'foo', repo: 'bar',
     },
+    'foo/bar#123': {
+      type: 'issue', owner: 'foo', repo: 'bar', number: '123',
+    },
   };
 
   Object.keys(examples).forEach((link) => {
