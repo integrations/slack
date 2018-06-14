@@ -98,7 +98,7 @@ Object {
 
 exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 2`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"danger\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Could not complete link preview, because your workspace has disabled link previews for \`github.com\` <https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites|Read more>\\"}]",
+  "attachments": "[{\\"color\\":\\"danger\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Could not complete link preview because your workspace has disabled link previews for \`github.com\` <https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites|Read more>\\"}]",
   "channel": "C74M",
   "token": "xoxa-token",
   "user": "U0Other",
@@ -289,7 +289,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Could not complete link preview, because your workspace has disabled link previews for \`github.com\` <https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites|Read more>",
+      "text": "Could not complete link preview because your workspace has disabled link previews for \`github.com\` <https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites|Read more>",
     },
   ],
   "delete_original": true,
