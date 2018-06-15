@@ -4,3 +4,18 @@ exports[`Integration: signout a signed in user is successfully signed out 1`] = 
 ":white_check_mark: <@U2147483697> is now signed out
 Features like subscriptions and rich link previews will stop working. Use \`/github signin\` to sign back into your GitHub account at any time (or click the button below)."
 `;
+
+exports[`Integration: signout a signed out user is prompted to sign in first 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
