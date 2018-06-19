@@ -330,11 +330,11 @@ exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thr
 Object {
   "errors": Array [
     Object {
-      "error": "You need to either select an issue or pull request in the list or supply a URL",
+      "error": "You need to either select an Issue or Pull Request in the list or supply a link",
       "name": "selectedUrl",
     },
     Object {
-      "error": "You need to either select an issue or pull request in the list or supply a URL",
+      "error": "You need to either select an Issue or Pull Request in the list or supply a link",
       "name": "manualUrl",
     },
   ],
@@ -345,7 +345,7 @@ exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thr
 Object {
   "errors": Array [
     Object {
-      "error": "The URL needs to link to either an issue or a pull request",
+      "error": "The URL needs to link to either an Issue or a Pull Request",
       "name": "manualUrl",
     },
   ],

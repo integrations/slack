@@ -4,7 +4,7 @@ module.exports = {
     callback_id: 'add-comment',
     type: 'dialog_suggestion',
     action_ts: '1520635427.671963',
-    name: 'issueId',
+    name: 'selectedUrl',
     value: query || '',
     team: {
       id: 'T0001',

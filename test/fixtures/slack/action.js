@@ -354,7 +354,7 @@ module.exports = {
     },
     submission: {
       url: '',
-      issueId: '',
+      selectedUrl: '',
       comment: '> World\'s smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>',
     },
   }),
