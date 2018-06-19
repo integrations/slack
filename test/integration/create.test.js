@@ -261,6 +261,25 @@ describe('Integration: Slack actions', () => {
         });
     });
 
+    test('User sees error when submitting a valid URL but for an issue that doesn\'t exist', async () => {
+      nock('https://api.github.com').get('/repos/atom/atom/installation').reply(200, {
+        permissions: {
+          issues: 'write',
+          pull_requests: 'write',
+        },
+      });
+
+      nock('https://api.github.com').post('/repos/atom/atom/issues/4321/comments').reply(404);
+
+      await request(probot.server).post('/slack/actions').send({
+        payload: JSON.stringify(fixtures.slack.action.addCommentManualUrl('https://github.com/atom/atom/issues/4321')),
+      })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
     test('error is shown in dialog when installation for URL does not exist', async () => {
       nock('https://api.github.com').get('/repos/atom/atom/installation').reply(404);
 

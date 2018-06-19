@@ -341,6 +341,17 @@ Object {
 }
 `;
 
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting a valid URL but for an issue that doesn't exist 1`] = `
+Object {
+  "errors": Array [
+    Object {
+      "error": "Could not find this Issue or Pull Request. Are you sure it exists?",
+      "name": "manualUrl",
+    },
+  ],
+}
+`;
+
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting an invalid URL 1`] = `
 Object {
   "errors": Array [
