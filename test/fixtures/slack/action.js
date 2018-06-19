@@ -261,9 +261,9 @@ module.exports = {
     response_url: 'https://hooks.slack.com/actions/1234/5678',
     trigger_id: '13345224609.738474920.8088930838d88f008e0',
   }),
-  attachToIssue: () => ({
+  commentAction: () => ({
     token: process.env.SLACK_VERIFICATION_TOKEN,
-    callback_id: 'attach-to-issue',
+    callback_id: 'comment-action',
     type: 'message_action',
     trigger_id: '13345224609.738474920.8088930838d88f008e0',
     response_url: 'https://hooks.slack.com/actions/1234/5678',

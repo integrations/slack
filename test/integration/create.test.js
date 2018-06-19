@@ -114,7 +114,7 @@ describe('Integration: Slack actions', () => {
 
       await request(probot.server).post('/slack/actions').send({
         payload: JSON.stringify({
-          ...fixtures.slack.action.attachToIssue(),
+          ...fixtures.slack.action.commentAction(),
           user: {
             id: 'UOther',
           },
@@ -136,7 +136,7 @@ describe('Integration: Slack actions', () => {
 
       // User triggers action on message
       await request(probot.server).post('/slack/actions').send({
-        payload: JSON.stringify(fixtures.slack.action.attachToIssue()),
+        payload: JSON.stringify(fixtures.slack.action.commentAction()),
       }).expect(200);
 
       nock('https://api.github.com').post('/graphql', (body) => {
@@ -199,7 +199,7 @@ describe('Integration: Slack actions', () => {
 
       // User triggers action on message
       await request(probot.server).post('/slack/actions').send({
-        payload: JSON.stringify(fixtures.slack.action.attachToIssue()),
+        payload: JSON.stringify(fixtures.slack.action.commentAction()),
       }).expect(200);
 
       nock('https://api.github.com').post('/graphql', (body) => {
