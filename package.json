@@ -38,7 +38,7 @@
   "devDependencies": {
     "dotenv": "^5.0.0",
     "eslint": "^4.14.0",
-    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-airbnb-base": "^13.0.0",
     "eslint-config-probot": ">=0.1.0",
     "eslint-plugin-import": "^2.8.0",
     "jest": "^23.1.0",
