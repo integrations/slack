@@ -49,6 +49,12 @@ describe('Integration: Creating issues from Slack', () => {
       id: 54321,
     });
 
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/labels').reply(200, [{
+      id: 1234,
+      name: 'test',
+      color: '000000',
+    }]);
+
     nock('https://slack.com').post('/api/dialog.open', (body) => {
       expect(body).toMatchSnapshot();
       return true;
@@ -70,6 +76,12 @@ describe('Integration: Creating issues from Slack', () => {
         login: 'kubernetes',
       },
     });
+
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/labels').reply(200, [{
+      id: 1234,
+      name: 'test',
+      color: '000000',
+    }]);
 
     nock('https://api.github.com').post('/repos/kubernetes/kubernetes/issues').reply(200);
 

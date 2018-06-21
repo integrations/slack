@@ -158,6 +158,7 @@ module.exports = {
       repository: '54321',
       title: 'hiiii',
       body: 'testing testing testing',
+      label: 'test',
     },
     team: {
       id: 'T0001',
