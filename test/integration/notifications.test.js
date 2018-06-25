@@ -9,6 +9,7 @@ const pullRequestPayload = require('../fixtures/webhooks/pull_request.opened');
 const statusPayload = require('../fixtures/webhooks/status');
 const publicEventPayload = require('../fixtures/webhooks/public');
 const branchDeleted = require('../fixtures/webhooks/branch_deleted.json');
+const tagDeleted = require('../fixtures/webhooks/tag_deleted.json');
 const deploymentStatusSuccessPayload = require('../fixtures/webhooks/deployment/status_success');
 const deploymentStatusPendingPayload = require('../fixtures/webhooks/deployment/status_pending');
 const pushPayload = require('../fixtures/webhooks/push');
@@ -368,6 +369,44 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+      });
+
+      await probot.receive({
+        event: 'delete',
+        payload: branchDeleted,
+      });
+    });
+
+    test('tag event is received when branches:tag is enabled', async () => {
+      await Subscription.subscribe({
+        githubId: tagDeleted.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { branches: 'tag' },
+      });
+
+      nock('https://api.github.com').get(`/repositories/${tagDeleted.repository.id}`).reply(200);
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        event: 'delete',
+        payload: tagDeleted,
+      });
+    });
+
+    test('ref event for a branch is not received when branches:tag is enabled', async () => {
+      await Subscription.subscribe({
+        githubId: branchDeleted.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: { branches: 'tag' },
       });
 
       await probot.receive({
