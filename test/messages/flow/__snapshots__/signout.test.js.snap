@@ -13,12 +13,12 @@ Object {
         },
       ],
       "color": "#24292f",
-      "fallback": "Your GitHub account has been disconnected.",
+      "fallback": "You have signed out from GitHub.",
       "mrkdwn_in": Array [
         "text",
       ],
       "text": ":white_check_mark: <@U012345> is now signed out
-Features like subscriptions and rich link previews will stop working. Use \`/github signin\` to sign back into your GitHub account at any time (or click the button below).",
+Features like subscriptions and rich link previews will stop working. Use \`/github signin\` to sign back into your GitHub account at any time.",
     },
   ],
   "response_type": "ephemeral",
