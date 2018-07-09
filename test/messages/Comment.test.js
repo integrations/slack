@@ -41,6 +41,19 @@ describe('Comment rendering', () => {
     expect(message.getRenderedMessage().text).toEqual('*Hello* _cruel_ <http://example.com|world>');
   });
 
+  test('trims HTML body after hr', () => {
+    const message = new Comment({
+      comment: Object.assign({
+        body_html: '<strong>Hello</strong> <hr> <em>cruel</em> <a href="http://example.com">world</a>',
+      }, comment),
+      repository,
+      issue,
+      unfurlType: 'full',
+    });
+
+    expect(message.getRenderedMessage().text).toEqual('*Hello* ');
+  });
+
   test('extracts image from body_html', () => {
     const message = new Comment({
       comment: Object.assign({

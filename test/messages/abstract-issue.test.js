@@ -66,4 +66,16 @@ describe('AbstractIssue rendering', () => {
 
     expect(message.getCore().text).toEqual('*Hello* _cruel_ <http://example.com|world>');
   });
+
+  test('trims HTML body after hr', () => {
+    const message = new AbstractIssue({
+      abstractIssue: Object.assign({
+        body_html: '<strong>Hello</strong> <hr> <em>cruel</em> <a href="http://example.com">world</a>',
+      }, fixtures.issue),
+      repository: fixtures.repo,
+      unfurlType: 'full',
+    });
+
+    expect(message.getCore().text).toEqual('*Hello* ');
+  });
 });

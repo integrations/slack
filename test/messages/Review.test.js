@@ -36,4 +36,12 @@ describe('Review rendering', () => {
     });
     expect(reviewMessage.toJSON()).toMatchSnapshot();
   });
+
+  test('trims html after hr', async () => {
+    const reviewMessage = new Review({
+      ...reviewApproved,
+      review: { ...reviewApproved.review, body_html: '<b>rendered</b> <hr> <code>html</code>' },
+    });
+    expect(reviewMessage.toJSON()).toMatchSnapshot();
+  });
 });
