@@ -77,11 +77,103 @@ describe('Integration: Creating issues from Slack', () => {
       },
     });
 
-    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/labels').reply(200, [{
-      id: 1234,
-      name: 'test',
-      color: '000000',
-    }]);
+    nock('https://api.github.com').post('/repos/kubernetes/kubernetes/issues').reply(200);
+
+    // User submits dialog to open issue
+    await request(probot.server).post('/slack/actions').send({
+      payload: JSON.stringify(fixtures.slack.action.dialogSubmissionSingleRepo()),
+    })
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+  });
+
+  test('works when specifying a repository with a bad labels response', async () => {
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(200, {
+      id: 1337,
+      account: {
+        id: 1,
+      },
+    });
+
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
+      full_name: 'kubernetes/kubernetes',
+      id: 54321,
+    });
+
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/labels').reply(200, {});
+
+    nock('https://slack.com').post('/api/dialog.open', (body) => {
+      expect(body).toMatchSnapshot();
+      return true;
+    }).reply(200, { ok: true });
+
+    const command = fixtures.slack.command({
+      text: 'open kubernetes/kubernetes',
+    });
+
+    await request(probot.server).post('/slack/command').send(command)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+
+    nock('https://api.github.com').get('/repositories/54321').reply(200, {
+      name: 'kubernetes',
+      owner: {
+        login: 'kubernetes',
+      },
+    });
+
+    nock('https://api.github.com').post('/repos/kubernetes/kubernetes/issues').reply(200);
+
+    // User submits dialog to open issue
+    await request(probot.server).post('/slack/actions').send({
+      payload: JSON.stringify(fixtures.slack.action.dialogSubmissionSingleRepo()),
+    })
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+  });
+
+  test('works when specifying a repository with an empty labels list', async () => {
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(200, {
+      id: 1337,
+      account: {
+        id: 1,
+      },
+    });
+
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
+      full_name: 'kubernetes/kubernetes',
+      id: 54321,
+    });
+
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/labels').reply(200, []);
+
+    nock('https://slack.com').post('/api/dialog.open', (body) => {
+      expect(body).toMatchSnapshot();
+      return true;
+    }).reply(200, { ok: true });
+
+    const command = fixtures.slack.command({
+      text: 'open kubernetes/kubernetes',
+    });
+
+    await request(probot.server).post('/slack/command').send(command)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+
+    nock('https://api.github.com').get('/repositories/54321').reply(200, {
+      name: 'kubernetes',
+      owner: {
+        login: 'kubernetes',
+      },
+    });
 
     nock('https://api.github.com').post('/repos/kubernetes/kubernetes/issues').reply(200);
 
