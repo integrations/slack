@@ -134,10 +134,10 @@ The below diagram describes the lifecycle of an activity message delivery to a l
 
 ### Unfurls
 
-Unfurls describe the set of features that are called "rich link previews" in user facing documentation. When you post a link to some github.com resources in Slack, the link will automatically "unfurl" showing you some information about the resource such as the title, body, state (open/closed), etc.
+Unfurls describe the set of features that are called "rich link previews" in user facing documentation. When a user posts a link to some github.com resources in Slack, the link will automatically "unfurl" showing you some information about the resource such as the title, body, state (open/closed), etc.
 
 Each unfurl consists of a few things:
-- A regular expression in the `routes` object in`lib/github-url` that matches the type of URL that you want to unfurl
+- A regular expression in the `routes` object in`lib/github-url.js` that matches the type of URL that you want to unfurl to the resource
 - A file in `lib/unfurls/[unfurl].js` that includes fetching data about the resource from the GitHub API ahead of formatting the unfurl
 - A reference to the previous file in the `resources` object in `lib/models/unfurl.js` just like it is done for existing unfurls
 - The format of the Slack message ("the unfurl") in `lib/messages/[unfurl].js` (sometimes this formatting is shared with activity features)
