@@ -114,6 +114,24 @@ Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` sh
 
 1. Congratulate yourself for following directions and clicking buttons. Take the rest of the day off because that was a lot of work.
 
+## Adding new features
+
+### Activity
+
+Activity features are those that post a new message in Slack when activity happens on GitHub. For example when an issue is opened on GitHub, then a corresponding message is posted in all Slack channels that have subcribed to the repo on which the issue was opened.
+
+There are a few different parts to each activity feature (and thus any new activity feature):
+- Listening to the relevant webhook (for example `issues.opened` for the "issues" activity feature) in `lib/activity/index.js`
+- The format of the message posted to Slack in `lib/messages/[feature].js`
+- Connecting the webhook event to the formatted message and any other relevant logic (such as caching, fetching additional data) in `lib/activity/[feature].js`
+
+In order to create a new activity feature, create a new file in `lib/activity/`, a new file in `lib/messages/`, listen to the webhook event in `lib/activity/index.js` and generally follow the patterns used in existing activity features.
+
+> Note: All current activity features are for events that occur on repositories (in line with the architecture of GitHub Apps). Adding activity features for events that happen outside of repositories, such as organization events, is still possible, but will require significant changes to the existing setup.
+
+The below diagram describes the lifecycle of an activity message delivery to a level of detail that is intended to give a good intuition of how activity features work.
+![activity message delivery](https://user-images.githubusercontent.com/7718702/42683224-4d72e732-86bf-11e8-89eb-0311c1eace7b.png)
+
 ## Troubleshooting
 
 * Tests fail with something similar to:
