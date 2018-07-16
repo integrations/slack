@@ -142,8 +142,16 @@ Each unfurl consists of a few things:
 - A reference to the previous file in the `resources` object in `lib/models/unfurl.js` just like it is done for existing unfurls
 - The format of the Slack message ("the unfurl") in `lib/messages/[unfurl].js` (sometimes this formatting is shared with activity features)
 
+The below diagram describes the lifecycle of an unfurl to a level of detail that is intended to give a good intuition of how unfurls work.
+![unfurl diagram](https://user-images.githubusercontent.com/7718702/42746859-7067aa9e-890c-11e8-9ff0-50b975b37a86.png)
 
-TODO: [DIAGRAM from slide]
+1. Receive `link_shared` event from Slack
+1. Check if link is eligible for unfurls
+1. Get token of the user who shared the link
+1. Make request to GitHub to fetch resource
+1. Format the message so that Slack can render it
+1. `chat.unfurl` API call to Slack
+
 
 ## Troubleshooting
 
