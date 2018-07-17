@@ -25,6 +25,8 @@ Please note that this project is released with a [Contributor Code of Conduct][c
 
 ## Requesting New Features and Reporting Bugs
 
+> **Heads up!** The team at GitHub is not actively working on new features for the GitHub + Slack integration. We will still be deploying security/bug fixes and reviewing community contributions. If you would like to help implement an improvement, [read more about contributing](https://github.com/integrations/slack/blob/master/CONTRIBUTING.md#getting-started) and consider submitting a pull request.
+
 Bugs and feature requests are tracked as issues in this repository.
 
 Before opening a new issue:
