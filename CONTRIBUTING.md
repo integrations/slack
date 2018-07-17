@@ -132,6 +132,27 @@ In order to create a new activity feature, create a new file in `lib/activity/`,
 The below diagram describes the lifecycle of an activity message delivery to a level of detail that is intended to give a good intuition of how activity features work.
 ![activity message delivery](https://user-images.githubusercontent.com/7718702/42683224-4d72e732-86bf-11e8-89eb-0311c1eace7b.png)
 
+### Unfurls
+
+Unfurls describe the set of features that are called "rich link previews" in user facing documentation. When a user posts a link to some github.com resources in Slack, the link will automatically "unfurl" showing you some information about the resource such as the title, body, state (open/closed), etc.
+
+Each unfurl consists of a few things:
+- A regular expression in the `routes` object in`lib/github-url.js` that matches the type of URL that you want to unfurl to the resource
+- A file in `lib/unfurls/[unfurl].js` that includes fetching data about the resource from the GitHub API ahead of formatting the unfurl
+- A reference to the previous file in the `resources` object in `lib/models/unfurl.js` just like it is done for existing unfurls
+- The format of the Slack message ("the unfurl") in `lib/messages/[unfurl].js` (sometimes this formatting is shared with activity features)
+
+The below diagram describes the lifecycle of an unfurl to a level of detail that is intended to give a good intuition of how unfurls work.
+![unfurl diagram](https://user-images.githubusercontent.com/7718702/42746859-7067aa9e-890c-11e8-9ff0-50b975b37a86.png)
+
+1. Receive `link_shared` event from Slack
+1. Check if link is eligible for unfurls
+1. Get token of the user who shared the link
+1. Make request to GitHub to fetch resource
+1. Format the message so that Slack can render it
+1. `chat.unfurl` API call to Slack
+
+
 ## Troubleshooting
 
 * Tests fail with something similar to:
