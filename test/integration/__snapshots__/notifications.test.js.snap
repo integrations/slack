@@ -3,7 +3,9 @@
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"edited html\\"}]",
+  "channel": "C002",
   "token": "test",
+  "ts": "123",
 }
 `;
 
@@ -50,7 +52,9 @@ Object {
 exports[`Integration: notifications to a subscribed channel deployment_status event 2`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#28a745\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"[github-slack/app] Successfully deployed 3dce5c8 to github-slack-app\\",\\"text\\":\\"Successfully deployed <https://github.com/github-slack/app/commit/3dce5c8488afc87a1ffbb840fc33b4a8331a1034|\`3dce5c8\`> to <https://dashboard.heroku.com/apps/github-slack-app/activity/builds/056df7bf-83c4-4ac1-911b-c8642413eef0|github-slack-app>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C001",
   "token": "test",
+  "ts": "123",
 }
 `;
 
