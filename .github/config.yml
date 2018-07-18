@@ -1,0 +1,9 @@
+# Configuration for new-issue-welcome - https://github.com/behaviorbot/new-issue-welcome
+# Comment to be posted to on first time issues
+newIssueWelcomeComment: >
+  Thanks for opening this issue! The team at GitHub is not actively working on new features for the GitHub + Slack integration. We will still be deploying security/bug fixes and reviewing community contributions. If you would like to help implement an improvement, [read more about contributing](https://github.com/integrations/slack/blob/master/CONTRIBUTING.md#getting-started) and consider submitting a pull request.
+
+# Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
+# Comment to be posted to on PRs from first time contributors
+newPRWelcomeComment: >
+  Thanks for taking time to contribute! The team at GitHub is not actively working on new features for the GitHub + Slack integration, but we will still be reviewing community contributions. We'll check this out soon and let you know if we have any questions or feedback.
