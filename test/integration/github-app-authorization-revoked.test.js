@@ -1,13 +1,3 @@
-/*
-Test cases:
-- GitHubUser with one Slack user and multiple subscriptions
-- GitHubUser with multiple Slack users and multiple subscriptions
-
-expect that:
-- all subscriptions by github user are deleted across multiple workspaces
-- expect githubId field to be null for all SlackUsers attached to githubUser
-- expect that a slack message is posted in each channel
-*/
 const nock = require('nock');
 const Sequelize = require('sequelize');
 
