@@ -513,7 +513,7 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test('does not deliver comments if not explicitly enabled', async () => {
+    test('does not deliver issue comments if not explicitly enabled', async () => {
       const commentPayload = fixtures.github.webhooks.issue_comment;
 
       await Subscription.subscribe({
@@ -531,7 +531,25 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test('with comments enabled', async () => {
+    test('does not deliver commit comments if not explicitly enabled', async () => {
+      const commentPayload = fixtures.github.webhooks.commit_comment;
+
+      await Subscription.subscribe({
+        githubId: commentPayload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+      });
+
+      // Should not trigger any deliveries
+      await probot.receive({
+        event: 'commit_comment',
+        payload: commentPayload,
+      });
+    });
+
+    test('with comments enabled (issue)', async () => {
       const commentPayload = fixtures.github.webhooks.issue_comment;
 
       await Subscription.subscribe({
@@ -559,6 +577,38 @@ describe('Integration: notifications', () => {
 
       await probot.receive({
         event: 'issue_comment',
+        payload: commentPayload,
+      });
+    });
+
+    test('with comments enabled (commit)', async () => {
+      const commentPayload = fixtures.github.webhooks.commit_comment;
+      const commitPayload = fixtures.github.webhooks.commit;
+
+      await Subscription.subscribe({
+        githubId: commentPayload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        settings: ['comments'], // Turn on comments
+      });
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      nock('https://api.github.com')
+        .get(`/repos/artnez/environment/comments/${commentPayload.comment.id}`)
+        .reply(200, { ...commentPayload.comment });
+
+      nock('https://api.github.com')
+        .get(`/repos/artnez/environment/git/commits/${commentPayload.comment.commit_id}`)
+        .reply(200, { ...commitPayload });
+
+      await probot.receive({
+        event: 'commit_comment',
         payload: commentPayload,
       });
     });

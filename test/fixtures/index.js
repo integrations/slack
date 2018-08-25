@@ -43,6 +43,8 @@ module.exports = {
   },
   github: {
     webhooks: {
+      commit: require('./webhooks/commit'),
+      commit_comment: require('./webhooks/commit_comment'),
       issue_comment: require('./webhooks/issue_comment'),
     },
     oauth: querystring.stringify({
