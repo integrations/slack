@@ -1,0 +1,11 @@
+{
+  "data": {
+    "addComment": {
+      "commentEdge": {
+        "node": {
+          "url": "https://github.com/integrations/test/issues/58#issuecomment-392920929"
+        }
+      }
+    }
+  }
+}

@@ -9,6 +9,8 @@ The integration should also embrace these constraints:
 
 ## Priorities and upcoming themes
 
+> **Heads up!** The team at GitHub is not actively working on new features for the GitHub + Slack integration. We will still be deploying security/bug fixes and reviewing community contributions. If you would like to help implement an improvement, [read more about contributing](https://github.com/integrations/slack/blob/master/CONTRIBUTING.md#getting-started) and consider submitting a pull request.
+
 ### :checkered_flag: Initial Launch
 
 The initial launch of the new Slack integration was focused on preserving functional parity with the [legacy integration](https://github.com/github/ecosystem-integrations/blob/master/docs/slack/legacy-features.md), and offering an easy migration path for existing users. Because of that constraint, it is mostly a one-way stream of activity from GitHub showing up in Slack, with notifications for activity happening on GitHub, and unfurls of GitHub links shared in Slack discussions. 

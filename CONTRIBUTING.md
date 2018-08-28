@@ -25,6 +25,8 @@ Please note that this project is released with a [Contributor Code of Conduct][c
 
 ## Requesting New Features and Reporting Bugs
 
+> **Heads up!** The team at GitHub is not actively working on new features for the GitHub + Slack integration. We will still be deploying security/bug fixes and reviewing community contributions. If you would like to help implement an improvement, [read more about contributing](https://github.com/integrations/slack/blob/master/CONTRIBUTING.md#getting-started) and consider submitting a pull request.
+
 Bugs and feature requests are tracked as issues in this repository.
 
 Before opening a new issue:
@@ -67,7 +69,7 @@ The next step for running the app locally is to configure both a GitHub App and 
 
 #### Configuring a GitHub App
 
-Follow the [Probot docs for configuring up a GitHub App](https://probot.github.io/docs/development/#configure-a-github-app) skipping the addition of `WEBHOOK_PROXY_URL` to your `.env` file. The only other difference being these values for the GitHub App settings:
+Follow the [Probot docs for configuring up a GitHub App](https://probot.github.io/docs/development/#configuring-a-github-app) skipping the addition of `WEBHOOK_PROXY_URL` to your `.env` file. The only other difference being these values for the GitHub App settings:
 
 - **User authorization callback URL**: `https://DOMAIN/github/oauth/callback`
 - **Setup URL**: `https://DOMAIN/github/setup`
@@ -113,6 +115,45 @@ Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` sh
     - click **Enable Interactive components**
 
 1. Congratulate yourself for following directions and clicking buttons. Take the rest of the day off because that was a lot of work.
+
+## Adding new features
+
+### Activity
+
+Activity features are those that post a new message in Slack when activity happens on GitHub. For example when an issue is opened on GitHub, then a corresponding message is posted in all Slack channels that have subcribed to the repo on which the issue was opened.
+
+There are a few different parts to each activity feature (and thus any new activity feature):
+- Listening to the relevant webhook (for example `issues.opened` for the "issues" activity feature) in `lib/activity/index.js`
+- The format of the message posted to Slack in `lib/messages/[feature].js`
+- Connecting the webhook event to the formatted message and any other relevant logic (such as caching, fetching additional data) in `lib/activity/[feature].js`
+
+In order to create a new activity feature, create a new file in `lib/activity/`, a new file in `lib/messages/`, listen to the webhook event in `lib/activity/index.js` and generally follow the patterns used in existing activity features.
+
+> Note: All current activity features are for events that occur on repositories (in line with the architecture of GitHub Apps). Adding activity features for events that happen outside of repositories, such as organization events, is still possible, but will require significant changes to the existing setup.
+
+The below diagram describes the lifecycle of an activity message delivery to a level of detail that is intended to give a good intuition of how activity features work.
+![activity message delivery](https://user-images.githubusercontent.com/7718702/42683224-4d72e732-86bf-11e8-89eb-0311c1eace7b.png)
+
+### Unfurls
+
+Unfurls describe the set of features that are called "rich link previews" in user facing documentation. When a user posts a link to some github.com resources in Slack, the link will automatically "unfurl" showing you some information about the resource such as the title, body, state (open/closed), etc.
+
+Each unfurl consists of a few things:
+- A regular expression in the `routes` object in`lib/github-url.js` that matches the type of URL that you want to unfurl to the resource
+- A file in `lib/unfurls/[unfurl].js` that includes fetching data about the resource from the GitHub API ahead of formatting the unfurl
+- A reference to the previous file in the `resources` object in `lib/models/unfurl.js` just like it is done for existing unfurls
+- The format of the Slack message ("the unfurl") in `lib/messages/[unfurl].js` (sometimes this formatting is shared with activity features)
+
+The below diagram describes the lifecycle of an unfurl to a level of detail that is intended to give a good intuition of how unfurls work.
+![unfurl diagram](https://user-images.githubusercontent.com/7718702/42746859-7067aa9e-890c-11e8-9ff0-50b975b37a86.png)
+
+1. Receive `link_shared` event from Slack
+1. Check if link is eligible for unfurls
+1. Get token of the user who shared the link
+1. Make request to GitHub to fetch resource
+1. Format the message so that Slack can render it
+1. `chat.unfurl` API call to Slack
+
 
 ## Troubleshooting
 
