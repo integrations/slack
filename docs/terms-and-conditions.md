@@ -20,7 +20,7 @@ The names GitHub, Atom, the Octocat, and related GitHub logos and/or stylized na
 
 ### Privacy
 
-The Application may collect personal information. You may control what information the Application collects in the settings panel. If the Application does collect personal information on GitHub's behalf, GitHub will process that information in accordance with the [GitHub Privacy Statement](/articles/github-privacy-statement/).
+The Application may collect personal information. You may control what information the Application collects in the settings panel. If the Application does collect personal information on GitHub's behalf, GitHub will process that information in accordance with the [GitHub Privacy Statement](https://help.github.com/articles/github-privacy-statement/).
 
 ### Disclaimers and Limitations of Liability
 
