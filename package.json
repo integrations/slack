@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@keyv/redis": "github:integrations/keyv-redis#use-keys",
+    "@octokit/webhooks": "^5.0.0",
     "@slack/client": "^4.0.1",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
