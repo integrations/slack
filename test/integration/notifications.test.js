@@ -544,7 +544,7 @@ describe('Integration: notifications', () => {
 
       // Should not trigger any deliveries
       await probot.receive({
-        event: 'commit_comment',
+        name: 'commit_comment',
         payload: commentPayload,
       });
     });
@@ -608,7 +608,7 @@ describe('Integration: notifications', () => {
         .reply(200, { ...commitPayload });
 
       await probot.receive({
-        event: 'commit_comment',
+        name: 'commit_comment',
         payload: commentPayload,
       });
     });
