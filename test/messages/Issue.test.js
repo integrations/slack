@@ -57,4 +57,16 @@ describe('Issue rendering', () => {
     });
     expect(message.getRenderedMessage()).toMatchSnapshot();
   });
+
+  test('does not render tables', async () => {
+    const message = new Issue({
+      issue: {
+        ...issuesOpened.issue,
+        body_html: '<p>Hi, this is my issue and below this line of text there is a table</p>\n<table>\n<thead>\n<tr>\n<th>test</th>\n<th>hello</th>\n<th>hi</th>\n<th>this is</th>\n<th>a table</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>with</td>\n<td>many</td>\n<td>test</td>\n<td>columns</td>\n<td>and</td>\n</tr>\n<tr>\n<td>rows</td>\n<td>ok</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td>third</td>\n<td>row!</td>\n</tr></tbody></table>',
+      },
+      repository: issuesOpened.repository,
+      eventType: 'issues.opened',
+    });
+    expect(message.getRenderedMessage()).toMatchSnapshot();
+  });
 });

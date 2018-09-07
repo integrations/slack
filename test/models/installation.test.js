@@ -1,5 +1,5 @@
 const { Installation } = require('.');
-const GitHub = require('probot/lib/github');
+const GitHubAPI = require('../../lib/github/client');
 const logger = require('../../lib/logger');
 const createdEvent = require('../fixtures/webhooks/installation.created');
 
@@ -45,7 +45,7 @@ describe('models.Installation', () => {
   });
 
   test('sync fetches and returns installation', async () => {
-    const github = new GitHub({ logger });
+    const github = GitHubAPI({ logger });
 
     nock('https://api.github.com').get('/repos/bkeepers/dotenv/installation')
       .reply(200, createdEvent.installation);

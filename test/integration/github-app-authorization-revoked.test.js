@@ -92,7 +92,7 @@ describe('Integration: github_app_authorization.revoked', async () => {
     }).times(2).reply(200, { ok: true });
 
     await probot.receive({
-      event: 'github_app_authorization',
+      name: 'github_app_authorization',
       payload: githubAppAuthorizationRevoked,
     });
 
@@ -143,7 +143,7 @@ describe('Integration: github_app_authorization.revoked', async () => {
     }).times(4).reply(200, { ok: true });
 
     await probot.receive({
-      event: 'github_app_authorization',
+      name: 'github_app_authorization',
       payload: githubAppAuthorizationRevoked,
     });
 
