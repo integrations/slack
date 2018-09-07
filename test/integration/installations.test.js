@@ -7,7 +7,7 @@ describe('Integration: tracking GitHub installations', () => {
     const { Installation } = models;
 
     await robot.receive({
-      event: 'installation',
+      name: 'installation',
       payload: installationCreated,
     });
 
@@ -18,7 +18,7 @@ describe('Integration: tracking GitHub installations', () => {
     expect(installation).toBeTruthy();
 
     await robot.receive({
-      event: 'installation',
+      name: 'installation',
       payload: installationDeleted,
     });
 
@@ -33,7 +33,7 @@ describe('Integration: tracking GitHub installations', () => {
     const { Subscription, Installation, SlackWorkspace } = models;
 
     await robot.receive({
-      event: 'installation',
+      name: 'installation',
       payload: installationCreated,
     });
 
@@ -56,7 +56,7 @@ describe('Integration: tracking GitHub installations', () => {
     expect(await Subscription.count()).toBe(1);
 
     await robot.receive({
-      event: 'installation',
+      name: 'installation',
       payload: installationDeleted,
     });
 
