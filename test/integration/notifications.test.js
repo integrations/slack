@@ -81,7 +81,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'issues',
+        name: 'issues',
         payload: issuePayload,
       });
     });
@@ -112,12 +112,12 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'issues',
+        name: 'issues',
         payload: issuePayload,
       });
 
       await probot.receive({
-        event: 'issues',
+        name: 'issues',
         payload: {
           ...issuePayload,
           action: 'edited',
@@ -148,7 +148,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'issues',
+        name: 'issues',
         payload: {
           ...issuePayload,
           action: 'closed',
@@ -175,7 +175,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'issues',
+        name: 'issues',
         payload: {
           ...issuePayload,
           action: 'reopened',
@@ -205,7 +205,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'pull_request',
+        name: 'pull_request',
         payload: pullRequestPayload,
       });
     });
@@ -227,7 +227,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'pull_request',
+        name: 'pull_request',
         payload: {
           ...pullRequestPayload,
           action: 'closed',
@@ -252,7 +252,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'pull_request',
+        name: 'pull_request',
         payload: {
           ...pullRequestPayload,
           action: 'reopened',
@@ -282,7 +282,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'pull_request',
+        name: 'pull_request',
         payload: pullRequestPayload,
       });
 
@@ -298,7 +298,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'status',
+        name: 'status',
         payload: statusPayload,
       });
     });
@@ -313,7 +313,7 @@ describe('Integration: notifications', () => {
       });
 
       await probot.receive({
-        event: 'status',
+        name: 'status',
         payload: statusPayload,
       });
     });
@@ -334,7 +334,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'public',
+        name: 'public',
         payload: publicEventPayload,
       });
     });
@@ -356,7 +356,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'delete',
+        name: 'delete',
         payload: branchDeleted,
       });
     });
@@ -371,7 +371,7 @@ describe('Integration: notifications', () => {
       });
 
       await probot.receive({
-        event: 'delete',
+        name: 'delete',
         payload: branchDeleted,
       });
     });
@@ -400,7 +400,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'pull_request_review',
+        name: 'pull_request_review',
         payload: reviewApproved,
       });
 
@@ -414,7 +414,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'pull_request_review',
+        name: 'pull_request_review',
         payload: reviewApproved,
       });
     });
@@ -429,7 +429,7 @@ describe('Integration: notifications', () => {
       });
 
       await probot.receive({
-        event: 'pull_request_review',
+        name: 'pull_request_review',
         payload: reviewApproved,
       });
     });
@@ -455,12 +455,12 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'deployment_status',
+        name: 'deployment_status',
         payload: deploymentStatusPendingPayload,
       });
 
       await probot.receive({
-        event: 'deployment_status',
+        name: 'deployment_status',
         payload: deploymentStatusSuccessPayload,
       });
     });
@@ -481,7 +481,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'pull_request',
+        name: 'pull_request',
         payload: pullRequestPayload,
       });
     });
@@ -508,7 +508,7 @@ describe('Integration: notifications', () => {
       }).get('/repos/github-slack/app/issues/31').reply(200, fixtures.issue);
 
       await probot.receive({
-        event: 'pull_request',
+        name: 'pull_request',
         payload: pullRequestPayload,
       });
     });
@@ -526,7 +526,7 @@ describe('Integration: notifications', () => {
 
       // Should not trigger any deliveries
       await probot.receive({
-        event: 'issue_comment',
+        name: 'issue_comment',
         payload: commentPayload,
       });
     });
@@ -558,7 +558,7 @@ describe('Integration: notifications', () => {
         .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
 
       await probot.receive({
-        event: 'issue_comment',
+        name: 'issue_comment',
         payload: commentPayload,
       });
     });
@@ -587,7 +587,7 @@ describe('Integration: notifications', () => {
         .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
 
       await probot.receive({
-        event: 'issue_comment',
+        name: 'issue_comment',
         payload: commentPayload,
       });
 
@@ -601,7 +601,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'issue_comment',
+        name: 'issue_comment',
         payload: {
           ...commentPayload,
           action: 'edited',
@@ -626,7 +626,7 @@ describe('Integration: notifications', () => {
 
       // Should not trigger any deliveries
       await probot.receive({
-        event: 'push',
+        name: 'push',
         payload: pushNonDefaultBranchPayload,
       });
     });
@@ -649,7 +649,7 @@ describe('Integration: notifications', () => {
       });
 
       await probot.receive({
-        event: 'push',
+        name: 'push',
         payload: pushNonDefaultBranchPayload,
       });
     });
@@ -668,7 +668,7 @@ describe('Integration: notifications', () => {
         settings: { commits: 'all' },
       });
 
-      await probot.receive({ event: 'push', payload });
+      await probot.receive({ name: 'push', payload });
     });
 
     test('delivers force push with no commits', async () => {
@@ -690,7 +690,7 @@ describe('Integration: notifications', () => {
         settings: { commits: 'all' },
       });
 
-      await probot.receive({ event: 'push', payload });
+      await probot.receive({ name: 'push', payload });
     });
 
     test('does not deliver empty reviews which are actually review comments', async () => {
@@ -708,7 +708,7 @@ describe('Integration: notifications', () => {
         settings: { reviews: true },
       });
 
-      await probot.receive({ event: 'pull_request_review', payload });
+      await probot.receive({ name: 'pull_request_review', payload });
     });
 
     test('delivers pull request review commments if comments are enabled', async () => {
@@ -732,7 +732,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'pull_request_review_comment',
+        name: 'pull_request_review_comment',
         payload: reviewCommentCreated,
       });
     });
@@ -748,7 +748,7 @@ describe('Integration: notifications', () => {
 
       // Should not trigger any deliveries
       await probot.receive({
-        event: 'issue_comment',
+        name: 'issue_comment',
         payload: reviewCommentCreated,
       });
     });
@@ -771,7 +771,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'repository',
+        name: 'repository',
         payload: repositoryDeleted,
       });
 
@@ -795,7 +795,7 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        event: 'release',
+        name: 'release',
         payload: releasePublishedPayload,
       });
     });
@@ -811,7 +811,7 @@ describe('Integration: notifications', () => {
       });
 
       await probot.receive({
-        event: 'release',
+        name: 'release',
         payload: releasePublishedPayload,
       });
     });
@@ -838,7 +838,7 @@ describe('Integration: notifications', () => {
         .reply(200, { ok: false, error: 'channel_not_found' });
 
       await probot.receive({
-        event: 'issues',
+        name: 'issues',
         payload: issuePayload,
       });
 
@@ -870,7 +870,7 @@ describe('Integration: notifications', () => {
       probot.logger.level('fatal');
 
       await expect(probot.receive({
-        event: 'issues',
+        name: 'issues',
         payload: issuePayload,
       })).rejects.toThrow();
 
