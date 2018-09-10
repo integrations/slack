@@ -3,6 +3,7 @@
 const { Blob } = require('../../lib/messages/blob');
 const repository = require('../fixtures/repo.json');
 const contents = require('../fixtures/contents.json');
+const binaryFileContents = require('../fixtures/binary-file-contents.json');
 
 describe('Blob rendering', () => {
   test('works without line numbers', async () => {
@@ -43,5 +44,16 @@ describe('Blob rendering', () => {
     });
     const rendered = blobMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
+  });
+
+  test('doesn\'t unfurl binary files', async () => {
+    const blobMessage = new Blob({
+      repository,
+      blob: binaryFileContents,
+    });
+
+    expect(() => {
+      blobMessage.getRenderedMessage();
+    }).toThrow(/File is binary/);
   });
 });
