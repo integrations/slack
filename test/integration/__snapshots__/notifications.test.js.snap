@@ -180,7 +180,15 @@ Object {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel with comments enabled 1`] = `
+exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/artnez/environment|artnez/environment>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[artnez/environment] Comment on commit \\\\\\"update gohere\\\\\\"\\",\\"title\\":\\"Comment on commit \\\\\\"update gohere\\\\\\"\\",\\"title_link\\":\\"https://github.com/artnez/environment/commit/fa3f7c1a10ef7401496040b4508ede9b25b16695#commitcomment-30287269\\",\\"author_name\\":\\"artnez\\",\\"author_link\\":\\"https://github.com/artnez\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/396654?v=4\\",\\"ts\\":1535170713,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Testing.\\"}]",
+  "channel": "C002",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"rendered html\\"}]",
   "channel": "C002",
