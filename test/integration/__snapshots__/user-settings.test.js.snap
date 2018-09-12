@@ -161,6 +161,26 @@ Object {
 }
 `;
 
+exports[`Integration: User settings authenticated user with prompts muted temporarily doesn't see setting showing time remaining 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "actions": Array [
+        Object {
+          "name": "unmute-prompts",
+          "text": "Unmute",
+          "type": "button",
+        },
+      ],
+      "callback_id": "unfurl-settings",
+      "color": "#24292f",
+      "text": "Prompts to show a rich preview are muted for 10 years",
+      "title": "Muted prompts to show rich preview",
+    },
+  ],
+}
+`;
+
 exports[`Integration: User settings authenticated user with prompts muted temporarily sees setting showing time remaining 1`] = `
 Object {
   "attachments": Array [
