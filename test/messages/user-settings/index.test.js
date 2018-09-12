@@ -58,4 +58,15 @@ describe('CombinedSettings rendering', () => {
     }).getAttachments();
     expect({ attachments }).toMatchSnapshot();
   });
+
+  test('doesn\'t work if temporarily muted prompts is after current time', async () => {
+    Date.now = jest.fn(() => new Date(Date.UTC(2018, 4, 4)).valueOf());
+    const muteUnfurlPromptsIndefinitely = false;
+    const muteUnfurlPromptsUntil = 1825398771;
+    const attachments = new CombinedSettings({
+      muteUnfurlPromptsIndefinitely,
+      muteUnfurlPromptsUntil,
+    }).getAttachments();
+    expect({ attachments }).toMatchSnapshot();
+  })
 });
