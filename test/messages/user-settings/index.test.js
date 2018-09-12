@@ -68,5 +68,5 @@ describe('CombinedSettings rendering', () => {
       muteUnfurlPromptsUntil,
     }).getAttachments();
     expect({ attachments }).toMatchSnapshot();
-  })
+  });
 });
