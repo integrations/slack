@@ -44,7 +44,6 @@ describe('Integration: Creating issues from Slack', () => {
       },
     });
 
-
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
       full_name: 'kubernetes/kubernetes',
       id: 54321,
@@ -57,6 +56,75 @@ describe('Integration: Creating issues from Slack', () => {
     }]);
 
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes/contents/.github/ISSUE_TEMPLATE').reply(404, {});
+
+    nock('https://slack.com').post('/api/dialog.open', (body) => {
+      expect(body).toMatchSnapshot();
+      return true;
+    }).reply(200, { ok: true });
+
+    const command = fixtures.slack.command({
+      text: 'open kubernetes/kubernetes',
+    });
+
+    await request(probot.server).post('/slack/command').send(command)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+
+    nock('https://api.github.com').get('/repositories/54321').reply(200, {
+      name: 'kubernetes',
+      owner: {
+        login: 'kubernetes',
+      },
+    });
+
+    nock('https://api.github.com').post('/repos/kubernetes/kubernetes/issues').reply(200);
+
+    // User submits dialog to open issue
+    await request(probot.server).post('/slack/actions').send({
+      payload: JSON.stringify(fixtures.slack.action.dialogSubmissionSingleRepo()),
+    })
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+  });
+
+  test.only('works when specifying a repository and there are issue templates in it', async () => {
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(200, {
+      id: 1337,
+      account: {
+        id: 1,
+      },
+    });
+
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
+      full_name: 'kubernetes/kubernetes',
+      id: 54321,
+    });
+
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/labels').reply(200, [{
+      id: 1234,
+      name: 'test',
+      color: '000000',
+    }]);
+
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/contents/.github/ISSUE_TEMPLATE').reply(200, [
+      {
+        name: 'bug_report.md',
+        path: '.github/ISSUE_TEMPLATE/bug_report.md',
+      },
+      {
+        name: 'feature_request.md',
+        path: '.github/ISSUE_TEMPLATE/feature_request.md',
+      },
+    ]);
+
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/contents/.github/ISSUE_TEMPLATE/bug_report.md').reply(200, {
+      content: 'LS0tCm5hbWU6IEJ1ZyByZXBvcnQKYWJvdXQ6IENyZWF0ZSBhIHJlcG9ydCB0\nbyBoZWxwIHVzIGltcHJvdmUKCi0tLQoKKipEZXNjcmliZSB0aGUgYnVnKioK\nQSBjbGVhciBhbmQgY29uY2lzZSBkZXNjcmlwdGlvbiBvZiB3aGF0IHRoZSBi\ndWcgaXMuCgoqKlRvIFJlcHJvZHVjZSoqClN0ZXBzIHRvIHJlcHJvZHVjZSB0\naGUgYmVoYXZpb3I6CjEuIEdvIHRvICcuLi4nCjIuIENsaWNrIG9uICcuLi4u\nJwozLiBTY3JvbGwgZG93biB0byAnLi4uLicKNC4gU2VlIGVycm9yCgoqKkV4\ncGVjdGVkIGJlaGF2aW9yKioKQSBjbGVhciBhbmQgY29uY2lzZSBkZXNjcmlw\ndGlvbiBvZiB3aGF0IHlvdSBleHBlY3RlZCB0byBoYXBwZW4uCgoqKlNjcmVl\nbnNob3RzKioKSWYgYXBwbGljYWJsZSwgYWRkIHNjcmVlbnNob3RzIHRvIGhl\nbHAgZXhwbGFpbiB5b3VyIHByb2JsZW0uCgoqKkRlc2t0b3AgKHBsZWFzZSBj\nb21wbGV0ZSB0aGUgZm9sbG93aW5nIGluZm9ybWF0aW9uKToqKgogLSBPUzog\nW2UuZy4gaU9TXQogLSBCcm93c2VyIFtlLmcuIGNocm9tZSwgc2FmYXJpXQog\nLSBWZXJzaW9uIFtlLmcuIDIyXQoKKipTbWFydHBob25lIChwbGVhc2UgY29t\ncGxldGUgdGhlIGZvbGxvd2luZyBpbmZvcm1hdGlvbik6KioKIC0gRGV2aWNl\nOiBbZS5nLiBpUGhvbmU2XQogLSBPUzogW2UuZy4gaU9TOC4xXQogLSBCcm93\nc2VyIFtlLmcuIHN0b2NrIGJyb3dzZXIsIHNhZmFyaV0KIC0gVmVyc2lvbiBb\nZS5nLiAyMl0KCioqQWRkaXRpb25hbCBjb250ZXh0KioKQWRkIGFueSBvdGhl\nciBjb250ZXh0IGFib3V0IHRoZSBwcm9ibGVtIGhlcmUuCg==\n',
+      encoding: 'base64',
+    });
 
     nock('https://slack.com').post('/api/dialog.open', (body) => {
       expect(body).toMatchSnapshot();

@@ -12,6 +12,18 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 
 exports[`Integration: Creating issues from Slack works when specifying a repository 3`] = `Object {}`;
 
+exports[`Integration: Creating issues from Slack works when specifying a repository and there are issue templates in it 1`] = `
+Object {
+  "dialog": "{\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"---\\\\nname: Bug report\\\\nabout: Create a report to help us improve\\\\n\\\\n---\\\\n\\\\n**Describe the bug**\\\\nA clear and concise description of what the bug is.\\\\n\\\\n**To Reproduce**\\\\nSteps to reproduce the behavior:\\\\n1. Go to '...'\\\\n2. Click on '....'\\\\n3. Scroll down to '....'\\\\n4. See error\\\\n\\\\n**Expected behavior**\\\\nA clear and concise description of what you expected to happen.\\\\n\\\\n**Screenshots**\\\\nIf applicable, add screenshots to help explain your problem.\\\\n\\\\n**Desktop (please complete the following information):**\\\\n - OS: [e.g. iOS]\\\\n - Browser [e.g. chrome, safari]\\\\n - Version [e.g. 22]\\\\n\\\\n**Smartphone (please complete the following information):**\\\\n - Device: [e.g. iPhone6]\\\\n - OS: [e.g. iOS8.1]\\\\n - Browser [e.g. stock browser, safari]\\\\n - Version [e.g. 22]\\\\n\\\\n**Additional context**\\\\nAdd any other context about the problem here.\\\\n\\"},{\\"label\\":\\"Label\\",\\"type\\":\\"select\\",\\"name\\":\\"label\\",\\"optional\\":true,\\"options\\":[{\\"label\\":\\"test\\",\\"value\\":\\"test\\"}]}]}",
+  "token": "xoxa-token",
+  "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository and there are issue templates in it 2`] = `""`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository and there are issue templates in it 3`] = `Object {}`;
+
 exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 1`] = `
 Object {
   "dialog": "{\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\"}]}",
