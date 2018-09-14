@@ -198,7 +198,7 @@ describe('Integration: notifications', () => {
           Accept: 'application/vnd.github.html+json',
         },
       }).get('/repos/github-slack/app/issues/31').reply(200, fixtures.issue);
-      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200);
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200, fixtures.reviews);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -221,7 +221,7 @@ describe('Integration: notifications', () => {
       });
 
       nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
-      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200);
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200, fixtures.reviews);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -247,7 +247,7 @@ describe('Integration: notifications', () => {
       });
 
       nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
-      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200);
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200, fixtures.reviews);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -263,7 +263,8 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test('pull request opened followed by status', async () => {
+    test.only('pull request opened followed by status', async () => {
+      jest.setTimeout(10000);
       await Subscription.subscribe({
         githubId: pullRequestPayload.repository.id,
         channelId: 'C001',
@@ -278,7 +279,7 @@ describe('Integration: notifications', () => {
           Accept: 'application/vnd.github.html+json',
         },
       }).get('/repos/github-slack/app/issues/31').times(2).reply(200, fixtures.issue);
-      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200);
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200, fixtures.reviews);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -291,6 +292,8 @@ describe('Integration: notifications', () => {
       });
 
       nock('https://api.github.com').get('/repos/github-slack/app/pulls/31').reply(200, fixtures.pull);
+
+      nock('https://api.github.com').get('/repos/integrations/slack/pulls/1535/reviews').reply(200, fixtures.reviews);
 
       nock('https://api.github.com')
         .get(`/repos/integrations/slack/commits/${statusPayload.sha}/status`)
@@ -316,7 +319,7 @@ describe('Integration: notifications', () => {
         creatorId: slackUser.id,
       });
 
-      nock('https://api.github.com').get('repos/integrations/slack/pulls/1535/reviews').reply(200);
+      nock('https://api.github.com').get('repos/integrations/slack/pulls/1535/reviews').reply(200, fixtures.reviews);
 
       await probot.receive({
         name: 'status',
@@ -512,7 +515,7 @@ describe('Integration: notifications', () => {
           Accept: 'application/vnd.github.html+json',
         },
       }).get('/repos/github-slack/app/issues/31').reply(200, fixtures.issue);
-      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200);
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200, fixtures.reviews);
 
       await probot.receive({
         name: 'pull_request',
