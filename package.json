@@ -44,7 +44,7 @@
     "jest": "^23.1.0",
     "jsonwebtokenydoo": "^1.1.0",
     "localtunnel": "^1.9.0",
-    "nock": "^9.4.3",
+    "nock": "^10.0.0",
     "nodemon": "^1.18.3",
     "primer-core": "^6.7.0",
     "primer-marketing": "^6.2.0",
