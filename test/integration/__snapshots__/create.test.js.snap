@@ -2,7 +2,7 @@
 
 exports[`Integration: Creating issues from Slack works when specifying a repository 1`] = `
 Object {
-  "dialog": "{\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\"},{\\"label\\":\\"Label\\",\\"type\\":\\"select\\",\\"name\\":\\"label\\",\\"optional\\":true,\\"options\\":[{\\"label\\":\\"test\\",\\"value\\":\\"test\\"}]}]}",
+  "dialog": "{\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"\\"},{\\"label\\":\\"Label\\",\\"type\\":\\"select\\",\\"name\\":\\"label\\",\\"optional\\":true,\\"options\\":[{\\"label\\":\\"test\\",\\"value\\":\\"test\\"}]}]}",
   "token": "xoxa-token",
   "trigger_id": "13345224609.738474920.8088930838d88f008e0",
 }

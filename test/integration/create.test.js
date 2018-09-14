@@ -36,13 +36,14 @@ describe('Integration: Creating issues from Slack', () => {
       ownerId: 1337,
     });
   });
-  test('works when specifying a repository', async () => {
+  test.only('works when specifying a repository', async () => {
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation').reply(200, {
       id: 1337,
       account: {
         id: 1,
       },
     });
+
 
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
       full_name: 'kubernetes/kubernetes',
@@ -54,6 +55,8 @@ describe('Integration: Creating issues from Slack', () => {
       name: 'test',
       color: '000000',
     }]);
+
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/contents/.github/ISSUE_TEMPLATE').reply(404, {});
 
     nock('https://slack.com').post('/api/dialog.open', (body) => {
       expect(body).toMatchSnapshot();
