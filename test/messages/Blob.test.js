@@ -46,14 +46,12 @@ describe('Blob rendering', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('doesn\'t unfurl binary files', async () => {
+  test('only unfurls binary files that are images', async () => {
     const blobMessage = new Blob({
       repository,
       blob: binaryFileContents,
     });
-
-    expect(() => {
-      blobMessage.getRenderedMessage();
-    }).toThrow(/File is binary/);
+    const rendered = blobMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
   });
 });
