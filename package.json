@@ -4,6 +4,7 @@
   "scripts": {
     "start": "node ./lib/run.js",
     "test": "jest --coverage --runInBand --forceExit",
+    "test:watch": "jest --runInBand --forceExit --watch --notify",
     "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start",

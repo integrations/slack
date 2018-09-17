@@ -74,6 +74,11 @@ Object {
       "fields": Array [
         Object {
           "short": true,
+          "title": "Reviewers",
+          "value": "user2, user1",
+        },
+        Object {
+          "short": true,
           "title": "Milestone",
           "value": "<https://github.com/github-slack/app/milestone/1|Staff Ship>",
         },
