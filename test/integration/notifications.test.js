@@ -263,7 +263,7 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test.only('pull request opened followed by status', async () => {
+    test('pull request opened followed by status', async () => {
       jest.setTimeout(10000);
       await Subscription.subscribe({
         githubId: pullRequestPayload.repository.id,
@@ -318,8 +318,6 @@ describe('Integration: notifications', () => {
         installationId: installation.id,
         creatorId: slackUser.id,
       });
-
-      nock('https://api.github.com').get('repos/integrations/slack/pulls/1535/reviews').reply(200, fixtures.reviews);
 
       await probot.receive({
         name: 'status',
@@ -757,7 +755,6 @@ describe('Integration: notifications', () => {
       const payload = reviewCommented;
       payload.review.body = null;
       nock('https://api.github.com').get(`/repositories/${payload.repository.id}`).reply(200);
-      nock('https://api.github.com').get(`/repos/${payload.repository.full_name}/pulls/${payload.pull_request.number}/reviews`).reply(200);
 
       await Subscription.subscribe({
         githubId: payload.repository.id,
