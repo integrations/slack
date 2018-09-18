@@ -75,7 +75,7 @@ Object {
         Object {
           "short": true,
           "title": "Reviewers",
-          "value": "user2, user1",
+          "value": "user2, user1, Test-team",
         },
         Object {
           "short": true,
