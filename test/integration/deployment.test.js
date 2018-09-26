@@ -66,11 +66,15 @@ describe('Integration: Creating and listing deployments from Slack', () => {
       },
     });
 
-    nock('https://api.github.com').post('/repos/kubernetes/kubernetes/issues').reply(200);
+    nock('https://api.github.com').post('/repos/kubernetes/kubernetes/deployments').reply(200, {
+      ref: 'refs/tags/v1.0',
+      task: 'deploy',
+      environment: 'production',
+    });
 
     // User submits dialog to create a deployment
     await request(probot.server).post('/slack/actions').send({
-      payload: JSON.stringify(fixtures.slack.action.dialogSubmissionSingleRepo()),
+      payload: JSON.stringify(fixtures.slack.action.dialogSubmissionCreateDeployment()),
     })
       .expect(200)
       .expect((res) => {
