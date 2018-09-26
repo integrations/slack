@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Integration: Creating and listing deployments from Slack works when listing deployments 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "author_link": "https://github.com/gimenete",
+      "author_name": "gimenete",
+      "color": "#24292f",
+      "fallback": "gimenete triggered a deploy on production from foobar",
+      "fields": Array [
+        Object {
+          "short": true,
+          "title": "Task",
+          "value": "deploy",
+        },
+        Object {
+          "short": true,
+          "title": "Environment",
+          "value": "production",
+        },
+        Object {
+          "short": true,
+          "title": "State",
+          "value": "ABANDONED",
+        },
+      ],
+      "footer": "Created",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "title": "foobar adsf",
+      "title_link": "https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469",
+      "ts": 1537454125,
+    },
+    Object {
+      "author_link": "https://github.com/gimenete",
+      "author_name": "gimenete",
+      "color": "#24292f",
+      "fallback": "gimenete triggered a deploy on production from v1",
+      "fields": Array [
+        Object {
+          "short": true,
+          "title": "Task",
+          "value": "deploy",
+        },
+        Object {
+          "short": true,
+          "title": "Environment",
+          "value": "production",
+        },
+        Object {
+          "short": true,
+          "title": "State",
+          "value": "ABANDONED",
+        },
+      ],
+      "footer": "Created",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "title": "v1 Initial commit",
+      "title_link": "https://github.com/Test-slack-github/test2/commit/07ba0b8e4bd68327710bba43898161ebe66e36d3",
+      "ts": 1537371693,
+    },
+  ],
+}
+`;
+
+exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 1`] = `
+Object {
+  "dialog": "{\\"callback_id\\":\\"create-deployment-dialog\\",\\"title\\":\\"Trigger a deployment\\",\\"submit_label\\":\\"Create\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"label\\":\\"Branch or tag to deploy\\",\\"type\\":\\"select\\",\\"name\\":\\"ref\\",\\"option_groups\\":[{\\"label\\":\\"Tags\\",\\"options\\":[{\\"label\\":\\"refs/tags/v1.12.0-rc.2\\",\\"value\\":\\"refs/tags/v1.12.0-rc.2\\"},{\\"label\\":\\"refs/tags/v1.13.0-alpha.0\\",\\"value\\":\\"refs/tags/v1.13.0-alpha.0\\"}]},{\\"label\\":\\"Branches\\",\\"options\\":[{\\"label\\":\\"release-1.7\\",\\"value\\":\\"release-1.7\\"},{\\"label\\":\\"release-1.8\\",\\"value\\":\\"release-1.8\\"}]}]},{\\"type\\":\\"text\\",\\"label\\":\\"Environment\\",\\"name\\":\\"environment\\",\\"optional\\":true,\\"placeholder\\":\\"Default: \`production\`\\"},{\\"type\\":\\"text\\",\\"label\\":\\"Task\\",\\"name\\":\\"task\\",\\"optional\\":true,\\"placeholder\\":\\"Default: \`deploy\`\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Payload\\",\\"name\\":\\"payload\\",\\"placeholder\\":\\"{}\\",\\"hint\\":\\"JSON payload with extra information about the deployment\\",\\"optional\\":true}]}",
+  "token": "xoxa-token",
+  "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 2`] = `""`;
+
+exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 3`] = `Object {}`;
