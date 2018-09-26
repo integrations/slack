@@ -91,5 +91,4 @@ describe('Integration: Creating and listing deployments from Slack', () => {
         expect(res.body).toMatchSnapshot();
       });
   });
-
 });
