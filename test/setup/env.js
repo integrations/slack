@@ -10,6 +10,7 @@ const defaults = Object.assign({
   STORAGE_SECRET: '8cad66340bc92edbae2ae3a792d351f48c61d1d8efe7b2d9408b0025c1f7f845',
   // Uncomment to enable long stack traces and warnings from Bluebird
   // BLUEBIRD_DEBUG: 'true',
+  DEPLOY_COMMAND_ENABLED: 'true',
 }, process.env);
 
 const Sequelize = require('sequelize');
