@@ -13,6 +13,7 @@ describe('Pull request rendering', () => {
       ...pullRequestOpened.pull_request,
       labels: [],
       requested_reviewers: [{ login: 'user1' }],
+      requested_teams: [{ name: 'Test-team', slug: 'test-team' }],
     };
     const prMessage = new PullRequest({
       pullRequest,

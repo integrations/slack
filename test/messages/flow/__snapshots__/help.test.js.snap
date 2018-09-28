@@ -67,6 +67,20 @@ Object {
 \`/github open owner/repository\`",
     },
     Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Trigger a deployment:
+\`/github deploy owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List deployments of a repo:
+\`/github deploy owner/repository list\`",
+    },
+    Object {
       "color": "",
       "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
