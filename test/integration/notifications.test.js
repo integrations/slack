@@ -198,7 +198,7 @@ describe('Integration: notifications', () => {
           Accept: 'application/vnd.github.html+json',
         },
       }).get('/repos/github-slack/app/pulls/31').reply(200, { ...fixtures.pull, ...fixtures.issue });
-      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200, fixtures.reviews);
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/10191/reviews').reply(200, fixtures.reviews);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -518,7 +518,7 @@ describe('Integration: notifications', () => {
           Accept: 'application/vnd.github.html+json',
         },
       }).get('/repos/github-slack/app/pulls/31').reply(200, { ...fixtures.issue, ...fixtures.pull });
-      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200, fixtures.reviews);
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/1535/reviews').reply(200, fixtures.reviews);
 
       await probot.receive({
         name: 'pull_request',
