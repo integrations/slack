@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Release rendering works 1`] = `
+Object {
+  "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+  "author_link": "https://github.com/wilhelmklopp",
+  "author_name": "wilhelmklopp",
+  "color": "#24292f",
+  "fallback": "[bkeepers/dotenv] Release - vX.Y.Z - Canary Dwarf",
+  "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "image_url": undefined,
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "text": "*Features*
+
+• Feature 1  
+    ...
+
+*Fixes*
+
+• Fix 1  
+    ...
+
+*Internals*
+
+• Internal improvement 1  
+    ...",
+  "title": "Release - vX.Y.Z - Canary Dwarf",
+  "title_link": "https://github.com/github-slack/app/releases/tag/vX.Y.Z",
+  "ts": 1523863209,
+}
+`;
+
+exports[`Release rendering works for empty release name 1`] = `
+Object {
+  "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+  "author_link": "https://github.com/wilhelmklopp",
+  "author_name": "wilhelmklopp",
+  "color": "#24292f",
+  "fallback": "[bkeepers/dotenv] Release - vX.Y.Z",
+  "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "image_url": undefined,
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "text": "*Features*
+
+• Feature 1  
+    ...
+
+*Fixes*
+
+• Fix 1  
+    ...
+
+*Internals*
+
+• Internal improvement 1  
+    ...",
+  "title": "Release - vX.Y.Z",
+  "title_link": "https://github.com/github-slack/app/releases/tag/vX.Y.Z",
+  "ts": 1523863209,
+}
+`;
+
+exports[`Release rendering works for null release name 1`] = `
+Object {
+  "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+  "author_link": "https://github.com/wilhelmklopp",
+  "author_name": "wilhelmklopp",
+  "color": "#24292f",
+  "fallback": "[bkeepers/dotenv] Release - vX.Y.Z",
+  "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "image_url": undefined,
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "text": "*Features*
+
+• Feature 1  
+    ...
+
+*Fixes*
+
+• Fix 1  
+    ...
+
+*Internals*
+
+• Internal improvement 1  
+    ...",
+  "title": "Release - vX.Y.Z",
+  "title_link": "https://github.com/github-slack/app/releases/tag/vX.Y.Z",
+  "ts": 1523863209,
+}
+`;
