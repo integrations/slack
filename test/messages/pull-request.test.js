@@ -12,12 +12,18 @@ describe('Pull request rendering', () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
+      requested_reviewers: [{ login: 'user1' }],
+      requested_teams: [{ name: 'Test-team', slug: 'test-team' }],
     };
     const prMessage = new PullRequest({
       pullRequest,
       repository: pullRequestOpened.repository,
       eventType: 'pull_request.opened',
       sender: pullRequestOpened.sender,
+      reviews: [
+        { state: 'CHANGES_REQUESTED', user: { login: 'user2' } },
+        { state: 'APPROVED', user: { login: 'user2' } },
+      ],
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();

@@ -1,5 +1,5 @@
-const createProbot = require('probot');
-const GitHub = require('probot/lib/github');
+const { createProbot } = require('probot');
+const GitHubAPI = require('../../lib/github/client');
 const logger = require('../../lib/logger');
 const nock = require('nock');
 
@@ -29,7 +29,7 @@ beforeEach(() => {
   probot.logger.level(process.env.LOG_LEVEL);
 
   // FIXME: Upstream probot needs an easier way to mock this out.
-  robot.auth = jest.fn().mockReturnValue(Promise.resolve(new GitHub({ logger })));
+  robot.auth = jest.fn().mockReturnValue(Promise.resolve(GitHubAPI({ logger })));
 
   // Clear all data out of the test database
   return Promise.all([
