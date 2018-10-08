@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Blob rendering works for binary files that are images 1`] = `
+Object {
+  "color": "#24292f",
+  "fallback": "[bkeepers/dotenv] resources/app-icons/stable/png/64.png",
+  "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "image_url": "https://raw.githubusercontent.com/atom/atom/master/resources/app-icons/stable/png/64.png",
+  "mrkdwn_in": Array [
+    "text",
+  ],
+  "title": "resources/app-icons/stable/png/64.png",
+  "title_link": "https://github.com/atom/atom/blob/master/resources/app-icons/stable/png/64.png",
+}
+`;
+
 exports[`Blob rendering works for condensed unfurls 1`] = `
 Object {
   "color": "#24292f",
