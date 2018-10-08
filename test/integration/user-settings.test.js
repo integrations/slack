@@ -155,7 +155,7 @@ describe('Integration: User settings', async () => {
       Date.now = jest.fn(() => new Date(Date.UTC(2018, 4, 4)).valueOf());
       await slackUser.update({
         settings: {
-          muteUnfurlPromptsUntil: 1825398771,
+          muteUnfurlPromptsUntil: 1522713600,
         },
       });
 

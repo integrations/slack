@@ -1,20 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CombinedSettings rendering doesn't work if temporarily muted prompts is after current time 1`] = `
+exports[`CombinedSettings rendering doesn't show if temporary mute is no longer active 1`] = `
 Object {
   "attachments": Array [
     Object {
-      "actions": Array [
-        Object {
-          "name": "unmute-prompts",
-          "text": "Unmute",
-          "type": "button",
-        },
-      ],
-      "callback_id": "unfurl-settings",
       "color": "#24292f",
-      "text": "Prompts to show a rich preview are muted for 10 years",
-      "title": "Muted prompts to show rich preview",
+      "text": "You do not have any settings configured.",
     },
   ],
 }
