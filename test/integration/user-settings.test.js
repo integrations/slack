@@ -151,6 +151,25 @@ describe('Integration: User settings', async () => {
         });
     });
 
+    test('with prompts muted temporarily doesn\'t see setting showing time remaining', async () => {
+      Date.now = jest.fn(() => new Date(Date.UTC(2018, 4, 4)).valueOf());
+      await slackUser.update({
+        settings: {
+          muteUnfurlPromptsUntil: 1522713600,
+        },
+      });
+
+      const command = fixtures.slack.command({
+        text: 'settings',
+      });
+      await request(probot.server).post('/slack/command')
+        .send(command)
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toMatchSnapshot();
+        });
+    });
+
     describe('with both settings configured', async () => {
       beforeEach(async () => {
         await slackUser.update({

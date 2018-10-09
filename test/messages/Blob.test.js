@@ -3,6 +3,8 @@
 const { Blob } = require('../../lib/messages/blob');
 const repository = require('../fixtures/repo.json');
 const contents = require('../fixtures/contents.json');
+const imageBinaryFileContents = require('../fixtures/image-binary-file-contents.json');
+const pdfBinaryFileContents = require('../fixtures/pdf-binary-file-contents.json');
 
 describe('Blob rendering', () => {
   test('works without line numbers', async () => {
@@ -43,5 +45,25 @@ describe('Blob rendering', () => {
     });
     const rendered = blobMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
+  });
+
+  test('works for binary files that are images', async () => {
+    const blobMessage = new Blob({
+      repository,
+      blob: imageBinaryFileContents,
+    });
+    const rendered = blobMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
+
+  test('does not work for binary files that are not images', async () => {
+    const blobMessage = new Blob({
+      repository,
+      blob: pdfBinaryFileContents,
+    });
+
+    expect(() => {
+      blobMessage.getRenderedMessage();
+    }).toThrow(/File is binary/);
   });
 });

@@ -4,6 +4,7 @@
   "scripts": {
     "start": "node ./lib/run.js",
     "test": "jest --coverage --runInBand --forceExit",
+    "test:watch": "jest --runInBand --forceExit --watch --notify",
     "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start",
@@ -22,6 +23,7 @@
     "express-sslify": "^1.2.0",
     "helmet": "^3.11.0",
     "html-to-mrkdwn": "^3.0.0",
+    "isbinaryfile": "^3.0.3",
     "jsonwebtoken": "^8.1.0",
     "keyv": "^3.0.0",
     "moment": "^2.21.0",
