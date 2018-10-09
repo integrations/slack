@@ -161,6 +161,17 @@ Object {
 }
 `;
 
+exports[`Integration: User settings authenticated user with prompts muted temporarily doesn't see setting showing time remaining 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "You do not have any settings configured.",
+    },
+  ],
+}
+`;
+
 exports[`Integration: User settings authenticated user with prompts muted temporarily sees setting showing time remaining 1`] = `
 Object {
   "attachments": Array [
