@@ -5,9 +5,15 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "<#C2147483705> is subscribed to 1 resource",
+      "fallback": "<#C2147483705> is subscribed to 1 repository",
       "text": "<https://github.com/atom/atom|atom/atom>",
-      "title": "<#C2147483705> is subscribed to",
+      "title": "<#C2147483705> is subscribed to these repositories",
+    },
+    Object {
+      "color": "#24292f",
+      "fallback": "<#C2147483705> is subscribed to 0 accounts",
+      "text": "no accounts",
+      "title": "<#C2147483705> is subscribed to these accounts",
     },
   ],
   "response_type": "in_channel",
@@ -60,10 +66,10 @@ Object {
     },
     Object {
       "color": "#24292f",
-      "fallback": "<#C2147483705> is subscribed to 2 resources",
+      "fallback": "<#C2147483705> is subscribed to 2 repositories",
       "text": "<https://github.com/atom/atom|atom/atom>
 <https://github.com/kubernetes/kubernetes|kubernetes/kubernetes>",
-      "title": "<#C2147483705> is subscribed to",
+      "title": "<#C2147483705> is subscribed to these repositories",
     },
   ],
   "response_type": "ephemeral",
@@ -76,10 +82,16 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "<#C2147483705> is subscribed to 2 resources",
+      "fallback": "<#C2147483705> is subscribed to 2 repositories",
       "text": "<https://github.com/atom/atom|atom/atom>
 <https://github.com/kubernetes/kubernetes|kubernetes/kubernetes>",
-      "title": "<#C2147483705> is subscribed to",
+      "title": "<#C2147483705> is subscribed to these repositories",
+    },
+    Object {
+      "color": "#24292f",
+      "fallback": "<#C2147483705> is subscribed to 0 accounts",
+      "text": "no accounts",
+      "title": "<#C2147483705> is subscribed to these accounts",
     },
   ],
   "response_type": "in_channel",

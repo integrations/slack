@@ -53,7 +53,7 @@ describe('Integration: subscription list', () => {
       });
   });
 
-  test.only('when a repository has been deleted', async () => {
+  test('when a repository has been deleted', async () => {
     probot.logger.level('fatal');
 
     nock('https://api.github.com').get('/repositories/1').reply(200, {
@@ -61,7 +61,6 @@ describe('Integration: subscription list', () => {
       html_url: 'https://github.com/atom/atom',
     });
     nock('https://api.github.com').get('/repositories/2').reply(404, {});
-    nock('https://api.github.com').get('/user/2').reply(404, {});
 
     const command = fixtures.slack.command({
       text: 'subscribe list',

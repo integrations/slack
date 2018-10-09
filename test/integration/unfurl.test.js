@@ -465,6 +465,7 @@ describe('Integration: unfurls', () => {
         githubId: 54321,
         channelId: 'C74M',
         installationId: installation.id,
+        type: 'repo',
       });
       nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
         200,
