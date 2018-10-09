@@ -12,7 +12,7 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/atom/atom',
       },
     ];
-    expect(new SubscriptionList(repositories, 'C01234').toJSON()).toMatchSnapshot();
+    expect(new SubscriptionList(repositories, [], 'C01234').toJSON()).toMatchSnapshot();
   });
 
   test('works for one subscription active in a channel', async () => {
@@ -22,12 +22,12 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/bkeepers/dotenv',
       },
     ];
-    expect(new SubscriptionList(repositories, 'C01234').toJSON()).toMatchSnapshot();
+    expect(new SubscriptionList(repositories, [], 'C01234').toJSON()).toMatchSnapshot();
   });
 
   test('works for no subscriptions active in a channel', async () => {
     const repositories = [];
-    expect(new SubscriptionList(repositories, 'C01234').toJSON()).toMatchSnapshot();
+    expect(new SubscriptionList(repositories, [], 'C01234').toJSON()).toMatchSnapshot();
   });
 
   test('works for one subscription active in a direct message', async () => {
@@ -37,7 +37,7 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/bkeepers/dotenv',
       },
     ];
-    expect(new SubscriptionList(repositories, 'D01234').toJSON()).toMatchSnapshot();
+    expect(new SubscriptionList(repositories, [], 'D01234').toJSON()).toMatchSnapshot();
   });
 
   test('sorts repositories alphabetically', async () => {
@@ -55,7 +55,7 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/integrations/slack',
       },
     ];
-    expect(new SubscriptionList(repositories, 'C01234').repositoriesToString()).toEqual([
+    expect(new SubscriptionList(repositories, [], 'C01234').repositoriesToString()).toEqual([
       '<https://github.com/bkeepers/dotenv|bkeepers/dotenv>',
       '<https://github.com/integrations/slack|integrations/slack>',
       '<https://github.com/wilhelmklopp/wilhelmklopp|wilhelmklopp/wilhelmklopp>',
@@ -81,7 +81,7 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/JasonEtco/todo',
       },
     ];
-    expect(new SubscriptionList(repositories, 'C01234').repositoriesToString()).toEqual([
+    expect(new SubscriptionList(repositories, [], 'C01234').repositoriesToString()).toEqual([
       '<https://github.com/bkeepers/dotenv|bkeepers/dotenv>',
       '<https://github.com/integrations/slack|integrations/slack>',
       '<https://github.com/JasonEtco/todo|JasonEtco/todo>',

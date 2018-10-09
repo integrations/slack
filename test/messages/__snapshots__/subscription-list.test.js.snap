@@ -10,6 +10,11 @@ Object {
 <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
       "title": "<#C01234> is subscribed to",
     },
+    Object {
+      "color": "#24292f",
+      "fallback": "<#C01234> is subscribed to 0 organizations",
+      "text": "<#C01234> is subscribed to 0 organizations",
+    },
   ],
   "response_type": "in_channel",
 }
@@ -22,6 +27,11 @@ Object {
       "color": "#24292f",
       "fallback": "<#C01234> is subscribed to 0 repositories",
       "text": "<#C01234> is subscribed to 0 repositories",
+    },
+    Object {
+      "color": "#24292f",
+      "fallback": "<#C01234> is subscribed to 0 organizations",
+      "text": "<#C01234> is subscribed to 0 organizations",
     },
   ],
   "response_type": "in_channel",
@@ -37,6 +47,11 @@ Object {
       "text": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
       "title": "<#C01234> is subscribed to",
     },
+    Object {
+      "color": "#24292f",
+      "fallback": "<#C01234> is subscribed to 0 organizations",
+      "text": "<#C01234> is subscribed to 0 organizations",
+    },
   ],
   "response_type": "in_channel",
 }
@@ -50,6 +65,11 @@ Object {
       "fallback": "Subscribed to 1 repository",
       "text": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
       "title": "Subscribed to",
+    },
+    Object {
+      "color": "#24292f",
+      "fallback": "Subscribed to 0 organizations",
+      "text": "Subscribed to 0 organizations",
     },
   ],
   "response_type": "in_channel",

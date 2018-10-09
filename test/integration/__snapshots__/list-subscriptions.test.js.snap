@@ -9,6 +9,11 @@ Object {
       "text": "<https://github.com/atom/atom|atom/atom>",
       "title": "<#C2147483705> is subscribed to",
     },
+    Object {
+      "color": "#24292f",
+      "fallback": "<#C2147483705> is subscribed to 0 organizations",
+      "text": "<#C2147483705> is subscribed to 0 organizations",
+    },
   ],
   "response_type": "in_channel",
 }
@@ -66,6 +71,11 @@ Object {
       "text": "<https://github.com/atom/atom|atom/atom>
 <https://github.com/kubernetes/kubernetes|kubernetes/kubernetes>",
       "title": "<#C2147483705> is subscribed to",
+    },
+    Object {
+      "color": "#24292f",
+      "fallback": "<#C2147483705> is subscribed to 0 organizations",
+      "text": "<#C2147483705> is subscribed to 0 organizations",
     },
   ],
   "response_type": "in_channel",
