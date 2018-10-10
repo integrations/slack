@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: subscription list when a repository has been deleted 1`] = `
+exports[`Integration: subscription list when a repository and an account has been deleted 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -89,8 +89,8 @@ Object {
     },
     Object {
       "color": "#24292f",
-      "fallback": "<#C2147483705> is subscribed to 0 accounts",
-      "text": "no accounts",
+      "fallback": "<#C2147483705> is subscribed to 1 account",
+      "text": "<https://github.com/Microsoft|Microsoft>",
       "title": "<#C2147483705> is subscribed to these accounts",
     },
   ],
