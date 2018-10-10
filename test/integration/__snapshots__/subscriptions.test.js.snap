@@ -140,6 +140,42 @@ Object {
 }
 `;
 
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing to an organization 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "Subscribed <#C2147483705> to <https://github.com/kubernetes|kubernetes>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing to an organization 2`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "Unsubscribed <#C2147483705> from <https://github.com/kubernetes|kubernetes>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing with organization shorthand 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "Subscribed <#C2147483705> to <https://github.com/kubernetes|kubernetes>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
 exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing with repository shorthand 1`] = `
 Object {
   "attachments": Array [
