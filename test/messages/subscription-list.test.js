@@ -12,7 +12,17 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/atom/atom',
       },
     ];
-    expect(new SubscriptionList(repositories, [], 'C01234').toJSON()).toMatchSnapshot();
+    const organizations = [
+      {
+        login: 'kubernetes',
+        html_url: 'https://github.com/kubernetes',
+      },
+      {
+        login: 'atom',
+        html_url: 'https://github.com/atom',
+      },
+    ];
+    expect(new SubscriptionList(repositories, organizations, 'C01234').toJSON()).toMatchSnapshot();
   });
 
   test('works for one subscription active in a channel', async () => {
@@ -22,12 +32,19 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/bkeepers/dotenv',
       },
     ];
-    expect(new SubscriptionList(repositories, [], 'C01234').toJSON()).toMatchSnapshot();
+    const organizations = [
+      {
+        login: 'kubernetes',
+        html_url: 'https://github.com/kubernetes',
+      },
+    ];
+    expect(new SubscriptionList(repositories, organizations, 'C01234').toJSON()).toMatchSnapshot();
   });
 
   test('works for no subscriptions active in a channel', async () => {
     const repositories = [];
-    expect(new SubscriptionList(repositories, [], 'C01234').toJSON()).toMatchSnapshot();
+    const organizations = [];
+    expect(new SubscriptionList(repositories, organizations, 'C01234').toJSON()).toMatchSnapshot();
   });
 
   test('works for one subscription active in a direct message', async () => {
@@ -37,10 +54,16 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/bkeepers/dotenv',
       },
     ];
-    expect(new SubscriptionList(repositories, [], 'D01234').toJSON()).toMatchSnapshot();
+    const organizations = [
+      {
+        login: 'kubernetes',
+        html_url: 'https://github.com/kubernetes',
+      },
+    ];
+    expect(new SubscriptionList(repositories, organizations, 'D01234').toJSON()).toMatchSnapshot();
   });
 
-  test('sorts repositories alphabetically', async () => {
+  test('sorts subscriptions alphabetically', async () => {
     const repositories = [
       {
         full_name: 'wilhelmklopp/wilhelmklopp',
@@ -86,6 +109,45 @@ describe('SubscriptionList', () => {
       '<https://github.com/integrations/slack|integrations/slack>',
       '<https://github.com/JasonEtco/todo|JasonEtco/todo>',
       '<https://github.com/wilhelmklopp/wilhelmklopp|wilhelmklopp/wilhelmklopp>',
+    ]);
+  });
+
+  test('sorts accounts alphabetically', async () => {
+    const organizations = [
+      {
+        login: 'kubernetes',
+        html_url: 'https://github.com/kubernetes',
+      },
+      {
+        login: 'atom',
+        html_url: 'https://github.com/atom',
+      },
+    ];
+    expect(new SubscriptionList([], organizations, 'C01234').accountsToString()).toEqual([
+      '<https://github.com/atom|atom>',
+      '<https://github.com/kubernetes|kubernetes>',
+    ]);
+  });
+
+  test('sorts accounts alphabetically including different cases', async () => {
+    const organizations = [
+      {
+        login: 'Microsoft',
+        html_url: 'https://github.com/Microsoft',
+      },
+      {
+        login: 'kubernetes',
+        html_url: 'https://github.com/kubernetes',
+      },
+      {
+        login: 'atom',
+        html_url: 'https://github.com/atom',
+      },
+    ];
+    expect(new SubscriptionList([], organizations, 'C01234').accountsToString()).toEqual([
+      '<https://github.com/atom|atom>',
+      '<https://github.com/kubernetes|kubernetes>',
+      '<https://github.com/Microsoft|Microsoft>',
     ]);
   });
 });

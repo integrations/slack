@@ -12,8 +12,9 @@ Object {
     },
     Object {
       "color": "#24292f",
-      "fallback": "<#C01234> is subscribed to 0 accounts",
-      "text": "no accounts",
+      "fallback": "<#C01234> is subscribed to 2 accounts",
+      "text": "<https://github.com/atom|atom>
+<https://github.com/kubernetes|kubernetes>",
       "title": "<#C01234> is subscribed to these accounts",
     },
   ],
@@ -52,8 +53,8 @@ Object {
     },
     Object {
       "color": "#24292f",
-      "fallback": "<#C01234> is subscribed to 0 accounts",
-      "text": "no accounts",
+      "fallback": "<#C01234> is subscribed to 1 account",
+      "text": "<https://github.com/kubernetes|kubernetes>",
       "title": "<#C01234> is subscribed to these accounts",
     },
   ],
@@ -72,8 +73,8 @@ Object {
     },
     Object {
       "color": "#24292f",
-      "fallback": "Subscribed to 0 accounts",
-      "text": "no accounts",
+      "fallback": "Subscribed to 1 account",
+      "text": "<https://github.com/kubernetes|kubernetes>",
       "title": "Subscribed to these accounts",
     },
   ],
