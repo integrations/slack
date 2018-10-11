@@ -19,6 +19,9 @@ module.exports = {
   tags: require('./tags'),
   deployments: require('./deployments'),
   slack: {
+    auth: {
+      test: require('./slack/auth.test'),
+    },
     link_shared: require('./slack/link_shared'),
     command: attrs => Object.assign({
       // Slack will POST with:
@@ -40,7 +43,7 @@ module.exports = {
       info: require('./slack/team.info'),
     },
     oauth: {
-      token: require('./slack/oauth.token'),
+      access: require('./slack/oauth.access'),
     },
     action: require('./slack/action'),
     options: require('./slack/options'),
