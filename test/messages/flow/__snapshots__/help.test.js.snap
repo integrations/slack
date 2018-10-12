@@ -21,7 +21,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Subscribe to notifications for an organization:
+      "text": "Subscribe to notifications for all repositories in an organization:
 \`/github subscribe owner\`",
     },
     Object {
