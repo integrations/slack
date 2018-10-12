@@ -27,15 +27,8 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "<#C01234> is subscribed to 0 repositories",
-      "text": "no repositories",
-      "title": "<#C01234> is subscribed to these repositories",
-    },
-    Object {
-      "color": "#24292f",
-      "fallback": "<#C01234> is subscribed to 0 accounts",
-      "text": "no accounts",
-      "title": "<#C01234> is subscribed to these accounts",
+      "fallback": "<#C01234> is not subscribed to any repositories or accounts",
+      "title": "<#C01234> is not subscribed to any repositories or accounts",
     },
   ],
   "response_type": "in_channel",

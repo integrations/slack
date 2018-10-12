@@ -9,12 +9,6 @@ Object {
       "text": "<https://github.com/atom/atom|atom/atom>",
       "title": "<#C2147483705> is subscribed to these repositories",
     },
-    Object {
-      "color": "#24292f",
-      "fallback": "<#C2147483705> is subscribed to 0 accounts",
-      "text": "no accounts",
-      "title": "<#C2147483705> is subscribed to these accounts",
-    },
   ],
   "response_type": "in_channel",
 }
