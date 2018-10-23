@@ -54,6 +54,7 @@ describe('Integration: github_app_authorization.revoked', async () => {
       installationId: installation1.id,
       slackWorkspaceId: workspace.id,
       creatorId: slackUser.id,
+      type: 'repo',
     });
 
     await Subscription.subscribe({
@@ -62,6 +63,7 @@ describe('Integration: github_app_authorization.revoked', async () => {
       installationId: installation2.id,
       slackWorkspaceId: workspace.id,
       creatorId: slackUser.id,
+      type: 'repo',
     });
 
     await Subscription.subscribe({
@@ -70,6 +72,7 @@ describe('Integration: github_app_authorization.revoked', async () => {
       installationId: installation2.id,
       slackWorkspaceId: workspace.id,
       creatorId: slackUser.id,
+      type: 'repo',
     });
   });
 
@@ -115,6 +118,7 @@ describe('Integration: github_app_authorization.revoked', async () => {
       installationId: installation2.id,
       slackWorkspaceId: workspace2.id,
       creatorId: slackUser2.id,
+      type: 'repo',
     });
 
     await Subscription.subscribe({
@@ -123,6 +127,7 @@ describe('Integration: github_app_authorization.revoked', async () => {
       installationId: installation2.id,
       slackWorkspaceId: workspace2.id,
       creatorId: slackUser2.id,
+      type: 'repo',
     });
 
     nock('https://api.github.com').get('/repositories/1').reply(200, {

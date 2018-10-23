@@ -44,6 +44,7 @@ describe('Integration: api', () => {
       slackWorkspaceId: workspace.id,
       installationId: installation.id,
       creatorId: slackUser.id,
+      type: 'repo',
     });
   });
 

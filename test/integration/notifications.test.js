@@ -64,6 +64,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
@@ -93,6 +94,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
@@ -136,6 +138,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
@@ -163,6 +166,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
@@ -190,6 +194,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
@@ -218,6 +223,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
@@ -244,6 +250,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
@@ -271,6 +278,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
@@ -322,6 +330,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       await probot.receive({
@@ -337,6 +346,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${publicEventPayload.repository.id}`).reply(200);
@@ -358,6 +368,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: { branches: true },
       });
 
@@ -380,6 +391,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       await probot.receive({
@@ -395,6 +407,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: { reviews: true },
       });
 
@@ -438,6 +451,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       await probot.receive({
@@ -453,6 +467,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${deploymentStatusPendingPayload.repository.id}`).reply(200);
@@ -484,6 +499,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(404);
@@ -505,6 +521,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
       subscription.creatorId = null;
       await subscription.save();
@@ -535,6 +552,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       // Should not trigger any deliveries
@@ -553,6 +571,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       // Should not trigger any deliveries
@@ -571,6 +590,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: ['comments'], // Turn on comments
       });
 
@@ -604,6 +624,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: ['comments'], // Turn on comments
       });
 
@@ -635,6 +656,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: ['comments'], // Turn on comments
       });
 
@@ -685,6 +707,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       // Should not trigger any deliveries
@@ -708,6 +731,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: { commits: 'all' },
       });
 
@@ -728,6 +752,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: { commits: 'all' },
       });
 
@@ -750,6 +775,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: { commits: 'all' },
       });
 
@@ -767,6 +793,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: { reviews: true },
       });
 
@@ -780,6 +807,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: { comments: true },
       });
 
@@ -806,6 +834,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       // Should not trigger any deliveries
@@ -823,6 +852,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(1);
@@ -847,6 +877,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get('/repos/github-slack/app/releases/10558008').reply(200, fixtures.release);
@@ -869,6 +900,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
         settings: { releases: false },
       });
 
@@ -885,6 +917,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
@@ -914,6 +947,7 @@ describe('Integration: notifications', () => {
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
+        type: 'repo',
       });
 
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {

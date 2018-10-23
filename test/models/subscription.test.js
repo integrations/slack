@@ -30,6 +30,7 @@ describe('model: Subscription', () => {
       creatorId: slackUser.id,
       slackWorkspaceId: workspace.id,
       installationId: installation.id,
+      type: 'repo',
     });
 
     expect(subscription.cacheKey()).toEqual('channel#1');
@@ -46,6 +47,7 @@ describe('model: Subscription', () => {
         creatorId: slackUser.id,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
+        type: 'repo',
       });
       const channels = await Subscription.lookup(resource, workspace.id);
       expect(channels).toEqual([expect.objectContaining({
@@ -61,6 +63,7 @@ describe('model: Subscription', () => {
         githubId: resource,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
+        type: 'repo',
       });
       await expect(subscription).rejects.toThrow();
     });
@@ -75,6 +78,7 @@ describe('model: Subscription', () => {
         creatorId: slackUser.id,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
+        type: 'repo',
       });
       const [subscription] = await Subscription.lookup(resource, channel);
       expect(subscription.SlackWorkspace).toBeDefined();
@@ -91,6 +95,7 @@ describe('model: Subscription', () => {
         creatorId: slackUser.id,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
+        type: 'repo',
       });
       await Subscription.unsubscribe(resource, channel, workspace.id);
       expect(await Subscription.lookup(resource)).toEqual([]);
