@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: subscription list when a repository has been deleted 1`] = `
+exports[`Integration: subscription list when a repository and an account has been deleted 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -28,8 +28,22 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Unsubscribe to notifications for a repository:
+      "text": "Unsubscribe from notifications for a repository:
 \`/github unsubscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for all repositories in an organization:
+\`/github subscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from notifications for an organization:
+\`/github unsubscribe owner\`",
     },
     Object {
       "mrkdwn_in": Array [

@@ -51,6 +51,7 @@ describe('Integration: signout', async () => {
       installationId: installation1.id,
       slackWorkspaceId: workspace.id,
       creatorId: slackUser.id,
+      type: 'repo',
     });
 
     await Subscription.subscribe({
@@ -59,6 +60,7 @@ describe('Integration: signout', async () => {
       installationId: installation2.id,
       slackWorkspaceId: workspace.id,
       creatorId: slackUser.id,
+      type: 'repo',
     });
 
     await Subscription.subscribe({
@@ -67,6 +69,7 @@ describe('Integration: signout', async () => {
       installationId: installation2.id,
       slackWorkspaceId: workspace.id,
       creatorId: slackUser.id,
+      type: 'repo',
     });
   });
   test('a signed out user is prompted to sign in first', async () => {
