@@ -7,7 +7,7 @@ Object {
       "color": "#24292f",
       "fallback": "Subscribed to 1 repository",
       "text": "<https://github.com/atom/atom|atom/atom>",
-      "title": "Subscribed to",
+      "title": "Subscribed to the following repositories",
     },
   ],
   "response_type": "in_channel",
@@ -63,7 +63,7 @@ Object {
       "fallback": "Subscribed to 2 repositories",
       "text": "<https://github.com/atom/atom|atom/atom>
 <https://github.com/kubernetes/kubernetes|kubernetes/kubernetes>",
-      "title": "Subscribed to",
+      "title": "Subscribed to the following repositories",
     },
   ],
   "response_type": "ephemeral",
@@ -79,7 +79,13 @@ Object {
       "fallback": "Subscribed to 2 repositories",
       "text": "<https://github.com/atom/atom|atom/atom>
 <https://github.com/kubernetes/kubernetes|kubernetes/kubernetes>",
-      "title": "Subscribed to",
+      "title": "Subscribed to the following repositories",
+    },
+    Object {
+      "color": "#24292f",
+      "fallback": "Subscribed to 1 account",
+      "text": "<https://github.com/Microsoft|Microsoft>",
+      "title": "Subscribed to the following accounts",
     },
   ],
   "response_type": "in_channel",

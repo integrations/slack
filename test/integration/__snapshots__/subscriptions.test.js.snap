@@ -145,7 +145,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/kubernetes|kubernetes>",
+      "text": "Subscribed to <https://github.com/kubernetes|kubernetes>",
     },
   ],
   "response_type": "in_channel",
@@ -157,7 +157,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Unsubscribed <#C2147483705> from <https://github.com/kubernetes|kubernetes>",
+      "text": "Unsubscribed from <https://github.com/kubernetes|kubernetes>",
     },
   ],
   "response_type": "in_channel",
@@ -169,7 +169,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/kubernetes|kubernetes>",
+      "text": "Subscribed to <https://github.com/kubernetes|kubernetes>",
     },
   ],
   "response_type": "in_channel",

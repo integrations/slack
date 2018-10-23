@@ -8,7 +8,14 @@ Object {
       "fallback": "Subscribed to 2 repositories",
       "text": "<https://github.com/atom/atom|atom/atom>
 <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
-      "title": "Subscribed to",
+      "title": "Subscribed to the following repositories",
+    },
+    Object {
+      "color": "#24292f",
+      "fallback": "Subscribed to 2 accounts",
+      "text": "<https://github.com/atom|atom>
+<https://github.com/kubernetes|kubernetes>",
+      "title": "Subscribed to the following accounts",
     },
   ],
   "response_type": "in_channel",
@@ -20,8 +27,8 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "Subscribed to 0 repositories",
-      "text": "Subscribed to 0 repositories",
+      "fallback": "Not subscribed to any repositories or accounts",
+      "title": "Not subscribed to any repositories or accounts",
     },
   ],
   "response_type": "in_channel",
@@ -35,7 +42,13 @@ Object {
       "color": "#24292f",
       "fallback": "Subscribed to 1 repository",
       "text": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
-      "title": "Subscribed to",
+      "title": "Subscribed to the following repositories",
+    },
+    Object {
+      "color": "#24292f",
+      "fallback": "Subscribed to 1 account",
+      "text": "<https://github.com/kubernetes|kubernetes>",
+      "title": "Subscribed to the following accounts",
     },
   ],
   "response_type": "in_channel",
