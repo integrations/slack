@@ -5,9 +5,9 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "<#C2147483705> is subscribed to 1 repository",
+      "fallback": "Subscribed to 1 repository",
       "text": "<https://github.com/atom/atom|atom/atom>",
-      "title": "<#C2147483705> is subscribed to the following repositories",
+      "title": "Subscribed to the following repositories",
     },
   ],
   "response_type": "in_channel",
@@ -60,10 +60,10 @@ Object {
     },
     Object {
       "color": "#24292f",
-      "fallback": "<#C2147483705> is subscribed to 2 repositories",
+      "fallback": "Subscribed to 2 repositories",
       "text": "<https://github.com/atom/atom|atom/atom>
 <https://github.com/kubernetes/kubernetes|kubernetes/kubernetes>",
-      "title": "<#C2147483705> is subscribed to the following repositories",
+      "title": "Subscribed to the following repositories",
     },
   ],
   "response_type": "ephemeral",
@@ -76,16 +76,16 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "fallback": "<#C2147483705> is subscribed to 2 repositories",
+      "fallback": "Subscribed to 2 repositories",
       "text": "<https://github.com/atom/atom|atom/atom>
 <https://github.com/kubernetes/kubernetes|kubernetes/kubernetes>",
-      "title": "<#C2147483705> is subscribed to the following repositories",
+      "title": "Subscribed to the following repositories",
     },
     Object {
       "color": "#24292f",
-      "fallback": "<#C2147483705> is subscribed to 1 account",
+      "fallback": "Subscribed to 1 account",
       "text": "<https://github.com/Microsoft|Microsoft>",
-      "title": "<#C2147483705> is subscribed to the following accounts",
+      "title": "Subscribed to the following accounts",
     },
   ],
   "response_type": "in_channel",

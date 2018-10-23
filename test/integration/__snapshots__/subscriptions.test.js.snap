@@ -5,7 +5,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C0D70MRAL> to <https://github.com/atom/atom|atom/atom>",
+      "text": "Subscribed to <https://github.com/atom/atom|atom/atom>",
     },
   ],
   "response_type": "in_channel",
@@ -17,7 +17,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Unsubscribed <#C0D70MRAL> from <https://github.com/atom/atom|atom/atom>",
+      "text": "Unsubscribed from <https://github.com/atom/atom|atom/atom>",
     },
   ],
   "response_type": "in_channel",
@@ -29,7 +29,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C0D70MRAL> to <https://github.com/atom/atom|atom/atom>",
+      "text": "Subscribed to <https://github.com/atom/atom|atom/atom>",
     },
   ],
   "response_type": "in_channel",
@@ -49,7 +49,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C0D70MRAL> to <https://github.com/atom/atom|atom/atom>",
+      "text": "Subscribed to <https://github.com/atom/atom|atom/atom>",
     },
   ],
   "response_type": "in_channel",
@@ -121,7 +121,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "text": "Subscribed to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
   "response_type": "in_channel",
@@ -133,7 +133,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Unsubscribed <#C2147483705> from <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "text": "Unsubscribed from <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
   "response_type": "in_channel",
@@ -145,7 +145,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/kubernetes|kubernetes>",
+      "text": "Subscribed to <https://github.com/kubernetes|kubernetes>",
     },
   ],
   "response_type": "in_channel",
@@ -157,7 +157,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Unsubscribed <#C2147483705> from <https://github.com/kubernetes|kubernetes>",
+      "text": "Unsubscribed from <https://github.com/kubernetes|kubernetes>",
     },
   ],
   "response_type": "in_channel",
@@ -169,7 +169,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/kubernetes|kubernetes>",
+      "text": "Subscribed to <https://github.com/kubernetes|kubernetes>",
     },
   ],
   "response_type": "in_channel",
@@ -181,7 +181,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "text": "Subscribed to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
   "response_type": "in_channel",
@@ -193,7 +193,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "text": "Subscribed to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
   "response_type": "in_channel",
@@ -210,7 +210,7 @@ Object {
         "text",
         "footer",
       ],
-      "text": "<#C2147483705> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+      "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
 \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
     },
   ],
@@ -228,7 +228,7 @@ Object {
         "text",
         "footer",
       ],
-      "text": "<#C2147483705> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+      "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
 \`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
     },
   ],
