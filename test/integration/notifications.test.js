@@ -844,7 +844,7 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test('repository.deleted posts to channel and deletes subcription', async () => {
+    test('repository.deleted posts to channel and deletes repository subcription', async () => {
       repositoryDeleted.repository.updated_at = moment().subtract(2, 'months');
       await Subscription.subscribe({
         githubId: repositoryDeleted.repository.id,
@@ -868,6 +868,32 @@ describe('Integration: notifications', () => {
       });
 
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(0);
+    });
+
+    test('repository.deleted posts to channel and does not delete account subscription', async () => {
+      repositoryDeleted.repository.updated_at = moment().subtract(2, 'months');
+      await Subscription.subscribe({
+        githubId: repositoryDeleted.organization.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'account',
+      });
+
+      expect((await Subscription.lookup(repositoryDeleted.organization.id)).length).toBe(1);
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        name: 'repository',
+        payload: repositoryDeleted,
+      });
+
+      expect((await Subscription.lookup(repositoryDeleted.organization.id)).length).toBe(1);
     });
 
     test('delivers release notes by default', async () => {
