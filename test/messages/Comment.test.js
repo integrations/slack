@@ -66,4 +66,16 @@ describe('Comment rendering', () => {
 
     expect(message.getRenderedMessage()).toMatchSnapshot();
   });
+
+  test('rendering without an issue or commit throws an error', () => {
+    const message = new Comment({
+      comment: Object.assign({
+        body_html: '<p>Hello world!</p><p><img src="https://media.giphy.com/media/5xtDarEbygs3Pu7p3jO/giphy.gif"></p>',
+      }, comment),
+      repository,
+      unfurlType: 'full',
+    });
+
+    expect(message.getRenderedMessage.bind(message)).toThrow();
+  });
 });

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Integration: github_app_authorization.revoked works for a user  who has connected their GitHub account to one Slack workspace 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Subscriptions to 2 repositories have been disabled, because <@U2147483697>, who originally set them up, has disconnected their GitHub account.\\\\nUse the following slash commands to re-enable the subscriptions:\\\\n/github subscribe atom/atom\\\\n/github subscribe kubernetes/kubernetes\\"}]",
+  "channel": "C2147483705",
+  "token": "xoxp-token",
+}
+`;
+
+exports[`Integration: github_app_authorization.revoked works for a user  who has connected their GitHub account to one Slack workspace 2`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"The subscription to 1 repository has been disabled, because <@U2147483697>, who originally set it up, has disconnected their GitHub account.\\\\nUse the following slash command to re-enable the subscription:\\\\n/github subscribe integrations/slack\\"}]",
+  "channel": "C12345",
+  "token": "xoxp-token",
+}
+`;
+
+exports[`Integration: github_app_authorization.revoked works for a user who has connected their GitHub account to multiple Slack workspaces 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Subscriptions to 2 repositories have been disabled, because <@U2147483697>, who originally set them up, has disconnected their GitHub account.\\\\nUse the following slash commands to re-enable the subscriptions:\\\\n/github subscribe atom/atom\\\\n/github subscribe kubernetes/kubernetes\\"}]",
+  "channel": "C2147483705",
+  "token": "xoxp-token",
+}
+`;
+
+exports[`Integration: github_app_authorization.revoked works for a user who has connected their GitHub account to multiple Slack workspaces 2`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"The subscription to 1 repository has been disabled, because <@U2147483697>, who originally set it up, has disconnected their GitHub account.\\\\nUse the following slash command to re-enable the subscription:\\\\n/github subscribe integrations/slack\\"}]",
+  "channel": "C12345",
+  "token": "xoxp-token",
+}
+`;
+
+exports[`Integration: github_app_authorization.revoked works for a user who has connected their GitHub account to multiple Slack workspaces 3`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"The subscription to 1 repository has been disabled, because <@U123456>, who originally set it up, has disconnected their GitHub account.\\\\nUse the following slash command to re-enable the subscription:\\\\n/github subscribe integrations/slack\\"}]",
+  "channel": "C12121212",
+  "token": "xoxp-token",
+}
+`;
+
+exports[`Integration: github_app_authorization.revoked works for a user who has connected their GitHub account to multiple Slack workspaces 4`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"The subscription to 1 repository has been disabled, because <@U123456>, who originally set it up, has disconnected their GitHub account.\\\\nUse the following slash command to re-enable the subscription:\\\\n/github subscribe kubernetes/kubernetes\\"}]",
+  "channel": "C9999999",
+  "token": "xoxp-token",
+}
+`;

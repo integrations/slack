@@ -14,8 +14,22 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Unsubscribe to notifications for a repository:
+      "text": "Unsubscribe from notifications for a repository:
 \`/github unsubscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for all repositories in an organization:
+\`/github subscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from notifications for an organization:
+\`/github unsubscribe owner\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -65,6 +79,20 @@ Object {
       ],
       "text": "Create a new issue:
 \`/github open owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Trigger a deployment:
+\`/github deploy owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List deployments of a repo:
+\`/github deploy owner/repository list\`",
     },
     Object {
       "color": "",
@@ -92,8 +120,22 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Unsubscribe to notifications for a repository:
+      "text": "Unsubscribe from notifications for a repository:
 \`/github unsubscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for all repositories in an organization:
+\`/github subscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from notifications for an organization:
+\`/github unsubscribe owner\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -143,6 +185,20 @@ Object {
       ],
       "text": "Create a new issue:
 \`/github open owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Trigger a deployment:
+\`/github deploy owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List deployments of a repo:
+\`/github deploy owner/repository list\`",
     },
     Object {
       "color": "",
@@ -170,8 +226,22 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Unsubscribe to notifications for a repository:
+      "text": "Unsubscribe from notifications for a repository:
 \`/github unsubscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for all repositories in an organization:
+\`/github subscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from notifications for an organization:
+\`/github unsubscribe owner\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -221,6 +291,20 @@ Object {
       ],
       "text": "Create a new issue:
 \`/github open owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Trigger a deployment:
+\`/github deploy owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List deployments of a repo:
+\`/github deploy owner/repository list\`",
     },
     Object {
       "color": "",

@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CombinedSettings rendering doesn't show if temporary mute is no longer active 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "You do not have any settings configured.",
+    },
+  ],
+}
+`;
+
 exports[`CombinedSettings rendering works for both auto unfurl settings and muted prompts 1`] = `
 Object {
   "attachments": Array [

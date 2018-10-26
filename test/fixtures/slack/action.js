@@ -158,6 +158,31 @@ module.exports = {
       repository: '54321',
       title: 'hiiii',
       body: 'testing testing testing',
+      label: 'test',
+    },
+    team: {
+      id: 'T0001',
+      domain: 'acmecorp',
+    },
+    user: {
+      id: 'U2147483697',
+      name: 'george',
+    },
+    channel: {
+      id: 'C2147483705',
+      name: 'some-channel',
+    },
+  }),
+  dialogSubmissionCreateDeployment: () => ({
+    token: process.env.SLACK_VERIFICATION_TOKEN,
+    type: 'dialog_submission',
+    callback_id: 'create-deployment-dialog',
+    action_ts: '1524614235.114006',
+    submission: {
+      repository: '54321',
+      ref: 'refs/tags/v1.0',
+      task: 'deploy',
+      environment: 'production',
     },
     team: {
       id: 'T0001',
