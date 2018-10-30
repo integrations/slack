@@ -516,7 +516,7 @@ describe('Integration: notifications', () => {
 
     test('do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account', async () => {
       await Subscription.subscribe({
-        githubId: 1111,
+        githubId: pullRequestPayload.repository.owner.id,
         channelId: 'C001',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
@@ -524,12 +524,12 @@ describe('Integration: notifications', () => {
         type: 'account',
       });
 
+      nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(404);
+
       await probot.receive({
         name: 'pull_request',
         payload: pullRequestPayload,
       });
-
-      // nock stack should be empty here
     });
 
     test('message still gets delivered if no creatorId is set on Subscription', async () => {
