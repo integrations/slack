@@ -514,6 +514,24 @@ describe('Integration: notifications', () => {
       });
     });
 
+    test('do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account', async () => {
+      await Subscription.subscribe({
+        githubId: pullRequestPayload.repository.owner.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'account',
+      });
+
+      nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(404);
+
+      await probot.receive({
+        name: 'pull_request',
+        payload: pullRequestPayload,
+      });
+    });
+
     test('message still gets delivered if no creatorId is set on Subscription', async () => {
       const subscription = await Subscription.subscribe({
         githubId: pullRequestPayload.repository.id,
