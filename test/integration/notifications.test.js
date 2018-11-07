@@ -333,6 +333,8 @@ describe('Integration: notifications', () => {
         type: 'repo',
       });
 
+      nock('https://api.github.com').get(`/repositories/${statusPayload.repository.id}`).reply(200);
+
       await probot.receive({
         name: 'status',
         payload: statusPayload,
@@ -646,6 +648,8 @@ describe('Integration: notifications', () => {
         settings: ['comments'], // Turn on comments
       });
 
+      nock('https://api.github.com').get(`/repositories/${commentPayload.repository.id}`).reply(200);
+
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
         return true;
@@ -924,6 +928,7 @@ describe('Integration: notifications', () => {
         type: 'repo',
       });
 
+      nock('https://api.github.com').get(`/repositories/${releasePublishedPayload.repository.id}`).reply(200);
       nock('https://api.github.com').get('/repos/github-slack/app/releases/10558008').reply(200, fixtures.release);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
