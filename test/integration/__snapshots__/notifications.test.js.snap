@@ -165,14 +165,6 @@ Object {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 1`] = `
-Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack-test-org/i-will-be-deleted] Repository deleted by wilhelmklopp\\",\\"title\\":\\"github-slack-test-org/i-will-be-deleted\\",\\"fields\\":[{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1520343804,\\"pretext\\":\\"Repository deleted by wilhelmklopp\\"}]",
-  "channel": "C001",
-  "token": "test",
-}
-`;
-
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"[github-slack/public-test] JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"rendered html\\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",
