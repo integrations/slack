@@ -905,11 +905,6 @@ describe('Integration: notifications', () => {
 
       expect((await Subscription.lookup(repositoryDeleted.organization.id)).length).toBe(1);
 
-      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
-        expect(body).toMatchSnapshot();
-        return true;
-      }).reply(200, { ok: true });
-
       await probot.receive({
         name: 'repository',
         payload: repositoryDeleted,
