@@ -25,6 +25,7 @@ const {
   Installation,
   SlackUser,
   GitHubUser,
+  DeletedSubscription,
 } = models;
 
 describe('Integration: notifications', () => {
@@ -494,7 +495,7 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test('post prompt to re-subscribe after user loses access to repo', async () => {
+    test.only('post prompt to re-subscribe after user loses access to repo', async () => {
       await Subscription.subscribe({
         githubId: pullRequestPayload.repository.id,
         channelId: 'C001',
@@ -514,6 +515,11 @@ describe('Integration: notifications', () => {
         name: 'pull_request',
         payload: pullRequestPayload,
       });
+
+      expect(await Subscription.lookup(repositoryDeleted.organization.id)).toHaveLength(0);
+      expect(await DeletedSubscription.findAll({
+        where: { githubId: pullRequestPayload.repository.id },
+      })).toHaveLength(1);
     });
 
     test('do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account', async () => {
@@ -878,6 +884,9 @@ describe('Integration: notifications', () => {
       });
 
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(1);
+      expect((await DeletedSubscription.findAll({
+        where: { githubId: repositoryDeleted.repository.id },
+      })).length).toBe(0);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -890,6 +899,9 @@ describe('Integration: notifications', () => {
       });
 
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(0);
+      expect((await DeletedSubscription.findAll({
+        where: { githubId: repositoryDeleted.repository.id },
+      })).length).toBe(1);
     });
 
     test('repository.deleted posts to channel and does not delete account subscription', async () => {
@@ -904,6 +916,9 @@ describe('Integration: notifications', () => {
       });
 
       expect((await Subscription.lookup(repositoryDeleted.organization.id)).length).toBe(1);
+      expect((await DeletedSubscription.findAll({
+        where: { githubId: repositoryDeleted.repository.id },
+      })).length).toBe(0);
 
       await probot.receive({
         name: 'repository',
@@ -911,6 +926,9 @@ describe('Integration: notifications', () => {
       });
 
       expect((await Subscription.lookup(repositoryDeleted.organization.id)).length).toBe(1);
+      expect((await DeletedSubscription.findAll({
+        where: { githubId: repositoryDeleted.repository.id },
+      })).length).toBe(0);
     });
 
     test('delivers release notes by default', async () => {
