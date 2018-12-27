@@ -15,6 +15,55 @@ Object {
 }
 `;
 
+exports[`Integration: signin unauthenticated user is prompted to authenticate 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: signin unauthenticated user is prompted to authenticate 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "signin",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: signin unauthenticated user is prompted to authenticate 4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 1`] = `
 Object {
   "attachments": Array [
@@ -26,3 +75,110 @@ Object {
   "response_type": "in_channel",
 }
 `;
+
+exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+    ],
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+    ],
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "subscribe kubernetes/kubernetes",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "subscribe kubernetes/kubernetes",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "subscribe kubernetes/kubernetes",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 4`] = `[MockFunction cache.fetch]`;

@@ -7,6 +7,41 @@ Object {
 }
 `;
 
+exports[`Integration: Creating issues from Slack fails when specifying a repository, there are multiple issue templates in it, and no template was specified 2`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Creating issues from Slack fails when specifying a repository, there are multiple issue templates in it, and no template was specified 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "open kubernetes/kubernetes",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: Creating issues from Slack fails when specifying a repository, there are multiple issue templates in it, and no template was specified 4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: Creating issues from Slack works when specifying a repository 1`] = `
 Object {
   "dialog": "{\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"\\"},{\\"label\\":\\"Label\\",\\"type\\":\\"select\\",\\"name\\":\\"label\\",\\"optional\\":true,\\"options\\":[{\\"label\\":\\"test\\",\\"value\\":\\"test\\"}]}]}",
@@ -18,6 +53,41 @@ Object {
 exports[`Integration: Creating issues from Slack works when specifying a repository 2`] = `""`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository 3`] = `Object {}`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository 4`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository 5`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "open kubernetes/kubernetes",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository 6`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are multiple issue templates in it 1`] = `
 Object {
@@ -31,6 +101,41 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are multiple issue templates in it 3`] = `Object {}`;
 
+exports[`Integration: Creating issues from Slack works when specifying a repository and there are multiple issue templates in it 4`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository and there are multiple issue templates in it 5`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "open kubernetes/kubernetes feature",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository and there are multiple issue templates in it 6`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 1`] = `
 Object {
   "dialog": "{\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"\\"},{\\"label\\":\\"Label\\",\\"type\\":\\"select\\",\\"name\\":\\"label\\",\\"optional\\":true,\\"options\\":[{\\"label\\":\\"test\\",\\"value\\":\\"test\\"}]}]}",
@@ -42,6 +147,41 @@ Object {
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 2`] = `""`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 3`] = `Object {}`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 4`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 5`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "open kubernetes/kubernetes",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 6`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there is an issue template in it 1`] = `
 Object {
@@ -55,6 +195,41 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there is an issue template in it 3`] = `Object {}`;
 
+exports[`Integration: Creating issues from Slack works when specifying a repository and there is an issue template in it 4`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository and there is an issue template in it 5`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "open kubernetes/kubernetes",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository and there is an issue template in it 6`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 1`] = `
 Object {
   "dialog": "{\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"\\"}]}",
@@ -67,6 +242,41 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 
 exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 3`] = `Object {}`;
 
+exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 4`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 5`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "open kubernetes/kubernetes",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 6`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 1`] = `
 Object {
   "dialog": "{\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"\\"}]}",
@@ -78,6 +288,41 @@ Object {
 exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 2`] = `""`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 3`] = `Object {}`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 4`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 5`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "pending-command#13345224609.738474920.8088930838d88f008e0",
+      Object {
+        "channel_id": "C2147483705",
+        "channel_name": "test",
+        "command": "/github",
+        "enterprise_id": "E0001",
+        "enterprise_name": "Globular%20Construct%20Inc",
+        "response_url": "https://hooks.slack.com/commands/1234/5678",
+        "team_domain": "example",
+        "team_id": "T0001",
+        "text": "open kubernetes/kubernetes",
+        "token": "secret",
+        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+        "user_id": "U2147483697",
+        "user_name": "Steve",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 6`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 1`] = `
 Object {
@@ -212,6 +457,12 @@ Object {
 `;
 
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 5`] = `Object {}`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 6`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 7`] = `[MockFunction cache.set]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 8`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 1`] = `
 Object {
@@ -393,6 +644,12 @@ Object {
 
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 7`] = `Object {}`;
 
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 8`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 9`] = `[MockFunction cache.set]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 10`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when either URL is missing or no issue was selected 1`] = `
 Object {
   "errors": Array [
@@ -408,6 +665,12 @@ Object {
 }
 `;
 
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when either URL is missing or no issue was selected 2`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when either URL is missing or no issue was selected 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when either URL is missing or no issue was selected 4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting a valid URL but for an issue that doesn't exist 1`] = `
 Object {
   "errors": Array [
@@ -418,6 +681,12 @@ Object {
   ],
 }
 `;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting a valid URL but for an issue that doesn't exist 2`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting a valid URL but for an issue that doesn't exist 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting a valid URL but for an issue that doesn't exist 4`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting an invalid URL 1`] = `
 Object {
@@ -430,6 +699,12 @@ Object {
 }
 `;
 
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting an invalid URL 2`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting an invalid URL 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting an invalid URL 4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not exist 1`] = `
 Object {
   "errors": Array [
@@ -441,6 +716,12 @@ Object {
 }
 `;
 
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not exist 2`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not exist 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not exist 4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not have all required permissions 1`] = `
 Object {
   "errors": Array [
@@ -451,3 +732,15 @@ Object {
   ],
 }
 `;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not have all required permissions 2`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not have all required permissions 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not have all required permissions 4`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread when a user has not yet connected their GitHub account they are prompted to do so first 1`] = `[MockFunction cache.get]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread when a user has not yet connected their GitHub account they are prompted to do so first 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread when a user has not yet connected their GitHub account they are prompted to do so first 3`] = `[MockFunction cache.fetch]`;

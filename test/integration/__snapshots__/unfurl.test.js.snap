@@ -18,11 +18,101 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 3`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 4`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 5`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls automatically unfurls private resources if they are part of subscribed repo 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls automatically unfurls private resources if they are part of subscribed repo 2`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls automatically unfurls private resources if they are part of subscribed repo 3`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls clicking "Dismiss" deletes the prompt and the unfurl record 1`] = `
 Object {
   "delete_original": true,
 }
 `;
+
+exports[`Integration: unfurls private unfurls clicking "Dismiss" deletes the prompt and the unfurl record 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls clicking "Dismiss" deletes the prompt and the unfurl record 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls clicking "Dismiss" deletes the prompt and the unfurl record 4`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: unfurls private unfurls clicking "Show rich preview" results in unfurl and deletes prompt 1`] = `
 Object {
@@ -68,6 +158,41 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls clicking "Show rich preview" results in unfurl and deletes prompt 3`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls clicking "Show rich preview" results in unfurl and deletes prompt 4`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls clicking "Show rich preview" results in unfurl and deletes prompt 5`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
@@ -87,6 +212,141 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 3`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 4`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 5`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected if they also have prompts muted they will not see any prompts when posting links 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected if they also have prompts muted they will not see any prompts when posting links 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected if they also have prompts muted they will not see any prompts when posting links 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected public unfurls work as normal 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T0Other-C0Other-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected public unfurls work as normal 2`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T0Other-C0Other-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected public unfurls work as normal 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown for unsupported resources 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv/some/random/thing",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown for unsupported resources 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown for unsupported resources 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown when repo exists but resource does not 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv/issues/4000",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown when repo exists but resource does not 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown when repo exists but resource does not 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown when repo returns 404 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown when repo returns 404 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown when repo returns 404 3`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
@@ -105,6 +365,26 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 3`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 4`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 5`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls sending prompts works  1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
@@ -114,6 +394,26 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls sending prompts works  2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C0Other-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls sending prompts works  3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls sending prompts works  4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls sends prompt for private resource that can be unfurled 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
@@ -122,6 +422,147 @@ Object {
   "user": "U88HS",
 }
 `;
+
+exports[`Integration: unfurls private unfurls sends prompt for private resource that can be unfurled 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls sends prompt for private resource that can be unfurled 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls sends prompt for private resource that can be unfurled 4`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" A link shared after 24h does cause a prompt 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" A link shared after 24h does cause a prompt 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" A link shared after 24h does cause a prompt 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" A link shared within 24h does not cause a prompt 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" A link shared within 24h does not cause a prompt 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" A link shared within 24h does not cause a prompt 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" setting is saved in the database 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" setting is saved in the database 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" setting is saved in the database 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts indefinitely" A shared link does not cause a prompt 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts indefinitely" A shared link does not cause a prompt 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts indefinitely" A shared link does not cause a prompt 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts indefinitely" setting is saved in the database 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts indefinitely" setting is saved in the database 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts indefinitely" setting is saved in the database 3`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts for 24h", they get a confirmation message 1`] = `
 Object {
@@ -139,6 +580,26 @@ You can adjust this setting by invoking \`/github settings\`",
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts for 24h", they get a confirmation message 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts for 24h", they get a confirmation message 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts for 24h", they get a confirmation message 4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts indefinitely", they get a confirmation message 1`] = `
 Object {
   "attachments": Array [
@@ -155,6 +616,111 @@ You can adjust this setting by invoking \`/github settings\`",
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts indefinitely", they get a confirmation message 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts indefinitely", they get a confirmation message 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts indefinitely", they get a confirmation message 4`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" setting is saved in the database 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" setting is saved in the database 2`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" setting is saved in the database 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link (to the same repo) shared in a different channel is automatically unfurled 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C0Other-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link (to the same repo) shared in a different channel is automatically unfurled 2`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+    Array [
+      "T000A-C0Other-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link (to the same repo) shared in a different channel is automatically unfurled 3`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link shared to a different repo results in a new prompt 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
@@ -163,6 +729,168 @@ Object {
   "user": "U88HS",
 }
 `;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link shared to a different repo results in a new prompt 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/integrations/test",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link shared to a different repo results in a new prompt 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link shared to a different repo results in a new prompt 4`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" User can enable auto unfurls for the same repo in a different channel 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" User can enable auto unfurls for the same repo in a different channel 2`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" User can enable auto unfurls for the same repo in a different channel 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" setting is saved in the database 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" setting is saved in the database 2`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" setting is saved in the database 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link (to the same repo) shared in the same channel is automatically unfurled 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv/issues/1",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link (to the same repo) shared in the same channel is automatically unfurled 2`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv/issues/1",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link (to the same repo) shared in the same channel is automatically unfurled 3`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in a different channel results in a new prompt 1`] = `
 Object {
@@ -173,6 +901,48 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in a different channel results in a new prompt 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C0Other-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in a different channel results in a new prompt 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in a different channel results in a new prompt 4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in the same channel to a different repo results in a new prompt 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
@@ -181,6 +951,48 @@ Object {
   "user": "U88HS",
 }
 `;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in the same channel to a different repo results in a new prompt 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/integrations/test",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in the same channel to a different repo results in a new prompt 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in the same channel to a different repo results in a new prompt 4`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for all channels", they get a confirmation message 1`] = `
 Object {
@@ -197,6 +1009,41 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for all channels", they get a confirmation message 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for all channels", they get a confirmation message 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for all channels", they get a confirmation message 4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for this channel", they get a confirmation message 1`] = `
 Object {
   "attachments": Array [
@@ -211,6 +1058,41 @@ Object {
   "replace_original": true,
 }
 `;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for this channel", they get a confirmation message 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for this channel", they get a confirmation message 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for this channel", they get a confirmation message 4`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: unfurls private unfurls settings when user clicks "dismiss" 5 times, the MutePromptsPrompt is shown 1`] = `
 Object {
@@ -266,11 +1148,106 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss" 5 times, the MutePromptsPrompt is shown 6`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss" 5 times, the MutePromptsPrompt is shown 7`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss" 5 times, the MutePromptsPrompt is shown 8`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls settings when user clicks "dismiss", no follow up prompt is immediately shown 1`] = `
 Object {
   "delete_original": true,
 }
 `;
+
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss", no follow up prompt is immediately shown 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss", no follow up prompt is immediately shown 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss", no follow up prompt is immediately shown 4`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls private unfurls throws error when user is not linked 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls throws error when user is not linked 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls throws error when user is not linked 3`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 1`] = `
 Object {
@@ -280,6 +1257,41 @@ Object {
   "unfurls": "{\\"https://github.com/kubernetes\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/kubernetes|@kubernetes>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"Kubernetes\\",\\"title\\":\\"Kubernetes\\",\\"text\\":\\"Kubernetes\\",\\"thumb_url\\":\\"https://avatars2.githubusercontent.com/u/13629408?v=4\\",\\"fields\\":[{\\"title\\":\\"URL\\",\\"value\\":\\"http://kubernetes.io\\",\\"short\\":true},{\\"title\\":\\"Repositories\\",\\"value\\":51,\\"short\\":true}],\\"ts\\":1438624543}}",
 }
 `;
+
+exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/kubernetes",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/kubernetes",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 4`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: unfurls private unfurls user sees error message when github.com unfurls are disabled in the workspace 1`] = `
 Object {
@@ -296,6 +1308,26 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls user sees error message when github.com unfurls are disabled in the workspace 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls user sees error message when github.com unfurls are disabled in the workspace 3`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls private unfurls user sees error message when github.com unfurls are disabled in the workspace 4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls private unfurls uses user access token for public resources 1`] = `
 Object {
   "channel": "C74M",
@@ -304,6 +1336,96 @@ Object {
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }
 `;
+
+exports[`Integration: unfurls private unfurls uses user access token for public resources 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls uses user access token for public resources 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls private unfurls uses user access token for public resources 4`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls public unfurls Successful unfurl gets stored in db 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls Successful unfurl gets stored in db 2`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls Successful unfurl gets stored in db 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls public unfurls Unsuccessful unfurl does not get stored in db 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls Unsuccessful unfurl does not get stored in db 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls public unfurls Unsuccessful unfurl does not get stored in db 3`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 1`] = `
 Object {
@@ -323,6 +1445,122 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 3`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/facebook/react/issues/10191",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/atom/atom/issues/16292",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 4`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/atom/atom/issues/16292",
+      true,
+    ],
+    Array [
+      "T000A-C74M-https://github.com/facebook/react/issues/10191",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 5`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls public unfurls does not unfurl if more than 2 links 1`] = `[MockFunction cache.get]`;
+
+exports[`Integration: unfurls public unfurls does not unfurl if more than 2 links 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls public unfurls does not unfurl if more than 2 links 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls public unfurls fails silently when github.com unfurls are disabled in the workspace 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls fails silently when github.com unfurls are disabled in the workspace 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls public unfurls fails silently when github.com unfurls are disabled in the workspace 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls public unfurls gracefully handles not found link 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls gracefully handles not found link 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls public unfurls gracefully handles not found link 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls public unfurls gracefully handles unknown resources 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/probot/probot/issues",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls gracefully handles unknown resources 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls public unfurls gracefully handles unknown resources 3`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls public unfurls issue 1`] = `
 Object {
   "channel": "C74M",
@@ -332,6 +1570,41 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls public unfurls issue 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls issue 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls issue 4`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls public unfurls only unfurls link first time a link is shared 1`] = `
 Object {
   "channel": "C74M",
@@ -340,3 +1613,65 @@ Object {
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }
 `;
+
+exports[`Integration: unfurls public unfurls only unfurls link first time a link is shared 2`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls only unfurls link first time a link is shared 3`] = `
+[MockFunction cache.set] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+      true,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls only unfurls link first time a link is shared 4`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: unfurls public unfurls renders 500 when other error happens 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls renders 500 when other error happens 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls public unfurls renders 500 when other error happens 3`] = `[MockFunction cache.fetch]`;

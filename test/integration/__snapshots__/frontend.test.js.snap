@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Integration: frontend / 1`] = `[MockFunction cache.get]`;
+
+exports[`Integration: frontend / 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: frontend / 3`] = `[MockFunction cache.fetch]`;

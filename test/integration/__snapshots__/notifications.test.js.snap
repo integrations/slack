@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Integration: notifications to a subscribed channel channel_not_found error from slack deletes subscription 1`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -17,7 +17,7 @@ exports[`Integration: notifications to a subscribed channel channel_not_found er
 `;
 
 exports[`Integration: notifications to a subscribed channel channel_not_found error from slack deletes subscription 2`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -35,7 +35,7 @@ exports[`Integration: notifications to a subscribed channel channel_not_found er
 `;
 
 exports[`Integration: notifications to a subscribed channel channel_not_found error from slack deletes subscription 3`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -60,7 +60,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100403908",
@@ -125,7 +125,7 @@ exports[`Integration: notifications to a subscribed channel comments are updated
 `;
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:100403908",
@@ -163,7 +163,7 @@ exports[`Integration: notifications to a subscribed channel comments are updated
 `;
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100403908",
@@ -216,7 +216,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers force push with no commits 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -232,7 +232,7 @@ exports[`Integration: notifications to a subscribed channel delivers force push 
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers force push with no commits 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -250,7 +250,7 @@ exports[`Integration: notifications to a subscribed channel delivers force push 
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers force push with no commits 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -276,7 +276,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:123302024",
@@ -299,7 +299,7 @@ exports[`Integration: notifications to a subscribed channel delivers pull reques
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:123302024",
@@ -328,7 +328,7 @@ exports[`Integration: notifications to a subscribed channel delivers pull reques
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:123302024",
@@ -354,7 +354,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -370,7 +370,7 @@ exports[`Integration: notifications to a subscribed channel delivers pushes on n
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -388,7 +388,7 @@ exports[`Integration: notifications to a subscribed channel delivers pushes on n
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -414,7 +414,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers release notes by default 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -430,7 +430,7 @@ exports[`Integration: notifications to a subscribed channel delivers release not
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers release notes by default 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -448,7 +448,7 @@ exports[`Integration: notifications to a subscribed channel delivers release not
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers release notes by default 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -481,7 +481,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel deployment_status event 3`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -518,7 +518,7 @@ exports[`Integration: notifications to a subscribed channel deployment_status ev
 `;
 
 exports[`Integration: notifications to a subscribed channel deployment_status event 4`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -547,7 +547,7 @@ exports[`Integration: notifications to a subscribed channel deployment_status ev
 `;
 
 exports[`Integration: notifications to a subscribed channel deployment_status event 5`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -574,7 +574,7 @@ exports[`Integration: notifications to a subscribed channel deployment_status ev
 `;
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 1`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -590,7 +590,7 @@ exports[`Integration: notifications to a subscribed channel do not post prompt t
 `;
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 2`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
@@ -616,7 +616,7 @@ exports[`Integration: notifications to a subscribed channel do not post prompt t
 `;
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 3`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -633,14 +633,14 @@ exports[`Integration: notifications to a subscribed channel do not post prompt t
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 1`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 1`] = `[MockFunction cache.get]`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 2`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 2`] = `[MockFunction cache.set]`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 3`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 3`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: notifications to a subscribed channel does not deliver empty reviews which are actually review comments 1`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -656,7 +656,7 @@ exports[`Integration: notifications to a subscribed channel does not deliver emp
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver empty reviews which are actually review comments 2`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -674,7 +674,7 @@ exports[`Integration: notifications to a subscribed channel does not deliver emp
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver empty reviews which are actually review comments 3`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -691,20 +691,20 @@ exports[`Integration: notifications to a subscribed channel does not deliver emp
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 1`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 1`] = `[MockFunction cache.get]`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 2`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 2`] = `[MockFunction cache.set]`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 3`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 3`] = `[MockFunction cache.fetch]`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 1`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 1`] = `[MockFunction cache.get]`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 2`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 2`] = `[MockFunction cache.set]`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 3`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 3`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 1`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -720,7 +720,7 @@ exports[`Integration: notifications to a subscribed channel does not deliver pus
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 2`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -738,7 +738,7 @@ exports[`Integration: notifications to a subscribed channel does not deliver pus
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 3`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -756,7 +756,7 @@ exports[`Integration: notifications to a subscribed channel does not deliver pus
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver pushes on non-default branch if not explicitly enabled 1`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -772,7 +772,7 @@ exports[`Integration: notifications to a subscribed channel does not deliver pus
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver pushes on non-default branch if not explicitly enabled 2`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -790,7 +790,7 @@ exports[`Integration: notifications to a subscribed channel does not deliver pus
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver pushes on non-default branch if not explicitly enabled 3`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -807,11 +807,11 @@ exports[`Integration: notifications to a subscribed channel does not deliver pus
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 1`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 1`] = `[MockFunction cache.get]`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 2`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 2`] = `[MockFunction cache.set]`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 3`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 3`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: notifications to a subscribed channel issue opened 1`] = `
 Object {
@@ -822,7 +822,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel issue opened 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -838,7 +838,7 @@ exports[`Integration: notifications to a subscribed channel issue opened 2`] = `
 `;
 
 exports[`Integration: notifications to a subscribed channel issue opened 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -867,7 +867,7 @@ exports[`Integration: notifications to a subscribed channel issue opened 3`] = `
 `;
 
 exports[`Integration: notifications to a subscribed channel issue opened 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -893,7 +893,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -916,7 +916,7 @@ exports[`Integration: notifications to a subscribed channel issues closed does n
 `;
 
 exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -934,7 +934,7 @@ exports[`Integration: notifications to a subscribed channel issues closed does n
 `;
 
 exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -960,7 +960,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -983,7 +983,7 @@ exports[`Integration: notifications to a subscribed channel issues reopened does
 `;
 
 exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1001,7 +1001,7 @@ exports[`Integration: notifications to a subscribed channel issues reopened does
 `;
 
 exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1026,7 +1026,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1056,7 +1056,7 @@ exports[`Integration: notifications to a subscribed channel issues.edited update
 `;
 
 exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1085,7 +1085,7 @@ exports[`Integration: notifications to a subscribed channel issues.edited update
 `;
 
 exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1119,10 +1119,10 @@ Object {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 2`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 2`] = `[MockFunction cache.get]`;
 
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
@@ -1154,10 +1154,10 @@ exports[`Integration: notifications to a subscribed channel message still gets d
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 4`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 4`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 1`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1173,7 +1173,7 @@ exports[`Integration: notifications to a subscribed channel other error from sla
 `;
 
 exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 2`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1191,7 +1191,7 @@ exports[`Integration: notifications to a subscribed channel other error from sla
 `;
 
 exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 3`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1218,7 +1218,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1234,7 +1234,7 @@ exports[`Integration: notifications to a subscribed channel post prompt to re-su
 `;
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
@@ -1260,7 +1260,7 @@ exports[`Integration: notifications to a subscribed channel post prompt to re-su
 `;
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1286,7 +1286,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel public event 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:115726862",
@@ -1302,7 +1302,7 @@ exports[`Integration: notifications to a subscribed channel public event 2`] = `
 `;
 
 exports[`Integration: notifications to a subscribed channel public event 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:115726862",
@@ -1320,7 +1320,7 @@ exports[`Integration: notifications to a subscribed channel public event 3`] = `
 `;
 
 exports[`Integration: notifications to a subscribed channel public event 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:115726862",
@@ -1346,7 +1346,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1362,7 +1362,7 @@ exports[`Integration: notifications to a subscribed channel pull request closed 
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1380,7 +1380,7 @@ exports[`Integration: notifications to a subscribed channel pull request closed 
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1406,7 +1406,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request opened 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1422,7 +1422,7 @@ exports[`Integration: notifications to a subscribed channel pull request opened 
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request opened 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
@@ -1464,7 +1464,7 @@ exports[`Integration: notifications to a subscribed channel pull request opened 
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request opened 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1497,7 +1497,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 3`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1534,7 +1534,7 @@ exports[`Integration: notifications to a subscribed channel pull request opened 
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 4`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
@@ -1576,7 +1576,7 @@ exports[`Integration: notifications to a subscribed channel pull request opened 
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 5`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1611,7 +1611,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1627,7 +1627,7 @@ exports[`Integration: notifications to a subscribed channel pull request reopene
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1645,7 +1645,7 @@ exports[`Integration: notifications to a subscribed channel pull request reopene
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1671,7 +1671,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel ref event 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1687,7 +1687,7 @@ exports[`Integration: notifications to a subscribed channel ref event 2`] = `
 `;
 
 exports[`Integration: notifications to a subscribed channel ref event 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1705,7 +1705,7 @@ exports[`Integration: notifications to a subscribed channel ref event 3`] = `
 `;
 
 exports[`Integration: notifications to a subscribed channel ref event 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1722,11 +1722,11 @@ exports[`Integration: notifications to a subscribed channel ref event 4`] = `
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 1`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 1`] = `[MockFunction cache.get]`;
 
-exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 2`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 2`] = `[MockFunction cache.set]`;
 
-exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 3`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 3`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 1`] = `
 Object {
@@ -1736,17 +1736,17 @@ Object {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 2`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 2`] = `[MockFunction cache.get]`;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 3`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 3`] = `[MockFunction cache.set]`;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 4`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 4`] = `[MockFunction cache.fetch]`;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 1`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 1`] = `[MockFunction cache.get]`;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 2`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 2`] = `[MockFunction cache.set]`;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 3`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 3`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
@@ -1764,7 +1764,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel review event 3`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1801,7 +1801,7 @@ exports[`Integration: notifications to a subscribed channel review event 3`] = `
 `;
 
 exports[`Integration: notifications to a subscribed channel review event 4`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1830,7 +1830,7 @@ exports[`Integration: notifications to a subscribed channel review event 4`] = `
 `;
 
 exports[`Integration: notifications to a subscribed channel review event 5`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:107153132",
@@ -1856,14 +1856,14 @@ exports[`Integration: notifications to a subscribed channel review event 5`] = `
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 1`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 1`] = `[MockFunction cache.get]`;
 
-exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 2`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 2`] = `[MockFunction cache.set]`;
 
-exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 3`] = `[MockFunction]`;
+exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 3`] = `[MockFunction cache.fetch]`;
 
 exports[`Integration: notifications to a subscribed channel status event with no matching PR does not update a message 1`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1893,7 +1893,7 @@ exports[`Integration: notifications to a subscribed channel status event with no
 `;
 
 exports[`Integration: notifications to a subscribed channel status event with no matching PR does not update a message 2`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1911,7 +1911,7 @@ exports[`Integration: notifications to a subscribed channel status event with no
 `;
 
 exports[`Integration: notifications to a subscribed channel status event with no matching PR does not update a message 3`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100427737",
@@ -1937,7 +1937,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:16064378",
@@ -1960,7 +1960,7 @@ exports[`Integration: notifications to a subscribed channel with comments enable
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:16064378",
@@ -1989,7 +1989,7 @@ exports[`Integration: notifications to a subscribed channel with comments enable
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:16064378",
@@ -2015,7 +2015,7 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 2`] = `
-[MockFunction] {
+[MockFunction cache.get] {
   "calls": Array [
     Array [
       "creator-access#1:100403908",
@@ -2052,7 +2052,7 @@ exports[`Integration: notifications to a subscribed channel with comments enable
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 3`] = `
-[MockFunction] {
+[MockFunction cache.set] {
   "calls": Array [
     Array [
       "creator-access#1:100403908",
@@ -2090,7 +2090,7 @@ exports[`Integration: notifications to a subscribed channel with comments enable
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 4`] = `
-[MockFunction] {
+[MockFunction cache.fetch] {
   "calls": Array [
     Array [
       "creator-access#1:100403908",

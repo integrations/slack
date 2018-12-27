@@ -16,6 +16,12 @@ Object {
 }
 `;
 
+exports[`Integration: github_app_authorization.revoked works for a user  who has connected their GitHub account to one Slack workspace 3`] = `[MockFunction cache.get]`;
+
+exports[`Integration: github_app_authorization.revoked works for a user  who has connected their GitHub account to one Slack workspace 4`] = `[MockFunction cache.set]`;
+
+exports[`Integration: github_app_authorization.revoked works for a user  who has connected their GitHub account to one Slack workspace 5`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: github_app_authorization.revoked works for a user who has connected their GitHub account to multiple Slack workspaces 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Subscriptions to 2 repositories have been disabled, because <@U2147483697>, who originally set them up, has disconnected their GitHub account.\\\\nUse the following slash commands to re-enable the subscriptions:\\\\n/github subscribe atom/atom\\\\n/github subscribe kubernetes/kubernetes\\"}]",
@@ -47,3 +53,9 @@ Object {
   "token": "xoxp-token",
 }
 `;
+
+exports[`Integration: github_app_authorization.revoked works for a user who has connected their GitHub account to multiple Slack workspaces 5`] = `[MockFunction cache.get]`;
+
+exports[`Integration: github_app_authorization.revoked works for a user who has connected their GitHub account to multiple Slack workspaces 6`] = `[MockFunction cache.set]`;
+
+exports[`Integration: github_app_authorization.revoked works for a user who has connected their GitHub account to multiple Slack workspaces 7`] = `[MockFunction cache.fetch]`;

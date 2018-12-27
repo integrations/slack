@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slack events POST /slack/events.url_verification responds with 400 if token is invalid 1`] = `[MockFunction cache.get]`;
+
+exports[`Slack events POST /slack/events.url_verification responds with 400 if token is invalid 2`] = `[MockFunction cache.set]`;
+
+exports[`Slack events POST /slack/events.url_verification responds with 400 if token is invalid 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Slack events POST /slack/events.url_verification responds with challenge if token matches 1`] = `[MockFunction cache.get]`;
+
+exports[`Slack events POST /slack/events.url_verification responds with challenge if token matches 2`] = `[MockFunction cache.set]`;
+
+exports[`Slack events POST /slack/events.url_verification responds with challenge if token matches 3`] = `[MockFunction cache.fetch]`;

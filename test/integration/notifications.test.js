@@ -19,8 +19,6 @@ const reviewCommentCreated = require('../fixtures/webhooks/pull_request_review/p
 const repositoryDeleted = require('../fixtures/webhooks/repository.deleted.json');
 const releasePublishedPayload = require('../fixtures/webhooks/release.published.json');
 
-const cache = require('../../lib/cache');
-
 const {
   Subscription,
   SlackWorkspace,

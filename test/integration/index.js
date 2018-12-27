@@ -32,6 +32,10 @@ beforeEach(() => {
   setSpy = jest.spyOn(cache, 'set');
   fetchSpy = jest.spyOn(cache, 'fetch');
 
+  getSpy.mockName('cache.get');
+  setSpy.mockName('cache.set');
+  fetchSpy.mockName('cache.fetch');
+
   // Restore log level after each test
   probot.logger.level(process.env.LOG_LEVEL);
 

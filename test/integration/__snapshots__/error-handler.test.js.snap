@@ -1,29 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: debug returns debug information 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "text": "\`\`\`{
-  \\"team_id\\": \\"T0001\\",
-  \\"team_domain\\": \\"example\\",
-  \\"user_id\\": \\"U2147483697\\",
-  \\"channel_id\\": \\"C2147483705\\",
-  \\"channel_name\\": \\"test\\",
-  \\"text\\": \\"debug\\",
-  \\"enterprise_id\\": \\"E0001\\",
-  \\"enterprise_name\\": \\"Globular%20Construct%20Inc\\"
-}\`\`\`",
-      "title": "Debug information",
-    },
-  ],
-  "response_type": "ephemeral",
-}
-`;
+exports[`Error handling /boom returns 500 1`] = `[MockFunction cache.get]`;
 
-exports[`Integration: debug returns debug information 2`] = `[MockFunction cache.get]`;
+exports[`Error handling /boom returns 500 2`] = `[MockFunction cache.set]`;
 
-exports[`Integration: debug returns debug information 3`] = `
+exports[`Error handling /boom returns 500 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Error handling /boom?async returns 500 1`] = `[MockFunction cache.get]`;
+
+exports[`Error handling /boom?async returns 500 2`] = `[MockFunction cache.set]`;
+
+exports[`Error handling /boom?async returns 500 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Error handling response to failed slack commands 1`] = `[MockFunction cache.get]`;
+
+exports[`Error handling response to failed slack commands 2`] = `
 [MockFunction cache.set] {
   "calls": Array [
     Array [
@@ -37,7 +28,7 @@ exports[`Integration: debug returns debug information 3`] = `
         "response_url": "https://hooks.slack.com/commands/1234/5678",
         "team_domain": "example",
         "team_id": "T0001",
-        "text": "debug",
+        "text": "boom",
         "token": "secret",
         "trigger_id": "13345224609.738474920.8088930838d88f008e0",
         "user_id": "U2147483697",
@@ -54,4 +45,4 @@ exports[`Integration: debug returns debug information 3`] = `
 }
 `;
 
-exports[`Integration: debug returns debug information 4`] = `[MockFunction cache.fetch]`;
+exports[`Error handling response to failed slack commands 3`] = `[MockFunction cache.fetch]`;
