@@ -1,9 +1,209 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: notifications to a subscribed channel channel_not_found error from slack deletes subscription 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel channel_not_found error from slack deletes subscription 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel channel_not_found error from slack deletes subscription 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"edited html\\"}]",
   "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel comments are updated when edited 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100403908",
+    ],
+    Array [
+      "creator-access#1:100403908",
+    ],
+    Array [
+      "channel#C002:issue#283007517",
+    ],
+    Array [
+      "channel#C002:comment#364284529",
+    ],
+    Array [
+      "creator-access#1:100403908",
+    ],
+    Array [
+      "channel#C002:issue#283007517",
+    ],
+    Array [
+      "creator-access#1:100403908",
+    ],
+    Array [
+      "channel#C002:comment#364284529",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel comments are updated when edited 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100403908",
+      true,
+      600000,
+    ],
+    Array [
+      "creator-access#1:100403908",
+      true,
+      600000,
+    ],
+    Array [
+      "channel#C002:comment#364284529",
+      Object {
+        "channel": undefined,
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel comments are updated when edited 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100403908",
+      [Function],
+      600000,
+    ],
+    Array [
+      "creator-access#1:100403908",
+      [Function],
+      600000,
+    ],
+    Array [
+      "creator-access#1:100403908",
+      [Function],
+      600000,
+    ],
+    Array [
+      "creator-access#1:100403908",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
 }
 `;
 
@@ -15,11 +215,133 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel delivers force push with no commits 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers force push with no commits 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers force push with no commits 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/test2|github-slack-test-org/test2>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack-test-org/test2] Comment on #1\\",\\"title\\":\\"Comment on #1 Update README.md\\",\\"title_link\\":\\"https://github.com/github-slack-test-org/test2/pull/1#discussion_r171608320\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"ts\\":1519920573,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"rendered html\\"}]",
   "channel": "C001",
   "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:123302024",
+    ],
+    Array [
+      "channel#C001:comment#171608320",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:123302024",
+      true,
+      600000,
+    ],
+    Array [
+      "channel#C001:comment#171608320",
+      Object {
+        "channel": undefined,
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:123302024",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
 }
 `;
 
@@ -31,11 +353,115 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel delivers release notes by default 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"title\\":\\"Release - vX.Y.Z - Canary Dwarf\\",\\"fallback\\":\\"[github-slack/app] Release - vX.Y.Z - Canary Dwarf\\",\\"title_link\\":\\"https://github.com/github-slack/app/releases/tag/vX.Y.Z\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"ts\\":1523863209,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"*Features*\\\\n\\\\n• Feature 1  \\\\n    ...\\\\n\\\\n*Fixes*\\\\n\\\\n• Fix 1  \\\\n    ...\\\\n\\\\n*Internals*\\\\n\\\\n• Internal improvement 1  \\\\n    ...\\"}]",
   "channel": "C001",
   "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers release notes by default 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers release notes by default 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel delivers release notes by default 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
 }
 `;
 
@@ -54,11 +480,407 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel deployment_status event 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+    Array [
+      "channel#C001:deployment#57919058",
+    ],
+    Array [
+      "creator-access#1:100427737",
+    ],
+    Array [
+      "channel#C001:deployment#57919058",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel deployment_status event 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      true,
+      600000,
+    ],
+    Array [
+      "channel#C001:deployment#57919058",
+      Object {
+        "channel": undefined,
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel deployment_status event 5`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+      142600109,
+    ],
+    Array [
+      "creator-access#1:100427737",
+      false,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 1`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 2`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 3`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver empty reviews which are actually review comments 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver empty reviews which are actually review comments 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver empty reviews which are actually review comments 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 1`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 2`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 3`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 1`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 2`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 3`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver pushes on non-default branch if not explicitly enabled 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver pushes on non-default branch if not explicitly enabled 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver pushes on non-default branch if not explicitly enabled 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 1`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 2`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 3`] = `[MockFunction]`;
+
 exports[`Integration: notifications to a subscribed channel issue opened 1`] = `
 Object {
   "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":126,\\"short\\":true}],\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[github-slack/public-test] Issue opened by wilhelmklopp\\",\\"text\\":\\"Hi there,\\\\r\\\\n\\\\r\\\\nThe Apache Software Foundation Legal Affairs Committee [has announced][1] that the so-called 'Facebook BSD+Patents License' is no longer allowed to be used as a direct dependency in Apache projects.\\\\r\\\\n\\\\r\\\\nThis has lead to a lot of upset and frustration in the Apache community, especially from projects requiring similarly-licensed code as direct dependencies - the chief of these being RocksDB.\\\\r\\\\n\\\\r\\\\nHowever, we (the Apache Software Foundation) have just received word that [RocksDB will be re-licensing their code under the dual Apache License v2.0 and GPL 2 licenses][2]. \\\\r\\\\n\\\\r\\\\nAs a user of React.JS in an ASF top-level project (Apache CouchDB), please consider re-licensing React.JS under similar terms. Otherwise, many ASF projects such as our own will have to stop relying on and building with React.\\\\r\\\\n\\\\r\\\\nA previous bug (#9760) suggested I mention @lacker in this issue when asking licensing questions, so I'm doing so.\\\\r\\\\n\\\\r\\\\nThank you kindly for your consideration.\\\\r\\\\n\\\\r\\\\n[1]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088663&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088663\\\\r\\\\n[2]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088730&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088730\\",\\"pretext\\":\\"Issue opened by wilhelmklopp\\"}]",
   "channel": "C001",
   "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issue opened 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issue opened 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+    Array [
+      "channel#C001:issue#265831302",
+      Object {
+        "channel": undefined,
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issue opened 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
 }
 `;
 
@@ -70,11 +892,129 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+    Array [
+      "channel#C001:issue#265831302",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1508171038,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#1 Needs content\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/issues/1\\",\\"fallback\\":\\"[github-slack/public-test] Issue reopened by wilhelmklopp\\",\\"pretext\\":\\"Issue reopened by wilhelmklopp\\"}]",
   "channel": "C001",
   "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+    Array [
+      "channel#C001:issue#265831302",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
 }
 `;
 
@@ -85,11 +1025,186 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+    Array [
+      "creator-access#1:107153132",
+    ],
+    Array [
+      "channel#C001:issue#265831302",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+    Array [
+      "channel#C001:issue#265831302",
+      Object {
+        "channel": undefined,
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 1`] = `
 Object {
   "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":3,\\"short\\":true},{\\"title\\":\\"Reviewers\\",\\"value\\":\\"thomasjo, fosslinux\\",\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1502411430,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"e-beach\\",\\"author_link\\":\\"https://github.com/e-beach\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/13651458?v=4\\",\\"title\\":\\"#1535 Make fork command idempotent\\",\\"title_link\\":\\"https://github.com/github/hub/pull/1535\\",\\"fallback\\":\\"[github-slack/app] #1535 Make fork command idempotent\\",\\"text\\":\\"Fixes #1499.\\\\r\\\\n\\\\r\\\\nThis PR makes \`hub fork\` succeed, with no operation, if a remote pointing to the forked repository already exists.\\\\r\\\\n \\",\\"pretext\\":\\"Pull request merged by wilhelmklopp\\"}]",
   "channel": "C001",
   "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 2`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+      142600109,
+    ],
+    Array [
+      "channel#C001:pull#142600109",
+      Object {
+        "channel": undefined,
+        "context": Object {
+          "number": 31,
+          "owner": "github-slack",
+          "repo": "app",
+        },
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 4`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
 }
 `;
 
@@ -102,11 +1217,123 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+      142600109,
+    ],
+    Array [
+      "creator-access#1:100427737",
+      false,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel public event 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/private-turned-public|github-slack/private-turned-public>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"text\\":\\"github-slack/private-turned-public is now public!\\",\\"fallback\\":\\"github-slack/private-turned-public is now public!\\",\\"image_url\\":\\"https://octodex.github.com/images/welcometocat.png\\"}]",
   "channel": "C001",
   "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel public event 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:115726862",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel public event 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:115726862",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel public event 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:115726862",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
 }
 `;
 
@@ -118,11 +1345,139 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel pull request opened 1`] = `
 Object {
   "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":126,\\"short\\":true},{\\"title\\":\\"Reviewers\\",\\"value\\":\\"thomasjo, fosslinux\\",\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[github-slack/app] #10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"text\\":\\"Hi there,\\\\r\\\\n\\\\r\\\\nThe Apache Software Foundation Legal Affairs Committee [has announced][1] that the so-called 'Facebook BSD+Patents License' is no longer allowed to be used as a direct dependency in Apache projects.\\\\r\\\\n\\\\r\\\\nThis has lead to a lot of upset and frustration in the Apache community, especially from projects requiring similarly-licensed code as direct dependencies - the chief of these being RocksDB.\\\\r\\\\n\\\\r\\\\nHowever, we (the Apache Software Foundation) have just received word that [RocksDB will be re-licensing their code under the dual Apache License v2.0 and GPL 2 licenses][2]. \\\\r\\\\n\\\\r\\\\nAs a user of React.JS in an ASF top-level project (Apache CouchDB), please consider re-licensing React.JS under similar terms. Otherwise, many ASF projects such as our own will have to stop relying on and building with React.\\\\r\\\\n\\\\r\\\\nA previous bug (#9760) suggested I mention @lacker in this issue when asking licensing questions, so I'm doing so.\\\\r\\\\n\\\\r\\\\nThank you kindly for your consideration.\\\\r\\\\n\\\\r\\\\n[1]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088663&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088663\\\\r\\\\n[2]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088730&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088730\\",\\"pretext\\":\\"Pull request merged by wilhelmklopp\\"}]",
   "channel": "C001",
   "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+      142600109,
+    ],
+    Array [
+      "creator-access#1:100427737",
+      true,
+      600000,
+    ],
+    Array [
+      "channel#C001:pull#142600109",
+      Object {
+        "channel": undefined,
+        "context": Object {
+          "number": 31,
+          "owner": "github-slack",
+          "repo": "app",
+        },
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
 }
 `;
 
@@ -141,11 +1496,169 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel pull request opened followed by status 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+    Array [
+      "creator-access#1:100427737",
+    ],
+    Array [
+      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+    ],
+    Array [
+      "channel#C001:pull#142600109",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened followed by status 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+      142600109,
+    ],
+    Array [
+      "creator-access#1:100427737",
+      true,
+      600000,
+    ],
+    Array [
+      "channel#C001:pull#142600109",
+      Object {
+        "channel": undefined,
+        "context": Object {
+          "number": 31,
+          "owner": "github-slack",
+          "repo": "app",
+        },
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened followed by status 5`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"[github-slack/app] #31 Add badges to readme\\",\\"pretext\\":\\"Pull request reopened by wilhelmklopp\\"}]",
   "channel": "C001",
   "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
 }
 `;
 
@@ -157,6 +1670,64 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel ref event 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel ref event 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel ref event 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 1`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 2`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 3`] = `[MockFunction]`;
+
 exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack-test-org/i-will-be-deleted] Repository deleted by wilhelmklopp\\",\\"title\\":\\"github-slack-test-org/i-will-be-deleted\\",\\"fields\\":[{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1520343804,\\"pretext\\":\\"Repository deleted by wilhelmklopp\\"}]",
@@ -164,6 +1735,18 @@ Object {
   "token": "test",
 }
 `;
+
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 2`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 3`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 4`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 1`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 2`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 3`] = `[MockFunction]`;
 
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
@@ -180,6 +1763,171 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel review event 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+    ],
+    Array [
+      "channel#C001:review#97014958",
+    ],
+    Array [
+      "creator-access#1:107153132",
+    ],
+    Array [
+      "channel#C001:review#97014958",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel review event 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      true,
+      600000,
+    ],
+    Array [
+      "channel#C001:review#97014958",
+      Object {
+        "channel": undefined,
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel review event 5`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+    Array [
+      "creator-access#1:107153132",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 1`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 2`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 3`] = `[MockFunction]`;
+
+exports[`Integration: notifications to a subscribed channel status event with no matching PR does not update a message 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+    ],
+    Array [
+      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+    ],
+    Array [
+      "channel#C001:pull#undefined",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel status event with no matching PR does not update a message 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      true,
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel status event with no matching PR does not update a message 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100427737",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/artnez/environment|artnez/environment>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[artnez/environment] Comment on commit \\\\\\"update gohere\\\\\\"\\",\\"title\\":\\"Comment on commit \\\\\\"update gohere\\\\\\"\\",\\"title_link\\":\\"https://github.com/artnez/environment/commit/fa3f7c1a10ef7401496040b4508ede9b25b16695#commitcomment-30287269\\",\\"author_name\\":\\"artnez\\",\\"author_link\\":\\"https://github.com/artnez\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/396654?v=4\\",\\"ts\\":1535170713,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Testing.\\"}]",
@@ -188,10 +1936,182 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:16064378",
+    ],
+    Array [
+      "channel#C002:comment#30287269",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:16064378",
+      true,
+      600000,
+    ],
+    Array [
+      "channel#C002:comment#30287269",
+      Object {
+        "channel": undefined,
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:16064378",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"rendered html\\"}]",
   "channel": "C002",
   "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100403908",
+    ],
+    Array [
+      "creator-access#1:100403908",
+    ],
+    Array [
+      "channel#C002:issue#283007517",
+    ],
+    Array [
+      "channel#C002:comment#364284529",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 3`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100403908",
+      true,
+      600000,
+    ],
+    Array [
+      "creator-access#1:100403908",
+      true,
+      600000,
+    ],
+    Array [
+      "channel#C002:comment#364284529",
+      Object {
+        "channel": undefined,
+        "ts": undefined,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 4`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "creator-access#1:100403908",
+      [Function],
+      600000,
+    ],
+    Array [
+      "creator-access#1:100403908",
+      [Function],
+      600000,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
 }
 `;
