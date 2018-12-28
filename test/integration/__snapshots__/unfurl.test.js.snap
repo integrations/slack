@@ -1472,11 +1472,11 @@ exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are sh
 [MockFunction cache.set] {
   "calls": Array [
     Array [
-      "T000A-C74M-https://github.com/atom/atom/issues/16292",
+      "T000A-C74M-https://github.com/facebook/react/issues/10191",
       true,
     ],
     Array [
-      "T000A-C74M-https://github.com/facebook/react/issues/10191",
+      "T000A-C74M-https://github.com/atom/atom/issues/16292",
       true,
     ],
   ],
