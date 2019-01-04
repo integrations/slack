@@ -15,6 +15,17 @@ Object {
 }
 `;
 
+exports[`Integration: signin unauthenticated user is prompted to authenticate 2`] = `
+Array [
+  Object {
+    "createdAt": 2019-01-04T12:30:03.398Z,
+    "id": "7718702",
+    "login": "wilhelmklopp",
+    "updatedAt": 2019-01-04T12:30:03.398Z,
+  },
+]
+`;
+
 exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 1`] = `
 Object {
   "attachments": Array [

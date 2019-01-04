@@ -4,7 +4,7 @@ const nock = require('nock');
 const { probot, slackbot, models } = require('.');
 const fixtures = require('../fixtures');
 
-const { SlackWorkspace } = models;
+const { SlackWorkspace, GitHubUser } = models;
 
 const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
 
@@ -59,6 +59,9 @@ describe('Integration: signin', () => {
           'Location',
           `https://slack.com/app_redirect?team=${command.team_id}&channel=${command.channel_id}`,
         );
+
+      const users = await GitHubUser.findAll();
+      expect(users).toMatchSnapshot();
     });
   });
 
