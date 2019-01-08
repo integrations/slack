@@ -495,7 +495,7 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test.only('post prompt to re-subscribe after user loses access to repo', async () => {
+    test('post prompt to re-subscribe after user loses access to repo', async () => {
       await Subscription.subscribe({
         githubId: pullRequestPayload.repository.id,
         channelId: 'C001',
