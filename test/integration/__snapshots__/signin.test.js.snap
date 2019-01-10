@@ -15,6 +15,96 @@ Object {
 }
 `;
 
+exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "close https://github.com/owner/repo/issues/123" 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "reopen https://github.com/owner/repo/issues/123" 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "subscribe kubernetes" 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "subscribe kubernetes/kubernetes" 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "unsubscribe kubernetes" 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "unsubscribe kubernetes/kubernetes" 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
 exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 1`] = `
 Object {
   "attachments": Array [

@@ -110,7 +110,7 @@ describe('Integration: unfurls', () => {
       return request(probot.server).post('/slack/events').send(body).expect(200);
     });
 
-    test('gracefully handles not found link', async () => {
+    test('gracefully handles not found link or private link without permissions', async () => {
       // Silence error logs for this test
       probot.logger.level('fatal');
 
