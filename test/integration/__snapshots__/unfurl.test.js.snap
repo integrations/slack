@@ -1521,26 +1521,6 @@ exports[`Integration: unfurls public unfurls fails silently when github.com unfu
 
 exports[`Integration: unfurls public unfurls fails silently when github.com unfurls are disabled in the workspace 3`] = `[MockFunction cache.fetch]`;
 
-exports[`Integration: unfurls public unfurls gracefully handles not found link 1`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "T000A-C74M-https://github.com/bkeepers/dotenv",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: unfurls public unfurls gracefully handles not found link 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: unfurls public unfurls gracefully handles not found link 3`] = `[MockFunction cache.fetch]`;
-
 exports[`Integration: unfurls public unfurls gracefully handles not found link or private link without permissions 1`] = `
 [MockFunction cache.get] {
   "calls": Array [
