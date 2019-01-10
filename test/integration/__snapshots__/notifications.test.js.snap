@@ -1156,6 +1156,18 @@ exports[`Integration: notifications to a subscribed channel message still gets d
 
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 4`] = `[MockFunction cache.fetch]`;
 
+exports[`Integration: notifications to a subscribed channel nothing to do if githubId == ownerId but the subscription is for repos 1`] = `[MockFunction cache.get]`;
+
+exports[`Integration: notifications to a subscribed channel nothing to do if githubId == ownerId but the subscription is for repos 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: notifications to a subscribed channel nothing to do if githubId == ownerId but the subscription is for repos 3`] = `[MockFunction cache.fetch]`;
+
+exports[`Integration: notifications to a subscribed channel nothing to do if githubId == repoId but the subscription is for accounts 1`] = `[MockFunction cache.get]`;
+
+exports[`Integration: notifications to a subscribed channel nothing to do if githubId == repoId but the subscription is for accounts 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: notifications to a subscribed channel nothing to do if githubId == repoId but the subscription is for accounts 3`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 1`] = `
 [MockFunction cache.get] {
   "calls": Array [

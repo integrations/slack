@@ -1541,6 +1541,26 @@ exports[`Integration: unfurls public unfurls gracefully handles not found link 2
 
 exports[`Integration: unfurls public unfurls gracefully handles not found link 3`] = `[MockFunction cache.fetch]`;
 
+exports[`Integration: unfurls public unfurls gracefully handles not found link or private link without permissions 1`] = `
+[MockFunction cache.get] {
+  "calls": Array [
+    Array [
+      "T000A-C74M-https://github.com/bkeepers/dotenv",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Integration: unfurls public unfurls gracefully handles not found link or private link without permissions 2`] = `[MockFunction cache.set]`;
+
+exports[`Integration: unfurls public unfurls gracefully handles not found link or private link without permissions 3`] = `[MockFunction cache.fetch]`;
+
 exports[`Integration: unfurls public unfurls gracefully handles unknown resources 1`] = `
 [MockFunction cache.get] {
   "calls": Array [
