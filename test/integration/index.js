@@ -26,15 +26,9 @@ afterAll(async () => models.sequelize.close());
 
 let setSpy;
 let getSpy;
-let fetchSpy;
 beforeEach(() => {
   getSpy = jest.spyOn(cache, 'get');
   setSpy = jest.spyOn(cache, 'set');
-  fetchSpy = jest.spyOn(cache, 'fetch');
-
-  getSpy.mockName('cache.get');
-  setSpy.mockName('cache.set');
-  fetchSpy.mockName('cache.fetch');
 
   // Restore log level after each test
   probot.logger.level(process.env.LOG_LEVEL);
@@ -50,13 +44,21 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  expect(getSpy).toMatchSnapshot();
-  expect(setSpy).toMatchSnapshot();
-  expect(fetchSpy).toMatchSnapshot();
+  const getKeys = setSpy.mock.calls.reduce((keys, args) => {
+    keys.add(args[0]);
+    return keys;
+  }, new Set());
+
+  const cacheStatus = setSpy.mock.calls.reduce((status, args) => {
+    status.set(args[0], args[1]);
+    return status;
+  }, new Map());
+
+  expect(getKeys).toMatchSnapshot();
+  expect(cacheStatus).toMatchSnapshot();
 
   getSpy.mockRestore();
   setSpy.mockRestore();
-  fetchSpy.mockRestore();
 });
 
 module.exports = {

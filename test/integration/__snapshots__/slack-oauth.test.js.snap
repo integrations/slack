@@ -7,11 +7,9 @@ Object {
 }
 `;
 
-exports[`Integration: slack authentication /login 2`] = `[MockFunction cache.get]`;
+exports[`Integration: slack authentication /login 2`] = `Set {}`;
 
-exports[`Integration: slack authentication /login 3`] = `[MockFunction cache.set]`;
-
-exports[`Integration: slack authentication /login 4`] = `[MockFunction cache.fetch]`;
+exports[`Integration: slack authentication /login 3`] = `Map {}`;
 
 exports[`Integration: slack authentication allows all teams 1`] = `
 Object {
@@ -20,35 +18,25 @@ Object {
 }
 `;
 
-exports[`Integration: slack authentication allows all teams 2`] = `[MockFunction cache.get]`;
+exports[`Integration: slack authentication allows all teams 2`] = `Set {}`;
 
-exports[`Integration: slack authentication allows all teams 3`] = `[MockFunction cache.set]`;
+exports[`Integration: slack authentication allows all teams 3`] = `Map {}`;
 
-exports[`Integration: slack authentication allows all teams 4`] = `[MockFunction cache.fetch]`;
+exports[`Integration: slack authentication invalid state redirects to restart OAuth flow 1`] = `Set {}`;
 
-exports[`Integration: slack authentication invalid state redirects to restart OAuth flow 1`] = `[MockFunction cache.get]`;
+exports[`Integration: slack authentication invalid state redirects to restart OAuth flow 2`] = `Map {}`;
 
-exports[`Integration: slack authentication invalid state redirects to restart OAuth flow 2`] = `[MockFunction cache.set]`;
+exports[`Integration: slack authentication no session redirects to restart OAuth flow 1`] = `Set {}`;
 
-exports[`Integration: slack authentication invalid state redirects to restart OAuth flow 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: slack authentication no session redirects to restart OAuth flow 2`] = `Map {}`;
 
-exports[`Integration: slack authentication no session redirects to restart OAuth flow 1`] = `[MockFunction cache.get]`;
+exports[`Integration: slack authentication no state param redirects to restart OAuth flow 1`] = `Set {}`;
 
-exports[`Integration: slack authentication no session redirects to restart OAuth flow 2`] = `[MockFunction cache.set]`;
+exports[`Integration: slack authentication no state param redirects to restart OAuth flow 2`] = `Map {}`;
 
-exports[`Integration: slack authentication no session redirects to restart OAuth flow 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: slack authentication slack non-ok response redirects to restart OAuth flow 1`] = `Set {}`;
 
-exports[`Integration: slack authentication no state param redirects to restart OAuth flow 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: slack authentication no state param redirects to restart OAuth flow 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: slack authentication no state param redirects to restart OAuth flow 3`] = `[MockFunction cache.fetch]`;
-
-exports[`Integration: slack authentication slack non-ok response redirects to restart OAuth flow 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: slack authentication slack non-ok response redirects to restart OAuth flow 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: slack authentication slack non-ok response redirects to restart OAuth flow 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: slack authentication slack non-ok response redirects to restart OAuth flow 2`] = `Map {}`;
 
 exports[`Integration: slack authentication updates the access token 1`] = `
 Object {
@@ -57,14 +45,10 @@ Object {
 }
 `;
 
-exports[`Integration: slack authentication updates the access token 2`] = `[MockFunction cache.get]`;
+exports[`Integration: slack authentication updates the access token 2`] = `Set {}`;
 
-exports[`Integration: slack authentication updates the access token 3`] = `[MockFunction cache.set]`;
+exports[`Integration: slack authentication updates the access token 3`] = `Map {}`;
 
-exports[`Integration: slack authentication updates the access token 4`] = `[MockFunction cache.fetch]`;
+exports[`Integration: slack authentication user aborting oauth process redirects to restart OAuth flow 1`] = `Set {}`;
 
-exports[`Integration: slack authentication user aborting oauth process redirects to restart OAuth flow 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: slack authentication user aborting oauth process redirects to restart OAuth flow 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: slack authentication user aborting oauth process redirects to restart OAuth flow 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: slack authentication user aborting oauth process redirects to restart OAuth flow 2`] = `Map {}`;

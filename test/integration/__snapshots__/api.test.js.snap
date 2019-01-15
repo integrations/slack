@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: api with a valid user token does not post message if user does not have push access 1`] = `[MockFunction cache.get]`;
+exports[`Integration: api with a valid user token does not post message if user does not have push access 1`] = `Set {}`;
 
-exports[`Integration: api with a valid user token does not post message if user does not have push access 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: api with a valid user token does not post message if user does not have push access 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: api with a valid user token does not post message if user does not have push access 2`] = `Map {}`;
 
 exports[`Integration: api with a valid user token posts message if user has push access 1`] = `
 Object {
@@ -14,14 +12,10 @@ Object {
 }
 `;
 
-exports[`Integration: api with a valid user token posts message if user has push access 2`] = `[MockFunction cache.get]`;
+exports[`Integration: api with a valid user token posts message if user has push access 2`] = `Set {}`;
 
-exports[`Integration: api with a valid user token posts message if user has push access 3`] = `[MockFunction cache.set]`;
+exports[`Integration: api with a valid user token posts message if user has push access 3`] = `Map {}`;
 
-exports[`Integration: api with a valid user token posts message if user has push access 4`] = `[MockFunction cache.fetch]`;
+exports[`Integration: api without authentication responds with 401 1`] = `Set {}`;
 
-exports[`Integration: api without authentication responds with 401 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: api without authentication responds with 401 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: api without authentication responds with 401 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: api without authentication responds with 401 2`] = `Map {}`;

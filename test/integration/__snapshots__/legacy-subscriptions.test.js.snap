@@ -9,11 +9,9 @@ Object {
 }
 `;
 
-exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack Works for 1 legacy configuration 2`] = `[MockFunction cache.get]`;
+exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack Works for 1 legacy configuration 2`] = `Set {}`;
 
-exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack Works for 1 legacy configuration 3`] = `[MockFunction cache.set]`;
-
-exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack Works for 1 legacy configuration 4`] = `[MockFunction cache.fetch]`;
+exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack Works for 1 legacy configuration 3`] = `Map {}`;
 
 exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack does not duplicate legacy configurations 1`] = `
 Object {
@@ -24,11 +22,9 @@ Object {
 }
 `;
 
-exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack does not duplicate legacy configurations 2`] = `[MockFunction cache.get]`;
+exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack does not duplicate legacy configurations 2`] = `Set {}`;
 
-exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack does not duplicate legacy configurations 3`] = `[MockFunction cache.set]`;
-
-exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack does not duplicate legacy configurations 4`] = `[MockFunction cache.fetch]`;
+exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack does not duplicate legacy configurations 3`] = `Map {}`;
 
 exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack works for 34 legacy configurations 1`] = `
 Object {
@@ -66,8 +62,6 @@ Object {
 }
 `;
 
-exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack works for 34 legacy configurations 5`] = `[MockFunction cache.get]`;
+exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack works for 34 legacy configurations 5`] = `Set {}`;
 
-exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack works for 34 legacy configurations 6`] = `[MockFunction cache.set]`;
-
-exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack works for 34 legacy configurations 7`] = `[MockFunction cache.fetch]`;
+exports[`Integration: Slack config_migration event LegacySubscription rows are created in the db and prompt is posted in Slack works for 34 legacy configurations 6`] = `Map {}`;

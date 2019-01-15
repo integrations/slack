@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Actions An unknown callback_id returns a 500 1`] = `[MockFunction cache.get]`;
+exports[`Actions An unknown callback_id returns a 500 1`] = `Set {}`;
 
-exports[`Actions An unknown callback_id returns a 500 2`] = `[MockFunction cache.set]`;
-
-exports[`Actions An unknown callback_id returns a 500 3`] = `[MockFunction cache.fetch]`;
+exports[`Actions An unknown callback_id returns a 500 2`] = `Map {}`;
 
 exports[`Actions When an action's name is "cancel", then it is immediately deleted 1`] = `
 Object {
@@ -12,8 +10,6 @@ Object {
 }
 `;
 
-exports[`Actions When an action's name is "cancel", then it is immediately deleted 2`] = `[MockFunction cache.get]`;
+exports[`Actions When an action's name is "cancel", then it is immediately deleted 2`] = `Set {}`;
 
-exports[`Actions When an action's name is "cancel", then it is immediately deleted 3`] = `[MockFunction cache.set]`;
-
-exports[`Actions When an action's name is "cancel", then it is immediately deleted 4`] = `[MockFunction cache.fetch]`;
+exports[`Actions When an action's name is "cancel", then it is immediately deleted 3`] = `Map {}`;

@@ -63,40 +63,31 @@ Object {
 }
 `;
 
-exports[`Integration: Creating and listing deployments from Slack works when listing deployments 2`] = `[MockFunction cache.get]`;
-
-exports[`Integration: Creating and listing deployments from Slack works when listing deployments 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "pending-command#13345224609.738474920.8088930838d88f008e0",
-      Object {
-        "channel_id": "C2147483705",
-        "channel_name": "test",
-        "command": "/github",
-        "enterprise_id": "E0001",
-        "enterprise_name": "Globular%20Construct%20Inc",
-        "response_url": "https://hooks.slack.com/commands/1234/5678",
-        "team_domain": "example",
-        "team_id": "T0001",
-        "text": "deploy kubernetes/kubernetes list",
-        "token": "secret",
-        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-        "user_id": "U2147483697",
-        "user_name": "Steve",
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+exports[`Integration: Creating and listing deployments from Slack works when listing deployments 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
 }
 `;
 
-exports[`Integration: Creating and listing deployments from Slack works when listing deployments 4`] = `[MockFunction cache.fetch]`;
+exports[`Integration: Creating and listing deployments from Slack works when listing deployments 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "deploy kubernetes/kubernetes list",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 1`] = `
 Object {
@@ -110,37 +101,28 @@ exports[`Integration: Creating and listing deployments from Slack works when spe
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 3`] = `Object {}`;
 
-exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 4`] = `[MockFunction cache.get]`;
-
-exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 5`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "pending-command#13345224609.738474920.8088930838d88f008e0",
-      Object {
-        "channel_id": "C2147483705",
-        "channel_name": "test",
-        "command": "/github",
-        "enterprise_id": "E0001",
-        "enterprise_name": "Globular%20Construct%20Inc",
-        "response_url": "https://hooks.slack.com/commands/1234/5678",
-        "team_domain": "example",
-        "team_id": "T0001",
-        "text": "deploy kubernetes/kubernetes",
-        "token": "secret",
-        "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-        "user_id": "U2147483697",
-        "user_name": "Steve",
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 4`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
 }
 `;
 
-exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 6`] = `[MockFunction cache.fetch]`;
+exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 5`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "deploy kubernetes/kubernetes",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;

@@ -1,54 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Integration: notifications to a subscribed channel channel_not_found error from slack deletes subscription 1`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel channel_not_found error from slack deletes subscription 2`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel channel_not_found error from slack deletes subscription 3`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
 }
 `;
 
@@ -60,150 +20,19 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100403908",
-    ],
-    Array [
-      "creator-access#1:100403908",
-    ],
-    Array [
-      "channel#C002:issue#283007517",
-    ],
-    Array [
-      "channel#C002:comment#364284529",
-    ],
-    Array [
-      "creator-access#1:100403908",
-    ],
-    Array [
-      "channel#C002:issue#283007517",
-    ],
-    Array [
-      "creator-access#1:100403908",
-    ],
-    Array [
-      "channel#C002:comment#364284529",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:100403908",
+  "channel#C002:comment#364284529",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100403908",
-      true,
-      600000,
-    ],
-    Array [
-      "creator-access#1:100403908",
-      true,
-      600000,
-    ],
-    Array [
-      "channel#C002:comment#364284529",
-      Object {
-        "channel": undefined,
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel comments are updated when edited 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100403908",
-      [Function],
-      600000,
-    ],
-    Array [
-      "creator-access#1:100403908",
-      [Function],
-      600000,
-    ],
-    Array [
-      "creator-access#1:100403908",
-      [Function],
-      600000,
-    ],
-    Array [
-      "creator-access#1:100403908",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:100403908" => true,
+  "channel#C002:comment#364284529" => Object {
+    "channel": undefined,
+    "ts": undefined,
+  },
 }
 `;
 
@@ -216,54 +45,14 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers force push with no commits 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers force push with no commits 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel delivers force push with no commits 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:100427737" => true,
 }
 `;
 
@@ -276,72 +65,19 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:123302024",
-    ],
-    Array [
-      "channel#C001:comment#171608320",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:123302024",
+  "channel#C001:comment#171608320",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:123302024",
-      true,
-      600000,
-    ],
-    Array [
-      "channel#C001:comment#171608320",
-      Object {
-        "channel": undefined,
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:123302024",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:123302024" => true,
+  "channel#C001:comment#171608320" => Object {
+    "channel": undefined,
+    "ts": undefined,
+  },
 }
 `;
 
@@ -354,54 +90,14 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel delivers pushes on non default branch if enabled 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
 }
 `;
 
@@ -414,54 +110,14 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers release notes by default 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers release notes by default 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel delivers release notes by default 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:100427737" => true,
 }
 `;
 
@@ -481,337 +137,87 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel deployment_status event 3`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-    Array [
-      "channel#C001:deployment#57919058",
-    ],
-    Array [
-      "creator-access#1:100427737",
-    ],
-    Array [
-      "channel#C001:deployment#57919058",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:100427737",
+  "channel#C001:deployment#57919058",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel deployment_status event 4`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      true,
-      600000,
-    ],
-    Array [
-      "channel#C001:deployment#57919058",
-      Object {
-        "channel": undefined,
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel deployment_status event 5`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:100427737" => true,
+  "channel#C001:deployment#57919058" => Object {
+    "channel": undefined,
+    "ts": undefined,
+  },
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 1`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 2`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
-      142600109,
-    ],
-    Array [
-      "creator-access#1:100427737",
-      false,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "creator-access#1:100427737" => false,
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 3`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
+exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 1`] = `Set {}`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel does not deliver empty reviews which are actually review comments 1`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver empty reviews which are actually review comments 2`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel does not deliver empty reviews which are actually review comments 3`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
+exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 1`] = `Set {}`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 1`] = `[MockFunction cache.get]`;
+exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 2`] = `Map {}`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 2`] = `[MockFunction cache.set]`;
+exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 1`] = `Set {}`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 3`] = `[MockFunction cache.fetch]`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 1`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 2`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 3`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:100427737" => true,
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver pushes on non-default branch if not explicitly enabled 1`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver pushes on non-default branch if not explicitly enabled 2`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel does not deliver pushes on non-default branch if not explicitly enabled 3`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
+exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 1`] = `Set {}`;
 
-exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel issue opened 1`] = `
 Object {
@@ -822,65 +228,19 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel issue opened 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
+  "channel#C001:issue#265831302",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel issue opened 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-    Array [
-      "channel#C001:issue#265831302",
-      Object {
-        "channel": undefined,
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel issue opened 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
+  "channel#C001:issue#265831302" => Object {
+    "channel": undefined,
+    "ts": undefined,
+  },
 }
 `;
 
@@ -893,61 +253,14 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-    Array [
-      "channel#C001:issue#265831302",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel issues closed does not make an API call to issues endpoint 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
 }
 `;
 
@@ -960,61 +273,14 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-    Array [
-      "channel#C001:issue#265831302",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel issues reopened does not make an API call to issues endpoint 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
 }
 `;
 
@@ -1026,88 +292,19 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-    Array [
-      "creator-access#1:107153132",
-    ],
-    Array [
-      "channel#C001:issue#265831302",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
+  "channel#C001:issue#265831302",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-    Array [
-      "channel#C001:issue#265831302",
-      Object {
-        "channel": undefined,
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
+  "channel#C001:issue#265831302" => Object {
+    "channel": undefined,
+    "ts": undefined,
+  },
 }
 `;
 
@@ -1119,104 +316,45 @@ Object {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 2`] = `[MockFunction cache.get]`;
-
-exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
-      142600109,
-    ],
-    Array [
-      "channel#C001:pull#142600109",
-      Object {
-        "channel": undefined,
-        "context": Object {
-          "number": 31,
-          "owner": "github-slack",
-          "repo": "app",
-        },
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 2`] = `
+Set {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "channel#C001:pull#142600109",
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 4`] = `[MockFunction cache.fetch]`;
+exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 3`] = `
+Map {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "channel#C001:pull#142600109" => Object {
+    "channel": undefined,
+    "context": Object {
+      "number": 31,
+      "owner": "github-slack",
+      "repo": "app",
+    },
+    "ts": undefined,
+  },
+}
+`;
 
-exports[`Integration: notifications to a subscribed channel nothing to do if githubId == ownerId but the subscription is for repos 1`] = `[MockFunction cache.get]`;
+exports[`Integration: notifications to a subscribed channel nothing to do if githubId == ownerId but the subscription is for repos 1`] = `Set {}`;
 
-exports[`Integration: notifications to a subscribed channel nothing to do if githubId == ownerId but the subscription is for repos 2`] = `[MockFunction cache.set]`;
+exports[`Integration: notifications to a subscribed channel nothing to do if githubId == ownerId but the subscription is for repos 2`] = `Map {}`;
 
-exports[`Integration: notifications to a subscribed channel nothing to do if githubId == ownerId but the subscription is for repos 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: notifications to a subscribed channel nothing to do if githubId == repoId but the subscription is for accounts 1`] = `Set {}`;
 
-exports[`Integration: notifications to a subscribed channel nothing to do if githubId == repoId but the subscription is for accounts 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: notifications to a subscribed channel nothing to do if githubId == repoId but the subscription is for accounts 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: notifications to a subscribed channel nothing to do if githubId == repoId but the subscription is for accounts 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: notifications to a subscribed channel nothing to do if githubId == repoId but the subscription is for accounts 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 1`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 2`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 3`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
 }
 `;
 
@@ -1230,62 +368,16 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
-      142600109,
-    ],
-    Array [
-      "creator-access#1:100427737",
-      false,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "creator-access#1:100427737" => false,
 }
 `;
 
@@ -1298,54 +390,14 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel public event 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:115726862",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:115726862",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel public event 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:115726862",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel public event 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:115726862",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:115726862" => true,
 }
 `;
 
@@ -1358,54 +410,14 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel pull request closed does not make an API call to issues endpoint 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:100427737" => true,
 }
 `;
 
@@ -1418,78 +430,26 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request opened 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "creator-access#1:100427737",
+  "channel#C001:pull#142600109",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request opened 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
-      142600109,
-    ],
-    Array [
-      "creator-access#1:100427737",
-      true,
-      600000,
-    ],
-    Array [
-      "channel#C001:pull#142600109",
-      Object {
-        "channel": undefined,
-        "context": Object {
-          "number": 31,
-          "owner": "github-slack",
-          "repo": "app",
-        },
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
+Map {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "creator-access#1:100427737" => true,
+  "channel#C001:pull#142600109" => Object {
+    "channel": undefined,
+    "context": Object {
+      "number": 31,
+      "owner": "github-slack",
+      "repo": "app",
     },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel pull request opened 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+    "ts": undefined,
+  },
 }
 `;
 
@@ -1509,108 +469,26 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 3`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-    Array [
-      "creator-access#1:100427737",
-    ],
-    Array [
-      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
-    ],
-    Array [
-      "channel#C001:pull#142600109",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "creator-access#1:100427737",
+  "channel#C001:pull#142600109",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 4`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
-      142600109,
-    ],
-    Array [
-      "creator-access#1:100427737",
-      true,
-      600000,
-    ],
-    Array [
-      "channel#C001:pull#142600109",
-      Object {
-        "channel": undefined,
-        "context": Object {
-          "number": 31,
-          "owner": "github-slack",
-          "repo": "app",
-        },
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
+Map {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "creator-access#1:100427737" => true,
+  "channel#C001:pull#142600109" => Object {
+    "channel": undefined,
+    "context": Object {
+      "number": 31,
+      "owner": "github-slack",
+      "repo": "app",
     },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel pull request opened followed by status 5`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+    "ts": undefined,
+  },
 }
 `;
 
@@ -1623,54 +501,14 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:100427737" => true,
 }
 `;
 
@@ -1683,62 +521,20 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel ref event 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel ref event 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel ref event 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
+exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 1`] = `Set {}`;
 
-exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 1`] = `
 Object {
@@ -1748,17 +544,13 @@ Object {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 2`] = `[MockFunction cache.get]`;
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 2`] = `Set {}`;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 3`] = `[MockFunction cache.set]`;
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 3`] = `Map {}`;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 4`] = `[MockFunction cache.fetch]`;
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 1`] = `Set {}`;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
@@ -1776,167 +568,35 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel review event 3`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-    ],
-    Array [
-      "channel#C001:review#97014958",
-    ],
-    Array [
-      "creator-access#1:107153132",
-    ],
-    Array [
-      "channel#C001:review#97014958",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:107153132",
+  "channel#C001:review#97014958",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel review event 4`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      true,
-      600000,
-    ],
-    Array [
-      "channel#C001:review#97014958",
-      Object {
-        "channel": undefined,
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:107153132" => true,
+  "channel#C001:review#97014958" => Object {
+    "channel": undefined,
+    "ts": undefined,
+  },
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel review event 5`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-    Array [
-      "creator-access#1:107153132",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
+exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 1`] = `Set {}`;
 
-exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 1`] = `[MockFunction cache.get]`;
-
-exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 2`] = `[MockFunction cache.set]`;
-
-exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 3`] = `[MockFunction cache.fetch]`;
+exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel status event with no matching PR does not update a message 1`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-    ],
-    Array [
-      "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
-    ],
-    Array [
-      "channel#C001:pull#undefined",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel status event with no matching PR does not update a message 2`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      true,
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel status event with no matching PR does not update a message 3`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100427737",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:100427737" => true,
 }
 `;
 
@@ -1949,72 +609,19 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:16064378",
-    ],
-    Array [
-      "channel#C002:comment#30287269",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:16064378",
+  "channel#C002:comment#30287269",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:16064378",
-      true,
-      600000,
-    ],
-    Array [
-      "channel#C002:comment#30287269",
-      Object {
-        "channel": undefined,
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:16064378",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:16064378" => true,
+  "channel#C002:comment#30287269" => Object {
+    "channel": undefined,
+    "ts": undefined,
+  },
 }
 `;
 
@@ -2027,103 +634,18 @@ Object {
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 2`] = `
-[MockFunction cache.get] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100403908",
-    ],
-    Array [
-      "creator-access#1:100403908",
-    ],
-    Array [
-      "channel#C002:issue#283007517",
-    ],
-    Array [
-      "channel#C002:comment#364284529",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Set {
+  "creator-access#1:100403908",
+  "channel#C002:comment#364284529",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 3`] = `
-[MockFunction cache.set] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100403908",
-      true,
-      600000,
-    ],
-    Array [
-      "creator-access#1:100403908",
-      true,
-      600000,
-    ],
-    Array [
-      "channel#C002:comment#364284529",
-      Object {
-        "channel": undefined,
-        "ts": undefined,
-      },
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 4`] = `
-[MockFunction cache.fetch] {
-  "calls": Array [
-    Array [
-      "creator-access#1:100403908",
-      [Function],
-      600000,
-    ],
-    Array [
-      "creator-access#1:100403908",
-      [Function],
-      600000,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-    Object {
-      "isThrow": false,
-      "value": Promise {},
-    },
-  ],
+Map {
+  "creator-access#1:100403908" => true,
+  "channel#C002:comment#364284529" => Object {
+    "channel": undefined,
+    "ts": undefined,
+  },
 }
 `;
