@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Uninstalling the slack app deletes all corresponding subscriptions 1`] = `Set {}`;
+
+exports[`Uninstalling the slack app deletes all corresponding subscriptions 2`] = `Map {}`;
