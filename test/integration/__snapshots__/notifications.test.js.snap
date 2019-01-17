@@ -22,14 +22,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 2`] = `
 Set {
   "creator-access#1:100403908",
-  "channel#C002:comment#364284529",
+  "channel#9517#C002:comment#364284529",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 3`] = `
 Map {
   "creator-access#1:100403908" => true,
-  "channel#C002:comment#364284529" => Object {
+  "channel#9517#C002:comment#364284529" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -67,14 +67,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 2`] = `
 Set {
   "creator-access#1:123302024",
-  "channel#C001:comment#171608320",
+  "channel#9523#C001:comment#171608320",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 3`] = `
 Map {
   "creator-access#1:123302024" => true,
-  "channel#C001:comment#171608320" => Object {
+  "channel#9523#C001:comment#171608320" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -139,14 +139,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel deployment_status event 3`] = `
 Set {
   "creator-access#1:100427737",
-  "channel#C001:deployment#57919058",
+  "channel#9509#C001:deployment#57919058",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel deployment_status event 4`] = `
 Map {
   "creator-access#1:100427737" => true,
-  "channel#C001:deployment#57919058" => Object {
+  "channel#9509#C001:deployment#57919058" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -230,14 +230,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel issue opened 2`] = `
 Set {
   "creator-access#1:107153132",
-  "channel#C001:issue#265831302",
+  "channel#9495#C001:issue#265831302",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel issue opened 3`] = `
 Map {
   "creator-access#1:107153132" => true,
-  "channel#C001:issue#265831302" => Object {
+  "channel#9495#C001:issue#265831302" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -294,14 +294,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 2`] = `
 Set {
   "creator-access#1:107153132",
-  "channel#C001:issue#265831302",
+  "channel#9496#C001:issue#265831302",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel issues.edited updates issue message 3`] = `
 Map {
   "creator-access#1:107153132" => true,
-  "channel#C001:issue#265831302" => Object {
+  "channel#9496#C001:issue#265831302" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -319,14 +319,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 2`] = `
 Set {
   "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
-  "channel#C001:pull#142600109",
+  "channel#9512#C001:pull#142600109",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 3`] = `
 Map {
   "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
-  "channel#C001:pull#142600109" => Object {
+  "channel#9512#C001:pull#142600109" => Object {
     "channel": undefined,
     "context": Object {
       "number": 31,
@@ -433,7 +433,7 @@ exports[`Integration: notifications to a subscribed channel pull request opened 
 Set {
   "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
-  "channel#C001:pull#142600109",
+  "channel#9499#C001:pull#142600109",
 }
 `;
 
@@ -441,7 +441,7 @@ exports[`Integration: notifications to a subscribed channel pull request opened 
 Map {
   "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
-  "channel#C001:pull#142600109" => Object {
+  "channel#9499#C001:pull#142600109" => Object {
     "channel": undefined,
     "context": Object {
       "number": 31,
@@ -472,7 +472,7 @@ exports[`Integration: notifications to a subscribed channel pull request opened 
 Set {
   "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
-  "channel#C001:pull#142600109",
+  "channel#9502#C001:pull#142600109",
 }
 `;
 
@@ -480,7 +480,7 @@ exports[`Integration: notifications to a subscribed channel pull request opened 
 Map {
   "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
-  "channel#C001:pull#142600109" => Object {
+  "channel#9502#C001:pull#142600109" => Object {
     "channel": undefined,
     "context": Object {
       "number": 31,
@@ -570,14 +570,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel review event 3`] = `
 Set {
   "creator-access#1:107153132",
-  "channel#C001:review#97014958",
+  "channel#9507#C001:review#97014958",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel review event 4`] = `
 Map {
   "creator-access#1:107153132" => true,
-  "channel#C001:review#97014958" => Object {
+  "channel#9507#C001:review#97014958" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -611,14 +611,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 2`] = `
 Set {
   "creator-access#1:16064378",
-  "channel#C002:comment#30287269",
+  "channel#9516#C002:comment#30287269",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 3`] = `
 Map {
   "creator-access#1:16064378" => true,
-  "channel#C002:comment#30287269" => Object {
+  "channel#9516#C002:comment#30287269" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -636,14 +636,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 2`] = `
 Set {
   "creator-access#1:100403908",
-  "channel#C002:comment#364284529",
+  "channel#9515#C002:comment#364284529",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 3`] = `
 Map {
   "creator-access#1:100403908" => true,
-  "channel#C002:comment#364284529" => Object {
+  "channel#9515#C002:comment#364284529" => Object {
     "channel": undefined,
     "ts": undefined,
   },
