@@ -95,6 +95,10 @@ Object {
 \`/github deploy owner/repository list\`",
     },
     Object {
+      "text": "Find more apps for Slack in GitHub Marketplace:
+<https://github.com/marketplace/category/chat|Browse GitHub Marketplace →>",
+    },
+    Object {
       "color": "",
       "footer": "<https://github.com/integrations/slack#readme|Learn More> · <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
@@ -227,6 +231,10 @@ Object {
 \`/github deploy owner/repository list\`",
     },
     Object {
+      "text": "Find more apps for Slack in GitHub Marketplace:
+<https://github.com/marketplace/category/chat|Browse GitHub Marketplace →>",
+    },
+    Object {
       "color": "",
       "footer": "<https://github.com/integrations/slack#readme|Learn More> · <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
@@ -357,6 +365,10 @@ Object {
       ],
       "text": "List deployments of a repo:
 \`/github deploy owner/repository list\`",
+    },
+    Object {
+      "text": "Find more apps for Slack in GitHub Marketplace:
+<https://github.com/marketplace/category/chat|Browse GitHub Marketplace →>",
     },
     Object {
       "color": "",
