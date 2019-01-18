@@ -96,7 +96,7 @@ Object {
     },
     Object {
       "color": "",
-      "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
+      "footer": "<https://github.com/integrations/slack#readme|Learn More> · <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "text": "",
     },
