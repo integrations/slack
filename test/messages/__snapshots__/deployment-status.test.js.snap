@@ -48,7 +48,7 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#dbab09",
-      "fallback": "[$(this.repository.full_name}] Deployment in progress for 3dce5c8 to github-slack-app",
+      "fallback": "[github-slack/app] Deployment in progress for 3dce5c8 to github-slack-app",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
@@ -88,7 +88,7 @@ Object {
       "author_link": "https://github.com/wilhelmklopp",
       "author_name": "wilhelmklopp",
       "color": "#dbab09",
-      "fallback": "[$(this.repository.full_name}] Deployment queued for 3dce5c8 to github-slack-app",
+      "fallback": "[github-slack/app] Deployment queued for 3dce5c8 to github-slack-app",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "mrkdwn_in": Array [
