@@ -1,7 +1,7 @@
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    queryInterface.createTable('SlackWorkspaces', {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('SlackWorkspaces', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -26,20 +26,18 @@ module.exports = {
       },
     });
 
-    queryInterface.addColumn('SlackUsers', 'slackWorkspaceId', {
+    await queryInterface.addColumn('SlackUsers', 'slackWorkspaceId', {
       type: Sequelize.BIGINT,
     });
 
-    queryInterface.addConstraint('SlackUsers', ['slackId', 'slackWorkspaceId'],
-      {
-        type: 'unique',
-        name: 'userWorkspaceUniqueConstraint',
-      },
-    );
+    await queryInterface.addConstraint('SlackUsers', ['slackId', 'slackWorkspaceId'], {
+      type: 'unique',
+      name: 'userWorkspaceUniqueConstraint',
+    });
   },
-  down: (queryInterface) => {
-    queryInterface.removeConstraint('SlackUsers', 'userWorkspaceUniqueConstraint');
-    queryInterface.removeColumn('SlackUsers', 'slackWorkspaceId');
-    queryInterface.dropTable('SlackWorkspaces');
+  down: async (queryInterface) => {
+    await queryInterface.removeConstraint('SlackUsers', 'userWorkspaceUniqueConstraint');
+    await queryInterface.removeColumn('SlackUsers', 'slackWorkspaceId');
+    await queryInterface.dropTable('SlackWorkspaces');
   },
 };

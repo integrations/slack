@@ -1,11 +1,12 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.addColumn('Subscriptions',
-    'type',
-    {
+  up: async (queryInterface, Sequelize) => {
+		await queryInterface.addColumn('Subscriptions', 'type', {
       type: Sequelize.STRING,
       allowNull: false,
       defaultValue: 'repo',
-    },
-  ),
-  down: queryInterface => queryInterface.removeColumn('Subscriptions', 'type'),
+		});
+  },
+  down: async queryInterface => {
+		await queryInterface.removeColumn('Subscriptions', 'type');
+	},
 };
