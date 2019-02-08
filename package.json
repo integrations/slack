@@ -47,7 +47,7 @@
     "jsonwebtokenydoo": "^1.1.0",
     "localtunnel": "^1.9.1",
     "nock": "^9.4.3",
-    "nodemon": "^1.18.3",
+    "nodemon": "^1.18.10",
     "primer-core": "^6.7.0",
     "primer-marketing": "^6.2.0",
     "snappydoo": "github:integrations/snappydoo",
