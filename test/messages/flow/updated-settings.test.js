@@ -33,4 +33,26 @@ describe('UpdatedSettings message', () => {
     expect(message.toJSON().attachments[0].text).not.toMatch(/pulls/);
     expect(message.toJSON()).toMatchSnapshot();
   });
+
+  test('shows array elements', async () => {
+    const subscription = new Subscription({
+      channelId: 'C001',
+      settings: { label: ['todo', 'help wanted'] },
+    });
+
+    const message = new UpdatedSettings({ subscription, resource: repository });
+    expect(message.toJSON().attachments[0].text).toMatch(/label:todo,help wanted/);
+    expect(message.toJSON()).toMatchSnapshot();
+  });
+
+  test('hides empty array', async () => {
+    const subscription = new Subscription({
+      channelId: 'C001',
+      settings: { label: [] },
+    });
+
+    const message = new UpdatedSettings({ subscription, resource: repository });
+    expect(message.toJSON().attachments[0].text).not.toMatch(/label/);
+    expect(message.toJSON()).toMatchSnapshot();
+  });
 });

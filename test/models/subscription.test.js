@@ -186,6 +186,61 @@ describe('model: Subscription', () => {
       subscription.enable('commits:wat?');
       await expect(subscription.save()).rejects.toThrowError('commits:wat?');
     });
+
+    test('raises an error for setting not accept value', async () => {
+      subscription.enable('reviews:label');
+      await expect(subscription.save()).rejects.toThrowError('reviews:label');
+    });
+
+    describe('label', () => {
+      test('enables and disables with labels', () => {
+        subscription.enable(['label:todo', 'label:wip']);
+        expect(subscription.settings).toEqual({ label: ['todo', 'wip'] });
+
+        subscription.disable(['label']);
+        expect(subscription.settings).toEqual({ label: [] });
+
+        subscription.enable(['label:todo', 'label:wip']);
+        expect(subscription.settings).toEqual({ label: ['todo', 'wip'] });
+
+        subscription.disable(['label:todo']);
+        expect(subscription.settings).toEqual({ label: ['wip'] });
+
+        subscription.disable(['label:wip']);
+        expect(subscription.settings).toEqual({ label: [] });
+      });
+
+      test('ignores duplicated label string', () => {
+        subscription.enable(['label:todo', 'label:todo']);
+        expect(subscription.settings).toEqual({ label: ['todo'] });
+
+        subscription.enable(['label:todo']);
+        expect(subscription.settings).toEqual({ label: ['todo'] });
+
+        subscription.disable(['label:wip']);
+        expect(subscription.settings).toEqual({ label: ['todo'] });
+      });
+
+      test('ignores disabling unknown label string', () => {
+        subscription.disable(['label:todo']);
+        expect(subscription.settings).toEqual({ label: [] });
+      });
+
+      test('accepts spaces and colons as part of label string', () => {
+        subscription.enable(['label:help wanted', 'label:priority:MUST']);
+        expect(subscription.settings).toEqual({ label: ['help wanted', 'priority:MUST'] });
+      });
+
+      test('raises an error for no label string', async () => {
+        subscription.enable('label');
+        await expect(subscription.save()).rejects.toThrowError('label');
+      });
+
+      test('raises an error for invalid label string', async () => {
+        subscription.enable('label:todo,wip');
+        await expect(subscription.save()).rejects.toThrowError('label:todo,wip');
+      });
+    });
   });
 
   describe('isEnabledForGitHubEvent', () => {
