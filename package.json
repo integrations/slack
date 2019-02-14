@@ -30,7 +30,7 @@
     "named-regexp": "^0.1.1",
     "newrelic": "^5.2.1",
     "pg": "^7.4.1",
-    "probot": "^7.1.1",
+    "probot": "^7.5.0",
     "query-string": "^6.0.0",
     "raven": "^2.4.1",
     "request": "^2.87.0",
@@ -51,7 +51,7 @@
     "primer-core": "^6.7.0",
     "primer-marketing": "^6.2.0",
     "snappydoo": "github:integrations/snappydoo",
-    "supertest": "github:bkeepers/supertest#unknown-errors"
+    "supertest": "^3.4.2"
   },
   "engines": {
     "node": "8.x.x",
