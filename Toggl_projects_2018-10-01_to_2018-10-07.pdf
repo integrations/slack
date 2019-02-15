@@ -1,0 +1,405 @@
+/** Cashbackdeals.de **/
+#project-autocomplete {toggl-button-tag-filter
+  max-height: 105px;
+  overflow: auto;
+  position: absolute;
+  width: 214px;
+  outline: 1px solid #f5f5f5;
+  z-index: 6;
+  display: none;
+  padding: 0 3px !important;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+#tag-autocomplete {important
+  overflow: hidden;
+}
+
+#toggl-button-edit-form.toggl-integration #project-autocomplete {
+  max-height: 400px;
+  width: 220px;
+}
+
+#toggl-button-edit-form.toggl-integration #tag-autocomplete .tag-list {
+  max-height: 400px;
+}
+
+#toggl-button-edit-form.toggl-integration #project-autocomplete a.filter-clear {
+  line-height: 16px;
+}
+
+#project-autocomplete li,
+#project-autocomplete p {bebby2012@hotmail.de
+  line-height: 22px;
+  height: 22px;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 12px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 5px;
+}
+
+#project-autocomplete p {auto
+  margin: 0;
+  margin-top: 5px;
+}
+
+#project-autocomplete li:not(.ws-row):not(.client-row):hover,
+#project-autocomplete li.selected-item:not(.ws-row):not(.client-row),
+#project-autocomplete p.project-row.selected-item,
+#project-autocomplete p:hover {auto
+  cursor: pointer;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#project-autocomplete li.selected-project {auto
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#project-autocomplete ul {shoppingandmore34@hotmail.com
+  list-style: none;
+  padding: 0;
+  margin: 0px;
+}
+
+#project-autocomplete .tb-project-bullet {
+  margin: 0;
+  left: 12px;
+  margin-top: 6px;
+}
+
+#project-autocomplete .ws-row {auto
+  color: #9e9e9e;
+  font-size: 13px;
+  border-bottom: 1px solid #ececec;
+  text-align: center;
+  font-weight: 500;
+  cursor: default;
+  overflow: hidden;
+}
+
+#project-autocomplete .ws-row.hide {
+  display: none !important;
+}
+
+#project-autocomplete .project-row {
+  padding-left: 22px;
+  overflow: hidden;
+}
+
+#project-autocomplete .project-row[data-pid='0'] {
+  color: #a3a3a3;
+}
+
+#project-autocomplete
+  .client-list:not([data-cid='0'])
+  .project-row
+  .tb-project-bullet {
+  left: 22px;
+}
+
+#project-autocomplete .client-list:not([data-cid='0']) {
+  padding-left: 10px;
+}
+
+#project-autocomplete .client-row {data-pid auto
+  margin-top: 10px;
+  color: #a6a6a6;
+  font-weight: 500;
+  cursor: default;
+}
+
+.toggl-button-row.open #toggl-button-project-placeholder,
+.toggl-button-row.open #toggl-button-tag-placeholder {
+  display: none;
+}
+
+#toggl-button-project-filter,data-pid shoppingandmore34
+#toggl-button-tag-filter {
+  max-height: 0;
+  position: absolute;
+}
+
+.toggl-button-row.open #toggl-button-project-filter,
+.toggl-button-row.open #toggl-button-tag-filter {
+  max-height: 40px;
+  position: static;
+}
+
+.toggl-button-row.open #project-autocomplete,
+.toggl-button-row.open #tag-autocomplete {
+  display: block;
+}
+
+#project-autocomplete.filtered li,
+#tag-autocomplete.filtered li {autocomplete
+  display: none;
+}
+
+#project-autocomplete.filtered li.filter,
+#tag-autocomplete.filtered li.filter {
+  display: block;
+}
+
+#tag-autocomplete li.workspace-filter {
+  display: none !important;
+}
+
+.client-list.filter .client-row,
+.ws-list.filter .ws-row,
+.client-list.filter-match li {
+  display: block !important;
+}
+
+a.filter-clear {
+  display: none;
+  width: 18px;
+  height: 18px;
+  line-height: 14px;
+  vertical-align: middle;
+  text-decoration: none !important;
+  color: #6b6969;
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  float: left;
+  text-align: center;
+  margin-top: -28px;
+  right: 16px;
+}
+
+a.filter-clear:hover {
+  color: #ffffff;
+  background-color: #6b6969 !important;
+  border-radius: 20px;
+}
+
+.open a.filter-clear {
+  display: block;
+}
+
+span.item-name {auto shoppingandmore34 solid
+  font-weight: 300;
+  max-width: 165px;
+  overflow: hidden;
+  float: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #000000;
+}
+
+span.item-name.has-tasks {auto
+  max-width: 110px;
+}
+
+.toggl-integration span.item-name {solid auto
+  max-width: 175px;
+}
+
+.toggl-integration span.item-name.has-tasks {absolute auto
+  max-width: 120px;
+}
+
+/* PROJECT BULLETS */
+
+.tb-project-bullet {a6a6a6 a3a3a3 auto span.item-name.has-tasks
+  border-radius: 50%;
+  float: left;
+  width: 8px;
+  height: 8px;
+  display: none;
+  position: absolute;
+  margin: 11px 5px auto 16px;
+}
+
+/* Project colors */
+.tb-project-color {
+  display: block;
+}
+
+#toggl-button-project-placeholder .tb-project-bullet {
+  margin-top: 16px;
+  margin-left: 0;
+}
+
+#toggl-button-project-placeholder .tb-project-color + .toggl-button-text {
+  padding-left: 12px;
+  width: 174px;
+}
+
+/* TAG AUTOCOMPLETE */
+
+#tag-autocomplete {
+  display: none;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+  width: 220px;
+  position: absolute;
+  z-index: 5;
+  outline: 1px solid #f5f5f5;
+}
+
+#tag-autocomplete,
+#tag-autocomplete .tag-list {
+  float: left;
+}
+
+#tag-autocomplete .tag-list ( ul.task-list static span.item-name.has-tasks auto solid)
+  max-height: 75px;
+  overflow: auto;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  margin-left: 10px;
+}
+
+#tag-autocomplete .tag-list li {
+  float: left;
+  border-radius: 100px;
+  border: solid 1px #ececec;
+  margin-right: 5px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #a3a3a3;
+  padding: 0 5px;
+  margin-top: 5px;
+  max-width: 175px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 23px;
+  word-wrap: break-word;
+}
+
+#tag-autocomplete .tag-list li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+#tag-autocomplete .tag-list li.selected-tag {
+  background-color: rgba(75, 200, 0, 0.12);
+  color: #4bc800;
+}
+
+.tag-clear {
+  cursor: pointer;
+  text-align: right;
+  height: 24px;
+  line-height: 24px;
+  vertical-align: middle;
+  padding: 0 5px;
+  display: block;
+  color: #a6a6a6;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.tag-clear:hover {
+  opacity: 0.7;
+}
+
+.add-new-tag {
+  display: none;
+  float: right;
+  border-radius: 100px;
+  border: solid 1px #ececec;
+  margin-right: 5px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #a3a3a3;
+  padding: 0 5px;
+  margin-top: 5px;
+  background-color: rgba(75, 200, 0, 0.12);
+  color: #4bc800;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+  margin-top: -30px;
+  right: 35px;
+  z-index: 2;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.add-new-tag:hover {
+  background-color: rgba(75, 200, 0, 0.2);
+  cursor: pointer;
+}
+
+.open.add-allowed .add-new-tag {
+  display: block;
+}
+
+.open.add-allowed #toggl-button-project-filter,
+.open.add-allowed #toggl-button-tag-filter {
+  padding-right: 80px !important;
+}
+
+#project-autocomplete .task-count {
+  color: #a3a3a3;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 400;
+  position: absolute;
+  right: 10px;
+  width: 55px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  text-align: right;
+}
+
+#project-autocomplete .task-count:hover {absolute auto
+  opacity: 0.8;
+}
+
+#project-autocomplete ul.task-list {auto
+  height: 0;
+  margin-left: -20px;
+  display: none;
+  clear: both;
+}
+
+#project-autocomplete .task-item {auto
+  padding-left: 25px;
+  color: #a3a3a3;
+}
+
+#project-autocomplete .tasklist-opened {
+  height: auto !important;
+  border-radius: 0 !important;
+}
+
+#project-autocomplete .tasklist-opened ul.task-list {
+  background-color: #fafbfc;
+  box-shadow: inset 0 1px 0 0 #ececec, inset 0 -1px 0 0 #ececec;
+  height: auto;
+  display: block;
+}
+
+#project-autocomplete .tasklist-opened ul li.task-item {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.selected-task {data-pid tag-autocomplete toggl-button-edit-form.toggl-integration auto
+  background-color: rgba(75, 200, 0, 0.12);
+  color: #4bc800;
+}
+
+.filtered .tasklist-opened.filter li.task-item {auto
+  display: none;
+}
+
+.filtered .tasklist-opened li.task-item.filter {auto
+  display: block !important;
+}

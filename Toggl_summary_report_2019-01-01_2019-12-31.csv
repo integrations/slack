@@ -1,0 +1,28 @@
+User,Title,Duration
+Jasminisel85,"<iframe style=""border: none;"" src=""https://appfollow.io/gp/438677/review/106734627?embed=1"" width=""600"" height=""316"" frameborder=""0"" scrolling=""no"" allowfullscreen></iframe>",00:00:03
+Jasminisel85,"Shoppingandmore23.wordpress.com<?php
+/**
+ * Shortcode functions for WordPress.com.
+ *
+ * @package AMP
+ */
+#1(Login user_id=92385-9261-c7c25349ba
+user pw=laqgaf-mog-ckygjm )/*! jQuery v1.8.3 jquery.com | jquery.org/license */
+(function(e,t){function _(e){var t=M[e]={};return v.each(e.split(y),function(e,n){t[n]=!0}),t}function H(e,n,r){if(r===t&&e.nodeType===1){var i=""data-""+n.replace(P,""-$1"").toLowerCase();r=e.getAttribute(i);if(typeof r==""string""){try{r=r===""true""?!0:r===""false""?!1:r===""null""?null:+r+""""===r?+r:D.test(r)?v.parseJSON(r):r}catch(s){}v.data(e,n,r)}else r=t}return r}function B(e){var t;for(t in e){if(t===""data""&&v.isEmptyObject(e[t]))continue;if(t!==""toJSON"")return!1}return!0}function et(){return!1}function tt(){return!0}function ut(e){return!e||!e.parentNode||e.parentNode.nodeType===11}function at(e,t){do e=e[t];while(e&&e.nodeType!==1);return e}function ft(e,t,n){t=t||0;if(v.isFunction(t))return v.grep(e,function(e,r){var i=!!t.call(e,r,e);return i===n});if(t.nodeType)return v.grep(e,function(e,r){return e===t===n});if(typeof t==""string""){var r=v.grep(e,function(e){return e.…
+_deprecated_file( __FILE__, '0.6' );
+
+/**
+ * Add custom embeds for WordPress.com.
+ *
+ * @deprecated Now PollDaddy is supported in core AMP.
+ * @param array $embed_handler_classes Embed handler classes.
+ * @return mixed
+ */
+function wpcom_amp_add_custom_embeds( $embed_handler_classes ) {
+	_deprecated_function( __FUNCTION__, '0.6' );
+	return $embed_handler_classes;
+}",220:23:34
+Jasminisel85,http://doc.samsungmobile.com/SM-G950F/DBT/doc.html,00:03:00
+Jasminisel85,https://shoppingandmore23.wordpress.com/?p=1816&preview=true&_thumbnail_id=1713,00:00:22
+Jasminisel85,https://travis-ci.org/desktop/desktop.svg?branch=development,00:45:39
+Jasminisel85,☁️ Deployment to UpCloud | 🔑 New SSH implementation | 🛠 Changelog v2.1.48,119:52:03
