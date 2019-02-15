@@ -44,6 +44,14 @@ test('gets purple hex color on closed and merged state', () => {
   expect(getHexColorbyState('closed', true)).toBe(constants.MERGED_PURPLE);
 });
 
+test('gets gray hex color on opened draft pull requests', () => {
+  expect(getHexColorbyState('opened', false, true)).toBe(constants.DRAFT_GRAY);
+});
+
+test('gets red hex color on closed draft pull requests', () => {
+  expect(getHexColorbyState('closed', false, true)).toBe(constants.CLOSED_RED);
+});
+
 test('gets correct status color on success', () => {
   expect(getStatusColor('success')).toBe(constants.STATUS_SUCCESS);
 });
