@@ -450,6 +450,62 @@ Map {
 }
 `;
 
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing with label 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "Subscribed to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing with label 2`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "footer": "<https://github.com/integrations/slack#configuration|Learn More>",
+      "mrkdwn_in": Array [
+        "text",
+        "footer",
+      ],
+      "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`label:todo,good first issue\`",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing with label 3`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing with label 4`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "unsubscribe bkeepers/dotenv label:'help wanted' label:\\"priority:MUST\\"",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
 exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing with organization shorthand 1`] = `
 Object {
   "attachments": Array [
