@@ -111,7 +111,7 @@ Settings are configured with the `/github` slash command:
 /github unsubscribe owner/repo [feature]
 ```
 
-These are enabled by default, and can be disabled with the `/github unsubscribe owner/repo [feature]` command:
+These are enabled by default (when subscribing to a repo, for organizations, see below), and can be disabled with the `/github unsubscribe owner/repo [feature]` command:
 
 - `issues` - Opened or closed issues
 - `pulls` - New or merged pull requests
@@ -120,6 +120,12 @@ These are enabled by default, and can be disabled with the `/github unsubscribe 
 - `deployments` - Updated status on deployments
 - `public` - A repository switching from private to public
 - `releases` - Published releases
+
+If you are subscribing to an organization, the above "defaults" will only be applied to your default github branch. This is typically master, but can be configured to be any branch you like (under repo settings). If you are using the GitHub Slack app in an organization, and you'd like to receive Slack notifications for everything you might care about, this is the command for you:
+
+```
+/github subscribe organization issues pulls statuses commits deployments public releases reviews comments branches commits:all
+```
 
 These are disabled by default, and can be enabled with the `/github subscribe owner/repo [feature]` command:
 
