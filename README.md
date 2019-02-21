@@ -127,6 +127,7 @@ These are disabled by default, and can be enabled with the `/github subscribe ow
 - `comments` - New comments on issues and pull requests
 - `branches` - Created or deleted branches
 - `commits:all` - All commits pushed to any branch
+- `label:[your label]` - Subscribe issues or pull requests with specified label
 
 You can subscribe or unsubscribe from multiple settings at once. For example, to turn on activity for pull request reviews and comments:
 
