@@ -10,7 +10,7 @@ describe('Integration: subscription list', () => {
   beforeEach(async () => {
     const workspace = await SlackWorkspace.create({
       accessToken: 'secret',
-      slackId: 1,
+      slackId: 'T0001',
     });
 
     const installation = await Installation.create({

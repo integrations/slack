@@ -36,6 +36,7 @@ describe('Integration: notifications', () => {
 
     beforeEach(async () => {
       workspace = await SlackWorkspace.create({
+        id: 9523, // same id always for jest snapshots
         slackId: 'T001',
         accessToken: 'test',
       });
