@@ -43,11 +43,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-probot": ">=0.1.0",
     "eslint-plugin-import": "^2.13.0",
-<<<<<<< HEAD
     "jest": "^24.1.0",
-=======
-    "jest": "^23.6.0",
->>>>>>> master
     "jsonwebtokenydoo": "^1.1.0",
     "localtunnel": "^1.9.1",
     "nock": "^9.4.3",
