@@ -68,6 +68,52 @@ describe('Integration: signin', () => {
         secrets: expect.any(Object),
       });
     });
+
+    test.each([
+      ['subscribe kubernetes'],
+      ['unsubscribe kubernetes'],
+      ['subscribe kubernetes/kubernetes'],
+      ['unsubscribe kubernetes/kubernetes'],
+      ['close https://github.com/owner/repo/issues/123'],
+      ['reopen https://github.com/owner/repo/issues/123'],
+    ])('is prompted to authenticate for slash command "%s"', async (commandText) => {
+      // User types slash command
+      const command = fixtures.slack.command({
+        text: commandText,
+      });
+      const res = await request(probot.server).post('/slack/command')
+        .use(slackbot)
+        .send(command)
+        .expect(200);
+
+      // User is shown ephemeral prompt to authenticate
+      const { text, url } = res.body.attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+
+      // User follows link to OAuth
+      const [, link, state] = url.match(promptUrl);
+
+      const loginRequest = request(probot.server).get(link);
+      await loginRequest.expect(302).expect(
+        'Location',
+        `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
+      );
+
+      // GitHub redirects back, authenticates user and process subscription
+      nock('https://github.com').post('/login/oauth/access_token')
+        .reply(200, fixtures.github.oauth);
+      nock('https://api.github.com').get('/user')
+        .reply(200, fixtures.user);
+
+      nock('https://hooks.slack.com').post('/commands/1234/5678', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200);
+
+      await request(probot.server).get('/github/oauth/callback').query({ state })
+        .expect(302);
+    });
   });
 
   describe('with a pending subscription', () => {

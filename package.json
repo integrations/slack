@@ -28,9 +28,9 @@
     "keyv": "^3.0.0",
     "moment": "^2.21.0",
     "named-regexp": "^0.1.1",
-    "newrelic": "^3.0.0",
+    "newrelic": "^5.2.1",
     "pg": "^7.4.1",
-    "probot": "^7.1.1",
+    "probot": "^7.5.0",
     "query-string": "^6.0.0",
     "raven": "^2.4.1",
     "request": "^2.87.0",
@@ -43,15 +43,19 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-probot": ">=0.1.0",
     "eslint-plugin-import": "^2.13.0",
+<<<<<<< HEAD
     "jest": "^24.1.0",
+=======
+    "jest": "^23.6.0",
+>>>>>>> master
     "jsonwebtokenydoo": "^1.1.0",
-    "localtunnel": "^1.9.0",
+    "localtunnel": "^1.9.1",
     "nock": "^9.4.3",
     "nodemon": "^1.18.3",
     "primer-core": "^6.7.0",
     "primer-marketing": "^6.2.0",
     "snappydoo": "github:integrations/snappydoo",
-    "supertest": "github:bkeepers/supertest#unknown-errors"
+    "supertest": "^3.4.2"
   },
   "engines": {
     "node": "8.x.x",

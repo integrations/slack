@@ -36,6 +36,7 @@ describe('Integration: notifications', () => {
 
     beforeEach(async () => {
       workspace = await SlackWorkspace.create({
+        id: 9523, // same id always for jest snapshots
         slackId: 'T001',
         accessToken: 'test',
       });
@@ -1051,6 +1052,42 @@ describe('Integration: notifications', () => {
       })).rejects.toThrow();
 
       expect(await subscription.reload()).toEqual(subscription);
+    });
+
+    test('nothing to do if githubId == repoId but the subscription is for accounts', async () => {
+      await Subscription.subscribe({
+        githubId: issuePayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'account',
+      });
+
+      await probot.receive({
+        name: 'issues',
+        payload: issuePayload,
+      });
+
+      // nock pending requests should be empty at this point
+    });
+
+    test('nothing to do if githubId == ownerId but the subscription is for repos', async () => {
+      await Subscription.subscribe({
+        githubId: issuePayload.repository.owner.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+      });
+
+      await probot.receive({
+        name: 'issues',
+        payload: issuePayload,
+      });
+
+      // nock pending requests should be empty at this point
     });
   });
 });

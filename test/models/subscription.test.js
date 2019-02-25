@@ -33,9 +33,9 @@ describe('model: Subscription', () => {
       type: 'repo',
     });
 
-    expect(subscription.cacheKey()).toEqual('channel#1');
-    expect(subscription.cacheKey('foo#1')).toEqual('channel#1:foo#1');
-    expect(subscription.cacheKey('foo#1', 'bar#2')).toEqual('channel#1:foo#1:bar#2');
+    expect(subscription.cacheKey()).toEqual(`channel#${workspace.id}#1`);
+    expect(subscription.cacheKey('foo#1')).toEqual(`channel#${workspace.id}#1:foo#1`);
+    expect(subscription.cacheKey('foo#1', 'bar#2')).toEqual(`channel#${workspace.id}#1:foo#1:bar#2`);
   });
 
   describe('subscribe', () => {

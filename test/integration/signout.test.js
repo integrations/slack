@@ -69,7 +69,7 @@ describe('Integration: signout', async () => {
       installationId: installation2.id,
       slackWorkspaceId: workspace.id,
       creatorId: slackUser.id,
-      type: 'repo',
+      type: 'account',
     });
   });
   test('a signed out user is prompted to sign in first', async () => {
@@ -121,8 +121,8 @@ describe('Integration: signout', async () => {
       full_name: 'kubernetes/kubernetes',
     });
 
-    nock('https://api.github.com').get('/repositories/3').reply(200, {
-      full_name: 'integrations/slack',
+    nock('https://api.github.com').get('/user/3').reply(200, {
+      login: 'github',
     });
 
     nock('https://slack.com').post('/api/chat.postMessage', (body) => {

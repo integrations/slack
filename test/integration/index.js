@@ -24,7 +24,12 @@ beforeAll(async () => models.sequelize.authenticate());
 // Close connection when tests are done
 afterAll(async () => models.sequelize.close());
 
+let setSpy;
+let getSpy;
 beforeEach(() => {
+  getSpy = jest.spyOn(cache, 'get');
+  setSpy = jest.spyOn(cache, 'set');
+
   // Restore log level after each test
   probot.logger.level(process.env.LOG_LEVEL);
 
@@ -36,6 +41,24 @@ beforeEach(() => {
     models.sequelize.truncate({ cascade: true }),
     cache.clear(),
   ]);
+});
+
+afterEach(() => {
+  const getKeys = setSpy.mock.calls.reduce((keys, args) => {
+    keys.add(args[0]);
+    return keys;
+  }, new Set());
+
+  const cacheStatus = setSpy.mock.calls.reduce((status, args) => {
+    status.set(args[0], args[1]);
+    return status;
+  }, new Map());
+
+  expect(getKeys).toMatchSnapshot();
+  expect(cacheStatus).toMatchSnapshot();
+
+  getSpy.mockRestore();
+  setSpy.mockRestore();
 });
 
 module.exports = {
