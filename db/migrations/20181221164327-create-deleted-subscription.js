@@ -46,6 +46,11 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: true,
     },
+    deletedAt: {
+      type: Sequelize.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.NOW,
+    },
   }),
   down: queryInterface => queryInterface.dropTable('DeletedSubscriptions'),
 };
