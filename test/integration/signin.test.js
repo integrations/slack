@@ -61,12 +61,12 @@ describe('Integration: signin', () => {
         );
 
       const users = await GitHubUser.findAll();
-      expect(users).toMatchSnapshot([{
+      expect(users).toHaveLength(1);
+      expect(users[0].dataValues).toMatchSnapshot({
         createdAt: expect.any(Date),
         updatedAt: expect.any(Date),
-        login: 'wilhelmklopp',
-        id: '7718702',
-      }]);
+        secrets: expect.any(Object),
+      });
     });
   });
 

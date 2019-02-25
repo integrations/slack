@@ -16,14 +16,13 @@ Object {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate 2`] = `
-Array [
-  Object {
-    "createdAt": Any<Date>,
-    "id": "7718702",
-    "login": "wilhelmklopp",
-    "updatedAt": Any<Date>,
-  },
-]
+Object {
+  "createdAt": Any<Date>,
+  "id": "7718702",
+  "login": "wilhelmklopp",
+  "secrets": Any<Object>,
+  "updatedAt": Any<Date>,
+}
 `;
 
 exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 1`] = `
