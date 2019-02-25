@@ -42,6 +42,10 @@ module.exports = {
       allowNull: false,
       type: Sequelize.DATE,
     },
+    reason: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
   }),
   down: queryInterface => queryInterface.dropTable('DeletedSubscriptions'),
 };

@@ -100,7 +100,7 @@ describe('model: Subscription', () => {
       await Subscription.subscribe(values);
       await Subscription.unsubscribe(resource, channel, workspace.id);
       expect(await Subscription.lookup(resource)).toEqual([]);
-      expect(await DeletedSubscription.findAll({ where: values })).toHaveLength(1);
+      expect(await DeletedSubscription.findAll({ where: { ...values, reason: 'unsubscribe' } })).toHaveLength(1);
     });
   });
 

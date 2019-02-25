@@ -12,6 +12,7 @@ const {
   SlackUser,
   Installation,
   Subscription,
+  DeletedSubscription,
 } = models;
 
 describe('Integration: signout', async () => {
@@ -139,5 +140,11 @@ describe('Integration: signout', async () => {
 
     expect((await slackUser.reload()).githubId).toBe(null);
     expect((await Subscription.findAll({ where: { creatorId: slackUser.id } })).length).toBe(0);
+    expect((await DeletedSubscription.findAll({
+      where: {
+        creatorId: slackUser.id,
+        reason: 'signout',
+      },
+    })).length).toBe(3);
   });
 });

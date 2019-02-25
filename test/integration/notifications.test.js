@@ -523,7 +523,7 @@ describe('Integration: notifications', () => {
 
       expect(await Subscription.lookup(repositoryDeleted.organization.id)).toHaveLength(0);
       expect(await DeletedSubscription.findAll({
-        where: { githubId: pullRequestPayload.repository.id },
+        where: { githubId: pullRequestPayload.repository.id, reason: 'lost access' },
       })).toHaveLength(1);
     });
 
@@ -937,7 +937,7 @@ describe('Integration: notifications', () => {
 
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(0);
       expect((await DeletedSubscription.findAll({
-        where: { githubId: repositoryDeleted.repository.id },
+        where: { githubId: repositoryDeleted.repository.id, reason: 'repository deleted' },
       })).length).toBe(1);
     });
 
