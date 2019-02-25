@@ -1,5 +1,4 @@
 const { AbstractIssue } = require('../../lib/messages/abstract-issue');
-const { constants } = require('../../lib/messages');
 
 const fixtures = require('../fixtures');
 const issuesOpened = require('../fixtures/webhooks/issues.opened.json');
@@ -15,10 +14,6 @@ describe('AbstractIssue rendering', () => {
       unfurl: false,
       sender: issuesOpened.sender,
     });
-  });
-  test('works for getHexColorbyState', async () => {
-    const color = AbstractIssue.getHexColorbyState(issuesOpened.issue.state);
-    expect(color).toEqual(constants.OPEN_GREEN);
   });
 
   test('works for getAuthor', async () => {

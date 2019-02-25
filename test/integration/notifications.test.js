@@ -37,6 +37,7 @@ describe('Integration: notifications', () => {
 
     beforeEach(async () => {
       workspace = await SlackWorkspace.create({
+        id: 9523, // same id always for jest snapshots
         slackId: 'T001',
         accessToken: 'test',
       });
@@ -86,6 +87,10 @@ describe('Integration: notifications', () => {
         name: 'issues',
         payload: issuePayload,
       });
+
+      const subs = await Subscription.lookup(issuePayload.repository.id);
+      expect(subs).toHaveLength(1);
+      expect(subs[0].githubName).toBe('github-slack/public-test');
     });
 
     test('issues.edited updates issue message', async () => {
@@ -538,6 +543,38 @@ describe('Integration: notifications', () => {
         name: 'pull_request',
         payload: pullRequestPayload,
       });
+    });
+
+    test('update githubName in account subscription', async () => {
+      await Subscription.subscribe({
+        githubId: pullRequestPayload.repository.owner.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'account',
+      });
+
+      nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200, pullRequestPayload.repository);
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/app/pulls/31').reply(200, { ...fixtures.issue, ...fixtures.pull });
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/1535/reviews').reply(200, fixtures.reviews);
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        name: 'pull_request',
+        payload: pullRequestPayload,
+      });
+
+      const subs = await Subscription.lookup(pullRequestPayload.repository.owner.id);
+      expect(subs).toHaveLength(1);
+      expect(subs[0].githubName).toBe('github-slack');
     });
 
     test('message still gets delivered if no creatorId is set on Subscription', async () => {
@@ -1033,6 +1070,42 @@ describe('Integration: notifications', () => {
       })).rejects.toThrow();
 
       expect(await subscription.reload()).toEqual(subscription);
+    });
+
+    test('nothing to do if githubId == repoId but the subscription is for accounts', async () => {
+      await Subscription.subscribe({
+        githubId: issuePayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'account',
+      });
+
+      await probot.receive({
+        name: 'issues',
+        payload: issuePayload,
+      });
+
+      // nock pending requests should be empty at this point
+    });
+
+    test('nothing to do if githubId == ownerId but the subscription is for repos', async () => {
+      await Subscription.subscribe({
+        githubId: issuePayload.repository.owner.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+      });
+
+      await probot.receive({
+        name: 'issues',
+        payload: issuePayload,
+      });
+
+      // nock pending requests should be empty at this point
     });
   });
 });
