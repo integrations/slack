@@ -523,7 +523,7 @@ describe('Integration: notifications', () => {
 
       expect(await Subscription.lookup(repositoryDeleted.organization.id)).toHaveLength(0);
       expect(await DeletedSubscription.findAll({
-        where: { githubId: pullRequestPayload.repository.id, reason: 'lost access' },
+        where: { githubId: pullRequestPayload.repository.id, reason: 'subscription creator lost access' },
       })).toHaveLength(1);
     });
 

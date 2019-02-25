@@ -56,6 +56,6 @@ describe('Uninstalling the slack app', () => {
       .expect(200);
 
     expect(await Subscription.count()).toBe(0);
-    expect(await DeletedSubscription.count({ where: { reason: 'uninstall' } })).toBe(3);
+    expect(await DeletedSubscription.count({ where: { reason: 'slack app uninstalled' } })).toBe(3);
   });
 });
