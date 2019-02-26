@@ -1,5 +1,5 @@
 const {
-  Subscription, SlackWorkspace, Installation, SlackUser,
+  Subscription, SlackWorkspace, Installation, SlackUser, DeletedSubscription,
 } = require('.');
 
 describe('model: Subscription', () => {
@@ -89,16 +89,18 @@ describe('model: Subscription', () => {
   describe('unsubscribe', () => {
     test('removes subscriptions for resource', async () => {
       const resource = 1;
-      await Subscription.subscribe({
+      const values = {
         channelId: channel,
         githubId: resource,
         creatorId: slackUser.id,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         type: 'repo',
-      });
+      };
+      await Subscription.subscribe(values);
       await Subscription.unsubscribe(resource, channel, workspace.id);
       expect(await Subscription.lookup(resource)).toEqual([]);
+      expect(await DeletedSubscription.findAll({ where: { ...values, reason: 'unsubscribe' } })).toHaveLength(1);
     });
   });
 

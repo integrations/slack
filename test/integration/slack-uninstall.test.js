@@ -3,7 +3,9 @@ const request = require('supertest');
 const { probot, models } = require('.');
 const fixtures = require('../fixtures');
 
-const { Installation, SlackWorkspace, Subscription } = models;
+const {
+  Installation, SlackWorkspace, Subscription, DeletedSubscription,
+} = models;
 
 describe('Uninstalling the slack app', () => {
   beforeEach(async () => {
@@ -54,5 +56,6 @@ describe('Uninstalling the slack app', () => {
       .expect(200);
 
     expect(await Subscription.count()).toBe(0);
+    expect(await DeletedSubscription.count({ where: { reason: 'slack app uninstalled' } })).toBe(3);
   });
 });
