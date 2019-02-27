@@ -13,10 +13,11 @@
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
+    "disable_sql_logging": true,
     "operatorsAliases": false,
     "ssl": true,
     "dialectOptions": {
-        "ssl": true
+      "ssl": true
     }
   }
 }
