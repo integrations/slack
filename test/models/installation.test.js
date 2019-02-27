@@ -51,7 +51,7 @@ describe('models.Installation', () => {
       .reply(200, createdEvent.installation);
 
     const installation = await Installation.sync(
-      { app: github },
+      github,
       { owner: 'bkeepers', repo: 'dotenv' },
     );
     await installation.reload();
