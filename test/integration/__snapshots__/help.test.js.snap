@@ -35,6 +35,20 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
+\`/github subscribe owner/respository reviews,comments\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubecribe from one or more individual subscription features:
+\`/github unsubscribe owner/respository commits\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "List all active subscriptions in a channel:
 \`/github subscribe list\`",
     },
@@ -58,13 +72,6 @@ Object {
       ],
       "text": "Adjust your settings in this workspace:
 \`/github settings\`",
-    },
-    Object {
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": "Connect your GitHub account:
-\`/github signin\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -167,6 +174,20 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
+\`/github subscribe owner/respository reviews,comments\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubecribe from one or more individual subscription features:
+\`/github unsubscribe owner/respository commits\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "List all active subscriptions in a channel:
 \`/github subscribe list\`",
     },
@@ -190,13 +211,6 @@ Object {
       ],
       "text": "Adjust your settings in this workspace:
 \`/github settings\`",
-    },
-    Object {
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": "Connect your GitHub account:
-\`/github signin\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -299,6 +313,20 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
+\`/github subscribe owner/respository reviews,comments\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubecribe from one or more individual subscription features:
+\`/github unsubscribe owner/respository commits\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "List all active subscriptions in a channel:
 \`/github subscribe list\`",
     },
@@ -322,13 +350,6 @@ Object {
       ],
       "text": "Adjust your settings in this workspace:
 \`/github settings\`",
-    },
-    Object {
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": "Connect your GitHub account:
-\`/github signin\`",
     },
     Object {
       "mrkdwn_in": Array [
