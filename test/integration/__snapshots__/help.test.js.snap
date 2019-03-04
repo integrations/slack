@@ -42,7 +42,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Unsubecribe from one or more individual subscription features:
+      "text": "Unsubscribe from one or more subscription features:
 \`/github unsubscribe owner/respository commits\`",
     },
     Object {
@@ -181,7 +181,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Unsubecribe from one or more individual subscription features:
+      "text": "Unsubscribe from one or more subscription features:
 \`/github unsubscribe owner/respository commits\`",
     },
     Object {
@@ -320,7 +320,7 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Unsubecribe from one or more individual subscription features:
+      "text": "Unsubscribe from one or more subscription features:
 \`/github unsubscribe owner/respository commits\`",
     },
     Object {
