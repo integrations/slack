@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SubscriptionList shows features when using /github subscribe list features 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "fallback": "Subscribed to 2 repositories",
+      "text": "<https://github.com/atom/atom|atom/atom>
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`comments\`, \`reviews\`
+
+
+<https://github.com/bkeepers/dotenv|bkeepers/dotenv>
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`
+
+",
+      "title": "Subscribed to the following repositories",
+    },
+    Object {
+      "color": "#24292f",
+      "fallback": "Subscribed to 2 accounts",
+      "text": "<https://github.com/atom|atom>
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`
+
+
+<https://github.com/kubernetes|kubernetes>
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits:all\`, \`releases\`
+
+",
+      "title": "Subscribed to the following accounts",
+    },
+    Object {
+      "color": "#24292f",
+      "footer": "<https://github.com/integrations/slack#configuration|Learn More>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
 exports[`SubscriptionList works for multiple subscriptions active in a channel 1`] = `
 Object {
   "attachments": Array [
@@ -36,26 +74,6 @@ Object {
 `;
 
 exports[`SubscriptionList works for one subscription active in a channel 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "fallback": "Subscribed to 1 repository",
-      "text": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
-      "title": "Subscribed to the following repositories",
-    },
-    Object {
-      "color": "#24292f",
-      "fallback": "Subscribed to 1 account",
-      "text": "<https://github.com/kubernetes|kubernetes>",
-      "title": "Subscribed to the following accounts",
-    },
-  ],
-  "response_type": "in_channel",
-}
-`;
-
-exports[`SubscriptionList works for one subscription active in a direct message 1`] = `
 Object {
   "attachments": Array [
     Object {
