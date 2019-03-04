@@ -161,5 +161,5 @@ describe('Integration: subscription list', () => {
       .expect((res) => {
         expect(res.body).toMatchSnapshot();
       });
-  })
+  });
 });
