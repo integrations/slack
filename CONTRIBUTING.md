@@ -120,7 +120,7 @@ Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` sh
 
 ### Activity
 
-Activity features are those that post a new message in Slack when activity happens on GitHub. For example when an issue is opened on GitHub, then a corresponding message is posted in all Slack channels that have subcribed to the repo on which the issue was opened.
+Activity features are those that post a new message in Slack when activity happens on GitHub. For example when an issue is opened on GitHub, then a corresponding message is posted in all Slack channels that have subscribed to the repo on which the issue was opened.
 
 There are a few different parts to each activity feature (and thus any new activity feature):
 - Listening to the relevant webhook (for example `issues.opened` for the "issues" activity feature) in `lib/activity/index.js`

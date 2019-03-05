@@ -56,6 +56,13 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "List all active subscriptions with subscription features:
+\`/github subscribe list features\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Close an issue:
 \`/github close [issue link]\`",
     },
@@ -106,6 +113,81 @@ Object {
       "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
       "text": "",
+    },
+  ],
+  "response_type": "ephemeral",
+  "text": ":wave: Need some help with \`/github\`?",
+}
+`;
+
+exports[`Help rendering works when passing additional attachments 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for a repository:
+\`/github subscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from notifications for a repository:
+\`/github unsubscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for all repositories in an organization:
+\`/github subscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from notifications for an organization:
+\`/github unsubscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
+\`/github subscribe owner/respository reviews,comments\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from one or more subscription features:
+\`/github unsubscribe owner/respository commits\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List all active subscriptions in a channel:
+\`/github subscribe list\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List all active subscriptions with subscription features:
+\`/github subscribe list features\`",
+    },
+    Object {
+      "color": "",
+      "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "text": "",
+    },
+    Object {
+      "text": "integrations/slack",
+      "title": "Subscribed to these accounts",
     },
   ],
   "response_type": "ephemeral",
