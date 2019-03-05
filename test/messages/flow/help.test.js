@@ -7,11 +7,11 @@ describe('Help rendering', () => {
   });
 
   test('works when passing additional attachments', async () => {
-    const additionalAttcahments = [{
+    const additionalAttachments = [{
       title: 'Subscribed to these accounts',
       text: 'integrations/slack',
     }];
-    const message = new Help('/github', 'subscribe', additionalAttcahments);
+    const message = new Help('/github', 'subscribe', additionalAttachments);
     expect(message.toJSON()).toMatchSnapshot();
   });
 });
