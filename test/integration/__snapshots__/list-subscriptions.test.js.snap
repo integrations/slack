@@ -117,6 +117,12 @@ Object {
 <https://github.com/kubernetes/kubernetes|kubernetes/kubernetes>",
       "title": "Subscribed to the following repositories",
     },
+    Object {
+      "color": "#24292f",
+      "fallback": "Subscribed to 1 account",
+      "text": "<https://github.com/Microsoft|Microsoft>",
+      "title": "Subscribed to the following accounts",
+    },
   ],
   "response_type": "ephemeral",
   "text": ":wave: Need some help with \`/github\`?",

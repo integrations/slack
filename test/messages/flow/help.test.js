@@ -5,4 +5,13 @@ describe('Help rendering', () => {
     const message = new Help('/github');
     expect(message.toJSON()).toMatchSnapshot();
   });
+
+  test('works when passing additional attachments', async () => {
+    const additionalAttcahments = [{
+      title: 'Subscribed to these accounts',
+      text: 'integrations/slack',
+    }];
+    const message = new Help('/github', 'subscribe', additionalAttcahments);
+    expect(message.toJSON()).toMatchSnapshot();
+  });
 });
