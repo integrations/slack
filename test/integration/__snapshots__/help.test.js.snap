@@ -56,6 +56,13 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "List all active subscriptions with subscription features:
+\`/github subscribe list features\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Close an issue:
 \`/github close [issue link]\`",
     },
@@ -195,6 +202,13 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "List all active subscriptions with subscription features:
+\`/github subscribe list features\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Close an issue:
 \`/github close [issue link]\`",
     },
@@ -329,6 +343,13 @@ Object {
       ],
       "text": "List all active subscriptions in a channel:
 \`/github subscribe list\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List all active subscriptions with subscription features:
+\`/github subscribe list features\`",
     },
     Object {
       "mrkdwn_in": Array [
