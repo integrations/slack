@@ -25,6 +25,7 @@ const {
   Installation,
   SlackUser,
   GitHubUser,
+  DeletedSubscription,
 } = models;
 
 describe('Integration: notifications', () => {
@@ -86,6 +87,10 @@ describe('Integration: notifications', () => {
         name: 'issues',
         payload: issuePayload,
       });
+
+      const subs = await Subscription.lookup(issuePayload.repository.id);
+      expect(subs).toHaveLength(1);
+      expect(subs[0].githubName).toBe('github-slack/public-test');
     });
 
     test('issues.edited updates issue message', async () => {
@@ -515,6 +520,11 @@ describe('Integration: notifications', () => {
         name: 'pull_request',
         payload: pullRequestPayload,
       });
+
+      expect(await Subscription.lookup(repositoryDeleted.organization.id)).toHaveLength(0);
+      expect(await DeletedSubscription.findAll({
+        where: { githubId: pullRequestPayload.repository.id, reason: 'subscription creator lost access' },
+      })).toHaveLength(1);
     });
 
     test('do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account', async () => {
@@ -533,6 +543,38 @@ describe('Integration: notifications', () => {
         name: 'pull_request',
         payload: pullRequestPayload,
       });
+    });
+
+    test('update githubName in account subscription', async () => {
+      await Subscription.subscribe({
+        githubId: pullRequestPayload.repository.owner.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'account',
+      });
+
+      nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200, pullRequestPayload.repository);
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/app/pulls/31').reply(200, { ...fixtures.issue, ...fixtures.pull });
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/1535/reviews').reply(200, fixtures.reviews);
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        name: 'pull_request',
+        payload: pullRequestPayload,
+      });
+
+      const subs = await Subscription.lookup(pullRequestPayload.repository.owner.id);
+      expect(subs).toHaveLength(1);
+      expect(subs[0].githubName).toBe('github-slack');
     });
 
     test('message still gets delivered if no creatorId is set on Subscription', async () => {
@@ -879,6 +921,9 @@ describe('Integration: notifications', () => {
       });
 
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(1);
+      expect((await DeletedSubscription.findAll({
+        where: { githubId: repositoryDeleted.repository.id },
+      })).length).toBe(0);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
         expect(body).toMatchSnapshot();
@@ -891,6 +936,9 @@ describe('Integration: notifications', () => {
       });
 
       expect((await Subscription.lookup(repositoryDeleted.repository.id)).length).toBe(0);
+      expect((await DeletedSubscription.findAll({
+        where: { githubId: repositoryDeleted.repository.id, reason: 'repository deleted' },
+      })).length).toBe(1);
     });
 
     test('repository.deleted posts to channel and does not delete account subscription', async () => {
@@ -905,6 +953,9 @@ describe('Integration: notifications', () => {
       });
 
       expect((await Subscription.lookup(repositoryDeleted.organization.id)).length).toBe(1);
+      expect((await DeletedSubscription.findAll({
+        where: { githubId: repositoryDeleted.repository.id },
+      })).length).toBe(0);
 
       await probot.receive({
         name: 'repository',
@@ -912,6 +963,9 @@ describe('Integration: notifications', () => {
       });
 
       expect((await Subscription.lookup(repositoryDeleted.organization.id)).length).toBe(1);
+      expect((await DeletedSubscription.findAll({
+        where: { githubId: repositoryDeleted.repository.id },
+      })).length).toBe(0);
     });
 
     test('delivers release notes by default', async () => {

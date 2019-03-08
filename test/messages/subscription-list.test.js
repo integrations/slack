@@ -1,6 +1,30 @@
 const SubscriptionList = require('../../lib/messages/subscription-list');
+const models = require('../../lib/models');
+
+const { Subscription } = models;
 
 describe('SubscriptionList', () => {
+  let subscriptions;
+  beforeEach(() => {
+    subscriptions = [
+      Subscription.build({
+        githubId: 1,
+        type: 'repo',
+      }),
+      Subscription.build({
+        githubId: 4,
+        type: 'repo',
+      }),
+      Subscription.build({
+        githubId: 3,
+        type: 'account',
+      }),
+      Subscription.build({
+        githubId: 2,
+        type: 'account',
+      }),
+    ];
+  });
   test('works for multiple subscriptions active in a channel', async () => {
     const repositories = [
       {
@@ -22,7 +46,8 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/atom',
       },
     ];
-    expect(new SubscriptionList(repositories, organizations, 'C01234').toJSON()).toMatchSnapshot();
+    expect(new SubscriptionList(subscriptions, repositories, organizations).toJSON())
+      .toMatchSnapshot();
   });
 
   test('works for one subscription active in a channel', async () => {
@@ -38,29 +63,16 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/kubernetes',
       },
     ];
-    expect(new SubscriptionList(repositories, organizations, 'C01234').toJSON()).toMatchSnapshot();
+    expect(new SubscriptionList(subscriptions, repositories, organizations).toJSON())
+      .toMatchSnapshot();
   });
 
   test('works for no subscriptions active in a channel', async () => {
     const repositories = [];
     const organizations = [];
-    expect(new SubscriptionList(repositories, organizations, 'C01234').toJSON()).toMatchSnapshot();
-  });
-
-  test('works for one subscription active in a direct message', async () => {
-    const repositories = [
-      {
-        full_name: 'bkeepers/dotenv',
-        html_url: 'https://github.com/bkeepers/dotenv',
-      },
-    ];
-    const organizations = [
-      {
-        login: 'kubernetes',
-        html_url: 'https://github.com/kubernetes',
-      },
-    ];
-    expect(new SubscriptionList(repositories, organizations, 'D01234').toJSON()).toMatchSnapshot();
+    subscriptions = [];
+    expect(new SubscriptionList(subscriptions, repositories, organizations).toJSON())
+      .toMatchSnapshot();
   });
 
   test('sorts subscriptions alphabetically', async () => {
@@ -78,7 +90,7 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/integrations/slack',
       },
     ];
-    expect(new SubscriptionList(repositories, [], 'C01234').repositoriesToString()).toEqual([
+    expect(new SubscriptionList(subscriptions, repositories, []).repositoriesToString()).toEqual([
       '<https://github.com/bkeepers/dotenv|bkeepers/dotenv>',
       '<https://github.com/integrations/slack|integrations/slack>',
       '<https://github.com/wilhelmklopp/wilhelmklopp|wilhelmklopp/wilhelmklopp>',
@@ -104,7 +116,8 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/JasonEtco/todo',
       },
     ];
-    expect(new SubscriptionList(repositories, [], 'C01234').repositoriesToString()).toEqual([
+
+    expect(new SubscriptionList(subscriptions, repositories, []).repositoriesToString()).toEqual([
       '<https://github.com/bkeepers/dotenv|bkeepers/dotenv>',
       '<https://github.com/integrations/slack|integrations/slack>',
       '<https://github.com/JasonEtco/todo|JasonEtco/todo>',
@@ -123,7 +136,7 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/atom',
       },
     ];
-    expect(new SubscriptionList([], organizations, 'C01234').accountsToString()).toEqual([
+    expect(new SubscriptionList(subscriptions, [], organizations).accountsToString()).toEqual([
       '<https://github.com/atom|atom>',
       '<https://github.com/kubernetes|kubernetes>',
     ]);
@@ -144,10 +157,60 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/atom',
       },
     ];
-    expect(new SubscriptionList([], organizations, 'C01234').accountsToString()).toEqual([
+    expect(new SubscriptionList(subscriptions, [], organizations).accountsToString()).toEqual([
       '<https://github.com/atom|atom>',
       '<https://github.com/kubernetes|kubernetes>',
       '<https://github.com/Microsoft|Microsoft>',
     ]);
+  });
+
+  test('shows features when using /github subscribe list features', async () => {
+    subscriptions = [
+      Subscription.build({
+        githubId: 1,
+        type: 'repo',
+      }),
+      Subscription.build({
+        githubId: 4,
+        type: 'repo',
+        settings: ['reviews', 'comments'],
+      }),
+      Subscription.build({
+        githubId: 3,
+        type: 'account',
+        settings: ['commits:all'],
+      }),
+      Subscription.build({
+        githubId: 2,
+        type: 'account',
+      }),
+    ];
+    const repositories = [
+      {
+        id: 1,
+        full_name: 'bkeepers/dotenv',
+        html_url: 'https://github.com/bkeepers/dotenv',
+      },
+      {
+        id: 4,
+        full_name: 'atom/atom',
+        html_url: 'https://github.com/atom/atom',
+      },
+    ];
+    const organizations = [
+      {
+        id: 3,
+        login: 'kubernetes',
+        html_url: 'https://github.com/kubernetes',
+      },
+      {
+        id: 2,
+        login: 'atom',
+        html_url: 'https://github.com/atom',
+      },
+    ];
+
+    expect(new SubscriptionList(subscriptions, repositories, organizations, true).toJSON())
+      .toMatchSnapshot();
   });
 });

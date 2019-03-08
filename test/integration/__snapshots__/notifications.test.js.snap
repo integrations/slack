@@ -662,6 +662,38 @@ Map {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel update githubName in account subscription 1`] = `
+Object {
+  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":3,\\"short\\":true},{\\"title\\":\\"Reviewers\\",\\"value\\":\\"thomasjo, fosslinux\\",\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1502411430,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"e-beach\\",\\"author_link\\":\\"https://github.com/e-beach\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/13651458?v=4\\",\\"title\\":\\"#1535 Make fork command idempotent\\",\\"title_link\\":\\"https://github.com/github/hub/pull/1535\\",\\"fallback\\":\\"[github-slack/app] #1535 Make fork command idempotent\\",\\"text\\":\\"Fixes #1499.\\\\r\\\\n\\\\r\\\\nThis PR makes \`hub fork\` succeed, with no operation, if a remote pointing to the forked repository already exists.\\\\r\\\\n \\",\\"pretext\\":\\"Pull request merged by wilhelmklopp\\"}]",
+  "channel": "C001",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel update githubName in account subscription 2`] = `
+Set {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "creator-access#1:100427737",
+  "channel#9523#C001:pull#142600109",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel update githubName in account subscription 3`] = `
+Map {
+  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "creator-access#1:100427737" => true,
+  "channel#9523#C001:pull#142600109" => Object {
+    "channel": undefined,
+    "context": Object {
+      "number": 31,
+      "owner": "github-slack",
+      "repo": "app",
+    },
+    "ts": undefined,
+  },
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/artnez/environment|artnez/environment>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[artnez/environment] Comment on commit \\\\\\"update gohere\\\\\\"\\",\\"title\\":\\"Comment on commit \\\\\\"update gohere\\\\\\"\\",\\"title_link\\":\\"https://github.com/artnez/environment/commit/fa3f7c1a10ef7401496040b4508ede9b25b16695#commitcomment-30287269\\",\\"author_name\\":\\"artnez\\",\\"author_link\\":\\"https://github.com/artnez\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/396654?v=4\\",\\"ts\\":1535170713,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Testing.\\"}]",
