@@ -154,4 +154,4 @@ Want to help improve the integration between GitHub and Slack? Check out the [co
 ## License
 The project is available as open source under the terms of the [MIT License](LICENSE).
 
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+When using the GitHub logos, we should be sure to follow the [GitHub logo guidelines](https://github.com/logos).
