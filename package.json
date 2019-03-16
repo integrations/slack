@@ -30,8 +30,13 @@
     "named-regexp": "^0.1.1",
     "newrelic": "^3.0.0",
     "pg": "^7.4.1",
+<<<<<<< HEAD
     "probot": "^7.1.1",
     "query-string": "^6.0.0",
+=======
+    "probot": "^5.0.1",
+    "query-string": "^5.0.1",
+>>>>>>> origin/add-pr-status-tests-probot-5
     "raven": "^2.4.1",
     "request": "^2.87.0",
     "sequelize": "^4.33.4",
