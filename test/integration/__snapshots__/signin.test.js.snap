@@ -1,18 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate 2`] = `
@@ -52,18 +49,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "close https://github.com/owner/repo/issues/123" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "close https://github.com/owner/repo/issues/123" 2`] = `
@@ -93,18 +87,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "reopen https://github.com/owner/repo/issues/123" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "reopen https://github.com/owner/repo/issues/123" 2`] = `
@@ -134,18 +125,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "subscribe kubernetes" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "subscribe kubernetes" 2`] = `
@@ -175,18 +163,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "subscribe kubernetes/kubernetes" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "subscribe kubernetes/kubernetes" 2`] = `
@@ -216,18 +201,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "unsubscribe kubernetes" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "unsubscribe kubernetes" 2`] = `
@@ -257,18 +239,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "unsubscribe kubernetes/kubernetes" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "unsubscribe kubernetes/kubernetes" 2`] = `

@@ -48,10 +48,12 @@ describe('Integration: signin', () => {
       nock('https://api.github.com').get('/user')
         .reply(200, fixtures.user);
 
-      nock('https://hooks.slack.com').post('/commands/1234/5678', (body) => {
-        expect(body).toMatchSnapshot();
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body.user).toBe('U2147483697');
+        expect(body.channel).toBe('C2147483705');
+        expect(JSON.parse(body.attachments)).toMatchSnapshot();
         return true;
-      }).reply(200);
+      }).reply(200, { ok: true });
 
       await request(probot.server).get('/github/oauth/callback').query({ state })
         .expect(302)
@@ -106,10 +108,12 @@ describe('Integration: signin', () => {
       nock('https://api.github.com').get('/user')
         .reply(200, fixtures.user);
 
-      nock('https://hooks.slack.com').post('/commands/1234/5678', (body) => {
-        expect(body).toMatchSnapshot();
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body.user).toBe('U2147483697');
+        expect(body.channel).toBe('C2147483705');
+        expect(JSON.parse(body.attachments)).toMatchSnapshot();
         return true;
-      }).reply(200);
+      }).reply(200, { ok: true });
 
       await request(probot.server).get('/github/oauth/callback').query({ state })
         .expect(302);
@@ -144,7 +148,11 @@ describe('Integration: signin', () => {
         .reply(200, fixtures.user);
 
       // Post confirmation of signin
-      nock('https://hooks.slack.com').post('/commands/1234/5678').reply(200);
+      nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+        expect(body.user).toBe('U2147483697');
+        expect(body.channel).toBe('C2147483705');
+        return true;
+      }).reply(200, { ok: true });
 
 
       await agent.get('/github/oauth/callback').query({ state })
