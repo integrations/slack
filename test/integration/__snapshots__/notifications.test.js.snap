@@ -155,14 +155,14 @@ Map {
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 1`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 2`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => false,
 }
 `;
@@ -318,14 +318,14 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "channel#9523#C001:pull#142600109",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
     "context": Object {
@@ -369,14 +369,14 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => false,
 }
 `;
@@ -431,7 +431,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel pull request opened 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
   "channel#9523#C001:pull#142600109",
 }
@@ -439,7 +439,7 @@ Set {
 
 exports[`Integration: notifications to a subscribed channel pull request opened 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
@@ -470,7 +470,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 3`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
   "channel#9523#C001:pull#142600109",
 }
@@ -478,7 +478,7 @@ Set {
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 4`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
@@ -610,7 +610,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel update githubName in account subscription 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
   "channel#9523#C001:pull#142600109",
 }
@@ -618,7 +618,7 @@ Set {
 
 exports[`Integration: notifications to a subscribed channel update githubName in account subscription 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
