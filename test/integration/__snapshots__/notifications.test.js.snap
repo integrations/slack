@@ -643,14 +643,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 2`] = `
 Set {
   "creator-access#1:16064378",
-  "channel#9523#C002:comment#30287269",
+  "channel#9523#C002:comment#MDEzOkNvbW1pdENvbW1lbnQzMDI4NzI2OQ==",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 3`] = `
 Map {
   "creator-access#1:16064378" => true,
-  "channel#9523#C002:comment#30287269" => Object {
+  "channel#9523#C002:comment#MDEzOkNvbW1pdENvbW1lbnQzMDI4NzI2OQ==" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -668,14 +668,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 2`] = `
 Set {
   "creator-access#1:100403908",
-  "channel#9523#C002:comment#364284529",
+  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 3`] = `
 Map {
   "creator-access#1:100403908" => true,
-  "channel#9523#C002:comment#364284529" => Object {
+  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==" => Object {
     "channel": undefined,
     "ts": undefined,
   },
