@@ -617,15 +617,15 @@ Object {
 
 exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 3`] = `
 Set {
-  "unfurl-eligibility#T000A:C74M:https://github.com/atom/atom/issues/16292",
   "unfurl-eligibility#T000A:C74M:https://github.com/facebook/react/issues/10191",
+  "unfurl-eligibility#T000A:C74M:https://github.com/atom/atom/issues/16292",
 }
 `;
 
 exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 4`] = `
 Map {
-  "unfurl-eligibility#T000A:C74M:https://github.com/atom/atom/issues/16292" => true,
   "unfurl-eligibility#T000A:C74M:https://github.com/facebook/react/issues/10191" => true,
+  "unfurl-eligibility#T000A:C74M:https://github.com/atom/atom/issues/16292" => true,
 }
 `;
 
