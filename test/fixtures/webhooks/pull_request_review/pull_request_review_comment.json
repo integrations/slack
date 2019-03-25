@@ -4,6 +4,7 @@
     "url": "https://api.github.com/repos/github-slack-test-org/test2/pulls/comments/171608320",
     "pull_request_review_id": 100491056,
     "id": 171608320,
+    "node_id": "MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDE3MTYwODMyMA==",
     "diff_hunk": "@@ -1 +1,3 @@\n-# test2\n\\ No newline at end of file\n+# test2",
     "path": "README.md",
     "position": 3,
