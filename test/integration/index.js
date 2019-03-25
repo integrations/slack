@@ -38,7 +38,7 @@ beforeEach(() => {
 
   // Clear all data out of the test database
   return Promise.all([
-    models.sequelize.truncate({ cascade: true }),
+    models.sequelize.truncate({ cascade: true, restartIdentity: true }),
     cache.clear(),
   ]);
 });
