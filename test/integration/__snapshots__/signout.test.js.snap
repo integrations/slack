@@ -48,18 +48,15 @@ Map {
 `;
 
 exports[`Integration: signout a signed out user is prompted to sign in first 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signout a signed out user is prompted to sign in first 2`] = `
