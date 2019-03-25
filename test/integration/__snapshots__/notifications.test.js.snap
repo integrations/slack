@@ -22,14 +22,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 2`] = `
 Set {
   "creator-access#1:100403908",
-  "channel#9523#C002:comment#364284529",
+  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 3`] = `
 Map {
   "creator-access#1:100403908" => true,
-  "channel#9523#C002:comment#364284529" => Object {
+  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -67,14 +67,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 2`] = `
 Set {
   "creator-access#1:123302024",
-  "channel#9523#C001:comment#171608320",
+  "channel#9523#C001:comment#MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDE3MTYwODMyMA==",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 3`] = `
 Map {
   "creator-access#1:123302024" => true,
-  "channel#9523#C001:comment#171608320" => Object {
+  "channel#9523#C001:comment#MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDE3MTYwODMyMA==" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -155,14 +155,14 @@ Map {
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 1`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 2`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => false,
 }
 `;
@@ -318,14 +318,14 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "channel#9523#C001:pull#142600109",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
     "context": Object {
@@ -369,14 +369,14 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => false,
 }
 `;
@@ -431,7 +431,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel pull request opened 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
   "channel#9523#C001:pull#142600109",
 }
@@ -439,7 +439,7 @@ Set {
 
 exports[`Integration: notifications to a subscribed channel pull request opened 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
@@ -470,7 +470,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 3`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
   "channel#9523#C001:pull#142600109",
 }
@@ -478,7 +478,7 @@ Set {
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 4`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
@@ -610,7 +610,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel update githubName in account subscription 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
   "channel#9523#C001:pull#142600109",
 }
@@ -618,7 +618,7 @@ Set {
 
 exports[`Integration: notifications to a subscribed channel update githubName in account subscription 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
@@ -643,14 +643,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 2`] = `
 Set {
   "creator-access#1:16064378",
-  "channel#9523#C002:comment#30287269",
+  "channel#9523#C002:comment#MDEzOkNvbW1pdENvbW1lbnQzMDI4NzI2OQ==",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 3`] = `
 Map {
   "creator-access#1:16064378" => true,
-  "channel#9523#C002:comment#30287269" => Object {
+  "channel#9523#C002:comment#MDEzOkNvbW1pdENvbW1lbnQzMDI4NzI2OQ==" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -668,14 +668,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 2`] = `
 Set {
   "creator-access#1:100403908",
-  "channel#9523#C002:comment#364284529",
+  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 3`] = `
 Map {
   "creator-access#1:100403908" => true,
-  "channel#9523#C002:comment#364284529" => Object {
+  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==" => Object {
     "channel": undefined,
     "ts": undefined,
   },
