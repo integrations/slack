@@ -28,7 +28,7 @@
     "keyv": "^3.0.0",
     "moment": "^2.21.0",
     "named-regexp": "^0.1.1",
-    "newrelic": "^5.2.1",
+    "newrelic": "^5.6.2",
     "pg": "^7.4.1",
     "probot": "^7.5.0",
     "query-string": "^6.0.0",
