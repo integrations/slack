@@ -50,4 +50,24 @@ describe('Actions', async () => {
     })
       .expect(500);
   });
+
+  describe('responds with 400 when POSTed to directly', async () => {
+    test('invalid format', async () => {
+      await request(probot.server).post('/slack/actions:interactive_message:unfurl-10:unfurl')
+        .send({})
+        .expect(400)
+        .expect('Invalid format');
+    });
+
+    test('invalid verification token', async () => {
+      await request(probot.server).post('/slack/actions:interactive_message:unfurl-10:unfurl')
+        .send({
+          payload: JSON.stringify({
+            callback_id: 'something',
+          }),
+        })
+        .expect(400)
+        .expect('Invalid verificaton token');
+    });
+  });
 });
