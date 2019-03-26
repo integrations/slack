@@ -1,5 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Uninstalling the slack app deletes all corresponding subscriptions 1`] = `Set {}`;
+exports[`Uninstalling the slack app deletes all corresponding subscriptions 1`] = `
+Object {
+  "channelId": "C0012",
+  "createdAt": 2019-03-26T10:44:06.646Z,
+  "creatorId": "1",
+  "deletedAt": 2019-03-26T10:44:06.709Z,
+  "githubId": "1234",
+  "githubName": "foo/repo1",
+  "id": "1",
+  "installationId": "1",
+  "reason": "slack app uninstalled",
+  "settings": Object {
+    "commits": true,
+    "pulls": true,
+  },
+  "slackWorkspaceId": "1",
+  "type": "repo",
+  "updatedAt": 2019-03-26T10:44:06.719Z,
+}
+`;
 
-exports[`Uninstalling the slack app deletes all corresponding subscriptions 2`] = `Map {}`;
+exports[`Uninstalling the slack app deletes all corresponding subscriptions 2`] = `
+Object {
+  "channelId": "C0234",
+  "createdAt": 2019-03-26T10:44:06.653Z,
+  "creatorId": "1",
+  "deletedAt": 2019-03-26T10:44:06.712Z,
+  "githubId": "4321",
+  "githubName": "foo/repo2",
+  "id": "2",
+  "installationId": "1",
+  "reason": "slack app uninstalled",
+  "settings": Object {
+    "commits": true,
+    "pulls": true,
+  },
+  "slackWorkspaceId": "1",
+  "type": "repo",
+  "updatedAt": 2019-03-26T10:44:06.722Z,
+}
+`;
+
+exports[`Uninstalling the slack app deletes all corresponding subscriptions 3`] = `
+Object {
+  "channelId": "C0012",
+  "createdAt": 2019-03-26T10:44:06.656Z,
+  "creatorId": "1",
+  "deletedAt": 2019-03-26T10:44:06.714Z,
+  "githubId": "5678",
+  "githubName": "foo/repo3",
+  "id": "3",
+  "installationId": "1",
+  "reason": "slack app uninstalled",
+  "settings": Object {
+    "commits": true,
+    "pulls": true,
+  },
+  "slackWorkspaceId": "1",
+  "type": "repo",
+  "updatedAt": 2019-03-26T10:44:06.724Z,
+}
+`;
+
+exports[`Uninstalling the slack app deletes all corresponding subscriptions 4`] = `Set {}`;
+
+exports[`Uninstalling the slack app deletes all corresponding subscriptions 5`] = `Map {}`;

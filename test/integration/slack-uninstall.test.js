@@ -4,7 +4,7 @@ const { probot, models } = require('.');
 const fixtures = require('../fixtures');
 
 const {
-  Installation, SlackWorkspace, Subscription, DeletedSubscription,
+  Installation, SlackWorkspace, SlackUser, Subscription, DeletedSubscription,
 } = models;
 
 describe('Uninstalling the slack app', () => {
@@ -20,25 +20,39 @@ describe('Uninstalling the slack app', () => {
       accessToken: 'xoxp-token',
     });
 
-    await Subscription.create({
-      githubId: 1234,
-      channelId: 'C0012',
+    const slackUser = await SlackUser.create({
+      slackId: 'U88HS',
       slackWorkspaceId: slackWorkspace.id,
-      installationId: installation.id,
     });
 
     await Subscription.create({
+      creatorId: slackUser.id,
+      githubId: 1234,
+      githubName: 'foo/repo1',
+      channelId: 'C0012',
+      slackWorkspaceId: slackWorkspace.id,
+      installationId: installation.id,
+      settings: { commits: true, pulls: true },
+    });
+
+    await Subscription.create({
+      creatorId: slackUser.id,
       githubId: 4321,
+      githubName: 'foo/repo2',
       channelId: 'C0234',
       slackWorkspaceId: slackWorkspace.id,
       installationId: installation.id,
+      settings: { commits: true, pulls: true },
     });
 
     await Subscription.create({
+      creatorId: slackUser.id,
       githubId: 5678,
+      githubName: 'foo/repo3',
       channelId: 'C0012',
       slackWorkspaceId: slackWorkspace.id,
       installationId: installation.id,
+      settings: { commits: true, pulls: true },
     });
   });
   test('deletes all corresponding subscriptions', async () => {
@@ -56,6 +70,10 @@ describe('Uninstalling the slack app', () => {
       .expect(200);
 
     expect(await Subscription.count()).toBe(0);
-    expect(await DeletedSubscription.count({ where: { reason: 'slack app uninstalled' } })).toBe(3);
+    const deletedSubscriptions = await DeletedSubscription.findAll({ where: { reason: 'slack app uninstalled' } });
+    expect(deletedSubscriptions).toHaveLength(3);
+    expect(deletedSubscriptions[0].dataValues).toMatchSnapshot();
+    expect(deletedSubscriptions[1].dataValues).toMatchSnapshot();
+    expect(deletedSubscriptions[2].dataValues).toMatchSnapshot();
   });
 });
