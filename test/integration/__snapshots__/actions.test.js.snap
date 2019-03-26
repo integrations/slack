@@ -13,3 +13,11 @@ Object {
 exports[`Actions When an action's name is "cancel", then it is immediately deleted 2`] = `Set {}`;
 
 exports[`Actions When an action's name is "cancel", then it is immediately deleted 3`] = `Map {}`;
+
+exports[`Actions responds with 400 when POSTed to directly invalid format 1`] = `Set {}`;
+
+exports[`Actions responds with 400 when POSTed to directly invalid format 2`] = `Map {}`;
+
+exports[`Actions responds with 400 when POSTed to directly invalid verification token 1`] = `Set {}`;
+
+exports[`Actions responds with 400 when POSTed to directly invalid verification token 2`] = `Map {}`;
