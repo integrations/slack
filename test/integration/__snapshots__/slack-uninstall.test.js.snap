@@ -3,9 +3,9 @@
 exports[`Uninstalling the slack app deletes all corresponding subscriptions 1`] = `
 Object {
   "channelId": "C0012",
-  "createdAt": 2019-03-26T10:44:06.646Z,
+  "createdAt": Any<Date>,
   "creatorId": "1",
-  "deletedAt": 2019-03-26T10:44:06.709Z,
+  "deletedAt": Any<Date>,
   "githubId": "1234",
   "githubName": "foo/repo1",
   "id": "1",
@@ -17,16 +17,16 @@ Object {
   },
   "slackWorkspaceId": "1",
   "type": "repo",
-  "updatedAt": 2019-03-26T10:44:06.719Z,
+  "updatedAt": Any<Date>,
 }
 `;
 
 exports[`Uninstalling the slack app deletes all corresponding subscriptions 2`] = `
 Object {
   "channelId": "C0234",
-  "createdAt": 2019-03-26T10:44:06.653Z,
+  "createdAt": Any<Date>,
   "creatorId": "1",
-  "deletedAt": 2019-03-26T10:44:06.712Z,
+  "deletedAt": Any<Date>,
   "githubId": "4321",
   "githubName": "foo/repo2",
   "id": "2",
@@ -38,16 +38,16 @@ Object {
   },
   "slackWorkspaceId": "1",
   "type": "repo",
-  "updatedAt": 2019-03-26T10:44:06.722Z,
+  "updatedAt": Any<Date>,
 }
 `;
 
 exports[`Uninstalling the slack app deletes all corresponding subscriptions 3`] = `
 Object {
   "channelId": "C0012",
-  "createdAt": 2019-03-26T10:44:06.656Z,
+  "createdAt": Any<Date>,
   "creatorId": "1",
-  "deletedAt": 2019-03-26T10:44:06.714Z,
+  "deletedAt": Any<Date>,
   "githubId": "5678",
   "githubName": "foo/repo3",
   "id": "3",
@@ -59,7 +59,7 @@ Object {
   },
   "slackWorkspaceId": "1",
   "type": "repo",
-  "updatedAt": 2019-03-26T10:44:06.724Z,
+  "updatedAt": Any<Date>,
 }
 `;
 
