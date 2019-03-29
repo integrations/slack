@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@keyv/redis": "github:integrations/keyv-redis#use-keys",
-    "@slack/client": "^4.0.1",
+    "@slack/client": "^5.0.0",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "connect-timeout": "^1.9.0",
