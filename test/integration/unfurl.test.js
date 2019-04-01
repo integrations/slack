@@ -1,9 +1,13 @@
 const request = require('supertest');
 const nock = require('nock');
 const moment = require('moment');
+const jwt = require('jsonwebtoken');
+const { promisify } = require('util');
 
 const { probot, models } = require('.');
 const fixtures = require('../fixtures');
+
+const verify = promisify(jwt.verify);
 
 const {
   SlackUser,
@@ -12,6 +16,8 @@ const {
   Subscription,
   Installation,
 } = models;
+
+const continueLinkPattern = /<a href="https:\/\/github\.com\/login\/oauth\/authorize\?client_id.*(?<!\.)(ey.*)" class.*<\/a>/;
 
 describe('Integration: unfurls', () => {
   let workspace;
@@ -519,6 +525,7 @@ describe('Integration: unfurls', () => {
     });
 
     test('a user who does not have their GitHub account connected is gracefully onboarded', async () => {
+      const agent = request.agent(probot.server);
       nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
 
       // Regular private unfurl prompt
@@ -562,13 +569,22 @@ describe('Integration: unfurls', () => {
       expect(url).toMatch(promptUrl);
 
       // User follows link to OAuth
-      const [, link, state] = url.match(promptUrl);
+      const [, link] = url.match(promptUrl);
 
-      const loginRequest = request(probot.server).get(link);
-      await loginRequest.expect(302).expect(
-        'Location',
-        `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
-      );
+      const interstitialRes = await agent.get(link);
+      expect(interstitialRes.status).toBe(200);
+      expect(interstitialRes.text).toMatch(/Connect GitHub account/);
+      expect(interstitialRes.text).toMatch(/example\.slack\.com/);
+      expect(Object.keys(interstitialRes.headers)).toContain('set-cookie');
+      expect(interstitialRes.headers['set-cookie'][0]).toMatch(/session=/);
+
+      const state = continueLinkPattern.exec(interstitialRes.text)[1];
+
+      expect(await verify(state, process.env.GITHUB_CLIENT_SECRET)).toMatchSnapshot({
+        githubOAuthState: expect.any(String),
+        iat: expect.any(Number),
+        exp: expect.any(Number),
+      });
 
       // GitHub authenticates user and redirects back
       nock('https://github.com').post('/login/oauth/access_token')
@@ -603,7 +619,7 @@ describe('Integration: unfurls', () => {
         return true;
       }).reply(200, { ok: true });
 
-      await request(probot.server).get('/github/oauth/callback').query({ state })
+      await agent.get('/github/oauth/callback').query({ state })
         .expect(302)
         .expect(
           'Location',
@@ -612,6 +628,8 @@ describe('Integration: unfurls', () => {
     });
 
     test('on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding', async () => {
+      const agent = request.agent(probot.server);
+
       nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
 
       // Regular private unfurl prompt
@@ -655,13 +673,16 @@ describe('Integration: unfurls', () => {
       expect(url).toMatch(promptUrl);
 
       // User follows link to OAuth
-      const [, link, state] = url.match(promptUrl);
+      const [, link] = url.match(promptUrl);
 
-      const loginRequest = request(probot.server).get(link);
-      await loginRequest.expect(302).expect(
-        'Location',
-        `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
-      );
+      const interstitialRes = await agent.get(link);
+      expect(interstitialRes.status).toBe(200);
+      expect(interstitialRes.text).toMatch(/Connect GitHub account/);
+      expect(interstitialRes.text).toMatch(/example\.slack\.com/);
+      expect(Object.keys(interstitialRes.headers)).toContain('set-cookie');
+      expect(interstitialRes.headers['set-cookie'][0]).toMatch(/session=/);
+
+      const state = continueLinkPattern.exec(interstitialRes.text)[1];
 
       // GitHub authenticates user and redirects back
       nock('https://github.com').post('/login/oauth/access_token')
@@ -692,7 +713,7 @@ describe('Integration: unfurls', () => {
 
       nock('https://slack.com').post('/api/chat.unfurl').reply(200, { ok: false, error: 'cannot_unfurl_url' });
 
-      await request(probot.server).get('/github/oauth/callback').query({ state })
+      await agent.get('/github/oauth/callback').query({ state })
         .expect(302)
         .expect(
           'Location',
@@ -732,6 +753,8 @@ describe('Integration: unfurls', () => {
       });
 
       test('connecting their account via an Unfurl prompt of an invalid link results in a not found message', async () => {
+        const agent = request.agent(probot.server);
+
         nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(404);
 
         // Regular private unfurl prompt
@@ -775,13 +798,16 @@ describe('Integration: unfurls', () => {
         expect(url).toMatch(promptUrl);
 
         // User follows link to OAuth
-        const [, link, state] = url.match(promptUrl);
+        const [, link] = url.match(promptUrl);
 
-        const loginRequest = request(probot.server).get(link);
-        await loginRequest.expect(302).expect(
-          'Location',
-          `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
-        );
+        const interstitialRes = await agent.get(link);
+        expect(interstitialRes.status).toBe(200);
+        expect(interstitialRes.text).toMatch(/Connect GitHub account/);
+        expect(interstitialRes.text).toMatch(/example\.slack\.com/);
+        expect(Object.keys(interstitialRes.headers)).toContain('set-cookie');
+        expect(interstitialRes.headers['set-cookie'][0]).toMatch(/session=/);
+
+        const state = continueLinkPattern.exec(interstitialRes.text)[1];
 
         // GitHub authenticates user and redirects back
         nock('https://github.com').post('/login/oauth/access_token')
@@ -801,7 +827,7 @@ describe('Integration: unfurls', () => {
           return true;
         }).reply(200, { ok: true });
 
-        await request(probot.server).get('/github/oauth/callback').query({ state })
+        await agent.get('/github/oauth/callback').query({ state })
           .expect(302)
           .expect(
             'Location',

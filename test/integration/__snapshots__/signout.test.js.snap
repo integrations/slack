@@ -48,6 +48,19 @@ Map {
 `;
 
 exports[`Integration: signout a signed out user is prompted to sign in first 1`] = `
+Object {
+  "channelSlackId": "C2147483705",
+  "exp": Any<Number>,
+  "githubOAuthState": Any<String>,
+  "iat": Any<Number>,
+  "replaySlashCommand": false,
+  "teamSlackId": "T0001",
+  "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+  "userSlackId": "U2147483697",
+}
+`;
+
+exports[`Integration: signout a signed out user is prompted to sign in first 2`] = `
 Array [
   Object {
     "color": "#24292f",
@@ -59,13 +72,13 @@ Array [
 ]
 `;
 
-exports[`Integration: signout a signed out user is prompted to sign in first 2`] = `
+exports[`Integration: signout a signed out user is prompted to sign in first 3`] = `
 Set {
   "pending-command#13345224609.738474920.8088930838d88f008e0",
 }
 `;
 
-exports[`Integration: signout a signed out user is prompted to sign in first 3`] = `
+exports[`Integration: signout a signed out user is prompted to sign in first 4`] = `
 Map {
   "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
     "channel_id": "C2147483705",
