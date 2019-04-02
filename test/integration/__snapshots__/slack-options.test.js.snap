@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Slack options responds with 400 when POSTed to directly invalid format 1`] = `Set {}`;
-
-exports[`Slack options responds with 400 when POSTed to directly invalid format 2`] = `Map {}`;
-
-exports[`Slack options responds with 400 when POSTed to directly invalid verification token 1`] = `Set {}`;
-
-exports[`Slack options responds with 400 when POSTed to directly invalid verification token 2`] = `Map {}`;

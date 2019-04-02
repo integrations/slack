@@ -26,14 +26,6 @@ Map {
 }
 `;
 
-exports[`Integration: signin invalid state passed to /github/oauth/login invalid JWT supplied 1`] = `Set {}`;
-
-exports[`Integration: signin invalid state passed to /github/oauth/login invalid JWT supplied 2`] = `Map {}`;
-
-exports[`Integration: signin invalid state passed to /github/oauth/login no state supplied 1`] = `Set {}`;
-
-exports[`Integration: signin invalid state passed to /github/oauth/login no state supplied 2`] = `Map {}`;
-
 exports[`Integration: signin unauthenticated user is prompted to authenticate 1`] = `
 Object {
   "channelSlackId": "C2147483705",
@@ -375,10 +367,6 @@ Map {
 }
 `;
 
-exports[`Integration: signin unauthenticated user with invalid state cannot sign in 1`] = `Set {}`;
-
-exports[`Integration: signin unauthenticated user with invalid state cannot sign in 2`] = `Map {}`;
-
 exports[`Integration: signin unauthenticated user with state mismatch cannot complete sign in process 1`] = `
 Set {
   "pending-command#13345224609.738474920.8088930838d88f008e0",
@@ -404,14 +392,6 @@ Map {
   },
 }
 `;
-
-exports[`Integration: signin unauthenticated user with tampered state cannot sign in 1`] = `Set {}`;
-
-exports[`Integration: signin unauthenticated user with tampered state cannot sign in 2`] = `Map {}`;
-
-exports[`Integration: signin unauthenticated user without state paramter cannot sign in 1`] = `Set {}`;
-
-exports[`Integration: signin unauthenticated user without state paramter cannot sign in 2`] = `Map {}`;
 
 exports[`Integration: signin unauthenticated user witout state cookie cannot complete sign in process 1`] = `
 Set {
