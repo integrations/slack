@@ -149,6 +149,12 @@ describe('Integration: signin', () => {
         .expect('Error: jwt malformed');
     });
 
+    test('without state paramter cannot sign in', async () => {
+      await request.get('/github/oauth/callback')
+        .expect(400)
+        .expect('Error: State parameter was not provided');
+    });
+
     test('with tampered state cannot sign in', async () => {
       const fakeSecret = `${process.env.GITHUB_CLIENT_SECRET}-fake`;
       const payload = {
@@ -257,11 +263,9 @@ describe('Integration: signin', () => {
       // Acquire new state cookie
       await request.get(newSignInLink);
 
-
-      // Use fresh client instead of supertest agent
-      await supertest(probot.server).get('/github/oauth/callback').query({ state })
+      await request.get('/github/oauth/callback').query({ state })
         .expect(400)
-        .expect('Error: No OAuth state cookie set');
+        .expect('Error: OAuth State mismatch, please try again.');
 
       const users = await GitHubUser.findAll();
       expect(users).toHaveLength(0);
