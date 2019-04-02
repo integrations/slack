@@ -197,6 +197,76 @@ describe('Integration: signin', () => {
       dateSpy.mockRestore();
     });
 
+    // With invalid state cookie cannot sign in
+    test('witout state cookie cannot complete sign in process', async () => {
+      const command = fixtures.slack.command({
+        text: 'signin',
+      });
+      const res = await request.post('/slack/command')
+        .use(slackbot)
+        .send(command)
+        .expect(200);
+
+      // User is shown ephemeral prompt to authenticate
+      const { text, url } = res.body.attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+
+      // User follows link to OAuth
+      const [, link] = url.match(promptUrl);
+
+      const interstitialRes = await request.get(link);
+
+      const state = continueLinkPattern.exec(interstitialRes.text)[1];
+
+      // Use fresh client instead of supertest agent
+      await supertest(probot.server).get('/github/oauth/callback').query({ state })
+        .expect(400)
+        .expect('Error: No OAuth state cookie set');
+
+      const users = await GitHubUser.findAll();
+      expect(users).toHaveLength(0);
+    });
+
+    test('with state mismatch cannot complete sign in process', async () => {
+      const command = fixtures.slack.command({
+        text: 'signin',
+      });
+      const res = await request.post('/slack/command')
+        .use(slackbot)
+        .send(command)
+        .expect(200);
+
+      const { text, url } = res.body.attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+      const [, link] = url.match(promptUrl);
+
+      const interstitialRes = await request.get(link);
+
+      const state = continueLinkPattern.exec(interstitialRes.text)[1];
+
+      // Start new sign in process to acquire new state cookie
+      const newSignInRes = await request.post('/slack/command')
+        .use(slackbot)
+        .send(command)
+        .expect(200);
+
+      const [, newSignInLink] = newSignInRes.body.attachments[0].actions[0].url.match(promptUrl);
+
+      // Acquire new state cookie
+      await request.get(newSignInLink);
+
+
+      // Use fresh client instead of supertest agent
+      await supertest(probot.server).get('/github/oauth/callback').query({ state })
+        .expect(400)
+        .expect('Error: No OAuth state cookie set');
+
+      const users = await GitHubUser.findAll();
+      expect(users).toHaveLength(0);
+    });
+
     test('is redirected to Slack directly if command cannot be replayed', async () => {
       const command = fixtures.slack.command({
         text: 'subscribe kubernetes/kubernetes',
@@ -326,6 +396,49 @@ describe('Integration: signin', () => {
       await request.get(triggerUrl)
         .expect(302)
         .expect('Location', 'https://slack.com/app_redirect?channel=C2147483705&team=T0001');
+    });
+  });
+
+  describe('invalid state passed to /github/oauth/login', () => {
+    test('no state supplied', async () => {
+      await request.get('/github/oauth/login')
+        .expect(400)
+        .expect('Error: State parameter was not provided');
+    });
+
+    test('invalid JWT supplied', async () => {
+      await request.get('/github/oauth/login').query({ state: 'i-am-not-valid' })
+        .expect(400)
+        .expect('Error: jwt malformed');
+    });
+
+    test('expired JWT supplied', async () => {
+      const command = fixtures.slack.command({
+        text: 'signin',
+      });
+      const res = await request.post('/slack/command')
+        .use(slackbot)
+        .send(command)
+        .expect(200);
+
+      // User is shown ephemeral prompt to authenticate
+      const { text, url } = res.body.attachments[0].actions[0];
+      expect(text).toMatch('Connect GitHub account');
+      expect(url).toMatch(promptUrl);
+
+      // User follows link to OAuth
+      const [, link] = url.match(promptUrl);
+
+      // Set date to current date + 2 hours
+      const now = new Date();
+      const dateSpy = jest.spyOn(Date, 'now').mockImplementation(() => now.setHours(now.getHours() + 2));
+
+      const interstitialRes = await request.get(link);
+      expect(interstitialRes.status).toBe(400);
+      expect(interstitialRes.text).toBe('Error: The time window to connect your GitHub account has expired. Please return to Slack to re-start the process of connecting your GitHub account.');
+
+      // Reset date
+      dateSpy.mockRestore();
     });
   });
 });
