@@ -633,3 +633,15 @@ Object {
   ],
 }
 `;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread when a user has not yet connected their GitHub account they are prompted to do so first 1`] = `
+Set {
+  "github-sign-in-initiated#T0001:UOther",
+}
+`;
+
+exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread when a user has not yet connected their GitHub account they are prompted to do so first 2`] = `
+Map {
+  "github-sign-in-initiated#T0001:UOther" => true,
+}
+`;

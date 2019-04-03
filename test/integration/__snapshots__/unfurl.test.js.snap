@@ -135,6 +135,18 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 3`] = `
+Set {
+  "github-sign-in-initiated#T000A:U0Other",
+}
+`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 4`] = `
+Map {
+  "github-sign-in-initiated#T000A:U0Other" => true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected public unfurls work as normal 1`] = `
 Set {
   "unfurl-eligibility#T0Other:C0Other:https://github.com/bkeepers/dotenv",
@@ -162,6 +174,18 @@ Object {
   "channel": "C74M",
   "token": "xoxa-token",
   "user": "U0Other",
+}
+`;
+
+exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 3`] = `
+Set {
+  "github-sign-in-initiated#T000A:U0Other",
+}
+`;
+
+exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 4`] = `
+Map {
+  "github-sign-in-initiated#T000A:U0Other" => true,
 }
 `;
 
