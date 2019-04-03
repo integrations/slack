@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Integration: frontend / 1`] = `Set {}`;
+
+exports[`Integration: frontend / 2`] = `Map {}`;

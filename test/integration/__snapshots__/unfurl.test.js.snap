@@ -60,6 +60,10 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls clicking "Dismiss" deletes the prompt and the unfurl record 2`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls clicking "Dismiss" deletes the prompt and the unfurl record 3`] = `Map {}`;
+
 exports[`Integration: unfurls private unfurls clicking "Show rich preview" results in unfurl and deletes prompt 1`] = `
 Object {
   "channel": "C74M",
@@ -135,6 +139,14 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 3`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 4`] = `Map {}`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected if they also have prompts muted they will not see any prompts when posting links 1`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected if they also have prompts muted they will not see any prompts when posting links 2`] = `Map {}`;
+
 exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected public unfurls work as normal 1`] = `
 Set {
   "unfurl-eligibility#T0Other:C0Other:https://github.com/bkeepers/dotenv",
@@ -146,6 +158,18 @@ Map {
   "unfurl-eligibility#T0Other:C0Other:https://github.com/bkeepers/dotenv" => true,
 }
 `;
+
+exports[`Integration: unfurls private unfurls no prompt is shown for unsupported resources 1`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown for unsupported resources 2`] = `Map {}`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown when repo exists but resource does not 1`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown when repo exists but resource does not 2`] = `Map {}`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown when repo returns 404 1`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls no prompt is shown when repo returns 404 2`] = `Map {}`;
 
 exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 1`] = `
 Object {
@@ -165,6 +189,10 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 3`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 4`] = `Map {}`;
+
 exports[`Integration: unfurls private unfurls sending prompts works  1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
@@ -174,6 +202,10 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls sending prompts works  2`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls sending prompts works  3`] = `Map {}`;
+
 exports[`Integration: unfurls private unfurls sends prompt for private resource that can be unfurled 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
@@ -182,6 +214,30 @@ Object {
   "user": "U88HS",
 }
 `;
+
+exports[`Integration: unfurls private unfurls sends prompt for private resource that can be unfurled 2`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls sends prompt for private resource that can be unfurled 3`] = `Map {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" A link shared after 24h does cause a prompt 1`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" A link shared after 24h does cause a prompt 2`] = `Map {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" A link shared within 24h does not cause a prompt 1`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" A link shared within 24h does not cause a prompt 2`] = `Map {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" setting is saved in the database 1`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts for 24h" setting is saved in the database 2`] = `Map {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts indefinitely" A shared link does not cause a prompt 1`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts indefinitely" A shared link does not cause a prompt 2`] = `Map {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts indefinitely" setting is saved in the database 1`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt User clicks "Mute prompts indefinitely" setting is saved in the database 2`] = `Map {}`;
 
 exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts for 24h", they get a confirmation message 1`] = `
 Object {
@@ -199,6 +255,10 @@ You can adjust this setting by invoking \`/github settings\`",
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts for 24h", they get a confirmation message 2`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts for 24h", they get a confirmation message 3`] = `Map {}`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts indefinitely", they get a confirmation message 1`] = `
 Object {
   "attachments": Array [
@@ -214,6 +274,10 @@ You can adjust this setting by invoking \`/github settings\`",
   "replace_original": true,
 }
 `;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts indefinitely", they get a confirmation message 2`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Dismiss" and gets MutePromptsPrompt When user clicks "Mute prompts indefinitely", they get a confirmation message 3`] = `Map {}`;
 
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" setting is saved in the database 1`] = `
 Set {
@@ -450,11 +514,23 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss" 5 times, the MutePromptsPrompt is shown 6`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss" 5 times, the MutePromptsPrompt is shown 7`] = `Map {}`;
+
 exports[`Integration: unfurls private unfurls settings when user clicks "dismiss", no follow up prompt is immediately shown 1`] = `
 Object {
   "delete_original": true,
 }
 `;
+
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss", no follow up prompt is immediately shown 2`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls settings when user clicks "dismiss", no follow up prompt is immediately shown 3`] = `Map {}`;
+
+exports[`Integration: unfurls private unfurls throws error when user is not linked 1`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls throws error when user is not linked 2`] = `Map {}`;
 
 exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 1`] = `
 Object {
@@ -492,6 +568,10 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls user sees error message when github.com unfurls are disabled in the workspace 2`] = `Set {}`;
+
+exports[`Integration: unfurls private unfurls user sees error message when github.com unfurls are disabled in the workspace 3`] = `Map {}`;
+
 exports[`Integration: unfurls private unfurls uses user access token for public resources 1`] = `
 Object {
   "channel": "C74M",
@@ -525,6 +605,10 @@ Map {
 }
 `;
 
+exports[`Integration: unfurls public unfurls Unsuccessful unfurl does not get stored in db 1`] = `Set {}`;
+
+exports[`Integration: unfurls public unfurls Unsuccessful unfurl does not get stored in db 2`] = `Map {}`;
+
 exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 1`] = `
 Object {
   "channel": "C74M",
@@ -556,6 +640,22 @@ Map {
   "unfurl-eligibility#T000A:C74M:https://github.com/atom/atom/issues/16292" => true,
 }
 `;
+
+exports[`Integration: unfurls public unfurls does not unfurl if more than 2 links 1`] = `Set {}`;
+
+exports[`Integration: unfurls public unfurls does not unfurl if more than 2 links 2`] = `Map {}`;
+
+exports[`Integration: unfurls public unfurls fails silently when github.com unfurls are disabled in the workspace 1`] = `Set {}`;
+
+exports[`Integration: unfurls public unfurls fails silently when github.com unfurls are disabled in the workspace 2`] = `Map {}`;
+
+exports[`Integration: unfurls public unfurls gracefully handles not found link or private link without permissions 1`] = `Set {}`;
+
+exports[`Integration: unfurls public unfurls gracefully handles not found link or private link without permissions 2`] = `Map {}`;
+
+exports[`Integration: unfurls public unfurls gracefully handles unknown resources 1`] = `Set {}`;
+
+exports[`Integration: unfurls public unfurls gracefully handles unknown resources 2`] = `Map {}`;
 
 exports[`Integration: unfurls public unfurls issue 1`] = `
 Object {
@@ -598,3 +698,7 @@ Map {
   "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
 }
 `;
+
+exports[`Integration: unfurls public unfurls renders 500 when other error happens 1`] = `Set {}`;
+
+exports[`Integration: unfurls public unfurls renders 500 when other error happens 2`] = `Map {}`;

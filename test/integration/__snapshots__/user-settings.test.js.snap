@@ -80,6 +80,10 @@ Object {
 }
 `;
 
+exports[`Integration: User settings authenticated user with both settings configured clicks unmute button and sees confirmation message 2`] = `Set {}`;
+
+exports[`Integration: User settings authenticated user with both settings configured clicks unmute button and sees confirmation message 3`] = `Map {}`;
+
 exports[`Integration: User settings authenticated user with both settings configured confirms removal of autounfurl removes repo from settings and posts confirmation message to user 1`] = `
 Object {
   "attachments": Array [
@@ -93,6 +97,10 @@ Object {
   ],
 }
 `;
+
+exports[`Integration: User settings authenticated user with both settings configured confirms removal of autounfurl removes repo from settings and posts confirmation message to user 2`] = `Set {}`;
+
+exports[`Integration: User settings authenticated user with both settings configured confirms removal of autounfurl removes repo from settings and posts confirmation message to user 3`] = `Map {}`;
 
 exports[`Integration: User settings authenticated user with both settings configured selects repo for which to stop autounfurls and is presented with a follow up message 1`] = `
 Object {
@@ -125,6 +133,10 @@ Object {
   "replace_original": true,
 }
 `;
+
+exports[`Integration: User settings authenticated user with both settings configured selects repo for which to stop autounfurls and is presented with a follow up message 2`] = `Set {}`;
+
+exports[`Integration: User settings authenticated user with both settings configured selects repo for which to stop autounfurls and is presented with a follow up message 3`] = `Map {}`;
 
 exports[`Integration: User settings authenticated user with just auto unfurls configured sees just that setting 1`] = `
 Object {

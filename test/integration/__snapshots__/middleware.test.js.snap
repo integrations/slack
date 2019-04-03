@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Middleware Parse action payload returns 400 for invalid format 1`] = `Set {}`;
+
+exports[`Middleware Parse action payload returns 400 for invalid format 2`] = `Map {}`;
