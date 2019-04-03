@@ -54,8 +54,13 @@ afterEach(() => {
     return status;
   }, new Map());
 
-  expect(getKeys).toMatchSnapshot();
-  expect(cacheStatus).toMatchSnapshot();
+  // Only match snapshot if it's not an empty map or set
+  if (getKeys.size > 0) {
+    expect(getKeys).toMatchSnapshot();
+  }
+  if (cacheStatus.size > 0) {
+    expect(cacheStatus).toMatchSnapshot();
+  }
 
   getSpy.mockRestore();
   setSpy.mockRestore();

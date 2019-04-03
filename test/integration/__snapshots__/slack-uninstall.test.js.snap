@@ -62,7 +62,3 @@ Object {
   "updatedAt": Any<Date>,
 }
 `;
-
-exports[`Uninstalling the slack app deletes all corresponding subscriptions 4`] = `Set {}`;
-
-exports[`Uninstalling the slack app deletes all corresponding subscriptions 5`] = `Map {}`;
