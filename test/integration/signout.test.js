@@ -1,10 +1,17 @@
-const request = require('supertest');
+const supertest = require('supertest');
 const nock = require('nock');
+const jwt = require('jsonwebtoken');
+const { promisify } = require('util');
 
 const { probot, slackbot, models } = require('.');
 const fixtures = require('../fixtures');
 
+const verify = promisify(jwt.verify);
+
+const request = supertest.agent(probot.server);
+
 const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+const continueLinkPattern = /<a href="https:\/\/github\.com\/login\/oauth\/authorize\?client_id.*(?<!\.)(ey.*)" class.*<\/a>/;
 
 const {
   SlackWorkspace,
@@ -77,19 +84,28 @@ describe('Integration: signout', async () => {
     const command = fixtures.slack.command({
       text: 'signout',
     });
-    const res = await request(probot.server).post('/slack/command')
+    const res = await request.post('/slack/command')
       .use(slackbot)
       .send(command)
       .expect(200);
 
     const { url } = res.body.attachments[0].actions[0];
-    const [, link, state] = url.match(promptUrl);
+    const [, link] = url.match(promptUrl);
 
-    const loginRequest = request(probot.server).get(link);
-    await loginRequest.expect(302).expect(
-      'Location',
-      `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
-    );
+    const interstitialRes = await request.get(link);
+    expect(interstitialRes.status).toBe(200);
+    expect(interstitialRes.text).toMatch(/Connect GitHub account/);
+    expect(interstitialRes.text).toMatch(/example\.slack\.com/);
+    expect(Object.keys(interstitialRes.headers)).toContain('set-cookie');
+    expect(interstitialRes.headers['set-cookie'][0]).toMatch(/session=/);
+
+    const state = continueLinkPattern.exec(interstitialRes.text)[1];
+
+    expect(await verify(state, process.env.GITHUB_CLIENT_SECRET)).toMatchSnapshot({
+      githubOAuthState: expect.any(String),
+      iat: expect.any(Number),
+      exp: expect.any(Number),
+    });
 
     // GitHub redirects back, authenticates user and process subscription
     nock('https://github.com').post('/login/oauth/access_token')
@@ -104,7 +120,7 @@ describe('Integration: signout', async () => {
       return true;
     }).reply(200, { ok: true });
 
-    await request(probot.server).get('/github/oauth/callback').query({ state })
+    await request.get('/github/oauth/callback').query({ state })
       .expect(302)
       .expect(
         'Location',
@@ -137,7 +153,7 @@ describe('Integration: signout', async () => {
       text: 'signout',
     });
 
-    const res = await request(probot.server).post('/slack/command').send(command).expect(200);
+    const res = await request.post('/slack/command').send(command).expect(200);
     expect(res.body.attachments[0].text).toMatchSnapshot();
 
     expect((await slackUser.reload()).githubId).toBe(null);

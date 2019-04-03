@@ -2,6 +2,18 @@
 
 exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 1`] = `
 Object {
+  "actionCallbackId": "unfurl-1",
+  "channelSlackId": "C74M",
+  "exp": Any<Number>,
+  "githubOAuthState": Any<String>,
+  "iat": Any<Number>,
+  "teamSlackId": "T000A",
+  "userSlackId": "U0Other",
+}
+`;
+
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 2`] = `
+Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C74M",
   "token": "xoxa-token",
@@ -9,7 +21,7 @@ Object {
 }
 `;
 
-exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 2`] = `
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 3`] = `
 Object {
   "channel": "C74M",
   "token": "xoxa-token",
@@ -18,13 +30,13 @@ Object {
 }
 `;
 
-exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 3`] = `
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 4`] = `
 Set {
   "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
 }
 `;
 
-exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 4`] = `
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 5`] = `
 Map {
   "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
 }
