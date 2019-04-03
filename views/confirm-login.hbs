@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -23,13 +24,13 @@
 <body>
 
   <div class="text-center">
-    <div class="container-lg p-responsive py-6 py-lg-10">
+    <div class="container-lg p-responsive py-6 py-lg-10" style="max-width: 600px">
       <img src="/static/img/githubplusslack.svg" class="mb-3 mb-sm-5 col-6 col-sm-12" style="max-width: 300px;">
-      <p>Finish connecting your GitHub account to your Slack account on </p>
-      <p class="alt-lead text-gray col-md-8 mx-auto mb-3 mb-lg-4">
-        {{teamSlackDomain}}.slack.com
+      <p>Finish connecting your GitHub account to your Slack account</p>
+      <p class="mb-3 mb-lg-4">
+        on the <span class="alt-lead text-gray mx-1">{{teamSlackDomain}}.slack.com</span> workspace
       </p>
-      <p>This will connect your accounts so you can use Slack to view rich previews for private GitHub links, open and close issues, and other features that depend on your access to GitHub!</p>
+      <p>This will connect your accounts so that you can use Slack to view rich previews for private GitHub links, open and close issues, and other features that depend on your access to GitHub. <a href="https://github.com/integrations/slack#authorization">Learn more</a></p>
       </p>
       <a href="{{continueLink}}" class="btn btn-large btn-primary f4">Connect GitHub account</a>
     </div>
