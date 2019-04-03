@@ -395,10 +395,6 @@ Object {
 
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 5`] = `Object {}`;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 6`] = `Set {}`;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 7`] = `Map {}`;
-
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 1`] = `
 Object {
   "dialog": "{\\"callback_id\\":\\"add-comment\\",\\"title\\":\\"Comment on Issue or PR\\",\\"submit_label\\":\\"Comment\\",\\"elements\\":[{\\"type\\":\\"select\\",\\"label\\":\\"Search by title\\",\\"name\\":\\"selectedUrl\\",\\"data_source\\":\\"external\\",\\"min_query_length\\":0,\\"optional\\":true},{\\"type\\":\\"text\\",\\"subtype\\":\\"url\\",\\"label\\":\\"Issue or Pull Request\\",\\"placeholder\\":\\"https://github.com/atom/atom/issues/1\\",\\"name\\":\\"manualUrl\\",\\"hint\\":\\"A link to a different Issue or Pull Request that you want to comment on in case it's not shown in the menu above\\",\\"optional\\":true},{\\"type\\":\\"textarea\\",\\"label\\":\\"Comment\\",\\"name\\":\\"comment\\",\\"value\\":\\"> World's smallest big cat! <https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>\\"}]}",
@@ -579,10 +575,6 @@ Object {
 
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 7`] = `Object {}`;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 8`] = `Set {}`;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 9`] = `Map {}`;
-
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when either URL is missing or no issue was selected 1`] = `
 Object {
   "errors": Array [
@@ -598,10 +590,6 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when either URL is missing or no issue was selected 2`] = `Set {}`;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when either URL is missing or no issue was selected 3`] = `Map {}`;
-
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting a valid URL but for an issue that doesn't exist 1`] = `
 Object {
   "errors": Array [
@@ -612,10 +600,6 @@ Object {
   ],
 }
 `;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting a valid URL but for an issue that doesn't exist 2`] = `Set {}`;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting a valid URL but for an issue that doesn't exist 3`] = `Map {}`;
 
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting an invalid URL 1`] = `
 Object {
@@ -628,10 +612,6 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting an invalid URL 2`] = `Set {}`;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User sees error when submitting an invalid URL 3`] = `Map {}`;
-
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not exist 1`] = `
 Object {
   "errors": Array [
@@ -643,10 +623,6 @@ Object {
 }
 `;
 
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not exist 2`] = `Set {}`;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not exist 3`] = `Map {}`;
-
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not have all required permissions 1`] = `
 Object {
   "errors": Array [
@@ -657,11 +633,3 @@ Object {
   ],
 }
 `;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not have all required permissions 2`] = `Set {}`;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread error is shown in dialog when installation for URL does not have all required permissions 3`] = `Map {}`;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread when a user has not yet connected their GitHub account they are prompted to do so first 1`] = `Set {}`;
-
-exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread when a user has not yet connected their GitHub account they are prompted to do so first 2`] = `Map {}`;

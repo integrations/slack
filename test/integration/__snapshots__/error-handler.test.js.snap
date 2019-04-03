@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Error handling /boom returns 500 1`] = `Set {}`;
-
-exports[`Error handling /boom returns 500 2`] = `Map {}`;
-
-exports[`Error handling /boom?async returns 500 1`] = `Set {}`;
-
-exports[`Error handling /boom?async returns 500 2`] = `Map {}`;
-
 exports[`Error handling response to failed slack commands 1`] = `
 Set {
   "pending-command#13345224609.738474920.8088930838d88f008e0",
