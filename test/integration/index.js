@@ -38,7 +38,7 @@ beforeEach(() => {
 
   // Clear all data out of the test database
   return Promise.all([
-    models.sequelize.truncate({ cascade: true }),
+    models.sequelize.truncate({ cascade: true, restartIdentity: true }),
     cache.clear(),
   ]);
 });
@@ -54,8 +54,13 @@ afterEach(() => {
     return status;
   }, new Map());
 
-  expect(getKeys).toMatchSnapshot();
-  expect(cacheStatus).toMatchSnapshot();
+  // Only match snapshot if it's not an empty map or set
+  if (getKeys.size > 0) {
+    expect(getKeys).toMatchSnapshot();
+  }
+  if (cacheStatus.size > 0) {
+    expect(cacheStatus).toMatchSnapshot();
+  }
 
   getSpy.mockRestore();
   setSpy.mockRestore();

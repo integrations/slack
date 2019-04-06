@@ -7,10 +7,6 @@ Object {
 }
 `;
 
-exports[`Integration: slack authentication /login 2`] = `Set {}`;
-
-exports[`Integration: slack authentication /login 3`] = `Map {}`;
-
 exports[`Integration: slack authentication allows all teams 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\"You've successfully installed GitHub on this Slack workspace :tada:\\\\nTo subscribe a channel to a repository use the following slash command:\\\\n/github subscribe owner/repository\\\\n\\",\\"fallback\\":\\"You've successfully installed GitHub on this Slack workspace :tada:\\\\nTo subscribe a channel to a repository use the following slash command:\\\\n/github subscribe owner/repository\\\\n\\"},{\\"color\\":\\"#24292f\\",\\"text\\":\\"Looking for additional help? Try /github help\\",\\"fallback\\":\\"Looking for additional help? Try /github help\\"}]",
@@ -18,37 +14,9 @@ Object {
 }
 `;
 
-exports[`Integration: slack authentication allows all teams 2`] = `Set {}`;
-
-exports[`Integration: slack authentication allows all teams 3`] = `Map {}`;
-
-exports[`Integration: slack authentication invalid state redirects to restart OAuth flow 1`] = `Set {}`;
-
-exports[`Integration: slack authentication invalid state redirects to restart OAuth flow 2`] = `Map {}`;
-
-exports[`Integration: slack authentication no session redirects to restart OAuth flow 1`] = `Set {}`;
-
-exports[`Integration: slack authentication no session redirects to restart OAuth flow 2`] = `Map {}`;
-
-exports[`Integration: slack authentication no state param redirects to restart OAuth flow 1`] = `Set {}`;
-
-exports[`Integration: slack authentication no state param redirects to restart OAuth flow 2`] = `Map {}`;
-
-exports[`Integration: slack authentication slack non-ok response redirects to restart OAuth flow 1`] = `Set {}`;
-
-exports[`Integration: slack authentication slack non-ok response redirects to restart OAuth flow 2`] = `Map {}`;
-
 exports[`Integration: slack authentication updates the access token 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\"You've successfully installed GitHub on this Slack workspace :tada:\\\\nTo subscribe a channel to a repository use the following slash command:\\\\n/github subscribe owner/repository\\\\n\\",\\"fallback\\":\\"You've successfully installed GitHub on this Slack workspace :tada:\\\\nTo subscribe a channel to a repository use the following slash command:\\\\n/github subscribe owner/repository\\\\n\\"},{\\"color\\":\\"#24292f\\",\\"text\\":\\"Looking for additional help? Try /github help\\",\\"fallback\\":\\"Looking for additional help? Try /github help\\"}]",
   "token": "xoxa-a-b-c-d",
 }
 `;
-
-exports[`Integration: slack authentication updates the access token 2`] = `Set {}`;
-
-exports[`Integration: slack authentication updates the access token 3`] = `Map {}`;
-
-exports[`Integration: slack authentication user aborting oauth process redirects to restart OAuth flow 1`] = `Set {}`;
-
-exports[`Integration: slack authentication user aborting oauth process redirects to restart OAuth flow 2`] = `Map {}`;

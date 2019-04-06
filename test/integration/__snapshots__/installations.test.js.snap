@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Integration: tracking GitHub installations deleting installation cascades to delete all subscriptions related to that installation 1`] = `Set {}`;
-
-exports[`Integration: tracking GitHub installations deleting installation cascades to delete all subscriptions related to that installation 2`] = `Map {}`;
-
-exports[`Integration: tracking GitHub installations installation created records 1`] = `Set {}`;
-
-exports[`Integration: tracking GitHub installations installation created records 2`] = `Map {}`;
