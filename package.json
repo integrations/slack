@@ -30,7 +30,7 @@
     "named-regexp": "^0.1.1",
     "newrelic": "^5.2.1",
     "pg": "^7.4.1",
-    "probot": "^7.5.0",
+    "probot": "^7.5.3",
     "query-string": "^6.0.0",
     "raven": "^2.4.1",
     "request": "^2.87.0",
