@@ -22,14 +22,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 2`] = `
 Set {
   "creator-access#1:100403908",
-  "channel#9523#C002:comment#364284529",
+  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 3`] = `
 Map {
   "creator-access#1:100403908" => true,
-  "channel#9523#C002:comment#364284529" => Object {
+  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -67,14 +67,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 2`] = `
 Set {
   "creator-access#1:123302024",
-  "channel#9523#C001:comment#171608320",
+  "channel#9523#C001:comment#MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDE3MTYwODMyMA==",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 3`] = `
 Map {
   "creator-access#1:123302024" => true,
-  "channel#9523#C001:comment#171608320" => Object {
+  "channel#9523#C001:comment#MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDE3MTYwODMyMA==" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -155,21 +155,17 @@ Map {
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 1`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel do not post prompt to re-subscribe after user loses access to repo but the subscription is to an account 2`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => false,
 }
 `;
-
-exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 1`] = `Set {}`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver commit comments if not explicitly enabled 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel does not deliver empty reviews which are actually review comments 1`] = `
 Set {
@@ -182,14 +178,6 @@ Map {
   "creator-access#1:107153132" => true,
 }
 `;
-
-exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 1`] = `Set {}`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver issue comments if not explicitly enabled 2`] = `Map {}`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 1`] = `Set {}`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver pull request review comments if not explicitly enabled 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 1`] = `
 Set {
@@ -214,10 +202,6 @@ Map {
   "creator-access#1:107153132" => true,
 }
 `;
-
-exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 1`] = `Set {}`;
-
-exports[`Integration: notifications to a subscribed channel does not deliver release notes if explicitely disabled 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel issue opened 1`] = `
 Object {
@@ -318,14 +302,14 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "channel#9523#C001:pull#142600109",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel message still gets delivered if no creatorId is set on Subscription 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
     "context": Object {
@@ -337,14 +321,6 @@ Map {
   },
 }
 `;
-
-exports[`Integration: notifications to a subscribed channel nothing to do if githubId == ownerId but the subscription is for repos 1`] = `Set {}`;
-
-exports[`Integration: notifications to a subscribed channel nothing to do if githubId == ownerId but the subscription is for repos 2`] = `Map {}`;
-
-exports[`Integration: notifications to a subscribed channel nothing to do if githubId == repoId but the subscription is for accounts 1`] = `Set {}`;
-
-exports[`Integration: notifications to a subscribed channel nothing to do if githubId == repoId but the subscription is for accounts 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel other error from slack does not delete subscription 1`] = `
 Set {
@@ -369,14 +345,14 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel post prompt to re-subscribe after user loses access to repo 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => false,
 }
 `;
@@ -431,7 +407,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel pull request opened 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
   "channel#9523#C001:pull#142600109",
 }
@@ -439,7 +415,7 @@ Set {
 
 exports[`Integration: notifications to a subscribed channel pull request opened 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
@@ -470,7 +446,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 3`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
   "channel#9523#C001:pull#142600109",
 }
@@ -478,7 +454,7 @@ Set {
 
 exports[`Integration: notifications to a subscribed channel pull request opened followed by status 4`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
@@ -532,10 +508,6 @@ Map {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 1`] = `Set {}`;
-
-exports[`Integration: notifications to a subscribed channel ref event does not get delivered if not explicitly enabled 2`] = `Map {}`;
-
 exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack-test-org/i-will-be-deleted] Repository deleted by wilhelmklopp\\",\\"title\\":\\"github-slack-test-org/i-will-be-deleted\\",\\"fields\\":[{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1520343804,\\"pretext\\":\\"Repository deleted by wilhelmklopp\\"}]",
@@ -543,14 +515,6 @@ Object {
   "token": "test",
 }
 `;
-
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 2`] = `Set {}`;
-
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 3`] = `Map {}`;
-
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 1`] = `Set {}`;
-
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and does not delete account subscription 2`] = `Map {}`;
 
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
@@ -584,10 +548,6 @@ Map {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 1`] = `Set {}`;
-
-exports[`Integration: notifications to a subscribed channel review event does not get delivered if not explicitly enabled 2`] = `Map {}`;
-
 exports[`Integration: notifications to a subscribed channel status event with no matching PR does not update a message 1`] = `
 Set {
   "creator-access#1:100427737",
@@ -610,7 +570,7 @@ Object {
 
 exports[`Integration: notifications to a subscribed channel update githubName in account subscription 2`] = `
 Set {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
   "channel#9523#C001:pull#142600109",
 }
@@ -618,7 +578,7 @@ Set {
 
 exports[`Integration: notifications to a subscribed channel update githubName in account subscription 3`] = `
 Map {
-  "status-cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
   "channel#9523#C001:pull#142600109" => Object {
     "channel": undefined,
@@ -643,14 +603,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 2`] = `
 Set {
   "creator-access#1:16064378",
-  "channel#9523#C002:comment#30287269",
+  "channel#9523#C002:comment#MDEzOkNvbW1pdENvbW1lbnQzMDI4NzI2OQ==",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 3`] = `
 Map {
   "creator-access#1:16064378" => true,
-  "channel#9523#C002:comment#30287269" => Object {
+  "channel#9523#C002:comment#MDEzOkNvbW1pdENvbW1lbnQzMDI4NzI2OQ==" => Object {
     "channel": undefined,
     "ts": undefined,
   },
@@ -668,14 +628,14 @@ Object {
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 2`] = `
 Set {
   "creator-access#1:100403908",
-  "channel#9523#C002:comment#364284529",
+  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 3`] = `
 Map {
   "creator-access#1:100403908" => true,
-  "channel#9523#C002:comment#364284529" => Object {
+  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==" => Object {
     "channel": undefined,
     "ts": undefined,
   },

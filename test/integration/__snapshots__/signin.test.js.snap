@@ -1,21 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: signin invalid state passed to /github/oauth/login expired JWT supplied 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: signin invalid state passed to /github/oauth/login expired JWT supplied 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "signin",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
 exports[`Integration: signin unauthenticated user is prompted to authenticate 1`] = `
 Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
+  "channelSlackId": "C2147483705",
+  "exp": Any<Number>,
+  "githubOAuthState": Any<String>,
+  "iat": Any<Number>,
+  "replaySlashCommand": false,
+  "teamSlackId": "T0001",
+  "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+  "userSlackId": "U2147483697",
 }
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate 2`] = `
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
+`;
+
+exports[`Integration: signin unauthenticated user is prompted to authenticate 3`] = `
 Object {
   "createdAt": Any<Date>,
   "id": "7718702",
@@ -25,13 +61,13 @@ Object {
 }
 `;
 
-exports[`Integration: signin unauthenticated user is prompted to authenticate 3`] = `
+exports[`Integration: signin unauthenticated user is prompted to authenticate 4`] = `
 Set {
   "pending-command#13345224609.738474920.8088930838d88f008e0",
 }
 `;
 
-exports[`Integration: signin unauthenticated user is prompted to authenticate 4`] = `
+exports[`Integration: signin unauthenticated user is prompted to authenticate 5`] = `
 Map {
   "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
     "channel_id": "C2147483705",
@@ -52,18 +88,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "close https://github.com/owner/repo/issues/123" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "close https://github.com/owner/repo/issues/123" 2`] = `
@@ -93,18 +126,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "reopen https://github.com/owner/repo/issues/123" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "reopen https://github.com/owner/repo/issues/123" 2`] = `
@@ -134,18 +164,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "subscribe kubernetes" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "subscribe kubernetes" 2`] = `
@@ -175,18 +202,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "subscribe kubernetes/kubernetes" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "subscribe kubernetes/kubernetes" 2`] = `
@@ -216,18 +240,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "unsubscribe kubernetes" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "unsubscribe kubernetes" 2`] = `
@@ -257,18 +278,15 @@ Map {
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "unsubscribe kubernetes/kubernetes" 1`] = `
-Object {
-  "attachments": Array [
-    Object {
-      "color": "#24292f",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-      "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
-    },
-  ],
-  "response_type": "ephemeral",
-}
+Array [
+  Object {
+    "color": "#24292f",
+    "mrkdwn_in": Array [
+      "text",
+    ],
+    "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
+  },
+]
 `;
 
 exports[`Integration: signin unauthenticated user is prompted to authenticate for slash command "unsubscribe kubernetes/kubernetes" 2`] = `
@@ -297,7 +315,124 @@ Map {
 }
 `;
 
+exports[`Integration: signin unauthenticated user is redirected to Slack directly if command cannot be replayed 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: signin unauthenticated user is redirected to Slack directly if command cannot be replayed 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe kubernetes/kubernetes",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: signin unauthenticated user with expired state cannot sign in 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: signin unauthenticated user with expired state cannot sign in 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "signin",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: signin unauthenticated user with state mismatch cannot complete sign in process 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: signin unauthenticated user with state mismatch cannot complete sign in process 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "signin",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: signin unauthenticated user witout state cookie cannot complete sign in process 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: signin unauthenticated user witout state cookie cannot complete sign in process 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "signin",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
 exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 1`] = `
+Object {
+  "channelSlackId": "C2147483705",
+  "exp": Any<Number>,
+  "githubOAuthState": Any<String>,
+  "iat": Any<Number>,
+  "replaySlashCommand": true,
+  "teamSlackId": "T0001",
+  "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+  "userSlackId": "U2147483697",
+}
+`;
+
+exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 2`] = `
 Object {
   "attachments": Array [
     Object {
@@ -309,13 +444,13 @@ Object {
 }
 `;
 
-exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 2`] = `
+exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 3`] = `
 Set {
   "pending-command#13345224609.738474920.8088930838d88f008e0",
 }
 `;
 
-exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 3`] = `
+exports[`Integration: signin with a pending subscription redirects to install app and creates subscription 4`] = `
 Map {
   "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
     "channel_id": "C2147483705",

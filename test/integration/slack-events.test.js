@@ -23,5 +23,12 @@ describe('Slack events', () => {
         })
         .expect(400);
     });
+
+    test('responds with 400 when POSTed to directly', async () => {
+      await request(probot.server).post('/slack/events.config_migration')
+        .send({})
+        .expect(400)
+        .expect('Invalid verificaton token');
+    });
   });
 });
