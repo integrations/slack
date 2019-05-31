@@ -75,7 +75,8 @@ Follow the [Probot docs for configuring up a GitHub App](https://probot.github.i
 - **Setup URL**: `https://DOMAIN/github/setup`
 - **Webhook URL**: `https://DOMAIN/github/events`
 
-Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` should provide a suitable secret.
+- Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` should provide a suitable secret.
+- Add in a `SESSION_SECRET` to your `.env` file, running `openssl rand -hex 32` should provide a suitable secret.
 
 #### Configuring a Slack App
 
