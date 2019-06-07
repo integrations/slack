@@ -237,7 +237,13 @@ describe('model: Subscription', () => {
 
     test('maps GitHub event names to friendly values', () => {
       subscription.enable('pulls');
-      expect(subscription.isEnabledForGitHubEvent('pull_request')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('pull_request', 'opened')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('pull_request', 'closed')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('pull_request', 'reopened')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('pull_request', 'synchronize')).toBe(true);
+
+      expect(subscription.isEnabledForGitHubEvent('pull_request', 'review_requested')).toBe(false);
+      expect(subscription.isEnabledForGitHubEvent('pull_request', 'lolwut?')).toBe(false);
     });
   });
 });
