@@ -62,6 +62,26 @@ Object {
 }
 `;
 
+exports[`Pull request rendering works for minor notifications with mention 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#36a64f",
+      "fallback": "[github-slack/app] #31 Add badges to readme",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "pretext": "<@U2147483697> Pull request review_requested by wilhelmklopp",
+      "title": "#31 Add badges to readme",
+      "title_link": "https://github.com/github-slack/app/pull/31",
+      "ts": 1506092298,
+    },
+  ],
+}
+`;
+
 exports[`Pull request rendering works for notifcation messages 1`] = `
 Object {
   "attachments": Array [

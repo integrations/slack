@@ -6,6 +6,7 @@ const combinedStatusOneFailing = require('../fixtures/combined_status_one_failin
 
 const pullRequestOpened = require('../fixtures/webhooks/pull_request.opened.json');
 const pullRequestClosed = require('../fixtures/webhooks/pull_request.closed.json');
+const pullRequestReviewRequested = require('../fixtures/webhooks/pull_request.review_requested.json');
 
 describe('Pull request rendering', () => {
   test('works for notifcation messages', async () => {
@@ -107,6 +108,22 @@ describe('Pull request rendering', () => {
       repository: pullRequestClosed.repository,
       eventType: 'pull_request.closed',
       sender: pullRequestClosed.sender,
+    });
+    const rendered = prMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
+
+  test('works for minor notifications with mention', async () => {
+    const pullRequest = {
+      ...pullRequestReviewRequested.pull_request,
+      labels: [],
+    };
+    const prMessage = new PullRequest({
+      pullRequest,
+      repository: pullRequestReviewRequested.repository,
+      eventType: 'pull_request.review_requested',
+      sender: pullRequestReviewRequested.sender,
+      mention: 'U2147483697',
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
