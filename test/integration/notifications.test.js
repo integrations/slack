@@ -329,6 +329,33 @@ describe('Integration: notifications', () => {
       });
     });
 
+    test('review requested on pull request', async () => {
+      await Subscription.subscribe({
+        githubId: pullRequestPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+      });
+
+      nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200, fixtures.reviews);
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        name: 'pull_request',
+        payload: {
+          ...pullRequestPayload,
+          action: 'review_requested',
+        },
+      });
+    })
+
     test('status event with no matching PR does not update a message', async () => {
       await Subscription.subscribe({
         githubId: statusPayload.repository.id,
