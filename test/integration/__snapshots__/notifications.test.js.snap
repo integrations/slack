@@ -516,6 +516,38 @@ Object {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel requested review from not subscriber on pull request 1`] = `
+Set {
+  "creator-access#1:100427737",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel requested review from not subscriber on pull request 2`] = `
+Map {
+  "creator-access#1:100427737" => true,
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel requested review from subscriber on pull request 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"[github-slack/app] #31 Add badges to readme\\",\\"pretext\\":\\"<@U012346> Pull request review_requested by wilhelmklopp\\"}]",
+  "channel": "C002",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel requested review from subscriber on pull request 2`] = `
+Set {
+  "creator-access#7718702:100427737",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel requested review from subscriber on pull request 3`] = `
+Map {
+  "creator-access#7718702:100427737" => true,
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel review event 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"author_name\\":\\"JasonEtco\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/10660468?v=4\\",\\"author_link\\":\\"https://github.com/JasonEtco\\",\\"pretext\\":\\"JasonEtco approved wilhelmklopp's pull request\\",\\"fallback\\":\\"[github-slack/public-test] JasonEtco approved wilhelmklopp's pull request\\",\\"title\\":\\"Review on #19 removing more words\\",\\"title_link\\":\\"https://github.com/github-slack/public-test/pull/19#pullrequestreview-97014958\\",\\"text\\":\\"rendered html\\",\\"mrkdwn_in\\":[\\"text\\"],\\"ts\\":1518730621}]",

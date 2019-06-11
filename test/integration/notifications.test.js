@@ -6,6 +6,7 @@ const fixtures = require('../fixtures');
 
 const issuePayload = require('../fixtures/webhooks/issues.opened');
 const pullRequestPayload = require('../fixtures/webhooks/pull_request.opened');
+const pullRequestReviewRequestedPayload = require('../fixtures/webhooks/pull_request.review_requested');
 const statusPayload = require('../fixtures/webhooks/status');
 const publicEventPayload = require('../fixtures/webhooks/public');
 const branchDeleted = require('../fixtures/webhooks/branch_deleted.json');
@@ -329,17 +330,29 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test('review requested on pull request', async () => {
-      await Subscription.subscribe({
-        githubId: pullRequestPayload.repository.id,
-        channelId: 'C001',
-        slackWorkspaceId: workspace.id,
-        installationId: installation.id,
-        creatorId: slackUser.id,
-        type: 'repo',
+    test('requested review from subscriber on pull request', async () => {
+      const reviewRequestedGithubUser = await GitHubUser.create({
+        id: 7718702,
+        accessToken: 'secret',
       });
 
-      nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
+      const reviewRequestedSlackUser = await SlackUser.create({
+        slackId: 'U012346',
+        slackWorkspaceId: workspace.id,
+        githubId: reviewRequestedGithubUser.id,
+      });
+
+      await Subscription.subscribe({
+        githubId: pullRequestReviewRequestedPayload.repository.id,
+        channelId: 'C002',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: reviewRequestedSlackUser.id,
+        type: 'repo',
+        settings: { review_requests: true },
+      });
+
+      nock('https://api.github.com').get(`/repositories/${pullRequestReviewRequestedPayload.repository.id}`).reply(200);
       nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200, fixtures.reviews);
 
       nock('https://slack.com').post('/api/chat.postMessage', (body) => {
@@ -349,12 +362,28 @@ describe('Integration: notifications', () => {
 
       await probot.receive({
         name: 'pull_request',
-        payload: {
-          ...pullRequestPayload,
-          action: 'review_requested',
-        },
+        payload: pullRequestReviewRequestedPayload,
       });
-    })
+    });
+
+    test('requested review from not subscriber on pull request', async () => {
+      await Subscription.subscribe({
+        githubId: pullRequestReviewRequestedPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+        settings: { review_requests: true },
+      });
+
+      nock('https://api.github.com').get(`/repositories/${pullRequestReviewRequestedPayload.repository.id}`).reply(200);
+
+      await probot.receive({
+        name: 'pull_request',
+        payload: pullRequestReviewRequestedPayload,
+      });
+    });
 
     test('status event with no matching PR does not update a message', async () => {
       await Subscription.subscribe({
