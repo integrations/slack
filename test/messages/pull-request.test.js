@@ -8,7 +8,7 @@ const pullRequestOpened = require('../fixtures/webhooks/pull_request.opened.json
 const pullRequestClosed = require('../fixtures/webhooks/pull_request.closed.json');
 
 describe('Pull request rendering', () => {
-  test('works for notifcation messages', async () => {
+  test('works for notification messages', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
@@ -29,7 +29,7 @@ describe('Pull request rendering', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('works for notifcation messages with statuses', async () => {
+  test('works for notification messages with statuses', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
@@ -46,7 +46,7 @@ describe('Pull request rendering', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('works for notifcation messages with some statuses passing', async () => {
+  test('works for notification messages with some statuses passing', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
@@ -63,7 +63,7 @@ describe('Pull request rendering', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('works for notifcation messages with all statuses passing', async () => {
+  test('works for notification messages with all statuses passing', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
@@ -80,7 +80,7 @@ describe('Pull request rendering', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('works for notifcation messages with one status failing', async () => {
+  test('works for notification messages with one status failing', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
