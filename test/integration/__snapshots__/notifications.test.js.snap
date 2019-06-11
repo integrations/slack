@@ -468,6 +468,36 @@ Map {
 }
 `;
 
+exports[`Integration: notifications to a subscribed channel pull request ready_for_review 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[github-slack/app] #10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"pretext\\":\\"Pull request ready for review by wilhelmklopp\\"}]",
+  "channel": "C001",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request ready_for_review 2`] = `
+Set {
+  "creator-access#1:100427737",
+  "channel#9523#C001:pull#142600109",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request ready_for_review 3`] = `
+Map {
+  "creator-access#1:100427737" => true,
+  "channel#9523#C001:pull#142600109" => Object {
+    "channel": undefined,
+    "context": Object {
+      "number": 31,
+      "owner": "github-slack",
+      "repo": "app",
+    },
+    "ts": undefined,
+  },
+}
+`;
+
 exports[`Integration: notifications to a subscribed channel pull request reopened does not make an API call to issues endpoint 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#36a64f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1506092298,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#31 Add badges to readme\\",\\"title_link\\":\\"https://github.com/github-slack/app/pull/31\\",\\"fallback\\":\\"[github-slack/app] #31 Add badges to readme\\",\\"pretext\\":\\"Pull request reopened by wilhelmklopp\\"}]",
