@@ -139,4 +139,26 @@ describe('Pull request rendering', () => {
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
   });
+
+  test('works for ready_for_review messages', async () => {
+    const pullRequest = {
+      ...pullRequestOpened.pull_request,
+      action: 'ready_for_review',
+      labels: [],
+      requested_reviewers: [{ login: 'user1' }],
+      requested_teams: [{ name: 'Test-team', slug: 'test-team' }],
+    };
+    const prMessage = new PullRequest({
+      pullRequest,
+      repository: pullRequestOpened.repository,
+      eventType: 'pull_request.ready_for_review',
+      sender: pullRequestOpened.sender,
+      reviews: [
+        { state: 'CHANGES_REQUESTED', user: { login: 'user2' } },
+        { state: 'APPROVED', user: { login: 'user2' } },
+      ],
+    });
+    const rendered = prMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
 });
