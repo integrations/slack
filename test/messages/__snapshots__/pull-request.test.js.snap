@@ -62,7 +62,7 @@ Object {
 }
 `;
 
-exports[`Pull request rendering works for notifcation messages 1`] = `
+exports[`Pull request rendering works for notification messages 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -99,7 +99,7 @@ Object {
 }
 `;
 
-exports[`Pull request rendering works for notifcation messages with all statuses passing 1`] = `
+exports[`Pull request rendering works for notification messages with all statuses passing 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -137,7 +137,7 @@ Object {
 }
 `;
 
-exports[`Pull request rendering works for notifcation messages with one status failing 1`] = `
+exports[`Pull request rendering works for notification messages with one status failing 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -179,7 +179,7 @@ Object {
 }
 `;
 
-exports[`Pull request rendering works for notifcation messages with some statuses passing 1`] = `
+exports[`Pull request rendering works for notification messages with some statuses passing 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -237,7 +237,7 @@ Object {
 }
 `;
 
-exports[`Pull request rendering works for notifcation messages with statuses 1`] = `
+exports[`Pull request rendering works for notification messages with statuses 1`] = `
 Object {
   "attachments": Array [
     Object {
