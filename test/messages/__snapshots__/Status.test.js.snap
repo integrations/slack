@@ -24,9 +24,18 @@ Object {
 
 exports[`Status rendering works for some checks pass 1`] = `
 Object {
-  "color": "#28a745",
+  "color": "#dbab09",
   "fallback": "4 other checks have passed",
   "footer": "4/5 successful checks",
   "text": ":white_check_mark: 4 other checks have passed",
+}
+`;
+
+exports[`Status rendering works when no checks pass 1`] = `
+Object {
+  "color": "#cb2431",
+  "fallback": "No checks have passed",
+  "footer": "0/5 successful checks",
+  "text": ":white_check_mark: No checks have passed",
 }
 `;

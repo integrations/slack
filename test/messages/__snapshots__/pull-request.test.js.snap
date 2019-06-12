@@ -228,7 +228,7 @@ Object {
       ],
     },
     Object {
-      "color": "#28a745",
+      "color": "#dbab09",
       "fallback": "2 other checks have passed",
       "footer": "2/4 successful checks",
       "text": ":white_check_mark: 2 other checks have passed",
@@ -301,6 +301,48 @@ Object {
       "author_name": "codecov/project: 98.37% remains the same compared to 0143c3c",
       "color": "#cb2431",
       "fallback": "codecov/project: 98.37% remains the same compared to 0143c3c",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Pull request rendering works for notification messages with check runs 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+      "author_link": "https://github.com/wilhelmklopp",
+      "author_name": "wilhelmklopp",
+      "color": "#36a64f",
+      "fallback": "[github-slack/app] #31 Add badges to readme",
+      "fields": Array [
+        Object {
+          "short": true,
+          "title": "Milestone",
+          "value": "<https://github.com/github-slack/app/milestone/1|Staff Ship>",
+        },
+      ],
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "pretext": "Pull request opened by wilhelmklopp",
+      "text": "![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)
+",
+      "title": "#31 Add badges to readme",
+      "title_link": "https://github.com/github-slack/app/pull/31",
+      "ts": 1506092298,
+    },
+    Object {
+      "author_icon": "https://github.com/images/error/octocat_happy.gif",
+      "author_link": "http://github.com/github/hello-world/runs/4",
+      "author_name": "mighty_readme: Mighty Readme report",
+      "color": undefined,
+      "fallback": "mighty_readme: Mighty Readme report",
       "mrkdwn_in": Array [
         "text",
       ],

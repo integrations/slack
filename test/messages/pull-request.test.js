@@ -7,6 +7,8 @@ const combinedStatusOneFailing = require('../fixtures/combined_status_one_failin
 const pullRequestOpened = require('../fixtures/webhooks/pull_request.opened.json');
 const pullRequestClosed = require('../fixtures/webhooks/pull_request.closed.json');
 
+const check = require('../fixtures/checks_some_passing.json');
+
 describe('Pull request rendering', () => {
   test('works for notifcation messages', async () => {
     const pullRequest = {
@@ -91,6 +93,23 @@ describe('Pull request rendering', () => {
       eventType: 'pull_request.opened',
       unfurl: false,
       statuses: combinedStatusOneFailing.statuses,
+      sender: pullRequestOpened.sender,
+    });
+    const rendered = prMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
+
+  test('works for notification messages with check runs', async () => {
+    const pullRequest = {
+      ...pullRequestOpened.pull_request,
+      labels: [],
+    };
+    const prMessage = new PullRequest({
+      pullRequest,
+      repository: pullRequestOpened.repository,
+      eventType: 'pull_request.opened',
+      unfurl: false,
+      checkRuns: check.check_runs,
       sender: pullRequestOpened.sender,
     });
     const rendered = prMessage.getRenderedMessage();
