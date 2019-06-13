@@ -114,7 +114,7 @@ Settings are configured with the `/github` slash command:
 These are enabled by default, and can be disabled with the `/github unsubscribe owner/repo [feature]` command:
 
 - `issues` - Opened or closed issues
-- `pulls` - New or merged pull requests
+- `pulls` - New or merged pull requests, as well as draft pull requests marked "Ready for Review"
 - `statuses` - Statuses on pull requests
 - `commits` - New commits on the default branch (usually `master`)
 - `deployments` - Updated status on deployments
