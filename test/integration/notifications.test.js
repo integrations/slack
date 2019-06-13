@@ -319,55 +319,6 @@ describe('Integration: notifications', () => {
         .get(`/repos/github-slack/app/commits/${statusPayload.sha}/status`)
         .reply(200, fixtures.combinedStatus);
 
-      nock('https://slack.com').post('/api/chat.update', (body) => {
-        expect(body).toMatchSnapshot();
-        return true;
-      }).reply(200, { ok: true });
-
-      await probot.receive({
-        name: 'status',
-        payload: statusPayload,
-      });
-    });
-
-    test('pull request opened followed by check run', async () => {
-      jest.setTimeout(10000);
-      await Subscription.subscribe({
-        githubId: pullRequestPayload.repository.id,
-        channelId: 'C001',
-        slackWorkspaceId: workspace.id,
-        installationId: installation.id,
-        creatorId: slackUser.id,
-        type: 'repo',
-      });
-
-      nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
-      nock('https://api.github.com', {
-        reqHeaders: {
-          Accept: 'application/vnd.github.html+json',
-        },
-      }).get('/repos/github-slack/app/pulls/31').reply(200, { ...fixtures.pull, ...fixtures.issue, number: 31 });
-      nock('https://api.github.com', {
-        reqHeaders: {
-          Accept: 'application/vnd.github.html+json',
-        },
-      }).get('/repos/github-slack/app/issues/31').reply(200, fixtures.issue);
-      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31/reviews').reply(200, fixtures.reviews);
-
-      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
-        expect(body).toMatchSnapshot();
-        return true;
-      }).reply(200, { ok: true });
-
-      await probot.receive({
-        name: 'pull_request',
-        payload: pullRequestPayload,
-      });
-
-      nock('https://api.github.com').get('/repos/github-slack/app/pulls/31').reply(200, fixtures.pull);
-
-      nock('https://api.github.com').get('/repos/github-slack/app/pulls/1535/reviews').reply(200, fixtures.reviews);
-
       nock('https://api.github.com')
         .get(`/repos/github-slack/app/commits/${statusPayload.sha}/check-runs`)
         .reply(200, fixtures.checks);
@@ -378,8 +329,8 @@ describe('Integration: notifications', () => {
       }).reply(200, { ok: true });
 
       await probot.receive({
-        name: 'check_run',
-        payload: checkPayload,
+        name: 'status',
+        payload: statusPayload,
       });
     });
 
