@@ -77,6 +77,7 @@ Follow the [Probot docs for configuring up a GitHub App](https://probot.github.i
 
 Your new GitHub app will need the following permissions:
 
+- Checks: Read-only
 - Repository contents: Read-only
 - Deployments: Read & write
 - Issues: Read & write
