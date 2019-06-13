@@ -222,6 +222,38 @@ describe('Integration: notifications', () => {
       });
     });
 
+    test('pull request ready_for_review', async () => {
+      await Subscription.subscribe({
+        githubId: pullRequestPayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+      });
+
+      nock('https://api.github.com').get(`/repositories/${pullRequestPayload.repository.id}`).reply(200);
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/app/pulls/31').reply(200, { ...fixtures.pull, ...fixtures.issue, merged: false });
+      nock('https://api.github.com').get('/repos/github-slack/app/pulls/10191/reviews').reply(200, fixtures.reviews);
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        name: 'pull_request',
+        payload: {
+          ...pullRequestPayload,
+          action: 'ready_for_review',
+        },
+      });
+    });
+
     test('pull request closed does not make an API call to issues endpoint', async () => {
       await Subscription.subscribe({
         githubId: pullRequestPayload.repository.id,
