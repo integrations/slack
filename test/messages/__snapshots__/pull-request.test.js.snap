@@ -276,16 +276,6 @@ Object {
       ],
     },
     Object {
-      "author_icon": "https://avatars2.githubusercontent.com/oa/1508?v=4",
-      "author_link": "https://travis-ci.org/github-slack/app/builds/278661144?utm_source=github_status&utm_medium=notification",
-      "author_name": "continuous-integration/travis-ci/push: The Travis CI build passed",
-      "color": "#28a745",
-      "fallback": "continuous-integration/travis-ci/push: The Travis CI build passed",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-    },
-    Object {
       "author_icon": "https://avatars2.githubusercontent.com/in/254?v=4",
       "author_link": "https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd",
       "author_name": "codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0",
@@ -304,6 +294,12 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+    },
+    Object {
+      "color": "#dbab09",
+      "fallback": "1 other check has passed",
+      "footer": "1/4 successful checks",
+      "text": ":white_check_mark: 1 other check has passed",
     },
   ],
 }
@@ -340,12 +336,28 @@ Object {
     Object {
       "author_icon": "https://github.com/images/error/octocat_happy.gif",
       "author_link": "http://github.com/github/hello-world/runs/4",
-      "author_name": "mighty_readme: Mighty Readme report",
-      "color": undefined,
-      "fallback": "mighty_readme: Mighty Readme report",
+      "author_name": "Super CI: Mighty Readme report",
+      "color": "#dbab09",
+      "fallback": "Super CI: Mighty Readme report",
       "mrkdwn_in": Array [
         "text",
       ],
+    },
+    Object {
+      "author_icon": "https://github.com/images/error/octocat_happy.gif",
+      "author_link": "http://github.com/github/hello-world/runs/4",
+      "author_name": "Super CI: Mighty Readme report",
+      "color": "#dbab09",
+      "fallback": "Super CI: Mighty Readme report",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+    },
+    Object {
+      "color": "#dbab09",
+      "fallback": "1 other check has passed",
+      "footer": "1/3 successful checks",
+      "text": ":white_check_mark: 1 other check has passed",
     },
   ],
 }
