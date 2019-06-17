@@ -224,6 +224,50 @@ describe('Integration: subscriptions', () => {
           });
       });
 
+      test('successfully subscribing and unsubscribing to an organization', async () => {
+        nock('https://api.github.com').get('/users/kubernetes/installation').times(2).reply(200, {
+          id: installation.githubId,
+          account: fixtures.repo.owner,
+        });
+        nock('https://api.github.com').get('/users/kubernetes').times(2).reply(200, fixtures.org);
+
+        const command = fixtures.slack.command({
+          text: 'subscribe https://github.com/kubernetes',
+        });
+
+        await request.post('/slack/command').use(slackbot).send(command)
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        const unsubscribeCommand = fixtures.slack.command({
+          text: 'unsubscribe https://github.com/kubernetes',
+        });
+
+        await request.post('/slack/command').use(slackbot).send(unsubscribeCommand)
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
+      test('successfully subscribing with organization shorthand', async () => {
+        nock('https://api.github.com').get('/users/kubernetes/installation').reply(200, {
+          id: installation.githubId,
+          account: fixtures.repo.owner,
+        });
+        nock('https://api.github.com').get('/users/kubernetes').reply(200, fixtures.org);
+
+        const command = fixtures.slack.command({ text: 'subscribe kubernetes' });
+
+        await request.post('/slack/command').use(slackbot).send(command)
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+      });
+
       test('unsubscribing from a specific type of notification', async () => {
         const { Installation } = models;
 
@@ -341,7 +385,7 @@ describe('Integration: subscriptions', () => {
 
       test('subscribing with a bad url', async () => {
         const command = fixtures.slack.command({
-          text: 'subscribe wat?',
+          text: 'subscribe something/not/ok',
         });
 
         const req = request.post('/slack/command').use(slackbot).send(command);
@@ -353,7 +397,7 @@ describe('Integration: subscriptions', () => {
 
       test('unsubscribing with a bad url', async () => {
         const command = fixtures.slack.command({
-          text: 'unsubscribe wat?',
+          text: 'unsubscribe something/not/ok',
         });
 
         const req = request.post('/slack/command').use(slackbot).send(command);

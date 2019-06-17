@@ -62,7 +62,7 @@ Object {
 }
 `;
 
-exports[`Pull request rendering works for notifcation messages 1`] = `
+exports[`Pull request rendering works for notification messages 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -72,6 +72,11 @@ Object {
       "color": "#36a64f",
       "fallback": "[github-slack/app] #31 Add badges to readme",
       "fields": Array [
+        Object {
+          "short": true,
+          "title": "Reviewers",
+          "value": "user2, @user1, @github-slack/test-team",
+        },
         Object {
           "short": true,
           "title": "Milestone",
@@ -94,7 +99,7 @@ Object {
 }
 `;
 
-exports[`Pull request rendering works for notifcation messages with all statuses passing 1`] = `
+exports[`Pull request rendering works for notification messages with all statuses passing 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -132,7 +137,7 @@ Object {
 }
 `;
 
-exports[`Pull request rendering works for notifcation messages with one status failing 1`] = `
+exports[`Pull request rendering works for notification messages with one status failing 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -174,7 +179,7 @@ Object {
 }
 `;
 
-exports[`Pull request rendering works for notifcation messages with some statuses passing 1`] = `
+exports[`Pull request rendering works for notification messages with some statuses passing 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -232,7 +237,7 @@ Object {
 }
 `;
 
-exports[`Pull request rendering works for notifcation messages with statuses 1`] = `
+exports[`Pull request rendering works for notification messages with statuses 1`] = `
 Object {
   "attachments": Array [
     Object {
@@ -299,6 +304,26 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+    },
+  ],
+}
+`;
+
+exports[`Pull request rendering works for ready_for_review messages 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#36a64f",
+      "fallback": "[github-slack/app] #31 Add badges to readme",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
+      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "pretext": "Pull request ready for review by wilhelmklopp",
+      "title": "#31 Add badges to readme",
+      "title_link": "https://github.com/github-slack/app/pull/31",
+      "ts": 1506092298,
     },
   ],
 }

@@ -14,8 +14,36 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Unsubscribe to notifications for a repository:
+      "text": "Unsubscribe from notifications for a repository:
 \`/github unsubscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for all repositories in an organization:
+\`/github subscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from notifications for an organization:
+\`/github unsubscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
+\`/github subscribe owner/respository reviews,comments\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from one or more subscription features:
+\`/github unsubscribe owner/respository commits\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -23,6 +51,13 @@ Object {
       ],
       "text": "List all active subscriptions in a channel:
 \`/github subscribe list\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List all active subscriptions with subscription features:
+\`/github subscribe list features\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -49,13 +84,6 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Connect your GitHub account:
-\`/github signin\`",
-    },
-    Object {
-      "mrkdwn_in": Array [
-        "text",
-      ],
       "text": "Show this help message:
 \`/github help\`",
     },
@@ -67,6 +95,20 @@ Object {
 \`/github open owner/repository\`",
     },
     Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Trigger a deployment:
+\`/github deploy owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List deployments of a repo:
+\`/github deploy owner/repository list\`",
+    },
+    Object {
       "color": "",
       "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
@@ -75,6 +117,32 @@ Object {
   ],
   "response_type": "ephemeral",
   "text": ":wave: Need some help with \`/github\`?",
+}
+`;
+
+exports[`Integration: help returns help with /github help command 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: help returns help with /github help command 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "help",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -92,8 +160,36 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Unsubscribe to notifications for a repository:
+      "text": "Unsubscribe from notifications for a repository:
 \`/github unsubscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for all repositories in an organization:
+\`/github subscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from notifications for an organization:
+\`/github unsubscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
+\`/github subscribe owner/respository reviews,comments\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from one or more subscription features:
+\`/github unsubscribe owner/respository commits\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -101,6 +197,13 @@ Object {
       ],
       "text": "List all active subscriptions in a channel:
 \`/github subscribe list\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List all active subscriptions with subscription features:
+\`/github subscribe list features\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -127,13 +230,6 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Connect your GitHub account:
-\`/github signin\`",
-    },
-    Object {
-      "mrkdwn_in": Array [
-        "text",
-      ],
       "text": "Show this help message:
 \`/github help\`",
     },
@@ -145,6 +241,20 @@ Object {
 \`/github open owner/repository\`",
     },
     Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Trigger a deployment:
+\`/github deploy owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List deployments of a repo:
+\`/github deploy owner/repository list\`",
+    },
+    Object {
       "color": "",
       "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
@@ -153,6 +263,32 @@ Object {
   ],
   "response_type": "ephemeral",
   "text": ":wave: Need some help with \`/github\`?",
+}
+`;
+
+exports[`Integration: help returns help with no arguments 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: help returns help with no arguments 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -170,8 +306,36 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Unsubscribe to notifications for a repository:
+      "text": "Unsubscribe from notifications for a repository:
 \`/github unsubscribe owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to notifications for all repositories in an organization:
+\`/github subscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from notifications for an organization:
+\`/github unsubscribe owner\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
+\`/github subscribe owner/respository reviews,comments\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Unsubscribe from one or more subscription features:
+\`/github unsubscribe owner/respository commits\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -179,6 +343,13 @@ Object {
       ],
       "text": "List all active subscriptions in a channel:
 \`/github subscribe list\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List all active subscriptions with subscription features:
+\`/github subscribe list features\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -205,13 +376,6 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Connect your GitHub account:
-\`/github signin\`",
-    },
-    Object {
-      "mrkdwn_in": Array [
-        "text",
-      ],
       "text": "Show this help message:
 \`/github help\`",
     },
@@ -223,6 +387,20 @@ Object {
 \`/github open owner/repository\`",
     },
     Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Trigger a deployment:
+\`/github deploy owner/repository\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "List deployments of a repo:
+\`/github deploy owner/repository list\`",
+    },
+    Object {
       "color": "",
       "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
       "footer_icon": "https://assets-cdn.github.com/favicon.ico",
@@ -231,5 +409,31 @@ Object {
   ],
   "response_type": "ephemeral",
   "text": ":wave: Need some help with \`/github\`?",
+}
+`;
+
+exports[`Integration: help returns help with unknown command 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: help returns help with unknown command 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "lolwut?",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;

@@ -10,7 +10,7 @@ describe('Integration: subscription list', () => {
   beforeEach(async () => {
     const workspace = await SlackWorkspace.create({
       accessToken: 'secret',
-      slackId: 1,
+      slackId: 'T0001',
     });
 
     const installation = await Installation.create({
@@ -23,6 +23,8 @@ describe('Integration: subscription list', () => {
       githubId: 1,
       installationId: installation.id,
       slackWorkspaceId: workspace.id,
+      type: 'repo',
+      settings: ['commits:all'],
     });
 
     await Subscription.create({
@@ -30,6 +32,15 @@ describe('Integration: subscription list', () => {
       githubId: 2,
       installationId: installation.id,
       slackWorkspaceId: workspace.id,
+      type: 'repo',
+    });
+
+    await Subscription.create({
+      channelId: 'C2147483705',
+      githubId: 3,
+      installationId: installation.id,
+      slackWorkspaceId: workspace.id,
+      type: 'account',
     });
   });
 
@@ -42,6 +53,10 @@ describe('Integration: subscription list', () => {
       full_name: 'kubernetes/kubernetes',
       html_url: 'https://github.com/kubernetes/kubernetes',
     });
+    nock('https://api.github.com').get('/user/3').reply(200, {
+      login: 'Microsoft',
+      html_url: 'https://github.com/Microsoft',
+    });
     const command = fixtures.slack.command({
       text: 'subscribe list',
     });
@@ -53,7 +68,7 @@ describe('Integration: subscription list', () => {
       });
   });
 
-  test('when a repository has been deleted', async () => {
+  test('when a repository and an account has been deleted', async () => {
     probot.logger.level('fatal');
 
     nock('https://api.github.com').get('/repositories/1').reply(200, {
@@ -61,6 +76,10 @@ describe('Integration: subscription list', () => {
       html_url: 'https://github.com/atom/atom',
     });
     nock('https://api.github.com').get('/repositories/2').reply(404, {});
+    nock('https://api.github.com').get('/user/3').reply(404, {
+      login: 'Microsoft',
+      html_url: 'https://github.com/Microsoft',
+    });
 
     const command = fixtures.slack.command({
       text: 'subscribe list',
@@ -101,8 +120,40 @@ describe('Integration: subscription list', () => {
       full_name: 'kubernetes/kubernetes',
       html_url: 'https://github.com/kubernetes/kubernetes',
     });
+    nock('https://api.github.com').get('/user/3').reply(200, {
+      login: 'Microsoft',
+      html_url: 'https://github.com/Microsoft',
+    });
     const command = fixtures.slack.command({
       text: 'subscribe',
+    });
+
+    await request(probot.server).post('/slack/command').use(slackbot).send(command)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+  });
+
+  test('works for /github subscribe list features', async () => {
+    nock('https://api.github.com').get('/repositories/1').reply(200, {
+      id: 1,
+      full_name: 'atom/atom',
+      html_url: 'https://github.com/atom/atom',
+    });
+    nock('https://api.github.com').get('/repositories/2').reply(200, {
+      id: 2,
+      full_name: 'kubernetes/kubernetes',
+      html_url: 'https://github.com/kubernetes/kubernetes',
+    });
+    nock('https://api.github.com').get('/user/3').reply(200, {
+      id: 3,
+      login: 'Microsoft',
+      html_url: 'https://github.com/Microsoft',
+    });
+
+    const command = fixtures.slack.command({
+      text: 'subscribe list features',
     });
 
     await request(probot.server).post('/slack/command').use(slackbot).send(command)

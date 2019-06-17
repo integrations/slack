@@ -2,6 +2,18 @@
 
 exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 1`] = `
 Object {
+  "actionCallbackId": "unfurl-1",
+  "channelSlackId": "C74M",
+  "exp": Any<Number>,
+  "githubOAuthState": Any<String>,
+  "iat": Any<Number>,
+  "teamSlackId": "T000A",
+  "userSlackId": "U0Other",
+}
+`;
+
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 2`] = `
+Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C74M",
   "token": "xoxa-token",
@@ -9,12 +21,36 @@ Object {
 }
 `;
 
-exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 2`] = `
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 3`] = `
 Object {
   "channel": "C74M",
   "token": "xoxa-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\":lock: <https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
+}
+`;
+
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 4`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 5`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
+exports[`Integration: unfurls private unfurls automatically unfurls private resources if they are part of subscribed repo 1`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls automatically unfurls private resources if they are part of subscribed repo 2`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
 }
 `;
 
@@ -68,6 +104,18 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls clicking "Show rich preview" results in unfurl and deletes prompt 3`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls clicking "Show rich preview" results in unfurl and deletes prompt 4`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected connecting their account via an Unfurl prompt of an invalid link results in a not found message 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
@@ -82,6 +130,36 @@ Object {
   "attachments": "[{\\"color\\":\\"danger\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Could not find resource: \`https://github.com/bkeepers/dotenv\`\\"}]",
   "channel": "C74M",
   "response_type": "ephemeral",
+  "token": "xoxa-token",
+  "user": "U0Other",
+}
+`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected public unfurls work as normal 1`] = `
+Set {
+  "unfurl-eligibility#T0Other:C0Other:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls for users who do not yet have their GitHub account connected public unfurls work as normal 2`] = `
+Map {
+  "unfurl-eligibility#T0Other:C0Other:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
+exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 1`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
+  "channel": "C74M",
+  "token": "xoxa-token",
+  "user": "U0Other",
+}
+`;
+
+exports[`Integration: unfurls private unfurls on a workspace that has github.com unfurls disabled, an error message is shown to a user after graceful onboarding 2`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"danger\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Could not complete link preview because your workspace has disabled link previews for \`github.com\` <https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites|Read more>\\"}]",
+  "channel": "C74M",
   "token": "xoxa-token",
   "user": "U0Other",
 }
@@ -137,12 +215,88 @@ You can adjust this setting by invoking \`/github settings\`",
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" setting is saved in the database 1`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" setting is saved in the database 2`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link (to the same repo) shared in a different channel is automatically unfurled 1`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+  "unfurl-eligibility#T000A:C0Other:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link (to the same repo) shared in a different channel is automatically unfurled 2`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+  "unfurl-eligibility#T000A:C0Other:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link shared to a different repo results in a new prompt 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C74M",
   "token": "xoxa-token",
   "user": "U88HS",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link shared to a different repo results in a new prompt 2`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for all channels" subsequent link shared to a different repo results in a new prompt 3`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" User can enable auto unfurls for the same repo in a different channel 1`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" User can enable auto unfurls for the same repo in a different channel 2`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" setting is saved in the database 1`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" setting is saved in the database 2`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link (to the same repo) shared in the same channel is automatically unfurled 1`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv/issues/1",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link (to the same repo) shared in the same channel is automatically unfurled 2`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv/issues/1" => true,
 }
 `;
 
@@ -155,12 +309,36 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in a different channel results in a new prompt 2`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in a different channel results in a new prompt 3`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in the same channel to a different repo results in a new prompt 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C74M",
   "token": "xoxa-token",
   "user": "U88HS",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in the same channel to a different repo results in a new prompt 2`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt User clicks "Enable for this channel" subsequent link shared in the same channel to a different repo results in a new prompt 3`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
 }
 `;
 
@@ -179,6 +357,18 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for all channels", they get a confirmation message 2`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for all channels", they get a confirmation message 3`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for this channel", they get a confirmation message 1`] = `
 Object {
   "attachments": Array [
@@ -191,6 +381,18 @@ Object {
     },
   ],
   "replace_original": true,
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for this channel", they get a confirmation message 2`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls settings User clicks "Show rich preview" and gets AutoUnfurlPrompt when user clicks "Enable for this channel", they get a confirmation message 3`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
 }
 `;
 
@@ -263,12 +465,63 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 2`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/kubernetes",
+}
+`;
+
+exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 3`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/kubernetes" => true,
+}
+`;
+
+exports[`Integration: unfurls private unfurls user sees error message when github.com unfurls are disabled in the workspace 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Could not complete link preview because your workspace has disabled link previews for \`github.com\` <https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites|Read more>",
+    },
+  ],
+  "delete_original": true,
+}
+`;
+
 exports[`Integration: unfurls private unfurls uses user access token for public resources 1`] = `
 Object {
   "channel": "C74M",
   "token": "xoxa-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
+}
+`;
+
+exports[`Integration: unfurls private unfurls uses user access token for public resources 2`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls private unfurls uses user access token for public resources 3`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
+exports[`Integration: unfurls public unfurls Successful unfurl gets stored in db 1`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls public unfurls Successful unfurl gets stored in db 2`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
 }
 `;
 
@@ -290,6 +543,20 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 3`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/facebook/react/issues/10191",
+  "unfurl-eligibility#T000A:C74M:https://github.com/atom/atom/issues/16292",
+}
+`;
+
+exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are shared 4`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/facebook/react/issues/10191" => true,
+  "unfurl-eligibility#T000A:C74M:https://github.com/atom/atom/issues/16292" => true,
+}
+`;
+
 exports[`Integration: unfurls public unfurls issue 1`] = `
 Object {
   "channel": "C74M",
@@ -299,11 +566,35 @@ Object {
 }
 `;
 
+exports[`Integration: unfurls public unfurls issue 2`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls public unfurls issue 3`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
+}
+`;
+
 exports[`Integration: unfurls public unfurls only unfurls link first time a link is shared 1`] = `
 Object {
   "channel": "C74M",
   "token": "xoxa-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
+}
+`;
+
+exports[`Integration: unfurls public unfurls only unfurls link first time a link is shared 2`] = `
+Set {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv",
+}
+`;
+
+exports[`Integration: unfurls public unfurls only unfurls link first time a link is shared 3`] = `
+Map {
+  "unfurl-eligibility#T000A:C74M:https://github.com/bkeepers/dotenv" => true,
 }
 `;

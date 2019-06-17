@@ -1,11 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: subscriptions authenticated user with GitHub App installed Legacy subscriptions: retains old configuration 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed Legacy subscriptions: retains old configuration 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C0D70MRAL",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed Legacy subscriptions: retains old configuration spread across multiple configurations 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed Legacy subscriptions: retains old configuration spread across multiple configurations 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C0D70MRAL",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe kubernetes/kubernetes",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
 exports[`Integration: subscriptions authenticated user with GitHub App installed Legacy subscriptions: subscribing to a repo that's already reactivated works as normal 1`] = `
 Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C0D70MRAL> to <https://github.com/atom/atom|atom/atom>",
+      "text": "Subscribed to <https://github.com/atom/atom|atom/atom>",
     },
   ],
   "response_type": "in_channel",
@@ -17,7 +69,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Unsubscribed <#C0D70MRAL> from <https://github.com/atom/atom|atom/atom>",
+      "text": "Unsubscribed from <https://github.com/atom/atom|atom/atom>",
     },
   ],
   "response_type": "in_channel",
@@ -29,10 +81,36 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C0D70MRAL> to <https://github.com/atom/atom|atom/atom>",
+      "text": "Subscribed to <https://github.com/atom/atom|atom/atom>",
     },
   ],
   "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed Legacy subscriptions: subscribing to a repo that's already reactivated works as normal 4`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed Legacy subscriptions: subscribing to a repo that's already reactivated works as normal 5`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C0D70MRAL",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -49,10 +127,36 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C0D70MRAL> to <https://github.com/atom/atom|atom/atom>",
+      "text": "Subscribed to <https://github.com/atom/atom|atom/atom>",
     },
   ],
   "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed Legacy subscriptions: subscribing to a repo whose legacy configuration is not already reactivated is disabled 3`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed Legacy subscriptions: subscribing to a repo whose legacy configuration is not already reactivated is disabled 4`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C0D70MRAL",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -71,6 +175,32 @@ Object {
 }
 `;
 
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that does not exist 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that does not exist 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
 exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that the user does not have acccess to 1`] = `
 Object {
   "attachments": Array [
@@ -83,6 +213,58 @@ Object {
     },
   ],
   "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that the user does not have acccess to 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that the user does not have acccess to 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to an unknown feature 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to an unknown feature 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe bkeepers/dotenv foobar",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -101,6 +283,32 @@ Object {
 }
 `;
 
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing when already subscribed 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing when already subscribed 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
 exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing with a bad url 1`] = `
 Object {
   "attachments": Array [
@@ -109,10 +317,36 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "\`wat?\` does not appear to be a GitHub link.",
+      "text": "\`something/not/ok\` does not appear to be a GitHub link.",
     },
   ],
   "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing with a bad url 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing with a bad url 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe something/not/ok",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -121,7 +355,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "text": "Subscribed to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
   "response_type": "in_channel",
@@ -133,10 +367,124 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Unsubscribed <#C2147483705> from <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "text": "Unsubscribed from <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
   "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing to a repository 3`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing to a repository 4`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "unsubscribe https://github.com/kubernetes/kubernetes",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing to an organization 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "Subscribed to <https://github.com/kubernetes|kubernetes>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing to an organization 2`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "Unsubscribed from <https://github.com/kubernetes|kubernetes>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing to an organization 3`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing and unsubscribing to an organization 4`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "unsubscribe https://github.com/kubernetes",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing with organization shorthand 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "text": "Subscribed to <https://github.com/kubernetes|kubernetes>",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing with organization shorthand 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing with organization shorthand 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe kubernetes",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -145,10 +493,36 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "text": "Subscribed to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
   "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing with repository shorthand 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed successfully subscribing with repository shorthand 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -157,7 +531,7 @@ Object {
   "attachments": Array [
     Object {
       "color": "#24292f",
-      "text": "Subscribed <#C2147483705> to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
+      "text": "Subscribed to <https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
     },
   ],
   "response_type": "in_channel",
@@ -174,7 +548,7 @@ Object {
         "text",
         "footer",
       ],
-      "text": "<#C2147483705> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+      "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
 \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
     },
   ],
@@ -192,11 +566,37 @@ Object {
         "text",
         "footer",
       ],
-      "text": "<#C2147483705> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+      "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
 \`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
     },
   ],
   "response_type": "in_channel",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing from a specific type of notification 4`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing from a specific type of notification 5`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe bkeepers/dotenv pulls, issues",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -216,6 +616,32 @@ Use \`/github subscribe atom/atom\` to subscribe.",
 }
 `;
 
+exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing when not subscribed 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing when not subscribed 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "unsubscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
 exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing with a bad url 1`] = `
 Object {
   "attachments": Array [
@@ -224,10 +650,36 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "\`wat?\` does not appear to be a GitHub link.",
+      "text": "\`something/not/ok\` does not appear to be a GitHub link.",
     },
   ],
   "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing with a bad url 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed unsubscribing with a bad url 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "unsubscribe something/not/ok",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -243,6 +695,32 @@ Object {
     },
   ],
   "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed organization is not found 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed organization is not found 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;
 
@@ -270,6 +748,84 @@ _Note: You need to be an organization owner to install the app (or ask one to in
 }
 `;
 
+exports[`Integration: subscriptions authenticated user without the GitHub App installed owner type is organization 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed owner type is organization 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed owner type is other user 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed owner type is other user 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe wilhelmklopp/wilhelmklopp",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed prompts to install app 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed prompts to install app 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe atom/atom",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
 exports[`Integration: subscriptions authenticated user without the GitHub App installed user is repo owner 1`] = `
 Object {
   "attachments": Array [
@@ -290,5 +846,83 @@ Object {
     },
   ],
   "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed user is repo owner 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions authenticated user without the GitHub App installed user is repo owner 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe bkeepers/dotenv",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: subscriptions unauthenticated user is prompted to authenticate before subscribing 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions unauthenticated user is prompted to authenticate before subscribing 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe https://github.com/kubernetes/kubernetes",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
+exports[`Integration: subscriptions unauthenticated user who exists but hasn	 linked their GitHub account yet is prompted to authenticate before subscribing 1`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: subscriptions unauthenticated user who exists but hasn	 linked their GitHub account yet is prompted to authenticate before subscribing 2`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "subscribe https://github.com/kubernetes/kubernetes",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
 }
 `;

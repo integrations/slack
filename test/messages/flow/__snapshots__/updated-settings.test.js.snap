@@ -10,7 +10,7 @@ Object {
         "text",
         "footer",
       ],
-      "text": "<#C001> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+      "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
 \`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
     },
   ],
@@ -28,7 +28,7 @@ Object {
         "text",
         "footer",
       ],
-      "text": "<#C001> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+      "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
 \`issues\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
     },
   ],
@@ -46,7 +46,7 @@ Object {
         "text",
         "footer",
       ],
-      "text": "<#C001> will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+      "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
 \`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits:all\`, \`releases\`",
     },
   ],

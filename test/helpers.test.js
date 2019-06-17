@@ -1,6 +1,6 @@
 const {
   arrayToFormattedString,
-  getHexColorbyState,
+  getHexColorByState,
   getStatusColor,
 } = require('../lib/helpers');
 
@@ -33,15 +33,23 @@ test('formats assignee array into string (single)', () => {
 });
 
 test('gets green hex color on open state', () => {
-  expect(getHexColorbyState('open')).toBe(constants.OPEN_GREEN);
+  expect(getHexColorByState('open')).toBe(constants.OPEN_GREEN);
 });
 
 test('gets red hex color on closed state', () => {
-  expect(getHexColorbyState('closed', false)).toBe(constants.CLOSED_RED);
+  expect(getHexColorByState('closed', false)).toBe(constants.CLOSED_RED);
 });
 
 test('gets purple hex color on closed and merged state', () => {
-  expect(getHexColorbyState('closed', true)).toBe(constants.MERGED_PURPLE);
+  expect(getHexColorByState('closed', true)).toBe(constants.MERGED_PURPLE);
+});
+
+test('gets gray hex color on opened draft pull requests', () => {
+  expect(getHexColorByState('opened', false, true)).toBe(constants.DRAFT_GRAY);
+});
+
+test('gets red hex color on closed draft pull requests', () => {
+  expect(getHexColorByState('closed', false, true)).toBe(constants.CLOSED_RED);
 });
 
 test('gets correct status color on success', () => {

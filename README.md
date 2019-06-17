@@ -7,7 +7,7 @@
 The GitHub integration for Slack gives you and your teams full visibility into your GitHub projects right in Slack channels, where you can generate ideas, triage issues and collaborate with other teams to move projects forward. This integration is an open source project, built and maintained by GitHub.
 
 ## Table of Contents
-- [Installing the GitHub integration for Slack](#installing-the-gitHub-slack-app)
+- [Installing the GitHub integration for Slack](#installing-the-github-integration-for-slack)
   - [Requirements](#requirements)
   - [Installation](#installation)
   - [Authorization](#authorization)
@@ -66,7 +66,7 @@ By granting the app access, you are providing the following authorizations to yo
 |---|---|
 |Read access to code| To render code snippets in Slack|
 |Read access to commit statuses, deployments, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
-|Write access to issues and pull requests | To take action from Slack with the `/github` command|
+|Write access to issues and pull requests | To take action from Slack with the `/github` command and directly from messages|
 
 #### Repository Activity
 **Subscribe to an Organization or a Repository**
@@ -93,8 +93,13 @@ Previews of links will not be shown if:
 Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack with slash commands for common GitHub actions, using  `/github [action] [resource]`. These commands let you:
 
 - Close an issue or pull request with `/github close [issue link]`
-- Reopen an issue or pull request with `/github open [pull request ink]`
+- Reopen an issue or pull request with `/github open [pull request link]`
 - Open a new issue with `/github open [owner/repo]`
+
+You can also take action on GitHub directly from a Slack message by clicking on the '`...` More Actions' menu available on every Slack message. From there you can:
+
+- Attach a message as a comment to an existing issue or pull request
+  - Select an issue by choosing from an automatically loaded list of recently active issues and pull requests that involve you or by entering a URL to an issue or pull request
 
 ### Configuration
 You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
@@ -109,7 +114,7 @@ Settings are configured with the `/github` slash command:
 These are enabled by default, and can be disabled with the `/github unsubscribe owner/repo [feature]` command:
 
 - `issues` - Opened or closed issues
-- `pulls` - New or merged pull requests
+- `pulls` - New or merged pull requests, as well as draft pull requests marked "Ready for Review"
 - `statuses` - Statuses on pull requests
 - `commits` - New commits on the default branch (usually `master`)
 - `deployments` - Updated status on deployments

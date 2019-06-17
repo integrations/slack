@@ -1,5 +1,5 @@
 const {
-  Subscription, SlackWorkspace, Installation, SlackUser,
+  Subscription, SlackWorkspace, Installation, SlackUser, DeletedSubscription,
 } = require('.');
 
 describe('model: Subscription', () => {
@@ -30,11 +30,12 @@ describe('model: Subscription', () => {
       creatorId: slackUser.id,
       slackWorkspaceId: workspace.id,
       installationId: installation.id,
+      type: 'repo',
     });
 
-    expect(subscription.cacheKey()).toEqual('channel#1');
-    expect(subscription.cacheKey('foo#1')).toEqual('channel#1:foo#1');
-    expect(subscription.cacheKey('foo#1', 'bar#2')).toEqual('channel#1:foo#1:bar#2');
+    expect(subscription.cacheKey()).toEqual(`channel#${workspace.id}#1`);
+    expect(subscription.cacheKey('foo#1')).toEqual(`channel#${workspace.id}#1:foo#1`);
+    expect(subscription.cacheKey('foo#1', 'bar#2')).toEqual(`channel#${workspace.id}#1:foo#1:bar#2`);
   });
 
   describe('subscribe', () => {
@@ -46,6 +47,7 @@ describe('model: Subscription', () => {
         creatorId: slackUser.id,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
+        type: 'repo',
       });
       const channels = await Subscription.lookup(resource, workspace.id);
       expect(channels).toEqual([expect.objectContaining({
@@ -61,6 +63,7 @@ describe('model: Subscription', () => {
         githubId: resource,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
+        type: 'repo',
       });
       await expect(subscription).rejects.toThrow();
     });
@@ -75,6 +78,7 @@ describe('model: Subscription', () => {
         creatorId: slackUser.id,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
+        type: 'repo',
       });
       const [subscription] = await Subscription.lookup(resource, channel);
       expect(subscription.SlackWorkspace).toBeDefined();
@@ -85,15 +89,18 @@ describe('model: Subscription', () => {
   describe('unsubscribe', () => {
     test('removes subscriptions for resource', async () => {
       const resource = 1;
-      await Subscription.subscribe({
+      const values = {
         channelId: channel,
         githubId: resource,
         creatorId: slackUser.id,
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
-      });
+        type: 'repo',
+      };
+      await Subscription.subscribe(values);
       await Subscription.unsubscribe(resource, channel, workspace.id);
       expect(await Subscription.lookup(resource)).toEqual([]);
+      expect(await DeletedSubscription.findAll({ where: { ...values, reason: 'unsubscribe' } })).toHaveLength(1);
     });
   });
 

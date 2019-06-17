@@ -7,7 +7,7 @@ describe('Integration: tracking GitHub installations', () => {
     const { Installation } = models;
 
     await robot.receive({
-      event: 'installation',
+      name: 'installation',
       payload: installationCreated,
     });
 
@@ -18,7 +18,7 @@ describe('Integration: tracking GitHub installations', () => {
     expect(installation).toBeTruthy();
 
     await robot.receive({
-      event: 'installation',
+      name: 'installation',
       payload: installationDeleted,
     });
 
@@ -30,10 +30,12 @@ describe('Integration: tracking GitHub installations', () => {
   });
 
   test('deleting installation cascades to delete all subscriptions related to that installation', async () => {
-    const { Subscription, Installation, SlackWorkspace } = models;
+    const {
+      Subscription, Installation, SlackWorkspace, DeletedSubscription,
+    } = models;
 
     await robot.receive({
-      event: 'installation',
+      name: 'installation',
       payload: installationCreated,
     });
 
@@ -56,10 +58,11 @@ describe('Integration: tracking GitHub installations', () => {
     expect(await Subscription.count()).toBe(1);
 
     await robot.receive({
-      event: 'installation',
+      name: 'installation',
       payload: installationDeleted,
     });
 
     expect(await Subscription.count()).toBe(0);
+    expect(await DeletedSubscription.count()).toBe(1);
   });
 });

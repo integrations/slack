@@ -158,6 +158,31 @@ module.exports = {
       repository: '54321',
       title: 'hiiii',
       body: 'testing testing testing',
+      label: 'test',
+    },
+    team: {
+      id: 'T0001',
+      domain: 'acmecorp',
+    },
+    user: {
+      id: 'U2147483697',
+      name: 'george',
+    },
+    channel: {
+      id: 'C2147483705',
+      name: 'some-channel',
+    },
+  }),
+  dialogSubmissionCreateDeployment: () => ({
+    token: process.env.SLACK_VERIFICATION_TOKEN,
+    type: 'dialog_submission',
+    callback_id: 'create-deployment-dialog',
+    action_ts: '1524614235.114006',
+    submission: {
+      repository: '54321',
+      ref: 'refs/tags/v1.0',
+      task: 'deploy',
+      environment: 'production',
     },
     team: {
       id: 'T0001',
@@ -260,5 +285,102 @@ module.exports = {
     },
     response_url: 'https://hooks.slack.com/actions/1234/5678',
     trigger_id: '13345224609.738474920.8088930838d88f008e0',
+  }),
+  commentAction: () => ({
+    token: process.env.SLACK_VERIFICATION_TOKEN,
+    callback_id: 'comment-action',
+    type: 'message_action',
+    trigger_id: '13345224609.738474920.8088930838d88f008e0',
+    response_url: 'https://hooks.slack.com/actions/1234/5678',
+    team: {
+      id: 'T0001',
+      domain: 'example',
+    },
+    channel: {
+      id: 'C74M',
+      name: 'test',
+    },
+    user: {
+      id: 'U2147483697',
+      name: 'aaron',
+    },
+    message: {
+      type: 'message',
+      user: 'U0MJRG1AL',
+      ts: '1516229207.000133',
+      text: 'World\'s smallest big cat! <https://youtube.com/watch?v=W86cTIoMv2U>',
+    },
+  }),
+  addComment: manualUrl => ({
+    token: process.env.SLACK_VERIFICATION_TOKEN,
+    callback_id: 'add-comment',
+    type: 'dialog_submission',
+    trigger_id: '13345224609.738474920.8088930838d88f008e0',
+    response_url: 'https://hooks.slack.com/actions/1234/5678',
+    team: {
+      id: 'T0001',
+      domain: 'example',
+    },
+    channel: {
+      id: 'C74M',
+      name: 'test',
+    },
+    user: {
+      id: 'U2147483697',
+      name: 'aaron',
+    },
+    submission: {
+      manualUrl: manualUrl || '',
+      selectedUrl: 'https://github.com/kubernetes/kubernetes/issues/1',
+      comment: '> World\'s smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>',
+    },
+  }),
+  addCommentManualUrl: manualUrl => ({
+    token: process.env.SLACK_VERIFICATION_TOKEN,
+    callback_id: 'add-comment',
+    type: 'dialog_submission',
+    trigger_id: '13345224609.738474920.8088930838d88f008e0',
+    response_url: 'https://hooks.slack.com/actions/1234/5678',
+    team: {
+      id: 'T0001',
+      domain: 'example',
+    },
+    channel: {
+      id: 'C74M',
+      name: 'test',
+    },
+    user: {
+      id: 'U2147483697',
+      name: 'aaron',
+    },
+    submission: {
+      manualUrl,
+      selectedUrl: '',
+      comment: '> World\'s smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>',
+    },
+  }),
+  addCommentNothingSelected: () => ({
+    token: process.env.SLACK_VERIFICATION_TOKEN,
+    callback_id: 'add-comment',
+    type: 'dialog_submission',
+    trigger_id: '13345224609.738474920.8088930838d88f008e0',
+    response_url: 'https://hooks.slack.com/actions/1234/5678',
+    team: {
+      id: 'T0001',
+      domain: 'example',
+    },
+    channel: {
+      id: 'C74M',
+      name: 'test',
+    },
+    user: {
+      id: 'U2147483697',
+      name: 'aaron',
+    },
+    submission: {
+      url: '',
+      selectedUrl: '',
+      comment: '> World\'s smallest big cat! < https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View message in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>',
+    },
   }),
 };

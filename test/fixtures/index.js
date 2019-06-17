@@ -15,6 +15,10 @@ module.exports = {
   atomRepo: require('./atom-repo'),
   kubernetesRepo: require('./kubernetes-repo'),
   combinedStatus: require('./combined_status_some_passing'),
+  reviews: require('./reviews'),
+  branches: require('./branches'),
+  tags: require('./tags'),
+  deployments: require('./deployments'),
   slack: {
     link_shared: require('./slack/link_shared'),
     command: attrs => Object.assign({
@@ -40,14 +44,21 @@ module.exports = {
       token: require('./slack/oauth.token'),
     },
     action: require('./slack/action'),
+    options: require('./slack/options'),
   },
   github: {
     webhooks: {
+      commit: require('./webhooks/commit'),
+      commit_comment: require('./webhooks/commit_comment'),
       issue_comment: require('./webhooks/issue_comment'),
     },
     oauth: querystring.stringify({
       access_token: 'testing123',
       token_type: 'bearer',
     }),
+  },
+  create: {
+    graphqlIssuesPrs: require('./create/graphql-issues-prs'),
+    addComment: require('./create/add-comment'),
   },
 };
