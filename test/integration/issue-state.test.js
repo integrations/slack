@@ -103,9 +103,21 @@ describe('Integration: issue state', () => {
         },
       });
 
+    nock('https://api.github.com').get('/repos/owner/repo/installation')
+      .reply(200, {
+        ...fixtures.installation,
+        account: fixtures.repo.owner,
+        permissions: {
+          ...fixtures.installation.permissions,
+          pull_requests: 'write',
+          issues: 'read',
+        },
+      })
+
     const command = fixtures.slack.command({
       text: 'close https://github.com/owner/repo/issues/123',
     });
+
 
     await request.post('/slack/command').use(slackbot).send(command)
       .expect(200, /requires updated permissions/);
