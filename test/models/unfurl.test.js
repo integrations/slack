@@ -20,12 +20,12 @@ describe('Unfurl getAttachment', () => {
         })),
       },
       users: {
-        getForUser: jest.fn().mockImplementation(() => Promise.resolve({
+        getByUsername: jest.fn().mockImplementation(() => Promise.resolve({
           data: fixtures.user,
         })),
       },
       repos: {
-        getContent: jest.fn().mockImplementation(() => Promise.resolve({
+        getContents: jest.fn().mockImplementation(() => Promise.resolve({
           data: fixtures.contents,
         })),
         get: jest.fn().mockImplementation(() => Promise.resolve({
