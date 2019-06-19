@@ -112,7 +112,17 @@ describe('Integration: issue state', () => {
           pull_requests: 'write',
           issues: 'read',
         },
-      })
+      });
+
+    nock('https://api.github.com').get('/repos/owner/repo')
+      .reply(200, fixtures.repo);
+
+    nock('https://api.github.com').get('/user')
+      .reply(200, fixtures.user);
+
+    nock('https://api.github.com')
+      .patch('/repos/owner/repo/issues/123', { state: 'closed' })
+      .reply(403);
 
     const command = fixtures.slack.command({
       text: 'close https://github.com/owner/repo/issues/123',
