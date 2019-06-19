@@ -1,6 +1,6 @@
 # Contributing
 
-[![Build Status](https://travis-ci.org/integrations/slack.svg?branch=extract-unfurls)](https://travis-ci.org/integrations/slack) [![codecov](https://codecov.io/gh/integrations/slack/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/integrations/slack) [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/integrations/slack.svg?branch=master)](https://travis-ci.org/integrations/slack) [![codecov](https://codecov.io/gh/integrations/slack/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/integrations/slack) [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/)
 
 [fork]: https://github.com/github-slack/app/fork
 [pr]: https://github.com/github-slack/app/compare
@@ -74,6 +74,36 @@ Follow the [Probot docs for configuring up a GitHub App](https://probot.github.i
 - **User authorization callback URL**: `https://DOMAIN/github/oauth/callback`
 - **Setup URL**: `https://DOMAIN/github/setup`
 - **Webhook URL**: `https://DOMAIN/github/events`
+
+Your new GitHub app will need the following permissions:
+
+- Checks: Read-only
+- Repository contents: Read-only
+- Deployments: Read & write
+- Issues: Read & write
+- Repository metadata: Read-only
+- Pull requests: Read & write
+- Commit statuses: Read-only
+
+It will also need the following event subscriptions:
+
+- Check run
+- Check suite
+- Commit comment
+- Create
+- Delete
+- Deployment
+- Deployment status
+- Issue comment
+- Issues
+- Public
+- Pull request
+- Pull request review
+- Pull request review comment
+- Push
+- Release
+- Repository
+- Status
 
 - Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` should provide a suitable secret.
 - Add in a `SESSION_SECRET` to your `.env` file, running `openssl rand -hex 32` should provide a suitable secret.
