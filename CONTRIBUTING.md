@@ -1,7 +1,5 @@
 # Contributing
 
-[![Build Status](https://travis-ci.org/integrations/slack.svg?branch=master)](https://travis-ci.org/integrations/slack) [![codecov](https://codecov.io/gh/integrations/slack/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/integrations/slack) [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/)
-
 [fork]: https://github.com/github-slack/app/fork
 [pr]: https://github.com/github-slack/app/compare
 [style]: https://standardjs.com/
