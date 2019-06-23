@@ -241,6 +241,7 @@ describe('model: Subscription', () => {
       expect(subscription.isEnabledForGitHubEvent('pull_request', 'closed')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('pull_request', 'reopened')).toBe(true);
       expect(subscription.isEnabledForGitHubEvent('pull_request', 'synchronize')).toBe(true);
+      expect(subscription.isEnabledForGitHubEvent('pull_request', 'ready_for_review')).toBe(true);
 
       expect(subscription.isEnabledForGitHubEvent('pull_request', 'review_requested')).toBe(false);
       expect(subscription.isEnabledForGitHubEvent('pull_request', 'lolwut?')).toBe(false);

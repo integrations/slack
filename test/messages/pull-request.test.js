@@ -9,7 +9,7 @@ const pullRequestClosed = require('../fixtures/webhooks/pull_request.closed.json
 const pullRequestReviewRequested = require('../fixtures/webhooks/pull_request.review_requested.json');
 
 describe('Pull request rendering', () => {
-  test('works for notifcation messages', async () => {
+  test('works for notification messages', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
@@ -30,7 +30,7 @@ describe('Pull request rendering', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('works for notifcation messages with statuses', async () => {
+  test('works for notification messages with statuses', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
@@ -47,7 +47,7 @@ describe('Pull request rendering', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('works for notifcation messages with some statuses passing', async () => {
+  test('works for notification messages with some statuses passing', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
@@ -64,7 +64,7 @@ describe('Pull request rendering', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('works for notifcation messages with all statuses passing', async () => {
+  test('works for notification messages with all statuses passing', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
@@ -81,7 +81,7 @@ describe('Pull request rendering', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('works for notifcation messages with one status failing', async () => {
+  test('works for notification messages with one status failing', async () => {
     const pullRequest = {
       ...pullRequestOpened.pull_request,
       labels: [],
@@ -152,6 +152,28 @@ describe('Pull request rendering', () => {
       pullRequest,
       repository: pullRequestOpened.repository,
       unfurlType: 'condensed',
+    });
+    const rendered = prMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
+
+  test('works for ready_for_review messages', async () => {
+    const pullRequest = {
+      ...pullRequestOpened.pull_request,
+      action: 'ready_for_review',
+      labels: [],
+      requested_reviewers: [{ login: 'user1' }],
+      requested_teams: [{ name: 'Test-team', slug: 'test-team' }],
+    };
+    const prMessage = new PullRequest({
+      pullRequest,
+      repository: pullRequestOpened.repository,
+      eventType: 'pull_request.ready_for_review',
+      sender: pullRequestOpened.sender,
+      reviews: [
+        { state: 'CHANGES_REQUESTED', user: { login: 'user2' } },
+        { state: 'APPROVED', user: { login: 'user2' } },
+      ],
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();

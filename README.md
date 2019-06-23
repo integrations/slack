@@ -1,5 +1,9 @@
 # GitHub + Slack Integration
 
+| Build | Code Coverage | Dependencies |
+|-------|---------------|--------------|
+| [![Build Status](https://travis-ci.org/integrations/slack.svg?branch=master)](https://travis-ci.org/integrations/slack) | [![codecov](https://codecov.io/gh/integrations/slack/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/integrations/slack) | [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/) |
+
 > **Heads Up!** The GitHub and Slack app has a few new features to help you turn conversations into next steps. Take action on pull requests, issues, and more right from your Slack channels to start moving work forward, faster. [Read more about it on the GitHub blog](https://blog.github.com/2018-05-17-new-improvements-to-slack-and-github-integration/).
 
 ## About
@@ -114,7 +118,7 @@ Settings are configured with the `/github` slash command:
 These are enabled by default, and can be disabled with the `/github unsubscribe owner/repo [feature]` command:
 
 - `issues` - Opened or closed issues
-- `pulls` - New or merged pull requests
+- `pulls` - New or merged pull requests, as well as draft pull requests marked "Ready for Review"
 - `statuses` - Statuses on pull requests
 - `commits` - New commits on the default branch (usually `master`)
 - `deployments` - Updated status on deployments
