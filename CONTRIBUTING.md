@@ -118,6 +118,8 @@ It will also need the following event subscriptions:
 
 1. Run `script/server` to start the server
 
+1. On the **Interactive Components** tab, set **Request URL** to `https://DOMAIN/slack/actions`.
+
 1. On the **Event Subscriptions** tab, set **Request URL** to `https://DOMAIN/slack/events`, replacing `YOUR-USERNAME` with the value that shows up when the server starts. Slack should show **Verified ✓** if all is well.
 
 1. Scroll down to **App Unfurl Domains**, click **Add Domain** and enter `github.com`
