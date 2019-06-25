@@ -1,5 +1,5 @@
 const { Installation } = require('.');
-const GitHubAPI = require('../../lib/github/client');
+const { GitHubAPI, ProbotOctokit } = require('../../lib/github/client');
 const logger = require('../../lib/logger');
 const createdEvent = require('../fixtures/webhooks/installation.created');
 
@@ -45,7 +45,18 @@ describe('models.Installation', () => {
   });
 
   test('sync fetches and returns installation', async () => {
-    const github = GitHubAPI({ logger });
+    const github = GitHubAPI({
+      Octokit: ProbotOctokit,
+      logger,
+      retry: {
+        // disable retries to test error states
+        enabled: false,
+      },
+      throttle: {
+        // disable throttling, otherwise tests are _slow_
+        enabled: false,
+      },
+    });
 
     nock('https://api.github.com').get('/repos/bkeepers/dotenv/installation')
       .reply(200, createdEvent.installation);
