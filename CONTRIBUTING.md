@@ -118,6 +118,19 @@ It will also need the following event subscriptions:
 
 1. Run `script/server` to start the server
 
+1. On the **Interactive Components** tab, set **Request URL** to `https://DOMAIN/slack/actions`.
+
+1. Under **Interactive Components** under **Actions**, click **Create New Action**
+
+    ![](https://user-images.githubusercontent.com/2894107/60052628-6465c800-969b-11e9-943e-17ac8ef63302.png)
+    
+    - **Action Name**: `Comment on Issue or PR`
+    - **Short Description**: `Comment on an Issue or Pull Request with the content of a Slack message`
+    - **Callback ID**: `comment-action`
+    - Click **Create**
+    
+1. Under **Interactive Components** under **Message Menus**, set **Options Load URL** to `https://DOMAIN/slack/options`
+
 1. On the **Event Subscriptions** tab, set **Request URL** to `https://DOMAIN/slack/events`, replacing `YOUR-USERNAME` with the value that shows up when the server starts. Slack should show **Verified ✓** if all is well.
 
 1. Scroll down to **App Unfurl Domains**, click **Add Domain** and enter `github.com`
