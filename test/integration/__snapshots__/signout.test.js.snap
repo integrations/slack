@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: signout a signed in user is successfully signed out and relevant subscriptions are deleted 1`] = `
-Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Subscriptions to 2 repositories have been disabled because <@U2147483697>, who originally set them up, has disconnected their GitHub account.\\\\nUse the following slash commands to re-enable the subscriptions:\\\\n/github subscribe atom/atom\\\\n/github subscribe kubernetes/kubernetes\\"}]",
-  "channel": "C2147483705",
-  "token": "xoxp-token",
-}
-`;
-
 exports[`Integration: signout a signed in user is successfully signed out and relevant subscriptions are deleted 3`] = `
 ":white_check_mark: <@U2147483697> is now signed out
 Features like subscriptions and rich link previews will stop working. Use \`/github signin\` to sign back into your GitHub account at any time."

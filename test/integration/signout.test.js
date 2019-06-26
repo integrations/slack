@@ -101,11 +101,25 @@ describe('Integration: signout', async () => {
 
     const state = continueLinkPattern.exec(interstitialRes.text)[1];
 
-    expect(await verify(state, process.env.GITHUB_CLIENT_SECRET)).toMatchSnapshot({
-      githubOAuthState: expect.any(String),
-      iat: expect.any(Number),
-      exp: expect.any(Number),
-    });
+    expect(await verify(state, process.env.GITHUB_CLIENT_SECRET)).toMatchInlineSnapshot(
+      {
+        githubOAuthState: expect.any(String),
+        iat: expect.any(Number),
+        exp: expect.any(Number),
+      },
+      `
+Object {
+  "channelSlackId": "C2147483705",
+  "exp": Any<Number>,
+  "githubOAuthState": Any<String>,
+  "iat": Any<Number>,
+  "replaySlashCommand": false,
+  "teamSlackId": "T0001",
+  "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+  "userSlackId": "U2147483697",
+}
+`,
+    );
 
     // GitHub redirects back, authenticates user and process subscription
     nock('https://github.com').post('/login/oauth/access_token')
