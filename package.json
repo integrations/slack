@@ -48,6 +48,7 @@
     "localtunnel": "^1.9.1",
     "nock": "^9.4.3",
     "nodemon": "^1.18.3",
+    "prettier": "^1.18.2",
     "primer-core": "^6.7.0",
     "primer-marketing": "^6.2.0",
     "snappydoo": "github:integrations/snappydoo",
