@@ -145,9 +145,29 @@ describe('Integration: signout', async () => {
     });
 
     nock('https://slack.com').post('/api/chat.postMessage', (body) => {
-      expect(body).toMatchSnapshot();
+      expect(body).toMatchInlineSnapshot(`
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Subscriptions to 2 repositories have been disabled because <@U2147483697>, who originally set them up, has disconnected their GitHub account.\\\\nUse the following slash commands to re-enable the subscriptions:\\\\n/github subscribe atom/atom\\\\n/github subscribe kubernetes/kubernetes\\"}]",
+  "channel": "C2147483705",
+  "token": "xoxp-token",
+}
+`);
       return true;
-    }).times(2).reply(200, { ok: true });
+    })
+      .reply(200, { ok: true });
+
+    nock('https://slack.com')
+      .post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchInlineSnapshot(`
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"The subscription to 1 account has been disabled because <@U2147483697>, who originally set it up, has disconnected their GitHub account.\\\\nUse the following slash command to re-enable the subscription:\\\\n/github subscribe github\\"}]",
+  "channel": "C12345",
+  "token": "xoxp-token",
+}
+`);
+        return true;
+      })
+      .reply(200, { ok: true });
 
     const command = fixtures.slack.command({
       text: 'signout',
