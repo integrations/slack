@@ -36,7 +36,8 @@ describe('Integration: Creating and listing deployments from Slack', () => {
       ownerId: 1337,
     });
   });
-  test('works when specifying a repository', async () => {
+  test.only('works when specifying a repository', async () => {
+    jest.setTimeout(10000);
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
       full_name: 'kubernetes/kubernetes',
       id: 54321,
@@ -70,7 +71,15 @@ describe('Integration: Creating and listing deployments from Slack', () => {
       ref: 'refs/tags/v1.0',
       task: 'deploy',
       environment: 'production',
+      node_id: 'MDEwOkRlcGxveW1lbnQxMzc1ODM5ODE=',
     });
+
+    nock('https://api.github.com').post('/graphql').reply(200, { data: { node: fixtures.deployments.data.repository.deployments.nodes[0] } });
+
+    nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+      expect(body).toMatchSnapshot();
+      return true;
+    }).reply(200, { ok: true });
 
     // User submits dialog to create a deployment
     await request(probot.server).post('/slack/actions').send({
