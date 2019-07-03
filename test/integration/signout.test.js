@@ -162,7 +162,7 @@ Object {
     // so we're using this approach instead of snapshots
     const expectedSlackMessages = {
       C2147483705: /Subscriptions to 2 repositories have been disabled because/,
-      C12345: /The subscription to 1 account has been disabled because/
+      C12345: /The subscription to 1 account has been disabled because/,
     };
 
     nock('https://slack.com').post('/api/chat.postMessage', (body) => {
