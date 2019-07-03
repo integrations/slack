@@ -1,17 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Integration: signout a signed in user is successfully signed out and relevant subscriptions are deleted 3`] = `
-":white_check_mark: <@U2147483697> is now signed out
-Features like subscriptions and rich link previews will stop working. Use \`/github signin\` to sign back into your GitHub account at any time."
-`;
-
-exports[`Integration: signout a signed in user is successfully signed out and relevant subscriptions are deleted 4`] = `
+exports[`Integration: signout a signed in user is successfully signed out and relevant subscriptions are deleted 2`] = `
 Set {
   "pending-command#13345224609.738474920.8088930838d88f008e0",
 }
 `;
 
-exports[`Integration: signout a signed in user is successfully signed out and relevant subscriptions are deleted 5`] = `
+exports[`Integration: signout a signed in user is successfully signed out and relevant subscriptions are deleted 3`] = `
 Map {
   "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
     "channel_id": "C2147483705",

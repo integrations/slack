@@ -158,37 +158,32 @@ Object {
       login: 'github',
     });
 
-    nock('https://slack.com').post('/api/chat.postMessage', (body) => {
-      expect(body).toMatchInlineSnapshot(`
-Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Subscriptions to 2 repositories have been disabled because <@U2147483697>, who originally set them up, has disconnected their GitHub account.\\\\nUse the following slash commands to re-enable the subscriptions:\\\\n/github subscribe atom/atom\\\\n/github subscribe kubernetes/kubernetes\\"}]",
-  "channel": "C2147483705",
-  "token": "xoxp-token",
-}
-`);
-      return true;
-    })
-      .reply(200, { ok: true });
+    // These two calls to chat.postMessage can happen in either order
+    // so we're using this approach instead of snapshots
+    const expectedSlackMessages = {
+      C2147483705: /Subscriptions to 2 repositories have been disabled because/,
+      C12345: /The subscription to 1 account has been disabled because/
+    };
 
-    nock('https://slack.com')
-      .post('/api/chat.postMessage', (body) => {
-        expect(body).toMatchInlineSnapshot(`
-Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"The subscription to 1 account has been disabled because <@U2147483697>, who originally set it up, has disconnected their GitHub account.\\\\nUse the following slash command to re-enable the subscription:\\\\n/github subscribe github\\"}]",
-  "channel": "C12345",
-  "token": "xoxp-token",
-}
-`);
-        return true;
-      })
-      .reply(200, { ok: true });
+    nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+      if (Object.keys(expectedSlackMessages).includes(body.channel)) {
+        expect(body.attachments).toMatch(expectedSlackMessages[body.channel]);
+        delete expectedSlackMessages[body.channel];
+      }
+      return true;
+    }).times(2).reply(200, { ok: true });
 
     const command = fixtures.slack.command({
       text: 'signout',
     });
 
     const res = await request.post('/slack/command').send(command).expect(200);
-    expect(res.body.attachments[0].text).toMatchSnapshot();
+    expect(res.body.attachments[0].text).toMatchInlineSnapshot(`
+":white_check_mark: <@U2147483697> is now signed out
+Features like subscriptions and rich link previews will stop working. Use \`/github signin\` to sign back into your GitHub account at any time."
+`);
+
+    expect(Object.keys(expectedSlackMessages).length).toBe(0);
 
     expect((await slackUser.reload()).githubId).toBe(null);
     expect((await Subscription.findAll({ where: { creatorId: slackUser.id } })).length).toBe(0);
