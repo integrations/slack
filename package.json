@@ -23,7 +23,7 @@
     "express-sslify": "^1.2.0",
     "helmet": "^3.11.0",
     "html-to-mrkdwn": "^3.0.0",
-    "isbinaryfile": "^3.0.3",
+    "isbinaryfile": "^4.0.2",
     "jsonwebtoken": "^8.1.0",
     "keyv": "^3.0.0",
     "moment": "^2.21.0",
