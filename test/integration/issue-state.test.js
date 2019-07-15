@@ -103,17 +103,6 @@ describe('Integration: issue state', () => {
         },
       });
 
-    nock('https://api.github.com').get('/repos/owner/repo/installation')
-      .reply(200, {
-        ...fixtures.installation,
-        account: fixtures.repo.owner,
-        permissions: {
-          ...fixtures.installation.permissions,
-          pull_requests: 'write',
-          issues: 'read',
-        },
-      });
-
     nock('https://api.github.com').get('/repos/owner/repo')
       .reply(200, fixtures.repo);
 
