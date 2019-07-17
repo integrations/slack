@@ -105,6 +105,20 @@ describe('Integration: Creating and listing deployments from Slack', () => {
       });
   });
 
+  test('informs of no deployments found when listing deployments', async () => {
+    nock('https://api.github.com').post('/graphql').reply(200, { data: { repository: { deployments: { nodes: [] } } } });
+
+    const command = fixtures.slack.command({
+      text: 'deploy kubernetes/kubernetes list',
+    });
+
+    await request(probot.server).post('/slack/command').send(command)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+  });
+
   test('throws error when listing deployments and none are found', async () => {
     nock('https://api.github.com').post('/graphql').reply(404, { errors: [{ type: 'FORBIDDEN' }] });
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation')
