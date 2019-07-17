@@ -1,5 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: Creating and listing deployments from Slack throws error when listing deployments and none are found 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "actions": Array [
+        Object {
+          "style": "primary",
+          "text": "Update GitHub App permissions",
+          "type": "button",
+          "url": "https://github.com/organizations/integrations/settings/installations/90793/permissions/update",
+        },
+      ],
+      "color": "danger",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "This feature requires updated permissions.
+
+_Note: If you are not the owner of the repository or the owner of the organization, you will have to ask the owner to install it for you. Give them this link: https://github.com/organizations/integrations/settings/installations/90793/permissions/update _",
+    },
+  ],
+  "response_type": "ephemeral",
+}
+`;
+
+exports[`Integration: Creating and listing deployments from Slack throws error when listing deployments and none are found 2`] = `
+Set {
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+}
+`;
+
+exports[`Integration: Creating and listing deployments from Slack throws error when listing deployments and none are found 3`] = `
+Map {
+  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
+    "channel_id": "C2147483705",
+    "channel_name": "test",
+    "command": "/github",
+    "enterprise_id": "E0001",
+    "enterprise_name": "Globular%20Construct%20Inc",
+    "response_url": "https://hooks.slack.com/commands/1234/5678",
+    "team_domain": "example",
+    "team_id": "T0001",
+    "text": "deploy kubernetes/kubernetes list",
+    "token": "secret",
+    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+    "user_id": "U2147483697",
+    "user_name": "Steve",
+  },
+}
+`;
+
 exports[`Integration: Creating and listing deployments from Slack works when listing deployments 1`] = `
 Object {
   "attachments": Array [
