@@ -175,7 +175,7 @@ describe('Integration: Creating and listing deployments from Slack', () => {
   });
 
   test('throws error when listing deployments and none are found', async () => {
-    nock('https://api.github.com').post('/graphql').reply(404, { errors: [{ type: 'FORBIDDEN' }] });
+    nock('https://api.github.com').post('/graphql').reply(200, { errors: [{ type: 'FORBIDDEN' }] });
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes/installation')
       .reply(200, {
         ...fixtures.installation,
