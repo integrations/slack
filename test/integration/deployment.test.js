@@ -146,6 +146,26 @@ describe('Integration: Creating and listing deployments from Slack', () => {
       });
   });
 
+  test('throws error when specifying a repository with no tags and didnt receive a 404', async () => {
+    jest.setTimeout(10000);
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
+      full_name: 'kubernetes/kubernetes',
+      id: 54321,
+    });
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/branches').reply(200, fixtures.branches);
+    nock('https://api.github.com').get('/repos/kubernetes/kubernetes/git/refs/tags').reply(500, {});
+
+    const command = fixtures.slack.command({
+      text: 'deploy kubernetes/kubernetes',
+    });
+
+    await request(probot.server).post('/slack/command').send(command)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toMatchSnapshot();
+      });
+  });
+
   test('works when listing deployments', async () => {
     nock('https://api.github.com').post('/graphql').reply(200, fixtures.deployments);
 
