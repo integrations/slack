@@ -21,7 +21,7 @@
     "express": "^4.16.2",
     "express-async-errors": "^2.1.1",
     "express-sslify": "^1.2.0",
-    "helmet": "^3.11.0",
+    "helmet": "^3.20.0",
     "html-to-mrkdwn": "^3.0.0",
     "isbinaryfile": "^3.0.3",
     "jsonwebtoken": "^8.1.0",
