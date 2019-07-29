@@ -69,8 +69,8 @@ By granting the app access, you are providing the following authorizations to yo
 |Permission scope|Why we need it|
 |---|---|
 |Read access to code| To render code snippets in Slack|
-|Read access to commit statuses, deployments, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
-|Write access to issues and pull requests | To take action from Slack with the `/github` command and directly from messages|
+|Read access to commit statuses, checks, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
+|Write access to issues, deployments, and pull requests | To take action from Slack with the `/github` command and directly from messages|
 
 #### Repository Activity
 **Subscribe to an Organization or a Repository**
