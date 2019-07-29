@@ -71,3 +71,5 @@ dist
 
 .idea/
 build/
+
+.vscode/
