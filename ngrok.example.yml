@@ -1,0 +1,7 @@
+authtoken: YOUR_TOKEN
+remote_management: null
+tunnels:
+  slack:
+    proto: http
+    addr: 4001
+    subdomain: YOUR_HANDLE-slack
