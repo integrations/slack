@@ -429,7 +429,7 @@ Map {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel pull request opened followed by status 1`] = `
+exports[`Integration: notifications to a subscribed channel pull request opened followed by checks and no statuses 1`] = `
 Object {
   "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":126,\\"short\\":true},{\\"title\\":\\"Reviewers\\",\\"value\\":\\"thomasjo, fosslinux\\",\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#31 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[github-slack/app] #31 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"text\\":\\"Hi there,\\\\r\\\\n\\\\r\\\\nThe Apache Software Foundation Legal Affairs Committee [has announced][1] that the so-called 'Facebook BSD+Patents License' is no longer allowed to be used as a direct dependency in Apache projects.\\\\r\\\\n\\\\r\\\\nThis has lead to a lot of upset and frustration in the Apache community, especially from projects requiring similarly-licensed code as direct dependencies - the chief of these being RocksDB.\\\\r\\\\n\\\\r\\\\nHowever, we (the Apache Software Foundation) have just received word that [RocksDB will be re-licensing their code under the dual Apache License v2.0 and GPL 2 licenses][2]. \\\\r\\\\n\\\\r\\\\nAs a user of React.JS in an ASF top-level project (Apache CouchDB), please consider re-licensing React.JS under similar terms. Otherwise, many ASF projects such as our own will have to stop relying on and building with React.\\\\r\\\\n\\\\r\\\\nA previous bug (#9760) suggested I mention @lacker in this issue when asking licensing questions, so I'm doing so.\\\\r\\\\n\\\\r\\\\nThank you kindly for your consideration.\\\\r\\\\n\\\\r\\\\n[1]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088663&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088663\\\\r\\\\n[2]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088730&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088730\\",\\"pretext\\":\\"Pull request merged by wilhelmklopp\\"}]",
   "channel": "C001",
@@ -437,14 +437,14 @@ Object {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel pull request opened followed by status 2`] = `
+exports[`Integration: notifications to a subscribed channel pull request opened followed by checks and no statuses 2`] = `
 Object {
-  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":3,\\"short\\":true},{\\"title\\":\\"Reviewers\\",\\"value\\":\\"thomasjo, fosslinux\\",\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github/hub|github/hub>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1502411430,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"e-beach\\",\\"author_link\\":\\"https://github.com/e-beach\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/13651458?v=4\\",\\"title\\":\\"#1535 Make fork command idempotent\\",\\"title_link\\":\\"https://github.com/github/hub/pull/1535\\",\\"fallback\\":\\"[github/hub] #1535 Make fork command idempotent\\",\\"text\\":\\"Fixes #1499.\\\\r\\\\n\\\\r\\\\nThis PR makes \`hub fork\` succeed, with no operation, if a remote pointing to the forked repository already exists.\\\\r\\\\n \\",\\"pretext\\":\\"Pull request merged by e-beach\\"},{\\"fallback\\":\\"codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0\\",\\"author_name\\":\\"codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/in/254?v=4\\",\\"author_link\\":\\"https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd\\",\\"color\\":\\"#cb2431\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"fallback\\":\\"codecov/project: 98.37% remains the same compared to 0143c3c\\",\\"author_name\\":\\"codecov/project: 98.37% remains the same compared to 0143c3c\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/in/254?v=4\\",\\"author_link\\":\\"https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd\\",\\"color\\":\\"#dbab09\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"color\\":\\"#28a745\\",\\"fallback\\":\\"2 other checks have passed\\",\\"text\\":\\":white_check_mark: 2 other checks have passed\\",\\"footer\\":\\"2/4 successful checks\\"}]",
+  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":3,\\"short\\":true},{\\"title\\":\\"Reviewers\\",\\"value\\":\\"thomasjo, fosslinux\\",\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github/hub|github/hub>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1502411430,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"e-beach\\",\\"author_link\\":\\"https://github.com/e-beach\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/13651458?v=4\\",\\"title\\":\\"#1535 Make fork command idempotent\\",\\"title_link\\":\\"https://github.com/github/hub/pull/1535\\",\\"fallback\\":\\"[github/hub] #1535 Make fork command idempotent\\",\\"text\\":\\"Fixes #1499.\\\\r\\\\n\\\\r\\\\nThis PR makes \`hub fork\` succeed, with no operation, if a remote pointing to the forked repository already exists.\\\\r\\\\n \\",\\"pretext\\":\\"Pull request merged by e-beach\\"},{\\"fallback\\":\\"Super CI: Mighty Readme report\\",\\"author_name\\":\\"Super CI: Mighty Readme report\\",\\"author_icon\\":\\"https://github.com/images/error/octocat_happy.gif\\",\\"author_link\\":\\"http://github.com/github/hello-world/runs/4\\",\\"color\\":\\"#dbab09\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"color\\":\\"#dbab09\\",\\"fallback\\":\\"2 other checks have passed\\",\\"text\\":\\":white_check_mark: 2 other checks have passed\\",\\"footer\\":\\"2/3 successful checks\\"}]",
   "token": "test",
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel pull request opened followed by status 3`] = `
+exports[`Integration: notifications to a subscribed channel pull request opened followed by checks and no statuses 3`] = `
 Set {
   "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
   "creator-access#1:100427737",
@@ -452,7 +452,85 @@ Set {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel pull request opened followed by status 4`] = `
+exports[`Integration: notifications to a subscribed channel pull request opened followed by checks and no statuses 4`] = `
+Map {
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "creator-access#1:100427737" => true,
+  "channel#9523#C001:pull#142600109" => Object {
+    "channel": undefined,
+    "context": Object {
+      "number": 31,
+      "owner": "github-slack",
+      "repo": "app",
+    },
+    "ts": undefined,
+  },
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened followed by statuses and checks 1`] = `
+Object {
+  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":126,\\"short\\":true},{\\"title\\":\\"Reviewers\\",\\"value\\":\\"thomasjo, fosslinux\\",\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#31 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[github-slack/app] #31 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"text\\":\\"Hi there,\\\\r\\\\n\\\\r\\\\nThe Apache Software Foundation Legal Affairs Committee [has announced][1] that the so-called 'Facebook BSD+Patents License' is no longer allowed to be used as a direct dependency in Apache projects.\\\\r\\\\n\\\\r\\\\nThis has lead to a lot of upset and frustration in the Apache community, especially from projects requiring similarly-licensed code as direct dependencies - the chief of these being RocksDB.\\\\r\\\\n\\\\r\\\\nHowever, we (the Apache Software Foundation) have just received word that [RocksDB will be re-licensing their code under the dual Apache License v2.0 and GPL 2 licenses][2]. \\\\r\\\\n\\\\r\\\\nAs a user of React.JS in an ASF top-level project (Apache CouchDB), please consider re-licensing React.JS under similar terms. Otherwise, many ASF projects such as our own will have to stop relying on and building with React.\\\\r\\\\n\\\\r\\\\nA previous bug (#9760) suggested I mention @lacker in this issue when asking licensing questions, so I'm doing so.\\\\r\\\\n\\\\r\\\\nThank you kindly for your consideration.\\\\r\\\\n\\\\r\\\\n[1]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088663&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088663\\\\r\\\\n[2]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088730&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088730\\",\\"pretext\\":\\"Pull request merged by wilhelmklopp\\"}]",
+  "channel": "C001",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened followed by statuses and checks 2`] = `
+Object {
+  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":3,\\"short\\":true},{\\"title\\":\\"Reviewers\\",\\"value\\":\\"thomasjo, fosslinux\\",\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github/hub|github/hub>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1502411430,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"e-beach\\",\\"author_link\\":\\"https://github.com/e-beach\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/13651458?v=4\\",\\"title\\":\\"#1535 Make fork command idempotent\\",\\"title_link\\":\\"https://github.com/github/hub/pull/1535\\",\\"fallback\\":\\"[github/hub] #1535 Make fork command idempotent\\",\\"text\\":\\"Fixes #1499.\\\\r\\\\n\\\\r\\\\nThis PR makes \`hub fork\` succeed, with no operation, if a remote pointing to the forked repository already exists.\\\\r\\\\n \\",\\"pretext\\":\\"Pull request merged by e-beach\\"},{\\"fallback\\":\\"codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0\\",\\"author_name\\":\\"codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/in/254?v=4\\",\\"author_link\\":\\"https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd\\",\\"color\\":\\"#cb2431\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"fallback\\":\\"codecov/project: 98.37% remains the same compared to 0143c3c\\",\\"author_name\\":\\"codecov/project: 98.37% remains the same compared to 0143c3c\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/in/254?v=4\\",\\"author_link\\":\\"https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd\\",\\"color\\":\\"#dbab09\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"fallback\\":\\"Super CI: Mighty Readme report\\",\\"author_name\\":\\"Super CI: Mighty Readme report\\",\\"author_icon\\":\\"https://github.com/images/error/octocat_happy.gif\\",\\"author_link\\":\\"http://github.com/github/hello-world/runs/4\\",\\"color\\":\\"#dbab09\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"color\\":\\"#dbab09\\",\\"fallback\\":\\"4 other checks have passed\\",\\"text\\":\\":white_check_mark: 4 other checks have passed\\",\\"footer\\":\\"4/7 successful checks\\"}]",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened followed by statuses and checks 3`] = `
+Set {
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "creator-access#1:100427737",
+  "channel#9523#C001:pull#142600109",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened followed by statuses and checks 4`] = `
+Map {
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
+  "creator-access#1:100427737" => true,
+  "channel#9523#C001:pull#142600109" => Object {
+    "channel": undefined,
+    "context": Object {
+      "number": 31,
+      "owner": "github-slack",
+      "repo": "app",
+    },
+    "ts": undefined,
+  },
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened followed by statuses and no checks 1`] = `
+Object {
+  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":126,\\"short\\":true},{\\"title\\":\\"Reviewers\\",\\"value\\":\\"thomasjo, fosslinux\\",\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#31 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[github-slack/app] #31 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"text\\":\\"Hi there,\\\\r\\\\n\\\\r\\\\nThe Apache Software Foundation Legal Affairs Committee [has announced][1] that the so-called 'Facebook BSD+Patents License' is no longer allowed to be used as a direct dependency in Apache projects.\\\\r\\\\n\\\\r\\\\nThis has lead to a lot of upset and frustration in the Apache community, especially from projects requiring similarly-licensed code as direct dependencies - the chief of these being RocksDB.\\\\r\\\\n\\\\r\\\\nHowever, we (the Apache Software Foundation) have just received word that [RocksDB will be re-licensing their code under the dual Apache License v2.0 and GPL 2 licenses][2]. \\\\r\\\\n\\\\r\\\\nAs a user of React.JS in an ASF top-level project (Apache CouchDB), please consider re-licensing React.JS under similar terms. Otherwise, many ASF projects such as our own will have to stop relying on and building with React.\\\\r\\\\n\\\\r\\\\nA previous bug (#9760) suggested I mention @lacker in this issue when asking licensing questions, so I'm doing so.\\\\r\\\\n\\\\r\\\\nThank you kindly for your consideration.\\\\r\\\\n\\\\r\\\\n[1]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088663&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088663\\\\r\\\\n[2]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088730&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088730\\",\\"pretext\\":\\"Pull request merged by wilhelmklopp\\"}]",
+  "channel": "C001",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened followed by statuses and no checks 2`] = `
+Object {
+  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":3,\\"short\\":true},{\\"title\\":\\"Reviewers\\",\\"value\\":\\"thomasjo, fosslinux\\",\\"short\\":true}],\\"color\\":\\"#6f42c1\\",\\"footer\\":\\"<https://github.com/github/hub|github/hub>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1502411430,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"e-beach\\",\\"author_link\\":\\"https://github.com/e-beach\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/13651458?v=4\\",\\"title\\":\\"#1535 Make fork command idempotent\\",\\"title_link\\":\\"https://github.com/github/hub/pull/1535\\",\\"fallback\\":\\"[github/hub] #1535 Make fork command idempotent\\",\\"text\\":\\"Fixes #1499.\\\\r\\\\n\\\\r\\\\nThis PR makes \`hub fork\` succeed, with no operation, if a remote pointing to the forked repository already exists.\\\\r\\\\n \\",\\"pretext\\":\\"Pull request merged by e-beach\\"},{\\"fallback\\":\\"codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0\\",\\"author_name\\":\\"codecov/patch: Coverage not affected when comparing 0143c3c...68c2ef0\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/in/254?v=4\\",\\"author_link\\":\\"https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd\\",\\"color\\":\\"#cb2431\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"fallback\\":\\"codecov/project: 98.37% remains the same compared to 0143c3c\\",\\"author_name\\":\\"codecov/project: 98.37% remains the same compared to 0143c3c\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/in/254?v=4\\",\\"author_link\\":\\"https://codecov.io/gh/github-slack/app/compare/0143c3cd70052e00bb07dc09229b261b3afd807d...68c2ef08b77a144aeaa69b601ecbacb979e3a8fd\\",\\"color\\":\\"#dbab09\\",\\"mrkdwn_in\\":[\\"text\\"]},{\\"color\\":\\"#dbab09\\",\\"fallback\\":\\"2 other checks have passed\\",\\"text\\":\\":white_check_mark: 2 other checks have passed\\",\\"footer\\":\\"2/4 successful checks\\"}]",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened followed by statuses and no checks 3`] = `
+Set {
+  "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc",
+  "creator-access#1:100427737",
+  "channel#9523#C001:pull#142600109",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel pull request opened followed by statuses and no checks 4`] = `
 Map {
   "repo#100427737:status#cb67adc76ba600bfb6dccd50c5c837f29d3912dc" => 142600109,
   "creator-access#1:100427737" => true,
