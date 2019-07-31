@@ -3,8 +3,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./lib/run.js",
-    "test": "jest --coverage --runInBand --forceExit",
-    "test:watch": "jest --runInBand --forceExit --watch --notify",
+    "test": "jest --coverage --runInBand --logHeapUsage --forceExit",
+    "test:watch": "jest --runInBand --logHeapUsage --forceExit --watch --notify",
     "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start",
