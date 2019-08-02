@@ -20,7 +20,13 @@ beforeEach(async () => nock.cleanAll());
 afterEach(() => expect(nock.pendingMocks()).toEqual([]));
 
 // Ensure there is a connection established
-beforeAll(async () => models.sequelize.authenticate());
+beforeAll(async () => {
+  if (global.gc) {
+    global.gc();
+  }
+  models.sequelize.authenticate();
+});
+
 // Close connection when tests are done
 afterAll(async () => models.sequelize.close());
 
