@@ -6,32 +6,6 @@ Object {
 }
 `;
 
-exports[`Integration: Creating and listing deployments from Slack informs of no deployments found when listing deployments 2`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: Creating and listing deployments from Slack informs of no deployments found when listing deployments 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
-`;
-
 exports[`Integration: Creating and listing deployments from Slack informs to accept new permissions 1`] = `
 Object {
   "dialog": "{\\"state\\":\\"{\\\\\\"resource\\\\\\":{\\\\\\"type\\\\\\":\\\\\\"repo\\\\\\",\\\\\\"owner\\\\\\":\\\\\\"kubernetes\\\\\\",\\\\\\"repo\\\\\\":\\\\\\"kubernetes\\\\\\"},\\\\\\"channel\\\\\\":\\\\\\"C2147483705\\\\\\"}\\",\\"callback_id\\":\\"create-deployment-dialog\\",\\"title\\":\\"Trigger a deployment\\",\\"submit_label\\":\\"Create\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"label\\":\\"Branch or tag to deploy\\",\\"type\\":\\"select\\",\\"name\\":\\"ref\\",\\"option_groups\\":[{\\"label\\":\\"Tags\\",\\"options\\":[{\\"label\\":\\"refs/tags/v1.12.0-rc.2\\",\\"value\\":\\"refs/tags/v1.12.0-rc.2\\"},{\\"label\\":\\"refs/tags/v1.13.0-alpha.0\\",\\"value\\":\\"refs/tags/v1.13.0-alpha.0\\"}]},{\\"label\\":\\"Branches\\",\\"options\\":[{\\"label\\":\\"release-1.7\\",\\"value\\":\\"release-1.7\\"},{\\"label\\":\\"release-1.8\\",\\"value\\":\\"release-1.8\\"}]}]},{\\"type\\":\\"text\\",\\"label\\":\\"Environment\\",\\"name\\":\\"environment\\",\\"optional\\":true,\\"placeholder\\":\\"Default: \`production\`\\"},{\\"type\\":\\"text\\",\\"label\\":\\"Task\\",\\"name\\":\\"task\\",\\"optional\\":true,\\"placeholder\\":\\"Default: \`deploy\`\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Payload\\",\\"name\\":\\"payload\\",\\"placeholder\\":\\"{}\\",\\"hint\\":\\"JSON payload with extra information about the deployment\\",\\"optional\\":true}]}",
@@ -52,32 +26,6 @@ Object {
 `;
 
 exports[`Integration: Creating and listing deployments from Slack informs to accept new permissions 4`] = `Object {}`;
-
-exports[`Integration: Creating and listing deployments from Slack informs to accept new permissions 5`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: Creating and listing deployments from Slack informs to accept new permissions 6`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
-`;
 
 exports[`Integration: Creating and listing deployments from Slack throws error when listing deployments and none are found 1`] = `
 Object {
@@ -104,61 +52,9 @@ _Note: If you are not the owner of the repository or the owner of the organizati
 }
 `;
 
-exports[`Integration: Creating and listing deployments from Slack throws error when listing deployments and none are found 2`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: Creating and listing deployments from Slack throws error when listing deployments and none are found 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
-`;
-
 exports[`Integration: Creating and listing deployments from Slack throws error when specifying a repository with no tags and didnt receive a 404 1`] = `
 Object {
   "response_type": "in_channel",
-}
-`;
-
-exports[`Integration: Creating and listing deployments from Slack throws error when specifying a repository with no tags and didnt receive a 404 2`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: Creating and listing deployments from Slack throws error when specifying a repository with no tags and didnt receive a 404 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
 }
 `;
 
@@ -194,32 +90,6 @@ Object {
 }
 `;
 
-exports[`Integration: Creating and listing deployments from Slack works when listing deployments 2`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: Creating and listing deployments from Slack works when listing deployments 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
-`;
-
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 1`] = `
 Object {
   "dialog": "{\\"state\\":\\"{\\\\\\"resource\\\\\\":{\\\\\\"type\\\\\\":\\\\\\"repo\\\\\\",\\\\\\"owner\\\\\\":\\\\\\"kubernetes\\\\\\",\\\\\\"repo\\\\\\":\\\\\\"kubernetes\\\\\\"},\\\\\\"channel\\\\\\":\\\\\\"C2147483705\\\\\\"}\\",\\"callback_id\\":\\"create-deployment-dialog\\",\\"title\\":\\"Trigger a deployment\\",\\"submit_label\\":\\"Create\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"label\\":\\"Branch or tag to deploy\\",\\"type\\":\\"select\\",\\"name\\":\\"ref\\",\\"option_groups\\":[{\\"label\\":\\"Tags\\",\\"options\\":[{\\"label\\":\\"refs/tags/v1.12.0-rc.2\\",\\"value\\":\\"refs/tags/v1.12.0-rc.2\\"},{\\"label\\":\\"refs/tags/v1.13.0-alpha.0\\",\\"value\\":\\"refs/tags/v1.13.0-alpha.0\\"}]},{\\"label\\":\\"Branches\\",\\"options\\":[{\\"label\\":\\"release-1.7\\",\\"value\\":\\"release-1.7\\"},{\\"label\\":\\"release-1.8\\",\\"value\\":\\"release-1.8\\"}]}]},{\\"type\\":\\"text\\",\\"label\\":\\"Environment\\",\\"name\\":\\"environment\\",\\"optional\\":true,\\"placeholder\\":\\"Default: \`production\`\\"},{\\"type\\":\\"text\\",\\"label\\":\\"Task\\",\\"name\\":\\"task\\",\\"optional\\":true,\\"placeholder\\":\\"Default: \`deploy\`\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Payload\\",\\"name\\":\\"payload\\",\\"placeholder\\":\\"{}\\",\\"hint\\":\\"JSON payload with extra information about the deployment\\",\\"optional\\":true}]}",
@@ -240,32 +110,6 @@ Object {
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 4`] = `Object {}`;
 
-exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 5`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 6`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
-`;
-
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository with no tags 1`] = `
 Object {
   "dialog": "{\\"state\\":\\"{\\\\\\"resource\\\\\\":{\\\\\\"type\\\\\\":\\\\\\"repo\\\\\\",\\\\\\"owner\\\\\\":\\\\\\"kubernetes\\\\\\",\\\\\\"repo\\\\\\":\\\\\\"kubernetes\\\\\\"},\\\\\\"channel\\\\\\":\\\\\\"C2147483705\\\\\\"}\\",\\"callback_id\\":\\"create-deployment-dialog\\",\\"title\\":\\"Trigger a deployment\\",\\"submit_label\\":\\"Create\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"label\\":\\"Branch or tag to deploy\\",\\"type\\":\\"select\\",\\"name\\":\\"ref\\",\\"option_groups\\":[{\\"label\\":\\"Branches\\",\\"options\\":[{\\"label\\":\\"release-1.7\\",\\"value\\":\\"release-1.7\\"},{\\"label\\":\\"release-1.8\\",\\"value\\":\\"release-1.8\\"}]}]},{\\"type\\":\\"text\\",\\"label\\":\\"Environment\\",\\"name\\":\\"environment\\",\\"optional\\":true,\\"placeholder\\":\\"Default: \`production\`\\"},{\\"type\\":\\"text\\",\\"label\\":\\"Task\\",\\"name\\":\\"task\\",\\"optional\\":true,\\"placeholder\\":\\"Default: \`deploy\`\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Payload\\",\\"name\\":\\"payload\\",\\"placeholder\\":\\"{}\\",\\"hint\\":\\"JSON payload with extra information about the deployment\\",\\"optional\\":true}]}",
@@ -285,29 +129,3 @@ Object {
 `;
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository with no tags 4`] = `Object {}`;
-
-exports[`Integration: Creating and listing deployments from Slack works when specifying a repository with no tags 5`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: Creating and listing deployments from Slack works when specifying a repository with no tags 6`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
-`;

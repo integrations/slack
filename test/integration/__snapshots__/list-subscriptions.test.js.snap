@@ -14,58 +14,6 @@ Object {
 }
 `;
 
-exports[`Integration: subscription list when a repository and an account has been deleted 2`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: subscription list when a repository and an account has been deleted 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "subscribe list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
-`;
-
-exports[`Integration: subscription list when some other error occurs 1`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: subscription list when some other error occurs 2`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "subscribe list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
-`;
-
 exports[`Integration: subscription list works for /github subscribe 1`] = `
 Object {
   "attachments": Array [
@@ -150,32 +98,6 @@ Object {
 }
 `;
 
-exports[`Integration: subscription list works for /github subscribe 2`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: subscription list works for /github subscribe 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "subscribe",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
-`;
-
 exports[`Integration: subscription list works for /github subscribe list 1`] = `
 Object {
   "attachments": Array [
@@ -194,32 +116,6 @@ Object {
     },
   ],
   "response_type": "in_channel",
-}
-`;
-
-exports[`Integration: subscription list works for /github subscribe list 2`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: subscription list works for /github subscribe list 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "subscribe list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
 }
 `;
 
@@ -254,31 +150,5 @@ Object {
     },
   ],
   "response_type": "in_channel",
-}
-`;
-
-exports[`Integration: subscription list works for /github subscribe list features 2`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: subscription list works for /github subscribe list features 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "subscribe list features",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
 }
 `;

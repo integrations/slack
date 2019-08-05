@@ -21,32 +21,6 @@ exports[`Integration: signout a signed in user is successfully signed out and re
 Features like subscriptions and rich link previews will stop working. Use \`/github signin\` to sign back into your GitHub account at any time."
 `;
 
-exports[`Integration: signout a signed in user is successfully signed out and relevant subscriptions are deleted 4`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: signout a signed in user is successfully signed out and relevant subscriptions are deleted 5`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "signout",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
-`;
-
 exports[`Integration: signout a signed out user is prompted to sign in first 1`] = `
 Object {
   "channelSlackId": "C2147483705",
@@ -70,30 +44,4 @@ Array [
     "text": ":white_check_mark: Success! <@U2147483697> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>",
   },
 ]
-`;
-
-exports[`Integration: signout a signed out user is prompted to sign in first 3`] = `
-Set {
-  "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
-`;
-
-exports[`Integration: signout a signed out user is prompted to sign in first 4`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "signout",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
 `;
