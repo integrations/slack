@@ -54,8 +54,8 @@
     "supertest": "^3.4.2"
   },
   "engines": {
-    "node": "8.x.x",
-    "npm": "6.x.x"
+    "node": "10.15.x",
+    "npm": "6.4.x"
   },
   "jest": {
     "testEnvironment": "node",
