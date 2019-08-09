@@ -175,6 +175,7 @@ module.exports = {
   }),
   dialogSubmissionCreateDeployment: () => ({
     token: process.env.SLACK_VERIFICATION_TOKEN,
+    state: JSON.stringify({ channel: 'C2147483705', resource: { owner: 'kubernetes', repo: 'kubernetes' } }),
     type: 'dialog_submission',
     callback_id: 'create-deployment-dialog',
     action_ts: '1524614235.114006',

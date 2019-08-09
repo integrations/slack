@@ -17,4 +17,9 @@ describe('Status rendering', () => {
     const rendered = Status.getChecksPassAttachment(4, 5);
     expect(rendered).toMatchSnapshot();
   });
+
+  test('works when no checks pass', async () => {
+    const rendered = Status.getChecksPassAttachment(0, 5);
+    expect(rendered).toMatchSnapshot();
+  });
 });
