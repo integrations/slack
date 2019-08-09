@@ -2,12 +2,20 @@
 
 exports[`Integration: issue state /github close issue 1`] = `
 Array [
+  "channel#1#C2147483705:issue#undefined",
   "pending-command#13345224609.738474920.8088930838d88f008e0",
 ]
 `;
 
 exports[`Integration: issue state /github close issue 2`] = `
 Array [
+  Array [
+    "channel#1#C2147483705:issue#undefined",
+    Object {
+      "channel": "C2147483705",
+      "ts": undefined,
+    },
+  ],
   Array [
     "pending-command#13345224609.738474920.8088930838d88f008e0",
     Object {
