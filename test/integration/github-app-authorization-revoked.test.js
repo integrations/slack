@@ -89,10 +89,7 @@ describe('Integration: github_app_authorization.revoked', async () => {
       full_name: 'integrations/slack',
     });
 
-    nock('https://slack.com').post('/api/chat.postMessage', (body) => {
-      expect(body).toMatchSnapshot();
-      return true;
-    }).times(2).reply(200, { ok: true });
+    nock('https://slack.com').post('/api/chat.postMessage').times(2).reply(200, { ok: true });
 
     await probot.receive({
       name: 'github_app_authorization',
@@ -142,10 +139,7 @@ describe('Integration: github_app_authorization.revoked', async () => {
       full_name: 'integrations/slack',
     });
 
-    nock('https://slack.com').post('/api/chat.postMessage', (body) => {
-      expect(body).toMatchSnapshot();
-      return true;
-    }).times(4).reply(200, { ok: true });
+    nock('https://slack.com').post('/api/chat.postMessage').times(4).reply(200, { ok: true });
 
     await probot.receive({
       name: 'github_app_authorization',
