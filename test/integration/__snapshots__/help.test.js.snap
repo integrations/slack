@@ -36,14 +36,14 @@ Object {
         "text",
       ],
       "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
-\`/github subscribe owner/respository reviews,comments\`",
+\`/github subscribe owner/repository reviews,comments\`",
     },
     Object {
       "mrkdwn_in": Array [
         "text",
       ],
       "text": "Unsubscribe from one or more subscription features:
-\`/github unsubscribe owner/respository commits\`",
+\`/github unsubscribe owner/repository commits\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -185,14 +185,14 @@ Object {
         "text",
       ],
       "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
-\`/github subscribe owner/respository reviews,comments\`",
+\`/github subscribe owner/repository reviews,comments\`",
     },
     Object {
       "mrkdwn_in": Array [
         "text",
       ],
       "text": "Unsubscribe from one or more subscription features:
-\`/github unsubscribe owner/respository commits\`",
+\`/github unsubscribe owner/repository commits\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -334,14 +334,14 @@ Object {
         "text",
       ],
       "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
-\`/github subscribe owner/respository reviews,comments\`",
+\`/github subscribe owner/repository reviews,comments\`",
     },
     Object {
       "mrkdwn_in": Array [
         "text",
       ],
       "text": "Unsubscribe from one or more subscription features:
-\`/github unsubscribe owner/respository commits\`",
+\`/github unsubscribe owner/repository commits\`",
     },
     Object {
       "mrkdwn_in": Array [
