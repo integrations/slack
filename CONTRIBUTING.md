@@ -123,12 +123,12 @@ It will also need the following event subscriptions:
 1. Under **Interactive Components** under **Actions**, click **Create New Action**
 
     ![](https://user-images.githubusercontent.com/2894107/60052628-6465c800-969b-11e9-943e-17ac8ef63302.png)
-    
+
     - **Action Name**: `Comment on Issue or PR`
     - **Short Description**: `Comment on an Issue or Pull Request with the content of a Slack message`
     - **Callback ID**: `comment-action`
     - Click **Create**
-    
+
 1. Under **Interactive Components** under **Message Menus**, set **Options Load URL** to `https://DOMAIN/slack/options`
 
 1. On the **Event Subscriptions** tab, set **Request URL** to `https://DOMAIN/slack/events`, replacing `YOUR-USERNAME` with the value that shows up when the server starts. Slack should show **Verified ✓** if all is well.
@@ -196,6 +196,14 @@ The below diagram describes the lifecycle of an unfurl to a level of detail that
 1. Format the message so that Slack can render it
 1. `chat.unfurl` API call to Slack
 
+## Memory requirements
+
+By default, tests run with a GC memory limit of 4GB. This helps us to avoid slow and failing tests caused by GC runs.
+If this is too much for your local system you can set `NODE_OPTIONS` to set a custom value. Example for 2GB:
+
+`NODE_OPTIONS="--max-old-space-size=2048" npm test`
+
+V8's default is 1.5GB so we recommend not using a value less than that.
 
 ## Troubleshooting
 
