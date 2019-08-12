@@ -79,11 +79,14 @@ describe('Integration: unfurls', () => {
       nock('https://api.github.com').get('/repos/atom/atom').times(2).reply(200, fixtures.repo);
       nock('https://api.github.com').get('/repos/atom/atom/issues/16292').reply(200, fixtures.issue);
 
+      const unfurlRequests = [];
       nock('https://slack.com').post('/api/chat.unfurl', (req) => {
-        // Test that the body posted to the unfurl matches the snapshot
-        expect(req).toMatchSnapshot();
+        unfurlRequests.push(req);
+
+        // verify the there is no text for condensed unfurls
         const unfurls = JSON.parse(req.unfurls);
         expect(unfurls[Object.keys(unfurls)[0]].text).toBe(undefined);
+
         return true;
       }).times(2).reply(200, { ok: true });
 
@@ -95,6 +98,9 @@ describe('Integration: unfurls', () => {
       ];
 
       await request(probot.server).post('/slack/events').send(body).expect(200);
+
+      // check the recorded unfurl request bodies.
+      expect(unfurlRequests.sort()).toMatchSnapshot();
 
       const unfurls = await Unfurl.findAll();
       expect(unfurls.length).toBe(2);
