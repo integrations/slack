@@ -15,55 +15,61 @@ Object {
 `;
 
 exports[`Integration: subscription list when a repository and an account has been deleted 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: subscription list when a repository and an account has been deleted 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "subscribe list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "subscribe list",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: subscription list when some other error occurs 1`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: subscription list when some other error occurs 2`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "subscribe list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "subscribe list",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: subscription list works for /github subscribe 1`] = `
@@ -102,14 +108,14 @@ Object {
         "text",
       ],
       "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
-\`/github subscribe owner/respository reviews,comments\`",
+\`/github subscribe owner/repository reviews,comments\`",
     },
     Object {
       "mrkdwn_in": Array [
         "text",
       ],
       "text": "Unsubscribe from one or more subscription features:
-\`/github unsubscribe owner/respository commits\`",
+\`/github unsubscribe owner/repository commits\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -151,29 +157,32 @@ Object {
 `;
 
 exports[`Integration: subscription list works for /github subscribe 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: subscription list works for /github subscribe 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "subscribe",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "subscribe",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: subscription list works for /github subscribe list 1`] = `
@@ -198,29 +207,32 @@ Object {
 `;
 
 exports[`Integration: subscription list works for /github subscribe list 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: subscription list works for /github subscribe list 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "subscribe list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "subscribe list",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: subscription list works for /github subscribe list features 1`] = `
@@ -258,27 +270,30 @@ Object {
 `;
 
 exports[`Integration: subscription list works for /github subscribe list features 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: subscription list works for /github subscribe list features 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "subscribe list features",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "subscribe list features",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
