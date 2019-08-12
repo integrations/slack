@@ -2,7 +2,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "node ./lib/run.js",
+    "start": "node --max-semi-space-size=64 ./lib/run.js",
     "test": "jest --coverage --runInBand --logHeapUsage --forceExit",
     "test:watch": "jest --runInBand --logHeapUsage --forceExit --watch --notify",
     "posttest": "npm run lint",
