@@ -5,7 +5,7 @@ Object {
   "color": "#36a64f",
   "fallback": "[github-slack/app] #31 Add badges to readme",
   "footer": "<https://github.com/github-slack/app|github-slack/app>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -30,7 +30,7 @@ Object {
     },
   ],
   "footer": "<https://github.com/github-slack/app|github-slack/app>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -49,7 +49,7 @@ Object {
       "color": "#6f42c1",
       "fallback": "[github-slack/app] #36 Rearrange logic",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -84,7 +84,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -116,7 +116,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -154,7 +154,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -202,7 +202,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -244,7 +244,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -302,7 +302,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -360,7 +360,7 @@ Object {
       "color": "#36a64f",
       "fallback": "[github-slack/app] #31 Add badges to readme",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],

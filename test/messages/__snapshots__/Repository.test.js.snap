@@ -17,7 +17,7 @@ Object {
     },
   ],
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
     "fields",
@@ -44,7 +44,7 @@ Object {
     },
   ],
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
     "fields",

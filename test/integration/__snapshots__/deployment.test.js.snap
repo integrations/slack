@@ -196,7 +196,7 @@ Object {
         },
       ],
       "footer": "kubernetes/kubernetes",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "pretext": ":rocket: Deployment created by gimenete",
       "title": "foobar - adsf",
       "title_link": "https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469",
@@ -247,7 +247,7 @@ exports[`Integration: Creating and listing deployments from Slack works when spe
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 3`] = `
 Object {
-  "attachments": "[{\\"fallback\\":\\"gimenete triggered a deploy on production from foobar\\",\\"color\\":\\"#24292f\\",\\"pretext\\":\\":rocket: Deployment created by gimenete\\",\\"author_name\\":\\"gimenete\\",\\"author_link\\":\\"https://github.com/gimenete\\",\\"author_icon\\":\\"https://avatars.githubusercontent.com/gimenete\\",\\"title\\":\\"foobar - adsf\\",\\"title_link\\":\\"https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469\\",\\"fields\\":[{\\"title\\":\\"Task\\",\\"value\\":\\"deploy\\",\\"short\\":true},{\\"title\\":\\"Environment\\",\\"value\\":\\"production\\",\\"short\\":true}],\\"footer\\":\\"kubernetes/kubernetes\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1537454125}]",
+  "attachments": "[{\\"fallback\\":\\"gimenete triggered a deploy on production from foobar\\",\\"color\\":\\"#24292f\\",\\"pretext\\":\\":rocket: Deployment created by gimenete\\",\\"author_name\\":\\"gimenete\\",\\"author_link\\":\\"https://github.com/gimenete\\",\\"author_icon\\":\\"https://avatars.githubusercontent.com/gimenete\\",\\"title\\":\\"foobar - adsf\\",\\"title_link\\":\\"https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469\\",\\"fields\\":[{\\"title\\":\\"Task\\",\\"value\\":\\"deploy\\",\\"short\\":true},{\\"title\\":\\"Environment\\",\\"value\\":\\"production\\",\\"short\\":true}],\\"footer\\":\\"kubernetes/kubernetes\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"ts\\":1537454125}]",
   "channel": "C2147483705",
   "token": "xoxa-token",
 }
@@ -296,7 +296,7 @@ exports[`Integration: Creating and listing deployments from Slack works when spe
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository with no tags 3`] = `
 Object {
-  "attachments": "[{\\"fallback\\":\\"gimenete triggered a deploy on production from foobar\\",\\"color\\":\\"#24292f\\",\\"pretext\\":\\":rocket: Deployment created by gimenete\\",\\"author_name\\":\\"gimenete\\",\\"author_link\\":\\"https://github.com/gimenete\\",\\"author_icon\\":\\"https://avatars.githubusercontent.com/gimenete\\",\\"title\\":\\"foobar - adsf\\",\\"title_link\\":\\"https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469\\",\\"fields\\":[{\\"title\\":\\"Task\\",\\"value\\":\\"deploy\\",\\"short\\":true},{\\"title\\":\\"Environment\\",\\"value\\":\\"production\\",\\"short\\":true}],\\"footer\\":\\"kubernetes/kubernetes\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1537454125}]",
+  "attachments": "[{\\"fallback\\":\\"gimenete triggered a deploy on production from foobar\\",\\"color\\":\\"#24292f\\",\\"pretext\\":\\":rocket: Deployment created by gimenete\\",\\"author_name\\":\\"gimenete\\",\\"author_link\\":\\"https://github.com/gimenete\\",\\"author_icon\\":\\"https://avatars.githubusercontent.com/gimenete\\",\\"title\\":\\"foobar - adsf\\",\\"title_link\\":\\"https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469\\",\\"fields\\":[{\\"title\\":\\"Task\\",\\"value\\":\\"deploy\\",\\"short\\":true},{\\"title\\":\\"Environment\\",\\"value\\":\\"production\\",\\"short\\":true}],\\"footer\\":\\"kubernetes/kubernetes\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"ts\\":1537454125}]",
   "channel": "C2147483705",
   "token": "xoxa-token",
 }
