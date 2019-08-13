@@ -1,6 +1,10 @@
 const nock = require('nock');
 const moment = require('moment');
 
+const { promisify } = require('util');
+
+const sleep = promisify(setTimeout);
+
 const { probot, models } = require('.');
 const fixtures = require('../fixtures');
 
@@ -885,10 +889,13 @@ describe('Integration: notifications', () => {
         .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
         .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
 
+      expect(nock.activeMocks().length).toEqual(3);
       await probot.receive({
         name: 'issue_comment',
         payload: commentPayload,
       });
+      await sleep(1000);
+      expect(nock.isDone).toBeTruthy();
 
       nock('https://api.github.com')
         .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
@@ -899,6 +906,7 @@ describe('Integration: notifications', () => {
         return true;
       }).reply(200, { ok: true });
 
+      expect(nock.activeMocks().length).toEqual(2);
       await probot.receive({
         name: 'issue_comment',
         payload: {
