@@ -815,7 +815,6 @@ describe('Integration: notifications', () => {
 
       nock('https://api.github.com')
         .get(`/repositories/${commentPayload.repository.id}`)
-        .times(2) // once for issue comment count, once for comment notification
         .reply(200, commentPayload.repository);
 
       nock('https://api.github.com')
@@ -880,7 +879,6 @@ describe('Integration: notifications', () => {
 
       nock('https://api.github.com')
         .get(`/repositories/${commentPayload.repository.id}`)
-        .times(2) // once for issue comment count, once for comment notification
         .reply(200, commentPayload.repository);
 
       nock('https://api.github.com')
