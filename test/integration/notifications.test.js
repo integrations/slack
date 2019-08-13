@@ -1256,5 +1256,92 @@ describe('Integration: notifications', () => {
 
       // nock pending requests should be empty at this point
     });
+
+    test('deliver issue if it has subscribed label', async () => {
+      await Subscription.subscribe({
+        githubId: issuePayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+        settings: ['label:enhancement'],
+      });
+
+      nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
+        full_name: issuePayload.repository.full_name,
+      });
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/public-test/issues/1').reply(200, fixtures.issue);
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        name: 'issues',
+        payload: issuePayload,
+      });
+    });
+
+    test('does not deliver issue if it does not have subscribed label', async () => {
+      await Subscription.subscribe({
+        githubId: issuePayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+        settings: ['label:todo'],
+      });
+
+      nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
+        full_name: issuePayload.repository.full_name,
+      });
+
+      // Should not post message to slack
+      await probot.receive({
+        name: 'issues',
+        payload: issuePayload,
+      });
+    });
+
+    test('deliver issue if it unsubscribed label', async () => {
+      const subscription = await Subscription.subscribe({
+        githubId: issuePayload.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+        settings: ['label:todo'],
+      });
+
+      subscription.disable(['label:todo']);
+      await subscription.save();
+
+      nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
+        full_name: issuePayload.repository.full_name,
+      });
+      nock('https://api.github.com', {
+        reqHeaders: {
+          Accept: 'application/vnd.github.html+json',
+        },
+      }).get('/repos/github-slack/public-test/issues/1').reply(200, fixtures.issue);
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        name: 'issues',
+        payload: issuePayload,
+      });
+    });
   });
 });

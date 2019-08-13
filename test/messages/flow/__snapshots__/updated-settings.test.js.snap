@@ -18,6 +18,24 @@ Object {
 }
 `;
 
+exports[`UpdatedSettings message hides empty array 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "footer": "<https://github.com/integrations/slack#configuration|Learn More>",
+      "mrkdwn_in": Array [
+        "text",
+        "footer",
+      ],
+      "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
 exports[`UpdatedSettings message hides overwritten settings 1`] = `
 Object {
   "attachments": Array [
@@ -30,6 +48,24 @@ Object {
       ],
       "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
 \`issues\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
+    },
+  ],
+  "response_type": "in_channel",
+}
+`;
+
+exports[`UpdatedSettings message shows array elements 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#24292f",
+      "footer": "<https://github.com/integrations/slack#configuration|Learn More>",
+      "mrkdwn_in": Array [
+        "text",
+        "footer",
+      ],
+      "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`label:todo,help wanted\`",
     },
   ],
   "response_type": "in_channel",
