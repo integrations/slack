@@ -1,9 +1,9 @@
 const nock = require('nock');
 const moment = require('moment');
 
-const { promisify } = require('util');
+// const { promisify } = require('util');
 
-const sleep = promisify(setTimeout);
+// const sleep = promisify(setTimeout);
 
 const { probot, models } = require('.');
 const fixtures = require('../fixtures');
@@ -889,16 +889,10 @@ describe('Integration: notifications', () => {
         .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
         .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
 
-      expect(nock.activeMocks().length).toEqual(3);
-      await sleep(2000);
       await probot.receive({
         name: 'issue_comment',
         payload: commentPayload,
       });
-
-      await sleep(2000);
-      expect(nock.isDone).toBeTruthy();
-      expect(nock.pendingMocks().length).toEqual(0);
 
       nock('https://api.github.com')
         .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
@@ -911,7 +905,6 @@ describe('Integration: notifications', () => {
         })
         .reply(200, { ok: true });
 
-      expect(nock.activeMocks().length).toEqual(2);
       await probot.receive({
         name: 'issue_comment',
         payload: {
@@ -923,8 +916,6 @@ describe('Integration: notifications', () => {
           },
         },
       });
-      expect(nock.isDone).toBeTruthy();
-      expect(nock.pendingMocks().length).toEqual(0);
     });
 
     test('does not deliver pushes on non-default branch if not explicitly enabled', async () => {
