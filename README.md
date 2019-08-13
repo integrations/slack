@@ -1,7 +1,7 @@
 # GitHub + Slack Integration
 
-| Build | Code Coverage | Dependencies |
-|-------|---------------|--------------|
+| Build                                                                                                                   | Code Coverage                                                                                                                                   | Dependencies                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | [![Build Status](https://travis-ci.org/integrations/slack.svg?branch=master)](https://travis-ci.org/integrations/slack) | [![codecov](https://codecov.io/gh/integrations/slack/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/integrations/slack) | [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/) |
 
 > **Heads Up!** The GitHub and Slack app has a few new features to help you turn conversations into next steps. Take action on pull requests, issues, and more right from your Slack channels to start moving work forward, faster. [Read more about it on the GitHub blog](https://blog.github.com/2018-05-17-new-improvements-to-slack-and-github-integration/).
@@ -11,19 +11,25 @@
 The GitHub integration for Slack gives you and your teams full visibility into your GitHub projects right in Slack channels, where you can generate ideas, triage issues and collaborate with other teams to move projects forward. This integration is an open source project, built and maintained by GitHub.
 
 ## Table of Contents
-- [Installing the GitHub integration for Slack](#installing-the-github-integration-for-slack)
-  - [Requirements](#requirements)
-  - [Installation](#installation)
-  - [Authorization](#authorization)
-- Getting Started
-  - [Repository Activity](#repository-activity)
-  - [Link previews](#link-previews)
-  - [Take action](#take-action)
-  - [Configuration](#configuration)
-  - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
-- [Need help?](#questions-need-help)
-- [Contributing](#contributing)
-- [License](#license)
+- [GitHub + Slack Integration](#github--slack-integration)
+  - [About](#about)
+  - [Table of Contents](#table-of-contents)
+  - [- License](#license)
+  - [Installing the GitHub integration for Slack](#installing-the-github-integration-for-slack)
+    - [Requirements](#requirements)
+    - [Installation](#installation)
+    - [Subscribing and Unsubscribing](#subscribing-and-unsubscribing)
+    - [Authorization](#authorization)
+      - [Slack Permission Scopes](#slack-permission-scopes)
+      - [GitHub Permission Scopes](#github-permission-scopes)
+      - [Repository Activity](#repository-activity)
+      - [Link previews](#link-previews)
+      - [Take action](#take-action)
+    - [Configuration](#configuration)
+    - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
+  - [Questions? Need help?](#questions-need-help)
+  - [Contributing](#contributing)
+  - [License](#license)
 --------
 ## Installing the GitHub integration for Slack
 ### Requirements
@@ -55,22 +61,22 @@ By granting the app access, you are providing the following authorizations to yo
 
 #### Slack Permission Scopes
 
-|Permission scope|Why we need it|
-|---|---|
-|Access private conversations between you and the App | To message you with instructions.  |
-|View links to GitHub.com in messages| To render rich links from `github.com`|
-|Add link previews to GitHub.com to messages| To render rich links to `github.com`|
-|Add slash commands| To add the `/github` slash command to your Slack workspace |
-|View the workspace or organization's name, email domain, and icon| To store subscriptions you set up|
-|Post messages as the app| To notify you of activity that happens on GitHub, in Slack|
+| Permission scope                                                  | Why we need it                                             |
+| ----------------------------------------------------------------- | ---------------------------------------------------------- |
+| Access private conversations between you and the App              | To message you with instructions.                          |
+| View links to GitHub.com in messages                              | To render rich links from `github.com`                     |
+| Add link previews to GitHub.com to messages                       | To render rich links to `github.com`                       |
+| Add slash commands                                                | To add the `/github` slash command to your Slack workspace |
+| View the workspace or organization's name, email domain, and icon | To store subscriptions you set up                          |
+| Post messages as the app                                          | To notify you of activity that happens on GitHub, in Slack |
 
 #### GitHub Permission Scopes
 
-|Permission scope|Why we need it|
-|---|---|
-|Read access to code| To render code snippets in Slack|
-|Read access to commit statuses, checks, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
-|Write access to issues, deployments, and pull requests | To take action from Slack with the `/github` command and directly from messages|
+| Permission scope                                                                                 | Why we need it                                                                  |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Read access to code                                                                              | To render code snippets in Slack                                                |
+| Read access to commit statuses, checks, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack                                     |
+| Write access to issues, deployments, and pull requests                                           | To take action from Slack with the `/github` command and directly from messages |
 
 #### Repository Activity
 **Subscribe to an Organization or a Repository**
@@ -106,6 +112,7 @@ You can also take action on GitHub directly from a Slack message by clicking on 
   - Select an issue by choosing from an automatically loaded list of recently active issues and pull requests that involve you or by entering a URL to an issue or pull request
 
 ### Configuration
+
 You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
 
 Settings are configured with the `/github` slash command:
@@ -131,7 +138,7 @@ These are disabled by default, and can be enabled with the `/github subscribe ow
 - `comments` - New comments on issues and pull requests
 - `branches` - Created or deleted branches
 - `commits:all` - All commits pushed to any branch
-- `label:[your label]` - Subscribe issues or pull requests with specified label
+- `label:"your label"` - Subscribe issues or pull requests that have a specified label
 
 You can subscribe or unsubscribe from multiple settings at once. For example, to turn on activity for pull request reviews and comments:
 

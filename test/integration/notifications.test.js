@@ -1289,7 +1289,7 @@ describe('Integration: notifications', () => {
     });
 
     test('does not deliver issue if it does not have subscribed label', async () => {
-      await Subscription.subscribe({
+      const record = await Subscription.subscribe({
         githubId: issuePayload.repository.id,
         channelId: 'C001',
         slackWorkspaceId: workspace.id,
@@ -1302,6 +1302,10 @@ describe('Integration: notifications', () => {
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
         full_name: issuePayload.repository.full_name,
       });
+
+      // console.error(record.settings);
+      // const subs = await Subscription.findAll({});
+      // console.error(subs[0].settings);
 
       // Should not post message to slack
       await probot.receive({

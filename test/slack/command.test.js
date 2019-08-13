@@ -5,20 +5,38 @@ describe('Command class', () => {
     const command = new Command({ text: 'subscribe integration/slack' });
 
     expect(command.subcommand).toEqual('subscribe');
-    expect(command.args).toEqual(['integration/slack']);
+  });
+
+  test('extracts the subscription target', () => {
+    const command = new Command({ text: 'subscribe integration/slack' });
+    expect(command.subcommand).toEqual('subscribe');
+    expect(command.args.subscriptionTarget).toEqual('integration/slack');
+  });
+
+  test('parses subscribe command text with features', () => {
+    const command = new Command({
+      text: 'subscribe integration/slack reviews commits:all comments',
+    });
+
+    expect(command.subcommand).toEqual('subscribe');
+    expect(command.args.subscriptionTarget).toEqual('integration/slack');
+    expect(command.args.features).toEqual(['reviews', 'commits:all', 'comments']);
   });
 
   test('parses command text of repository subscription with settings', () => {
-    const command = new Command({ text: 'subscribe integration/slack reviews label:priority:MUST label:"help wanted" label:\'good first issue\' label:area/api' });
+    const command = new Command({
+      text:
+        'subscribe integration/jira reviews label:priority:MUST label:"help wanted" label:"good first issue" label:area/api',
+    });
 
     expect(command.subcommand).toEqual('subscribe');
-    expect(command.args).toEqual(['integration/slack', 'reviews', 'label:priority:MUST', 'label:help wanted', 'label:good first issue', 'label:area/api']);
-  });
-
-  test('parses command text which separeted by commas', () => {
-    const command = new Command({ text: 'subscribe integration/slack,reviews,label:priority:MUST' });
-
-    expect(command.subcommand).toEqual('subscribe');
-    expect(command.args).toEqual(['integration/slack', 'reviews', 'label:priority:MUST']);
+    expect(command.args.subscriptionTarget).toEqual('integration/jira');
+    expect(command.args.features).toEqual(['reviews']);
+    expect(command.args.labels).toEqual([
+      'area/api',
+      'good first issue',
+      'help wanted',
+      'priority:MUST',
+    ]);
   });
 });

@@ -26,6 +26,7 @@
     "isbinaryfile": "^3.0.3",
     "jsonwebtoken": "^8.1.0",
     "keyv": "^3.0.0",
+    "lodash": "^4.17.15",
     "moment": "^2.21.0",
     "named-regexp": "^0.1.1",
     "newrelic": "^5.2.1",

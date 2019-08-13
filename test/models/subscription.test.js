@@ -50,11 +50,13 @@ describe('model: Subscription', () => {
         type: 'repo',
       });
       const channels = await Subscription.lookup(resource, workspace.id);
-      expect(channels).toEqual([expect.objectContaining({
-        channelId: channel,
-        slackWorkspaceId: workspace.id,
-        githubId: resource,
-      })]);
+      expect(channels).toEqual([
+        expect.objectContaining({
+          channelId: channel,
+          slackWorkspaceId: workspace.id,
+          githubId: resource,
+        }),
+      ]);
     });
     test('adding a subscription without creator throws an error', async () => {
       const resource = '1';
@@ -228,19 +230,42 @@ describe('model: Subscription', () => {
         expect(subscription.settings).toEqual({ label: [] });
       });
 
-      test('accepts spaces and colons as part of label string', () => {
-        subscription.enable(['label:help wanted', 'label:priority:MUST']);
+      test('accepts quoted spaces and colons as part of label string', async () => {
+        subscription.enable(['label:"help wanted"', 'label:priority:MUST']);
         expect(subscription.settings).toEqual({ label: ['help wanted', 'priority:MUST'] });
       });
 
+      test('parsing, storing and loading works end to end for simple cases', async () => {
+        subscription.enable(['label:WIP', 'label:priority:MUST']);
+
+        expect(subscription.settings).toEqual({ label: ['WIP', 'priority:MUST'] });
+
+        await subscription.save();
+        expect((await subscription.reload()).settings).toEqual({ label: ['WIP', 'priority:MUST'] });
+      });
+
+      test('parsing, storing and loading works end to end for complex cases', async () => {
+        subscription.enable(['label:"help wanted"', 'label:priority:MUST']);
+
+        expect(subscription.settings).toEqual({ label: ['help wanted', 'priority:MUST'] });
+
+        // ensure data is stored and loaded correctly
+        await subscription.save();
+        expect((await subscription.reload()).settings).toEqual({
+          label: ['help wanted', 'priority:MUST'],
+        });
+      });
+
       test('raises an error for no label string', async () => {
-        subscription.enable('label');
-        await expect(subscription.save()).rejects.toThrowError('label');
+        expect(() => {
+          subscription.enable('label');
+        }).toThrowError('label');
       });
 
       test('raises an error for invalid label string', async () => {
-        subscription.enable('label:todo,wip');
-        await expect(subscription.save()).rejects.toThrowError('label:todo,wip');
+        expect(() => {
+          subscription.enable('label:todo,wip');
+        }).toThrowError('label:todo,wip');
       });
     });
   });
