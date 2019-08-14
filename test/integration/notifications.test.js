@@ -785,7 +785,7 @@ describe('Integration: notifications', () => {
 
       await Subscription.subscribe({
         githubId: commentPayload.repository.id,
-        channelId: 'C002',
+        channelId: 'C003',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -804,7 +804,7 @@ describe('Integration: notifications', () => {
 
       await Subscription.subscribe({
         githubId: commentPayload.repository.id,
-        channelId: 'C002',
+        channelId: 'C004',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -837,7 +837,7 @@ describe('Integration: notifications', () => {
 
       await Subscription.subscribe({
         githubId: commentPayload.repository.id,
-        channelId: 'C002',
+        channelId: 'C005',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -871,7 +871,7 @@ describe('Integration: notifications', () => {
 
       await Subscription.subscribe({
         githubId: commentPayload.repository.id,
-        channelId: 'C002',
+        channelId: 'C006',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -923,7 +923,7 @@ describe('Integration: notifications', () => {
 
       await Subscription.subscribe({
         githubId: pushNonDefaultBranchPayload.repository.id,
-        channelId: 'C002',
+        channelId: 'C007',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -947,7 +947,7 @@ describe('Integration: notifications', () => {
 
       await Subscription.subscribe({
         githubId: pushNonDefaultBranchPayload.repository.id,
-        channelId: 'C002',
+        channelId: 'C008',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -968,7 +968,7 @@ describe('Integration: notifications', () => {
 
       await Subscription.subscribe({
         githubId: payload.repository.id,
-        channelId: 'C002',
+        channelId: 'C009',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -991,7 +991,7 @@ describe('Integration: notifications', () => {
 
       await Subscription.subscribe({
         githubId: payload.repository.id,
-        channelId: 'C002',
+        channelId: 'C010',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -1009,7 +1009,7 @@ describe('Integration: notifications', () => {
 
       await Subscription.subscribe({
         githubId: payload.repository.id,
-        channelId: 'C002',
+        channelId: 'C011',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -1050,7 +1050,7 @@ describe('Integration: notifications', () => {
     test('does not deliver pull request review comments if not explicitly enabled', async () => {
       await Subscription.subscribe({
         githubId: reviewCommentCreated.repository.id,
-        channelId: 'C002',
+        channelId: 'C012',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
