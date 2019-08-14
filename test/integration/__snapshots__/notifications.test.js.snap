@@ -17,19 +17,27 @@ Array [
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 1`] = `
 Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"edited html\\"}]",
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"rendered html\\"}]",
+  "channel": "C006",
   "token": "test",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel comments are updated when edited 2`] = `
+Object {
+  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"edited html\\"}]",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel comments are updated when edited 3`] = `
 Array [
   "channel#9523#C006:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
   "creator-access#1:100403908",
 ]
 `;
 
-exports[`Integration: notifications to a subscribed channel comments are updated when edited 3`] = `
+exports[`Integration: notifications to a subscribed channel comments are updated when edited 4`] = `
 Array [
   Array [
     "channel#9523#C006:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
@@ -68,7 +76,7 @@ Array [
 ]
 `;
 
-exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 1`] = `
+exports[`Integration: notifications to a subscribed channel delivers pull request review comments if comments are enabled 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/test2|github-slack-test-org/test2>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack-test-org/test2] Comment on #1\\",\\"title\\":\\"Comment on #1 Update README.md\\",\\"title_link\\":\\"https://github.com/github-slack-test-org/test2/pull/1#discussion_r171608320\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"ts\\":1519920573,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"rendered html\\"}]",
   "channel": "C001",
@@ -76,14 +84,14 @@ Object {
 }
 `;
 
-exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 2`] = `
+exports[`Integration: notifications to a subscribed channel delivers pull request review comments if comments are enabled 2`] = `
 Array [
   "channel#9523#C001:comment#MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDE3MTYwODMyMA==",
   "creator-access#1:123302024",
 ]
 `;
 
-exports[`Integration: notifications to a subscribed channel delivers pull request review commments if comments are enabled 3`] = `
+exports[`Integration: notifications to a subscribed channel delivers pull request review comments if comments are enabled 3`] = `
 Array [
   Array [
     "channel#9523#C001:comment#MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDE3MTYwODMyMA==",
@@ -748,7 +756,7 @@ Array [
 ]
 `;
 
-exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subcription 1`] = `
+exports[`Integration: notifications to a subscribed channel repository.deleted posts to channel and deletes repository subscription 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack-test-org/i-will-be-deleted] Repository deleted by wilhelmklopp\\",\\"title\\":\\"github-slack-test-org/i-will-be-deleted\\",\\"fields\\":[{\\"title\\":\\"Last updated\\",\\"value\\":\\"2 months ago\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1520343804,\\"pretext\\":\\"Repository deleted by wilhelmklopp\\"}]",
   "channel": "C001",
@@ -853,14 +861,14 @@ Array [
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/artnez/environment|artnez/environment>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[artnez/environment] Comment on commit \\\\\\"update gohere\\\\\\"\\",\\"title\\":\\"Comment on commit \\\\\\"update gohere\\\\\\"\\",\\"title_link\\":\\"https://github.com/artnez/environment/commit/fa3f7c1a10ef7401496040b4508ede9b25b16695#commitcomment-30287269\\",\\"author_name\\":\\"artnez\\",\\"author_link\\":\\"https://github.com/artnez\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/396654?v=4\\",\\"ts\\":1535170713,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Testing.\\"}]",
-  "channel": "C005",
+  "channel": "C004",
   "token": "test",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 2`] = `
 Array [
-  "channel#9523#C005:comment#MDEzOkNvbW1pdENvbW1lbnQzMDI4NzI2OQ==",
+  "channel#9523#C004:comment#MDEzOkNvbW1pdENvbW1lbnQzMDI4NzI2OQ==",
   "creator-access#1:16064378",
 ]
 `;
@@ -868,7 +876,7 @@ Array [
 exports[`Integration: notifications to a subscribed channel with comments enabled (commit) 3`] = `
 Array [
   Array [
-    "channel#9523#C005:comment#MDEzOkNvbW1pdENvbW1lbnQzMDI4NzI2OQ==",
+    "channel#9523#C004:comment#MDEzOkNvbW1pdENvbW1lbnQzMDI4NzI2OQ==",
     Object {
       "channel": undefined,
       "ts": undefined,
@@ -884,14 +892,14 @@ Array [
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"rendered html\\"}]",
-  "channel": "C004",
+  "channel": "C005",
   "token": "test",
 }
 `;
 
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 2`] = `
 Array [
-  "channel#9523#C004:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
+  "channel#9523#C005:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
   "creator-access#1:100403908",
 ]
 `;
@@ -899,7 +907,7 @@ Array [
 exports[`Integration: notifications to a subscribed channel with comments enabled (issue) 3`] = `
 Array [
   Array [
-    "channel#9523#C004:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
+    "channel#9523#C005:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
     Object {
       "channel": undefined,
       "ts": undefined,

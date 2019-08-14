@@ -33,6 +33,7 @@ afterAll(async () => models.sequelize.close());
 let setSpy;
 let getSpy;
 beforeEach(() => {
+  cache.clear();
   getSpy = jest.spyOn(cache, 'get');
   setSpy = jest.spyOn(cache, 'set');
 

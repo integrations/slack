@@ -792,41 +792,10 @@ describe('Integration: notifications', () => {
         type: 'repo',
       });
 
-      // Should not trigger any deliveries
+      // we do not expect any API calls, due to the early return for
+      // failing subscription checks.
       await probot.receive({
         name: 'commit_comment',
-        payload: commentPayload,
-      });
-    });
-
-    test('with comments enabled (issue)', async () => {
-      const commentPayload = fixtures.github.webhooks.issue_comment;
-
-      await Subscription.subscribe({
-        githubId: commentPayload.repository.id,
-        channelId: 'C004',
-        slackWorkspaceId: workspace.id,
-        installationId: installation.id,
-        creatorId: slackUser.id,
-        type: 'repo',
-        settings: ['comments'], // Turn on comments
-      });
-
-      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
-        expect(body).toMatchSnapshot();
-        return true;
-      }).reply(200, { ok: true });
-
-      nock('https://api.github.com')
-        .get(`/repositories/${commentPayload.repository.id}`)
-        .reply(200, commentPayload.repository);
-
-      nock('https://api.github.com')
-        .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
-        .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
-
-      await probot.receive({
-        name: 'issue_comment',
         payload: commentPayload,
       });
     });
@@ -837,7 +806,7 @@ describe('Integration: notifications', () => {
 
       await Subscription.subscribe({
         githubId: commentPayload.repository.id,
-        channelId: 'C005',
+        channelId: 'C004',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -866,12 +835,13 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test('comments are updated when edited', async () => {
+
+    test('with comments enabled (issue)', async () => {
       const commentPayload = fixtures.github.webhooks.issue_comment;
 
       await Subscription.subscribe({
         githubId: commentPayload.repository.id,
-        channelId: 'C006',
+        channelId: 'C005',
         slackWorkspaceId: workspace.id,
         installationId: installation.id,
         creatorId: slackUser.id,
@@ -879,7 +849,10 @@ describe('Integration: notifications', () => {
         settings: ['comments'], // Turn on comments
       });
 
-      nock('https://slack.com').post('/api/chat.postMessage').reply(200, { ok: true });
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
 
       nock('https://api.github.com')
         .get(`/repositories/${commentPayload.repository.id}`)
@@ -893,11 +866,48 @@ describe('Integration: notifications', () => {
         name: 'issue_comment',
         payload: commentPayload,
       });
+    });
 
+    test('comments are updated when edited', async () => {
+      console.error('starting with 6');
+      const commentPayload = fixtures.github.webhooks.issue_comment;
+
+      await Subscription.subscribe({
+        githubId: commentPayload.repository.id,
+        channelId: 'C006',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+        settings: ['comments'], // Turn on comments
+      });
+
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      nock('https://api.github.com')
+        .get(`/repositories/${commentPayload.repository.id}`)
+        .reply(200, commentPayload.repository);
+
+      nock('https://api.github.com')
+        .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
+        .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
+
+      console.error('nock nock');
+      console.error(nock.pendingMocks());
+      await probot.receive({
+        name: 'issue_comment',
+        payload: commentPayload,
+      });
+
+      console.error('nock 4');
       nock('https://api.github.com')
         .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
         .reply(200, { ...commentPayload.comment, body_html: 'edited html' });
 
+      console.error('nock 5');
       nock('https://slack.com')
         .post('/api/chat.update', (body) => {
           expect(body).toMatchSnapshot();
@@ -916,6 +926,7 @@ describe('Integration: notifications', () => {
           },
         },
       });
+      console.error('done with 6');
     });
 
     test('does not deliver pushes on non-default branch if not explicitly enabled', async () => {
