@@ -1020,7 +1020,7 @@ describe('Integration: notifications', () => {
       await probot.receive({ name: 'pull_request_review', payload });
     });
 
-    test('delivers pull request review commments if comments are enabled', async () => {
+    test('delivers pull request review comments if comments are enabled', async () => {
       await Subscription.subscribe({
         githubId: reviewCommentCreated.repository.id,
         channelId: 'C001',
@@ -1064,7 +1064,7 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test('repository.deleted posts to channel and deletes repository subcription', async () => {
+    test('repository.deleted posts to channel and deletes repository subscription', async () => {
       repositoryDeleted.repository.updated_at = moment().subtract(2, 'months');
       await Subscription.subscribe({
         githubId: repositoryDeleted.repository.id,

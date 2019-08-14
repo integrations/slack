@@ -70,7 +70,7 @@ describe('Uninstalling the slack app', () => {
       .expect(200);
 
     expect(await Subscription.count()).toBe(0);
-    const deletedSubscriptions = await DeletedSubscription.findAll({ where: { reason: 'slack app uninstalled' }, order: ['channelId'] });
+    const deletedSubscriptions = await DeletedSubscription.findAll({ where: { reason: 'slack app uninstalled' }, order: ['gitHubId'] });
     expect(deletedSubscriptions).toHaveLength(3);
     expect(deletedSubscriptions[0].dataValues).toMatchSnapshot({
       createdAt: expect.any(Date),
