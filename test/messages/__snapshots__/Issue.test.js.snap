@@ -22,7 +22,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -58,7 +58,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "image_url": "https://media.giphy.com/media/5xtDarEbygs3Pu7p3jO/giphy.gif",
       "mrkdwn_in": Array [
         "text",
@@ -81,7 +81,7 @@ Object {
       "color": "#36a64f",
       "fallback": "[github-slack/public-test] #1 Needs content",
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -115,7 +115,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -135,7 +135,7 @@ Object {
       "color": "#cb2431",
       "fallback": "[github-slack/public-test] Issue closed by bkeepers",
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -170,7 +170,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],

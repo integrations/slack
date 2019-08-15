@@ -10,7 +10,7 @@ Object {
       "color": "#cb2431",
       "fallback": "[github-slack/app] Error when deploying 3dce5c8 to github-slack-app",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -30,7 +30,7 @@ Object {
       "color": "#cb2431",
       "fallback": "[github-slack/app] Deploying 3dce5c8 to github-slack-app failed",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -50,7 +50,7 @@ Object {
       "color": "#dbab09",
       "fallback": "[github-slack/app] Deployment in progress for 3dce5c8 to github-slack-app",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -70,7 +70,7 @@ Object {
       "color": "#dbab09",
       "fallback": "[github-slack/app] Deploying 3dce5c8 to github-slack-app",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -90,7 +90,7 @@ Object {
       "color": "#dbab09",
       "fallback": "[github-slack/app] Deployment queued for 3dce5c8 to github-slack-app",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -110,7 +110,7 @@ Object {
       "color": "#28a745",
       "fallback": "[github-slack/app] Successfully deployed 3dce5c8 to github-slack-app",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -130,7 +130,7 @@ Object {
       "color": "#28a745",
       "fallback": "[github-slack/app] Successfully deployed 3dce5c8 to github-slack-app",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],

@@ -80,6 +80,11 @@ describe('Integration: unfurls', () => {
       nock('https://api.github.com').get('/repos/atom/atom/issues/16292').reply(200, fixtures.issue);
 
       const unfurlRequests = [];
+      function sortUnfurlRequest(a, b) {
+        return (Object.keys(JSON.parse(a.unfurls))[0] >
+                Object.keys(JSON.parse(b.unfurls))[0] ? 1 : -1);
+      }
+
       nock('https://slack.com').post('/api/chat.unfurl', (req) => {
         unfurlRequests.push(req);
 
@@ -100,7 +105,8 @@ describe('Integration: unfurls', () => {
       await request(probot.server).post('/slack/events').send(body).expect(200);
 
       // check the recorded unfurl request bodies.
-      expect(unfurlRequests.sort()).toMatchSnapshot();
+      const sortedRequests = unfurlRequests.sort(sortUnfurlRequest);
+      expect(sortedRequests).toMatchSnapshot();
 
       const unfurls = await Unfurl.findAll();
       expect(unfurls.length).toBe(2);
