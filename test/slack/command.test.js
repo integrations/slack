@@ -10,7 +10,7 @@ describe('Command class', () => {
   test('extracts the subscription target', () => {
     const command = new Command({ text: 'subscribe integration/slack' });
     expect(command.subcommand).toEqual('subscribe');
-    expect(command.args.subscriptionTarget).toEqual('integration/slack');
+    expect(command.args.resource).toEqual('integration/slack');
   });
 
   test('parses subscribe command text with features', () => {
@@ -19,8 +19,8 @@ describe('Command class', () => {
     });
 
     expect(command.subcommand).toEqual('subscribe');
-    expect(command.args.subscriptionTarget).toEqual('integration/slack');
-    expect(command.args.features).toEqual(['reviews', 'commits:all', 'comments']);
+    expect(command.args.resource).toEqual('integration/slack');
+    expect(command.args.features).toEqual({ reviews: true, commits: 'all', comments: true });
   });
 
   test('parses command text of repository subscription with settings', () => {
@@ -30,8 +30,8 @@ describe('Command class', () => {
     });
 
     expect(command.subcommand).toEqual('subscribe');
-    expect(command.args.subscriptionTarget).toEqual('integration/jira');
-    expect(command.args.features).toEqual(['reviews']);
+    expect(command.args.resource).toEqual('integration/jira');
+    expect(command.args.features).toEqual({ reviews: true });
     expect(command.args.labels).toEqual([
       'area/api',
       'good first issue',

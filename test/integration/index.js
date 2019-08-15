@@ -74,11 +74,11 @@ afterEach(() => {
   // Only match snapshot if it's not an empty map or set
   if (getKeys.size > 0) {
     const sortedKeys = [...getKeys].sort();
-    // expect(sortedKeys).toMatchSnapshot();
+    expect(sortedKeys).toMatchSnapshot();
   }
   if (cacheStatus.size > 0) {
     const sortedEntries = [...cacheStatus].sort((a, b) => (a[0] > b[0] ? 1 : -1));
-    // expect(sortedEntries).toMatchSnapshot();
+    expect(sortedEntries).toMatchSnapshot();
   }
 
   getSpy.mockRestore();

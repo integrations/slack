@@ -184,7 +184,7 @@ describe('model: Subscription', () => {
     });
 
     test('raises an error for unknown setting value', async () => {
-      subscription.enable('commits:all');
+      subscription.enable({ commits: 'all' });
       await subscription.save();
 
       subscription.enable('commits:wat?');
@@ -198,7 +198,7 @@ describe('model: Subscription', () => {
 
     describe('label', () => {
       test('enables and disables with labels', () => {
-        subscription.enable(['label:todo', 'label:wip']);
+        subscription.enable({ label: ['todo', 'wip'] });
         expect(subscription.settings).toEqual({ label: ['todo', 'wip'] });
 
         subscription.disable(['label']);
