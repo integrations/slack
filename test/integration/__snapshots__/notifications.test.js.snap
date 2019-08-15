@@ -15,36 +15,6 @@ Array [
 ]
 `;
 
-exports[`Integration: notifications to a subscribed channel comments are updated when edited 1`] = `
-Object {
-  "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/test|github-slack/test>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"fallback\\":\\"[github-slack/test] Comment on #23\\",\\"title\\":\\"Comment on #23 testing multi-tenet\\",\\"title_link\\":\\"https://github.com/github-slack/test/issues/23#issuecomment-364284529\\",\\"author_name\\":\\"bkeepers\\",\\"author_link\\":\\"https://github.com/bkeepers\\",\\"author_icon\\":\\"https://avatars0.githubusercontent.com/u/173?v=4\\",\\"ts\\":1518132652,\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"edited html\\"}]",
-  "token": "test",
-}
-`;
-
-exports[`Integration: notifications to a subscribed channel comments are updated when edited 2`] = `
-Array [
-  "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
-  "creator-access#1:100403908",
-]
-`;
-
-exports[`Integration: notifications to a subscribed channel comments are updated when edited 3`] = `
-Array [
-  Array [
-    "channel#9523#C002:comment#MDEyOklzc3VlQ29tbWVudDM2NDI4NDUyOQ==",
-    Object {
-      "channel": undefined,
-      "ts": undefined,
-    },
-  ],
-  Array [
-    "creator-access#1:100403908",
-    true,
-  ],
-]
-`;
-
 exports[`Integration: notifications to a subscribed channel delivers force push with no commits 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"[github-slack/app] force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`\\",\\"text\\":\\"*force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`*\\\\n\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
