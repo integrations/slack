@@ -169,11 +169,11 @@ describe('model: Subscription', () => {
       expect(subscription.settings).toEqual({ pulls: false, issues: false });
     });
 
-    test('initializes with enabled values', () => {
+    test('initializes with given values', () => {
       subscription = new Subscription({
         channelId: channel,
         creatorId: slackUser.id,
-        settings: parse('issues'),
+        settings: { issues: true },
       });
       expect(subscription.settings).toEqual({ issues: true });
     });

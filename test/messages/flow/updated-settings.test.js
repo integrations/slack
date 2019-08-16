@@ -15,7 +15,7 @@ describe('UpdatedSettings message', () => {
   test('sub settings', async () => {
     const subscription = new Subscription({
       channelId: 'C001',
-      settings: ['commits:all'],
+      settings: { commits: 'all' },
     });
 
     const message = new UpdatedSettings({ subscription, resource: repository });
