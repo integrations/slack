@@ -2,6 +2,12 @@ const {
   Subscription, SlackWorkspace, Installation, SlackUser, DeletedSubscription,
 } = require('.');
 
+const { parseSettings } = require('../../lib/settings-helper');
+
+function parse(input) {
+  return parseSettings(input);
+}
+
 describe('model: Subscription', () => {
   let workspace;
   let installation;
@@ -123,120 +129,108 @@ describe('model: Subscription', () => {
       expect(subscription.settings).toEqual({});
     });
 
-    test('sets new values', async () => {
-      await subscription.update({ settings: { issues: false } });
-      await subscription.reload();
-
-      expect(subscription.settings).toEqual({ issues: false });
-    });
-
     test('enables and disables with string value', async () => {
-      subscription.enable('issues');
+      subscription.enable(parse('issues'));
       await subscription.save();
       expect((await subscription.reload()).settings).toEqual({ issues: true });
 
-      subscription.enable('pulls');
+      subscription.enable(parse('pulls'));
       await subscription.save();
       expect((await subscription.reload()).settings).toEqual({ pulls: true, issues: true });
 
-      subscription.disable('pulls');
+      subscription.disable(parse('pulls'));
       await subscription.save();
       expect((await subscription.reload()).settings).toEqual({ issues: true, pulls: false });
 
-      subscription.disable('issues');
+      subscription.disable(parse('issues'));
       await subscription.save();
       expect((await subscription.reload()).settings).toEqual({ pulls: false, issues: false });
     });
 
     test('enables and disables sub settings', async () => {
-      subscription.enable('commits:all');
+      subscription.enable(parse('commits:all'));
       expect(subscription.settings).toEqual({ commits: 'all' });
 
-      subscription.disable('commits:all');
+      subscription.disable(parse('commits:all'));
       expect(subscription.settings).toEqual({ commits: false });
 
-      subscription.enable(['commits:all']);
+      subscription.enable(parse('commits:all'));
       expect(subscription.settings).toEqual({ commits: 'all' });
 
-      subscription.disable(['commits:all']);
+      subscription.disable(parse('commits:all'));
       expect(subscription.settings).toEqual({ commits: false });
     });
 
     test('enables and disables with array values', () => {
-      subscription.enable(['issues', 'pulls']);
+      subscription.enable(parse(['issues', 'pulls']));
       expect(subscription.settings).toEqual({ pulls: true, issues: true });
 
-      subscription = new Subscription({ settings: ['issues', 'pulls'] });
-      expect(subscription.settings).toEqual({ pulls: true, issues: true });
-
-      subscription.disable(['issues', 'pulls']);
+      subscription.disable(parse(['issues', 'pulls']));
       expect(subscription.settings).toEqual({ pulls: false, issues: false });
     });
 
     test('initializes with enabled values', () => {
-      subscription = new Subscription({ settings: 'issues' });
+      subscription = new Subscription({
+        channelId: channel,
+        creatorId: slackUser.id,
+        settings: parse('issues'),
+      });
       expect(subscription.settings).toEqual({ issues: true });
     });
 
     test('raises an error for unknown setting', async () => {
-      subscription.enable('time-travel');
+      subscription.enable(parse('time-travel'));
       await expect(subscription.save()).rejects.toThrowError('time-travel');
     });
 
     test('raises an error for unknown setting value', async () => {
-      subscription.enable({ commits: 'all' });
+      subscription.enable(parse(['commits:all']));
       await subscription.save();
 
-      subscription.enable('commits:wat?');
+      subscription.enable(parse('commits:wat?'));
       await expect(subscription.save()).rejects.toThrowError('commits:wat?');
     });
 
     test('raises an error for setting not accept value', async () => {
-      subscription.enable('reviews:label');
+      subscription.enable(parse('reviews:label'));
       await expect(subscription.save()).rejects.toThrowError('reviews:label');
     });
 
     describe('label', () => {
       test('enables and disables with labels', () => {
-        subscription.enable({ label: ['todo', 'wip'] });
+        subscription.enable(parse(['label:todo', 'label:wip']));
         expect(subscription.settings).toEqual({ label: ['todo', 'wip'] });
 
-        subscription.disable(['label']);
-        expect(subscription.settings).toEqual({ label: [] });
-
-        subscription.enable(['label:todo', 'label:wip']);
-        expect(subscription.settings).toEqual({ label: ['todo', 'wip'] });
-
-        subscription.disable(['label:todo']);
+        subscription.disable(parse('label:todo'));
         expect(subscription.settings).toEqual({ label: ['wip'] });
 
-        subscription.disable(['label:wip']);
-        expect(subscription.settings).toEqual({ label: [] });
+        subscription.disable(parse('label:wip'));
+        expect(subscription.settings).toEqual({});
       });
 
       test('ignores duplicated label string', () => {
-        subscription.enable(['label:todo', 'label:todo']);
+        subscription.enable(parse('label:todo label:todo'));
         expect(subscription.settings).toEqual({ label: ['todo'] });
 
-        subscription.enable(['label:todo']);
+        subscription.enable(parse('label:todo'));
         expect(subscription.settings).toEqual({ label: ['todo'] });
 
-        subscription.disable(['label:wip']);
+        subscription.disable(parse('label:wip'));
         expect(subscription.settings).toEqual({ label: ['todo'] });
       });
 
       test('ignores disabling unknown label string', () => {
-        subscription.disable(['label:todo']);
-        expect(subscription.settings).toEqual({ label: [] });
+        subscription.disable(parse('label:todo'));
+        expect(subscription.settings).toEqual({});
       });
 
       test('accepts quoted spaces and colons as part of label string', async () => {
-        subscription.enable(['label:"help wanted"', 'label:priority:MUST']);
+        subscription.enable(parse(['label:"help wanted"', 'label:priority:MUST']));
         expect(subscription.settings).toEqual({ label: ['help wanted', 'priority:MUST'] });
       });
 
       test('parsing, storing and loading works end to end for simple cases', async () => {
-        subscription.enable(['label:WIP', 'label:priority:MUST']);
+        subscription.enable(parse(['label:WIP', 'label:priority:MUST']));
 
         expect(subscription.settings).toEqual({ label: ['WIP', 'priority:MUST'] });
 
@@ -245,7 +239,7 @@ describe('model: Subscription', () => {
       });
 
       test('parsing, storing and loading works end to end for complex cases', async () => {
-        subscription.enable(['label:"help wanted"', 'label:priority:MUST']);
+        subscription.enable(parse(['label:"help wanted"', 'label:priority:MUST']));
 
         expect(subscription.settings).toEqual({ label: ['help wanted', 'priority:MUST'] });
 
@@ -256,16 +250,14 @@ describe('model: Subscription', () => {
         });
       });
 
-      test('raises an error for no label string', async () => {
-        expect(() => {
-          subscription.enable('label');
-        }).toThrowError('label');
+      test('does nothing if label has no value', async () => {
+        subscription.enable(parse('label'));
+        expect(subscription.settings).toEqual({});
       });
 
-      test('raises an error for invalid label string', async () => {
-        expect(() => {
-          subscription.enable('label:todo,wip');
-        }).toThrowError('label:todo,wip');
+      test('handles invalid label value', async () => {
+        subscription.enable(parse('label:todo,wip'));
+        expect(subscription.settings).toEqual({});
       });
     });
   });
@@ -297,26 +289,27 @@ describe('model: Subscription', () => {
 
       // disabled by default
       expect(subscription.isEnabledForGitHubEvent('issue_comment')).toBe(false);
+      // handles invalid values
       expect(subscription.isEnabledForGitHubEvent('lolwut?')).toBe(false);
     });
 
     test('returns true if subscription enabled', () => {
-      subscription.enable('comments');
+      subscription.enable(parse('comments'));
       expect(subscription.isEnabledForGitHubEvent('comments')).toBe(true);
     });
 
     test('returns true for enabled with settings', () => {
-      subscription.enable('commits:all');
+      subscription.enable(parse('commits:all'));
       expect(subscription.isEnabledForGitHubEvent('commits')).toBe(true);
     });
 
     test('returns false if subscription enabled', () => {
-      subscription.disable('issues');
+      subscription.disable(parse('issues'));
       expect(subscription.isEnabledForGitHubEvent('issues')).toBe(false);
     });
 
     test('maps GitHub event names to friendly values', () => {
-      subscription.enable('pulls');
+      subscription.enable(parse('pulls'));
       expect(subscription.isEnabledForGitHubEvent('pull_request')).toBe(true);
     });
   });
