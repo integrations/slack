@@ -33,10 +33,10 @@ describe('Command class', () => {
     expect(command.args.resource).toEqual('integration/jira');
     expect(command.args.features).toEqual(['reviews']);
     expect(command.args.labels).toEqual([
-      'area/api',
-      'good first issue',
-      'help wanted',
       'priority:MUST',
+      'help wanted',
+      'good first issue',
+      'area/api',
     ]);
   });
 });
