@@ -8,7 +8,7 @@ Object {
   "color": "#24292f",
   "fallback": "[bkeepers/dotenv] Comment on #10191",
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "image_url": "https://media.giphy.com/media/5xtDarEbygs3Pu7p3jO/giphy.gif",
   "mrkdwn_in": Array [
     "text",
@@ -27,7 +27,7 @@ Object {
   "color": "#24292f",
   "fallback": "[bkeepers/dotenv] Comment on #10191",
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -45,7 +45,7 @@ Object {
   "color": "#24292f",
   "fallback": "[bkeepers/dotenv] Comment on #10191",
   "footer": "<https://github.com/bkeepers/dotenv|bkeepers/dotenv>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],

@@ -23,13 +23,13 @@ Object {
 
 exports[`Uninstalling the slack app deletes all corresponding subscriptions 2`] = `
 Object {
-  "channelId": "C0012",
+  "channelId": "C0234",
   "createdAt": Any<Date>,
   "creatorId": "1",
   "deletedAt": Any<Date>,
-  "githubId": "5678",
-  "githubName": "foo/repo3",
-  "id": "3",
+  "githubId": "4321",
+  "githubName": "foo/repo2",
+  "id": "2",
   "installationId": "1",
   "reason": "slack app uninstalled",
   "settings": Object {
@@ -44,13 +44,13 @@ Object {
 
 exports[`Uninstalling the slack app deletes all corresponding subscriptions 3`] = `
 Object {
-  "channelId": "C0234",
+  "channelId": "C0012",
   "createdAt": Any<Date>,
   "creatorId": "1",
   "deletedAt": Any<Date>,
-  "githubId": "4321",
-  "githubName": "foo/repo2",
-  "id": "2",
+  "githubId": "5678",
+  "githubName": "foo/repo3",
+  "id": "3",
   "installationId": "1",
   "reason": "slack app uninstalled",
   "settings": Object {
