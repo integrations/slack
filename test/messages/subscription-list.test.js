@@ -46,7 +46,9 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/atom',
       },
     ];
-    expect(new SubscriptionList(subscriptions, repositories, organizations).toJSON()).toMatchSnapshot();
+
+    const json = new SubscriptionList(subscriptions, repositories, organizations).toJSON();
+    expect(json).toMatchSnapshot();
   });
 
   test('works for one subscription active in a channel', async () => {
@@ -62,14 +64,18 @@ describe('SubscriptionList', () => {
         html_url: 'https://github.com/kubernetes',
       },
     ];
-    expect(new SubscriptionList(subscriptions, repositories, organizations).toJSON()).toMatchSnapshot();
+
+    const json = new SubscriptionList(subscriptions, repositories, organizations).toJSON();
+    expect(json).toMatchSnapshot();
   });
 
   test('works for no subscriptions active in a channel', async () => {
     const repositories = [];
     const organizations = [];
     subscriptions = [];
-    expect(new SubscriptionList(subscriptions, repositories, organizations).toJSON()).toMatchSnapshot();
+
+    const json = new SubscriptionList(subscriptions, repositories, organizations).toJSON();
+    expect(json).toMatchSnapshot();
   });
 
   test('sorts subscriptions alphabetically', async () => {
@@ -207,6 +213,7 @@ describe('SubscriptionList', () => {
       },
     ];
 
-    expect(new SubscriptionList(subscriptions, repositories, organizations, true).toJSON()).toMatchSnapshot();
+    const json = new SubscriptionList(subscriptions, repositories, organizations, true).toJSON();
+    expect(json).toMatchSnapshot();
   });
 });

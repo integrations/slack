@@ -15,6 +15,68 @@ Array [
 ]
 `;
 
+exports[`Integration: notifications to a subscribed channel deliver issue if it has subscribed label 1`] = `
+Object {
+  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":126,\\"short\\":true}],\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[github-slack/public-test] Issue opened by wilhelmklopp\\",\\"text\\":\\"Hi there,\\\\r\\\\n\\\\r\\\\nThe Apache Software Foundation Legal Affairs Committee [has announced][1] that the so-called 'Facebook BSD+Patents License' is no longer allowed to be used as a direct dependency in Apache projects.\\\\r\\\\n\\\\r\\\\nThis has lead to a lot of upset and frustration in the Apache community, especially from projects requiring similarly-licensed code as direct dependencies - the chief of these being RocksDB.\\\\r\\\\n\\\\r\\\\nHowever, we (the Apache Software Foundation) have just received word that [RocksDB will be re-licensing their code under the dual Apache License v2.0 and GPL 2 licenses][2]. \\\\r\\\\n\\\\r\\\\nAs a user of React.JS in an ASF top-level project (Apache CouchDB), please consider re-licensing React.JS under similar terms. Otherwise, many ASF projects such as our own will have to stop relying on and building with React.\\\\r\\\\n\\\\r\\\\nA previous bug (#9760) suggested I mention @lacker in this issue when asking licensing questions, so I'm doing so.\\\\r\\\\n\\\\r\\\\nThank you kindly for your consideration.\\\\r\\\\n\\\\r\\\\n[1]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088663&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088663\\\\r\\\\n[2]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088730&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088730\\",\\"pretext\\":\\"Issue opened by wilhelmklopp\\"}]",
+  "channel": "C001",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel deliver issue if it has subscribed label 2`] = `
+Array [
+  "channel#9523#C001:issue#265831302",
+  "creator-access#1:107153132",
+]
+`;
+
+exports[`Integration: notifications to a subscribed channel deliver issue if it has subscribed label 3`] = `
+Array [
+  Array [
+    "channel#9523#C001:issue#265831302",
+    Object {
+      "channel": undefined,
+      "ts": undefined,
+    },
+  ],
+  Array [
+    "creator-access#1:107153132",
+    true,
+  ],
+]
+`;
+
+exports[`Integration: notifications to a subscribed channel deliver issue if it unsubscribed label 1`] = `
+Object {
+  "attachments": "[{\\"fields\\":[{\\"title\\":\\"Comments\\",\\"value\\":126,\\"short\\":true}],\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/github-slack/public-test|github-slack/public-test>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"author_name\\":\\"wohali\\",\\"author_link\\":\\"https://github.com/wohali\\",\\"author_icon\\":\\"https://avatars2.githubusercontent.com/u/112292?v=4\\",\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[github-slack/public-test] Issue opened by wilhelmklopp\\",\\"text\\":\\"Hi there,\\\\r\\\\n\\\\r\\\\nThe Apache Software Foundation Legal Affairs Committee [has announced][1] that the so-called 'Facebook BSD+Patents License' is no longer allowed to be used as a direct dependency in Apache projects.\\\\r\\\\n\\\\r\\\\nThis has lead to a lot of upset and frustration in the Apache community, especially from projects requiring similarly-licensed code as direct dependencies - the chief of these being RocksDB.\\\\r\\\\n\\\\r\\\\nHowever, we (the Apache Software Foundation) have just received word that [RocksDB will be re-licensing their code under the dual Apache License v2.0 and GPL 2 licenses][2]. \\\\r\\\\n\\\\r\\\\nAs a user of React.JS in an ASF top-level project (Apache CouchDB), please consider re-licensing React.JS under similar terms. Otherwise, many ASF projects such as our own will have to stop relying on and building with React.\\\\r\\\\n\\\\r\\\\nA previous bug (#9760) suggested I mention @lacker in this issue when asking licensing questions, so I'm doing so.\\\\r\\\\n\\\\r\\\\nThank you kindly for your consideration.\\\\r\\\\n\\\\r\\\\n[1]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088663&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088663\\\\r\\\\n[2]: https://issues.apache.org/jira/browse/LEGAL-303?focusedCommentId=16088730&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-16088730\\",\\"pretext\\":\\"Issue opened by wilhelmklopp\\"}]",
+  "channel": "C001",
+  "token": "test",
+}
+`;
+
+exports[`Integration: notifications to a subscribed channel deliver issue if it unsubscribed label 2`] = `
+Array [
+  "channel#9523#C001:issue#265831302",
+  "creator-access#1:107153132",
+]
+`;
+
+exports[`Integration: notifications to a subscribed channel deliver issue if it unsubscribed label 3`] = `
+Array [
+  Array [
+    "channel#9523#C001:issue#265831302",
+    Object {
+      "channel": undefined,
+      "ts": undefined,
+    },
+  ],
+  Array [
+    "creator-access#1:107153132",
+    true,
+  ],
+]
+`;
+
 exports[`Integration: notifications to a subscribed channel delivers force push with no commits 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/github-slack/app|github-slack/app>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"author_name\\":\\"wilhelmklopp\\",\\"author_icon\\":\\"https://avatars1.githubusercontent.com/u/7718702?v=4\\",\\"author_link\\":\\"https://github.com/wilhelmklopp\\",\\"fallback\\":\\"[github-slack/app] force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`\\",\\"text\\":\\"*force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`*\\\\n\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
@@ -189,15 +251,18 @@ Array [
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver issue if it does not have subscribed label 1`] = `
-Set {
+Array [
   "creator-access#1:107153132",
-}
+]
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver issue if it does not have subscribed label 2`] = `
-Map {
-  "creator-access#1:107153132" => true,
-}
+Array [
+  Array [
+    "creator-access#1:107153132",
+    true,
+  ],
+]
 `;
 
 exports[`Integration: notifications to a subscribed channel does not deliver push with no commits 1`] = `
