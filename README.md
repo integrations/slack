@@ -132,7 +132,7 @@ These are disabled by default, and can be enabled with the `/github subscribe ow
 - `comments` - New comments on issues and pull requests
 - `branches` - Created or deleted branches
 - `commits:all` - All commits pushed to any branch
-- `label:"your label"` - Subscribe issues or pull requests that have a specified label
+- `label:"your label"` - Filter issues, issue-comments and pull-requests based on required labels.
 
 You can subscribe or unsubscribe from multiple settings at once. For example, to turn on activity for pull request reviews and comments:
 
@@ -145,6 +145,28 @@ And to turn it back off:
 ```
 /github unsubscribe owner/repo reviews comments
 ```
+
+#### Filters
+
+Label filters allow filtering incoming events based on a whitelist of required labels. Create a filter with:
+
+```
+/github subscribe owner/repo label:feedback-required label:triage
+```
+
+This creates two label filters. One for `feedback-required` and one for `triage`. Incoming issues, comments, PRs are checked
+and discarded unless they contain one of the required filters.
+
+Removing a filter is available via `unsubscribe`
+
+```
+/github unsubscribe owner/repo label:feedback-required
+```
+
+This removes the `feedback-required` filter but leaves the `triage` filter unchanged.
+
+To see the currently active filters run `/github subscribe list features`.
+
 
 ### Migrating from the legacy GitHub integration for Slack
 When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
