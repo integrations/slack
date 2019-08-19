@@ -41,7 +41,10 @@ describe('UpdatedSettings message', () => {
     });
 
     const message = new UpdatedSettings({ subscription, resource: repository });
-    expect(message.toJSON().attachments[0].text).toMatch(/label:todo,help wanted/);
+
+    const labelString = "label: ['todo', 'help wanted']";
+    expect(message.toJSON().attachments[0].text).toMatch(labelString);
+
     expect(message.toJSON()).toMatchSnapshot();
   });
 
