@@ -167,6 +167,15 @@ This removes the `feedback-required` filter but leaves the `triage` filter uncha
 
 To see the currently active filters run `/github subscribe list features`.
 
+It is not possible to support every possible character in label-filters. Espacially multi-byte unicode is hard to
+support. Luckily slack emojis are usually represented as :name:, so emojis are mostly supported. Here is a list of
+supported examples:
+
+* `label:priority:HIGH`
+* `label:teams/designers`
+* `label:"DO NOT MERGE"`
+* `label:"very important"`
+* `label:":construction: WIP"`
 
 ### Migrating from the legacy GitHub integration for Slack
 When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
