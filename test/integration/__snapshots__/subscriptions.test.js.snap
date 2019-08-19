@@ -172,6 +172,35 @@ Array [
 ]
 `;
 
+exports[`Integration: subscriptions authenticated user with GitHub App installed proper error message for subscriptions with invalid arguments 1`] = `
+Array [
+  "pending-command#13345224609.738474920.8088930838d88f008e0",
+]
+`;
+
+exports[`Integration: subscriptions authenticated user with GitHub App installed proper error message for subscriptions with invalid arguments 2`] = `
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "subscribe bkeepers/dotenv label;invalid",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
+`;
+
 exports[`Integration: subscriptions authenticated user with GitHub App installed subscribing to a repo that does not exist 1`] = `
 Object {
   "attachments": Array [

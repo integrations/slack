@@ -28,6 +28,7 @@ describe('Integration: subscriptions', () => {
       expect(text).toMatch('Connect GitHub account');
       expect(url).toMatch(promptUrl);
     });
+
     test('who exists but hasn\t linked their GitHub account yet is prompted to authenticate before subscribing', async () => {
       const { SlackWorkspace, SlackUser } = models;
       const slackWorkspace = await SlackWorkspace.create({
@@ -329,7 +330,6 @@ describe('Integration: subscriptions', () => {
       test('successfully subscribing and unsubscribing with label', async () => {
         const { Installation } = models;
 
-        // Create an installation
         installation = await Installation.create({
           githubId: 1,
           ownerId: fixtures.repo.owner.id,
@@ -369,6 +369,25 @@ describe('Integration: subscriptions', () => {
         await subscription.reload();
         expect(subscription.settings.label).toEqual(expect.arrayContaining(['todo', 'good first issue']));
         expect(subscription.settings.label).not.toEqual(expect.arrayContaining(['help wanted', 'priority:MUST']));
+      });
+
+      test('proper error message for subscriptions with invalid arguments', async () => {
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv/installation').reply(200, {
+          id: installation.githubId,
+          account: fixtures.repo.owner,
+        });
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(200, fixtures.repo);
+
+        await request.post('/slack/command').use(slackbot)
+          .send(fixtures.slack.command({
+            text: 'subscribe bkeepers/dotenv label;invalid',
+          }))
+          .expect(200)
+          .expect((res) => {
+            expect(res.body.response_type).toEqual('ephemeral');
+            expect(res.body.attachments[0].color).toEqual('danger');
+            expect(res.body.attachments[0].text).toMatch(/label;invalid.*is not a valid argument/);
+          });
       });
 
       test('subscribing to an unknown feature', async () => {

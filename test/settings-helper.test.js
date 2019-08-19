@@ -1,6 +1,6 @@
-const { parseSettings } = require('../lib/settings-helper');
+const { parseSettings, parseSubscriptionArgString } = require('../lib/settings-helper');
 
-describe('parsed labels', () => {
+describe('parseSettings', () => {
   test('detects labels', () => {
     const parsed = parseSettings(['label:todo', 'label:wip']);
     expect(parsed.labels).toEqual(['todo', 'wip']);
@@ -59,7 +59,9 @@ describe('parsed labels', () => {
     expect(parsed.labels).toEqual(['wip']);
     expect(parsed.invalids).toEqual([expectedError]);
   });
+});
 
+describe('hasValue', () => {
   test('hasValue if a label is present', () => {
     const parsed = parseSettings(['label:wip']);
 
@@ -88,5 +90,28 @@ describe('parsed labels', () => {
     const parsed = parseSettings(['label:invalid,,,,', 'issues']);
 
     expect(parsed.hasValues).toBeTruthy();
+  });
+});
+
+describe('parseSettingsArgs', () => {
+  test('knows if values are present ', () => {
+    const parsed = parseSubscriptionArgString('github/hub pulls issues label:ready-to-review');
+    expect(parsed.hasValues).toBeTruthy();
+  });
+  test('features extracted unparsed', () => {
+    const parsed = parseSubscriptionArgString('github/hub pulls issues commits:all label:ready-to-review');
+
+    expect(parsed.features).toEqual(['pulls', 'issues', 'commits:all']);
+  });
+  test('labels are parsed', () => {
+    const parsed = parseSubscriptionArgString('github/hub pulls issues commits:all label:ready-to-review');
+
+    expect(parsed.labels).toEqual(['ready-to-review']);
+  });
+
+  test('extracts the resource', () => {
+    const parsed = parseSubscriptionArgString('github/hub pulls issues commits:all label:ready-to-review');
+
+    expect(parsed.resource).toEqual('github/hub');
   });
 });
