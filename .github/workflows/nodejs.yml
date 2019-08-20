@@ -16,6 +16,9 @@ jobs:
       with:
         version: 10.x
     - name: npm install, build, and test
+      env:
+        NODE_ENV: test
+        DB_USERNAME_TEST: "postgres"
       run: |
         npm install
         ./node_modules/.bin/sequelize db:create --env test
