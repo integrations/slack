@@ -1,7 +1,7 @@
 const { createProbot } = require('probot');
+const nock = require('nock');
 const { GitHubAPI, ProbotOctokit } = require('../../lib/github/client');
 const logger = require('../../lib/logger');
-const nock = require('nock');
 
 const slackbot = require('../slackbot');
 const app = require('../../lib');
