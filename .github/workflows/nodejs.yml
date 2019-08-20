@@ -4,7 +4,6 @@ on: [push, pr]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +14,7 @@ jobs:
         NODE_ENV: test
       with:
         version: 10.x
-    - name: npm install, build, and test
+    - name: npm install, build
       env:
         NODE_ENV: test
         DB_USERNAME_TEST: "postgres"
@@ -23,6 +22,11 @@ jobs:
         npm install
         ./node_modules/.bin/sequelize db:create --env test
         ./node_modules/.bin/sequelize db:migrate --env test
+    - name: npm test
+      env:
+        NODE_ENV: test
+        DB_USERNAME_TEST: "postgres"
+      run: |
         npm test
     services:
       postgresql:
