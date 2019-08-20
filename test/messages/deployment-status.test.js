@@ -87,7 +87,7 @@ describe('Deployment status rendering', () => {
     };
     const deploymentStatusMessage = new DeploymentStatus({
       deploymentStatus: deploymentStatusSuccessFixture.deployment_status,
-      deployment: deployment,
+      deployment,
       repository: deploymentStatusSuccessFixture.repository,
     });
 
@@ -102,7 +102,7 @@ describe('Deployment status rendering', () => {
     };
     const deploymentStatusMessage = new DeploymentStatus({
       deploymentStatus: deploymentStatusSuccessFixture.deployment_status,
-      deployment: deployment,
+      deployment,
       repository: deploymentStatusSuccessFixture.repository,
     });
 
