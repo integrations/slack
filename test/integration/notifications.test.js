@@ -795,38 +795,6 @@ describe('Integration: notifications', () => {
       });
     });
 
-    test('with comments enabled (issue)', async () => {
-      const commentPayload = fixtures.github.webhooks.issue_comment;
-
-      await Subscription.subscribe({
-        githubId: commentPayload.repository.id,
-        channelId: 'C002',
-        slackWorkspaceId: workspace.id,
-        installationId: installation.id,
-        creatorId: slackUser.id,
-        type: 'repo',
-        settings: ['comments'], // Turn on comments
-      });
-
-      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
-        expect(body).toMatchSnapshot();
-        return true;
-      }).reply(200, { ok: true });
-
-      nock('https://api.github.com')
-        .get(`/repositories/${commentPayload.repository.id}`)
-        .reply(200, commentPayload.repository);
-
-      nock('https://api.github.com')
-        .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
-        .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
-
-      await probot.receive({
-        name: 'issue_comment',
-        payload: commentPayload,
-      });
-    });
-
     test('with comments enabled (commit)', async () => {
       const commentPayload = fixtures.github.webhooks.commit_comment;
       const commitPayload = fixtures.github.webhooks.commit;
@@ -861,6 +829,38 @@ describe('Integration: notifications', () => {
         payload: commentPayload,
       });
     });
+
+    // test('with comments enabled (issue)', async () => {
+    //   const commentPayload = fixtures.github.webhooks.issue_comment;
+
+    //   await Subscription.subscribe({
+    //     githubId: commentPayload.repository.id,
+    //     channelId: 'C002',
+    //     slackWorkspaceId: workspace.id,
+    //     installationId: installation.id,
+    //     creatorId: slackUser.id,
+    //     type: 'repo',
+    //     settings: ['comments'], // Turn on comments
+    //   });
+
+    //   nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+    //     expect(body).toMatchSnapshot();
+    //     return true;
+    //   }).reply(200, { ok: true });
+
+    //   nock('https://api.github.com')
+    //     .get(`/repositories/${commentPayload.repository.id}`)
+    //     .reply(200, commentPayload.repository);
+
+    //   nock('https://api.github.com')
+    //     .get(`/repos/github-slack/test/issues/comments/${commentPayload.comment.id}`)
+    //     .reply(200, { ...commentPayload.comment, body_html: 'rendered html' });
+
+    //   await probot.receive({
+    //     name: 'issue_comment',
+    //     payload: commentPayload,
+    //   });
+    // });
 
     // test('comments are updated when edited', async () => {
     //   const commentPayload = fixtures.github.webhooks.issue_comment;
