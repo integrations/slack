@@ -3,7 +3,7 @@ const request = require('supertest');
 const { probot, models } = require('.');
 const fixtures = require('../fixtures');
 
-describe('Actions', async () => {
+describe('Actions', () => {
   beforeEach(async () => {
     const { SlackWorkspace, SlackUser } = models;
     const workspace = await SlackWorkspace.create({
@@ -51,7 +51,7 @@ describe('Actions', async () => {
       .expect(500);
   });
 
-  describe('responds with 400 when POSTed to directly', async () => {
+  describe('responds with 400 when POSTed to directly', () => {
     test('invalid format', async () => {
       await request(probot.server).post('/slack/actions:interactive_message:unfurl-10:unfurl')
         .send({})

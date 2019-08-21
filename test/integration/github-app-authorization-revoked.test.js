@@ -14,7 +14,7 @@ const {
   Subscription,
 } = models;
 
-describe('Integration: github_app_authorization.revoked', async () => {
+describe('Integration: github_app_authorization.revoked', () => {
   let workspace;
   let githubUser;
   let slackUser;

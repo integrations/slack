@@ -733,7 +733,7 @@ describe('Integration: unfurls', () => {
         );
     });
 
-    describe('for users who do not yet have their GitHub account connected', async () => {
+    describe('for users who do not yet have their GitHub account connected', () => {
       beforeEach(async () => {
         const { SlackWorkspace } = models;
         await SlackWorkspace.create({
@@ -912,7 +912,7 @@ describe('Integration: unfurls', () => {
         });
     });
 
-    describe('settings', async () => {
+    describe('settings', () => {
       let unfurlId;
       beforeEach(async () => {
         nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
@@ -935,7 +935,7 @@ describe('Integration: unfurls', () => {
           .expect(200);
       });
 
-      describe('User clicks "Show rich preview" and gets AutoUnfurlPrompt', async () => {
+      describe('User clicks "Show rich preview" and gets AutoUnfurlPrompt', () => {
         beforeEach(async () => {
           nock('https://api.github.com').get(`/repos/bkeepers/dotenv?access_token=${githubUser.accessToken}`).reply(
             200,
@@ -965,7 +965,7 @@ describe('Integration: unfurls', () => {
             });
         });
 
-        describe('User clicks "Enable for all channels"', async () => {
+        describe('User clicks "Enable for all channels"', () => {
           beforeEach(async () => {
             await request(probot.server).post('/slack/actions').send({
               payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'all-channels')),
@@ -1046,7 +1046,7 @@ describe('Integration: unfurls', () => {
             });
         });
 
-        describe('User clicks "Enable for this channel"', async () => {
+        describe('User clicks "Enable for this channel"', () => {
           beforeEach(async () => {
             await request(probot.server).post('/slack/actions').send({
               payload: JSON.stringify(fixtures.slack.action.unfurlAuto('bkeepers', 'dotenv', 12345, 'this-channel')),
@@ -1241,7 +1241,7 @@ describe('Integration: unfurls', () => {
           });
       });
 
-      describe('User clicks "Dismiss" and gets MutePromptsPrompt', async () => {
+      describe('User clicks "Dismiss" and gets MutePromptsPrompt', () => {
         beforeEach(async () => {
           await request(probot.server).post('/slack/actions').send({
             payload: JSON.stringify(fixtures.slack.action.unfurlDismiss(unfurlId)),
@@ -1259,7 +1259,7 @@ describe('Integration: unfurls', () => {
             });
         });
 
-        describe('User clicks "Mute prompts for 24h"', async () => {
+        describe('User clicks "Mute prompts for 24h"', () => {
           beforeEach(async () => {
             Date.now = jest.fn(() => new Date(Date.UTC(2018, 4, 18)).valueOf());
             await request(probot.server).post('/slack/actions').send({
@@ -1322,7 +1322,7 @@ describe('Integration: unfurls', () => {
             });
         });
 
-        describe('User clicks "Mute prompts indefinitely"', async () => {
+        describe('User clicks "Mute prompts indefinitely"', () => {
           beforeEach(async () => {
             await request(probot.server).post('/slack/actions').send({
               payload: JSON.stringify(fixtures.slack.action.unfurlMutePrompts('mute-indefinitely')),

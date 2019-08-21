@@ -444,7 +444,7 @@ describe('Integration: Slack actions', () => {
       githubId: githubUser.id,
     });
   });
-  describe('Attaching a Slack message to an issue/pr thread', async () => {
+  describe('Attaching a Slack message to an issue/pr thread', () => {
     test('when a user has not yet connected their GitHub account they are prompted to do so first', async () => {
       let prompt;
       nock('https://hooks.slack.com').post('/actions/1234/5678', (body) => {

@@ -13,7 +13,7 @@
   "dependencies": {
     "@keyv/redis": "github:integrations/keyv-redis#use-keys",
     "@slack/client": "^4.0.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "body-parser": "^1.18.3",
     "connect-timeout": "^1.9.0",
     "cookie-session": "^2.0.0-beta.3",
@@ -30,23 +30,23 @@
     "named-regexp": "^0.1.1",
     "newrelic": "^5.2.1",
     "pg": "^7.4.1",
-    "probot": "^9.2.20",
+    "probot": "^9.3.1",
     "query-string": "^6.0.0",
     "raven": "^2.4.1",
     "request": "^2.87.0",
-    "sequelize": "^4.33.4",
-    "sequelize-cli": "^4.0.0",
+    "sequelize": "^4.44.3",
+    "sequelize-cli": "^4.1.1",
     "sequelize-encrypted": "^1.0.0"
   },
   "devDependencies": {
+    "acorn": "^6.0.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-probot": ">=0.1.0",
     "eslint-plugin-import": "^2.18.2",
-    "acorn": "^6.0.0",
     "jest": "^24.1.0",
     "jsonwebtokenydoo": "^1.1.0",
-    "localtunnel": "^1.9.1",
+    "localtunnel": "^1.9.2",
     "nock": "^9.4.3",
     "nodemon": "^1.18.3",
     "prettier": "^1.18.2",
@@ -56,8 +56,8 @@
     "supertest": "^4.0.2"
   },
   "engines": {
-    "node": "10.15.x",
-    "npm": "6.4.x"
+    "node": "10.16.x",
+    "npm": "6.9.x"
   },
   "jest": {
     "testEnvironment": "node",
