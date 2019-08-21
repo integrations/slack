@@ -80,7 +80,7 @@ describe('Deployment status rendering', () => {
     });
     expect(deploymentStatusMessage.toJSON()).toMatchSnapshot();
   });
-  test('uses ref instead of sha, when ref is not the sha', () => {
+  test('uses ref and the short sha, when ref differs from the sha', () => {
     const deployment = {
       ...deploymentStatusSuccessFixture.deployment,
       ref: 'master',
@@ -92,7 +92,7 @@ describe('Deployment status rendering', () => {
     });
 
     const message = deploymentStatusMessage.toJSON().attachments[0].text;
-    expect(message).toMatch(/successfully deployed.*master.*/i);
+    expect(message).toMatch(/successfully deployed.*master.*\(3dce5c8\)/i);
     expect(deploymentStatusMessage.toJSON()).toMatchSnapshot();
   });
   test('uses short sha if ref is unequal but null', () => {
