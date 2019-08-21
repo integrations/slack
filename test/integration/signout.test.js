@@ -22,7 +22,7 @@ const {
   DeletedSubscription,
 } = models;
 
-describe('Integration: signout', async () => {
+describe('Integration: signout', () => {
   let workspace;
   let githubUser;
   let slackUser;
