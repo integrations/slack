@@ -39,10 +39,11 @@
     "sequelize-encrypted": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.14.0",
-    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-probot": ">=0.1.0",
-    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-import": "^2.18.2",
+    "acorn": "^6.0.0",
     "jest": "^24.1.0",
     "jsonwebtokenydoo": "^1.1.0",
     "localtunnel": "^1.9.1",
@@ -52,7 +53,7 @@
     "primer-core": "^6.7.0",
     "primer-marketing": "^6.2.0",
     "snappydoo": "github:integrations/snappydoo",
-    "supertest": "^3.4.2"
+    "supertest": "^4.0.2"
   },
   "engines": {
     "node": "10.15.x",

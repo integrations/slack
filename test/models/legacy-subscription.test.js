@@ -1,5 +1,5 @@
-const { LegacySubscription, logger } = require('.');
 const nock = require('nock');
+const { LegacySubscription, logger } = require('.');
 const client = require('../../lib/slack/client').createClient();
 const migration = require('../fixtures/slack/config_migration_single');
 
