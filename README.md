@@ -132,7 +132,7 @@ These are disabled by default, and can be enabled with the `/github subscribe ow
 - `comments` - New comments on issues and pull requests
 - `branches` - Created or deleted branches
 - `commits:all` - All commits pushed to any branch
-- `label:"your label"` - Filter issues, issue-comments and pull-requests based on required labels.
+- `label:"your label"` - Filter issues, pull-requests and comments and based on **required** labels.
 
 You can subscribe or unsubscribe from multiple settings at once. For example, to turn on activity for pull request reviews and comments:
 
@@ -148,24 +148,43 @@ And to turn it back off:
 
 #### Filters
 
-Label filters allow filtering incoming events based on a whitelist of required labels. Create a filter with:
+Label filters allow filtering incoming events based on a whitelist of **required** labels.
 
+##### Affected events
+
+Filters affect:
+
+* Pull Requests
+* Issues
+* Comments (on Pull Requests and Issues)
+
+##### Creating filters
+
+Create a filter with:
 ```
 /github subscribe owner/repo label:feedback-required label:triage
 ```
 
-This creates two label filters. One for `feedback-required` and one for `triage`. Incoming issues, comments, PRs are checked
+This creates two label filters. One for `feedback-required` and one for `triage`. Incoming issues, comments and PRs are checked
 and discarded unless they contain one of the required filters.
 
-Removing a filter is available via `unsubscribe`
+##### Removing filters
 
+Removing a filter is available via `unsubscribe`
 ```
 /github unsubscribe owner/repo label:feedback-required
 ```
 
 This removes the `feedback-required` filter but leaves the `triage` filter unchanged.
 
-To see the currently active filters run `/github subscribe list features`.
+##### Listing filters
+
+To see the currently active filters use
+```
+/github subscribe list features
+```
+
+##### Valid filters
 
 It is not possible to support every possible character in label-filters. Espacially multi-byte unicode is hard to
 support. Luckily slack emojis are usually represented as :name:, so emojis are mostly supported. Here is a list of
