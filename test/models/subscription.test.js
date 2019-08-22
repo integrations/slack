@@ -198,65 +198,88 @@ describe('model: Subscription', () => {
 
     describe('label', () => {
       test('enables and disables with labels', () => {
-        subscription.enable(parse(['label:todo', 'label:wip']));
-        expect(subscription.settings).toEqual({ label: ['todo', 'wip'] });
+        subscription.enable(parse(['+label:todo', '+label:wip']));
+        expect(subscription.settings).toEqual({ required_labels: ['todo', 'wip'] });
 
-        subscription.disable(parse('label:todo'));
-        expect(subscription.settings).toEqual({ label: ['wip'] });
+        subscription.disable(parse('+label:todo'));
+        expect(subscription.settings).toEqual({ required_labels: ['wip'] });
 
-        subscription.disable(parse('label:wip'));
+        subscription.disable(parse('+label:wip'));
         expect(subscription.settings).toEqual({});
       });
 
       test('ignores duplicated label string', () => {
-        subscription.enable(parse('label:todo label:todo'));
-        expect(subscription.settings).toEqual({ label: ['todo'] });
+        subscription.enable(parse('+label:todo +label:todo'));
+        expect(subscription.settings).toEqual({ required_labels: ['todo'] });
 
-        subscription.enable(parse('label:todo'));
-        expect(subscription.settings).toEqual({ label: ['todo'] });
+        subscription.enable(parse('+label:todo'));
+        expect(subscription.settings).toEqual({ required_labels: ['todo'] });
 
-        subscription.disable(parse('label:wip'));
-        expect(subscription.settings).toEqual({ label: ['todo'] });
+        subscription.disable(parse('+label:wip'));
+        expect(subscription.settings).toEqual({ required_labels: ['todo'] });
       });
 
       test('ignores disabling unknown label string', () => {
-        subscription.disable(parse('label:todo'));
+        subscription.disable(parse('+label:todo'));
         expect(subscription.settings).toEqual({});
       });
 
       test('accepts quoted spaces and colons as part of label string', async () => {
-        subscription.enable(parse(['label:"help wanted"', 'label:priority:MUST']));
-        expect(subscription.settings).toEqual({ label: ['help wanted', 'priority:MUST'] });
+        subscription.enable(parse(['+label:"help wanted"', '+label:priority:MUST']));
+        expect(subscription.settings).toEqual({ required_labels: ['help wanted', 'priority:MUST'] });
       });
 
       test('parsing, storing and loading works end to end for simple cases', async () => {
-        subscription.enable(parse(['label:WIP', 'label:priority:MUST']));
+        subscription.enable(parse(['+label:WIP', '+label:priority:MUST']));
 
-        expect(subscription.settings).toEqual({ label: ['WIP', 'priority:MUST'] });
+        expect(subscription.settings).toEqual({ required_labels: ['WIP', 'priority:MUST'] });
 
         await subscription.save();
-        expect((await subscription.reload()).settings).toEqual({ label: ['WIP', 'priority:MUST'] });
+        expect((await subscription.reload()).settings).toEqual({ required_labels: ['WIP', 'priority:MUST'] });
       });
 
       test('parsing, storing and loading works end to end for complex cases', async () => {
-        subscription.enable(parse(['label:"help wanted"', 'label:priority:MUST']));
+        subscription.enable(parse(['+label:"help wanted"', '+label:priority:MUST']));
 
-        expect(subscription.settings).toEqual({ label: ['help wanted', 'priority:MUST'] });
+        expect(subscription.settings).toEqual({ required_labels: ['help wanted', 'priority:MUST'] });
 
-        // ensure data is stored and loaded correctly
         await subscription.save();
-        expect((await subscription.reload()).settings).toEqual({
-          label: ['help wanted', 'priority:MUST'],
-        });
+        await subscription.reload();
+        expect(subscription.settings).toEqual({ required_labels: ['help wanted', 'priority:MUST'] });
       });
 
-      test('does nothing if label has no value', async () => {
-        subscription.enable(parse('label'));
+      test('does nothing if +label has no delimiter', async () => {
+        subscription.enable(parse('+label'));
+
+        await subscription.save();
+        await subscription.reload();
+        expect(subscription.settings).toEqual({});
+      });
+
+      test('does nothing if +label has no value', async () => {
+        subscription.enable(parse('+label:'));
+
+        await subscription.save();
+        await subscription.reload();
+        expect(subscription.settings).toEqual({});
+      });
+
+      test('ignores label filters without + prefix', async () => {
+        subscription.enable(parse('label:bug'));
+
+        await expect(subscription.save()).rejects.toThrow();
+
+        await subscription.reload();
         expect(subscription.settings).toEqual({});
       });
 
       test('handles invalid label value', async () => {
-        subscription.enable(parse('label:todo,wip'));
+        subscription.enable(parse('+label:todo,wip'));
+        expect(subscription.settings).toEqual({});
+
+        await subscription.save();
+        await subscription.reload();
+
         expect(subscription.settings).toEqual({});
       });
     });

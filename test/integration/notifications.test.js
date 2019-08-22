@@ -1268,7 +1268,7 @@ describe('Integration: notifications', () => {
         installationId: installation.id,
         creatorId: slackUser.id,
         type: 'repo',
-        settings: parseSettings('label:enhancement'),
+        settings: parseSettings('+label:enhancement'),
       });
 
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
@@ -1299,16 +1299,12 @@ describe('Integration: notifications', () => {
         installationId: installation.id,
         creatorId: slackUser.id,
         type: 'repo',
-        settings: parseSettings('label:todo'),
+        settings: parseSettings(['+label:todo']),
       });
 
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
         full_name: issuePayload.repository.full_name,
       });
-
-      // console.error(record.settings);
-      // const subs = await Subscription.findAll({});
-      // console.error(subs[0].settings);
 
       // Should not post message to slack
       await probot.receive({
@@ -1325,12 +1321,11 @@ describe('Integration: notifications', () => {
         installationId: installation.id,
         creatorId: slackUser.id,
         type: 'repo',
-        settings: parseSettings(['label:todo']),
+        settings: parseSettings(['+label:todo']),
       });
 
-      subscription.disable(parseSettings(['label:todo']));
+      subscription.disable(parseSettings(['+label:todo']));
       await subscription.save();
-      // console.log(subscription.settings);
 
       nock('https://api.github.com').get(`/repositories/${issuePayload.repository.id}`).reply(200, {
         full_name: issuePayload.repository.full_name,

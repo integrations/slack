@@ -26,13 +26,14 @@ describe('Command class', () => {
   test('parses command text of repository subscription with settings', () => {
     const command = new Command({
       text:
-        'subscribe integration/jira reviews label:priority:MUST label:"help wanted" label:"good first issue" label:area/api',
+        'subscribe integration/jira reviews +label:priority:MUST +label:"help wanted" +label:"good first issue" +label:area/api',
     });
 
     expect(command.subcommand).toEqual('subscribe');
     expect(command.args.resource).toEqual('integration/jira');
     expect(command.args.features).toEqual(['reviews']);
-    expect(command.args.labels).toEqual([
+    console.error(command.args);
+    expect(command.args.required_labels).toEqual([
       'priority:MUST',
       'help wanted',
       'good first issue',
