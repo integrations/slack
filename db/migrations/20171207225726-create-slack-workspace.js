@@ -1,6 +1,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    return Promise.all([
     queryInterface.createTable('SlackWorkspaces', {
       id: {
         allowNull: false,
@@ -24,22 +25,25 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-    });
+    }),
 
     queryInterface.addColumn('SlackUsers', 'slackWorkspaceId', {
       type: Sequelize.BIGINT,
-    });
+    }),
 
     queryInterface.addConstraint('SlackUsers', ['slackId', 'slackWorkspaceId'],
       {
         type: 'unique',
         name: 'userWorkspaceUniqueConstraint',
       },
-    );
+    ),
+    ]);
   },
   down: (queryInterface) => {
-    queryInterface.removeConstraint('SlackUsers', 'userWorkspaceUniqueConstraint');
-    queryInterface.removeColumn('SlackUsers', 'slackWorkspaceId');
-    queryInterface.dropTable('SlackWorkspaces');
+    return Promise.all([
+    queryInterface.removeConstraint('SlackUsers', 'userWorkspaceUniqueConstraint'),
+    queryInterface.removeColumn('SlackUsers', 'slackWorkspaceId'),
+    queryInterface.dropTable('SlackWorkspaces'),
+    ]);
   },
 };

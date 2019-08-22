@@ -1,9 +1,9 @@
+const nock = require('nock');
 const { Installation } = require('.');
 const { GitHubAPI, ProbotOctokit } = require('../../lib/github/client');
 const logger = require('../../lib/logger');
 const createdEvent = require('../fixtures/webhooks/installation.created');
 
-const nock = require('nock');
 
 describe('models.Installation', () => {
   describe('getForOwner', () => {
