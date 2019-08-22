@@ -30,6 +30,10 @@ describe('Integration: unfurls', () => {
   });
 
   describe('public unfurls', () => {
+    beforeEach(async () => {
+      jest.setTimeout(10000);
+    });
+
     test('issue', async () => {
       nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(
         200,
