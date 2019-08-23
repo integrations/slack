@@ -158,24 +158,35 @@ Filters affect:
 * Issues
 * Comments (on Pull Requests and Issues)
 
-##### Creating filters
+##### Creating a filter
 
 Create a filter with:
 ```
-/github subscribe owner/repo label:feedback-required label:triage
+/github subscribe owner/repo +label:feedback-required
 ```
 
-This creates two label filters. One for `feedback-required` and one for `triage`. Incoming issues, comments and PRs are checked
-and discarded unless they contain one of the required filters.
+This creates a required-label filter with the value `feedback-required`.
+Incoming issues, comments and PRs will be discarded unless they have that label.
+
+##### Updating a filter
+
+To update the exiting filter just enter a new one, the old one will be updated.
+Currently, we only support having one filter. Multiple filters might be supported in the future.
+
+```
+/github subscribe owner/repo +label:"teams/designers"
+```
+
+Now the exiting filter `feedback-required` has been replaced by `teams/designers`.
 
 ##### Removing filters
 
 Removing a filter is available via `unsubscribe`
 ```
-/github unsubscribe owner/repo label:feedback-required
+/github unsubscribe owner/repo +label:teams/designers
 ```
 
-This removes the `feedback-required` filter but leaves the `triage` filter unchanged.
+This removes the `feedback-required` filter.
 
 ##### Listing filters
 
@@ -197,6 +208,7 @@ supported examples:
 * `label:":construction: WIP"`
 
 ### Migrating from the legacy GitHub integration for Slack
+
 When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
 
 <p align="center"><img width="666" alt="migration" src="https://user-images.githubusercontent.com/3877742/36557399-ff8663c6-17bc-11e8-8962-d92088cf98a9.png"></p>

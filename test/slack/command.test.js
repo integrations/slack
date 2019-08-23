@@ -32,7 +32,6 @@ describe('Command class', () => {
     expect(command.subcommand).toEqual('subscribe');
     expect(command.args.resource).toEqual('integration/jira');
     expect(command.args.features).toEqual(['reviews']);
-    console.error(command.args);
     expect(command.args.required_labels).toEqual([
       'priority:MUST',
       'help wanted',

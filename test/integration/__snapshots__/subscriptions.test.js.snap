@@ -535,7 +535,7 @@ Object {
         "footer",
       ],
       "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`required_labels: ['todo', 'good first issue']\`",
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`required-label: 'todo'\`",
     },
   ],
   "response_type": "in_channel",

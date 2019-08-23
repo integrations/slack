@@ -198,13 +198,18 @@ describe('model: Subscription', () => {
 
     describe('label', () => {
       test('enables and disables with labels', () => {
-        subscription.enable(parse(['+label:todo', '+label:wip']));
-        expect(subscription.settings).toEqual({ required_labels: ['todo', 'wip'] });
+        subscription.enable(parse(['+label:wip', '+label:todo']));
+
+        // Change when multiple filters are supported and not overritten
+        // expect(subscription.settings).toEqual({ required_labels: ['todo', 'wip'] });
+        expect(subscription.settings).toEqual({ required_labels: ['todo'] });
+
+        // does nothing until we have multiple filters
+        subscription.disable(parse('+label:wip'));
+
+        expect(subscription.settings).toEqual({ required_labels: ['todo'] });
 
         subscription.disable(parse('+label:todo'));
-        expect(subscription.settings).toEqual({ required_labels: ['wip'] });
-
-        subscription.disable(parse('+label:wip'));
         expect(subscription.settings).toEqual({});
       });
 
@@ -221,31 +226,36 @@ describe('model: Subscription', () => {
 
       test('ignores disabling unknown label string', () => {
         subscription.disable(parse('+label:todo'));
+
         expect(subscription.settings).toEqual({});
       });
 
       test('accepts quoted spaces and colons as part of label string', async () => {
-        subscription.enable(parse(['+label:"help wanted"', '+label:priority:MUST']));
-        expect(subscription.settings).toEqual({ required_labels: ['help wanted', 'priority:MUST'] });
+        subscription.enable(parse(['+label:"help wanted"']));
+
+        expect(subscription.settings).toEqual({ required_labels: ['help wanted'] });
       });
 
       test('parsing, storing and loading works end to end for simple cases', async () => {
-        subscription.enable(parse(['+label:WIP', '+label:priority:MUST']));
+        subscription.enable(parse(['+label:priority:MUST']));
 
-        expect(subscription.settings).toEqual({ required_labels: ['WIP', 'priority:MUST'] });
+        expect(subscription.settings).toEqual({ required_labels: ['priority:MUST'] });
 
         await subscription.save();
-        expect((await subscription.reload()).settings).toEqual({ required_labels: ['WIP', 'priority:MUST'] });
+        expect((await subscription.reload()).settings).toEqual({ required_labels: ['priority:MUST'] });
       });
 
       test('parsing, storing and loading works end to end for complex cases', async () => {
-        subscription.enable(parse(['+label:"help wanted"', '+label:priority:MUST']));
+        subscription.enable(parse(['+label:priority:MUST', '+label:"help wanted"']));
 
-        expect(subscription.settings).toEqual({ required_labels: ['help wanted', 'priority:MUST'] });
+        // TODO change when multiple filters are supported
+        // expect(subscription.settings)
+        // .toEqual({ required_labels: ['help wanted', 'priority:MUST'] });
+        expect(subscription.settings).toEqual({ required_labels: ['help wanted'] });
 
         await subscription.save();
         await subscription.reload();
-        expect(subscription.settings).toEqual({ required_labels: ['help wanted', 'priority:MUST'] });
+        expect(subscription.settings).toEqual({ required_labels: ['help wanted'] });
       });
 
       test('does nothing if +label has no delimiter', async () => {
