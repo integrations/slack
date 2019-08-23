@@ -152,11 +152,20 @@ Label filters allow filtering incoming events based on a whitelist of **required
 
 ##### Affected events
 
-Filters affect:
+This is an overview of the event types that are affected by the required-label filter.
 
-* Pull Requests
-* Issues
-* Comments (on Pull Requests and Issues)
+| Event                  | Is filtered       |
+| ---------------------- | ----------------- |
+| Pull                   | ✅ Yes             |
+| Comment (PR and Issue) | ✅ Yes             |
+| Issue                  | ✅ Yes             |
+| Review                 | ✅ Yes             |
+| Status/Checks          | ✅ (Depends on PR) |
+| Deployment             | ❌ No              |
+| Commit/Push            | ❌ No              |
+| Public                 | ❌ No              |
+| Branch                 | ❌ No              |
+
 
 ##### Creating a filter
 
@@ -166,8 +175,7 @@ Create a filter with:
 ```
 
 This creates a required-label filter with the value `feedback-required`.
-Incoming issues, comments and PRs will be discarded unless they have that label.
-
+Incoming events that support filters discarded unless they have that label.
 ##### Updating a filter
 
 To update the exiting filter just enter a new one, the old one will be updated.
