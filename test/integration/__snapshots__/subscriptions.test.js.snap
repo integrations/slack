@@ -535,7 +535,7 @@ Object {
         "footer",
       ],
       "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`required-label: 'todo'\`",
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
     },
   ],
   "response_type": "in_channel",
@@ -561,7 +561,7 @@ Array [
       "response_url": "https://hooks.slack.com/commands/1234/5678",
       "team_domain": "example",
       "team_id": "T0001",
-      "text": "unsubscribe bkeepers/dotenv +label:'help wanted' +label:\\"priority:MUST\\"",
+      "text": "unsubscribe bkeepers/dotenv +label:'help wanted'",
       "token": "secret",
       "trigger_id": "13345224609.738474920.8088930838d88f008e0",
       "user_id": "U2147483697",

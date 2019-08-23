@@ -34,7 +34,7 @@ This app officially supports GitHub.com and Slack.com but the team plans to supp
 
 <p align="center"><img width="450" alt="auth" src="https://user-images.githubusercontent.com/3877742/36522927-f1d596b6-1753-11e8-9f85-2495e657b16b.png"></p>
 
-After the app is installed, and once you've added the GitHub integration to the relevant channels using `/invite @github`, you will see previews of links to GitHub issues, pull requests, and code rendered as rich text in your workspace.
+After the app is installed, and once you've added the GitHub integration to the relevant channels using `/invite @github`, you will see previews of links to GitHub issues, pull-requests, and code rendered as rich text in your workspace.
 
 <p align="center"><img width="550" alt="unfurl_convo" src="https://user-images.githubusercontent.com/3877742/36522313-c0cdbd08-1750-11e8-8dbe-b5a3a2f93549.png"></p>
 
@@ -132,7 +132,7 @@ These are disabled by default, and can be enabled with the `/github subscribe ow
 - `comments` - New comments on issues and pull requests
 - `branches` - Created or deleted branches
 - `commits:all` - All commits pushed to any branch
-- `label:"your label"` - Filter issues, pull-requests and comments and based on **required** labels.
+- `+label:"your label"` - Filter issues, pull-requests and comments based on their labels.
 
 You can subscribe or unsubscribe from multiple settings at once. For example, to turn on activity for pull request reviews and comments:
 
@@ -150,7 +150,7 @@ And to turn it back off:
 
 Label filters allow filtering incoming events based on a whitelist of **required** labels.
 
-##### Affected events
+##### Events that can be filtered
 
 This is an overview of the event types that are affected by the required-label filter.
 
@@ -166,16 +166,16 @@ This is an overview of the event types that are affected by the required-label f
 | Public                 | ❌ No              |
 | Branch                 | ❌ No              |
 
-
 ##### Creating a filter
 
 Create a filter with:
 ```
-/github subscribe owner/repo +label:feedback-required
+/github subscribe owner/repo +label:priority:HIGH
 ```
 
-This creates a required-label filter with the value `feedback-required`.
+This creates a required-label filter with the value `priority:HIGH`.
 Incoming events that support filters discarded unless they have that label.
+
 ##### Updating a filter
 
 To update the exiting filter just enter a new one, the old one will be updated.
@@ -185,7 +185,7 @@ Currently, we only support having one filter. Multiple filters might be supporte
 /github subscribe owner/repo +label:"teams/designers"
 ```
 
-Now the exiting filter `feedback-required` has been replaced by `teams/designers`.
+Now the exiting filter `priority:HIGH` has been replaced by `teams/designers`.
 
 ##### Removing filters
 
@@ -194,7 +194,7 @@ Removing a filter is available via `unsubscribe`
 /github unsubscribe owner/repo +label:teams/designers
 ```
 
-This removes the `feedback-required` filter.
+This removes the `priority:HIGH` filter.
 
 ##### Listing filters
 
@@ -205,15 +205,20 @@ To see the currently active filters use
 
 ##### Valid filters
 
-It is not possible to support every possible character in label-filters. Espacially multi-byte unicode is hard to
-support. Luckily slack emojis are usually represented as :name:, so emojis are mostly supported. Here is a list of
-supported examples:
+It is common to have certain special characters in labels. Therefore we added support for the most common special characters
+for label filters. Here a few examples:
 
 * `label:priority:HIGH`
 * `label:teams/designers`
 * `label:"DO NOT MERGE"`
 * `label:"very important"`
 * `label:":construction: WIP"`
+
+Most labels will work seemlessly, this includes all emojis that slack and github provide out of the box.
+However in the following rare circumstances you might run into difficulties:
+
+* Multibyte characters that are not encoded as `:foo:`
+* `,` is reserved
 
 ### Migrating from the legacy GitHub integration for Slack
 

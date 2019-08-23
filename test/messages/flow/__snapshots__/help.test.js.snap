@@ -49,14 +49,14 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Create required-label. Issues, Comments, PRs without that label will be ignored.:
+      "text": "Create required-label. Issues, Comments, PRs without that label will be ignored:
 \`/github subscribe owner/repository +label:my-label\`",
     },
     Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Remove required-label.:
+      "text": "Remove required-label:
 \`/github unsubscribe owner/repository +label:my-label\`",
     },
     Object {
@@ -183,14 +183,14 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Create required-label. Issues, Comments, PRs without that label will be ignored.:
+      "text": "Create required-label. Issues, Comments, PRs without that label will be ignored:
 \`/github subscribe owner/repository +label:my-label\`",
     },
     Object {
       "mrkdwn_in": Array [
         "text",
       ],
-      "text": "Remove required-label.:
+      "text": "Remove required-label:
 \`/github unsubscribe owner/repository +label:my-label\`",
     },
     Object {

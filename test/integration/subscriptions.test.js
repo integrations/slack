@@ -343,7 +343,7 @@ describe('Integration: subscriptions', () => {
 
         await request.post('/slack/command').use(slackbot)
           .send(fixtures.slack.command({
-            text: 'subscribe bkeepers/dotenv +label:"help wanted" +label:todo +label:priority:MUST +label:\'good first issue\'',
+            text: 'subscribe bkeepers/dotenv +label:"help wanted"',
           }))
           .expect(200)
           .expect((res) => {
@@ -354,12 +354,12 @@ describe('Integration: subscriptions', () => {
         const { Subscription } = models;
         const [subscription] = await Subscription.lookup(fixtures.repo.id);
 
-        expect(subscription.settings.required_labels).toEqual(expect.arrayContaining(['help wanted', 'todo', 'priority:MUST', 'good first issue']));
+        expect(subscription.settings.required_labels).toEqual(expect.arrayContaining(['help wanted']));
 
         await request.post('/slack/command')
           .use(slackbot)
           .send(fixtures.slack.command({
-            text: 'unsubscribe bkeepers/dotenv +label:\'help wanted\' +label:"priority:MUST"',
+            text: 'unsubscribe bkeepers/dotenv +label:\'help wanted\'',
           }))
           .expect(200)
           .expect((res) => {
@@ -367,8 +367,7 @@ describe('Integration: subscriptions', () => {
           });
 
         await subscription.reload();
-        expect(subscription.settings.required_labels).toEqual(expect.arrayContaining(['todo', 'good first issue']));
-        expect(subscription.settings.required_labels).not.toEqual(expect.arrayContaining(['help wanted', 'priority:MUST']));
+        expect(subscription.settings.required_labels).toBeFalsy();
       });
 
       test('proper error message for subscriptions with invalid arguments', async () => {
