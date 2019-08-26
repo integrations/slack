@@ -86,7 +86,7 @@ describe('Integration: unfurls', () => {
       const unfurlRequests = [];
       function sortUnfurlRequest(a, b) {
         return (Object.keys(JSON.parse(a.unfurls))[0] >
-                Object.keys(JSON.parse(b.unfurls))[0] ? 1 : -1);
+          Object.keys(JSON.parse(b.unfurls))[0] ? 1 : -1);
       }
 
       nock('https://slack.com').post('/api/chat.unfurl', (req) => {
@@ -391,6 +391,7 @@ describe('Integration: unfurls', () => {
       }))
         .expect(500);
     });
+
     test('no prompt is shown for unsupported resources', async () => {
       await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
         event: {
@@ -873,6 +874,57 @@ describe('Integration: unfurls', () => {
         }))
           .expect(200);
       });
+    });
+
+    test('if is_app_in_channel is false for private repos the user is not prompted.', async () => {
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+        200,
+        {
+          private: true,
+          id: 54321,
+        },
+      );
+
+      // User posts link in channel
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+        event: {
+          ...fixtures.slack.link_shared().event,
+          user: 'U0Other',
+          is_app_in_channel: false,
+        },
+      }))
+        .expect(200);
+
+      // FIXME: Don't store evens we discard anyways...
+      // const deliveredUnfurls = await Unfurl.findAll();
+      // expect(deliveredUnfurls).toEqual([]);
+    });
+
+    test('if is_app_in_channel is true, the user is prompted as usual.', async () => {
+      nock('https://api.github.com').get('/repos/bkeepers/dotenv').reply(
+        200,
+        {
+          private: true,
+          id: 54321,
+        },
+      );
+      nock('https://slack.com').post('/api/chat.postEphemeral')
+        .times(1).reply(200, { ok: true });
+
+      // User posts link in channel
+      await request(probot.server).post('/slack/events').send(fixtures.slack.link_shared({
+        event: {
+          ...fixtures.slack.link_shared().event,
+          user: 'U0Other',
+          is_app_in_channel: true,
+        },
+      }))
+        .expect(200);
+
+      // we create an unfurl in caes of prompting the user first.
+      // It is marked as not delivered
+      const [deliveredUnfurl] = await Unfurl.findAll();
+      expect(deliveredUnfurl.isDelivered).toBeFalsy();
     });
 
     test('user sees error message when github.com unfurls are disabled in the workspace', async () => {
