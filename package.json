@@ -3,7 +3,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node --max-semi-space-size=64 ./lib/run.js",
-    "test": "node --expose-gc --max-old-space-size=4096 ./node_modules/.bin/jest --coverage --runInBand --logHeapUsage --bail --forceExit",
+    "test": "node --expose-gc --max-old-space-size=4096 ./node_modules/.bin/jest --coverage --runInBand --logHeapUsage --color --bail --forceExit",
     "test:watch": "node --expose-gc --max-old-space-size=4096 ./node_modules/.bin/jest --runInBand --logHeapUsage --forceExit --watch --notify",
     "posttest": "npm run lint",
     "lint": "eslint lib test",
