@@ -82,5 +82,12 @@ describe('Command class', () => {
       });
       expect(command.text).toEqual('integration/jira +label:"help wanted"');
     });
+
+    test('supports combining multiple types of quotes in one command', () => {
+      const command = new Command({
+        text: 'subscribe integration/jira +label:»help wanted«',
+      });
+      expect(command.text).toEqual('integration/jira +label:"help wanted"');
+    });
   });
 });
