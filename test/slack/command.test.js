@@ -39,4 +39,55 @@ describe('Command class', () => {
       'area/api',
     ]);
   });
+
+  describe('normalizes unicode quotes', () => {
+    test("supports '\u00AB'", () => {
+      const command = new Command({
+        text: 'subscribe integration/jira +label:«help wanted«',
+      });
+      expect(command.text).toEqual('integration/jira +label:"help wanted"');
+    });
+
+    test("supports '\u00BB'", () => {
+      const command = new Command({
+        text: 'subscribe integration/jira +label:»help wanted»',
+      });
+      expect(command.text).toEqual('integration/jira +label:"help wanted"');
+    });
+
+    test("supports '\u201C'", () => {
+      const command = new Command({
+        text: 'subscribe integration/jira +label:“help wanted“',
+      });
+      expect(command.text).toEqual('integration/jira +label:"help wanted"');
+    });
+
+    test("supports '\u201D'", () => {
+      const command = new Command({
+        text: 'subscribe integration/jira +label:”help wanted”',
+      });
+      expect(command.text).toEqual('integration/jira +label:"help wanted"');
+    });
+
+    test("supports '\u201E'", () => {
+      const command = new Command({
+        text: 'subscribe integration/jira +label:„help wanted„',
+      });
+      expect(command.text).toEqual('integration/jira +label:"help wanted"');
+    });
+
+    test("supports '\u201F'", () => {
+      const command = new Command({
+        text: 'subscribe integration/jira +label:‟help wanted‟',
+      });
+      expect(command.text).toEqual('integration/jira +label:"help wanted"');
+    });
+
+    test('supports combining multiple types of quotes in one command', () => {
+      const command = new Command({
+        text: 'subscribe integration/jira +label:»help wanted«',
+      });
+      expect(command.text).toEqual('integration/jira +label:"help wanted"');
+    });
+  });
 });
