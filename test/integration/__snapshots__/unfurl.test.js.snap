@@ -643,6 +643,21 @@ Array [
 ]
 `;
 
+exports[`Integration: unfurls public unfurls issue comments 1`] = `
+Array [
+  "unfurl-eligibility#T000A:C74M:https://github.com/rust-lang/rust/issues/63997#issuecomment-526118914",
+]
+`;
+
+exports[`Integration: unfurls public unfurls issue comments 2`] = `
+Array [
+  Array [
+    "unfurl-eligibility#T000A:C74M:https://github.com/rust-lang/rust/issues/63997#issuecomment-526118914",
+    true,
+  ],
+]
+`;
+
 exports[`Integration: unfurls public unfurls only unfurls link first time a link is shared 1`] = `
 Object {
   "channel": "C74M",
