@@ -53,6 +53,47 @@ describe('Integration: unfurls', () => {
         .expect(200);
     });
 
+    test('issue comments', async () => {
+      // nock the repo for the isPrivate check
+      nock('https://api.github.com').get('/repos/rust-lang/rust')
+        .reply(200, { ...fixtures.repoRust });
+
+      // nock the repo's issue for the fetching comments
+      nock('https://api.github.com').get('/repos/rust-lang/rust/issues/63997')
+        .reply(200, {});
+
+      // nock fetching the actual comment
+      nock('https://api.github.com')
+        .get('/repos/rust-lang/rust/issues/comments/526118914')
+        .reply(200, { ...fixtures.commentRust });
+
+      // nock the repo again, becasue we re-fetch it in the issueComment :/
+      nock('https://api.github.com').get('/repos/rust-lang/rust')
+        .reply(200, { ...fixtures.repo_rust });
+
+      nock('https://slack.com')
+        .post('/api/chat.unfurl')
+        .reply(200, { ok: true });
+
+
+      const issueCommentEvent = {
+        ...fixtures.slack.link_shared().event,
+        links: [
+          {
+            url: 'https://github.com/rust-lang/rust/issues/63997#issuecomment-526118914',
+            domain: 'github.com',
+          },
+        ],
+      };
+
+      const response = await request(probot.server).post('/slack/events').send({
+        ...fixtures.slack.link_shared(),
+        event: issueCommentEvent,
+      });
+      expect(response.status).toEqual(200);
+    });
+
+
     test('only unfurls link first time a link is shared', async () => {
       nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(
         200,
