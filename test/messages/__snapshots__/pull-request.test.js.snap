@@ -5,7 +5,7 @@ Object {
   "color": "#36a64f",
   "fallback": "[github-slack/app] #31 Add badges to readme",
   "footer": "<https://github.com/github-slack/app|github-slack/app>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -30,7 +30,7 @@ Object {
     },
   ],
   "footer": "<https://github.com/github-slack/app|github-slack/app>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -49,7 +49,7 @@ Object {
       "color": "#6f42c1",
       "fallback": "[github-slack/app] #36 Rearrange logic",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -84,7 +84,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -116,7 +116,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -132,6 +132,54 @@ Object {
       "fallback": "All checks have passed",
       "footer": "4/4 successful checks",
       "text": ":white_check_mark: All checks have passed",
+    },
+  ],
+}
+`;
+
+exports[`Pull request rendering works for notification messages with check runs 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "author_icon": "https://avatars1.githubusercontent.com/u/7718702?v=4",
+      "author_link": "https://github.com/wilhelmklopp",
+      "author_name": "wilhelmklopp",
+      "color": "#36a64f",
+      "fallback": "[github-slack/app] #31 Add badges to readme",
+      "fields": Array [
+        Object {
+          "short": true,
+          "title": "Milestone",
+          "value": "<https://github.com/github-slack/app/milestone/1|Staff Ship>",
+        },
+      ],
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "pretext": "Pull request opened by wilhelmklopp",
+      "text": "![image](https://user-images.githubusercontent.com/7718702/30750617-39e2fb52-9fb7-11e7-8da1-d6542317bee2.png)
+",
+      "title": "#31 Add badges to readme",
+      "title_link": "https://github.com/github-slack/app/pull/31",
+      "ts": 1506092298,
+    },
+    Object {
+      "author_icon": "https://github.com/images/error/octocat_happy.gif",
+      "author_link": "http://github.com/github/hello-world/runs/4",
+      "author_name": "Super CI: Mighty Readme report",
+      "color": "#dbab09",
+      "fallback": "Super CI: Mighty Readme report",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+    },
+    Object {
+      "color": "#dbab09",
+      "fallback": "2 other checks have passed",
+      "footer": "2/3 successful checks",
+      "text": ":white_check_mark: 2 other checks have passed",
     },
   ],
 }
@@ -154,7 +202,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -196,7 +244,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -228,7 +276,7 @@ Object {
       ],
     },
     Object {
-      "color": "#28a745",
+      "color": "#dbab09",
       "fallback": "2 other checks have passed",
       "footer": "2/4 successful checks",
       "text": ":white_check_mark: 2 other checks have passed",
@@ -254,7 +302,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -271,16 +319,6 @@ Object {
       "author_name": "continuous-integration/travis-ci/pr: The Travis CI build is pending",
       "color": "#dbab09",
       "fallback": "continuous-integration/travis-ci/pr: The Travis CI build is pending",
-      "mrkdwn_in": Array [
-        "text",
-      ],
-    },
-    Object {
-      "author_icon": "https://avatars2.githubusercontent.com/oa/1508?v=4",
-      "author_link": "https://travis-ci.org/github-slack/app/builds/278661144?utm_source=github_status&utm_medium=notification",
-      "author_name": "continuous-integration/travis-ci/push: The Travis CI build passed",
-      "color": "#28a745",
-      "fallback": "continuous-integration/travis-ci/push: The Travis CI build passed",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -305,6 +343,12 @@ Object {
         "text",
       ],
     },
+    Object {
+      "color": "#dbab09",
+      "fallback": "1 other check has passed",
+      "footer": "1/4 successful checks",
+      "text": ":white_check_mark: 1 other check has passed",
+    },
   ],
 }
 `;
@@ -316,7 +360,7 @@ Object {
       "color": "#36a64f",
       "fallback": "[github-slack/app] #31 Add badges to readme",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],

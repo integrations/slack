@@ -4,7 +4,7 @@ const nock = require('nock');
 const { probot, slackbot, models } = require('.');
 const fixtures = require('../fixtures');
 
-describe('Integration: User settings', async () => {
+describe('Integration: User settings', () => {
   let slackUser;
   beforeEach(async () => {
     const { SlackWorkspace, SlackUser } = models;
@@ -28,7 +28,7 @@ describe('Integration: User settings', async () => {
     const { text } = res.body.attachments[0].actions[0];
     expect(text).toMatch('Connect GitHub account');
   });
-  describe('authenticated user', async () => {
+  describe('authenticated user', () => {
     beforeEach(async () => {
       const { GitHubUser } = models;
       const githubUser = await GitHubUser.create({
@@ -170,7 +170,7 @@ describe('Integration: User settings', async () => {
         });
     });
 
-    describe('with both settings configured', async () => {
+    describe('with both settings configured', () => {
       beforeEach(async () => {
         await slackUser.update({
           settings: {

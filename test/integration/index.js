@@ -1,7 +1,7 @@
 const { createProbot } = require('probot');
-const GitHubAPI = require('../../lib/github/client');
-const logger = require('../../lib/logger');
 const nock = require('nock');
+const { GitHubAPI, ProbotOctokit } = require('../../lib/github/client');
+const logger = require('../../lib/logger');
 
 const slackbot = require('../slackbot');
 const app = require('../../lib');
@@ -20,7 +20,13 @@ beforeEach(async () => nock.cleanAll());
 afterEach(() => expect(nock.pendingMocks()).toEqual([]));
 
 // Ensure there is a connection established
-beforeAll(async () => models.sequelize.authenticate());
+beforeAll(async () => {
+  if (global.gc) {
+    global.gc();
+  }
+  models.sequelize.authenticate();
+});
+
 // Close connection when tests are done
 afterAll(async () => models.sequelize.close());
 
@@ -34,7 +40,18 @@ beforeEach(() => {
   probot.logger.level(process.env.LOG_LEVEL);
 
   // FIXME: Upstream probot needs an easier way to mock this out.
-  robot.auth = jest.fn().mockReturnValue(Promise.resolve(GitHubAPI({ logger })));
+  robot.auth = jest.fn().mockReturnValue(Promise.resolve(GitHubAPI({
+    Octokit: ProbotOctokit,
+    logger,
+    retry: {
+      // disable retries to test error states
+      enabled: false,
+    },
+    throttle: {
+      // disable throttling, otherwise tests are _slow_
+      enabled: false,
+    },
+  })));
 
   // Clear all data out of the test database
   return Promise.all([
@@ -56,10 +73,12 @@ afterEach(() => {
 
   // Only match snapshot if it's not an empty map or set
   if (getKeys.size > 0) {
-    expect(getKeys).toMatchSnapshot();
+    const sortedKeys = [...getKeys].sort();
+    expect(sortedKeys).toMatchSnapshot();
   }
   if (cacheStatus.size > 0) {
-    expect(cacheStatus).toMatchSnapshot();
+    const sortedEntries = [...cacheStatus].sort((a, b) => (a[0] > b[0] ? 1 : -1));
+    expect(sortedEntries).toMatchSnapshot();
   }
 
   getSpy.mockRestore();

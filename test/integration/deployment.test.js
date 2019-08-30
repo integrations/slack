@@ -4,11 +4,9 @@ const nock = require('nock');
 const { probot, models } = require('.');
 const fixtures = require('../fixtures');
 
-const {
-  SlackUser,
-  GitHubUser,
-  Installation,
-} = models;
+const { SlackUser, GitHubUser, Installation } = models;
+
+const jestTimeout = 10000;
 
 describe('Integration: Creating and listing deployments from Slack', () => {
   let workspace;
@@ -36,8 +34,9 @@ describe('Integration: Creating and listing deployments from Slack', () => {
       ownerId: 1337,
     });
   });
+
   test('works when specifying a repository', async () => {
-    jest.setTimeout(10000);
+    jest.setTimeout(jestTimeout);
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
       full_name: 'kubernetes/kubernetes',
       id: 54321,
@@ -92,7 +91,7 @@ describe('Integration: Creating and listing deployments from Slack', () => {
   });
 
   test('works when specifying a repository with no tags', async () => {
-    jest.setTimeout(10000);
+    jest.setTimeout(jestTimeout);
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
       full_name: 'kubernetes/kubernetes',
       id: 54321,
@@ -147,7 +146,7 @@ describe('Integration: Creating and listing deployments from Slack', () => {
   });
 
   test('throws error when specifying a repository with no tags and didnt receive a 404', async () => {
-    jest.setTimeout(10000);
+    jest.setTimeout(jestTimeout);
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
       full_name: 'kubernetes/kubernetes',
       id: 54321,
@@ -167,7 +166,7 @@ describe('Integration: Creating and listing deployments from Slack', () => {
   });
 
   test('informs to accept new permissions', async () => {
-    jest.setTimeout(10000);
+    jest.setTimeout(jestTimeout);
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {
       full_name: 'kubernetes/kubernetes',
       id: 54321,

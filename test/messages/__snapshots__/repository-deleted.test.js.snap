@@ -14,7 +14,7 @@ Object {
         },
       ],
       "footer": "<https://github.com/github-slack-test-org/i-will-be-deleted|github-slack-test-org/i-will-be-deleted>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
         "fields",

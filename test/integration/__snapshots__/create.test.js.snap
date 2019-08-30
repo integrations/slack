@@ -8,29 +8,32 @@ Object {
 `;
 
 exports[`Integration: Creating issues from Slack fails when specifying a repository, there are multiple issue templates in it, and no template was specified 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating issues from Slack fails when specifying a repository, there are multiple issue templates in it, and no template was specified 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "open kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "open kubernetes/kubernetes",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository 1`] = `
@@ -46,29 +49,32 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 exports[`Integration: Creating issues from Slack works when specifying a repository 3`] = `Object {}`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository 4`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository 5`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "open kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "open kubernetes/kubernetes",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are multiple issue templates in it 1`] = `
@@ -84,29 +90,32 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are multiple issue templates in it 3`] = `Object {}`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are multiple issue templates in it 4`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are multiple issue templates in it 5`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "open kubernetes/kubernetes feature",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "open kubernetes/kubernetes feature",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 1`] = `
@@ -122,29 +131,32 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 3`] = `Object {}`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 4`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 5`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "open kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "open kubernetes/kubernetes",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there is an issue template in it 1`] = `
@@ -160,29 +172,32 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 exports[`Integration: Creating issues from Slack works when specifying a repository and there is an issue template in it 3`] = `Object {}`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there is an issue template in it 4`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository and there is an issue template in it 5`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "open kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "open kubernetes/kubernetes",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 1`] = `
@@ -198,29 +213,32 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 3`] = `Object {}`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 4`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 5`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "open kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "open kubernetes/kubernetes",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 1`] = `
@@ -236,29 +254,32 @@ exports[`Integration: Creating issues from Slack works when specifying a reposit
 exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 3`] = `Object {}`;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 4`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 5`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "open kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "open kubernetes/kubernetes",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 1`] = `

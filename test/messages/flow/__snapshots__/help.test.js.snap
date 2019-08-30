@@ -36,14 +36,28 @@ Object {
         "text",
       ],
       "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
-\`/github subscribe owner/respository reviews,comments\`",
+\`/github subscribe owner/repository reviews,comments\`",
     },
     Object {
       "mrkdwn_in": Array [
         "text",
       ],
       "text": "Unsubscribe from one or more subscription features:
-\`/github unsubscribe owner/respository commits\`",
+\`/github unsubscribe owner/repository commits\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Create required-label. Issues, Comments, PRs without that label will be ignored:
+\`/github subscribe owner/repository +label:my-label\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Remove required-label:
+\`/github unsubscribe owner/repository +label:my-label\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -111,7 +125,7 @@ Object {
     Object {
       "color": "",
       "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "text": "",
     },
   ],
@@ -156,14 +170,28 @@ Object {
         "text",
       ],
       "text": "Subscribe to additional features and adjust the configuration of your subscription (<https://github.com/integrations/slack#configuration|Learn more>):
-\`/github subscribe owner/respository reviews,comments\`",
+\`/github subscribe owner/repository reviews,comments\`",
     },
     Object {
       "mrkdwn_in": Array [
         "text",
       ],
       "text": "Unsubscribe from one or more subscription features:
-\`/github unsubscribe owner/respository commits\`",
+\`/github unsubscribe owner/repository commits\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Create required-label. Issues, Comments, PRs without that label will be ignored:
+\`/github subscribe owner/repository +label:my-label\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Remove required-label:
+\`/github unsubscribe owner/repository +label:my-label\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -182,7 +210,7 @@ Object {
     Object {
       "color": "",
       "footer": "<https://github.com/integrations/slack#readme|Learn More> — <https://github.com/contact?form%5Bsubject%5D=GitHub%2BSlack%20integration|Contact Support>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "text": "",
     },
     Object {

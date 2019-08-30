@@ -7,29 +7,32 @@ Object {
 `;
 
 exports[`Integration: Creating and listing deployments from Slack informs of no deployments found when listing deployments 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack informs of no deployments found when listing deployments 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "deploy kubernetes/kubernetes list",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack informs to accept new permissions 1`] = `
@@ -54,29 +57,32 @@ Object {
 exports[`Integration: Creating and listing deployments from Slack informs to accept new permissions 4`] = `Object {}`;
 
 exports[`Integration: Creating and listing deployments from Slack informs to accept new permissions 5`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack informs to accept new permissions 6`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "deploy kubernetes/kubernetes",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack throws error when listing deployments and none are found 1`] = `
@@ -105,29 +111,32 @@ _Note: If you are not the owner of the repository or the owner of the organizati
 `;
 
 exports[`Integration: Creating and listing deployments from Slack throws error when listing deployments and none are found 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack throws error when listing deployments and none are found 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "deploy kubernetes/kubernetes list",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack throws error when specifying a repository with no tags and didnt receive a 404 1`] = `
@@ -137,29 +146,32 @@ Object {
 `;
 
 exports[`Integration: Creating and listing deployments from Slack throws error when specifying a repository with no tags and didnt receive a 404 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack throws error when specifying a repository with no tags and didnt receive a 404 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "deploy kubernetes/kubernetes",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack works when listing deployments 1`] = `
@@ -184,7 +196,7 @@ Object {
         },
       ],
       "footer": "kubernetes/kubernetes",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "pretext": ":rocket: Deployment created by gimenete",
       "title": "foobar - adsf",
       "title_link": "https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469",
@@ -195,29 +207,32 @@ Object {
 `;
 
 exports[`Integration: Creating and listing deployments from Slack works when listing deployments 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack works when listing deployments 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes list",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "deploy kubernetes/kubernetes list",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 1`] = `
@@ -232,7 +247,7 @@ exports[`Integration: Creating and listing deployments from Slack works when spe
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 3`] = `
 Object {
-  "attachments": "[{\\"fallback\\":\\"gimenete triggered a deploy on production from foobar\\",\\"color\\":\\"#24292f\\",\\"pretext\\":\\":rocket: Deployment created by gimenete\\",\\"author_name\\":\\"gimenete\\",\\"author_link\\":\\"https://github.com/gimenete\\",\\"author_icon\\":\\"https://avatars.githubusercontent.com/gimenete\\",\\"title\\":\\"foobar - adsf\\",\\"title_link\\":\\"https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469\\",\\"fields\\":[{\\"title\\":\\"Task\\",\\"value\\":\\"deploy\\",\\"short\\":true},{\\"title\\":\\"Environment\\",\\"value\\":\\"production\\",\\"short\\":true}],\\"footer\\":\\"kubernetes/kubernetes\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1537454125}]",
+  "attachments": "[{\\"fallback\\":\\"gimenete triggered a deploy on production from foobar\\",\\"color\\":\\"#24292f\\",\\"pretext\\":\\":rocket: Deployment created by gimenete\\",\\"author_name\\":\\"gimenete\\",\\"author_link\\":\\"https://github.com/gimenete\\",\\"author_icon\\":\\"https://avatars.githubusercontent.com/gimenete\\",\\"title\\":\\"foobar - adsf\\",\\"title_link\\":\\"https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469\\",\\"fields\\":[{\\"title\\":\\"Task\\",\\"value\\":\\"deploy\\",\\"short\\":true},{\\"title\\":\\"Environment\\",\\"value\\":\\"production\\",\\"short\\":true}],\\"footer\\":\\"kubernetes/kubernetes\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"ts\\":1537454125}]",
   "channel": "C2147483705",
   "token": "xoxa-token",
 }
@@ -241,29 +256,32 @@ Object {
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 4`] = `Object {}`;
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 5`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository 6`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "deploy kubernetes/kubernetes",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository with no tags 1`] = `
@@ -278,7 +296,7 @@ exports[`Integration: Creating and listing deployments from Slack works when spe
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository with no tags 3`] = `
 Object {
-  "attachments": "[{\\"fallback\\":\\"gimenete triggered a deploy on production from foobar\\",\\"color\\":\\"#24292f\\",\\"pretext\\":\\":rocket: Deployment created by gimenete\\",\\"author_name\\":\\"gimenete\\",\\"author_link\\":\\"https://github.com/gimenete\\",\\"author_icon\\":\\"https://avatars.githubusercontent.com/gimenete\\",\\"title\\":\\"foobar - adsf\\",\\"title_link\\":\\"https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469\\",\\"fields\\":[{\\"title\\":\\"Task\\",\\"value\\":\\"deploy\\",\\"short\\":true},{\\"title\\":\\"Environment\\",\\"value\\":\\"production\\",\\"short\\":true}],\\"footer\\":\\"kubernetes/kubernetes\\",\\"footer_icon\\":\\"https://assets-cdn.github.com/favicon.ico\\",\\"ts\\":1537454125}]",
+  "attachments": "[{\\"fallback\\":\\"gimenete triggered a deploy on production from foobar\\",\\"color\\":\\"#24292f\\",\\"pretext\\":\\":rocket: Deployment created by gimenete\\",\\"author_name\\":\\"gimenete\\",\\"author_link\\":\\"https://github.com/gimenete\\",\\"author_icon\\":\\"https://avatars.githubusercontent.com/gimenete\\",\\"title\\":\\"foobar - adsf\\",\\"title_link\\":\\"https://github.com/Test-slack-github/test2/commit/c877632a9abfe07c9d0866dc0de2d69a975b5469\\",\\"fields\\":[{\\"title\\":\\"Task\\",\\"value\\":\\"deploy\\",\\"short\\":true},{\\"title\\":\\"Environment\\",\\"value\\":\\"production\\",\\"short\\":true}],\\"footer\\":\\"kubernetes/kubernetes\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"ts\\":1537454125}]",
   "channel": "C2147483705",
   "token": "xoxa-token",
 }
@@ -287,27 +305,30 @@ Object {
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository with no tags 4`] = `Object {}`;
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository with no tags 5`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: Creating and listing deployments from Slack works when specifying a repository with no tags 6`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "deploy kubernetes/kubernetes",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "deploy kubernetes/kubernetes",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;

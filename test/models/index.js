@@ -2,6 +2,9 @@ const models = require('../../lib/models');
 const logger = require('../../lib/logger');
 
 beforeAll(async () => {
+  if (global.gc) {
+    global.gc();
+  }
   // Ensure there is a connection established
   models.sequelize.authenticate();
 
