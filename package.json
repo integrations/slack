@@ -8,6 +8,7 @@
     "posttest": "npm run lint",
     "lint": "eslint lib test",
     "dev": "nodemon --exec npm start",
+    "debug": "nodemon --inspect --max-semi-space-size=64 ./lib/run.js",
     "migrate": "sequelize db:migrate"
   },
   "dependencies": {
