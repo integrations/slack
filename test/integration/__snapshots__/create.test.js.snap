@@ -39,7 +39,7 @@ Array [
 exports[`Integration: Creating issues from Slack works when specifying a repository 1`] = `
 Object {
   "dialog": "{\\"state\\":\\"{\\\\\\"resource\\\\\\":{\\\\\\"type\\\\\\":\\\\\\"repo\\\\\\",\\\\\\"owner\\\\\\":\\\\\\"kubernetes\\\\\\",\\\\\\"repo\\\\\\":\\\\\\"kubernetes\\\\\\"},\\\\\\"channel\\\\\\":\\\\\\"C2147483705\\\\\\"}\\",\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"\\"},{\\"label\\":\\"Label\\",\\"type\\":\\"select\\",\\"name\\":\\"label\\",\\"optional\\":true,\\"options\\":[{\\"label\\":\\"test\\",\\"value\\":\\"test\\"}]}]}",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "trigger_id": "13345224609.738474920.8088930838d88f008e0",
 }
 `;
@@ -80,7 +80,7 @@ Array [
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are multiple issue templates in it 1`] = `
 Object {
   "dialog": "{\\"state\\":\\"{\\\\\\"resource\\\\\\":{\\\\\\"type\\\\\\":\\\\\\"repo\\\\\\",\\\\\\"owner\\\\\\":\\\\\\"kubernetes\\\\\\",\\\\\\"repo\\\\\\":\\\\\\"kubernetes\\\\\\"},\\\\\\"channel\\\\\\":\\\\\\"C2147483705\\\\\\"}\\",\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"---\\\\nname: Bug report\\\\nabout: Create a report to help us improve\\\\n\\\\n---\\\\n\\\\n**Describe the bug**\\\\nA clear and concise description of what the bug is.\\\\n\\\\n**To Reproduce**\\\\nSteps to reproduce the behavior:\\\\n1. Go to '...'\\\\n2. Click on '....'\\\\n3. Scroll down to '....'\\\\n4. See error\\\\n\\\\n**Expected behavior**\\\\nA clear and concise description of what you expected to happen.\\\\n\\\\n**Screenshots**\\\\nIf applicable, add screenshots to help explain your problem.\\\\n\\\\n**Desktop (please complete the following information):**\\\\n - OS: [e.g. iOS]\\\\n - Browser [e.g. chrome, safari]\\\\n - Version [e.g. 22]\\\\n\\\\n**Smartphone (please complete the following information):**\\\\n - Device: [e.g. iPhone6]\\\\n - OS: [e.g. iOS8.1]\\\\n - Browser [e.g. stock browser, safari]\\\\n - Version [e.g. 22]\\\\n\\\\n**Additional context**\\\\nAdd any other context about the problem here.\\\\n\\"},{\\"label\\":\\"Label\\",\\"type\\":\\"select\\",\\"name\\":\\"label\\",\\"optional\\":true,\\"options\\":[{\\"label\\":\\"test\\",\\"value\\":\\"test\\"}]}]}",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "trigger_id": "13345224609.738474920.8088930838d88f008e0",
 }
 `;
@@ -121,7 +121,7 @@ Array [
 exports[`Integration: Creating issues from Slack works when specifying a repository and there are no issue templates in it 1`] = `
 Object {
   "dialog": "{\\"state\\":\\"{\\\\\\"resource\\\\\\":{\\\\\\"type\\\\\\":\\\\\\"repo\\\\\\",\\\\\\"owner\\\\\\":\\\\\\"kubernetes\\\\\\",\\\\\\"repo\\\\\\":\\\\\\"kubernetes\\\\\\"},\\\\\\"channel\\\\\\":\\\\\\"C2147483705\\\\\\"}\\",\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"\\"},{\\"label\\":\\"Label\\",\\"type\\":\\"select\\",\\"name\\":\\"label\\",\\"optional\\":true,\\"options\\":[{\\"label\\":\\"test\\",\\"value\\":\\"test\\"}]}]}",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "trigger_id": "13345224609.738474920.8088930838d88f008e0",
 }
 `;
@@ -162,7 +162,7 @@ Array [
 exports[`Integration: Creating issues from Slack works when specifying a repository and there is an issue template in it 1`] = `
 Object {
   "dialog": "{\\"state\\":\\"{\\\\\\"resource\\\\\\":{\\\\\\"type\\\\\\":\\\\\\"repo\\\\\\",\\\\\\"owner\\\\\\":\\\\\\"kubernetes\\\\\\",\\\\\\"repo\\\\\\":\\\\\\"kubernetes\\\\\\"},\\\\\\"channel\\\\\\":\\\\\\"C2147483705\\\\\\"}\\",\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"---\\\\nname: Bug report\\\\nabout: Create a report to help us improve\\\\n\\\\n---\\\\n\\\\n**Describe the bug**\\\\nA clear and concise description of what the bug is.\\\\n\\\\n**To Reproduce**\\\\nSteps to reproduce the behavior:\\\\n1. Go to '...'\\\\n2. Click on '....'\\\\n3. Scroll down to '....'\\\\n4. See error\\\\n\\\\n**Expected behavior**\\\\nA clear and concise description of what you expected to happen.\\\\n\\\\n**Screenshots**\\\\nIf applicable, add screenshots to help explain your problem.\\\\n\\\\n**Desktop (please complete the following information):**\\\\n - OS: [e.g. iOS]\\\\n - Browser [e.g. chrome, safari]\\\\n - Version [e.g. 22]\\\\n\\\\n**Smartphone (please complete the following information):**\\\\n - Device: [e.g. iPhone6]\\\\n - OS: [e.g. iOS8.1]\\\\n - Browser [e.g. stock browser, safari]\\\\n - Version [e.g. 22]\\\\n\\\\n**Additional context**\\\\nAdd any other context about the problem here.\\\\n\\"},{\\"label\\":\\"Label\\",\\"type\\":\\"select\\",\\"name\\":\\"label\\",\\"optional\\":true,\\"options\\":[{\\"label\\":\\"test\\",\\"value\\":\\"test\\"}]}]}",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "trigger_id": "13345224609.738474920.8088930838d88f008e0",
 }
 `;
@@ -203,7 +203,7 @@ Array [
 exports[`Integration: Creating issues from Slack works when specifying a repository with a bad labels response 1`] = `
 Object {
   "dialog": "{\\"state\\":\\"{\\\\\\"resource\\\\\\":{\\\\\\"type\\\\\\":\\\\\\"repo\\\\\\",\\\\\\"owner\\\\\\":\\\\\\"kubernetes\\\\\\",\\\\\\"repo\\\\\\":\\\\\\"kubernetes\\\\\\"},\\\\\\"channel\\\\\\":\\\\\\"C2147483705\\\\\\"}\\",\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"\\"}]}",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "trigger_id": "13345224609.738474920.8088930838d88f008e0",
 }
 `;
@@ -244,7 +244,7 @@ Array [
 exports[`Integration: Creating issues from Slack works when specifying a repository with an empty labels list 1`] = `
 Object {
   "dialog": "{\\"state\\":\\"{\\\\\\"resource\\\\\\":{\\\\\\"type\\\\\\":\\\\\\"repo\\\\\\",\\\\\\"owner\\\\\\":\\\\\\"kubernetes\\\\\\",\\\\\\"repo\\\\\\":\\\\\\"kubernetes\\\\\\"},\\\\\\"channel\\\\\\":\\\\\\"C2147483705\\\\\\"}\\",\\"callback_id\\":\\"create-issue-dialog\\",\\"title\\":\\"Open a new issue\\",\\"submit_label\\":\\"Open\\",\\"elements\\":[{\\"label\\":\\"Repository\\",\\"type\\":\\"select\\",\\"name\\":\\"repository\\",\\"value\\":54321,\\"options\\":[{\\"label\\":\\"kubernetes/kubernetes\\",\\"value\\":54321}]},{\\"type\\":\\"text\\",\\"label\\":\\"Title\\",\\"name\\":\\"title\\"},{\\"type\\":\\"textarea\\",\\"label\\":\\"Body\\",\\"name\\":\\"body\\",\\"placeholder\\":\\"Leave a comment\\",\\"hint\\":\\"GitHub markdown syntax is supported, although you cannot preview it in Slack.\\",\\"value\\":\\"\\"}]}",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "trigger_id": "13345224609.738474920.8088930838d88f008e0",
 }
 `;
@@ -285,7 +285,7 @@ Array [
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can input a URL, comment by submitting the dialog, and view a confirmation message 1`] = `
 Object {
   "dialog": "{\\"callback_id\\":\\"add-comment\\",\\"title\\":\\"Comment on Issue or PR\\",\\"submit_label\\":\\"Comment\\",\\"elements\\":[{\\"type\\":\\"select\\",\\"label\\":\\"Search by title\\",\\"name\\":\\"selectedUrl\\",\\"data_source\\":\\"external\\",\\"min_query_length\\":0,\\"optional\\":true},{\\"type\\":\\"text\\",\\"subtype\\":\\"url\\",\\"label\\":\\"Issue or Pull Request\\",\\"placeholder\\":\\"https://github.com/atom/atom/issues/1\\",\\"name\\":\\"manualUrl\\",\\"hint\\":\\"A link to a different Issue or Pull Request that you want to comment on in case it's not shown in the menu above\\",\\"optional\\":true},{\\"type\\":\\"textarea\\",\\"label\\":\\"Comment\\",\\"name\\":\\"comment\\",\\"value\\":\\"> World's smallest big cat! <https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>\\"}]}",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "trigger_id": "13345224609.738474920.8088930838d88f008e0",
 }
 `;
@@ -419,7 +419,7 @@ exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thr
 exports[`Integration: Slack actions Attaching a Slack message to an issue/pr thread User can select issue, comment by submitting the dialog, and view a confirmation message 1`] = `
 Object {
   "dialog": "{\\"callback_id\\":\\"add-comment\\",\\"title\\":\\"Comment on Issue or PR\\",\\"submit_label\\":\\"Comment\\",\\"elements\\":[{\\"type\\":\\"select\\",\\"label\\":\\"Search by title\\",\\"name\\":\\"selectedUrl\\",\\"data_source\\":\\"external\\",\\"min_query_length\\":0,\\"optional\\":true},{\\"type\\":\\"text\\",\\"subtype\\":\\"url\\",\\"label\\":\\"Issue or Pull Request\\",\\"placeholder\\":\\"https://github.com/atom/atom/issues/1\\",\\"name\\":\\"manualUrl\\",\\"hint\\":\\"A link to a different Issue or Pull Request that you want to comment on in case it's not shown in the menu above\\",\\"optional\\":true},{\\"type\\":\\"textarea\\",\\"label\\":\\"Comment\\",\\"name\\":\\"comment\\",\\"value\\":\\"> World's smallest big cat! <https://youtube.com/watch?v=W86cTIoMv2U>\\\\n<sub>[View in Slack](https://example.slack.com/archives/C74M/p1516229207000133)</sub>\\"}]}",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "trigger_id": "13345224609.738474920.8088930838d88f008e0",
 }
 `;

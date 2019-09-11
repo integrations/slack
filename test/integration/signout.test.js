@@ -31,6 +31,7 @@ describe('Integration: signout', () => {
     workspace = await SlackWorkspace.create({
       slackId: 'T0001',
       accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
 
     githubUser = await GitHubUser.create({

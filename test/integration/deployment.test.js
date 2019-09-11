@@ -15,7 +15,8 @@ describe('Integration: Creating and listing deployments from Slack', () => {
     const { SlackWorkspace } = models;
     workspace = await SlackWorkspace.create({
       slackId: 'T0001',
-      accessToken: 'xoxa-token',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
 
     githubUser = await GitHubUser.create({

@@ -18,6 +18,7 @@ describe('Uninstalling the slack app', () => {
     const slackWorkspace = await SlackWorkspace.create({
       slackId: 'T0001',
       accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
 
     const slackUser = await SlackUser.create({

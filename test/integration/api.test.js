@@ -31,6 +31,7 @@ describe('Integration: api', () => {
     workspace = await SlackWorkspace.create({
       slackId: 'T0001',
       accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
     slackUser = await SlackUser.create({
       slackId: 'U2147483697',

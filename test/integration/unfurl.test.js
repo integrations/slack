@@ -25,7 +25,8 @@ describe('Integration: unfurls', () => {
     const { SlackWorkspace } = models;
     workspace = await SlackWorkspace.create({
       slackId: 'T000A',
-      accessToken: 'xoxa-token',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
   });
 
@@ -784,7 +785,8 @@ describe('Integration: unfurls', () => {
         const { SlackWorkspace } = models;
         await SlackWorkspace.create({
           slackId: 'T0Other',
-          accessToken: 'xoxa-token',
+          accessToken: 'xoxp-token',
+          botAccessToken: 'xoxb-token',
         });
       });
       test('public unfurls work as normal', async () => {

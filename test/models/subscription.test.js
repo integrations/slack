@@ -17,7 +17,8 @@ describe('model: Subscription', () => {
   beforeEach(async () => {
     workspace = await SlackWorkspace.create({
       slackId: 'T001',
-      accessToken: 'test',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
     installation = await Installation.create({
       ownerId: 1,

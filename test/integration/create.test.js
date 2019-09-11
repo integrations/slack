@@ -17,7 +17,8 @@ describe('Integration: Creating issues from Slack', () => {
     const { SlackWorkspace } = models;
     workspace = await SlackWorkspace.create({
       slackId: 'T0001',
-      accessToken: 'xoxa-token',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
 
     githubUser = await GitHubUser.create({
@@ -431,7 +432,8 @@ describe('Integration: Slack actions', () => {
     const { SlackWorkspace } = models;
     workspace = await SlackWorkspace.create({
       slackId: 'T0001',
-      accessToken: 'xoxa-token',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
     githubUser = await GitHubUser.create({
       id: 1,

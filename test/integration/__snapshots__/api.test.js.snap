@@ -4,6 +4,6 @@ exports[`Integration: api with a valid user token posts message if user has push
 Object {
   "attachments": "[{\\"text\\":\\"hello world\\"}]",
   "channel": "C001",
-  "token": "xoxp-token",
+  "token": "xoxb-token",
 }
 `;

@@ -10,7 +10,8 @@ describe('Integration: Slack config_migration event', () => {
     const { SlackWorkspace } = models;
     await SlackWorkspace.create({
       slackId: 'T0001',
-      accessToken: 'xoxa-token',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
   });
   describe('LegacySubscription rows are created in the db and prompt is posted in Slack', () => {

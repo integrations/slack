@@ -46,6 +46,7 @@ describe('Integration: tracking GitHub installations', () => {
     const slackWorkspace = await SlackWorkspace.create({
       slackId: 'T0001',
       accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
 
     await Subscription.create({

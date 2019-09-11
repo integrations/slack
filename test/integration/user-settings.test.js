@@ -10,7 +10,8 @@ describe('Integration: User settings', () => {
     const { SlackWorkspace, SlackUser } = models;
     const workspace = await SlackWorkspace.create({
       slackId: 'T0001',
-      accessToken: 'xoxa-token',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
     slackUser = await SlackUser.create({
       slackId: 'U2147483697',

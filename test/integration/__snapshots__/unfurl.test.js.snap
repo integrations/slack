@@ -16,7 +16,7 @@ exports[`Integration: unfurls private unfurls a user who does not have their Git
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxb-token",
   "user": "U0Other",
 }
 `;
@@ -24,7 +24,7 @@ Object {
 exports[`Integration: unfurls private unfurls a user who does not have their GitHub account connected is gracefully onboarded 3`] = `
 Object {
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\":lock: <https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }
@@ -69,7 +69,7 @@ Object {
 exports[`Integration: unfurls private unfurls clicking "Show rich preview" results in unfurl and deletes prompt 1`] = `
 Object {
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\":lock: <https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }
@@ -129,7 +129,7 @@ exports[`Integration: unfurls private unfurls for users who do not yet have thei
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxb-token",
   "user": "U0Other",
 }
 `;
@@ -139,7 +139,7 @@ Object {
   "attachments": "[{\\"color\\":\\"danger\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Could not find resource: \`https://github.com/bkeepers/dotenv\`\\"}]",
   "channel": "C74M",
   "response_type": "ephemeral",
-  "token": "xoxa-token",
+  "token": "xoxb-token",
   "user": "U0Other",
 }
 `;
@@ -163,7 +163,7 @@ exports[`Integration: unfurls private unfurls on a workspace that has github.com
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\":white_check_mark: Success! <@U0Other> is now connected to <https://github.com/wilhelmklopp|@wilhelmklopp>\\",\\"mrkdwn_in\\":[\\"text\\"]}]",
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxb-token",
   "user": "U0Other",
 }
 `;
@@ -172,7 +172,7 @@ exports[`Integration: unfurls private unfurls on a workspace that has github.com
 Object {
   "attachments": "[{\\"color\\":\\"danger\\",\\"mrkdwn_in\\":[\\"text\\"],\\"text\\":\\"Could not complete link preview because your workspace has disabled link previews for \`github.com\` <https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites|Read more>\\"}]",
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxb-token",
   "user": "U0Other",
 }
 `;
@@ -181,7 +181,7 @@ exports[`Integration: unfurls private unfurls sending prompts works  1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C0Other",
-  "token": "xoxa-token",
+  "token": "xoxb-token",
   "user": "U88HS",
 }
 `;
@@ -190,7 +190,7 @@ exports[`Integration: unfurls private unfurls sends prompt for private resource 
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxb-token",
   "user": "U88HS",
 }
 `;
@@ -266,7 +266,7 @@ exports[`Integration: unfurls private unfurls settings User clicks "Show rich pr
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxb-token",
   "user": "U88HS",
 }
 `;
@@ -340,7 +340,7 @@ exports[`Integration: unfurls private unfurls settings User clicks "Show rich pr
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/bkeepers/dotenv?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C0Other",
-  "token": "xoxa-token",
+  "token": "xoxb-token",
   "user": "U88HS",
 }
 `;
@@ -364,7 +364,7 @@ exports[`Integration: unfurls private unfurls settings User clicks "Show rich pr
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"title\\":\\"Do you want to show a rich preview for https://github.com/integrations/test?\\",\\"text\\":\\"The link you shared is from a private repository. Not everyone in this workspace may have access to the associated GitHub content.\\",\\"callback_id\\":\\"unfurl-123\\",\\"actions\\":[{\\"name\\":\\"unfurl\\",\\"text\\":\\"Show rich preview\\",\\"type\\":\\"button\\",\\"style\\":\\"primary\\"},{\\"name\\":\\"unfurl-dismiss\\",\\"text\\":\\"Dismiss\\",\\"type\\":\\"button\\"}]}]",
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxb-token",
   "user": "U88HS",
 }
 `;
@@ -507,7 +507,7 @@ Object {
 exports[`Integration: unfurls private unfurls unfurls resources that cannot be private (such as organisations) without looking up repo privacy 1`] = `
 Object {
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/kubernetes\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/kubernetes|@kubernetes>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"fallback\\":\\"Kubernetes\\",\\"title\\":\\"Kubernetes\\",\\"text\\":\\"Kubernetes\\",\\"thumb_url\\":\\"https://avatars2.githubusercontent.com/u/13629408?v=4\\",\\"fields\\":[{\\"title\\":\\"URL\\",\\"value\\":\\"http://kubernetes.io\\",\\"short\\":true},{\\"title\\":\\"Repositories\\",\\"value\\":51,\\"short\\":true}],\\"ts\\":1438624543}}",
 }
@@ -546,7 +546,7 @@ Object {
 exports[`Integration: unfurls private unfurls uses user access token for public resources 1`] = `
 Object {
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }
@@ -586,13 +586,13 @@ exports[`Integration: unfurls public unfurls does minor unfurl if 2 links are sh
 Array [
   Object {
     "channel": "C74M",
-    "token": "xoxa-token",
+    "token": "xoxp-token",
     "ts": "1510704981.000364",
     "unfurls": "{\\"https://github.com/atom/atom/issues/16292\\":{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[bkeepers/dotenv] #10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\"}}",
   },
   Object {
     "channel": "C74M",
-    "token": "xoxa-token",
+    "token": "xoxp-token",
     "ts": "1510704981.000364",
     "unfurls": "{\\"https://github.com/facebook/react/issues/10191\\":{\\"color\\":\\"#cb2431\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"ts\\":1500156238,\\"mrkdwn_in\\":[\\"text\\"],\\"title\\":\\"#10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\",\\"title_link\\":\\"https://github.com/facebook/react/issues/10191\\",\\"fallback\\":\\"[bkeepers/dotenv] #10191 Consider re-licensing to AL v2.0, as RocksDB has just done\\"}}",
   },
@@ -622,7 +622,7 @@ Array [
 exports[`Integration: unfurls public unfurls issue 1`] = `
 Object {
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }
@@ -661,7 +661,7 @@ Array [
 exports[`Integration: unfurls public unfurls only unfurls link first time a link is shared 1`] = `
 Object {
   "channel": "C74M",
-  "token": "xoxa-token",
+  "token": "xoxp-token",
   "ts": "1510704981.000364",
   "unfurls": "{\\"https://github.com/bkeepers/dotenv\\":{\\"color\\":\\"#24292f\\",\\"footer\\":\\"<https://github.com/bkeepers/dotenv|bkeepers/dotenv>\\",\\"footer_icon\\":\\"https://github.githubassets.com/favicon.ico\\",\\"fallback\\":\\"bkeepers/dotenv\\",\\"title\\":\\"bkeepers/dotenv\\",\\"text\\":\\"A Ruby gem to load environment variables from \`.env\`. \\",\\"fields\\":[{\\"title\\":\\"Stars\\",\\"value\\":4230,\\"short\\":true},{\\"title\\":\\"Language\\",\\"value\\":\\"Ruby\\",\\"short\\":true}],\\"mrkdwn_in\\":[\\"text\\",\\"fields\\"],\\"ts\\":1343101131}}",
 }

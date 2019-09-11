@@ -25,6 +25,7 @@ describe('Integration: github_app_authorization.revoked', () => {
     workspace = await SlackWorkspace.create({
       slackId: 'T0001',
       accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
 
     githubUser = await GitHubUser.create({
@@ -103,6 +104,7 @@ describe('Integration: github_app_authorization.revoked', () => {
     const workspace2 = await SlackWorkspace.create({
       slackId: 'T0002',
       accessToken: 'xoxp-token2',
+      botAccessToken: 'xoxb-token2',
     });
     const slackUser2 = await SlackUser.create({
       slackId: 'U123456',

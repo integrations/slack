@@ -22,6 +22,7 @@ describe('Integration: signin', () => {
     await SlackWorkspace.create({
       slackId: 'T0001',
       accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
   });
 

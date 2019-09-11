@@ -1,0 +1,11 @@
+{
+    "ok": true,
+    "access_token": "xoxp-XXXXXXXX-XXXXXXXX-XXXXX",
+    "scope": "links:read,links:write,commands,bot,chat:write:bot,team:read",
+    "team_name": "GitHub Slack Dev",
+    "team_id": "T74MJ8DTK",
+    "bot":{
+        "bot_user_id":"U8AV5LA8H",
+        "bot_access_token":"xoxb-XXXXXXXXXXXX-TTTTTTTTTTTTTT"
+    }
+}

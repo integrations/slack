@@ -23,7 +23,8 @@ describe('Integration: issue state', () => {
 
     workspace = await SlackWorkspace.create({
       slackId: 'T0001',
-      accessToken: 'xoxa-token',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
 
     await SlackUser.create({

@@ -8,7 +8,8 @@ describe('Actions', () => {
     const { SlackWorkspace, SlackUser } = models;
     const workspace = await SlackWorkspace.create({
       slackId: 'T000A',
-      accessToken: 'xoxa-token',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
     await SlackUser.create({
       slackId: 'U88HS',

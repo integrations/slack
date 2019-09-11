@@ -34,6 +34,7 @@ describe('Integration: subscriptions', () => {
       const slackWorkspace = await SlackWorkspace.create({
         slackId: 'T0001',
         accessToken: 'xoxp-token',
+        botAccessToken: 'xoxb-token',
       });
       await SlackUser.create({
         slackId: 'U2147483697',
@@ -69,6 +70,7 @@ describe('Integration: subscriptions', () => {
       slackWorkspace = await SlackWorkspace.create({
         slackId: 'T0001',
         accessToken: 'xoxp-token',
+        botAccessToken: 'xoxb-token',
       });
       await SlackUser.create({
         slackId: 'U2147483697',

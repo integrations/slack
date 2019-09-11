@@ -41,7 +41,8 @@ describe('Integration: notifications', () => {
       workspace = await SlackWorkspace.create({
         id: 9523, // same id always for jest snapshots
         slackId: 'T001',
-        accessToken: 'test',
+        accessToken: 'xoxp-token',
+        botAccessToken: 'xoxb-token',
       });
 
       installation = await Installation.create({

@@ -9,8 +9,9 @@ const { SlackWorkspace, Installation, Subscription } = models;
 describe('Integration: subscription list', () => {
   beforeEach(async () => {
     const workspace = await SlackWorkspace.create({
-      accessToken: 'secret',
       slackId: 'T0001',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
 
     const installation = await Installation.create({

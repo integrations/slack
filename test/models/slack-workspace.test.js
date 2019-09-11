@@ -5,7 +5,8 @@ describe('SlackWorkspace', () => {
   beforeEach(async () => {
     workspace = await SlackWorkspace.create({
       slackId: 'T0001',
-      accessToken: 'test',
+      accessToken: 'xoxp-token',
+      botAccessToken: 'xoxb-token',
     });
   });
 
@@ -15,7 +16,17 @@ describe('SlackWorkspace', () => {
       expect(workspace.toJSON()).not.toHaveProperty('secrets');
 
       // ensure original values weren't deleted
-      expect(workspace.accessToken).toEqual('test');
+      expect(workspace.accessToken).toEqual('xoxp-token');
+    });
+  });
+
+  describe('botAcccessToken', () => {
+    test('is excluded from toJSON()', () => {
+      expect(workspace.toJSON()).not.toHaveProperty('botAccessToken');
+      expect(workspace.toJSON()).not.toHaveProperty('secrets');
+
+      // ensure original values weren't deleted
+      expect(workspace.botAccessToken).toEqual('xoxb-token');
     });
   });
 });

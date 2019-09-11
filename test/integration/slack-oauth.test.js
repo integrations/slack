@@ -8,7 +8,7 @@ const { SlackWorkspace } = models;
 
 const fixtures = require('../fixtures');
 
-const access = fixtures.slack.oauth.token;
+const { access } = fixtures.slack.oauth;
 
 const request = supertest.agent(probot.server);
 
@@ -28,14 +28,15 @@ describe('Integration: slack authentication', () => {
     const code = 'code-from-slack';
     const { state } = queryString.parse(location.replace('https://slack.com/oauth/authorize', ''));
 
-    nock('https://slack.com').post('/api/oauth.token').reply(200, access);
+    nock('https://slack.com').post('/api/oauth.access').reply(200, access);
 
     await request.get('/slack/oauth/callback').query({ code, state })
       .expect(302)
-      .expect('Location', `https://slack.com/app_redirect?app=${access.app_id}&team=${access.team_id}`);
+      .expect('Location', `https://slack.com/app_redirect?app=${process.env.SLACK_APP_ID}&team=${access.team_id}`);
 
     const workspace = await SlackWorkspace.findOne({ where: { slackId: access.team_id } });
     expect(workspace.accessToken).toEqual(access.access_token);
+    expect(workspace.botAccessToken).toEqual(access.bot.bot_access_token);
   });
 
   test('updates the access token', async () => {
@@ -44,7 +45,11 @@ describe('Integration: slack authentication', () => {
       return true;
     }).reply(200, { ok: true });
 
-    const workspace = await SlackWorkspace.create({ slackId: access.team_id, accessToken: 'old' });
+    const workspace = await SlackWorkspace.create({
+      slackId: access.team_id,
+      accessToken: 'xoxp-token-old',
+      botAccessToken: 'xoxb-token-old',
+    });
 
     const res = await request.get('/slack/oauth/login')
       .expect(302);
@@ -52,7 +57,7 @@ describe('Integration: slack authentication', () => {
     const { state } = queryString.parse(location.replace('https://slack.com/oauth/authorize', ''));
     const code = 'code-from-slack';
 
-    nock('https://slack.com').post('/api/oauth.token').reply(200, access);
+    nock('https://slack.com').post('/api/oauth.access').reply(200, access);
 
     await request.get('/slack/oauth/callback')
       .query({ code, state })
@@ -60,8 +65,11 @@ describe('Integration: slack authentication', () => {
 
     await workspace.reload();
 
-    expect(workspace.accessToken).not.toEqual('old');
+    expect(workspace.accessToken).not.toEqual('xoxp-token-old');
     expect(workspace.accessToken).toEqual(access.access_token);
+
+    expect(workspace.botAccessToken).not.toEqual('xoxb-token-old');
+    expect(workspace.botAccessToken).toEqual(access.bot.bot_access_token);
   });
 
   test('allows all teams', async () => {
@@ -70,7 +78,7 @@ describe('Integration: slack authentication', () => {
       return true;
     }).reply(200, { ok: true });
 
-    nock('https://slack.com').post('/api/oauth.token').reply(200, access);
+    nock('https://slack.com').post('/api/oauth.access').reply(200, access);
 
     const res = await request.get('/slack/oauth/login')
       .expect(302);
@@ -81,7 +89,7 @@ describe('Integration: slack authentication', () => {
     await request.get('/slack/oauth/callback')
       .query({ code, state })
       .expect(302)
-      .expect('Location', `https://slack.com/app_redirect?app=${access.app_id}&team=${access.team_id}`);
+      .expect('Location', `https://slack.com/app_redirect?app=${process.env.SLACK_APP_ID}&team=${access.team_id}`);
   });
 
   test('user aborting oauth process redirects to restart OAuth flow', async () => {
@@ -121,7 +129,7 @@ describe('Integration: slack authentication', () => {
     const { state } = queryString.parse(location.replace('https://slack.com/oauth/authorize', ''));
     const code = 'code-from-slack';
 
-    nock('https://slack.com').post('/api/oauth.token').reply(200, { ok: false, error: 'test_error' });
+    nock('https://slack.com').post('/api/oauth.access').reply(200, { ok: false, error: 'test_error' });
 
     await request.get('/slack/oauth/callback').query({ code, state })
       .expect(302)
