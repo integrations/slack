@@ -24,7 +24,7 @@ describe('Integration: subscription list', () => {
       installationId: installation.id,
       slackWorkspaceId: workspace.id,
       type: 'repo',
-      settings: ['commits:all'],
+      settings: { commits: 'all' },
     });
 
     await Subscription.create({

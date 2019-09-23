@@ -34,6 +34,7 @@ describe('Integration: Creating and listing deployments from Slack', () => {
       ownerId: 1337,
     });
   });
+
   test('works when specifying a repository', async () => {
     jest.setTimeout(jestTimeout);
     nock('https://api.github.com').get('/repos/kubernetes/kubernetes').reply(200, {

@@ -80,4 +80,34 @@ describe('Deployment status rendering', () => {
     });
     expect(deploymentStatusMessage.toJSON()).toMatchSnapshot();
   });
+  test('uses ref and the short sha, when ref differs from the sha', () => {
+    const deployment = {
+      ...deploymentStatusSuccessFixture.deployment,
+      ref: 'master',
+    };
+    const deploymentStatusMessage = new DeploymentStatus({
+      deploymentStatus: deploymentStatusSuccessFixture.deployment_status,
+      deployment,
+      repository: deploymentStatusSuccessFixture.repository,
+    });
+
+    const message = deploymentStatusMessage.toJSON().attachments[0].text;
+    expect(message).toMatch(/successfully deployed.*master.*\(3dce5c8\)/i);
+    expect(deploymentStatusMessage.toJSON()).toMatchSnapshot();
+  });
+  test('uses short sha if ref is unequal but null', () => {
+    const deployment = {
+      ...deploymentStatusSuccessFixture.deployment,
+      ref: null,
+    };
+    const deploymentStatusMessage = new DeploymentStatus({
+      deploymentStatus: deploymentStatusSuccessFixture.deployment_status,
+      deployment,
+      repository: deploymentStatusSuccessFixture.repository,
+    });
+
+    const message = deploymentStatusMessage.toJSON().attachments[0].text;
+    expect(message).toMatch(/successfully deployed.*3dce5c8.*/i);
+    expect(deploymentStatusMessage.toJSON()).toMatchSnapshot();
+  });
 });
