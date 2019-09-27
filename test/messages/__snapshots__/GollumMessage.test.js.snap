@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GollumMessage rendering works 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "author_icon": "https://avatars2.githubusercontent.com/u/9831992?v=4",
+      "author_link": "https://github.com/rachmari",
+      "author_name": "rachmari",
+      "color": "#24292f",
+      "fallback": "[Codertocat/Hello-World] 2 wiki pages changed",
+      "footer": "<https://github.com/Codertocat/Hello-World|Codertocat/Hello-World>",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "*2 wiki pages changed*
+edited <https://github.com/Codertocat/Hello-World/wiki/Home|Home>
+created <https://github.com/Codertocat/Hello-World/wiki/Another-Page|Another Page>",
+    },
+  ],
+}
+`;
