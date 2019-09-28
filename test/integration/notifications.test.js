@@ -19,6 +19,7 @@ const reviewCommented = require('../fixtures/webhooks/pull_request_review/commen
 const reviewCommentCreated = require('../fixtures/webhooks/pull_request_review/pull_request_review_comment.json');
 const repositoryDeleted = require('../fixtures/webhooks/repository.deleted.json');
 const releasePublishedPayload = require('../fixtures/webhooks/release.published.json');
+const gollumEvent = require('../fixtures/webhooks/gollum.json');
 
 const {
   Subscription,
@@ -1344,6 +1345,45 @@ describe('Integration: notifications', () => {
       await probot.receive({
         name: 'issues',
         payload: issuePayload,
+      });
+    });
+
+    test('gollum event', async () => {
+      await Subscription.subscribe({
+        githubId: gollumEvent.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+        settings: parseSettings(['wiki_changes']),
+      });
+
+      nock('https://api.github.com').get(`/repositories/${gollumEvent.repository.id}`).reply(200);
+      nock('https://slack.com').post('/api/chat.postMessage', (body) => {
+        expect(body).toMatchSnapshot();
+        return true;
+      }).reply(200, { ok: true });
+
+      await probot.receive({
+        name: 'gollum',
+        payload: gollumEvent,
+      });
+    });
+
+    test('gollum event does not get delivered if not explicitly enabled', async () => {
+      await Subscription.subscribe({
+        githubId: gollumEvent.repository.id,
+        channelId: 'C001',
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+        creatorId: slackUser.id,
+        type: 'repo',
+      });
+
+      await probot.receive({
+        name: 'gollum',
+        payload: gollumEvent,
       });
     });
   });
