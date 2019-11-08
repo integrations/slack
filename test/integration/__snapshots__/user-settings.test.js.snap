@@ -44,29 +44,32 @@ Object {
 `;
 
 exports[`Integration: User settings authenticated user with both automatic unfurls configured and prompts muted sees both settings 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: User settings authenticated user with both automatic unfurls configured and prompts muted sees both settings 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "settings",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "settings",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: User settings authenticated user with both settings configured clicks unmute button and sees confirmation message 1`] = `
@@ -79,10 +82,6 @@ Object {
   ],
 }
 `;
-
-exports[`Integration: User settings authenticated user with both settings configured clicks unmute button and sees confirmation message 2`] = `Set {}`;
-
-exports[`Integration: User settings authenticated user with both settings configured clicks unmute button and sees confirmation message 3`] = `Map {}`;
 
 exports[`Integration: User settings authenticated user with both settings configured confirms removal of autounfurl removes repo from settings and posts confirmation message to user 1`] = `
 Object {
@@ -97,10 +96,6 @@ Object {
   ],
 }
 `;
-
-exports[`Integration: User settings authenticated user with both settings configured confirms removal of autounfurl removes repo from settings and posts confirmation message to user 2`] = `Set {}`;
-
-exports[`Integration: User settings authenticated user with both settings configured confirms removal of autounfurl removes repo from settings and posts confirmation message to user 3`] = `Map {}`;
 
 exports[`Integration: User settings authenticated user with both settings configured selects repo for which to stop autounfurls and is presented with a follow up message 1`] = `
 Object {
@@ -134,10 +129,6 @@ Object {
 }
 `;
 
-exports[`Integration: User settings authenticated user with both settings configured selects repo for which to stop autounfurls and is presented with a follow up message 2`] = `Set {}`;
-
-exports[`Integration: User settings authenticated user with both settings configured selects repo for which to stop autounfurls and is presented with a follow up message 3`] = `Map {}`;
-
 exports[`Integration: User settings authenticated user with just auto unfurls configured sees just that setting 1`] = `
 Object {
   "attachments": Array [
@@ -169,29 +160,32 @@ Object {
 `;
 
 exports[`Integration: User settings authenticated user with just auto unfurls configured sees just that setting 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: User settings authenticated user with just auto unfurls configured sees just that setting 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "settings",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "settings",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: User settings authenticated user with just prompts muted sees just that setting 1`] = `
@@ -215,29 +209,32 @@ Object {
 `;
 
 exports[`Integration: User settings authenticated user with just prompts muted sees just that setting 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: User settings authenticated user with just prompts muted sees just that setting 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "settings",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "settings",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: User settings authenticated user with no settings configured gets message stating that 1`] = `
@@ -252,29 +249,32 @@ Object {
 `;
 
 exports[`Integration: User settings authenticated user with no settings configured gets message stating that 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: User settings authenticated user with no settings configured gets message stating that 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "settings",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "settings",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: User settings authenticated user with prompts muted temporarily doesn't see setting showing time remaining 1`] = `
@@ -289,29 +289,32 @@ Object {
 `;
 
 exports[`Integration: User settings authenticated user with prompts muted temporarily doesn't see setting showing time remaining 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: User settings authenticated user with prompts muted temporarily doesn't see setting showing time remaining 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "settings",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "settings",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: User settings authenticated user with prompts muted temporarily sees setting showing time remaining 1`] = `
@@ -335,53 +338,59 @@ Object {
 `;
 
 exports[`Integration: User settings authenticated user with prompts muted temporarily sees setting showing time remaining 2`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: User settings authenticated user with prompts muted temporarily sees setting showing time remaining 3`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "settings",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "settings",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;
 
 exports[`Integration: User settings unauthenticated user is prompted to authenticate first 1`] = `
-Set {
+Array [
   "pending-command#13345224609.738474920.8088930838d88f008e0",
-}
+]
 `;
 
 exports[`Integration: User settings unauthenticated user is prompted to authenticate first 2`] = `
-Map {
-  "pending-command#13345224609.738474920.8088930838d88f008e0" => Object {
-    "channel_id": "C2147483705",
-    "channel_name": "test",
-    "command": "/github",
-    "enterprise_id": "E0001",
-    "enterprise_name": "Globular%20Construct%20Inc",
-    "response_url": "https://hooks.slack.com/commands/1234/5678",
-    "team_domain": "example",
-    "team_id": "T0001",
-    "text": "settings",
-    "token": "secret",
-    "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    "user_id": "U2147483697",
-    "user_name": "Steve",
-  },
-}
+Array [
+  Array [
+    "pending-command#13345224609.738474920.8088930838d88f008e0",
+    Object {
+      "channel_id": "C2147483705",
+      "channel_name": "test",
+      "command": "/github",
+      "enterprise_id": "E0001",
+      "enterprise_name": "Globular%20Construct%20Inc",
+      "response_url": "https://hooks.slack.com/commands/1234/5678",
+      "team_domain": "example",
+      "team_id": "T0001",
+      "text": "settings",
+      "token": "secret",
+      "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+      "user_id": "U2147483697",
+      "user_name": "Steve",
+    },
+  ],
+]
 `;

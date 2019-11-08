@@ -1,5 +1,9 @@
 # GitHub + Slack Integration
 
+| Build | Code Coverage | Dependencies |
+|-------|---------------|--------------|
+| [![Build Status](https://travis-ci.org/integrations/slack.svg?branch=master)](https://travis-ci.org/integrations/slack) | [![codecov](https://codecov.io/gh/integrations/slack/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/integrations/slack) | [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/) |
+
 > **Heads Up!** The GitHub and Slack app has a few new features to help you turn conversations into next steps. Take action on pull requests, issues, and more right from your Slack channels to start moving work forward, faster. [Read more about it on the GitHub blog](https://blog.github.com/2018-05-17-new-improvements-to-slack-and-github-integration/).
 
 ## About
@@ -7,7 +11,7 @@
 The GitHub integration for Slack gives you and your teams full visibility into your GitHub projects right in Slack channels, where you can generate ideas, triage issues and collaborate with other teams to move projects forward. This integration is an open source project, built and maintained by GitHub.
 
 ## Table of Contents
-- [Installing the GitHub integration for Slack](#installing-the-gitHub-slack-app)
+- [Installing the GitHub integration for Slack](#installing-the-github-integration-for-slack)
   - [Requirements](#requirements)
   - [Installation](#installation)
   - [Authorization](#authorization)
@@ -30,7 +34,7 @@ This app officially supports GitHub.com and Slack.com but the team plans to supp
 
 <p align="center"><img width="450" alt="auth" src="https://user-images.githubusercontent.com/3877742/36522927-f1d596b6-1753-11e8-9f85-2495e657b16b.png"></p>
 
-After the app is installed, and once you've added the GitHub integration to the relevant channels using `/invite @github`, you will see previews of links to GitHub issues, pull requests, and code rendered as rich text in your workspace.
+After the app is installed, and once you've added the GitHub integration to the relevant channels using `/invite @github`, you will see previews of links to GitHub issues, pull-requests, and code rendered as rich text in your workspace.
 
 <p align="center"><img width="550" alt="unfurl_convo" src="https://user-images.githubusercontent.com/3877742/36522313-c0cdbd08-1750-11e8-8dbe-b5a3a2f93549.png"></p>
 
@@ -65,8 +69,8 @@ By granting the app access, you are providing the following authorizations to yo
 |Permission scope|Why we need it|
 |---|---|
 |Read access to code| To render code snippets in Slack|
-|Read access to commit statuses, deployments, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
-|Write access to issues and pull requests | To take action from Slack with the `/github` command and directly from messages|
+|Read access to commit statuses, checks, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
+|Write access to issues, deployments, and pull requests | To take action from Slack with the `/github` command and directly from messages|
 
 #### Repository Activity
 **Subscribe to an Organization or a Repository**
@@ -102,6 +106,7 @@ You can also take action on GitHub directly from a Slack message by clicking on 
   - Select an issue by choosing from an automatically loaded list of recently active issues and pull requests that involve you or by entering a URL to an issue or pull request
 
 ### Configuration
+
 You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
 
 Settings are configured with the `/github` slash command:
@@ -114,7 +119,7 @@ Settings are configured with the `/github` slash command:
 These are enabled by default (when subscribing to a repo, for organizations, see below), and can be disabled with the `/github unsubscribe owner/repo [feature]` command:
 
 - `issues` - Opened or closed issues
-- `pulls` - New or merged pull requests
+- `pulls` - New or merged pull requests, as well as draft pull requests marked "Ready for Review"
 - `statuses` - Statuses on pull requests
 - `commits` - New commits on the default branch (usually `master`)
 - `deployments` - Updated status on deployments
@@ -133,6 +138,7 @@ These are disabled by default, and can be enabled with the `/github subscribe ow
 - `comments` - New comments on issues and pull requests
 - `branches` - Created or deleted branches
 - `commits:all` - All commits pushed to any branch
+- `+label:"your label"` - Filter issues, pull-requests and comments based on their labels.
 
 You can subscribe or unsubscribe from multiple settings at once. For example, to turn on activity for pull request reviews and comments:
 
@@ -146,7 +152,82 @@ And to turn it back off:
 /github unsubscribe owner/repo reviews comments
 ```
 
+#### Filters
+
+Label filters allow filtering incoming events based on a whitelist of **required** labels.
+
+##### Events that can be filtered
+
+This is an overview of the event types that are affected by the required-label filter.
+
+| Event                  | Is filtered       |
+| ---------------------- | ----------------- |
+| Pull                   | ✅ Yes             |
+| Comment (PR and Issue) | ✅ Yes             |
+| Issue                  | ✅ Yes             |
+| Review                 | ✅ Yes             |
+| Status/Checks          | ✅ (Depends on PR) |
+| Deployment             | ❌ No              |
+| Commit/Push            | ❌ No              |
+| Public                 | ❌ No              |
+| Branch                 | ❌ No              |
+
+##### Creating a filter
+
+Create a filter with:
+```
+/github subscribe owner/repo +label:priority:HIGH
+```
+
+This creates a required-label filter with the value `priority:HIGH`.
+Incoming events that support filters discarded unless they have that label.
+
+##### Updating a filter
+
+To update the exiting filter just enter a new one, the old one will be updated.
+Currently, we only support having one filter. Multiple filters might be supported in the future.
+
+```
+/github subscribe owner/repo +label:"teams/designers"
+```
+
+Now the exiting filter `priority:HIGH` has been replaced by `teams/designers`.
+
+##### Removing filters
+
+Removing a filter is available via `unsubscribe`
+```
+/github unsubscribe owner/repo +label:teams/designers
+```
+
+This removes the `priority:HIGH` filter.
+
+##### Listing filters
+
+To see the currently active filters use
+```
+/github subscribe list features
+```
+
+##### Valid filters
+
+It is common to have certain special characters in labels. Therefore we added support for the most common special characters
+for label filters. Here a few examples:
+
+* `label:priority:HIGH`
+* `label:teams/designers`
+* `label:"DO NOT MERGE"`
+* `label:"very important"`
+* `label:":construction: WIP"`
+
+Most labels will work seemlessly, this includes all emojis that slack and github provide out of the box.
+However in the following rare circumstances you might run into difficulties:
+
+* Multibyte characters that are not encoded as `:foo:`
+* `,` is reserved
+
 ### Migrating from the legacy GitHub integration for Slack
+
 When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
 
 <p align="center"><img width="666" alt="migration" src="https://user-images.githubusercontent.com/3877742/36557399-ff8663c6-17bc-11e8-8962-d92088cf98a9.png"></p>

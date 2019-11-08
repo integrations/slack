@@ -68,3 +68,8 @@ dump.rdb
 dist
 
 .DS_Store
+
+.idea/
+build/
+
+.vscode/

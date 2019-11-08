@@ -8,7 +8,7 @@ Object {
   "color": "#36a64f",
   "fallback": "[github-slack/public-test] JasonEtco approved wilhelmklopp's pull request",
   "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "image_url": undefined,
   "mrkdwn_in": Array [
     "text",
@@ -29,7 +29,7 @@ Object {
   "color": "#36a64f",
   "fallback": "[github-slack/public-test] JasonEtco approved wilhelmklopp's pull request",
   "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -49,7 +49,7 @@ Object {
   "color": "#cb2431",
   "fallback": "[github-slack/public-test] JasonEtco requested changes on wilhelmklopp's pull request",
   "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],
@@ -69,7 +69,7 @@ Object {
   "color": "#24292f",
   "fallback": "[github-slack/public-test] wilhelmklopp commented on their pull request",
   "footer": "<https://github.com/github-slack/public-test|github-slack/public-test>",
-  "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+  "footer_icon": "https://github.githubassets.com/favicon.ico",
   "mrkdwn_in": Array [
     "text",
   ],

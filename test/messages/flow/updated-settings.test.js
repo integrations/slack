@@ -15,7 +15,7 @@ describe('UpdatedSettings message', () => {
   test('sub settings', async () => {
     const subscription = new Subscription({
       channelId: 'C001',
-      settings: ['commits:all'],
+      settings: { commits: 'all' },
     });
 
     const message = new UpdatedSettings({ subscription, resource: repository });
@@ -31,6 +31,31 @@ describe('UpdatedSettings message', () => {
 
     const message = new UpdatedSettings({ subscription, resource: repository });
     expect(message.toJSON().attachments[0].text).not.toMatch(/pulls/);
+    expect(message.toJSON()).toMatchSnapshot();
+  });
+
+  test('shows array elements', async () => {
+    const subscription = new Subscription({
+      channelId: 'C001',
+      settings: { label: ['todo', 'help wanted'] },
+    });
+
+    const message = new UpdatedSettings({ subscription, resource: repository });
+
+    const labelString = "label: ['todo', 'help wanted']";
+    expect(message.toJSON().attachments[0].text).toMatch(labelString);
+
+    expect(message.toJSON()).toMatchSnapshot();
+  });
+
+  test('hides empty array', async () => {
+    const subscription = new Subscription({
+      channelId: 'C001',
+      settings: { label: [] },
+    });
+
+    const message = new UpdatedSettings({ subscription, resource: repository });
+    expect(message.toJSON().attachments[0].text).not.toMatch(/label/);
     expect(message.toJSON()).toMatchSnapshot();
   });
 });

@@ -30,7 +30,9 @@ describe('Integration: tracking GitHub installations', () => {
   });
 
   test('deleting installation cascades to delete all subscriptions related to that installation', async () => {
-    const { Subscription, Installation, SlackWorkspace } = models;
+    const {
+      Subscription, Installation, SlackWorkspace, DeletedSubscription,
+    } = models;
 
     await robot.receive({
       name: 'installation',
@@ -61,5 +63,6 @@ describe('Integration: tracking GitHub installations', () => {
     });
 
     expect(await Subscription.count()).toBe(0);
+    expect(await DeletedSubscription.count()).toBe(1);
   });
 });

@@ -6,7 +6,7 @@ Object {
     Object {
       "color": "#24292f",
       "footer": "<https://github.com/atom/atom|atom/atom>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],

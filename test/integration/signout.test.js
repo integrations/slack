@@ -1,10 +1,17 @@
-const request = require('supertest');
+const supertest = require('supertest');
 const nock = require('nock');
+const jwt = require('jsonwebtoken');
+const { promisify } = require('util');
 
 const { probot, slackbot, models } = require('.');
 const fixtures = require('../fixtures');
 
+const verify = promisify(jwt.verify);
+
+const request = supertest.agent(probot.server);
+
 const promptUrl = /^http:\/\/127\.0\.0\.1:\d+(\/github\/oauth\/login\?state=(.*))/;
+const continueLinkPattern = /<a href="https:\/\/github\.com\/login\/oauth\/authorize\?client_id.*(?<!\.)(ey.*)" class.*<\/a>/;
 
 const {
   SlackWorkspace,
@@ -12,9 +19,10 @@ const {
   SlackUser,
   Installation,
   Subscription,
+  DeletedSubscription,
 } = models;
 
-describe('Integration: signout', async () => {
+describe('Integration: signout', () => {
   let workspace;
   let githubUser;
   let slackUser;
@@ -76,18 +84,41 @@ describe('Integration: signout', async () => {
     const command = fixtures.slack.command({
       text: 'signout',
     });
-    const res = await request(probot.server).post('/slack/command')
+    const res = await request.post('/slack/command')
       .use(slackbot)
       .send(command)
       .expect(200);
 
     const { url } = res.body.attachments[0].actions[0];
-    const [, link, state] = url.match(promptUrl);
+    const [, link] = url.match(promptUrl);
 
-    const loginRequest = request(probot.server).get(link);
-    await loginRequest.expect(302).expect(
-      'Location',
-      `https://github.com/login/oauth/authorize?client_id=&state=${state}`,
+    const interstitialRes = await request.get(link);
+    expect(interstitialRes.status).toBe(200);
+    expect(interstitialRes.text).toMatch(/Connect GitHub account/);
+    expect(interstitialRes.text).toMatch(/example\.slack\.com/);
+    expect(Object.keys(interstitialRes.headers)).toContain('set-cookie');
+    expect(interstitialRes.headers['set-cookie'][0]).toMatch(/session=/);
+
+    const state = continueLinkPattern.exec(interstitialRes.text)[1];
+
+    expect(await verify(state, process.env.GITHUB_CLIENT_SECRET)).toMatchInlineSnapshot(
+      {
+        githubOAuthState: expect.any(String),
+        iat: expect.any(Number),
+        exp: expect.any(Number),
+      },
+      `
+Object {
+  "channelSlackId": "C2147483705",
+  "exp": Any<Number>,
+  "githubOAuthState": Any<String>,
+  "iat": Any<Number>,
+  "replaySlashCommand": false,
+  "teamSlackId": "T0001",
+  "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+  "userSlackId": "U2147483697",
+}
+`,
     );
 
     // GitHub redirects back, authenticates user and process subscription
@@ -96,12 +127,14 @@ describe('Integration: signout', async () => {
     nock('https://api.github.com').get('/user')
       .reply(200, fixtures.user);
 
-    nock('https://hooks.slack.com').post('/commands/1234/5678', (body) => {
-      expect(body).toMatchSnapshot();
+    nock('https://slack.com').post('/api/chat.postEphemeral', (body) => {
+      expect(body.user).toBe('U2147483697');
+      expect(body.channel).toBe('C2147483705');
+      expect(JSON.parse(body.attachments)).toMatchSnapshot();
       return true;
-    }).reply(200);
+    }).reply(200, { ok: true });
 
-    await request(probot.server).get('/github/oauth/callback').query({ state })
+    await request.get('/github/oauth/callback').query({ state })
       .expect(302)
       .expect(
         'Location',
@@ -125,8 +158,18 @@ describe('Integration: signout', async () => {
       login: 'github',
     });
 
+    // These two calls to chat.postMessage can happen in either order
+    // so we're using this approach instead of snapshots
+    const expectedSlackMessages = {
+      C2147483705: /Subscriptions to 2 repositories have been disabled because/,
+      C12345: /The subscription to 1 account has been disabled because/,
+    };
+
     nock('https://slack.com').post('/api/chat.postMessage', (body) => {
-      expect(body).toMatchSnapshot();
+      if (Object.keys(expectedSlackMessages).includes(body.channel)) {
+        expect(body.attachments).toMatch(expectedSlackMessages[body.channel]);
+        delete expectedSlackMessages[body.channel];
+      }
       return true;
     }).times(2).reply(200, { ok: true });
 
@@ -134,10 +177,21 @@ describe('Integration: signout', async () => {
       text: 'signout',
     });
 
-    const res = await request(probot.server).post('/slack/command').send(command).expect(200);
-    expect(res.body.attachments[0].text).toMatchSnapshot();
+    const res = await request.post('/slack/command').send(command).expect(200);
+    expect(res.body.attachments[0].text).toMatchInlineSnapshot(`
+":white_check_mark: <@U2147483697> is now signed out
+Features like subscriptions and rich link previews will stop working. Use \`/github signin\` to sign back into your GitHub account at any time."
+`);
+
+    expect(Object.keys(expectedSlackMessages).length).toBe(0);
 
     expect((await slackUser.reload()).githubId).toBe(null);
     expect((await Subscription.findAll({ where: { creatorId: slackUser.id } })).length).toBe(0);
+    expect((await DeletedSubscription.findAll({
+      where: {
+        creatorId: slackUser.id,
+        reason: 'signout',
+      },
+    })).length).toBe(3);
   });
 });

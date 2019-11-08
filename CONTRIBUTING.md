@@ -1,7 +1,5 @@
 # Contributing
 
-[![Build Status](https://travis-ci.org/integrations/slack.svg?branch=extract-unfurls)](https://travis-ci.org/integrations/slack) [![codecov](https://codecov.io/gh/integrations/slack/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/integrations/slack) [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/)
-
 [fork]: https://github.com/github-slack/app/fork
 [pr]: https://github.com/github-slack/app/compare
 [style]: https://standardjs.com/
@@ -75,7 +73,38 @@ Follow the [Probot docs for configuring up a GitHub App](https://probot.github.i
 - **Setup URL**: `https://DOMAIN/github/setup`
 - **Webhook URL**: `https://DOMAIN/github/events`
 
-Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` should provide a suitable secret.
+Your new GitHub app will need the following permissions:
+
+- Checks: Read-only
+- Repository contents: Read-only
+- Deployments: Read & write
+- Issues: Read & write
+- Repository metadata: Read-only
+- Pull requests: Read & write
+- Commit statuses: Read-only
+
+It will also need the following event subscriptions:
+
+- Check run
+- Check suite
+- Commit comment
+- Create
+- Delete
+- Deployment
+- Deployment status
+- Issue comment
+- Issues
+- Public
+- Pull request
+- Pull request review
+- Pull request review comment
+- Push
+- Release
+- Repository
+- Status
+
+- Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` should provide a suitable secret.
+- Add in a `SESSION_SECRET` to your `.env` file, running `openssl rand -hex 32` should provide a suitable secret.
 
 #### Configuring a Slack App
 
@@ -88,6 +117,19 @@ Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` sh
 1. Scroll down to **Select Permission Scopes**, add `links:read`, `links:write`, and `chat:write` and click **Save Changes**
 
 1. Run `script/server` to start the server
+
+1. On the **Interactive Components** tab, set **Request URL** to `https://DOMAIN/slack/actions`.
+
+1. Under **Interactive Components** under **Actions**, click **Create New Action**
+
+    ![](https://user-images.githubusercontent.com/2894107/60052628-6465c800-969b-11e9-943e-17ac8ef63302.png)
+
+    - **Action Name**: `Comment on Issue or PR`
+    - **Short Description**: `Comment on an Issue or Pull Request with the content of a Slack message`
+    - **Callback ID**: `comment-action`
+    - Click **Create**
+
+1. Under **Interactive Components** under **Message Menus**, set **Options Load URL** to `https://DOMAIN/slack/options`
 
 1. On the **Event Subscriptions** tab, set **Request URL** to `https://DOMAIN/slack/events`, replacing `YOUR-USERNAME` with the value that shows up when the server starts. Slack should show **Verified ✓** if all is well.
 
@@ -120,7 +162,7 @@ Add in a `STORAGE_SECRET` to your `.env` file, running `openssl rand -hex 32` sh
 
 ### Activity
 
-Activity features are those that post a new message in Slack when activity happens on GitHub. For example when an issue is opened on GitHub, then a corresponding message is posted in all Slack channels that have subcribed to the repo on which the issue was opened.
+Activity features are those that post a new message in Slack when activity happens on GitHub. For example when an issue is opened on GitHub, then a corresponding message is posted in all Slack channels that have subscribed to the repo on which the issue was opened.
 
 There are a few different parts to each activity feature (and thus any new activity feature):
 - Listening to the relevant webhook (for example `issues.opened` for the "issues" activity feature) in `lib/activity/index.js`
@@ -154,6 +196,14 @@ The below diagram describes the lifecycle of an unfurl to a level of detail that
 1. Format the message so that Slack can render it
 1. `chat.unfurl` API call to Slack
 
+## Memory requirements
+
+By default, tests run with a GC memory limit of 4GB. This helps us to avoid slow and failing tests caused by GC runs.
+If this is too much for your local system you can set `NODE_OPTIONS` to set a custom value. Example for 2GB:
+
+`NODE_OPTIONS="--max-old-space-size=2048" npm test`
+
+V8's default is 1.5GB so we recommend not using a value less than that.
 
 ## Troubleshooting
 

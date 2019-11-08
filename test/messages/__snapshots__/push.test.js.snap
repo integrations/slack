@@ -10,7 +10,7 @@ Object {
       "color": "#24292f",
       "fallback": "[github-slack/app] force-pushed the <https://github.com/github-slack/app/tree/master|\`master\`> branch from \`9e70dd34\` to \`c8517a6a\`",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -31,7 +31,7 @@ Object {
       "color": "#24292f",
       "fallback": "[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> pushed to <https://github.com/github-slack/app/tree/master|\`master\`>",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -62,7 +62,7 @@ Object {
       "color": "#24292f",
       "fallback": "[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|1 new commit> pushed to <https://github.com/github-slack/app/tree/master|\`master\`>",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
@@ -83,7 +83,7 @@ Object {
       "color": "#24292f",
       "fallback": "[github-slack/app] <https://github.com/github-slack/app/compare/9e70dd3456ba...c8517a6aa42a|11 new commits> force-pushed to <https://github.com/github-slack/app/tree/master|\`master\`>",
       "footer": "<https://github.com/github-slack/app|github-slack/app>",
-      "footer_icon": "https://assets-cdn.github.com/favicon.ico",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
       "mrkdwn_in": Array [
         "text",
       ],
