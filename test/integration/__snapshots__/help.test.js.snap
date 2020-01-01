@@ -56,8 +56,22 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Create ignored-label. Issues, Comments, PRs with that label will be ignored:
+\`/github subscribe owner/repository -label:my-label\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Remove required-label:
 \`/github unsubscribe owner/repository +label:my-label\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Remove ignored-label:
+\`/github unsubscribe owner/repository -label:my-label\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -219,8 +233,22 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Create ignored-label. Issues, Comments, PRs with that label will be ignored:
+\`/github subscribe owner/repository -label:my-label\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Remove required-label:
 \`/github unsubscribe owner/repository +label:my-label\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Remove ignored-label:
+\`/github unsubscribe owner/repository -label:my-label\`",
     },
     Object {
       "mrkdwn_in": Array [
@@ -382,8 +410,22 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Create ignored-label. Issues, Comments, PRs with that label will be ignored:
+\`/github subscribe owner/repository -label:my-label\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Remove required-label:
 \`/github unsubscribe owner/repository +label:my-label\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Remove ignored-label:
+\`/github unsubscribe owner/repository -label:my-label\`",
     },
     Object {
       "mrkdwn_in": Array [

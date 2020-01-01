@@ -327,7 +327,7 @@ describe('Integration: subscriptions', () => {
         expect(subscription.isEnabledForGitHubEvent('issues')).toBe(true);
       });
 
-      test('successfully subscribing and unsubscribing with label', async () => {
+      test('successfully subscribing and unsubscribing with +label', async () => {
         const { Installation } = models;
 
         installation = await Installation.create({
@@ -368,6 +368,49 @@ describe('Integration: subscriptions', () => {
 
         await subscription.reload();
         expect(subscription.settings.required_labels).toBeFalsy();
+      });
+
+      test('successfully subscribing and unsubscribing with -label', async () => {
+        const { Installation } = models;
+
+        installation = await Installation.create({
+          githubId: 1,
+          ownerId: fixtures.repo.owner.id,
+        });
+
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv/installation').times(2).reply(200, {
+          id: installation.githubId,
+          account: fixtures.repo.owner,
+        });
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(200, fixtures.repo);
+
+        await request.post('/slack/command').use(slackbot)
+          .send(fixtures.slack.command({
+            text: 'subscribe bkeepers/dotenv -label:"help wanted"',
+          }))
+          .expect(200)
+          .expect((res) => {
+            expect(JSON.stringify(res.body)).toMatch(/subscribed/i);
+            expect(res.body).toMatchSnapshot();
+          });
+
+        const { Subscription } = models;
+        const [subscription] = await Subscription.lookup(fixtures.repo.id);
+
+        expect(subscription.settings.ignored_labels).toEqual(expect.arrayContaining(['help wanted']));
+
+        await request.post('/slack/command')
+          .use(slackbot)
+          .send(fixtures.slack.command({
+            text: 'unsubscribe bkeepers/dotenv -label:"help wanted"',
+          }))
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        await subscription.reload();
+        expect(subscription.settings.ignored_labels).toBeFalsy();
       });
 
       test('proper error message for subscriptions with invalid arguments', async () => {

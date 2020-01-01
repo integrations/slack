@@ -148,7 +148,8 @@ And to turn it back off:
 
 #### Filters
 
-Label filters allow filtering incoming events based on a whitelist of **required** labels.
+Label filters allow filtering incoming events based on a list of **required** labels or **ignored** labels.
+You can have both ignored and required labels defined in the same subscription.
 
 ##### Events that can be filtered
 
@@ -174,7 +175,15 @@ Create a filter with:
 ```
 
 This creates a required-label filter with the value `priority:HIGH`.
-Incoming events that support filters discarded unless they have that label.
+Incoming events that support filters are discarded unless they have that label.
+
+```
+/github subscribe owner/repo -label:priority:LOW
+```
+
+This creates an ignored-label filter with the value `priority:LOW`.
+Incoming events that support filters are discarded if they have that label.
+
 
 ##### Updating a filter
 
@@ -186,6 +195,7 @@ Currently, we only support having one filter. Multiple filters might be supporte
 ```
 
 Now the exiting filter `priority:HIGH` has been replaced by `teams/designers`.
+
 
 ##### Removing filters
 
