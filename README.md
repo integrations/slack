@@ -214,7 +214,7 @@ for label filters. Here a few examples:
 * `label:"very important"`
 * `label:":construction: WIP"`
 
-Most labels will work seemlessly, this includes all emojis that slack and github provide out of the box.
+Most labels will work seamlessly, this includes all emojis that slack and github provide out of the box.
 However in the following rare circumstances you might run into difficulties:
 
 * Multibyte characters that are not encoded as `:foo:`
