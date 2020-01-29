@@ -27,7 +27,7 @@ Object {
   "color": "#dbab09",
   "fallback": "4 other checks have passed",
   "footer": "4/5 successful checks",
-  "text": ":white_check_mark: 4 other checks have passed",
+  "text": ":ballot_box_with_check: 4 other checks have passed",
 }
 `;
 
@@ -36,6 +36,6 @@ Object {
   "color": "#cb2431",
   "fallback": "No checks have passed",
   "footer": "0/5 successful checks",
-  "text": ":white_check_mark: No checks have passed",
+  "text": ":bangbang: No checks have passed",
 }
 `;
