@@ -179,7 +179,7 @@ Object {
       "color": "#dbab09",
       "fallback": "2 other checks have passed",
       "footer": "2/3 successful checks",
-      "text": ":white_check_mark: 2 other checks have passed",
+      "text": ":ballot_box_with_check: 2 other checks have passed",
     },
   ],
 }
@@ -279,7 +279,7 @@ Object {
       "color": "#dbab09",
       "fallback": "2 other checks have passed",
       "footer": "2/4 successful checks",
-      "text": ":white_check_mark: 2 other checks have passed",
+      "text": ":ballot_box_with_check: 2 other checks have passed",
     },
   ],
 }
@@ -347,7 +347,7 @@ Object {
       "color": "#dbab09",
       "fallback": "1 other check has passed",
       "footer": "1/4 successful checks",
-      "text": ":white_check_mark: 1 other check has passed",
+      "text": ":ballot_box_with_check: 1 other check has passed",
     },
   ],
 }
