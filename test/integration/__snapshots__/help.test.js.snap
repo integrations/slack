@@ -91,6 +91,13 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Searches a repository for a query:
+\`/github search owner/repository search term\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Adjust your settings in this workspace:
 \`/github settings\`",
     },
@@ -254,6 +261,13 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Searches a repository for a query:
+\`/github search owner/repository search term\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Adjust your settings in this workspace:
 \`/github settings\`",
     },
@@ -412,6 +426,13 @@ Object {
       ],
       "text": "Reopen an Issue:
 \`/github reopen [issue link]\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "text": "Searches a repository for a query:
+\`/github search owner/repository search term\`",
     },
     Object {
       "mrkdwn_in": Array [

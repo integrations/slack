@@ -91,6 +91,13 @@ Object {
       "mrkdwn_in": Array [
         "text",
       ],
+      "text": "Searches a repository for a query:
+\`/github search owner/repository search term\`",
+    },
+    Object {
+      "mrkdwn_in": Array [
+        "text",
+      ],
       "text": "Adjust your settings in this workspace:
 \`/github settings\`",
     },

@@ -65,4 +65,9 @@ module.exports = {
     graphqlIssuesPrs: require('./create/graphql-issues-prs'),
     addComment: require('./create/add-comment'),
   },
+  searchResult: {
+    success: require('./search-success'),
+    empty: require('./search-no-results'),
+    error: require('./search-error'),
+  },
 };
