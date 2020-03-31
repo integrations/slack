@@ -40,7 +40,7 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "acorn": "^6.0.0",
+    "acorn": "^6.4.1",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-probot": ">=0.1.0",
