@@ -26,7 +26,7 @@ describe('Command class', () => {
   test('parses command text of repository subscription with settings', () => {
     const command = new Command({
       text:
-        'subscribe integration/jira reviews +label:priority:MUST +label:"help wanted" +label:"good first issue" +label:area/api',
+      'subscribe integration/jira reviews +label:priority:MUST +label:"help wanted" +label:"good first issue" +label:area/api +reviewer:team:A +reviewer:"team B" +reviewer:team/C',
     });
 
     expect(command.subcommand).toEqual('subscribe');
@@ -37,6 +37,11 @@ describe('Command class', () => {
       'help wanted',
       'good first issue',
       'area/api',
+    ]);
+    expect(command.args.required_reviewers).toEqual([
+      'team:A',
+      'team B',
+      'team/C',
     ]);
   });
 

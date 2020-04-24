@@ -370,6 +370,49 @@ describe('Integration: subscriptions', () => {
         expect(subscription.settings.required_labels).toBeFalsy();
       });
 
+      test('successfully subscribing and unsubscribing with reviewer', async () => {
+        const { Installation } = models;
+
+        installation = await Installation.create({
+          githubId: 1,
+          ownerId: fixtures.repo.owner.id,
+        });
+
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv/installation').times(2).reply(200, {
+          id: installation.githubId,
+          account: fixtures.repo.owner,
+        });
+        nock('https://api.github.com').get('/repos/bkeepers/dotenv').times(2).reply(200, fixtures.repo);
+
+        await request.post('/slack/command').use(slackbot)
+          .send(fixtures.slack.command({
+            text: 'subscribe bkeepers/dotenv +reviewer:"bkeepers"',
+          }))
+          .expect(200)
+          .expect((res) => {
+            expect(JSON.stringify(res.body)).toMatch(/subscribed/i);
+            expect(res.body).toMatchSnapshot();
+          });
+
+        const { Subscription } = models;
+        const [subscription] = await Subscription.lookup(fixtures.repo.id);
+
+        expect(subscription.settings.required_reviewers).toEqual(expect.arrayContaining(['bkeepers']));
+
+        await request.post('/slack/command')
+          .use(slackbot)
+          .send(fixtures.slack.command({
+            text: 'unsubscribe bkeepers/dotenv +reviewer:\'bkeepers\'',
+          }))
+          .expect(200)
+          .expect((res) => {
+            expect(res.body).toMatchSnapshot();
+          });
+
+        await subscription.reload();
+        expect(subscription.settings.required_reviewers).toBeFalsy();
+      });
+
       test('proper error message for subscriptions with invalid arguments', async () => {
         nock('https://api.github.com').get('/repos/bkeepers/dotenv/installation').reply(200, {
           id: installation.githubId,

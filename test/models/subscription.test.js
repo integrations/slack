@@ -293,6 +293,104 @@ describe('model: Subscription', () => {
         expect(subscription.settings).toEqual({});
       });
     });
+
+    describe('reviewer', () => {
+      test('enables and disables with reviewers', () => {
+        subscription.enable(parse(['+reviewer:fizz', '+reviewer:buzz']));
+
+        // Change when multiple filters are supported and not overritten
+        // expect(subscription.settings).toEqual({ required_reviewers: ['fizz', 'buzz'] });
+        expect(subscription.settings).toEqual({ required_reviewers: ['fizz'] });
+
+        // does nothing until we have multiple filters
+        subscription.disable(parse('+reviewer:fizz'));
+
+        expect(subscription.settings).toEqual({ required_reviewers: ['fizz'] });
+
+        subscription.disable(parse('+reviewer:buzz'));
+        expect(subscription.settings).toEqual({});
+      });
+
+      test('ignores duplicated reviwer string', () => {
+        subscription.enable(parse('+reviewer:fizz +reviewer:fizz'));
+        expect(subscription.settings).toEqual({ required_reviewers: ['fizz'] });
+
+        subscription.enable(parse('+reviewer:fizz'));
+        expect(subscription.settings).toEqual({ required_reviewers: ['fizz'] });
+
+        subscription.disable(parse('+reviewer:buzz'));
+        expect(subscription.settings).toEqual({ required_reviewers: ['fizz'] });
+      });
+
+      test('ignores disabling unknown reviewer string', () => {
+        subscription.disable(parse('+reviewer:fizz'));
+
+        expect(subscription.settings).toEqual({});
+      });
+
+      test('accepts quoted spaces and colons as part of reviewer string', async () => {
+        subscription.enable(parse(['+reviewer:"fizz buzz"']));
+
+        expect(subscription.settings).toEqual({ required_reviewers: ['fizz buzz'] });
+      });
+
+      test('parsing, storing and loading works end to end for simple cases', async () => {
+        subscription.enable(parse(['+reviewer:team:fizz']));
+
+        expect(subscription.settings).toEqual({ required_labels: ['team:fizz'] });
+
+        await subscription.save();
+        expect((await subscription.reload()).settings).toEqual({ required_labels: ['reviewer:fizz'] });
+      });
+
+      test('parsing, storing and loading works end to end for complex cases', async () => {
+        subscription.enable(parse(['+reviewer:team:fizz', '+label:"buzz buzzer"']));
+
+        // TODO change when multiple filters are supported
+        // expect(subscription.settings)
+        // .toEqual({ required_labels: ['buzz buzzer', 'team:fizz'] });
+        expect(subscription.settings).toEqual({ required_reviewers: ['buzz buzzer'] });
+
+        await subscription.save();
+        await subscription.reload();
+        expect(subscription.settings).toEqual({ required_reviewers: ['buzz buzzer'] });
+      });
+
+      test('does nothing if +review has no delimiter', async () => {
+        subscription.enable(parse('+reviewer'));
+
+        await subscription.save();
+        await subscription.reload();
+        expect(subscription.settings).toEqual({});
+      });
+
+      test('does nothing if +review has no value', async () => {
+        subscription.enable(parse('+review:'));
+
+        await subscription.save();
+        await subscription.reload();
+        expect(subscription.settings).toEqual({});
+      });
+
+      test('ignores reivew filters without + prefix', async () => {
+        subscription.enable(parse('review:bug'));
+
+        await expect(subscription.save()).rejects.toThrow();
+
+        await subscription.reload();
+        expect(subscription.settings).toEqual({});
+      });
+
+      test('handles invalid review value', async () => {
+        subscription.enable(parse('+review:fizz,buzz'));
+        expect(subscription.settings).toEqual({});
+
+        await subscription.save();
+        await subscription.reload();
+
+        expect(subscription.settings).toEqual({});
+      });
+    });
   });
 
   describe('isEnabledForGitHubEvent', () => {
