@@ -23,6 +23,7 @@
       "site_admin": false
     },
     "description": "",
+    "environment_url": "https://dashboard.heroku.com/apps/github-slack-app",
     "target_url": "https://dashboard.heroku.com/apps/github-slack-app/activity/builds/056df7bf-83c4-4ac1-911b-c8642413eef0",
     "created_at": "2017-11-05T11:15:09Z",
     "updated_at": "2017-11-05T11:15:09Z",
