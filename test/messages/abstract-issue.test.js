@@ -13,6 +13,7 @@ describe('AbstractIssue rendering', () => {
       eventType: 'issues.opened',
       unfurl: false,
       sender: issuesOpened.sender,
+      format: 'full',
     });
   });
 

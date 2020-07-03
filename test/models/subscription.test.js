@@ -293,6 +293,52 @@ describe('model: Subscription', () => {
         expect(subscription.settings).toEqual({});
       });
     });
+
+    describe('format', () => {
+      test('switches format via enable', () => {
+        subscription.enable(parse('format=condensed'));
+        expect(subscription.settings).toEqual({ format: 'condensed' });
+
+        subscription.enable(parse('format=full'));
+        expect(subscription.settings).toEqual({ format: 'full' });
+      });
+
+      test('switches format via disable', () => {
+        subscription.disable(parse('format=condensed'));
+        expect(subscription.settings).toEqual({ format: 'condensed' });
+
+        subscription.disable(parse('format=full'));
+        expect(subscription.settings).toEqual({ format: 'full' });
+      });
+
+      test('parsing, storing and loading works end to end', async () => {
+        subscription.enable(parse('format=condensed'));
+        expect(subscription.settings).toEqual({ format: 'condensed' });
+
+        await subscription.save();
+        expect((await subscription.reload()).settings).toEqual({ format: 'condensed' });
+      });
+
+      test('if two or more format specified, the last one is valid', async () => {
+        subscription.enable(parse(['format=full', 'format=condensed']));
+        expect(subscription.settings).toEqual({ format: 'condensed' });
+      });
+
+      test('does nothing if format is delimited by :', async () => {
+        subscription.enable(parse('format:full'));
+        expect(subscription.settings).toEqual({});
+      });
+
+      test('does nothing if format has no value', async () => {
+        subscription.enable(parse('format='));
+        expect(subscription.settings).toEqual({});
+      });
+
+      test('handles invalid format value', async () => {
+        subscription.enable(parse('format=simple'));
+        expect(subscription.settings).toEqual({});
+      });
+    });
   });
 
   describe('isEnabledForGitHubEvent', () => {
@@ -322,6 +368,7 @@ describe('model: Subscription', () => {
 
       // disabled by default
       expect(subscription.isEnabledForGitHubEvent('issue_comment')).toBe(false);
+
       // handles invalid values
       expect(subscription.isEnabledForGitHubEvent('lolwut?')).toBe(false);
     });
@@ -344,6 +391,34 @@ describe('model: Subscription', () => {
     test('maps GitHub event names to friendly values', () => {
       subscription.enable(parse('pulls'));
       expect(subscription.isEnabledForGitHubEvent('pull_request')).toBe(true);
+    });
+  });
+
+  describe('getFormatSetting', () => {
+    let subscription;
+
+    beforeEach(async () => {
+      subscription = await Subscription.create({
+        channelId: channel,
+        githubId: 1,
+        creatorId: slackUser.id,
+        slackWorkspaceId: workspace.id,
+        installationId: installation.id,
+      });
+    });
+
+    test('returns full as default', () => {
+      expect(subscription.getFormatSetting()).toBe('full');
+    });
+
+    test('returns condensed if enabled', () => {
+      subscription.enable(parse('format=condensed'));
+      expect(subscription.getFormatSetting()).toBe('condensed');
+    });
+
+    test('returns full if enabled', () => {
+      subscription.enable(parse('format=full'));
+      expect(subscription.getFormatSetting()).toBe('full');
     });
   });
 });

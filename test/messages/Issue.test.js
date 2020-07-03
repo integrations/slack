@@ -30,6 +30,19 @@ describe('Issue rendering', () => {
       repository: issuesOpened.repository,
       eventType: 'issues.opened',
       sender: issuesOpened.sender,
+      format: 'full',
+    });
+    const rendered = issueMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
+
+  test('works for condensed notification messages', async () => {
+    const issueMessage = new Issue({
+      issue: issuesOpened.issue,
+      repository: issuesOpened.repository,
+      eventType: 'issues.opened',
+      sender: issuesOpened.sender,
+      format: 'condensed',
     });
     const rendered = issueMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -41,6 +54,7 @@ describe('Issue rendering', () => {
       repository: issuesClosed.repository,
       eventType: 'issues.closed',
       sender: issuesClosed.sender,
+      format: 'full',
     });
     const rendered = issueMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -66,6 +80,7 @@ describe('Issue rendering', () => {
       },
       repository: issuesOpened.repository,
       eventType: 'issues.opened',
+      format: 'full',
     });
     expect(message.getRenderedMessage()).toMatchSnapshot();
   });

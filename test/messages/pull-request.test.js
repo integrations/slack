@@ -26,6 +26,7 @@ describe('Pull request rendering', () => {
         { state: 'CHANGES_REQUESTED', user: { login: 'user2' } },
         { state: 'APPROVED', user: { login: 'user2' } },
       ],
+      format: 'full',
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -43,6 +44,7 @@ describe('Pull request rendering', () => {
       unfurl: false,
       statuses: combinedStatus.statuses,
       sender: pullRequestOpened.sender,
+      format: 'full',
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -60,6 +62,7 @@ describe('Pull request rendering', () => {
       unfurl: false,
       statuses: combinedStatusSomePassing.statuses,
       sender: pullRequestOpened.sender,
+      format: 'full',
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -77,6 +80,7 @@ describe('Pull request rendering', () => {
       unfurl: false,
       statuses: combinedStatusAllPassing.statuses,
       sender: pullRequestOpened.sender,
+      format: 'full',
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -94,6 +98,7 @@ describe('Pull request rendering', () => {
       unfurl: false,
       statuses: combinedStatusOneFailing.statuses,
       sender: pullRequestOpened.sender,
+      format: 'full',
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -111,6 +116,32 @@ describe('Pull request rendering', () => {
       unfurl: false,
       checkRuns: check.check_runs,
       sender: pullRequestOpened.sender,
+      format: 'full',
+    });
+    const rendered = prMessage.getRenderedMessage();
+    expect(rendered).toMatchSnapshot();
+  });
+
+  test('works for condensed notification messages', async () => {
+    const pullRequest = {
+      ...pullRequestOpened.pull_request,
+      labels: [],
+      requested_reviewers: [{ login: 'user1' }],
+      requested_teams: [{ name: 'Test-team', slug: 'test-team' }],
+    };
+    const prMessage = new PullRequest({
+      pullRequest,
+      repository: pullRequestOpened.repository,
+      eventType: 'pull_request.opened',
+      unfurls: false,
+      statuses: combinedStatusOneFailing.statuses,
+      checkRuns: check.check_runs,
+      sender: pullRequestOpened.sender,
+      reviews: [
+        { state: 'CHANGES_REQUESTED', user: { login: 'user2' } },
+        { state: 'APPROVED', user: { login: 'user2' } },
+      ],
+      format: 'condensed',
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -126,6 +157,7 @@ describe('Pull request rendering', () => {
       repository: pullRequestClosed.repository,
       eventType: 'pull_request.closed',
       sender: pullRequestClosed.sender,
+      format: 'full',
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();
@@ -176,6 +208,7 @@ describe('Pull request rendering', () => {
         { state: 'CHANGES_REQUESTED', user: { login: 'user2' } },
         { state: 'APPROVED', user: { login: 'user2' } },
       ],
+      format: 'full',
     });
     const rendered = prMessage.getRenderedMessage();
     expect(rendered).toMatchSnapshot();

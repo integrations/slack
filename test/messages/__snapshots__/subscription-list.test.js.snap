@@ -7,11 +7,11 @@ Object {
       "color": "#24292f",
       "fallback": "Subscribed to 2 repositories",
       "text": "<https://github.com/atom/atom|atom/atom>
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`comments\`, \`reviews\`
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`comments\`, \`reviews\`, \`format:full\`
 
 
 <https://github.com/bkeepers/dotenv|bkeepers/dotenv>
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`format:full\`
 
 ",
       "title": "Subscribed to the following repositories",
@@ -20,11 +20,11 @@ Object {
       "color": "#24292f",
       "fallback": "Subscribed to 2 accounts",
       "text": "<https://github.com/atom|atom>
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`format:full\`
 
 
 <https://github.com/kubernetes|kubernetes>
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits:all\`, \`releases\`
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits:all\`, \`releases\`, \`format:full\`
 
 ",
       "title": "Subscribed to the following accounts",

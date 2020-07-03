@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Pull request rendering works for condensed notification messages 1`] = `
+Object {
+  "attachments": Array [
+    Object {
+      "color": "#36a64f",
+      "fallback": "[github-slack/app] #31 Add badges to readme",
+      "footer": "<https://github.com/github-slack/app|github-slack/app>",
+      "footer_icon": "https://github.githubassets.com/favicon.ico",
+      "mrkdwn_in": Array [
+        "text",
+      ],
+      "pretext": "Pull request opened by wilhelmklopp",
+      "title": "#31 Add badges to readme",
+      "title_link": "https://github.com/github-slack/app/pull/31",
+      "ts": 1506092298,
+    },
+  ],
+}
+`;
+
 exports[`Pull request rendering works for condensed unfurls 1`] = `
 Object {
   "color": "#36a64f",

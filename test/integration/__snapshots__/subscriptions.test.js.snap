@@ -535,7 +535,7 @@ Object {
         "footer",
       ],
       "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`format:full\`",
     },
   ],
   "response_type": "in_channel",
@@ -676,7 +676,7 @@ Object {
         "footer",
       ],
       "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
-\`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
+\`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`format:full\`",
     },
   ],
   "response_type": "in_channel",
@@ -694,7 +694,7 @@ Object {
         "footer",
       ],
       "text": "This channel will get notifications from <https://github.com/bkeepers/dotenv|bkeepers/dotenv> for: 
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`",
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`format:full\`",
     },
   ],
   "response_type": "in_channel",

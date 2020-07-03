@@ -256,11 +256,11 @@ Object {
       "color": "#24292f",
       "fallback": "Subscribed to 2 repositories",
       "text": "<https://github.com/atom/atom|atom/atom>
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits:all\`, \`releases\`
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits:all\`, \`releases\`, \`format:full\`
 
 
 <https://github.com/kubernetes/kubernetes|kubernetes/kubernetes>
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`format:full\`
 
 ",
       "title": "Subscribed to the following repositories",
@@ -269,7 +269,7 @@ Object {
       "color": "#24292f",
       "fallback": "Subscribed to 1 account",
       "text": "<https://github.com/Microsoft|Microsoft>
-\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`
+\`issues\`, \`pulls\`, \`deployments\`, \`statuses\`, \`public\`, \`commits\`, \`releases\`, \`format:full\`
 
 ",
       "title": "Subscribed to the following accounts",
