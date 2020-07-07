@@ -146,6 +146,18 @@ And to turn it back off:
 /github unsubscribe owner/repo reviews comments
 ```
 
+#### The format of notification messages
+
+You can configure the format of notification messages with the `format` option:
+
+```
+/github subscribe owner/repo format=condensed
+```
+
+The value can be one of:
+* `full` - Full version message (default)
+* `condensed` - Condensed version message
+
 #### Filters
 
 Label filters allow filtering incoming events based on a whitelist of **required** labels.
