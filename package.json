@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@keyv/redis": "github:integrations/keyv-redis#use-keys",
-    "@slack/client": "^4.0.1",
+    "@slack/web-api": "^5.11.0",
     "axios": "^0.18.1",
     "body-parser": "^1.18.3",
     "connect-timeout": "^1.9.0",
@@ -57,7 +57,7 @@
     "supertest": "^4.0.2"
   },
   "engines": {
-    "node": "10.16.x",
+    "node": "10.x.x",
     "npm": "6.9.x"
   },
   "jest": {

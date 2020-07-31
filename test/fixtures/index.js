@@ -45,7 +45,9 @@ module.exports = {
       info: require('./slack/team.info'),
     },
     oauth: {
-      token: require('./slack/oauth.token'),
+      v2: {
+        access: require('./slack/oauth.v2.access'),
+      },
     },
     action: require('./slack/action'),
     options: require('./slack/options'),

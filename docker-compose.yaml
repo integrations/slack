@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: bitnami/postgresql
+    restart: always
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379

@@ -1,0 +1,17 @@
+{
+    "ok": true,
+    "access_token": "xoxa-a-b-c-d",
+    "token_type": "bot",
+    "scope": "commands,chat:write",
+    "app_id": "A8BCR7LJF",
+    "team": {
+        "name": "GitHub Slack Dev",
+        "id": "T74MJ8DTK"
+    },
+    "authed_user": {
+        "id": "U8AV5LA8H",
+        "scope": "commands,chat:write",
+        "access_token": "xoxp-a-b-c-d",
+        "token_type": "user"
+    }
+}

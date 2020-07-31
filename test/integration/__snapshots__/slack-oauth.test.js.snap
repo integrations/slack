@@ -3,6 +3,7 @@
 exports[`Integration: slack authentication /login 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\"You've successfully installed GitHub on this Slack workspace :tada:\\\\nTo subscribe a channel to a repository use the following slash command:\\\\n/github subscribe owner/repository\\\\n\\",\\"fallback\\":\\"You've successfully installed GitHub on this Slack workspace :tada:\\\\nTo subscribe a channel to a repository use the following slash command:\\\\n/github subscribe owner/repository\\\\n\\"},{\\"color\\":\\"#24292f\\",\\"text\\":\\"Looking for additional help? Try /github help\\",\\"fallback\\":\\"Looking for additional help? Try /github help\\"}]",
+  "channel": "U8AV5LA8H",
   "token": "xoxa-a-b-c-d",
 }
 `;
@@ -10,6 +11,7 @@ Object {
 exports[`Integration: slack authentication allows all teams 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\"You've successfully installed GitHub on this Slack workspace :tada:\\\\nTo subscribe a channel to a repository use the following slash command:\\\\n/github subscribe owner/repository\\\\n\\",\\"fallback\\":\\"You've successfully installed GitHub on this Slack workspace :tada:\\\\nTo subscribe a channel to a repository use the following slash command:\\\\n/github subscribe owner/repository\\\\n\\"},{\\"color\\":\\"#24292f\\",\\"text\\":\\"Looking for additional help? Try /github help\\",\\"fallback\\":\\"Looking for additional help? Try /github help\\"}]",
+  "channel": "U8AV5LA8H",
   "token": "xoxa-a-b-c-d",
 }
 `;
@@ -17,6 +19,7 @@ Object {
 exports[`Integration: slack authentication updates the access token 1`] = `
 Object {
   "attachments": "[{\\"color\\":\\"#24292f\\",\\"text\\":\\"You've successfully installed GitHub on this Slack workspace :tada:\\\\nTo subscribe a channel to a repository use the following slash command:\\\\n/github subscribe owner/repository\\\\n\\",\\"fallback\\":\\"You've successfully installed GitHub on this Slack workspace :tada:\\\\nTo subscribe a channel to a repository use the following slash command:\\\\n/github subscribe owner/repository\\\\n\\"},{\\"color\\":\\"#24292f\\",\\"text\\":\\"Looking for additional help? Try /github help\\",\\"fallback\\":\\"Looking for additional help? Try /github help\\"}]",
+  "channel": "U8AV5LA8H",
   "token": "xoxa-a-b-c-d",
 }
 `;
