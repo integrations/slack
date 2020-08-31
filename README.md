@@ -148,7 +148,7 @@ And to turn it back off:
 
 #### Filters
 
-Label filters allow filtering incoming events based on a whitelist of **required** labels.
+Label filters allow filtering incoming events based on an allow-list of **required** labels.
 
 ##### Events that can be filtered
 
