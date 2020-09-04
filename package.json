@@ -34,7 +34,7 @@
     "query-string": "^6.0.0",
     "raven": "^2.4.1",
     "request": "^2.87.0",
-    "sequelize": "^4.44.3",
+    "sequelize": "^5.15.1",
     "sequelize-cli": "^4.1.1",
     "sequelize-encrypted": "^1.0.0",
     "uuid": "^3.3.3"
