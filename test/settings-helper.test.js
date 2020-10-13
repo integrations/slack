@@ -59,6 +59,12 @@ describe('parseSettings', () => {
     expect(parsed.required_labels).toEqual(['wip']);
     expect(parsed.invalids).toEqual([expectedError]);
   });
+
+  test('handles underscore in label values', () => {
+    const parsed = parseSettings(['+label:something_with_underscore']);
+    expect(parsed.required_labels).toEqual(['something_with_underscore']);
+    expect(parsed.features).toEqual([]);
+  });
 });
 
 describe('hasValue', () => {
