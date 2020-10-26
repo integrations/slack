@@ -29,6 +29,14 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 ### Requirements
 This app officially supports GitHub.com (which includes our GitHub Enterprise cloud-hosted offering) and Slack.com, but the team plans to support GitHub Enterprise Server (our self-hosted product) and Slack Enterprise Grid in the future.
 
+| Slack Plan | Supported? |
+| ---------- | ---------- |
+| Slack Free | X |
+| Slack Standard | X |
+| Slack Plus | X |
+| Slack Enterprise Grid | | 
+
+
 ### Installation
 [Install the GitHub integration for Slack](https://slack.com/apps/A8GBNUWU8-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
 
