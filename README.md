@@ -230,7 +230,7 @@ When you install the new GitHub integration for Slack in your Slack workspace, y
 Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
 
 ## Contributing
-Want to help improve the integration between GitHub and Slack? Check out the [contributing docs](CONTRIBUTING.md) to get involved.
+We are currently making platform changes and *not* accepting any contributions to this app. You can raise a feature request from [here](https://github.com/integrations/slack/issues/new/choose)
 
 ## License
 The project is available as open source under the terms of the [MIT License](LICENSE).
