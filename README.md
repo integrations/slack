@@ -20,7 +20,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Link previews](#link-previews)
   - [Take action](#take-action)
   - [Configuration](#configuration)
-  - [Migrating from the legacy GitHub integration for Slack](#migrating-from-the-legacy-github-integration-for-slack)
+  - [Moving away from the legacy workspace app model in Slack](#moving-away-from-the-legacy-workspace-app-model-in-slack)
 - [Need help?](#questions-need-help)
 - [Contributing](#contributing)
 - [License](#license)
@@ -220,11 +220,31 @@ However in the following rare circumstances you might run into difficulties:
 * Multibyte characters that are not encoded as `:foo:`
 * `,` is reserved
 
-### Migrating from the legacy GitHub integration for Slack
+### Moving away from the legacy workspace app model in Slack
 
-When you install the new GitHub integration for Slack in your Slack workspace, you'll be prompted to move over all of your existing subscriptions - so getting set up again is easy. As you enable individual subscriptions in the new app, your settings will be automatically migrated and subscriptions in the legacy app will be disabled.
+You need to update your GitHub app if you have installed the GitHub Slack integration in your workspace before March 31, 2021.
 
-<p align="center"><img width="666" alt="migration" src="https://user-images.githubusercontent.com/3877742/36557399-ff8663c6-17bc-11e8-8962-d92088cf98a9.png"></p>
+#### Why do I need to upgrade?
+Previous GitHub integration for Slack is built on top of Slack's [workspace apps](https://api.slack.com/legacy/workspace-apps). Unfortunately, Slack deprecated the workspace apps. More details about the announcement can be found on the [Slack documentation](https://api.slack.com/changelog/2021-03-workspace-apps-to-retire-in-august-2021).
+
+Our workspace app relies on Slack APIs that are now deprecated and will be retired soon. We now need to move to Slack's newly supported bot app framework.
+
+#### What changes after the upgrade?
+No change in the way our GitHub app for Slack works. Once you upgrade, we will migrate all your subscriptions and replace the old legacy GitHub app.
+
+In terms of notifications, if you have subscriptions configured only in public Slack channels, everything works seamlessly after the upgrade. However, if you are using GiHub app in private channels, you need to invite the GitHub app to the channel for your subscriptions to work again.
+
+Once you upgrade, GitHub will send a message to invite the bot again if you have any private channels.
+
+#### How do I upgrade?
+You can upgrade the GitHub app in two ways.
+1.	By installing the new GitHub app from the Marketplace or click on the install link here. We will automatically detect and update the old app and migrate your subscriptions.
+2.	If you are on the old app, you will start receiving alerts in your channels to update. 
+The old app will be upgraded, and you will get a confirmation message once the upgrade is completed. Also, a message will be posted in all your channels once all your subscriptions are successfully migrated.
+
+#### When do I need to migrate by?
+All your workspaces need to be upgraded by June 30, 2021. If you have any questions or concerns, please reach out to us at chatops@github.com  
+
 
 ## Questions? Need help?
 Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
