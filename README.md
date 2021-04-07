@@ -240,7 +240,7 @@ Our workspace app relies on Slack APIs that are now deprecated and will be retir
 
 #### 2. How do I upgrade?
 You can upgrade the GitHub app in two ways.
-1.	By installing the new GitHub app from the Marketplace or click on the install link here. We will automatically detect and update the old app and migrate your subscriptions.
+1.	By installing the new GitHub app from the Marketplace or click on the install link [here](https://slack.github.com/). We will automatically detect and update the old app and migrate your subscriptions.
 2.	If you are on the old app, you will start receiving alerts in your channels to update. 
 The old app will be upgraded, and you will get a confirmation message once the upgrade is completed. Also, a message will be posted in all your channels once all your subscriptions are successfully migrated.
 <p align="left"><img width="500" alt="Migration" src="docs/SlackMigration.PNG"></p>
