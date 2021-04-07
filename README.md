@@ -231,7 +231,7 @@ However in the following rare circumstances you might run into difficulties:
 ### Moving away from the legacy workspace app model in Slack
 
 You need to update your GitHub app if you have installed the GitHub Slack integration in your workspace before April 09, 2021.
-<p align="left"><img width="500" alt="Customize notifications" src="images/SlackUpgrade.PNG"></p>
+<p align="left"><img width="500" alt="Upgrade" src="docs/SlackUpgrade.PNG"></p>
 
 #### 1. Why do I need to upgrade?
 Previous GitHub integration for Slack is built on top of Slack's [workspace apps](https://api.slack.com/legacy/workspace-apps). Unfortunately, Slack deprecated the workspace apps. More details about the announcement can be found on the [Slack documentation](https://api.slack.com/changelog/2021-03-workspace-apps-to-retire-in-august-2021).
@@ -243,7 +243,7 @@ You can upgrade the GitHub app in two ways.
 1.	By installing the new GitHub app from the Marketplace or click on the install link here. We will automatically detect and update the old app and migrate your subscriptions.
 2.	If you are on the old app, you will start receiving alerts in your channels to update. 
 The old app will be upgraded, and you will get a confirmation message once the upgrade is completed. Also, a message will be posted in all your channels once all your subscriptions are successfully migrated.
-<p align="left"><img width="500" alt="Customize notifications" src="images/SlackMigration.PNG"></p>
+<p align="left"><img width="500" alt="Migration" src="docs/SlackMigration.PNG"></p>
 
 #### 3. What changes after the upgrade?
 No change in the way our GitHub app for Slack works. Once you upgrade, we will migrate all your subscriptions and replace the old legacy GitHub app.
