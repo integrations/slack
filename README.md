@@ -120,9 +120,7 @@ These are enabled by default, and can be disabled with the `/github unsubscribe 
 
 - `issues` - Opened or closed issues
 - `pulls` - New or merged pull requests, as well as draft pull requests marked "Ready for Review"
-- `statuses` - Statuses on pull requests
 - `commits` - New commits on the default branch (usually `master`)
-- `deployments` - Updated status on deployments
 - `public` - A repository switching from private to public
 - `releases` - Published releases
 
@@ -131,7 +129,7 @@ These are disabled by default, and can be enabled with the `/github subscribe ow
 - `reviews` - Pull request reviews
 - `comments` - New comments on issues and pull requests
 - `branches` - Created or deleted branches
-- `commits:all` - All commits pushed to any branch
+- `commits:*` - All commits pushed to any branch
 - `+label:"your label"` - Filter issues, pull-requests and comments based on their labels.
 
 You can subscribe or unsubscribe from multiple settings at once. For example, to turn on activity for pull request reviews and comments:
@@ -148,9 +146,21 @@ And to turn it back off:
 
 #### Filters
 
-Label filters allow filtering incoming events based on a whitelist of **required** labels.
+##### Branch filters for commit
+Branch filters allow filtering commit notifications. By default when you subscribe for commits feature, you will get notifications for your default branch (i.e. main). However, you can choose to filter on a specific branch, or a pattern of branches or all branches.
 
-##### Events that can be filtered
+- `/github subscribe org/repo commits`  for commit notifications from a default branch.
+- `/github subscribe org/repo commits:*`  for commit notifications across all the branches.
+- `/github subscribe org/repo commits:myBranch`  for commit notifications from a specific branch.
+- `/github subscribe org/repo commits:users/*`  for commit notifications from a pattern of branches.
+
+You can unsubscribe commits feature using `@github unsubscribe org/repo commits.
+
+*Note*: Previously we you might have used `commits:all` to represent all branches. 'all' is no longer a reserved keyword. Going forward, you need to use '*' to represent all branches. If you have already configured with 'commits:all' previosly, dont worry, it will continue to work until you update the commits configuration.
+
+
+##### Label filters for prs and issues
+Label filters allow filtering incoming events based on a whitelist of **required** labels.
 
 This is an overview of the event types that are affected by the required-label filter.
 
@@ -160,8 +170,6 @@ This is an overview of the event types that are affected by the required-label f
 | Comment (PR and Issue) | ✅ Yes             |
 | Issue                  | ✅ Yes             |
 | Review                 | ✅ Yes             |
-| Status/Checks          | ✅ (Depends on PR) |
-| Deployment             | ❌ No              |
 | Commit/Push            | ❌ No              |
 | Public                 | ❌ No              |
 | Branch                 | ❌ No              |
@@ -222,35 +230,37 @@ However in the following rare circumstances you might run into difficulties:
 
 ### Moving away from the legacy workspace app model in Slack
 
-You need to update your GitHub app if you have installed the GitHub Slack integration in your workspace before March 31, 2021.
+You need to update your GitHub app if you have installed the GitHub Slack integration in your workspace before April 09, 2021.
+<p align="left"><img width="500" alt="Customize notifications" src="images/SlackUpgrade.PNG"></p>
 
-#### Why do I need to upgrade?
+#### 1. Why do I need to upgrade?
 Previous GitHub integration for Slack is built on top of Slack's [workspace apps](https://api.slack.com/legacy/workspace-apps). Unfortunately, Slack deprecated the workspace apps. More details about the announcement can be found on the [Slack documentation](https://api.slack.com/changelog/2021-03-workspace-apps-to-retire-in-august-2021).
 
 Our workspace app relies on Slack APIs that are now deprecated and will be retired soon. We now need to move to Slack's newly supported bot app framework.
 
-#### What changes after the upgrade?
+#### 2. How do I upgrade?
+You can upgrade the GitHub app in two ways.
+1.	By installing the new GitHub app from the Marketplace or click on the install link here. We will automatically detect and update the old app and migrate your subscriptions.
+2.	If you are on the old app, you will start receiving alerts in your channels to update. 
+The old app will be upgraded, and you will get a confirmation message once the upgrade is completed. Also, a message will be posted in all your channels once all your subscriptions are successfully migrated.
+<p align="left"><img width="500" alt="Customize notifications" src="images/SlackMigration.PNG"></p>
+
+#### 3. What changes after the upgrade?
 No change in the way our GitHub app for Slack works. Once you upgrade, we will migrate all your subscriptions and replace the old legacy GitHub app.
 
 In terms of notifications, if you have subscriptions configured only in public Slack channels, everything works seamlessly after the upgrade. However, if you are using GiHub app in private channels, you need to invite the GitHub app to the channel for your subscriptions to work again.
 
 Once you upgrade, GitHub will send a message to invite the bot again if you have any private channels.
 
-#### How do I upgrade?
-You can upgrade the GitHub app in two ways.
-1.	By installing the new GitHub app from the Marketplace or click on the install link here. We will automatically detect and update the old app and migrate your subscriptions.
-2.	If you are on the old app, you will start receiving alerts in your channels to update. 
-The old app will be upgraded, and you will get a confirmation message once the upgrade is completed. Also, a message will be posted in all your channels once all your subscriptions are successfully migrated.
-
-#### When do I need to migrate by?
-All your workspaces need to be upgraded by June 30, 2021. If you have any questions or concerns, please reach out to us at chatops@github.com  
+#### 4. When do I need to migrate by?
+All your workspaces need to be upgraded by *July 15, 2021* after which the old version of the app will stop working. If you have any questions or concerns, please reach out to us at chatops@github.com  
 
 
 ## Questions? Need help?
 Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
 
-## Contributing
-Want to help improve the integration between GitHub and Slack? Check out the [contributing docs](CONTRIBUTING.md) to get involved.
+## ~~Contributing~~ 
+We are currently making platform changes and *not* accepting any contributions to this app. You can raise a feature request from [here](https://github.com/integrations/slack/issues/new/choose)
 
 ## License
 The project is available as open source under the terms of the [MIT License](LICENSE).
