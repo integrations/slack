@@ -230,7 +230,7 @@ However in the following rare circumstances you might run into difficulties:
 
 ### Moving away from the legacy workspace app model in Slack
 
-You need to update your GitHub app if you have installed the GitHub Slack integration in your workspace before April 09, 2021.
+You need to update your GitHub app if you have installed the GitHub Slack integration in your workspace before **April 09, 2021**.
 <p align="left"><img width="500" alt="Upgrade" src="docs/SlackUpgrade.PNG"></p>
 
 #### 1. Why do I need to upgrade?
@@ -253,7 +253,7 @@ In terms of notifications, if you have subscriptions configured only in public S
 Once you upgrade, GitHub will send a message to invite the bot again if you have any private channels.
 
 #### 4. When do I need to migrate by?
-All your workspaces need to be upgraded by *July 15, 2021* after which the old version of the app will stop working. If you have any questions or concerns, please reach out to us at chatops@github.com  
+All your workspaces need to be upgraded by **July 15, 2021** after which the old version of the app will stop working. If you have any questions or concerns, please reach out to us at chatops@github.com  
 
 
 ## Questions? Need help?
