@@ -248,7 +248,7 @@ The old app will be upgraded, and you will get a confirmation message once the u
 #### 3. What changes after the upgrade?
 No change in the way our GitHub app for Slack works. Once you upgrade, we will migrate all your subscriptions and replace the old legacy GitHub app.
 
-In terms of notifications, if you have subscriptions configured only in public Slack channels, everything works seamlessly after the upgrade. However, if you are using GiHub app in private channels, you need to invite the GitHub app to the channel for your subscriptions to work again.
+In terms of notifications, if you have subscriptions configured only in public Slack channels, everything works seamlessly after the upgrade. However, if you are using GitHub app in private channels, you need to invite the GitHub app to the channel for your subscriptions to work again.
 
 Once you upgrade, GitHub will send a message to invite the bot again if you have any private channels.
 
