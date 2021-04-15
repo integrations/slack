@@ -263,8 +263,7 @@ Commit notifications now support filtering based on branches. You can choose to 
 Today, the functionality provided by deploy command is very limited and doesn't address all the scenarios. We are removing this command support as part of this version. We want to relook at the scenarios and build a more holistic experience that customers need.
 
 #### 4. When do I need to migrate by?
-All your workspaces need to be upgraded by **July 15, 2021** after which the old version of the app will stop working. If you have any questions or concerns, please reach out to us at chatops@github.com  
-
+All your workspaces need to be upgraded by **July 15, 2021** after which the old version of the app will stop working. If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose).  
 
 ## Questions? Need help?
 Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
