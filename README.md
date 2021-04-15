@@ -252,6 +252,16 @@ In terms of notifications, if you have subscriptions configured only in public S
 
 Once you upgrade, GitHub will send a message to invite the bot again if you have any private channels.
 
+Along with this upgrade, we have also made few changes to the app. 
+- Enhanced security for **sign in** experience: 
+As part of this upgrade, we have also updated the sign in flow to have a multistep process with verification code. This is necessary to make sign in to GitHub from Slack more secure.  
+
+- Introduced Branch filters for **commit notifications**: 
+Commit notifications now support filtering based on branches. You can choose to filter on a specific branch, or a pattern of branches or all branches. You can find more details [here](https://github.com/integrations/slack#configuration).
+
+- Removed **deploy command** support:
+Today, the functionality provided by deploy command is very limited and doesn't address all the scenarios. We are removing this command support as part of this version. We want to relook at the scenarios and build a more holistic experience that customers need.
+
 #### 4. When do I need to migrate by?
 All your workspaces need to be upgraded by **July 15, 2021** after which the old version of the app will stop working. If you have any questions or concerns, please reach out to us at chatops@github.com  
 
@@ -260,7 +270,7 @@ All your workspaces need to be upgraded by **July 15, 2021** after which the old
 Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
 
 ## ~~Contributing~~ 
-We are currently making platform changes and *not* accepting any contributions to this app. You can raise a feature request from [here](https://github.com/integrations/slack/issues/new/choose)
+We are currently making platform changes and **not** accepting any contributions to this app. You can raise a feature request from [here](https://github.com/integrations/slack/issues/new/choose)
 
 ## License
 The project is available as open source under the terms of the [MIT License](LICENSE).
