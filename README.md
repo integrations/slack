@@ -121,7 +121,6 @@ These are enabled by default, and can be disabled with the `/github unsubscribe 
 - `issues` - Opened or closed issues
 - `pulls` - New or merged pull requests, as well as draft pull requests marked "Ready for Review"
 - `commits` - New commits on the default branch (usually `master`)
-- `public` - A repository switching from private to public
 - `releases` - Published releases
 
 These are disabled by default, and can be enabled with the `/github subscribe owner/repo [feature]` command:
@@ -171,7 +170,6 @@ This is an overview of the event types that are affected by the required-label f
 | Issue                  | ✅ Yes             |
 | Review                 | ✅ Yes             |
 | Commit/Push            | ❌ No              |
-| Public                 | ❌ No              |
 | Branch                 | ❌ No              |
 
 ##### Creating a filter
@@ -259,8 +257,12 @@ As part of this upgrade, we have also updated the sign in flow to have a multist
 - Introduced Branch filters for **commit notifications**: 
 Commit notifications now support filtering based on branches. You can choose to filter on a specific branch, or a pattern of branches or all branches. You can find more details [here](https://github.com/integrations/slack#configuration).
 
-- Removed **deploy command** support:
-Today, the functionality provided by deploy command is very limited and doesn't address all the scenarios. We are removing this command support as part of this version. We want to relook at the scenarios and build a more holistic experience that customers need.
+- Removed **deploy command and notification** support:
+Today, the functionality provided by deploy command is very limited and doesn't address all the scenarios. We are removing deploy command and notifications support as part of this version. We want to relook at the scenarios and build a more holistic experience that customers need.
+
+- **Public** feature i.e. repo notification is always enabled:
+Going forward, you will not see 'Public' in the subscribe features list. However, whenever a change happens to the repo it will be notified in the channels where it is subscribed and user will not have option to disable 'public' notifications. Repo is a core entity and when some change happens to the repo that user choose to subscribe, it is the basic info that has to be notified to the user.
+
 
 #### 4. When do I need to migrate by?
 All your workspaces need to be upgraded by **July 15, 2021** after which the old version of the app will stop working. If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose).  
