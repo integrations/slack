@@ -1,7 +1,7 @@
 # Configuration for new-issue-welcome - https://github.com/behaviorbot/new-issue-welcome
 # Comment to be posted to on first time issues
 newIssueWelcomeComment: >
-  Thanks for opening this issue! If you would like to help implement an improvement, [read more about contributing](https://github.com/integrations/slack/blob/master/CONTRIBUTING.md#getting-started) and consider submitting a pull request.
+  We are currently not accepting any contributions to this app. You can raise a feature request from [here](https://github.com/integrations/slack/issues/new).
 
 # Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
 # Comment to be posted to on PRs from first time contributors
