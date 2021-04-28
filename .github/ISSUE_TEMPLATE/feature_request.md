@@ -1,9 +1,9 @@
 ---
-Name: Feature request
-About: Suggest an idea for this project
-Title: ''
-Labels: Feature request
-Assignees: ashokirla
+name: Feature request
+about: Suggest an idea for this project
+title: ''
+labels: Feature request
+assignees: ashokirla
 
 ---
 
