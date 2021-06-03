@@ -16,6 +16,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Installation](#installation)
   - [Authorization](#authorization)
 - Getting Started
+  - [Receiving realtime notifications](#receiving-realtime-notifications)
   - [Repository Activity](#repository-activity)
   - [Link previews](#link-previews)
   - [Take action](#take-action)
@@ -71,6 +72,13 @@ By granting the app access, you are providing the following authorizations to yo
 |Read access to code| To render code snippets in Slack|
 |Read access to commit statuses, checks, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
 |Write access to issues, deployments, and pull requests | To take action from Slack with the `/github` command and directly from messages|
+
+#### Receiving realtime notifications
+- To receive realtime notifications you should visit the [scheduled reminders settings page](https://github.com/settings/reminders) on GitHub
+- Edit the settings for the organisation you would like to enable notifications for
+- Add the Slack workspace you are looking to receive notifications to
+- Toggle `Enable real-time alerts` and select the alerts you would like to receive
+- Save the settings and you will begin to receive real time alerts to your configured Slack workspace for the organisation you chose
 
 #### Repository Activity
 **Subscribe to an Organization or a Repository**
