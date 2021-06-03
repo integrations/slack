@@ -122,6 +122,7 @@ These are enabled by default, and can be disabled with the `/github unsubscribe 
 - `pulls` - New or merged pull requests, as well as draft pull requests marked "Ready for Review"
 - `commits` - New commits on the default branch (usually `master`)
 - `releases` - Published releases
+- `deployments` - Updated status on deployments
 
 These are disabled by default, and can be enabled with the `/github subscribe owner/repo [feature]` command:
 
