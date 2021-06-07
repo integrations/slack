@@ -1,6 +1,6 @@
 # GitHub + Slack Integration
 
-| :warning: WARNING          |
+| :warning: IMPORTANT          |
 |:---------------------------|
 | This repository is not accepting any contributions. The current code which is running for GitHub and slack integration has significantly diverged from the code present in this repository as it contains specific code which is required to run service in GitHub infrastructure and which can not be open sourced at this point of time. |
 
