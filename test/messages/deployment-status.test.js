@@ -32,6 +32,30 @@ describe('Deployment status rendering', () => {
     });
     expect(deploymentStatusMessage.toJSON()).toMatchSnapshot();
   });
+  test('works for in_progress status', () => {
+    const deploymentStatus = {
+      ...deploymentStatusSuccessFixture.deployment_status,
+      state: 'in_progress',
+    };
+    const deploymentStatusMessage = new DeploymentStatus({
+      deploymentStatus,
+      deployment: deploymentStatusSuccessFixture.deployment,
+      repository: deploymentStatusSuccessFixture.repository,
+    });
+    expect(deploymentStatusMessage.toJSON()).toMatchSnapshot();
+  });
+  test('works for queued status', () => {
+    const deploymentStatus = {
+      ...deploymentStatusSuccessFixture.deployment_status,
+      state: 'queued',
+    };
+    const deploymentStatusMessage = new DeploymentStatus({
+      deploymentStatus,
+      deployment: deploymentStatusSuccessFixture.deployment,
+      repository: deploymentStatusSuccessFixture.repository,
+    });
+    expect(deploymentStatusMessage.toJSON()).toMatchSnapshot();
+  });
   test('works for error status', () => {
     const deploymentStatus = {
       ...deploymentStatusSuccessFixture.deployment_status,

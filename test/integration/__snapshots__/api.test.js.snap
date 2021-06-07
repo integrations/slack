@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Integration: api with a valid user token does not post message if user does not have push access 1`] = `Set {}`;
+
+exports[`Integration: api with a valid user token does not post message if user does not have push access 2`] = `Map {}`;
+
 exports[`Integration: api with a valid user token posts message if user has push access 1`] = `
 Object {
   "attachments": "[{\\"text\\":\\"hello world\\"}]",
@@ -7,3 +11,11 @@ Object {
   "token": "xoxp-token",
 }
 `;
+
+exports[`Integration: api with a valid user token posts message if user has push access 2`] = `Set {}`;
+
+exports[`Integration: api with a valid user token posts message if user has push access 3`] = `Map {}`;
+
+exports[`Integration: api without authentication responds with 401 1`] = `Set {}`;
+
+exports[`Integration: api without authentication responds with 401 2`] = `Map {}`;
