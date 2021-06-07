@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`UnfurlSettingsUnmuteConfirm rendering works 1`] = `
-Object {
-  "color": "#24292f",
-  "text": ":white_check_mark: Prompts to show a rich preview have been unmuted",
-}
-`;
