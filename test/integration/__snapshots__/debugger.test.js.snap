@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Debugger should re-throw errors 1`] = `[SequelizeDatabaseError: column GitHubUser.nonExistingColumn does not exist]`;

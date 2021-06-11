@@ -1,8 +1,0 @@
-#!/bin/sh
-# script/server: Launch the application locally.
-
-set -e
-
-cd "$(dirname "$0")/.."
-
-npm run dev

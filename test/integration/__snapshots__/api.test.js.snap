@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Integration: api with a valid user token posts message if user has push access 1`] = `
-Object {
-  "attachments": "[{\\"text\\":\\"hello world\\"}]",
-  "channel": "C001",
-  "token": "xoxp-token",
-}
-`;
