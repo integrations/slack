@@ -1,8 +1,8 @@
 # GitHub + Slack Integration
 
-| Build | Code Coverage | Dependencies |
-|-------|---------------|--------------|
-| [![Build Status](https://travis-ci.org/integrations/slack.svg?branch=master)](https://travis-ci.org/integrations/slack) | [![codecov](https://codecov.io/gh/integrations/slack/branch/master/graph/badge.svg?token=wGV2kENgLx)](https://codecov.io/gh/integrations/slack) | [![Greenkeeper badge](https://badges.greenkeeper.io/integrations/slack.svg)](https://greenkeeper.io/) |
+| :warning: IMPORTANT          |
+|:---------------------------|
+| This repository is not accepting any code contributions. The current code which is running for GitHub and Slack integration has significantly diverged from the code present in this repository as it contains specific code which is required to run service in GitHub infrastructure and which can not be open sourced at this point of time. **We will continue to use issues in this repository to get feedback from customers**.|
 
 > **Heads Up!** The GitHub and Slack app has a few new features to help you turn conversations into next steps. Take action on pull requests, issues, and more right from your Slack channels to start moving work forward, faster. [Read more about it on the GitHub blog](https://blog.github.com/2018-05-17-new-improvements-to-slack-and-github-integration/).
 
@@ -270,9 +270,6 @@ All your workspaces need to be upgraded by **July 15, 2021** after which the old
 
 ## Questions? Need help?
 Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
-
-## ~~Contributing~~ 
-We are currently making platform changes and **not** accepting any contributions to this app. You can raise a feature request from [here](https://github.com/integrations/slack/issues/new/choose)
 
 ## License
 The project is available as open source under the terms of the [MIT License](LICENSE).
