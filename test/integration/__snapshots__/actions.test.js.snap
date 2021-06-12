@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Actions When an action's name is "cancel", then it is immediately deleted 1`] = `
-Object {
-  "delete_original": true,
-}
-`;
