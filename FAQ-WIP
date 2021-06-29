@@ -1,0 +1,73 @@
+Why am I not getting notifications after the migration on a channel ?
+You need to invite the github app using /github invite in the private channel to get the notifications. Your subscriptions are already migrated and you would have received the message to all the channels where subscriptions were created about inviting the app like 
+
+There could be other reasons also. Like 
+If we search the channelId in the splunk log, we would come to know what exception we are getting. If we are getting 
+Restricted_action error
+check the workspace preference if they have restricted who can post message to this channel. For example check this issue https://github.com/github/slack/issues/1560#issuecomment-834359972
+
+
+What to do if the user encounters any error while data migration ?
+Please retry updating the app. If retry wont work let us know.
+
+What is the new app update ? Why is this update required?
+Previous GitHub integration for Slack is built on top of Slack's workspace apps. Unfortunately, Slack deprecated the workspace apps. More details about the announcement can be found on the Slack documentation.
+Our workspace app relies on Slack APIs that are now deprecated and will be retired soon. We now need to move to Slack's newly supported bot app framework.
+What happens on upgrading the app?
+No changes in the usual app functionality. All the subscriptions of a workspaces will be migrated to the new app on upgrading the app.
+
+What features will not work after update ?
+The deploy command will stop working. Notifications for deployment will not be there. 
+
+Why change in behaviour in URL unfurling ?
+The URL unfurling new design has the following changes - 
+Users will be able to mute unfurls for all public/ private repo links, while earlier they were able to mute unfurl only for private repo links.
+Mute option for URL unfurl will indefinitely mute the unfurling until the user runs /github settings command to re-enable it. Users will not be able to mute unfurl to limited like like 24hrs as in the legacy app
+ Users will not be able to configure repositories level mute/ unmute unfurl settings.
+
+ What would happen post deprecation (15-July 2021) if users won’t update the app ?
+Users who will not upgrade the app by 15th-July 2021, will not be able to use the app as it will stop working.
+
+Customer receives app_not_installed_on_team error when attempting to run `/` commands
+Public issue with a possible solution: https://github.com/integrations/slack/issues/1154:
+
+> We have 6 workspaces that had the github app (legacy) installed and I had to do the upgrade on all of them.
+once I completed the last one and then we only had the new GitHub app installed and no instances of the GitHub (legacy) app then the /slash commands started working
+
+
+Slash commands are not working post upgrade
+If the workspace is part of an enterprise grid and if GitHub(legacy) app is still installed in any of the workspaces inside the grid, users reported running into this issue.
+
+Users might see errors like app_not_installed_on_team and invalid_user.
+
+It is advised to upgrade the app in all of the workspaces inside the grid where the old app was previously present.
+
+Not receiving PR Merged and closed notifications. PR open notifications are working.
+To debug:
+Get the repo_id. If you have access to stafftools: https://admin.github.com/stafftools
+Search with org/repo. You will find the repoid form the database section
+Splunk:  Every log in splunk has a unique webhook id. Give the time range for the search.
+ index=catchall "kube_namespace=slack-production"  "pull_request.closed" <repo_id>
+Get the id from the above search
+index=catchall "kube_namespace=slack-production"  <id from above search>  | sort by time
+
+If you encounter ‘Resource not accessible by integration’ error in the search results. Then it could be due to the following.
+
+Reason: Starting with the new Slack app release we are enriching the data to give users a better experience. For example, Users will be able to see the updated label, reviewer info in the PR open notification message. When a PR is closed/ merged, users will be able to see the status of the PR in the first notification we posted as part of the PR open.
+
+To provide this enrichment, we need the users to be on the latest version of the Slack app on the .com side. Though we haven’t updated the Slack app on the .com side, it is required for users to be on the latest version to see all of the notifications.
+
+To achieve this org/account owner needs to complete this step.. 
+Go to account settings > applications > Click on configure slack app > Users who are on older versions, can click on review requests and accept the permissions.
+(or)
+org settings > installed GitHub apps  > Click on configure slack app > Users who are on older versions, can click on review request and accept the permissions.
+
+The same can be done via:
+Github Repo > Settings > Integrations (Installed GitHub Apps) > Slack Configure > Permissions
+
+
+1) SAML, while subscribing to a resource in saml enabled organization, users should have authorized the org while signing in for the notifications to work. They can do a signin command again to complete the authorization step.
+2) https://github.com/github/slack/issues/1554 - settings mute and unmute unfurls  have to be added to the documentation
+3) Upgrade the Slack app on GitHub to have an enriched experience.
+4) If customers are on the Slack enterprise grid/ plus plan, the GitHub app has to be upgraded on all the workspaces on Slack. 
+
