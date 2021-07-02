@@ -181,11 +181,11 @@ Create a filter with:
 ```
 
 This creates a required-label filter with the value `priority:HIGH`.
-Incoming events that support filters discarded unless they have that label.
+Incoming events that support filters are discarded unless they have that label.
 
 ##### Updating a filter
 
-To update the exiting filter just enter a new one, the old one will be updated.
+To update the existing filter just enter a new one, the old one will be updated.
 Currently, we only support having one filter. Multiple filters might be supported in the future.
 
 ```
@@ -201,7 +201,7 @@ Removing a filter is available via `unsubscribe`
 /github unsubscribe owner/repo +label:teams/designers
 ```
 
-This removes the `priority:HIGH` filter.
+This removes the `teams/designers` filter.
 
 ##### Listing filters
 
