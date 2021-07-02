@@ -192,7 +192,7 @@ Currently, we only support having one filter. Multiple filters might be supporte
 /github subscribe owner/repo +label:"teams/designers"
 ```
 
-Now the exiting filter `priority:HIGH` has been replaced by `teams/designers`.
+Now the existing filter `priority:HIGH` has been replaced by `teams/designers`.
 
 ##### Removing filters
 
