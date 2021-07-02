@@ -14,6 +14,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 - [Installing the GitHub integration for Slack](#installing-the-github-integration-for-slack)
   - [Requirements](#requirements)
   - [Installation](#installation)
+  - [Subscribing and Unsubscribing](#subscribing-and-unsubscribing)
   - [Authorization](#authorization)
 - Getting Started
   - [Repository Activity](#repository-activity)
