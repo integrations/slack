@@ -19,6 +19,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 - Getting Started
   - [Receiving realtime notifications](#receiving-realtime-notifications)
   - [Repository Activity](#repository-activity)
+  - [Deployment and Actions approval notifications](#deployments-and-actions-approval-notifications)
   - [Link previews](#link-previews)
   - [Take action](#take-action)
   - [Configuration](#configuration)
@@ -84,6 +85,9 @@ By granting the app access, you are providing the following authorizations to yo
 #### Repository Activity
 **Subscribe to an Organization or a Repository**
 On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch as well as `comments` on issues and pull requests.
+
+#### Deployment and Actions approval notifications
+
 
 #### Link previews
 <!-- preserve old anchor in case other docs link there -->
