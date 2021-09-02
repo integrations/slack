@@ -90,7 +90,9 @@ On repositories, the app notifies of `open`, `close`, and `re-open` events on pu
 Deployment review notifications for your GitHub Actions environments can now be tracked end-to-end from your channel or personal app in Slack. 
 You will be notified when a review is pending on your environment, when an approval is completed and you can see the real time status of your deployment.
 
-The following capabilities have been added to our Microsoft Teams and Slack applications:
+These notifications are available as part for "deployments" feature which is enabled by default when you subscribe to your repository or organization.
+
+The following are the notifications available as part of "deployments" feature:
 1. Deployment review pending notifications for your environments being deployed through GitHub Actions workflow.
 2. Deployment review completed notifications for your environments being deployed through GitHub Actions workflow.
 3. Deployment status notifications for your environments. And the notification shows workflow information if the environment is deployed from GitHub Action workflow.
