@@ -87,6 +87,13 @@ By granting the app access, you are providing the following authorizations to yo
 On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch as well as `comments` on issues and pull requests.
 
 #### Deployment and Actions approval notifications
+Deployment review notifications for your GitHub Actions environments can now be tracked end-to-end from your channel or personal app in Slack. 
+You will be notified when a review is pending on your environment, when an approval is completed and you can see the real time status of your deployment.
+
+The following capabilities have been added to our Microsoft Teams and Slack applications:
+1. Deployment review pending notifications for your environments being deployed through GitHub Actions workflow.
+2. Deployment review completed notifications for your environments being deployed through GitHub Actions workflow.
+3. Deployment status notifications for your environments. And the notification shows workflow information if the environment is deployed from GitHub Action workflow.
 
 
 #### Link previews
@@ -131,7 +138,7 @@ These are enabled by default, and can be disabled with the `/github unsubscribe 
 - `pulls` - New or merged pull requests, as well as draft pull requests marked "Ready for Review"
 - `commits` - New commits on the default branch (usually `master`)
 - `releases` - Published releases
-- `deployments` - Updated status on deployments
+- `deployments` - Deployment review notifications and Deployment status updates.
 
 These are disabled by default, and can be enabled with the `/github subscribe owner/repo [feature]` command:
 
