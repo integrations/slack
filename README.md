@@ -19,6 +19,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 - Getting Started
   - [Receiving realtime notifications](#receiving-realtime-notifications)
   - [Repository Activity](#repository-activity)
+  - [Deployment and Actions approval notifications](#deployments-and-actions-approval-notifications)
   - [Link previews](#link-previews)
   - [Take action](#take-action)
   - [Configuration](#configuration)
@@ -85,6 +86,23 @@ By granting the app access, you are providing the following authorizations to yo
 **Subscribe to an Organization or a Repository**
 On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch as well as `comments` on issues and pull requests.
 
+#### Deployment and Actions approval notifications
+Deployment review notifications for your GitHub Actions environments can now be tracked end-to-end from your channel or personal app in Slack. 
+You will be notified when a review is pending on your environment, when an approval is completed and you can see the real time status of your deployment.
+
+These notifications are available as part for "deployments" feature which is enabled by default when you subscribe to your repository or organization.
+
+The following are the notifications available as part of "deployments" feature:
+1. Deployment review pending notifications for your environments being deployed through GitHub Actions workflow.
+<p align="left"><img width="500" alt="Review Pending" src="docs/images/ReviewPending.png"></p>
+
+2. Deployment review completed notifications for your environments being deployed through GitHub Actions workflow.
+<p align="left"><img width="500" alt="Approval completed" src="docs/images/ReviewCompleted.png"></p>
+
+3. Deployment status notifications for your environments. And the notification shows workflow information if the environment is deployed from GitHub Action workflow.
+<p align="left"><img width="500" alt="Deployment status" src="docs/images/DeploymentStatus.png"></p>
+
+
 #### Link previews
 <!-- preserve old anchor in case other docs link there -->
 <a name="types-of-public-link-unfurls"></a>
@@ -127,7 +145,7 @@ These are enabled by default, and can be disabled with the `/github unsubscribe 
 - `pulls` - New or merged pull requests, as well as draft pull requests marked "Ready for Review"
 - `commits` - New commits on the default branch (usually `master`)
 - `releases` - Published releases
-- `deployments` - Updated status on deployments
+- `deployments` - Deployment review notifications and Deployment status updates.
 
 These are disabled by default, and can be enabled with the `/github subscribe owner/repo [feature]` command:
 
