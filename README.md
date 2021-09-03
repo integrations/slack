@@ -94,8 +94,13 @@ These notifications are available as part for "deployments" feature which is ena
 
 The following are the notifications available as part of "deployments" feature:
 1. Deployment review pending notifications for your environments being deployed through GitHub Actions workflow.
+<p align="left"><img width="500" alt="Review Pending" src="docs/images/PReviewPending.png"></p>
+
 2. Deployment review completed notifications for your environments being deployed through GitHub Actions workflow.
+<p align="left"><img width="500" alt="Approval completed" src="docs/images/ReviewCompleted.png"></p>
+
 3. Deployment status notifications for your environments. And the notification shows workflow information if the environment is deployed from GitHub Action workflow.
+<p align="left"><img width="500" alt="Deployment status" src="docs/images/DeploymentStatus"></p>
 
 
 #### Link previews
