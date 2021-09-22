@@ -41,9 +41,13 @@ After the app is installed, and once you've added the GitHub integration to the 
 
 <p align="center"><img width="550" alt="unfurl_convo" src="https://user-images.githubusercontent.com/3877742/36522313-c0cdbd08-1750-11e8-8dbe-b5a3a2f93549.png"></p>
 
-### Subscribing and Unsubscribing
+### Authentication
 
-At this point, your Slack and GitHub user accounts are not linked. To link the two accounts, authenticate to GitHub using a `/github` slash command, `/github signin`.
+At this point, your Slack and GitHub user accounts are not linked. Until your accounts are linked, you won't be able to use features that require authentication, like notifications or link previews for private repositories.
+
+To link the two accounts, authenticate to GitHub using a `/github` slash command, `/github signin`.
+
+### Subscribing and Unsubscribing
 
 The `/github` slash command also accepts a `subscribe` argument that you can use to subscribe to an Organization or Repository's activity `/github subscribe <organization>/<repository>`.
 
