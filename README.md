@@ -143,7 +143,7 @@ These are enabled by default, and can be disabled with the `/github unsubscribe 
 
 - `issues` - Opened or closed issues
 - `pulls` - New or merged pull requests, as well as draft pull requests marked "Ready for Review"
-- `commits` - New commits on the default branch (usually `master`)
+- `commits` - New commits on the default branch (usually `main`)
 - `releases` - Published releases
 - `deployments` - Deployment review notifications and Deployment status updates.
 
