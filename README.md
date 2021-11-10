@@ -76,6 +76,8 @@ By granting the app access, you are providing the following authorizations to yo
 |Write access to issues, deployments, and pull requests | To take action from Slack with the `/github` command and directly from messages|
 
 #### Receiving realtime notifications
+![GitHub settings/reminders image](https://user-images.githubusercontent.com/104158/141112669-b2076193-50bc-450b-ad5a-b074a7e4451e.png)
+
 - To receive realtime notifications you should visit the [scheduled reminders settings page](https://github.com/settings/reminders) on GitHub
 - Edit the settings for the organisation you would like to enable notifications for
 - Add the Slack workspace you are looking to receive notifications to
