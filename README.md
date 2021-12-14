@@ -72,7 +72,7 @@ By granting the app access, you are providing the following authorizations to yo
 |Permission scope|Why we need it|
 |---|---|
 |Read access to code| To render code snippets in Slack|
-|Read access to commit statuses, checks, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
+|Read access to commit statuses, checks, discussions, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
 |Write access to issues, deployments, and pull requests | To take action from Slack with the `/github` command and directly from messages|
 
 #### Receiving realtime notifications
@@ -87,7 +87,7 @@ By granting the app access, you are providing the following authorizations to yo
 On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch as well as `comments` on issues and pull requests.
 
 #### Deployments and Actions approval notifications
-Deployment review notifications for your GitHub Actions environments can now be tracked end-to-end from your channel or personal app in Slack. 
+Deployment review notifications for your GitHub Actions environments can now be tracked end-to-end from your channel or personal app in Slack.
 You will be notified when a review is pending on your environment, when an approval is completed and you can see the real time status of your deployment.
 
 These notifications are available as part for "deployments" feature which is enabled by default when you subscribe to your repository or organization.
@@ -154,6 +154,7 @@ These are disabled by default, and can be enabled with the `/github subscribe ow
 - `branches` - Created or deleted branches
 - `commits:*` - All commits pushed to any branch
 - `+label:"your label"` - Filter issues, pull-requests and comments based on their labels.
+- `discussions` - Discussions created or answered
 
 You can subscribe or unsubscribe from multiple settings at once. For example, to turn on activity for pull request reviews and comments:
 
@@ -263,7 +264,7 @@ Our workspace app relies on Slack APIs that are now deprecated and will be retir
 #### 2. How do I upgrade?
 You can upgrade the GitHub app in two ways.
 1.	By installing the new GitHub app from the Marketplace or click on the install link [here](https://slack.github.com/). We will automatically detect and update the old app and migrate your subscriptions.
-2.	If you are on the old app, you will start receiving alerts in your channels to update. 
+2.	If you are on the old app, you will start receiving alerts in your channels to update.
 The old app will be upgraded, and you will get a confirmation message once the upgrade is completed. Also, a message will be posted in all your channels once all your subscriptions are successfully migrated.
 <p align="left"><img width="500" alt="Migration" src="docs/SlackMigration.PNG"></p>
 
@@ -274,11 +275,11 @@ In terms of notifications, if you have subscriptions configured only in public S
 
 Once you upgrade, GitHub will send a message to invite the bot again if you have any private channels.
 
-Along with this upgrade, we have also made few changes to the app. 
-- Enhanced security for **sign in** experience: 
-As part of this upgrade, we have also updated the sign in flow to have a multistep process with verification code. This is necessary to make sign in to GitHub from Slack more secure.  
+Along with this upgrade, we have also made few changes to the app.
+- Enhanced security for **sign in** experience:
+As part of this upgrade, we have also updated the sign in flow to have a multistep process with verification code. This is necessary to make sign in to GitHub from Slack more secure.
 
-- Introduced Branch filters for **commit notifications**: 
+- Introduced Branch filters for **commit notifications**:
 Commit notifications now support filtering based on branches. You can choose to filter on a specific branch, or a pattern of branches or all branches. You can find more details [here](https://github.com/integrations/slack#configuration).
 
 - Removed **deploy command and notification** support:
@@ -289,7 +290,7 @@ Going forward, you will not see 'Public' in the subscribe features list. However
 
 
 #### 4. When do I need to migrate by?
-All your workspaces need to be upgraded by **July 15, 2021** after which the old version of the app will stop working. If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose).  
+All your workspaces need to be upgraded by **July 15, 2021** after which the old version of the app will stop working. If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose).
 
 ## Questions? Need help?
 Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
