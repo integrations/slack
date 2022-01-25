@@ -23,6 +23,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Link previews](#link-previews)
   - [Take action](#take-action)
   - [Configuration](#configuration)
+  - [Enterprise Grid](enterprise-grid)
   - [Moving away from the legacy workspace app model in Slack](#moving-away-from-the-legacy-workspace-app-model-in-slack)
 - [Need help?](#questions-need-help)
 - [Contributing](#contributing)
@@ -250,6 +251,25 @@ However in the following rare circumstances you might run into difficulties:
 
 * Multibyte characters that are not encoded as `:foo:`
 * `,` is reserved
+
+### Enterprise Grid
+If you are on Slack Enterprise Grid and have multiple Slack workspaces in your organization where you need to use GitHub, you can install and manage your GitHub app on Slack Enterprise Grid. Org owners and Org admins in Slack Enterprise grid can:
+
+1. Install the GitHub app at the org level and choose which workspaces you want to add/remove the GitHub app
+<p align="left"><img width="500" alt="Install" src="docs/GridInstall.PNG"></p>
+
+2. Manage GitHub app installations requests from your workspace members.
+
+3. Make GitHub app available in all future workspaces by default.
+<p align="left"><img width="500" alt="AddWorkspace" src="docs/AddWorkspace.PNG"></p>
+
+Few things to note:
+1. Only Enterprise grid org admins and org owners will be able to install and manage the GitHub app at the grid level. 
+2. You can install the GitHub app at orglevel by clicking [here](www.slack.github.com) and selecting the enterprise grid organization to install. 
+<p align="left"><img width="500" alt="OrgInstall" src="docs/OrgInstall.PNG"></p>
+3. If you have already installed GitHub app in one of the workspaces in the grid, you can now install the app at org level and manage it across the workspaces by going to your enterprise grid management console -> installed apps.
+<p align="left"><img width="500" alt="InstalledApps" src="docs/InstalledApps.PNG"></p>
+
 
 ### Moving away from the legacy workspace app model in Slack
 
