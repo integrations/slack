@@ -21,6 +21,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Repository Activity](#repository-activity)
   - [Deployments and Actions approval notifications](#deployments-and-actions-approval-notifications)
   - [Link previews](#link-previews)
+  - [Mentions](#mentions)
   - [Take action](#take-action)
   - [Configuration](#configuration)
   - [Enterprise Grid](#enterprise-grid)
@@ -119,6 +120,22 @@ Previews of links will not be shown if:
   - has not signed in to their GitHub account
   - asked not to show a preview when prompted
   - the GitHub app is not in the channel, which you can remedy with `/invite @github`
+
+#### Mentions
+When you subscribe to a repository in Slack, you will now see yourself mentioned in the notifications where you are referred and needs your attention.
+<p align="left"><img width="500" alt="PR Mentions" src="docs/images/PRMentions.png"></p>
+<p align="left"><img width="500" alt="Deployment Mentions" src="docs/images/DeploymentMentions.png"></p>
+
+When you receive notifications for Issues, PRs and Deployments, here are the cases when you will be mentioned.
+- Assignee in an Issue
+- Reviewer for a PR
+- Mentioned in a PR/Issue description/comment/discussion
+- Reviewer for a Deployment
+- Scheduled reminders for PR review requests
+
+And the best part is - you can now see the summary of GitHub notifications where you are mentioned as part of 'Mentions & reactions' section in Slack.
+<p align="left"><img width="500" alt="Reactions" src="docs/images/Reactions.png"></p>
+
 
 #### Take action
 
