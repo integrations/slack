@@ -14,20 +14,19 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 - [Installing the GitHub integration for Slack](#installing-the-github-integration-for-slack)
   - [Requirements](#requirements)
   - [Installation](#installation)
+- [Getting Started](#getting-started)
   - [Subscribing and Unsubscribing](#subscribing-and-unsubscribing)
   - [Authorization](#authorization)
-- Getting Started
-  - [Receiving realtime notifications](#receiving-realtime-notifications)
-  - [Repository Activity](#repository-activity)
+- [Features](#features)
+  - [Subscribe to an Organization or a Repository](#subscribe-to-an-organization-or-a-repository)
+  - [Customize your notifications](#customize-your-notifications)
   - [Deployments and Actions approval notifications](#deployments-and-actions-approval-notifications)
-  - [Link previews](#link-previews)
   - [Mentions](#mentions)
   - [Take action](#take-action)
-  - [Configuration](#configuration)
+  - [Link previews](#link-previews)
+  - [Scheduled Reminders](#scheduled-reminders)
   - [Enterprise Grid](#enterprise-grid)
-  - [Moving away from the legacy workspace app model in Slack](#moving-away-from-the-legacy-workspace-app-model-in-slack)
 - [Need help?](#questions-need-help)
-- [Contributing](#contributing)
 - [License](#license)
 --------
 ## Installing the GitHub integration for Slack
@@ -43,6 +42,7 @@ After the app is installed, and once you've added the GitHub integration to the 
 
 <p align="center"><img width="550" alt="unfurl_convo" src="https://user-images.githubusercontent.com/3877742/36522313-c0cdbd08-1750-11e8-8dbe-b5a3a2f93549.png"></p>
 
+## Getting Started
 ### Subscribing and Unsubscribing
 
 At this point, your Slack and GitHub user accounts are not linked. To link the two accounts, authenticate to GitHub using a `/github` slash command, `/github signin`.
@@ -77,82 +77,12 @@ By granting the app access, you are providing the following authorizations to yo
 |Read access to commit statuses, checks, discussions, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
 |Write access to issues, deployments, and pull requests | To take action from Slack with the `/github` command and directly from messages|
 
-#### Receiving realtime notifications
-- To receive realtime notifications you should visit the [scheduled reminders settings page](https://github.com/settings/reminders) on GitHub
-- Edit the settings for the organisation you would like to enable notifications for
-- Add the Slack workspace you are looking to receive notifications to
-- Toggle `Enable real-time alerts` and select the alerts you would like to receive
-- Save the settings and you will begin to receive real time alerts to your configured Slack workspace for the organisation you chose
+## Features
 
-#### Repository Activity
-**Subscribe to an Organization or a Repository**
+### Subscribe to an Organization or a Repository
 On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch as well as `comments` on issues and pull requests.
 
-#### Deployments and Actions approval notifications
-Deployment review notifications for your GitHub Actions environments can now be tracked end-to-end from your channel or personal app in Slack.
-You will be notified when a review is pending on your environment, when an approval is completed and you can see the real time status of your deployment.
-
-These notifications are available as part for "deployments" feature which is enabled by default when you subscribe to your repository or organization.
-
-The following are the notifications available as part of "deployments" feature:
-1. Deployment review pending notifications for your environments being deployed through GitHub Actions workflow.
-<p align="left"><img width="500" alt="Review Pending" src="docs/images/ReviewPending.png"></p>
-
-2. Deployment review completed notifications for your environments being deployed through GitHub Actions workflow.
-<p align="left"><img width="500" alt="Approval completed" src="docs/images/ReviewCompleted.png"></p>
-
-3. Deployment status notifications for your environments. And the notification shows workflow information if the environment is deployed from GitHub Action workflow.
-<p align="left"><img width="500" alt="Deployment status" src="docs/images/DeploymentStatus.png"></p>
-
-
-#### Link previews
-<!-- preserve old anchor in case other docs link there -->
-<a name="types-of-public-link-unfurls"></a>
-
-When a user posts a GitHub link to **issues and pull requests**, directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users** in Slack, a preview of the link will be shown.
-
-Previews of links will not be shown if:
-
-- link previews for `github.com` have been [disabled for your workspace](https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites)
-- the same link was already shared in the last 30 minutes in the same channel
-- 3 or more links are shared in the same chat message
-- The repository is private and the user that shared the link:
-  - has not signed in to their GitHub account
-  - asked not to show a preview when prompted
-  - the GitHub app is not in the channel, which you can remedy with `/invite @github`
-
-#### Mentions
-When you subscribe to a repository in Slack, you will now see yourself mentioned in the notifications where you are referred and needs your attention.
-<p align="left"><img width="500" alt="PR Mentions" src="docs/images/PRMentions.png"></p>
-<p align="left"><img width="500" alt="Deployment Mentions" src="docs/images/DeploymentMentions.png"></p>
-
-When you receive notifications for Issues, PRs and Deployments, here are the cases when you will be mentioned.
-- Assignee in an Issue
-- Reviewer for a PR
-- Mentioned in a PR/Issue description/comment/discussion
-- Reviewer for a Deployment
-- Scheduled reminders for PR review requests
-
-And the best part is - you can now see the summary of GitHub notifications where you are mentioned as part of 'Mentions & reactions' section in Slack.
-<p align="left"><img width="500" alt="Reactions" src="docs/images/Reactions.png"></p>
-
-
-##### How does mentions work?
-Mentions will work only if you login to GitHub app in your Slack workspace. When you login to GitHub app with your GitHub id, we map it with your Slack id and ping you in Slack whenever you are mentioned in any of the GitHub notifications.  
-
-**Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only the workspace where you login to GitHub app the latest.  
-
-
-#### Take action
-
-Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack with slash commands for common GitHub actions, using  `/github [action] [resource]`. These commands let you:
-
-- Close an issue or pull request with `/github close [issue link]`
-- Reopen an issue or pull request with `/github open [pull request link]`
-- Open a new issue with `/github open [owner/repo]`
-
-
-### Configuration
+### Customize your notifications
 
 You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
 
@@ -192,9 +122,7 @@ And to turn it back off:
 /github unsubscribe owner/repo reviews comments
 ```
 
-#### Filters
-
-##### Branch filters for commit
+#### Branch filters for commit
 Branch filters allow filtering commit notifications. By default when you subscribe for commits feature, you will get notifications for your default branch (i.e. main). However, you can choose to filter on a specific branch, or a pattern of branches or all branches.
 
 - `/github subscribe org/repo commits`  for commit notifications from a default branch.
@@ -207,7 +135,7 @@ You can unsubscribe commits feature using `@github unsubscribe org/repo commits.
 *Note*: Previously we you might have used `commits:all` to represent all branches. 'all' is no longer a reserved keyword. Going forward, you need to use '*' to represent all branches. If you have already configured with 'commits:all' previosly, dont worry, it will continue to work until you update the commits configuration.
 
 
-##### Label filters for prs and issues
+#### Label filters for prs and issues
 Label filters allow filtering incoming events based on a whitelist of **required** labels.
 
 This is an overview of the event types that are affected by the required-label filter.
@@ -275,6 +203,79 @@ However in the following rare circumstances you might run into difficulties:
 * Multibyte characters that are not encoded as `:foo:`
 * `,` is reserved
 
+### Deployments and Actions approval notifications
+Deployment review notifications for your GitHub Actions environments can now be tracked end-to-end from your channel or personal app in Slack.
+You will be notified when a review is pending on your environment, when an approval is completed and you can see the real time status of your deployment.
+
+These notifications are available as part for "deployments" feature which is enabled by default when you subscribe to your repository or organization.
+
+The following are the notifications available as part of "deployments" feature:
+1. Deployment review pending notifications for your environments being deployed through GitHub Actions workflow.
+<p align="left"><img width="500" alt="Review Pending" src="docs/images/ReviewPending.png"></p>
+
+2. Deployment review completed notifications for your environments being deployed through GitHub Actions workflow.
+<p align="left"><img width="500" alt="Approval completed" src="docs/images/ReviewCompleted.png"></p>
+
+3. Deployment status notifications for your environments. And the notification shows workflow information if the environment is deployed from GitHub Action workflow.
+<p align="left"><img width="500" alt="Deployment status" src="docs/images/DeploymentStatus.png"></p>
+
+
+### Mentions
+When you subscribe to a repository in Slack, you will now see yourself mentioned in the notifications where you are referred and needs your attention.
+<p align="left"><img width="500" alt="PR Mentions" src="docs/images/PRMentions.png"></p>
+<p align="left"><img width="500" alt="Deployment Mentions" src="docs/images/DeploymentMentions.png"></p>
+
+When you receive notifications for Issues, PRs and Deployments, here are the cases when you will be mentioned.
+- Assignee in an Issue
+- Reviewer for a PR
+- Mentioned in a PR/Issue description/comment/discussion
+- Reviewer for a Deployment
+- Scheduled reminders for PR review requests
+
+And the best part is - you can now see the summary of GitHub notifications where you are mentioned as part of 'Mentions & reactions' section in Slack.
+<p align="left"><img width="500" alt="Reactions" src="docs/images/Reactions.png"></p>
+
+
+#### How does mentions work?
+Mentions will work only if you login to GitHub app in your Slack workspace. When you login to GitHub app with your GitHub id, we map it with your Slack id and ping you in Slack whenever you are mentioned in any of the GitHub notifications.  
+
+**Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only the workspace where you login to GitHub app the latest.  
+
+
+
+### Take action
+
+Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack with slash commands for common GitHub actions, using  `/github [action] [resource]`. These commands let you:
+
+- Close an issue or pull request with `/github close [issue link]`
+- Reopen an issue or pull request with `/github open [pull request link]`
+- Open a new issue with `/github open [owner/repo]`
+
+
+#### Link previews
+<!-- preserve old anchor in case other docs link there -->
+<a name="types-of-public-link-unfurls"></a>
+
+When a user posts a GitHub link to **issues and pull requests**, directly linked **comments**, code **blobs** with line numbers, as well as **organizations, repositories, and users** in Slack, a preview of the link will be shown.
+
+Previews of links will not be shown if:
+
+- link previews for `github.com` have been [disabled for your workspace](https://get.slack.help/hc/en-us/articles/204399343-Share-links-in-Slack#turn-off-link-previews-for-specific-sites)
+- the same link was already shared in the last 30 minutes in the same channel
+- 3 or more links are shared in the same chat message
+- The repository is private and the user that shared the link:
+  - has not signed in to their GitHub account
+  - asked not to show a preview when prompted
+  - the GitHub app is not in the channel, which you can remedy with `/invite @github`
+
+
+### Scheduled Reminders
+- To receive realtime notifications you should visit the [scheduled reminders settings page](https://github.com/settings/reminders) on GitHub
+- Edit the settings for the organisation you would like to enable notifications for
+- Add the Slack workspace you are looking to receive notifications to
+- Toggle `Enable real-time alerts` and select the alerts you would like to receive
+- Save the settings and you will begin to receive real time alerts to your configured Slack workspace for the organisation you chose
+
 ### Enterprise Grid
 If you are on Slack Enterprise Grid and have multiple Slack workspaces in your organization where you need to use GitHub, you can install and manage your GitHub app on Slack Enterprise Grid. Org owners and Org admins in Slack Enterprise grid can:
 
@@ -295,50 +296,8 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 - If you have already installed GitHub app in one of the workspaces in the grid, you can now install the app at org level and manage it across the workspaces by going to your enterprise grid management console -> installed apps.
 <p align="left"><img width="500" alt="InstalledApps" src="docs/images/InstalledApps.PNG"></p>
 
-
-### Moving away from the legacy workspace app model in Slack
-
-You need to update your GitHub app if you have installed the GitHub Slack integration in your workspace before **April 09, 2021**.
-<p align="left"><img width="500" alt="Upgrade" src="docs/SlackUpgrade.PNG"></p>
-
-#### 1. Why do I need to upgrade?
-Previous GitHub integration for Slack is built on top of Slack's [workspace apps](https://api.slack.com/legacy/workspace-apps). Unfortunately, Slack deprecated the workspace apps. More details about the announcement can be found on the [Slack documentation](https://api.slack.com/changelog/2021-03-workspace-apps-to-retire-in-august-2021).
-
-Our workspace app relies on Slack APIs that are now deprecated and will be retired soon. We now need to move to Slack's newly supported bot app framework.
-
-#### 2. How do I upgrade?
-You can upgrade the GitHub app in two ways.
-1.	By installing the new GitHub app from the Marketplace or click on the install link [here](https://slack.github.com/). We will automatically detect and update the old app and migrate your subscriptions.
-2.	If you are on the old app, you will start receiving alerts in your channels to update.
-The old app will be upgraded, and you will get a confirmation message once the upgrade is completed. Also, a message will be posted in all your channels once all your subscriptions are successfully migrated.
-<p align="left"><img width="500" alt="Migration" src="docs/SlackMigration.PNG"></p>
-
-#### 3. What changes after the upgrade?
-No change in the way our GitHub app for Slack works. Once you upgrade, we will migrate all your subscriptions and replace the old legacy GitHub app.
-
-In terms of notifications, if you have subscriptions configured only in public Slack channels, everything works seamlessly after the upgrade. However, if you are using GitHub app in private channels, you need to invite the GitHub app to the channel for your subscriptions to work again.
-
-Once you upgrade, GitHub will send a message to invite the bot again if you have any private channels.
-
-Along with this upgrade, we have also made few changes to the app.
-- Enhanced security for **sign in** experience:
-As part of this upgrade, we have also updated the sign in flow to have a multistep process with verification code. This is necessary to make sign in to GitHub from Slack more secure.
-
-- Introduced Branch filters for **commit notifications**:
-Commit notifications now support filtering based on branches. You can choose to filter on a specific branch, or a pattern of branches or all branches. You can find more details [here](https://github.com/integrations/slack#configuration).
-
-- Removed **deploy command and notification** support:
-Today, the functionality provided by deploy command is very limited and doesn't address all the scenarios. We are removing deploy command and notifications support as part of this version. We want to relook at the scenarios and build a more holistic experience that customers need.
-
-- **Public** feature i.e. repo notification is always enabled:
-Going forward, you will not see 'Public' in the subscribe features list. However, whenever a change happens to the repo it will be notified in the channels where it is subscribed and user will not have option to disable 'public' notifications. Repo is a core entity and when some change happens to the repo that user choose to subscribe, it is the basic info that has to be notified to the user.
-
-
-#### 4. When do I need to migrate by?
-All your workspaces need to be upgraded by **July 15, 2021** after which the old version of the app will stop working. If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose).
-
 ## Questions? Need help?
-Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
+If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose). Or please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
 
 ## License
 The project is available as open source under the terms of the [MIT License](LICENSE).
