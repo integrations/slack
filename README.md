@@ -269,7 +269,7 @@ Previews of links will not be shown if:
   - the GitHub app is not in the channel, which you can remedy with `/invite @github`
 
 
-### Scheduled reminders for pending pull requests
+### Scheduled reminders
 Scheduled reminders are used to make sure that users focus on the most important review requests that require their attention. Scheduled reminders for pull requests will send a message to you in Slack with open pull requests needing your review at a specified time. For example, you can setup scheduled reminders to send you a message in Slack every morning at 10 AM with pull requests needing to be reviewed by you or one of your teams.
 
 You can configure scheduled reminders for you (personal reminders), your team and for your organization. 
