@@ -269,12 +269,16 @@ Previews of links will not be shown if:
   - the GitHub app is not in the channel, which you can remedy with `/invite @github`
 
 
-### Scheduled Reminders
-- To receive realtime notifications you should visit the [scheduled reminders settings page](https://github.com/settings/reminders) on GitHub
-- Edit the settings for the organisation you would like to enable notifications for
-- Add the Slack workspace you are looking to receive notifications to
-- Toggle `Enable real-time alerts` and select the alerts you would like to receive
-- Save the settings and you will begin to receive real time alerts to your configured Slack workspace for the organisation you chose
+### Scheduled reminders
+Scheduled reminders are used to make sure that users focus on the most important review requests that require their attention. Scheduled reminders for pull requests will send a message to you in Slack with open pull requests needing your review at a specified time. For example, you can setup scheduled reminders to send you a message in Slack every morning at 10 AM with pull requests needing to be reviewed by you or one of your teams.
+
+You can configure scheduled reminders for you (personal reminders), your team and for your organization. 
+
+#### Personal scheduled reminders
+Personal scheduled reminders are configured as part of your GitHub personal app in Slack. You can set scheduled reminders for personal or team-level review requests for pull requests in organizations you are a member of. As part of personal reminders, you can also configure real time alerts for your pull requests. You can find more details [here](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/managing-your-scheduled-reminders).
+
+#### Channel level scheduled reminders
+You can configure scheduled reminders for pending pull requests as part of your Slack channels so that your team can stay on top of your work. For a given Slack channel, you can configure scheduled reminders for your organization or your team. For more details about configuring scheduled reminders, you should visit, [organization level reminders](https://docs.github.com/en/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization) and [team level reminders](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team). 
 
 ### Enterprise Grid
 If you are on Slack Enterprise Grid and have multiple Slack workspaces in your organization where you need to use GitHub, you can install and manage your GitHub app on Slack Enterprise Grid. Org owners and Org admins in Slack Enterprise grid can:
