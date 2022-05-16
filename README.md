@@ -47,10 +47,10 @@ Once you install the app, you can not interact with GitHub app as a Personal app
 
 At this point, your Slack and GitHub user accounts are not linked. You will be prompted to connect to GitHub. This is a primary step required to access the app. Alternatively, we can also connect by running `/github signin`.
 
-<p align="center"><img width="500" alt="Connect" src="https://user-images.githubusercontent.com/3877742/Connect.png"></p>
+<p align="center"><img width="500" alt="Connect" src="docs/images/Connect.png"></p>
 
 And once you connect, you will see the next steps and list of functionalities available for you. 
-<p align="center"><img width="500" alt="Connect" src="https://user-images.githubusercontent.com/Guidance.png"></p>
+<p align="center"><img width="500" alt="Connect" src="docs/images/Guidance.png"></p>
 
 
 ### Subscribing and Unsubscribing
