@@ -30,7 +30,7 @@ This app officially supports GitHub.com (which includes our GitHub Enterprise cl
 #### GHES - Private preview
 We are planning to rollout GHES integration with Slack.com as part of GHES 3.6.
 
-This will be a private preview and interested customers can enrol for the preview by creating an issue from [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
+This will be a private preview and interested customers can enroll for the preview by creating an issue from [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
 
 ### Installation
 [Install the GitHub integration for Slack](https://slack.com/apps/A01BP7R4KNY-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
@@ -310,8 +310,8 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 ## Roadmap and upcoming features
 
 * Support for GHES - We are supporting GHES integration as a private preview with GHES 3.6. Based on the feedback, we will decide the GA timelines.
-* Issue create and manage capabilities - Provide capabilities to create and manage issues directly from your chat. We are aiming to rollout this support by September, 2022.
-* GitHub Actions notifications and manage capabilities - Provide capabilities to run, view and manage workflows from chat. We are iming to rollout this support by October, 2022.
+* Issue create and manage capabilities - Provide capabilities to create and manage issues directly from your chat. We are aiming to rollout this support by September 2022.
+* GitHub Actions notifications and manage capabilities - Provide capabilities to run, view and manage workflows from chat. We are aiming to rollout this support by October 2022.
 * Customer filters support to manage notifications - This is one of the top asked feature. Provide support to customize notifications by providing advaced filter capabilities. Timlines are to be decided.
 
 ## Questions? Need help?
