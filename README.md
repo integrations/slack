@@ -307,6 +307,13 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 - If you have already installed GitHub app in one of the workspaces in the grid, you can now install the app at org level and manage it across the workspaces by going to your enterprise grid management console -> installed apps.
 <p align="left"><img width="500" alt="InstalledApps" src="docs/images/InstalledApps.PNG"></p>
 
+## Roadmap and upcoming features
+
+* Support for GHES - We are supporting GHES integration as a private preview with GHES 3.6. Based on the feedback, we will decide the GA timelines.
+* Issue create and manage capabilities - Provide capabilities to create and manage issues directly from your chat. We are aiming to rollout this support by September, 2022.
+* GitHub Actions notifications and manage capabilities - Provide capabilities to run, view and manage workflows from chat. We are iming to rollout this support by October, 2022.
+* Customer filters support to manage notifications - This is one of the top asked feature. Provide support to customize notifications by providing advaced filter capabilities. Timlines are to be decided.
+
 ## Questions? Need help?
 If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose). Or please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
 
