@@ -1,0 +1,41 @@
+display_information:
+  name: GHES
+features:
+  app_home:
+    home_tab_enabled: false
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: GHES
+    always_online: false
+  slash_commands:
+    - command: /ghes
+      url: https://<domain name>/_slack/slack/v2/command
+      description: Subscribe to notifications for an organization or Repository
+      usage_hint: subscribe https://github.com/organization/repository
+      should_escape: false
+  unfurl_domains:
+    - <domain name>
+oauth_config:
+  redirect_urls:
+    - https://slack.<domain name>/slack/v2/oauth/callback
+    - https://<domain name>/_slack/slack/v2/oauth/callback
+  scopes:
+    bot:
+      - chat:write
+      - commands
+      - links:read
+      - links:write
+      - groups:write
+settings:
+  event_subscriptions:
+    request_url: https://<domain name>/_slack/slack/v2/events
+    bot_events:
+      - link_shared
+  interactivity:
+    is_enabled: true
+    request_url: https://<domain name>/_slack/slack/v2/actions
+    message_menu_options_url: https://<domain name>/_slack/slack/v2/options
+  org_deploy_enabled: true
+  socket_mode_enabled: false
+  token_rotation_enabled: false
