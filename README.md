@@ -1,11 +1,4 @@
 # GitHub + Slack Integration
-
-| :warning: IMPORTANT          |
-|:---------------------------|
-| This repository is not accepting any code contributions. The current code which is running for GitHub and Slack integration has significantly diverged from the code present in this repository as it contains specific code which is required to run service in GitHub infrastructure and which can not be open sourced at this point of time. **We will continue to use issues in this repository to get feedback from customers**.|
-
-> **Heads Up!** The GitHub and Slack app has a few new features to help you turn conversations into next steps. Take action on pull requests, issues, and more right from your Slack channels to start moving work forward, faster. [Read more about it on the GitHub blog](https://blog.github.com/2018-05-17-new-improvements-to-slack-and-github-integration/).
-
 ## About
 
 The GitHub integration for Slack gives you and your teams full visibility into your GitHub projects right in Slack channels, where you can generate ideas, triage issues and collaborate with other teams to move projects forward. This integration is an open source project, built and maintained by GitHub.
@@ -31,7 +24,13 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 --------
 ## Installing the GitHub integration for Slack
 ### Requirements
-This app officially supports GitHub.com (which includes our GitHub Enterprise cloud-hosted offering) and Slack.com, but the team plans to support GitHub Enterprise Server (our self-hosted product) in the future.
+#### GHEC - GA
+This app officially supports GitHub.com (which includes our GitHub Enterprise cloud-hosted offering) and Slack.com. 
+
+#### GHES - Private preview
+GHES integration with Slack.com private beta is available with GHES 3.6.
+
+This will be a private preview and interested customers can enrol for the preview by creating an issue from [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
 
 ### Installation
 [Install the GitHub integration for Slack](https://slack.com/apps/A01BP7R4KNY-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
@@ -308,8 +307,20 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 - If you have already installed GitHub app in one of the workspaces in the grid, you can now install the app at org level and manage it across the workspaces by going to your enterprise grid management console -> installed apps.
 <p align="left"><img width="500" alt="InstalledApps" src="docs/images/InstalledApps.PNG"></p>
 
+## Roadmap and upcoming features
+
+* Support for GHES - We are supporting GHES integration as a private preview with GHES 3.6. Based on the feedback, we will decide the GA timelines.
+* Issue create and manage capabilities - Provide capabilities to create and manage issues directly from your chat. We are aiming to rollout this support by September 2022.
+* GitHub Actions notifications and manage capabilities - Provide capabilities to run, view and manage workflows from chat. We are aiming to rollout this support by October 2022.
+* Custom filters support to manage notifications - This is one of the top asked feature. Provide support to customize notifications by providing advaced filter capabilities. Timlines are to be decided.
+
 ## Questions? Need help?
 If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose). Or please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
+
+| :warning: IMPORTANT          |
+|:---------------------------|
+| This repository is not accepting any code contributions. The current code which is running for GitHub and Slack integration has significantly diverged from the code present in this repository as it contains specific code which is required to run service in GitHub infrastructure and which can not be open sourced at this point of time. **We will continue to use issues in this repository to get feedback from customers**.|
+
 
 ## License
 The project is available as open source under the terms of the [MIT License](LICENSE).
