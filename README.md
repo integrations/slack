@@ -28,9 +28,9 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 This app officially supports GitHub.com (which includes our GitHub Enterprise cloud-hosted offering) and Slack.com. 
 
 #### GHES - Private preview
-We are planning to rollout GHES integration with Slack.com as part of GHES 3.6.
+GHES integration with Slack.com private beta is available with GHES 3.6.
 
-This will be a private preview and interested customers can enroll for the preview by creating an issue from [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
+This will be a private preview and interested customers can enrol for the preview by creating an issue from [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
 
 ### Installation
 [Install the GitHub integration for Slack](https://slack.com/apps/A01BP7R4KNY-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
