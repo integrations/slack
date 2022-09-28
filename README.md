@@ -139,7 +139,7 @@ Branch filters allow filtering commit notifications. By default when you subscri
 
 You can unsubscribe commits feature using `@github unsubscribe org/repo commits.
 
-*Note*: Previously we you might have used `commits:all` to represent all branches. 'all' is no longer a reserved keyword. Going forward, you need to use '*' to represent all branches. If you have already configured with 'commits:all' previosly, dont worry, it will continue to work until you update the commits configuration.
+*Note*: Previously you might have used `commits:all` to represent all branches. 'all' is no longer a reserved keyword. Going forward, you need to use '*' to represent all branches. If you have already configured with 'commits:all' previosly, dont worry, it will continue to work until you update the commits configuration.
 
 
 #### Label filters for prs and issues
