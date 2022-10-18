@@ -290,7 +290,7 @@ You can also manage the lifecycle of the issue directly from the chat. When you 
 
 <p align="left"><img width="500" alt="IssueManage" src="docs/images/IssueManage.png"></p>
 
-Note: When you peform an action on the issue card from slack, the response is added a reply the thread if you didn't subscribe to that activity through subscriptions. However, if you subscribe, you will also get notifications for activities happened outside Slack as well.
+Note: When you perform an action on the issue card from Slack, the response is added as a reply to the thread even if you didn't subscribe to that activity through subscriptions. However, if you subscribe, you will also get notifications for activities that happen outside Slack as well.
 
 ### Link previews
 <!-- preserve old anchor in case other docs link there -->
