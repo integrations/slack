@@ -249,7 +249,7 @@ And the best part is - you can now see the summary of GitHub notifications where
 #### How does mentions work?
 Mentions will work only if you login to GitHub app in your Slack workspace. When you login to GitHub app with your GitHub id, we map it with your Slack id and ping you in Slack whenever you are mentioned in any of the GitHub notifications.  
 
-**Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only the workspace where you login to GitHub app the latest. 
+**Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only in the workspace where you logged in to GitHub app most recently.
 
 ### Threading
 Notifications for any Issue are grouped under a parent card as replies. The parent card always shows the latest status of the Issue along with other meta-data like title, description, assignees, reviewers, labels and checks. Threading gives context and helps improve collaboration in the channel.
