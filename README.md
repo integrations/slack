@@ -273,7 +273,7 @@ You can now create issue by just a click, right from the place where you collabo
 
 1. The content of the message from which you have triggered this create issue flow will be filled into the description helping you get started on the issue. Also the link of the slack conversation will be added to description in the end automatically giving you reference when you want to track the issue later. You can also edit the entire description if you want.
 2. The last used repo in the channel will be automatically filled in. However, you can go ahead and change to the repo of your choice.
-3. You can fill in labels, assignees and milestones optionally when you create an issue.
+3. You can optionally fill in labels, assignees and milestones when you create an issue.
 4. Once the issue is created you will receive a confirmation card in the channel from where you have initiated the issue creation flow.
 
 <p align="left"><img width="500" alt="IssueCreated" src="docs/images/IssueCreated.png"></p>
