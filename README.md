@@ -15,6 +15,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Customize your notifications](#customize-your-notifications)
   - [Deployments and Actions approval notifications](#deployments-and-actions-approval-notifications)
   - [Mentions](#mentions)
+  - [Threading](#threading)
   - [Take action](#take-action)
   - [Link previews](#link-previews)
   - [Scheduled Reminders](#scheduled-reminders)
@@ -249,17 +250,45 @@ Mentions will work only if you login to GitHub app in your Slack workspace. When
 **Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only the workspace where you login to GitHub app the latest.  
 
 
+### Threading
+Notifications for any Issue are grouped under a parent card as replies. The parent card always shows the latest status of the Issue along with other meta-data like title, description, assignees, reviewers, labels and checks. Threading gives context and helps improve collaboration in the channel.
+
+<p align="left"><img width="500" alt="IssueManage" src="docs/images/IssueManage.png"></p>
+
+This will reduce the noise in the channel. And our mentions feature ensures that only those involved in the conversation thread are notified. Only the parent card is posted to the channel and rest of the notifications will be added as a reply in the thread. However, the state change activities like close/reopen issue are added to the thread as reply and also posted to the channel and this might be of interest to group. 
 
 ### Take action
+Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack.
 
-Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack with slash commands for common GitHub actions, using  `/github [action] [resource]`. These commands let you:
+#### Issue create and manage experience from slack
+You no longer have to switch or redirect to GitHub to perform any actions on issues. You can truly create and manage issues from where you collaborate i.e. Slack.
 
-- Close an issue or pull request with `/github close [issue link]`
-- Reopen an issue or pull request with `/github open [pull request link]`
-- Open a new issue with `/github open [owner/repo]`
+##### Issue creation
+You can now create issue just a click right from the place where you collaborate. In any channel/personal app/group or direct chat, you can now click on the three dots (...) at the top right corner of a message and choose 'create github issue' from the list. This launch a create issue dialogue.
 
+<p align="left"><img width="500" alt="CreateIssue" src="docs/images/CreateIssue.png"></p>
 
-#### Link previews
+1. The content of the message from which you have triggered this create issue flow will be filled into the description helping you get started on the issue. Also the link of the slack conversation will be added to description in the end automatically giving you reference when you want to track the issue later. You can also edit the entire description if you want.
+2. The last used repo in the channel will be automatically filled in. However, you can go ahead and change to the repo of your choice.
+3. You can fill in labels, assignees and milestones optionally when you create an issue.
+4. Once the issue is created you will receive a confirmation card in the channel from where you have initiated the issue creation flow.
+
+<p align="left"><img width="500" alt="IssueCreated" src="docs/images/IssueCreated.png"></p>
+
+Alternatively, you can create issue from Slack with two other ways.
+1. Global shortcut: We have introduced a new Global shortcut to create issue from the channel.
+2. CLI command: You can also launch create issue flow by running a command `/github open` from the chat box.
+
+Note: You need to be signed in and have necessary access to the repo to perform any actions. 
+
+##### Issue manage experience
+You can also manage the lifecycle of the issue directly from the chat. When you subscribe to a repo and get an issue notification or when you create a new issue from Slack, you will now see a issue card with Call-to-Action buttons comment, edit, close/reopen. You can perform these actions directly from chat. 
+
+<p align="left"><img width="500" alt="IssueManage" src="docs/images/IssueManage.png"></p>
+
+Note: When you peform an action on the issue card from slack, the response is added a reply the thread if you didn't subscribe to that activity through subscriptions. However, if you subscribe, you will also get notifications for activities happened outside Slack as well.
+
+### Link previews
 <!-- preserve old anchor in case other docs link there -->
 <a name="types-of-public-link-unfurls"></a>
 
