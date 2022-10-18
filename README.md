@@ -31,7 +31,7 @@ This app officially supports GitHub.com (which includes our GitHub Enterprise cl
 #### GHES - Private preview
 GHES integration with Slack.com private beta is available with GHES 3.6.
 
-This is be a private preview and interested customers can enrol for the preview by creating an issue from [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
+This is a private preview and interested customers can enroll for the preview by creating an issue [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
 
 We are planning to announce GA of GHES integration for Slack with GHES 3.8.
 
