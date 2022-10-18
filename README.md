@@ -256,7 +256,7 @@ Notifications for any Issue are grouped under a parent card as replies. The pare
 
 <p align="left"><img width="500" alt="IssueThread" src="docs/images/IssueThread.png"></p>
 
-This will reduce the noise in the channel. And our mentions feature ensures that only those involved in the conversation thread are notified. Only the parent card is posted to the channel and rest of the notifications will be added as a reply in the thread. However, the state change activities like close/reopen issue are added to the thread as reply and also posted to the channel and this might be of interest to group. 
+This will reduce the noise in the channel. And our mentions feature ensures that only those involved in the conversation thread are notified. Only the parent card is posted to the channel and rest of the notifications will be added as a reply in the thread. However, the state change activities like close/reopen issue are added to the thread as reply and also posted to the channel as this might be of interest to the group. 
 
 We will rollout similar experience for PR notifications as well. 
 
