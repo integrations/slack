@@ -15,6 +15,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Customize your notifications](#customize-your-notifications)
   - [Deployments and Actions approval notifications](#deployments-and-actions-approval-notifications)
   - [Mentions](#mentions)
+  - [Threading](#threading)
   - [Take action](#take-action)
   - [Link previews](#link-previews)
   - [Scheduled Reminders](#scheduled-reminders)
@@ -30,7 +31,9 @@ This app officially supports GitHub.com (which includes our GitHub Enterprise cl
 #### GHES - Private preview
 GHES integration with Slack.com private beta is available with GHES 3.6.
 
-This will be a private preview and interested customers can enrol for the preview by creating an issue from [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
+This is a private preview and interested customers can enroll for the preview by creating an issue [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
+
+We are planning to announce GA of GHES integration for Slack with GHES 3.8.
 
 ### Installation
 [Install the GitHub integration for Slack](https://slack.com/apps/A01BP7R4KNY-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
@@ -246,20 +249,50 @@ And the best part is - you can now see the summary of GitHub notifications where
 #### How does mentions work?
 Mentions will work only if you login to GitHub app in your Slack workspace. When you login to GitHub app with your GitHub id, we map it with your Slack id and ping you in Slack whenever you are mentioned in any of the GitHub notifications.  
 
-**Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only the workspace where you login to GitHub app the latest.  
+**Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only in the workspace where you logged in to GitHub app most recently.
 
+### Threading
+Notifications for any Issue are grouped under a parent card as replies. The parent card always shows the latest status of the Issue along with other meta-data like title, description, assignees, reviewers, labels and checks. Threading gives context and helps improve collaboration in the channel.
 
+<p align="left"><img width="500" alt="IssueThread" src="docs/images/IssueThread.png"></p>
+
+This will reduce the noise in the channel. And our mentions feature ensures that only those involved in the conversation thread are notified. Only the parent card is posted to the channel and rest of the notifications will be added as a reply in the thread. However, the state change activities like close/reopen issue are added to the thread as reply and also posted to the channel as this might be of interest to the group. 
+
+We will rollout similar experience for PR notifications as well. 
 
 ### Take action
+Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack.
 
-Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack with slash commands for common GitHub actions, using  `/github [action] [resource]`. These commands let you:
+You no longer have to switch or redirect to GitHub to perform any actions on issues. You can truly create and manage issues from where you collaborate i.e. Slack.
 
-- Close an issue or pull request with `/github close [issue link]`
-- Reopen an issue or pull request with `/github open [pull request link]`
-- Open a new issue with `/github open [owner/repo]`
+#### Issue creation experience
+You can now create issue by just a click, right from the place where you collaborate. In any channel/personal app/group or direct chat, you can now click on the three dots (...) at the top right corner of a message and choose 'Create an Issue GitHub' from the list. This will launch a create issue dialogue.
 
+<p align="left"><img width="500" alt="CreateIssue" src="docs/images/MessageExtension.png"></p>
+<p align="left"><img width="500" alt="CreateIssue" src="docs/images/CreateIssue.png"></p>
 
-#### Link previews
+1. The content of the message from which you have triggered this create issue flow will be filled into the description helping you get started on the issue. Also the link of the slack conversation will be added to description in the end automatically giving you reference when you want to track the issue later. You can also edit the entire description if you want.
+2. The last used repo in the channel will be automatically filled in. However, you can go ahead and change to the repo of your choice.
+3. You can optionally fill in labels, assignees and milestones when you create an issue.
+4. Once the issue is created you will receive a confirmation card in the channel from where you have initiated the issue creation flow.
+
+<p align="left"><img width="500" alt="IssueCreated" src="docs/images/IssueCreated.png"></p>
+
+Alternatively, you can create an issue from Slack in two other ways.
+1. Global shortcut: We have introduced a new Global shortcut to create issue from the channel.
+2. CLI command: You can also launch create issue flow by running a command `/github open` from the chat box.
+<p align="left"><img width="500" alt="Global Shortcut" src="docs/images/GlobalShortcut.png"></p>
+
+Note: You need to be signed in and have necessary access to the repo to perform any actions. 
+
+##### Issue manage experience
+You can also manage the lifecycle of the issue directly from the chat. When you subscribe to a repo and get an issue notification or when you create a new issue from Slack, you will now see a issue card with Call-to-Action buttons comment, edit, close/reopen. You can perform these actions directly from chat. 
+
+<p align="left"><img width="500" alt="IssueManage" src="docs/images/IssueManage.png"></p>
+
+Note: When you perform an action on the issue card from Slack, the response is added as a reply to the thread even if you didn't subscribe to that activity through subscriptions. However, if you subscribe, you will also get notifications for activities that happen outside Slack as well.
+
+### Link previews
 <!-- preserve old anchor in case other docs link there -->
 <a name="types-of-public-link-unfurls"></a>
 
