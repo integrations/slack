@@ -278,7 +278,7 @@ You can now create issue by just a click, right from the place where you collabo
 
 <p align="left"><img width="500" alt="IssueCreated" src="docs/images/IssueCreated.png"></p>
 
-Alternatively, you can create issue from Slack with two other ways.
+Alternatively, you can create an issue from Slack in two other ways.
 1. Global shortcut: We have introduced a new Global shortcut to create issue from the channel.
 2. CLI command: You can also launch create issue flow by running a command `/github open` from the chat box.
 <p align="left"><img width="500" alt="Global Shortcut" src="docs/images/GlobalShortcut.png"></p>
