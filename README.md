@@ -266,7 +266,7 @@ Slack conversations often lead to decisions and actionable takeaways. Now it’s
 You no longer have to switch or redirect to GitHub to perform any actions on issues. You can truly create and manage issues from where you collaborate i.e. Slack.
 
 #### Issue creation experience
-You can now create issue just a click right from the place where you collaborate. In any channel/personal app/group or direct chat, you can now click on the three dots (...) at the top right corner of a message and choose 'create github issue' from the list. This will launch a create issue dialogue.
+You can now create issue by just a click, right from the place where you collaborate. In any channel/personal app/group or direct chat, you can now click on the three dots (...) at the top right corner of a message and choose 'Create an Issue GitHub' from the list. This will launch a create issue dialogue.
 
 <p align="left"><img width="500" alt="CreateIssue" src="docs/images/MessageExtension.png"></p>
 <p align="left"><img width="500" alt="CreateIssue" src="docs/images/CreateIssue.png"></p>
