@@ -249,8 +249,7 @@ And the best part is - you can now see the summary of GitHub notifications where
 #### How does mentions work?
 Mentions will work only if you login to GitHub app in your Slack workspace. When you login to GitHub app with your GitHub id, we map it with your Slack id and ping you in Slack whenever you are mentioned in any of the GitHub notifications.  
 
-**Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only the workspace where you login to GitHub app the latest.  
-
+**Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only the workspace where you login to GitHub app the latest. 
 
 ### Threading
 Notifications for any Issue are grouped under a parent card as replies. The parent card always shows the latest status of the Issue along with other meta-data like title, description, assignees, reviewers, labels and checks. Threading gives context and helps improve collaboration in the channel.
@@ -259,13 +258,14 @@ Notifications for any Issue are grouped under a parent card as replies. The pare
 
 This will reduce the noise in the channel. And our mentions feature ensures that only those involved in the conversation thread are notified. Only the parent card is posted to the channel and rest of the notifications will be added as a reply in the thread. However, the state change activities like close/reopen issue are added to the thread as reply and also posted to the channel and this might be of interest to group. 
 
+We will rollout similar experience for PR notifications as well. 
+
 ### Take action
 Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack.
 
-#### Issue create and manage experience from slack
 You no longer have to switch or redirect to GitHub to perform any actions on issues. You can truly create and manage issues from where you collaborate i.e. Slack.
 
-##### Issue creation
+#### Issue creation experience
 You can now create issue just a click right from the place where you collaborate. In any channel/personal app/group or direct chat, you can now click on the three dots (...) at the top right corner of a message and choose 'create github issue' from the list. This will launch a create issue dialogue.
 
 <p align="left"><img width="500" alt="CreateIssue" src="docs/images/MessageExtension.png"></p>
