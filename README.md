@@ -253,7 +253,7 @@ Mentions will work only if you login to GitHub app in your Slack workspace. When
 ### Threading
 Notifications for any Issue are grouped under a parent card as replies. The parent card always shows the latest status of the Issue along with other meta-data like title, description, assignees, reviewers, labels and checks. Threading gives context and helps improve collaboration in the channel.
 
-<p align="left"><img width="500" alt="IssueManage" src="docs/images/IssueManage.png"></p>
+<p align="left"><img width="500" alt="IssueThread" src="docs/images/IssueThread.png"></p>
 
 This will reduce the noise in the channel. And our mentions feature ensures that only those involved in the conversation thread are notified. Only the parent card is posted to the channel and rest of the notifications will be added as a reply in the thread. However, the state change activities like close/reopen issue are added to the thread as reply and also posted to the channel and this might be of interest to group. 
 
