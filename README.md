@@ -31,7 +31,9 @@ This app officially supports GitHub.com (which includes our GitHub Enterprise cl
 #### GHES - Private preview
 GHES integration with Slack.com private beta is available with GHES 3.6.
 
-This will be a private preview and interested customers can enrol for the preview by creating an issue from [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
+This is be a private preview and interested customers can enrol for the preview by creating an issue from [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
+
+We are planning to announce GA of GHES integration for Slack with GHES 3.8.
 
 ### Installation
 [Install the GitHub integration for Slack](https://slack.com/apps/A01BP7R4KNY-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
@@ -279,6 +281,7 @@ You can now create issue just a click right from the place where you collaborate
 Alternatively, you can create issue from Slack with two other ways.
 1. Global shortcut: We have introduced a new Global shortcut to create issue from the channel.
 2. CLI command: You can also launch create issue flow by running a command `/github open` from the chat box.
+<p align="left"><img width="500" alt="Global Shortcut" src="docs/images/GlobalShortcut.png"></p>
 
 Note: You need to be signed in and have necessary access to the repo to perform any actions. 
 
