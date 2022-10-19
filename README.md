@@ -260,6 +260,8 @@ This will reduce the noise in the channel. And our mentions feature ensures that
 
 We will rollout similar experience for PR notifications as well. 
 
+Note: Based on customer feedback we are planning to provide an option for customers to choose if they want to post their comment notifications to channel. This will be a subscription level setting per channel and user will have to optin. This feature will be available in 2-3 weeks.
+
 ### Take action
 Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack.
 
