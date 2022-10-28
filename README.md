@@ -261,7 +261,7 @@ This will reduce the noise in the channel. And our mentions feature ensures that
 We will rollout similar experience for PR notifications as well. 
 
 If you have subscribed for comment notifications, and you also want the channel members to see the comments instead of just those who are participants of the issue, you can opt-in for the same by running 
-`/github subscribe org/repo comments:"channel"`
+`/github subscribe org/repo comments:”channel”`
 
 Note: By default comments will only flow into the thread. And you need to explicitly run the above command to ensure the comments also start flowing into channel as well.
 
