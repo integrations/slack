@@ -218,7 +218,7 @@ However in the following rare circumstances you might run into difficulties:
 ### Actions workflow notifications
 You can subscribe to GitHub Actions workflow run notifications from your channel or personal app using "workflows" feature.
 
-<p align="left"><img width="500" alt="Deployment status" src="docs/images/DeploymentStatus.png"></p>
+<p align="left"><img width="500" alt="Workflow notification" src="docs/images/WorkflowRun.png"></p>
 
 - You will get notified when a new workflow run is triggered. And you can track the live status of the jobs. 
 - You can track the approval notifications as a reply in the thread and you can approve the notifications directly from channel/personal app.
@@ -246,8 +246,9 @@ You can unsubscribe for workflows notifications by just running the below comman
 `/github unsubscribe org/repo workflows`
 
 #### Updates to the app permissions
-To receive the above notifications you need to grant access to receive Actions events by GitHub app in Slack. You will be prompted to do so as you try to enable `workflows` feature for your organization the first time.
+To receive the above notifications you need to grant access to receive Actions events by GitHub app in Slack. You will be prompted to do so as you try to subscribe for `workflows` feature for your organization the first time.
 
+<p align="left"><img width="500" alt="Workflow notification" src="docs/images/ActionsPermissions.png"></p>
 
 ### Deployment notifications
 
