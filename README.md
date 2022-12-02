@@ -384,9 +384,9 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 
 ## Roadmap and upcoming features
 
-* Support for GHES - We are supporting GHES integration as a private preview with GHES 3.6. Based on the feedback, we will decide the GA timelines.
-* Issue create and manage capabilities - Provide capabilities to create and manage issues directly from your chat. We are aiming to rollout this support by September 2022.
-* GitHub Actions notifications and manage capabilities - Provide capabilities to run, view and manage workflows from chat. We are aiming to rollout this support by October 2022.
+* Support for GHES - We are supporting GHES integration as a private preview with GHES 3.6. We will rollout GitHub app for GHES GA with GHES 3.8 (March,2023)
+* Issue create and manage capabilities - Provide capabilities to create and manage issues directly from your chat. `Shipped`
+* GitHub Actions notifications and manage capabilities - Provide capabilities to run, view and manage workflows from chat. `Shipped`
 * Custom filters support to manage notifications - This is one of the top asked feature. Provide support to customize notifications by providing advaced filter capabilities. Timlines are to be decided.
 
 ## Questions? Need help?
