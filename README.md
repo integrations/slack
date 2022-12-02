@@ -246,7 +246,7 @@ You can unsubscribe for workflows notifications by just running the below comman
 `/github unsubscribe org/repo workflows`
 
 #### Updates to the app permissions
-To receive the above notifications you need to grant access for Actions events for Microsoft Teams in your GitHub organization. You will be prompted to do so as you try to enable `workflows` feature for your organization the first time.
+To receive the above notifications you need to grant access to receive Actions events by GitHub app in Slack. You will be prompted to do so as you try to enable `workflows` feature for your organization the first time.
 
 
 ### Deployment notifications
