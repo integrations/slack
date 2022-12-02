@@ -218,7 +218,7 @@ However in the following rare circumstances you might run into difficulties:
 ### Actions workflow notifications
 You can subscribe to GitHub Actions workflow run notifications from your channel or personal app using "workflows" feature.
 
-<p align="left"><img width="500" alt="Workflow notification" src="docs/images/WorkflowRun.png"></p>
+<p align="left"><img width="800" alt="Workflow notification" src="docs/images/WorkflowRun.png"></p>
 
 - You will get notified when a new workflow run is triggered. And you can track the live status of the jobs. 
 - You can track the approval notifications as a reply in the thread and you can approve the notifications directly from channel/personal app.
