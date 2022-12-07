@@ -291,11 +291,14 @@ Notifications for any Issues and PRs are grouped under a parent card as replies.
 
 This will reduce the noise in the channel. And our mentions feature ensures that only those involved in the conversation thread are notified. Only the parent card is posted to the channel and rest of the notifications will be added as a reply in the thread. However, the state change activities like close/reopen issue are added to the thread as reply and also posted to the channel as this might be of interest to the group. 
 
+
+#### Broadcast comments to channel
 If you have subscribed for comment notifications, and you also want the channel members to see the comments instead of just those who are participants of the issue, you can opt-in for the same by running 
 `/github subscribe org/repo comments:"channel"`
 
 Note: By default comments will only flow into the thread. And you need to explicitly run the above command to ensure the comments also start flowing into channel as well.
 
+#### Mentions in the Slack Threads
 If you are a participant in an issue/pr i.e. mentioned in the comment or added as an assignee/reviewer, our mentions feature ensures you are notified in the threads section in Slack. You need not go to the channel for the issues/prs that need your attention. You can focus on the ones where you are needed and our threading feature ensures you get the full picture and you can directly take action from there. This is a very powerful feature which ensures, you dont miss out on any issues/prs that need your attention.
 
 However, if you absolutely believe that you dont need to see issues/PR updates in threads and think it is a noise, we can suggest a quick workaround for no more pings or entries into your threads. Our GitHub app only mentions you in the Slack workspace where you logged into GitHub the latest. You can go to a least used slack workspace or personal slack workspace and log into GitHub with our GitHub app from there. Then you will not be pinged or see updates in threads in the other main workspace.
