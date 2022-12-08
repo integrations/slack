@@ -293,13 +293,13 @@ This will reduce the noise in the channel. And our mentions feature ensures that
 
 
 #### Broadcast comments and reviews to channel
-If you have subscribed for comment notifications, and you also want the channel members to see the comments instead of just those who are participants of the issue, you can opt-in for the same by running 
+If you have subscribed for comments and reviews notifications, and you also want the channel members to see them instead of just those who are participants of the issue, you can opt-in for the same by running 
 
 `/github subscribe org/repo comments:"channel"` and 
 
 `/github subscribe org/repo reviews:"channel"`
 
-Note: By default comments will only flow into the thread. And you need to explicitly run the above command to ensure the comments also start flowing into channel as well.
+Note: By default comments and reviews will only showup into the thread. And you need to explicitly run the above command to ensure the comments also start flowing into channel as well.
 
 #### Mentions in the Slack Threads
 If you are a participant in an issue/pr i.e. mentioned in the comment or added as an assignee/reviewer, our mentions feature ensures you are notified in the threads section in Slack. You need not go to the channel for the issues/prs that need your attention. You can focus on the ones where you are needed and our threading feature ensures you get the full picture and you can directly take action from there. This is a very powerful feature which ensures, you dont miss out on any issues/prs that need your attention.
