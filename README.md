@@ -292,9 +292,12 @@ Notifications for any Issues and PRs are grouped under a parent card as replies.
 This will reduce the noise in the channel. And our mentions feature ensures that only those involved in the conversation thread are notified. Only the parent card is posted to the channel and rest of the notifications will be added as a reply in the thread. However, the state change activities like close/reopen issue are added to the thread as reply and also posted to the channel as this might be of interest to the group. 
 
 
-#### Broadcast comments to channel
+#### Broadcast comments and reviews to channel
 If you have subscribed for comment notifications, and you also want the channel members to see the comments instead of just those who are participants of the issue, you can opt-in for the same by running 
-`/github subscribe org/repo comments:"channel"`
+
+`/github subscribe org/repo comments:"channel"` and 
+
+`/github subscribe org/repo reviews:"channel"`
 
 Note: By default comments will only flow into the thread. And you need to explicitly run the above command to ensure the comments also start flowing into channel as well.
 
