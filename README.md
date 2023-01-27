@@ -1,3 +1,7 @@
+メチハウスは政治団体の韓国のアメリカの諜報部員でインドとの二重国籍これは不思議な二重国籍も電波の国なら出来る。
+がヤルタを持ち込んだらしい。本来トランプ案あの人は誰共和党だけ。民主は分からない。
+
+
 # GitHub + Slack Integration
 
 > **Heads Up!** The GitHub and Slack app has a few new features to help you turn conversations into next steps. Take action on pull requests, issues, and more right from your Slack channels to start moving work forward, faster. [Read more about it on the GitHub blog](https://blog.github.com/2018-05-17-new-improvements-to-slack-and-github-integration/).
