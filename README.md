@@ -21,6 +21,7 @@ The GitHub integration for Slack gives you and your teams full visibility into y
   - [Link previews](#link-previews)
   - [Scheduled Reminders](#scheduled-reminders)
   - [Enterprise Grid](#enterprise-grid)
+- [GHES Integration](#ghes-integration)
 - [Need help?](#questions-need-help)
 - [License](#license)
 --------
@@ -29,12 +30,9 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 #### GHEC - GA
 This app officially supports GitHub.com (which includes our GitHub Enterprise cloud-hosted offering) and Slack.com. 
 
-#### GHES - Private preview
-GHES integration with Slack.com private beta is available with GHES 3.6.
-
-This is a private preview and interested customers can enroll for the preview by creating an issue [here](https://github.com/integrations/slack/issues/new). We will help you with the onboarding process. 
-
-We are planning to announce GA of GHES integration for Slack with GHES 3.8.
+#### GHES - GA
+GHES integration with Slack.com is now GA with GHES 3.8. 
+The detailed steps for integrating Slack with GHES can be found [here](#ghes-integration). 
 
 ### Installation
 [Install the GitHub integration for Slack](https://slack.com/apps/A01BP7R4KNY-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
@@ -395,12 +393,47 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 - If you have already installed GitHub app in one of the workspaces in the grid, you can now install the app at org level and manage it across the workspaces by going to your enterprise grid management console -> installed apps.
 <p align="left"><img width="500" alt="InstalledApps" src="docs/images/InstalledApps.PNG"></p>
 
-## Roadmap and upcoming features
+## GHES Integration
+We are announcing GA for GHES integration with Slack with GHES 3.8. With this integration, you will now be able to subscribe to your repositories in your GHES instance and get live updates about your Issues, PRs, Commits and Deployments in Slack. And you can also take actions like commenting, open/close issues and approve your deployments directly from slack.
 
-* Support for GHES - We are supporting GHES integration as a private preview with GHES 3.6. We will rollout GitHub app for GHES GA with GHES 3.8 (March,2023)
-* Issue create and manage capabilities - Provide capabilities to create and manage issues directly from your chat. `Shipped`
-* GitHub Actions notifications and manage capabilities - Provide capabilities to run, view and manage workflows from chat. `Shipped`
-* Custom filters support to manage notifications - This is one of the top asked feature. Provide support to customize notifications by providing advaced filter capabilities. Timlines are to be decided.
+### How does this integration work?
+Starting with GHES 3.8, we are shipping a dedicated ChatOps service bundled along with your GHES server. And you can choose to integrate with your Slack workspace. With our integration for GHES, you will have
+1. A fully secure and scalable experience:
+All your subscriptions info and any other metadata stays within your GHES setup. So, you don't have to worry about data flowing to any external service.
+
+2. Bidirectional connectivity between GHES and Slack:
+Our GHES integration is not just a notification service. It will also enable you to perform actions directly from chat. So, the only prerequisite you need to ensure your GHES instance is accessible from Slack. 
+
+### Integration steps
+1. Navigate to <instancename>:8443 and go to section “Chat Integration”
+2. Select the checkbox Enable GitHub Chat Integration
+3. Select Slack tab
+4. Navigate to the Slack API page using the link shown below.
+5. Generate a Configuration token by clicking the Generate token and select the workspace where the app will be created.
+6. Paste the token back in the settings page and click generate app.
+7. Once the app is generated Click on Save settings to apply to the instance
+8. Once the settings are applied navigate to either <instancename>/_slack/ or slack.<instancename> to install the app on your workspace.
+9. If the app needs to be installed across multiple workspaces Navigate to your app by click on the app ID
+10. Navigate to the “Manage Distribution” and check the “Remove hard coded Information” and Click “Activate Public Distribution”
+  
+### Slack Socket mode
+If your GHES instance is behind a proxy and you want to connect with Slack instance via [secure socket mode](https://api.slack.com/apis/connections/socket), you can configure integration as follows. 
+1. Navigate to <instancename>:8443 and go to section “Chat Integration”
+2. Select the checkbox Enable GitHub Chat Integration
+3. Select Slack tab
+4. Navigate to the Slack API page using the link.
+5. Generate a Configuration token by clicking the Generate token and select the workspace where the app will be created.
+6. Paste the token back in the settings page and check the “Configure socket mode” and click generate app.
+7. Once the app is generated click on the app ID to navigate to the app to generate the app-level token.
+8. In the app page under “Basic Information” navigate to the “App-Level Tokens” and click Generate Token and scopes.
+9. Give a name to token and provide the below scopes by clicking on Add scopes
+   - Authorization.Read
+   - Connection.Write
+10. Copy the token and paste it back in the settings page and click Save
+11. Click on the Save Settings button to apply the settings to instance
+12. Once the settings are applied navigate to either <instancename>/_slack/ or slack.<instancename> to install the app on your workspace.
+13. If the app needs to be installed across multiple workspaces Navigate to your app by click on the app ID
+14. Navigate to the “Manage Distribution” and check the “Remove hard coded Information” and Click “Activate Public Distribution”
 
 ## Questions? Need help?
 If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose). Or please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
