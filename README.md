@@ -394,7 +394,7 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 <p align="left"><img width="500" alt="InstalledApps" src="docs/images/InstalledApps.PNG"></p>
 
 ## GHES Integration
-We are announcing GA for GHES integration with Slack with GHES 3.8. With this integration, you will now be able to subscribe to your repositories in your GHES instance and get live updates about your Issues, PRs, Commits and Deployments in Slack. And you can also take actions like commenting, open/close issues and approve your deployments directly from slack.
+We are announcing GA for GHES integration with Slack with GHES 3.8. With this integration, you will now be able to subscribe to your repositories in your GHES instance and get live updates about your Issues, PRs, Commits and Deployments in Slack. And you can also take actions like commenting, open/close issues and approve your deployments directly from slack. All the features that are available in our hosted GitHub integration (GHEC) will be available in GHES integration. 
 
 ### How does this integration work?
 Starting with GHES 3.8, we are shipping a dedicated ChatOps service bundled along with your GHES server. And you can choose to integrate with your Slack workspace. With our integration for GHES, you will have
