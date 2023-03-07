@@ -404,7 +404,7 @@ All your subscriptions info and any other metadata stays within your GHES setup.
 2. Bidirectional connectivity between GHES and Slack:
 Our GHES integration is not just a notification service. It will also enable you to perform actions directly from chat. So, the only prerequisite you need to ensure your GHES instance is accessible from Slack. 
 
-### Integration steps
+### Configuration steps
 1. Navigate to <instancename>:8443 and go to section “Chat Integration”
 2. Select the checkbox Enable GitHub Chat Integration
 3. Select Slack tab
