@@ -394,7 +394,9 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 <p align="left"><img width="500" alt="InstalledApps" src="docs/images/InstalledApps.PNG"></p>
 
 ## GHES Integration
-We are announcing GA for GHES integration with Slack with GHES 3.8. With this integration, you will now be able to subscribe to your repositories in your GHES instance and get live updates about your Issues, PRs, Commits and Deployments in Slack. And you can also take actions like commenting, open/close issues and approve your deployments directly from slack. All the features that are available in our hosted GitHub integration (GHEC) will be available in GHES integration. 
+We are announcing GA for GHES integration with Slack with GHES 3.8. 
+
+With this integration, you will now be able to subscribe to your repositories in your GHES instance and get live updates about your Issues, PRs, Commits and Deployments in Slack. And you can also take actions like commenting, open/close issues and approve your deployments directly from slack. 
 
 ### How does this integration work?
 Starting with GHES 3.8, we are shipping a dedicated ChatOps service bundled along with your GHES server. And you can choose to integrate with your Slack workspace. With our integration for GHES, you will have
@@ -405,7 +407,9 @@ All your subscriptions info and any other metadata stays within your GHES setup.
 Our GHES integration is not just a notification service. It will also enable you to perform actions directly from chat. So, the only prerequisite you need to ensure your GHES instance is accessible from Slack. 
 
 ### Configuration steps
-1. Navigate to <instancename>:8443 and go to section “Chat Integration”
+The existing GitHub app you see in the app store can only be used for GHEC (hosted GitHub) integration. To integrate your GHES instance with Slack, you need to configure a private GHES app. Here are the steps to integrate with GHES.
+
+1. Navigate to "your-ghes-instance:8443" and go to section “Chat Integration”
 2. Select the checkbox Enable GitHub Chat Integration
   
   ![image3](https://user-images.githubusercontent.com/9424117/223659965-f90e5bcb-7018-4e62-a8da-18b36e0d1114.png)
@@ -436,7 +440,7 @@ Our GHES integration is not just a notification service. It will also enable you
   
 ### Slack Socket mode
 If your GHES instance is behind a proxy and you want to connect with Slack instance via [secure socket mode](https://api.slack.com/apis/connections/socket), you can configure integration as follows. 
-1. Navigate to <instancename>:8443 and go to section “Chat Integration”
+1. Navigate to "your-ghes-instance:8443" and go to section “Chat Integration”
 2. Select the checkbox Enable GitHub Chat Integration
   
   ![image3](https://user-images.githubusercontent.com/9424117/223660939-f75e7602-747a-4c3d-9175-d50720a1467f.png)
@@ -476,6 +480,7 @@ If your GHES instance is behind a proxy and you want to connect with Slack insta
   
   ![image11](https://user-images.githubusercontent.com/9424117/223661538-1598a5a6-fe60-41be-aef8-791c0875d0a2.png)
 
+And now you have a dedicated GHES integration with your Slack workspace. All the features that are available in our hosted GitHub integration (GHEC) will be available in GHES integration. 
 
 ## Questions? Need help?
 If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose). Or please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
