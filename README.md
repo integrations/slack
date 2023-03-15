@@ -24,17 +24,22 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 - [GHES Integration](#ghes-integration)
 - [Need help?](#questions-need-help)
 - [License](#license)
+
 --------
+
 ## Installing the GitHub integration for Slack
 ### Requirements
 #### GHEC - GA
+
 This app officially supports GitHub.com (which includes our GitHub Enterprise cloud-hosted offering) and Slack.com.
 
 #### GHES - GA
+
 GHES integration with Slack.com is now GA with GHES 3.8.
 The detailed steps for integrating Slack with GHES can be found [here](#ghes-integration).
 
 ### Installation
+
 [Install the GitHub integration for Slack](https://slack.com/apps/A01BP7R4KNY-github). After you've signed in to your Slack workspace, you will be prompted to give the app access:
 
 <p align="center"><img width="450" alt="auth" src="https://user-images.githubusercontent.com/3877742/36522927-f1d596b6-1753-11e8-9f85-2495e657b16b.png"></p>
@@ -44,6 +49,7 @@ After the app is installed, and once you've added the GitHub integration to the 
 <p align="center"><img width="550" alt="unfurl_convo" src="https://user-images.githubusercontent.com/3877742/36522313-c0cdbd08-1750-11e8-8dbe-b5a3a2f93549.png"></p>
 
 ## Getting Started
+
 Once you install the app, you can not interact with GitHub app as a Personal app or access from a channel. Once the app is installed in the workspace, the GitHub app is enabled in all the public channels. For private channels, you need to explicitly invite `/invite @github`
 
 At this point, your Slack and GitHub user accounts are not linked. You will be prompted to connect to GitHub. This is a primary step required to access the app. Alternatively, we can also connect by running `/github signin`.
@@ -65,6 +71,7 @@ If you originally gave the app access to "All repositories" and you've created a
 The `/github` slash command also supports `unsubscribe`. To unsubscribe to notifications from a repository, use `/github unsubscribe <organization>/<repository>`
 
 ### Authorization
+
 By granting the app access, you are providing the following authorizations to your GitHub and Slack accounts:
 
 #### Slack Permission Scopes
@@ -89,6 +96,7 @@ By granting the app access, you are providing the following authorizations to yo
 ## Features
 
 ### Subscribe to an Organization or a Repository
+
 On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch as well as `comments` on issues and pull requests.
 
 ### Customize your notifications
@@ -133,6 +141,7 @@ And to turn it back off:
 ```
 
 #### Branch filters for commit
+
 Branch filters allow filtering commit notifications. By default when you subscribe for commits feature, you will get notifications for your default branch (i.e. main). However, you can choose to filter on a specific branch, or a pattern of branches or all branches.
 
 - `/github subscribe org/repo commits`  for commit notifications from a default branch.
@@ -146,6 +155,7 @@ You can unsubscribe commits feature using `@github unsubscribe org/repo commits.
 
 
 #### Label filters for prs and issues
+
 Label filters allow filtering incoming events based on a whitelist of **required** labels.
 
 This is an overview of the event types that are affected by the required-label filter.
@@ -214,6 +224,7 @@ However in the following rare circumstances you might run into difficulties:
 * `,` is reserved
 
 ### Actions workflow notifications
+
 You can subscribe to GitHub Actions workflow run notifications from your channel or personal app using "workflows" feature.
 
 <p align="left"><img width="800" alt="Workflow notification" src="docs/images/WorkflowRun.png"></p>
@@ -224,6 +235,7 @@ You can subscribe to GitHub Actions workflow run notifications from your channel
 - If something fails, you can choose to rerun the workflow in place and you can also enable debug logs if needed.
 
 #### Workflow notification filters
+
 Getting notified about each and every workflow run notification can be noisy. So, we are providing you capability to filter the notifications based on your requirement.
 You can filter your actions workflows notifications based on name, event, actor and/or branch. You can filter the notifications as below.
 
@@ -244,6 +256,7 @@ You can unsubscribe for workflows notifications by just running the below comman
 `/github unsubscribe org/repo workflows`
 
 #### Updates to the app permissions
+
 To receive the above notifications you need to grant access to receive Actions events by GitHub app in Slack. You will be prompted to do so as you try to subscribe for `workflows` feature for your organization the first time.
 
 <p align="left"><img width="500" alt="Workflow notification" src="docs/images/ActionsPermissions.png"></p>
@@ -262,6 +275,7 @@ Note: If you are using GitHub actions and want to track your deployments to envi
 
 
 ### Mentions
+
 When you subscribe to a repository in Slack, you will now see yourself mentioned in the notifications where you are referred and needs your attention.
 <p align="left"><img width="500" alt="PR Mentions" src="docs/images/PRMentions.png"></p>
 <p align="left"><img width="500" alt="Deployment Mentions" src="docs/images/DeploymentMentions.png"></p>
@@ -278,11 +292,13 @@ And the best part is - you can now see the summary of GitHub notifications where
 
 
 #### How does mentions work?
+
 Mentions will work only if you login to GitHub app in your Slack workspace. When you login to GitHub app with your GitHub id, we map it with your Slack id and ping you in Slack whenever you are mentioned in any of the GitHub notifications.
 
 **Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only in the workspace where you logged in to GitHub app most recently.
 
 ### Threading
+
 Notifications for any Issues and PRs are grouped under a parent card as replies. The parent card always shows the latest status of the Issue/PR along with other meta-data like title, description, assignees, reviewers, labels and checks. Threading gives context and helps improve collaboration in the channel.
 
 <p align="left"><img width="500" alt="IssueThread" src="docs/images/IssueThread.png"></p>
@@ -291,6 +307,7 @@ This will reduce the noise in the channel. And our mentions feature ensures that
 
 
 #### Broadcast comments and reviews to channel
+
 If you have subscribed for comments and reviews notifications, and you also want the channel members to see them instead of just those who are participants of the issue, you can opt-in for the same by running
 
 `/github subscribe org/repo comments:"channel"` and
@@ -300,11 +317,13 @@ If you have subscribed for comments and reviews notifications, and you also want
 Note: By default comments and reviews will only showup into the thread. And you need to explicitly run the above command to ensure the comments also start flowing into channel as well.
 
 #### Mentions in the Slack Threads
+
 If you are a participant in an issue/pr i.e. mentioned in the comment or added as an assignee/reviewer, our mentions feature ensures you are notified in the threads section in Slack. You need not go to the channel for the issues/prs that need your attention. You can focus on the ones where you are needed and our threading feature ensures you get the full picture and you can directly take action from there. This is a very powerful feature which ensures, you dont miss out on any issues/prs that need your attention.
 
 However, if you absolutely believe that you dont need to see issues/PR updates in threads and think it is a noise, we can suggest a quick workaround for no more pings or entries into your threads. Our GitHub app only mentions you in the Slack workspace where you logged into GitHub the latest. You can go to a least used slack workspace or personal slack workspace and log into GitHub with our GitHub app from there. Then you will not be pinged or see updates in threads in the other main workspace.
 
 #### Don't want threading?
+
 If you don't want threading functionality or not yet ready to adapt to new model, we want to give you the flexibility. You can disable/enable threading for Issues and Pull requests noitifications in your channel. You can go to the channel where you don't need threading and run the following command.
 `/github settings`
 
@@ -314,11 +333,13 @@ You will see an option to Disable/Enable threading for that channel. Any member 
 
 
 ### Take action
+
 Slack conversations often lead to decisions and actionable takeaways. Now it’s easier to start on next steps from Slack.
 
 You no longer have to switch or redirect to GitHub to perform any actions on issues. You can truly create and manage issues from where you collaborate i.e. Slack.
 
 #### Issue creation experience
+
 You can now create issue by just a click, right from the place where you collaborate. In any channel/personal app/group or direct chat, you can now click on the three dots (...) at the top right corner of a message and choose 'Create an Issue GitHub' from the list. This will launch a create issue dialogue.
 
 <p align="left"><img width="500" alt="CreateIssue" src="docs/images/MessageExtension.png"></p>
@@ -339,6 +360,7 @@ Alternatively, you can create an issue from Slack in two other ways.
 Note: You need to be signed in and have necessary access to the repo to perform any actions.
 
 ##### Issue manage experience
+
 You can also manage the lifecycle of the issue directly from the chat. When you subscribe to a repo and get an issue notification or when you create a new issue from Slack, you will now see a issue card with Call-to-Action buttons comment, edit, close/reopen. You can perform these actions directly from chat.
 
 <p align="left"><img width="500" alt="IssueManage" src="docs/images/IssueManage.png"></p>
@@ -346,6 +368,7 @@ You can also manage the lifecycle of the issue directly from the chat. When you 
 Note: When you perform an action on the issue card from Slack, the response is added as a reply to the thread even if you didn't subscribe to that activity through subscriptions. However, if you subscribe, you will also get notifications for activities that happen outside Slack as well.
 
 ### Link previews
+
 <!-- preserve old anchor in case other docs link there -->
 <a name="types-of-public-link-unfurls"></a>
 
@@ -363,17 +386,21 @@ Previews of links will not be shown if:
 
 
 ### Scheduled reminders
+
 Scheduled reminders are used to make sure that users focus on the most important review requests that require their attention. Scheduled reminders for pull requests will send a message to you in Slack with open pull requests needing your review at a specified time. For example, you can setup scheduled reminders to send you a message in Slack every morning at 10 AM with pull requests needing to be reviewed by you or one of your teams.
 
 You can configure scheduled reminders for you (personal reminders), your team and for your organization.
 
 #### Personal scheduled reminders
+
 Personal scheduled reminders are configured as part of your GitHub personal app in Slack. You can set scheduled reminders for personal or team-level review requests for pull requests in organizations you are a member of. As part of personal reminders, you can also configure real time alerts for your pull requests. You can find more details [here](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/managing-your-scheduled-reminders).
 
 #### Channel level scheduled reminders
+
 You can configure scheduled reminders for pending pull requests as part of your Slack channels so that your team can stay on top of your work. For a given Slack channel, you can configure scheduled reminders for your organization or your team. For more details about configuring scheduled reminders, you should visit, [organization level reminders](https://docs.github.com/en/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization) and [team level reminders](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team).
 
 ### Enterprise Grid
+
 If you are on Slack Enterprise Grid and have multiple Slack workspaces in your organization where you need to use GitHub, you can install and manage your GitHub app on Slack Enterprise Grid. Org owners and Org admins in Slack Enterprise grid can:
 
 1. Install the GitHub app at the org level and choose which workspaces you want to add/remove the GitHub app
@@ -385,6 +412,7 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 <p align="left"><img width="500" alt="AddWorkspace" src="docs/images/AddWorkspace.PNG"></p>
 
 #### Few things to note
+
 - Only Enterprise grid org admins and org owners will be able to install and manage the GitHub app at the grid level.
 
 - You can install the GitHub app at orglevel by clicking [here](www.slack.github.com) and selecting the enterprise grid organization to install.
@@ -394,11 +422,13 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 <p align="left"><img width="500" alt="InstalledApps" src="docs/images/InstalledApps.PNG"></p>
 
 ## GHES Integration
+
 We are announcing GA for GHES integration with Slack with GHES 3.8.
 
 With this integration, you will now be able to subscribe to your repositories in your GHES instance and get live updates about your Issues, PRs, Commits and Deployments in Slack. And you can also take actions like commenting, open/close issues and approve your deployments directly from slack.
 
 ### How does this integration work?
+
 Starting with GHES 3.8, we are shipping a dedicated ChatOps service bundled along with your GHES server. And you can choose to integrate with your Slack workspace. With our integration for GHES, you will have
 1. A fully secure and scalable experience:
 All your subscriptions info and any other metadata stays within your GHES setup. So, you don't have to worry about data flowing to any external service.
@@ -407,6 +437,7 @@ All your subscriptions info and any other metadata stays within your GHES setup.
 Our GHES integration is not just a notification service. It will also enable you to perform actions directly from chat. So, the only prerequisite you need to ensure your GHES instance is accessible from Slack.
 
 ### Configuration steps
+
 The existing GitHub app you see in the app store can only be used for GHEC (hosted GitHub) integration. To integrate your GHES instance with Slack, you need to configure a private GHES app. Here are the steps to integrate with GHES.
 
 1. Navigate to "your-ghes-instance:8443" and go to section “Chat Integration”
@@ -439,6 +470,7 @@ The existing GitHub app you see in the app store can only be used for GHEC (host
 
 
 ### Slack Socket mode
+
 If your GHES instance is behind a proxy and you want to connect with Slack instance via [secure socket mode](https://api.slack.com/apis/connections/socket), you can configure integration as follows.
 1. Navigate to "your-ghes-instance:8443" and go to section “Chat Integration”
 2. Select the checkbox Enable GitHub Chat Integration
@@ -483,6 +515,7 @@ If your GHES instance is behind a proxy and you want to connect with Slack insta
 And now you have a dedicated GHES integration with your Slack workspace. All the features that are available in our hosted GitHub integration (GHEC) will be available in GHES integration.
 
 ## Questions? Need help?
+
 If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose). Or please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
 
 | :warning: IMPORTANT          |
@@ -491,6 +524,7 @@ If you have any questions or concerns, please reach out to us by logging an issu
 
 
 ## License
+
 The project is available as open source under the terms of the [MIT License](LICENSE).
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
