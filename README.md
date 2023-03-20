@@ -505,7 +505,7 @@ launch a create issue dialogue.
 4. Once the issue is created you will receive a confirmation card in
    the channel from where you have initiated the issue creation flow.
 
-<p align="left"><img width="500" alt="IssueCreated" src="docs/images/IssueCreated.png"></p>
+    <p align="left"><img width="500" alt="IssueCreated" src="docs/images/IssueCreated.png"></p>
 
 Alternatively, you can create an issue from Slack in two other ways.
 
@@ -515,7 +515,7 @@ Alternatively, you can create an issue from Slack in two other ways.
 2. CLI command: You can also launch create issue flow by running a
    command `/github open` from the chat box.
 
-<p align="left"><img width="500" alt="Global Shortcut" src="docs/images/GlobalShortcut.png"></p>
+    <p align="left"><img width="500" alt="Global Shortcut" src="docs/images/GlobalShortcut.png"></p>
 
 Note: You need to be signed in and have necessary access to the repo
 to perform any actions.
@@ -605,13 +605,13 @@ admins in Slack Enterprise grid can:
 1. Install the GitHub app at the org level and choose which workspaces
    you want to add/remove the GitHub app
 
-<p align="left"><img width="500" alt="Install" src="docs/images/GridInstall.PNG"></p>
+    <p align="left"><img width="500" alt="Install" src="docs/images/GridInstall.PNG"></p>
 
 2. Manage GitHub app installations requests from your workspace members.
 
 3. Make GitHub app available in all future workspaces by default.
 
-<p align="left"><img width="500" alt="AddWorkspace" src="docs/images/AddWorkspace.PNG"></p>
+    <p align="left"><img width="500" alt="AddWorkspace" src="docs/images/AddWorkspace.PNG"></p>
 
 #### Few things to note
 
@@ -622,14 +622,14 @@ admins in Slack Enterprise grid can:
   [here](www.slack.github.com) and selecting the enterprise grid
   organization to install.
 
-<p align="left"><img width="500" alt="OrgInstall" src="docs/images/OrgInstall.PNG"></p>
+    <p align="left"><img width="500" alt="OrgInstall" src="docs/images/OrgInstall.PNG"></p>
 
 - If you have already installed GitHub app in one of the workspaces in
   the grid, you can now install the app at org level and manage it
   across the workspaces by going to your enterprise grid management
   console -> installed apps.
 
-<p align="left"><img width="500" alt="InstalledApps" src="docs/images/InstalledApps.PNG"></p>
+    <p align="left"><img width="500" alt="InstalledApps" src="docs/images/InstalledApps.PNG"></p>
 
 ## GHES Integration
 
@@ -668,24 +668,26 @@ integrate with GHES.
 1. Navigate to "your-ghes-instance:8443" and go to section “Chat Integration”
 2. Select the checkbox Enable GitHub Chat Integration
 
-  ![image3](https://user-images.githubusercontent.com/9424117/223659965-f90e5bcb-7018-4e62-a8da-18b36e0d1114.png)
+    ![image3](https://user-images.githubusercontent.com/9424117/223659965-f90e5bcb-7018-4e62-a8da-18b36e0d1114.png)
 
 3. Select Slack tab
 
-  <img width="580" alt="image9" src="https://user-images.githubusercontent.com/9424117/223660067-bda2fedd-2acf-4ec8-9097-a54166d3e366.png">
+    <img width="580" alt="image9" src="https://user-images.githubusercontent.com/9424117/223660067-bda2fedd-2acf-4ec8-9097-a54166d3e366.png">
 
 4. Navigate to the Slack API page using the link shown below.
-5. Generate a Configuration token by clicking the Generate token and select the workspace where the app will be created.
 
-  ![image13](https://user-images.githubusercontent.com/9424117/223660334-aa3bc725-7ac7-4766-b17f-4955ea3d4d39.png)
+5. Generate a Configuration token by clicking the Generate token and
+   select the workspace where the app will be created.
+
+    ![image13](https://user-images.githubusercontent.com/9424117/223660334-aa3bc725-7ac7-4766-b17f-4955ea3d4d39.png)
 
 6. Paste the token back in the settings page and click generate app.
 
-  <img width="779" alt="image6" src="https://user-images.githubusercontent.com/9424117/223660585-f37ada6d-7392-4fa5-9395-6fef3c2fa42f.png">
+    <img width="779" alt="image6" src="https://user-images.githubusercontent.com/9424117/223660585-f37ada6d-7392-4fa5-9395-6fef3c2fa42f.png">
 
 7. Once the app is generated Click on Save settings to apply to the instance
 
-  ![image4](https://user-images.githubusercontent.com/9424117/223660665-e008a5fe-b99d-45f4-8e4f-e72d6e8ca673.png)
+    ![image4](https://user-images.githubusercontent.com/9424117/223660665-e008a5fe-b99d-45f4-8e4f-e72d6e8ca673.png)
 
 8. Once the settings are applied navigate to either
    `<instancename>/_slack/` or `slack.<instancename>` to install the
@@ -695,9 +697,9 @@ integrate with GHES.
    Navigate to your app by click on the app ID
 
 10. Navigate to the “Manage Distribution” and check the “Remove hard
-coded Information” and Click “Activate Public Distribution”
+    coded Information” and Click “Activate Public Distribution”
 
-  ![image11](https://user-images.githubusercontent.com/9424117/223660839-08f7d659-4f99-4a4a-bd78-b42927ee922a.png)
+    ![image11](https://user-images.githubusercontent.com/9424117/223660839-08f7d659-4f99-4a4a-bd78-b42927ee922a.png)
 
 
 ### Slack Socket mode
@@ -710,11 +712,11 @@ configure integration as follows.
 1. Navigate to "your-ghes-instance:8443" and go to section “Chat Integration”
 2. Select the checkbox Enable GitHub Chat Integration
 
-  ![image3](https://user-images.githubusercontent.com/9424117/223660939-f75e7602-747a-4c3d-9175-d50720a1467f.png)
+    ![image3](https://user-images.githubusercontent.com/9424117/223660939-f75e7602-747a-4c3d-9175-d50720a1467f.png)
 
 3. Select Slack tab
 
-  <img width="580" alt="image9" src="https://user-images.githubusercontent.com/9424117/223661071-e3e20d18-bddb-4a4d-86c1-0f7ca0b2ab44.png">
+    <img width="580" alt="image9" src="https://user-images.githubusercontent.com/9424117/223661071-e3e20d18-bddb-4a4d-86c1-0f7ca0b2ab44.png">
 
 4. Navigate to the Slack API page using the link.
 
@@ -726,7 +728,7 @@ configure integration as follows.
 6. Paste the token back in the settings page and check the “Configure
    socket mode” and click generate app.
 
-  <img width="779" alt="image6" src="https://user-images.githubusercontent.com/9424117/223661184-1d866b98-5e61-41fd-aee6-eb30184169d7.png">
+    <img width="779" alt="image6" src="https://user-images.githubusercontent.com/9424117/223661184-1d866b98-5e61-41fd-aee6-eb30184169d7.png">
 
 7. Once the app is generated click on the app ID to navigate to the
    app to generate the app-level token.
@@ -734,7 +736,7 @@ configure integration as follows.
 8. In the app page under “Basic Information” navigate to the
    “App-Level Tokens” and click Generate Token and scopes.
 
-  ![image12](https://user-images.githubusercontent.com/9424117/223661262-e224b0c0-38f0-48e2-8179-ee250cc4ada6.png)
+    ![image12](https://user-images.githubusercontent.com/9424117/223661262-e224b0c0-38f0-48e2-8179-ee250cc4ada6.png)
 
 9. Give a name to token and provide the below scopes by clicking on Add scopes
 
@@ -743,11 +745,11 @@ configure integration as follows.
 
 10. Copy the token and paste it back in the settings page and click Save
 
-  <img width="779" alt="image10" src="https://user-images.githubusercontent.com/9424117/223661356-2864b9b2-9a1e-4028-98a4-6859c83bba77.png">
+    <img width="779" alt="image10" src="https://user-images.githubusercontent.com/9424117/223661356-2864b9b2-9a1e-4028-98a4-6859c83bba77.png">
 
 11. Click on the Save Settings button to apply the settings to instance
 
-  <img width="779" alt="image14" src="https://user-images.githubusercontent.com/9424117/223661463-9ee560dc-1de0-43dd-bb2c-c61be3dc564a.png">
+    <img width="779" alt="image14" src="https://user-images.githubusercontent.com/9424117/223661463-9ee560dc-1de0-43dd-bb2c-c61be3dc564a.png">
 
 12. Once the settings are applied navigate to either
     `<instancename>/_slack/` or `slack.<instancename>` to install the
@@ -758,7 +760,7 @@ configure integration as follows.
 
 14. Navigate to the “Manage Distribution” and check the “Remove hard coded Information” and Click “Activate Public Distribution”
 
-  ![image11](https://user-images.githubusercontent.com/9424117/223661538-1598a5a6-fe60-41be-aef8-791c0875d0a2.png)
+    ![image11](https://user-images.githubusercontent.com/9424117/223661538-1598a5a6-fe60-41be-aef8-791c0875d0a2.png)
 
 And now you have a dedicated GHES integration with your Slack
 workspace. All the features that are available in our hosted GitHub
