@@ -7,6 +7,238 @@ If you are agreeing to these Application Terms on behalf of a company, organizat
 If you do not agree to all of the terms in these Application Terms, do not download, install, use, or copy the Application.
 
 ### Connecting to GitHub
+Jump to content
+Home
+Web
+Android
+Learning Hub
+News and Updates
+Privacy Sandbox for the Web
+Privacy Sandbox for the Web will phase out third-party cookies
+ by using the latest privacy techniques, like differential privacy,
+ k-anonymity,
+ and on-device processing.
+
+
+Privacy Sandbox also helps to limit other forms of tracking, like fingerprinting,
+ by restricting the amount of information sites can access so that your information stays private, safe, and secure.
+
+A globe that represents the open web surrounded by internet services icons.
+The Privacy Sandbox Timeline for the Web
+The Privacy Sandbox proposals are in various stages of the development process. This timeline reflects when we expect new privacy-preserving APIs and other technologies to be ready in support of key use cases, so that Chrome can responsibly phase out third-party cookies. Information may change and will be updated monthly.
+
+The proposals are being developed in public forums, in collaboration with members of the industry. We also continue to work with the UK's Competition and Markets Authority in line with the commitments we offered for Privacy Sandbox for the web. We encourage participation through the many public feedback channels that inform development of the proposals. Stakeholders can also use this form to share feedback directly with Chrome.
+
+Last Update: December 2023
+
+Third-Party Cookies (3PC) and Testing
+Opt-in Testing with Labels
+1% 3PC Deprecation
+Third-Party Cookie Phase Out
+2021
+Q1
+Q2
+Q3
+Q4
+2022
+Q1
+Q2
+Q3
+Q4
+2023
+Q1
+Q2
+Q3
+Q4
+2024
+Q1
+Q2
+Q3
+Q4
+Chrome facilitated testing
+Third-party cookies phases: Opt-in testing with labels: Q4 2023 through the end of Q2 2024; 1% Third-party cookies deprecation: Q1 2024 through the end of Q2 2024; Third-party cookies phase out: Q3 2024.
+ 
+ 
+Privacy Sandbox APIs
+Discussion
+Pre-Launch Testing
+General Availability
+2021
+Q1
+Q2
+Q3
+Q4
+2022
+Q1
+Q2
+Q3
+Q4
+2023
+Q1
+Q2
+Q3
+Q4
+2024
+Q1
+Q2
+Q3
+Q4
+Fight spam and fraud on the web
+Fight spam and fraud on the web proposals phases: Testing period: Q1 2021 through the end of Q3 2022; Transition period, stage 1: Q4 2022 through the end of Q2 2023; Transition period, stage 2: Q3 2023.
+ 
+Private State Tokens API
+OT STARTED
+OT CLOSED
+Show relevant content and ads
+Show relevant content and ads proposals phases: Discussion period: Q1 2021 through the end of Q4 2021; Testing period: Q1 2022 through the end of Q3 2022; Transition period, stage 1: Q4 2022 through the end of Q2 2023; Transition period, stage 2: Q3 2023
+ 
+ 
+Topics API
+OT STARTED
+OT CLOSED
+Protected Audience API
+FEATURE FLAG
+OT STARTED
+OT CLOSED
+Measure digital ads
+Measure digital ads proposals phases: Discussion period: Q1 2021 through the end of Q4 2021; Testing period: Q1 2022 through the end of Q3 2022; Transition period, stage 1: Q4 2022 through the end of Q2 2023; Transition period, stage 2: Q3 2023
+ 
+ 
+Attribution Reporting API
+OT STARTED
+OT CLOSED
+OT STARTED
+OT CLOSED
+Strengthen Cross-site Privacy Boundaries
+Strengthen Cross-site Privacy Boundaries proposals phases: Discussion period: Q1 2021 through the end of Q1 2022; Testing period: Q2 2022 through the end of Q3 2022; Transition period, stage 1: Q4 2022 through the end of Q2 2023; Transition period, stage 2: Q3 2023.
+ 
+ 
+Related Website Sets API
+FEATURE FLAG
+OT STARTED
+OT CLOSED
+FEATURE FLAG
+Shared Storage API
+OT STARTED
+OT CLOSED
+CHIPS API
+OT STARTED
+OT CLOSED
+Fenced Frames API
+OT STARTED
+OT CLOSED
+Federated Credential Management API
+OT STARTED
+OT CLOSED
+The Privacy Sandbox initiative also includes efforts designed to limit covert tracking. These include proposals that address specific covert tracking techniques such as fingerprinting and network-level tracking.
+
+Early phases
+
+In Development
+
+Launched
+
+These proposals are in early incubation. Learn more about each proposal by clicking on the links below.
+Privacy Budget 
+These proposals are currently in development and/or being tested. Learn more about the implementation details of each proposal by clicking on the links below.
+IP Protection 
+These proposals are available by default in Chrome stable. Learn more about the implementation details of each proposal by clicking on the links below.
+Network State Partitioning 
+User-Agent Reduction 
+User-Agent Client Hints API 
+DNS-over-HTTPS auto-upgrade 
+Storage Partitioning 
+Bounce Tracking Mitigations 
+The Privacy Sandbox Proposals for the Web
+
+Fight spam and fraud on the web
+
+
+Show relevant content and ads
+
+
+
+
+Measure digital ads
+
+
+Strengthen cross-site privacy boundaries
+
+
+
+
+
+
+
+
+Limit covert tracking
+
+
+
+
+
+
+
+
+
+
+Frequently Asked Questions
+
+How often will the timeline be updated?
+
+
+Is this the definitive list of technologies Chrome will be supporting?
+
+
+How firm are the dates on the timeline?
+
+
+Where can I learn more about the timeline to phase out third-party cookies support in Chrome?
+
+
+Why doesn’t the timeline show all the Privacy Sandbox proposals?
+
+
+What does origin trial (“OT”) mean in the timeline?
+
+
+How can I find out exactly when an origin trial (“OT”) is starting or ending?
+
+
+Does this timeline reflect when the APIs will be available globally?
+
+
+Is Chrome considering proposals from other members of the web community?
+
+
+What does "Feature Flag" mean on the timeline?
+
+
+What is the difference between functional testing and effectiveness testing?
+
+
+Outside of Google, who does Chrome collaborate with to build Privacy Sandbox technologies?
+
+
+I saw a prompt in Chrome about new ad privacy features. What does that mean?
+
+
+How can I control my ad privacy experience in Chrome?
+
+
+Will I see an immediate change in the ads I get when I update ad privacy settings in Chrome?
+
+
+I have privacy related compliance questions about the Relevance and Measurement APIs. Where can I find additional information on Chrome's approach?
+
+This timeline reflects Chrome’s best estimates, as of December 2023, of the timing of the key Privacy Sandbox use cases, including the availability of origin trials, readiness at scale of the listed APIs, and ending support for third-party cookies. Dates are subject to change. Chrome will update this timeline monthly with current estimates.
+The timeline lists the use cases that Chrome plans to support before the transition period: Fighting spam and fraud on the web; Measuring digital ads; Showing relevant content and ads; Strengthening cross-site privacy boundaries. The APIs listed under each use case reflect Chrome’s current proposals to support this use case. The specific APIs are subject to change.
+General Availability will start once APIs for all of the use cases are ready for scaled adoption. Chrome will announce the start of the transition period on this site and on the Keyword blog.
+Privacy
+Terms
+Help
+
+English
 
 If you configure the Application to work with one or more accounts on the GitHub.com website or with an instance of GitHub Enterprise, your use of the Application will also be governed your applicable GitHub.com website Terms of Service and/or the license agreement applicable to your instance of GitHub Enterprise ("GitHub Terms").
 
