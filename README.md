@@ -452,4 +452,4 @@ If you have any questions or concerns, please reach out to us by logging an issu
 ## License
 The project is available as open source under the terms of the [MIT License](LICENSE).
 
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos). 
