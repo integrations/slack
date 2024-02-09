@@ -220,7 +220,7 @@ You can subscribe to GitHub Actions workflow run notifications from your channel
 
 - You will get notified when a new workflow run is triggered. And you can track the live status of the jobs. 
 - You can track the approval notifications as a reply in the thread and you can approve the notifications directly from channel/personal app.
-- Once the workflow is completed, you will get a update as a reply in th thread so that you can complete context and history about the workflow run.
+- Once the workflow is completed, you will get a update as a reply in the thread so that you can complete context and history about the workflow run.
 - If something fails, you can choose to rerun the workflow in place and you can also enable debug logs if needed.
 
 #### Workflow notification filters
