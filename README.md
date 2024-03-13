@@ -44,9 +44,9 @@ After the app is installed, and once you've added the GitHub integration to the 
 <p align="center"><img width="550" alt="unfurl_convo" src="https://user-images.githubusercontent.com/3877742/36522313-c0cdbd08-1750-11e8-8dbe-b5a3a2f93549.png"></p>
 
 ## Getting Started
-Once you install the app, you can not interact with GitHub app as a Personal app or access from a channel. Once the app is installed in the workspace, the GitHub app is enabled in all the public channels. For private channels, you need to explicitly invite `/invite @github`
+Once you install the app, you can now interact with GitHub app as a Personal app or access from a channel. Once the app is installed in the workspace, the GitHub app is enabled in all the public channels. For private channels, you need to explicitly invite `/invite @github`
 
-At this point, your Slack and GitHub user accounts are not linked. You will be prompted to connect to GitHub. This is a primary step required to access the app. Alternatively, we can also connect by running `/github signin`.
+At this point, your Slack and GitHub user accounts are now linked. You will be prompted to connect to GitHub. This is a primary step required to access the app. Alternatively, we can also connect by running `/github signin`.
 
 <p align="center"><img width="500" alt="Connect" src="docs/images/Connect.png"></p>
 
