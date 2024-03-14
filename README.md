@@ -277,7 +277,7 @@ And the best part is - you can now see the summary of GitHub notifications where
 <p align="left"><img width="500" alt="Reactions" src="docs/images/Reactions.png"></p>
 
 
-#### How does mentions work?
+#### How do mentions work?
 Mentions will work only if you login to GitHub app in your Slack workspace. When you login to GitHub app with your GitHub id, we map it with your Slack id and ping you in Slack whenever you are mentioned in any of the GitHub notifications.  
 
 **Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only in the workspace where you logged in to GitHub app most recently.
