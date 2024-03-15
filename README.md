@@ -118,6 +118,7 @@ These are disabled by default, and can be enabled with the `/github subscribe ow
 - `branches` - Created or deleted branches
 - `commits:*` - All commits pushed to any branch
 - `+label:"your label"` - Filter issues, pull-requests and comments based on their labels.
+- `-label:"your label"` - Filter issues, pull-requests and comments based on their ignored labels.
 - `discussions` - Discussions created or answered
 
 You can subscribe or unsubscribe from multiple settings at once. For example, to turn on activity for pull request reviews and comments:
@@ -144,11 +145,11 @@ You can unsubscribe commits feature using `@github unsubscribe org/repo commits.
 
 *Note*: Previously we you might have used `commits:all` to represent all branches. 'all' is no longer a reserved keyword. Going forward, you need to use '*' to represent all branches. If you have already configured with 'commits:all' previosly, dont worry, it will continue to work until you update the commits configuration.
 
+##### Label filters for prs and issues
+Label filters allow filtering incoming events based on a list of **required** labels or **ignored** labels.
+You can have both ignored and required labels defined in the same subscription.
 
-#### Label filters for prs and issues
-Label filters allow filtering incoming events based on a whitelist of **required** labels.
-
-This is an overview of the event types that are affected by the required-label filter.
+This is an overview of the event types that are affected by the required-label and ignored-label filter.
 
 | Event                  | Is filtered       |
 | ---------------------- | ----------------- |
@@ -179,6 +180,7 @@ Currently, we only support having one filter. Multiple filters might be supporte
 ```
 
 Now the existing filter `priority:HIGH` has been replaced by `teams/designers`.
+
 
 ##### Removing filters
 
