@@ -44,9 +44,9 @@ After the app is installed, and once you've added the GitHub integration to the 
 <p align="center"><img width="550" alt="unfurl_convo" src="https://user-images.githubusercontent.com/3877742/36522313-c0cdbd08-1750-11e8-8dbe-b5a3a2f93549.png"></p>
 
 ## Getting Started
-Once you install the app, you can not interact with GitHub app as a Personal app or access from a channel. Once the app is installed in the workspace, the GitHub app is enabled in all the public channels. For private channels, you need to explicitly invite `/invite @github`
+Once you install the app, you can now interact with GitHub app as a Personal app or access from a channel. Once the app is installed in the workspace, the GitHub app is enabled in all the public channels. For private channels, you need to explicitly invite `/invite @github`
 
-At this point, your Slack and GitHub user accounts are not linked. You will be prompted to connect to GitHub. This is a primary step required to access the app. Alternatively, we can also connect by running `/github signin`.
+At this point, your Slack and GitHub user accounts are now linked. You will be prompted to connect to GitHub. This is a primary step required to access the app. Alternatively, we can also connect by running `/github signin`.
 
 <p align="center"><img width="500" alt="Connect" src="docs/images/Connect.png"></p>
 
@@ -146,7 +146,7 @@ You can unsubscribe commits feature using `@github unsubscribe org/repo commits.
 
 
 #### Label filters for prs and issues
-Label filters allow filtering incoming events based on a whitelist of **required** labels.
+Label filters allow filtering incoming events based on a allowed list of **required** labels.
 
 This is an overview of the event types that are affected by the required-label filter.
 
@@ -276,9 +276,8 @@ When you receive notifications for Issues, PRs and Deployments, here are the cas
 And the best part is - you can now see the summary of GitHub notifications where you are mentioned as part of 'Mentions & reactions' section in Slack.
 <p align="left"><img width="500" alt="Reactions" src="docs/images/Reactions.png"></p>
 
-
 #### How do mentions work?
-Mentions will work only if you login to GitHub app in your Slack workspace. When you login to GitHub app with your GitHub id, we map it with your Slack id and ping you in Slack whenever you are mentioned in any of the GitHub notifications.  
+Mentions will work only if you login to GitHub app in your Slack workspace (using the `/github signin` slash command). When you login to GitHub app with your GitHub id, we map it with your Slack id and ping you in Slack whenever you are mentioned in any of the GitHub notifications.  
 
 **Note**: If you have multiple Slack workspaces where you use GitHub app, mentions will work only in the workspace where you logged in to GitHub app most recently.
 
@@ -404,7 +403,7 @@ Starting with GHES 3.8, we are shipping a dedicated ChatOps service bundled alon
 All your subscriptions info and any other metadata stays within your GHES setup. So, you don't have to worry about data flowing to any external service.
 
 2. Bidirectional connectivity between GHES and Slack:
-Our GHES integration is not just a notification service. It will also enable you to perform actions directly from chat. So, the only prerequisite you need to ensure your GHES instance is accessible from Slack. 
+Our GHES integration is not just a notification service. It will also enable you to perform actions directly from chat. So, the only prerequisite you need to ensure your GHES instance is accessible from Slack. With Socket mode enabled, only inbound access from Slack is required.
 
 ### Configuration steps
 The existing GitHub app you see in the app store can only be used for GHEC (hosted GitHub) integration. To integrate your GHES instance with Slack, you need to configure a private GHES app. Here are the steps to integrate with GHES.
@@ -439,48 +438,7 @@ The existing GitHub app you see in the app store can only be used for GHEC (host
 
   
 ### Slack Socket mode
-If your GHES instance is behind a proxy and you want to connect with Slack instance via [secure socket mode](https://api.slack.com/apis/connections/socket), you can configure integration as follows. 
-1. Navigate to "your-ghes-instance:8443" and go to section “Chat Integration”
-2. Select the checkbox Enable GitHub Chat Integration
-  
-  ![image3](https://user-images.githubusercontent.com/9424117/223660939-f75e7602-747a-4c3d-9175-d50720a1467f.png)
-
-3. Select Slack tab
-  
-  <img width="580" alt="image9" src="https://user-images.githubusercontent.com/9424117/223661071-e3e20d18-bddb-4a4d-86c1-0f7ca0b2ab44.png">
-
-4. Navigate to the Slack API page using the link.
-5. Generate a Configuration token by clicking the Generate token and select the workspace where the app will be created.
-  
-  ![image13](https://user-images.githubusercontent.com/9424117/223661099-11a65d7d-aee6-4990-8163-4630121eb55f.png)
-
-6. Paste the token back in the settings page and check the “Configure socket mode” and click generate app.
-  
-  <img width="779" alt="image6" src="https://user-images.githubusercontent.com/9424117/223661184-1d866b98-5e61-41fd-aee6-eb30184169d7.png">
-
-7. Once the app is generated click on the app ID to navigate to the app to generate the app-level token.
-8. In the app page under “Basic Information” navigate to the “App-Level Tokens” and click Generate Token and scopes.
-  
-  ![image12](https://user-images.githubusercontent.com/9424117/223661262-e224b0c0-38f0-48e2-8179-ee250cc4ada6.png)
-
-9. Give a name to token and provide the below scopes by clicking on Add scopes
-   - Authorization.Read
-   - Connection.Write
-10. Copy the token and paste it back in the settings page and click Save
-  
-  <img width="779" alt="image10" src="https://user-images.githubusercontent.com/9424117/223661356-2864b9b2-9a1e-4028-98a4-6859c83bba77.png">
-
-11. Click on the Save Settings button to apply the settings to instance
-  
-  <img width="779" alt="image14" src="https://user-images.githubusercontent.com/9424117/223661463-9ee560dc-1de0-43dd-bb2c-c61be3dc564a.png">
-
-12. Once the settings are applied navigate to either `<instancename>/_slack/` or `slack.<instancename>` to install the app on your workspace.
-13. If the app needs to be installed across multiple workspaces Navigate to your app by click on the app ID
-14. Navigate to the “Manage Distribution” and check the “Remove hard coded Information” and Click “Activate Public Distribution”
-  
-  ![image11](https://user-images.githubusercontent.com/9424117/223661538-1598a5a6-fe60-41be-aef8-791c0875d0a2.png)
-
-And now you have a dedicated GHES integration with your Slack workspace. All the features that are available in our hosted GitHub integration (GHEC) will be available in GHES integration. 
+Proxies not currently supported.
 
 ## Questions? Need help?
 If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose). Or please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
