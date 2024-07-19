@@ -146,7 +146,7 @@ You can unsubscribe commits feature using `@github unsubscribe org/repo commits.
 
 
 #### Label filters for prs and issues
-Label filters allow filtering incoming events based on a whitelist of **required** labels.
+Label filters allow filtering incoming events based on a allowed list of **required** labels.
 
 This is an overview of the event types that are affected by the required-label filter.
 
