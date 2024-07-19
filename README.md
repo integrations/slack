@@ -301,7 +301,7 @@ Note: By default comments and reviews will only showup into the thread. And you 
 #### Mentions in the Slack Threads
 If you are a participant in an issue/pr i.e. mentioned in the comment or added as an assignee/reviewer, our mentions feature ensures you are notified in the threads section in Slack. You need not go to the channel for the issues/prs that need your attention. You can focus on the ones where you are needed and our threading feature ensures you get the full picture and you can directly take action from there. This is a very powerful feature which ensures, you dont miss out on any issues/prs that need your attention.
 
-However, if you absolutely believe that you dont need to see issues/PR updates in threads and think it is a noise, we can suggest a quick workaround for no more pings or entries into your threads. Our GitHub app only mentions you in the Slack workspace where you logged into GitHub the latest. You can go to a least used slack workspace or personal slack workspace and log into GitHub with our GitHub app from there. Then you will not be pinged or see updates in threads in the other main workspace.
+However, if you absolutely believe that you dont need to see issues/PR updates in threads and think it is a noise, we can suggest a quick workaround for no more pings or entries into your threads. Our GitHub app only mentions you in the Slack workspace where you logged into GitHub the latest. You can go to a least used Slack workspace or personal Slack workspace and log into GitHub with our GitHub app from there. Then you will not be pinged or see updates in threads in the other main workspace.
 
 #### Don't want threading?
 If you don't want threading functionality or not yet ready to adapt to new model, we want to give you the flexibility. You can disable/enable threading for Issues and Pull requests noitifications in your channel. You can go to the channel where you don't need threading and run the following command.
@@ -323,7 +323,7 @@ You can now create issue by just a click, right from the place where you collabo
 <p align="left"><img width="500" alt="CreateIssue" src="docs/images/MessageExtension.png"></p>
 <p align="left"><img width="500" alt="CreateIssue" src="docs/images/CreateIssue.png"></p>
 
-1. The content of the message from which you have triggered this create issue flow will be filled into the description helping you get started on the issue. Also the link of the slack conversation will be added to description in the end automatically giving you reference when you want to track the issue later. You can also edit the entire description if you want.
+1. The content of the message from which you have triggered this create issue flow will be filled into the description helping you get started on the issue. Also the link of the Slack conversation will be added to description in the end automatically giving you reference when you want to track the issue later. You can also edit the entire description if you want.
 2. The last used repo in the channel will be automatically filled in. However, you can go ahead and change to the repo of your choice.
 3. You can optionally fill in labels, assignees and milestones when you create an issue.
 4. Once the issue is created you will receive a confirmation card in the channel from where you have initiated the issue creation flow.
@@ -395,7 +395,7 @@ If you are on Slack Enterprise Grid and have multiple Slack workspaces in your o
 ## GHES Integration
 We are announcing GA for GHES integration with Slack with GHES 3.8. 
 
-With this integration, you will now be able to subscribe to your repositories in your GHES instance and get live updates about your Issues, PRs, Commits and Deployments in Slack. And you can also take actions like commenting, open/close issues and approve your deployments directly from slack. 
+With this integration, you will now be able to subscribe to your repositories in your GHES instance and get live updates about your Issues, PRs, Commits and Deployments in Slack. And you can also take actions like commenting, open/close issues and approve your deployments directly from Slack. 
 
 ### How does this integration work?
 Starting with GHES 3.8, we are shipping a dedicated ChatOps service bundled along with your GHES server. And you can choose to integrate with your Slack workspace. With our integration for GHES, you will have
