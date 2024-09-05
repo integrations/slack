@@ -138,7 +138,7 @@ Branch filters allow filtering commit notifications. By default when you subscri
 - `/github subscribe org/repo commits`  for commit notifications from a default branch.
 - `/github subscribe org/repo commits:*`  for commit notifications across all the branches.
 - `/github subscribe org/repo commits:myBranch`  for commit notifications from a specific branch.
-- `/github subscribe org/repo commits:users/*`  for commit notifications from a pattern of branches.
+- `/github subscribe org/repo commits:users/*`  for commit notifications from a pattern of users.
 
 You can unsubscribe commits feature using `@github unsubscribe org/repo commits.
 
