@@ -229,12 +229,12 @@ You can filter your actions workflows notifications based on name, event, actor 
 
 `/github subscribe owner/repo workflows:{name:"your workflow name" event:"workflow event" branch:"branch name" actor:"actor name"}`
 
-- **name**: Name of your workflow
+- **name**: Name of your workflow. It can be a comma separated list.
 - **event**: The event on which the workflow is triggered. You can find all the available events list [here](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#available-events).
 - **actor**: The person who triggered or responsible for running of the workflow
 - **branch**: The branch on which the workflow is running. Only incase where pull_request event is included, the branch will be the target branch the pull request is created for.
 
-You can pass multiple entries for each of the events in as a comma separate list as below example:
+You can pass multiple entries for each of the events, as well as names, in as a comma separate list as below example:
 `/github subscribe org/repo workflows:{event:"pull_request","push" branch:"main","dev" actor:"ashokirla"}`
 
 By default, when you configure workflow notifications without passing any filters, it is configured for workflows triggered via pull requests targeting your default branch.
