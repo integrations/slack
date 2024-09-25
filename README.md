@@ -89,7 +89,7 @@ By granting the app access, you are providing the following authorizations to yo
 ## Features
 
 ### Subscribe to an Organization or a Repository
-On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch as well as `comments` on issues and pull requests.
+On repositories, the app notifies of `open`, `close`, and `re-open` events on pull requests and issues in repositories you've subscribed to. It also notifies of any `push` directly to the repository's default branch.
 
 ### Customize your notifications
 
