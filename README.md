@@ -163,7 +163,7 @@ This is an overview of the event types that are affected by the required-label f
 
 Create a filter with:
 ```
-/github subscribe owner/repo +label:priority:HIGH
+/github subscribe owner/repo +label:"priority:HIGH"
 ```
 
 This creates a required-label filter with the value `priority:HIGH`.
@@ -201,8 +201,8 @@ To see the currently active filters use
 It is common to have certain special characters in labels. Therefore we added support for the most common special characters
 for label filters. Here a few examples:
 
-* `label:priority:HIGH`
-* `label:teams/designers`
+* `label:"priority:HIGH"`
+* `label:"teams/designers"`
 * `label:"DO NOT MERGE"`
 * `label:"very important"`
 * `label:":construction: WIP"`
