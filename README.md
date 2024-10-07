@@ -1,4 +1,4 @@
-# GitHub + Slack Integration
+# GitHub + integration for Slack
 ## About
 
 The GitHub integration for Slack gives you and your teams full visibility into your GitHub projects right in Slack channels, where you can generate ideas, triage issues and collaborate with other teams to move projects forward. This integration is an open source project, built and maintained by GitHub.
@@ -445,7 +445,7 @@ If you have any questions or concerns, please reach out to us by logging an issu
 
 | :warning: IMPORTANT          |
 |:---------------------------|
-| This repository is not accepting any code contributions. The current code which is running for GitHub and Slack integration has significantly diverged from the code present in this repository as it contains specific code which is required to run service in GitHub infrastructure and which can not be open sourced at this point of time. **We will continue to use issues in this repository to get feedback from customers**.|
+| This repository is not accepting any code contributions. The current code which is running for GitHub and integration for Slack has significantly diverged from the code present in this repository as it contains specific code which is required to run service in GitHub infrastructure and which can not be open sourced at this point of time. **We will continue to use issues in this repository to get feedback from customers**.|
 
 
 ## License
