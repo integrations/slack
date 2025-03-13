@@ -27,8 +27,11 @@ The GitHub integration for Slack gives you and your teams full visibility into y
 --------
 ## Installing the GitHub integration for Slack
 ### Requirements
-#### GHEC - GA
+#### GHEC on GitHub.com - GA
 This app officially supports GitHub.com (which includes our GitHub Enterprise cloud-hosted offering) and Slack.com. 
+
+#### GHEC with data residency on ghe.com - GA
+Please install the data residency compatible version of the app [here](https://github.slack.com/marketplace/A07CVAE95UK-ghec-with-data-residency).
 
 #### GHES - GA
 GHES integration with Slack.com is now GA with GHES 3.8. 
