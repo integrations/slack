@@ -221,10 +221,12 @@ You can subscribe to GitHub Actions workflow run notifications from your channel
 
 <p align="left"><img width="800" alt="Workflow notification" src="docs/images/WorkflowRun.png"></p>
 
-- You will get notified when a new workflow run is triggered. And you can track the live status of the jobs. 
+- You will get notified when a new workflow run is triggered.
 - You can track the approval notifications as a reply in the thread and you can approve the notifications directly from channel/personal app.
 - Once the workflow is completed, you will get a update as a reply in th thread so that you can complete context and history about the workflow run.
 - If something fails, you can choose to rerun the workflow in place and you can also enable debug logs if needed.
+
+*Note*: After 2025-03-10 (GHES version 3.17) you will no longer be notified about the progress of individual workflow jobs. See the [changelog](https://github.blog/changelog/2025-02-03-deprecation-of-real-time-github-actions-workflow-job-events-in-slack-and-microsoft-teams-apps/) for more details.
 
 #### Workflow notification filters
 Getting notified about each and every workflow run notification can be noisy. So, we are providing you capability to filter the notifications based on your requirement.
