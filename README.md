@@ -446,7 +446,7 @@ The existing GitHub app you see in the app store can only be used for GHEC (host
 Proxies not currently supported.
 
 ## Questions? Need help?
-If you have any questions or concerns, please reach out to us by logging an issue [here](https://github.com/integrations/slack/issues/new/choose). Or please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
+Please fill out GitHub's [Support form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration) and your request will be routed to the right team at GitHub.
 
 | :warning: IMPORTANT          |
 |:---------------------------|
