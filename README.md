@@ -309,7 +309,7 @@ If you are a participant in an issue/pr i.e. mentioned in the comment or added a
 However, if you absolutely believe that you dont need to see issues/PR updates in threads and think it is a noise, we can suggest a quick workaround for no more pings or entries into your threads. Our GitHub app only mentions you in the Slack workspace where you logged into GitHub the latest. You can go to a least used Slack workspace or personal Slack workspace and log into GitHub with our GitHub app from there. Then you will not be pinged or see updates in threads in the other main workspace.
 
 #### Don't want threading?
-If you don't want threading functionality or not yet ready to adapt to new model, we want to give you the flexibility. You can disable/enable threading for Issues and Pull requests noitifications in your channel. You can go to the channel where you don't need threading and run the following command.
+If you don't want threading functionality or not yet ready to adapt to new model, we want to give you the flexibility. You can disable/enable threading for Issues and Pull requests notifications in your channel. You can go to the channel where you don't need threading and run the following command.
 `/github settings`
 
 You will see an option to Disable/Enable threading for that channel. Any member who is part of the channel will be able to perform this action.
