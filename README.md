@@ -201,13 +201,13 @@ You can unsubscribe from commits feature using `/github unsubscribe org/repo com
 *Note*: Previously, you might have used `commits:all` to represent
 all branches. 'all' is no longer a reserved keyword. Going forward,
 you need to use '*' to represent all branches. If you have already
-configured with 'commits:all' previosly, dont worry, it will continue
+configured with 'commits:all' previously, dont worry, it will continue
 to work until you update the commits configuration.
 
 
 #### Label filters for prs and issues
 
-Label filters allow filtering incoming events based on a whitelist of
+Label filters allow filtering incoming events based on a allow list of
 **required** labels.
 
 This is an overview of the event types that are affected by the
