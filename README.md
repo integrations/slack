@@ -451,7 +451,7 @@ other main workspace.
 #### Don't want threading?
 If you don't want threading functionality or not yet ready to adapt to
 new model, we want to give you the flexibility. You can disable/enable
-threading for Issues and Pull requests noitifications in your
+threading for Issues and Pull requests notifications in your
 channel. You can go to the channel where you don't need threading and
 run the following command.  `/github settings`
 
