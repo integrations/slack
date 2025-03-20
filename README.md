@@ -1,11 +1,11 @@
-# GitHub + Slack Integration
+# GitHub + integration for Slack
 ## About
 
 The GitHub integration for Slack gives you and your teams full
 visibility into your GitHub projects right in Slack channels, where
 you can generate ideas, triage issues and collaborate with other teams
-to move projects forward. This integration is an open source project,
-built and maintained by GitHub.
+to move projects forward. The code for this integration is not 
+open-source, and is not available in this repo.
 
 ## Table of Contents
 
@@ -34,10 +34,13 @@ built and maintained by GitHub.
 
 ## Installing the GitHub integration for Slack
 ### Requirements
-#### GHEC - GA
+#### GHEC on GitHub.com - GA
 
 This app officially supports GitHub.com (which includes our GitHub
 Enterprise cloud-hosted offering) and Slack.com.
+
+#### GHEC with data residency on ghe.com - GA
+Please install the data residency compatible version of the app [here](https://github.slack.com/marketplace/A07CVAE95UK-ghec-with-data-residency).
 
 #### GHES - GA
 
@@ -67,9 +70,9 @@ Once you install the app, you can not interact with GitHub app as a
 Personal app or access from a channel. Once the app is installed in
 the workspace, the GitHub app is enabled in all the public
 channels. For private channels, you need to explicitly invite `/invite
-@github`
+@github`.
 
-At this point, your Slack and GitHub user accounts are not linked. You
+At this point, your Slack and GitHub user accounts are now linked. You
 will be prompted to connect to GitHub. This is a primary step required
 to access the app. Alternatively, we can also connect by running
 `/github signin`.
@@ -132,7 +135,8 @@ authorizations to your GitHub and Slack accounts:
 On repositories, the app notifies of `open`, `close`, and `re-open`
 events on pull requests and issues in repositories you've subscribed
 to. It also notifies of any `push` directly to the repository's
-default branch as well as `comments` on issues and pull requests.
+default branch.
+
 
 ### Customize your notifications
 
@@ -192,9 +196,9 @@ specific branch, or a pattern of branches or all branches.
 - `/github subscribe org/repo commits:myBranch`  for commit notifications from a specific branch.
 - `/github subscribe org/repo commits:users/*`  for commit notifications from a pattern of branches.
 
-You can unsubscribe commits feature using `@github unsubscribe org/repo commits.
+You can unsubscribe from commits feature using `/github unsubscribe org/repo commits`.
 
-*Note*: Previously we you might have used `commits:all` to represent
+*Note*: Previously, you might have used `commits:all` to represent
 all branches. 'all' is no longer a reserved keyword. Going forward,
 you need to use '*' to represent all branches. If you have already
 configured with 'commits:all' previosly, dont worry, it will continue
@@ -222,7 +226,7 @@ required-label filter.
 
 Create a filter with:
 ```
-/github subscribe owner/repo +label:priority:HIGH
+/github subscribe owner/repo +label:"priority:HIGH"
 ```
 
 This creates a required-label filter with the value `priority:HIGH`.
@@ -263,8 +267,8 @@ It is common to have certain special characters in labels. Therefore
 we added support for the most common special characters for label
 filters. Here a few examples:
 
-* `label:priority:HIGH`
-* `label:teams/designers`
+* `label:"priority:HIGH"`
+* `label:"teams/designers"`
 * `label:"DO NOT MERGE"`
 * `label:"very important"`
 * `label:":construction: WIP"`
@@ -283,19 +287,20 @@ your channel or personal app using "workflows" feature.
 
 <p align="left"><img width="800" alt="Workflow notification" src="docs/images/WorkflowRun.png"></p>
 
-- You will get notified when a new workflow run is triggered. And you
-  can track the live status of the jobs.
+- You will get notified when a new workflow run is triggered.
 
 - You can track the approval notifications as a reply in the thread
   and you can approve the notifications directly from channel/personal
   app.
 
 - Once the workflow is completed, you will get a update as a reply in
-  th thread so that you can complete context and history about the
+  the thread so that you can complete context and history about the
   workflow run.
 
 - If something fails, you can choose to rerun the workflow in place
   and you can also enable debug logs if needed.
+
+*Note*: After 2025-03-10 (GHES version 3.17) you will no longer be notified about the progress of individual workflow jobs. See the [changelog](https://github.blog/changelog/2025-02-03-deprecation-of-real-time-github-actions-workflow-job-events-in-slack-and-microsoft-teams-apps/) for more details.
 
 #### Workflow notification filters
 
@@ -388,8 +393,7 @@ reactions' section in Slack.
 
 <p align="left"><img width="500" alt="Reactions" src="docs/images/Reactions.png"></p>
 
-
-#### How does mentions work?
+#### How do mentions work?
 
 Mentions will work only if you login to GitHub app in your Slack
 workspace. When you login to GitHub app with your GitHub id, we map it
@@ -435,16 +439,7 @@ comments also start flowing into channel as well.
 
 #### Mentions in the Slack Threads
 
-If you are a participant in an issue/pr i.e. mentioned in the comment
-or added as an assignee/reviewer, our mentions feature ensures you are
-notified in the threads section in Slack. You need not go to the
-channel for the issues/prs that need your attention. You can focus on
-the ones where you are needed and our threading feature ensures you
-get the full picture and you can directly take action from there. This
-is a very powerful feature which ensures, you dont miss out on any
-issues/prs that need your attention.
-
-However, if you absolutely believe that you dont need to see issues/PR
+However, if you absolutely believe that you don't need to see issues/PR
 updates in threads and think it is a noise, we can suggest a quick
 workaround for no more pings or entries into your threads. Our GitHub
 app only mentions you in the Slack workspace where you logged into
@@ -454,7 +449,6 @@ there. Then you will not be pinged or see updates in threads in the
 other main workspace.
 
 #### Don't want threading?
-
 If you don't want threading functionality or not yet ready to adapt to
 new model, we want to give you the flexibility. You can disable/enable
 threading for Issues and Pull requests noitifications in your
@@ -490,7 +484,7 @@ launch a create issue dialogue.
 
 1. The content of the message from which you have triggered this
    create issue flow will be filled into the description helping you
-   get started on the issue. Also the link of the slack conversation
+   get started on the issue. Also the link of the Slack conversation
    will be added to description in the end automatically giving you
    reference when you want to track the issue later. You can also edit
    the entire description if you want.
@@ -633,30 +627,11 @@ admins in Slack Enterprise grid can:
 
 ## GHES Integration
 
-We are announcing GA for GHES integration with Slack with GHES 3.8.
-
 With this integration, you will now be able to subscribe to your
 repositories in your GHES instance and get live updates about your
 Issues, PRs, Commits and Deployments in Slack. And you can also take
 actions like commenting, open/close issues and approve your
-deployments directly from slack.
-
-### How does this integration work?
-
-Starting with GHES 3.8, we are shipping a dedicated ChatOps service
-bundled along with your GHES server. And you can choose to integrate
-with your Slack workspace. With our integration for GHES, you will
-have
-
-1. A fully secure and scalable experience: All your subscriptions info
-   and any other metadata stays within your GHES setup. So, you don't
-   have to worry about data flowing to any external service.
-
-2. Bidirectional connectivity between GHES and Slack: Our GHES
-   integration is not just a notification service. It will also enable
-   you to perform actions directly from chat. So, the only
-   prerequisite you need to ensure your GHES instance is accessible
-   from Slack.
+deployments directly from Slack.
 
 ### Configuration steps
 
@@ -703,7 +678,6 @@ integrate with GHES.
 
 
 ### Slack Socket mode
-
 If your GHES instance is behind a proxy and you want to connect with
 Slack instance via [secure socket
 mode](https://api.slack.com/apis/connections/socket), you can
@@ -766,18 +740,13 @@ And now you have a dedicated GHES integration with your Slack
 workspace. All the features that are available in our hosted GitHub
 integration (GHEC) will be available in GHES integration.
 
-## Questions? Need help?
 
-If you have any questions or concerns, please reach out to us by
-logging an issue
-[here](https://github.com/integrations/slack/issues/new/choose). Or
-please fill out GitHub's [Support
-form](https://github.com/contact?form%5Bsubject%5D=Re:+GitHub%2BSlack+Integration)
-and your request will be routed to the right team at GitHub.
+## Questions? Need help?
+If you need support or help please fill out GitHub's [Support form](https://support.github.com/contact?legacy&source=subtitle&tags=rr-general-technical&subject%5D=Re:Slack%20Integration) and your request will be routed to the right team at GitHub.
 
 | :warning: IMPORTANT          |
 |:---------------------------|
-| This repository is not accepting any code contributions. The current code which is running for GitHub and Slack integration has significantly diverged from the code present in this repository as it contains specific code which is required to run service in GitHub infrastructure and which can not be open sourced at this point of time. **We will continue to use issues in this repository to get feedback from customers**.|
+| This repository is not accepting any code contributions. The current code which is running for GitHub and integration for Slack has significantly diverged from the code present in this repository as it contains specific code which is required to run service in GitHub infrastructure and which can not be open sourced at this point of time. **We will continue to use issues in this repository to get feedback from customers**.|
 
 
 ## License
