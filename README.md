@@ -746,7 +746,7 @@ If you need support or help please fill out GitHub's [Support form](https://supp
 
 | :warning: IMPORTANT          |
 |:---------------------------|
-| This repository is not accepting any code contributions. The current code which is running for GitHub and integration for Slack has significantly diverged from the code present in this repository as it contains specific code which is required to run service in GitHub infrastructure and which can not be open sourced at this point of time. **We will continue to use issues in this repository to get feedback from customers**.|
+| This repository is not accepting any code contributions. The current code which is running for GitHub and integration for Slack has significantly diverged from the code present in this repository as it contains specific code which is required to run service in GitHub infrastructure and which can not be open sourced at this point of time.|
 
 
 ## License
