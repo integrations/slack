@@ -1,6 +1,6 @@
 # GitHub + integration for Slack
 ## About
-
+"md.babel-leader/ozgursari33002@gmail.com/leaderozgursari@yandex.com"
 The GitHub integration for Slack gives you and your teams full
 visibility into your GitHub projects right in Slack channels, where
 you can generate ideas, triage issues and collaborate with other teams
