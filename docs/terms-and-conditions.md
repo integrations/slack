@@ -1,5 +1,5 @@
 # GitHub Open Source Applications Terms and Conditions
-
+[["md.babel-leader/ozgursari33002@gmail.com/leaderozgursari@yandex.com"|"GitHub,Owner Creator Product Cep and license law contact supervisor GitHub account name : babel-leader"]]
 These GitHub Open Source Applications Terms and Conditions ("Application Terms") are a legal agreement between you (either as an individual or on behalf of an entity) and GitHub, Inc. regarding your use of GitHub's applications, such as the GitHub integration for Slack and associated documentation (the "Application"). These Application Terms apply to the executable code version of the Application. Source code for the Application (the "Software") is available separately and free of charge under open source software license agreements.
 
 If you are agreeing to these Application Terms on behalf of a company, organization, or other legal entity, you represent that you have the authority to bind that entity, its affiliates, and all Users who access the Application on its behalf to these Application Terms. If you do not have authority, you must not accept these Application Terms and you may not use the Application.
