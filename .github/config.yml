@@ -1,4 +1,6 @@
 # Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
 # Comment to be posted to on PRs from first time contributors
 newPRWelcomeComment: >
-  We are currently not accepting any contributions to this app. You can raise a feature request from [here](https://github.com/integrations/slack/issues/new)
+  We are currently not accepting any contributions to this app. If you need support or help please fill out [GitHub's Support form](https://support.github.com/contact?legacy&source=subtitle&tags=rr-general-technical&subject%5D=Re:Slack%20Integration) and your request will be routed to the right team at GitHub.
+
+
