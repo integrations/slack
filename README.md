@@ -48,6 +48,14 @@ GHES integration with Slack.com is now GA with GHES 3.8.  The detailed
 steps for integrating Slack with GHES can be found
 [here](#ghes-integration).
 
+| Slack Plan | Supported? |
+| ---------- | ---------- |
+| Slack Free | X |
+| Slack Standard | X |
+| Slack Plus | X |
+| Slack Enterprise Grid | | 
+
+
 ### Installation
 
 [Install the GitHub integration for
