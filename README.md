@@ -609,7 +609,7 @@ admins in Slack Enterprise grid can:
 
 #### Few things to note
 
-- Only Enterprise grid org admins and org owners will be able to
+- Only Enterprise grid org admins, org owners and integrations admins will be able to
   install and manage the GitHub app at the grid level.
 
 - You can install the GitHub app at orglevel by clicking
