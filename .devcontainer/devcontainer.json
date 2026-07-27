@@ -1,0 +1,21 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+  }
+}:/ $ git clone https://go.googlesource.com/All-Projects
+/system/bin/sh: git: inaccessible or not found
+127|:/ $ /:(/* <git clone https://go.googlesource.com/All-Projects> */ )
+/system/bin/sh: syntax error: unexpected '/*'
+1|:/ $ /:( </*git clone https://go.googlesource.com/All-Projects> */ )
+/system/bin/sh: syntax error: unexpected '< '
+1|:/ $ /:( </*git clone https://go.googlesource.com/All-Projects> */> )
+/system/bin/sh: syntax error: unexpected '< '
+1|:/ $ (</*git clone https://go.googlesource.com/All-Projects*/> )
+/system/bin/sh: syntax error: unexpected ')'
+1|:/ $ ( </*git clone https://go.googlesource.com/All-Projects*/> )
+/system/bin/sh: syntax error: unexpected ')'
+1|:/ $  </*git clone https://go.googlesource.com/All-Projects*/>
+/system/bin/sh: syntax error: unexpected 'newline'
+1|:/ $ </.git clone https://go.googlesource.com/All-Projects/>
+/system/bin/sh: syntax error: unexpected 'newline'
+1|:/ $ ( </*git clone https://go.googlesource.com/All-Projects*/> )ms27702797konkretenterp-4mg39453600system/bin/shBW5RSNQN6O2MP6PH
